@@ -343,7 +343,8 @@
                                 </div>
 
                                 <div class="details-button-holder text-center" name="offer-311">
-                                    <button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-311-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
+                                    <!--<button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-311-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>-->
+                                    <button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-details-hotel-voucher"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
                                 </div>
                             </div>
                         </div>
@@ -1301,15 +1302,14 @@
                         </div>
                     </div>
                 </div>                                                                				
-				<!-- Hotel Voucher Plan End -->
+				<!-- Hotel Voucher Plan End -->				
                 <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <p class="title"></p>
 
                             <div class="promo-code-holder">
-                                <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
-                                <p class="code">FWD987654321</p>
+                                <p class="text-center congrats"><fmt:message key="Fanfare.HotelOffer.Success.Title" bundle="${msg}" /></p>
                                 <p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
                             </div>
 
@@ -1357,7 +1357,32 @@
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Hotel promotion code modal -->
+                <div class="modal fade fwdiscover-modal" id="offer-details-hotel-voucher" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="promo-code-holder">
+                                <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
+                                <p class="text-center headline1"><fmt:message key="Fanfare.HotelOffer.Success.Headline1" bundle="${msg}" /></p>
+                                <p class="text-center headline2"><fmt:message key="Fanfare.HotelOffer.Success.Headline2" bundle="${msg}" /></p>
+                            </div>
+
+                            <div class="terms-and-condition offer-details">
+                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+                                <ul>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                 </ul>
+                            </div>
+
+                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel promotion code modal End -->
+                                
 				<!-- Hotel Description Modal -->
 				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
 				    <div class="modal-dialog">

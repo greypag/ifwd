@@ -2053,4 +2053,22 @@ body.chin #hotel-description-modal .carousel-description-container{
        left: 0;
        z-index: 1000;
     }	
-}	
+}
+#offer-details-hotel-voucher p{
+	font-size: 16px;
+}
+#offer-details-hotel-voucher p.congrats{
+	font-size: 24px;
+	margin-bottom: 18px
+}
+#offer-details-hotel-voucher .headline1{
+	margin-top: 40px;
+}
+#offer-details-hotel-voucher .headline2{
+	margin: 40px 0 10px 0;
+}
+#offer-details-hotel-voucher .modal-content .terms-and-condition{
+	margin-top: 50px;
+	border-top: none;
+	
+}
