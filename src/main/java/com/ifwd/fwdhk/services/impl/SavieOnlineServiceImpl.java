@@ -457,7 +457,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 		
-		int AOB = DateApi.getAge(DateApi.formatDate1(savieFna.getDob()))+1;
+		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
 		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getMobileNumber()));
