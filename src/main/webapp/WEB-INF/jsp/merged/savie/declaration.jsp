@@ -20,13 +20,13 @@ var languageP = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#">Home</a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Save </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Savie </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -36,17 +36,17 @@ var languageP = "${language}";
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
 				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Applicaton &amp; payment</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Summary &amp; declaration</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
 		   </div>  
@@ -58,7 +58,7 @@ var languageP = "${language}";
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id="">Summary &amp; declaration</h3>
+					<h3 id=""><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></h3>
 				 </div>
 				 <p id="step-of">3 of 6</p>
 			  </div>
@@ -82,7 +82,7 @@ var languageP = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="declaration-content-wrapper">
 				<form id="declarationForm">
-					<p class="title">Declaration &amp; autorization</p>
+					<p class="title"><fmt:message key="label.declaration.authorization" bundle="${msg}" /></p>
 					
 					<div class="cstm-panel">
 						<p><b>Declaration - Foreign Account Tax Compliance Act</b></p>
@@ -102,41 +102,43 @@ var languageP = "${language}";
 					</div>
 					
 					<div class="cstm-panel">
-						<p><b>Declaration - Foreign Account Tax Compliance Act</b></p>
+						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAcceptFATC2" name="hasReadAndAcceptFATC2" value="true">
 							<label for="hasReadAndAcceptFATC2"></label>
-							<p class="chkboxText">I declare, agree and acknowledge that:</p>
+							<p class="chkboxText"><fmt:message key="label.declaration.tnc.agree" bundle="${msg}" /></p>
 						</div>
 						<p id="chkFATC2ErMsg" class="err-msg hidden">Please read and accept the Foreign Account Tax Compliance Act statement before submitting the application.</p>
 						<nav>
 							<ol type="i">
-								<li><p>FWD Life Insurance Company (Bermuda) Limited (“FWD”) and/or its affiliates are obliged to comply with all laws, regulations, orders, guidelines and codes, including the applicable requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial, taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of the United States of America (the “Authorities” and each an “Authority” ) in various jurisdictions as promulgated and amended from time to time (the “Applicable Requirements”).</p></li>
-								<li><p>I am not and not acting for and on behalf of, a United States person, being a U.S. citizen, U.S. resident for U.S. federal income tax purposes or U.S. Resident Alien (i.e. a so-called U.S. green card holder) and I will notify FWD in writing within 30 days if there is any change of details provided to FWD in this application, in particular, my nationality, tax status or tax residency changes and will provide</p></li>
+								<fmt:message key="declaration.tnc.tax" bundle="${msg}" />
+								<!-- <li><p>FWD Life Insurance Company (Bermuda) Limited (“FWD”) and/or its affiliates are obliged to comply with all laws, regulations, orders, guidelines and codes, including the applicable requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial, taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of the United States of America (the “Authorities” and each an “Authority” ) in various jurisdictions as promulgated and amended from time to time (the “Applicable Requirements”).</p></li>
+								<li><p>I am not and not acting for and on behalf of, a United States person, being a U.S. citizen, U.S. resident for U.S. federal income tax purposes or U.S. Resident Alien (i.e. a so-called U.S. green card holder) and I will notify FWD in writing within 30 days if there is any change of details provided to FWD in this application, in particular, my nationality, tax status or tax residency changes and will provide</p></li>-->
 							</ol>
 						</nav>
 					</div>
 					
 					<div class="cstm-panel">
-						<p class="desktop-inline"><b>Declaration - </b></p>
-						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>
+						<p><b><fmt:message key="label.declaration.pics" bundle="${msg}" /></b></p>
+						<!-- <p class="desktop-inline"><b>Declaration - </b></p>
+						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>-->
 						<hr>
 						<div class="form-group checkbox-wrapper clearfix">
 							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
 							<label for="hasReadAndAcceptPICS"></label>
-							<p class="desktop-left chkboxText">I have read and I understand and accept this</p>
-							<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>
+							<p class="desktop-left chkboxText"><fmt:message key="declaration.declarations.pics.agree" bundle="${msg}" /></p>
+							<!--<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>-->
 						</div>
 						<p id="chkPICSErMsg" class="err-msg hidden">Please read and accept the Personal Information Collection statement before submitting the application.</p>
 					</div>
 					
 					<div class="cstm-panel">
-						<p><b>Policy replacement declarations</b></p>
+						<p><b><fmt:message key="label.declaration.policyreplacement" bundle="${msg}" /></b></p>
 						<hr>
 						<div class="row">
 							<div class="col-xs-12">
-								<p>Have you, in the past 12 months, replaced any or a substantial part of your existing life insurance policy upon this application?</p>
+								<p><fmt:message key="declaration.policyreplacement.copy1" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
@@ -144,20 +146,20 @@ var languageP = "${language}";
 											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false" checked="checked" class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
-										 <div class="pull-left desc">No</div>
+										 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
-										 <div class="pull-left desc">Yes</div>
+										 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 								   </div>
 								</div>
 							</div>
 							<div class="col-xs-12">
-								<p>Do you, in the next 12 months, intend to replace any or a substantial part of your existing life insurance policy upon this application?</p>
+								<p><fmt:message key="declaration.policyreplacement.copy2" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group clearfix">
 									  <div class="clearfix desktop-align left">
@@ -165,14 +167,14 @@ var languageP = "${language}";
 											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false" checked="checked" class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
-										 <div class="pull-left desc">No</div>
+										 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
-										 <div class="pull-left desc">Yes</div>
+										 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 								   </div>
 								</div>
@@ -180,24 +182,26 @@ var languageP = "${language}";
 						</div>
 						
 						<div class="replacement-declarations">
-							<p><b>I realize if I answer "No" to both questions above but indeed,</b></p>
-							<p>I hereby authorize the Insurer of the new life insurance policy to give the Insurance Agents Registration Board, the Hong Kong Confederation of Insurance Brokers, the Professional Insurance Brokers Association Limited, the Insurance Authority (“IA”), the Hong Kong Federation of Insurers, the insurer(s) of the life insurance policy(ies) that is/are being or has/have been replaced (if applicable)or other parties, as required for proper administration/implementation/ execution of the Code of Practice for Life Insurance Replacement and the “Minimum Requirements” for insurance brokers as specified by the IA under the Insurance Companies Ordinance, a copy of this “Replacement Declaration” and any related records or information.</p>
-							<p>i. this application has replaced any or a substantial part of my existing life insurance policy(ies) in the past 12 months; or ii. my current intention is to replace any or a substantial part of my existing life insurance policy(ies) within the next 12 months by this application, I may jeopardize my future right of redress if I find later that I have been disadvantaged because of such replacement. </p>
+							<p><b><fmt:message key="label.declaration.policyreplacement.confirm" bundle="${msg}" /></b></p>
+							<p><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></p>
+							<p><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></p>
+							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
 						</div>
 					</div>
 					
 					<div class="cstm-panel">
-						<p class="desktop-inline"><b>Declaration - </b></p>
-						<p class="desktop-inline"><b>Cancellation Right and Refund of Premium(s)</b></p>
+						<p><b><fmt:message key="label.declaration.cancellation" bundle="${msg}" /></b></p>
+						<!--<p class="desktop-inline"><b>Declaration - </b></p>
+						<p class="desktop-inline"><b>Cancellation Right and Refund of Premium(s)</b></p>-->
 						<hr>
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAcceptCancellation" name="hasReadAndAcceptCancellation" value="true">
 							<label for="hasReadAndAcceptCancellation"></label>
-							<p class="chkboxText">I understand that I have the right to cancel and obtain a refund of any premium(s) paid less any market value adjustments by giving written notice. Such notice must be signed by me and received directly by FWD Life insurance Company (Bermuda) Limited at 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong within 21 days after the delivery of the policy or issue of a Notice to the policyholder or the policyholders representative, whichever is the earlier.</p>
+							<p class="chkboxText"><fmt:message key="declaration.cancellation.copy1" bundle="${msg}" /></p>
 						</div>
-						<p id="chkCancellationErMsg" class="err-msg hidden" style="margin-bottom: 15px;">Please read and accept the Cancellation Right and Refund of Premium statement before submitting the application.</p>
-						<p><b>Residency Declaration</b></p>
-						<p>Will you or do you intend to live or work outside Hong Kong or home country over 183 days in the coming 12  months?</p>
+						<p id="chkCancellationErMsg" class="err-msg hidden" style="margin-bottom: 15px;"><fmt:message key="error.cancellation.policy.not.checked" bundle="${msg}" /></p>
+						<p><b><fmt:message key="declaration.residency.declaration.title" bundle="${msg}" /></b></p>
+						<p><fmt:message key="declaration.residency.declaration.copy" bundle="${msg}" /></p>
 						<div class="radio-group clearfix">
 						   <div class="radio-button-group">
 							  <div class="clearfix desktop-align left">
@@ -205,31 +209,32 @@ var languageP = "${language}";
 									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false" checked="checked" class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
-								 <div class="pull-left desc">No</div>
+								 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 							  </div>
 							  <div class="clearfix below desktop-align">
 								 <div class="pull-left radio-holder">
 									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
-								 <div class="pull-left desc">Yes</div>
+								 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 							  </div>
 						   </div>
 						</div>
 					</div>
 					
 					<div class="cstm-panel">
-						<p><b>Application</b></p>
+						<p><b><fmt:message key="label.declaration.application" bundle="${msg}" /></b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAgreeApplication" name="hasReadAndAgreeApplication" value="true">
 							<label for="hasReadAndAgreeApplication"></label>
-							<p class="chkboxText">I hereby DECLARE and AGREE that:</p>
+							<p class="chkboxText"><fmt:message key="label.declaration.agree" bundle="${msg}" /></p>
 						</div>
-						<p id="chkApplicationErMsg" class="err-msg hidden">Please read and accept the Declaration, Terms & Conditions before submitting the application.</p>
+						<p id="chkApplicationErMsg" class="err-msg hidden"><fmt:message key="error.application.tnc.not.checked" bundle="${msg}" /></p>
 						<nav>
 							<ol type="i">
-								<li><p>I am in Hong Kong at the time of making this application and the answers to all the above questions are complete, true and accurate and are given to the best of my knowledge and belief;</p></li>
+								<fmt:message key="declaration.application.copy1" bundle="${msg}" />
+								<!--<li><p>I am in Hong Kong at the time of making this application and the answers to all the above questions are complete, true and accurate and are given to the best of my knowledge and belief;</p></li>-->
 								<li><p>I have the duty to immediately inform the Company and correct the answers to the above questions if they have become incomplete, untrue and inaccurate subsequently before any policy is issued;</p></li>
 								<li><p>Any payment made in connection with this application does not guarantee immediate approval of the coverage applied for. The insurance coverage applied for shall only take effect when the relevant policy has been issued and the initial premium paid (including any additional initial premium payable due to revisions of the policy terms and conditions);</p></li>
 							</ol>
@@ -237,16 +242,16 @@ var languageP = "${language}";
 					</div>
 					
 					<div class="cstm-panel">
-						<p class="with-margin-bottom">If you do NOT wish FWD General Insurance Company Litmited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise</p>
+						<p class="with-margin-bottom"><fmt:message key="declaration.directmarketing.life.summary" bundle="${msg}" /></p>
 						<div class="form-group checkbox-wrapper checkbox-gray">
 							<input type="checkbox" id="chkboxDoNotSendMarketingInfo" name="chkboxDoNotSendMarketingInfo" value="true">
 							<label for="chkboxDoNotSendMarketingInfo"></label>
-							<p class="chkboxText">Please do not send direct marketing information to me.</p>
+							<p class="chkboxText"><fmt:message key="label.directmarketing.copy1" bundle="${msg}" /></p>
 						</div>
 						<div class="form-group checkbox-wrapper checkbox-gray">
 							<input type="checkbox" id="chkboxDoNotProvidePersonalData" name="chkboxDoNotProvidePersonalData" value="true">
 							<label for="chkboxDoNotProvidePersonalData"></label>
-							<p class="chkboxText">Please do not provide my personal data to other persons or companies for their use in direct marketing.</p>
+							<p class="chkboxText"><fmt:message key="label.directmarketing.copy2" bundle="${msg}" /></p>
 						</div>
 					</div>
 					
@@ -258,8 +263,8 @@ var languageP = "${language}";
 					<div id="errorMsg" style="color: red;"></div>
 						
 					<center>
-						<button type="button" class="btn savie-common-btn btn-proceed">Proceed to signature</button>
-						<a href="javascript:void(0);" class="save-link">Save and continue later</a>
+						<button type="button" class="btn savie-common-btn btn-proceed"><fmt:message key="button.proceed.to.signature" bundle="${msg}" /></button>
+						<a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 					</center>
 				</form>
 			</div>
@@ -271,7 +276,8 @@ var languageP = "${language}";
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    	<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal="yes-radio-modal"><span aria-hidden="true">×</span></button>
-	     	<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p>
+	     	<!--<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p>-->
+	     	<p class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></p>
 	    </div>
 	  </div>
 	</div>
@@ -286,7 +292,10 @@ var languageP = "${language}";
 			 </div>
 			 <div class="modal-body" id="modal-body-fatca">
 				<ol>
-					  <li>FWD Life Insurance Company (Bermuda) Limited ("FWD") and/or its affiliates are obliged 
+					<li><fmt:message key="declaration.tnc.fatca" bundle="${msg}" /></li>
+					<li id="fourth-li"><fmt:message key="declaration.tnc.disclose.to.authority" bundle="${msg}" /></li>
+					
+					  <!--<li>FWD Life Insurance Company (Bermuda) Limited ("FWD") and/or its affiliates are obliged 
 					  to comply with all laws, regulations, orders, guidelines and codes, including the applicable 
 					  requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial,
 					  taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of 
@@ -304,8 +313,8 @@ var languageP = "${language}";
 					  any up-to-date or complete information or documents to FWD in compliance with the Applicable Requirements and/or pay 
 					  the same to any relevant Authority on my behalf as the relevant Authority may require. I also agree that the 
 					  Company reserves the right and shall be entitled to terminate my policy(ies) and return to me the cash value 
-					  (if any) calculated pursuant to the provisions of such policy(ies). </li>
-					</ol>
+					  (if any) calculated pursuant to the provisions of such policy(ies). </li>-->
+				</ol>
 			 </div>
 		 </div>
 	  </div>
@@ -497,6 +506,10 @@ var languageP = "${language}";
 		
 		$('.chkboxText').on('click', function() {
 			$(this).siblings('input[type=checkbox]').click();
+		});
+		
+		$('.personal-info-link-parent .chkboxText').on('click', function() {
+			$('#hasReadAndAcceptPICS').click();		
 		});
 	});
 </script>
