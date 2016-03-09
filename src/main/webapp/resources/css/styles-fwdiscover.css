@@ -1652,7 +1652,13 @@
     height: 0; 
     border-top: 27px solid transparent;
     border-bottom: 27px solid transparent;     
-    border-right: 42px solid #ff8200; 
+    border-right: 42px solid #ff8200;
+}
+#hotel-voucher-carousel .slick-prev.border-fix{
+	border-left:1px solid transparent;
+}
+#hotel-voucher-carousel .slick-next.border-fix{
+    border-right:1px solid transparent;
 }
 .sponsor-logo-wrapper{
 	margin: 40px auto 0 auto;
@@ -2033,6 +2039,9 @@ body.chin #hotel-description-modal .carousel-description-container{
     } 
     #hotel-description-carosuel .hotel-carosuel-control .left-control, .hotel-carosuel-control .right-control {
         padding: 13px;
+    }
+    body.chin #hotel-description-carosuel span.fanfare-day{
+        font-size: 20px;
     }      	     	
 }		
 @media ( max-width : 1599px) {

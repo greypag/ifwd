@@ -1590,6 +1590,41 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
+            $('#hotel-voucher-carousel').slick({
+                infinite: false,
+                arrows: true,
+                speed: 300,
+                prevArrow: '<button type="button" class="slick-prev arrow-left">Previous</button>',
+                nextArrow: '<button type="button" class="slick-next arrow-right">Next</button>',
+                slidesToShow: 1,
+                mobileFirst: true,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 3
+                    }
+                  },                                 
+                  {
+                    breakpoint: 1600,
+                    settings: {
+                      arrows: false,  
+                      slidesToShow: 5
+                    }
+                  }
+                  // You can unslick at a given breakpoint now by adding:
+                  // settings: "unslick"
+                  // instead of a settings object
+                  ]                   
+            });
+            /* IE9 slick carousel custom arrow btn border fix
+               Removed border style in slick-theme.css
+            */
+            if(msieversion != 9){
+            	$('#hotel-voucher-carousel .slick-prev').addClass('border-fix');
+            	$('#hotel-voucher-carousel .slick-next').addClass('border-fix');
+            }
         	$('#hotel-description-modal').on('hide.bs.modal', function () {
         		$('.modal-backdrop').remove();
         	}) 
@@ -1655,34 +1690,6 @@
 				        break;
 				}		  	
         	});        	
-       	    $('#hotel-voucher-carousel').slick({
-      	    	  infinite: false,
-      	    	  arrows: true,
-      	    	  speed: 300,
-      	    	  prevArrow: '<button type="button" class="slick-prev arrow-left">Previous</button>',
-      	    	  nextArrow: '<button type="button" class="slick-next arrow-right">Next</button>',
-      	    	  slidesToShow: 1,
-      	          mobileFirst: true,
-      	    	  responsive: [
-                    {
-                      breakpoint: 768,
-                      settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                      }
-                    },      	    	               
-      	    	    {
-      	    	      breakpoint: 1600,
-      	    	      settings: {
-      	    	    	arrows: false,  
-      	    	        slidesToShow: 5
-      	    	      }
-      	    	    }
-      	    	    // You can unslick at a given breakpoint now by adding:
-      	    	    // settings: "unslick"
-      	    	    // instead of a settings object
-      	    	    ]        	    	
-       	    });
             //$(".plan-details-box").css("display","block")
             //var serverTime = new Date("2016-02-03 11:58:00");
             /*var serverTime = new Date();
@@ -2070,6 +2077,16 @@
                 $('#myCarousel-fwdiscover .carousel-inner .item .col-xs-4 img').css('height',newHeight+"px");
             }
         }
+        function msieversion() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+
+            if (msie > 0) { // If Internet Explorer, return version number
+                return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+            } else { // If another browser, return 0
+                return 0;
+            }
+        }        
         </script>
     </body>
 </html>
