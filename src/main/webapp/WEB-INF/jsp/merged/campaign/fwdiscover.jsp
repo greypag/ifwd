@@ -314,14 +314,14 @@
                         <div class="plan-details-box gray-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer314.HotelName" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer314.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -334,10 +334,10 @@
                                             <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer314.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer314.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -356,14 +356,14 @@
                         <div class="plan-details-box gray-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer315.HotelName" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer315.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -376,10 +376,10 @@
                                             <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer315.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer315.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -398,14 +398,14 @@
                         <div class="plan-details-box gray-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer316.HotelName" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer316.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -418,10 +418,10 @@
                                             <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer316.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer316.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -440,14 +440,14 @@
                         <div class="plan-details-box gray-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer317.HotelName" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer317.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -460,10 +460,10 @@
                                             <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer317.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer317.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -482,14 +482,13 @@
                         <div class="plan-details-box gray-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer318.HotelName" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -502,14 +501,14 @@
                                             <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer318.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.offer318.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <div class="details-button-holder text-center" name="offer-315">
                                     <button class="details-btn" id="offer-315-button" data-toggle="modal" data-target="#offer-315-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
                                 </div>
@@ -1152,13 +1151,14 @@
                 <div class="modal fade fwdiscover-modal" id="offer-311-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer314.HotelName" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer314.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1168,10 +1168,9 @@
                             <div class="terms-and-condition">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel314" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1183,13 +1182,14 @@
                 <div class="modal fade fwdiscover-modal" id="offer-312-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer315.HotelName" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer315.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1199,10 +1199,9 @@
                             <div class="terms-and-condition">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel315" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1214,13 +1213,14 @@
                 <div class="modal fade fwdiscover-modal" id="offer-313-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer315.HotelName" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer316.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1230,10 +1230,9 @@
                             <div class="terms-and-condition">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel316" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1245,13 +1244,14 @@
                 <div class="modal fade fwdiscover-modal" id="offer-314-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer317.HotelName" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer317.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1261,10 +1261,9 @@
                             <div class="terms-and-condition">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel317" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1276,26 +1275,26 @@
                 <div class="modal fade fwdiscover-modal" id="offer-315-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer318.HotelName" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer318.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-offer315"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
+                                <button class="details-btn modal-grab-button" id="modal-grab-button-offer314"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
                             </div>
 
                             <div class="terms-and-condition">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel318" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1403,7 +1402,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1457,7 +1456,7 @@
 	                                            <div class="hotel-description-right-wrapper">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar16.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Addr" bundle="${msg}" /></span>
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar16.Addr" bundle="${msg}" /></span>
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar16.Detail" bundle="${msg}" /></div>
@@ -1482,7 +1481,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar17.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar17.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar17.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1508,7 +1507,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar18.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar18.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar18.Addr" bundle="${msg}" /></span>
 	                                                </a>

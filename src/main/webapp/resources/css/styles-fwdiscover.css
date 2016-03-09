@@ -1575,6 +1575,7 @@
 	margin: 0 auto;
 	background-color: #081d28;
 	padding: 30px;
+	margin-top: 20px;
 }
 #hotel-voucher-carousel{
     text-align: center;
@@ -1632,6 +1633,7 @@
 }
 .hotel-voucher-carousel-title-wrapper .Carousel-subtitle{
     font-size: 24px;
+    margin-top: 10px;
 }
 #hotel-voucher-carousel .slick-next:before,
 #hotel-voucher-carousel .slick-prev:before{
@@ -1912,6 +1914,26 @@ span#next-hotel-name{
 }
 img.vivatel-icon{
 	padding-top: 20px;
+}
+body.chin #hotel-voucher-carousel .carousel-item-container .fanfare-date .fanfare-day{
+    font-size: 22px;
+}
+body.chin #hotel-voucher-carousel .carousel-item-container .fanfare-date{
+	font-size: 18px;
+}
+body.chin span#previous-hotel-date,body.chin span#next-hotel-date{
+	font-size: 24px;
+	text-align: center;
+}
+body.chin #hotel-description-carosuel span.fanfare-day{
+    font-size: 30px;
+    line-height: 1px;
+}
+body.chin #hotel-description-carosuel div#hotel-lanuch-date{
+	text-align: center;
+}
+body.chin #hotel-description-modal .carousel-description-container{
+	padding: 10px;
 }
 @media ( max-width : 991px) {
     .hotel-partner-icon-wrapper .col-1,
