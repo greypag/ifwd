@@ -136,10 +136,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						userDetails.setFirstName(firstName);
@@ -252,50 +252,7 @@ public class UserController {
 					model.addAttribute("policiesGI", policiesGI);
 					model.addAttribute("policiesLife", policiesLife);
 				}
-				/* getAccountBalance 
-				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
-					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-					header.put("userName", usernameInSession);
-					header.put("token", tokenInSession);
-
-					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
-					model.addAttribute("accountBalance", accountBalance);
-				}*/
-				
-				/* Purchase History 
-				ArrayList al = new ArrayList();
-				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
-					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-					header.put("userName", usernameInSession);
-					header.put("token", tokenInSession);
-
-					JSONObject jsonUPHResponse = restService.consumeApi(
-							HttpMethod.GET,
-							UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
-							header, null);
-					logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
-
-					if (jsonUPHResponse.get("errMsgs") == null) {
-						JSONArray jsonArray = (JSONArray) jsonUPHResponse.get("policies");
-						Iterator<?> itr = jsonArray.iterator();
-						while (itr.hasNext()) {
-							JSONObject jsonObjHistory = (JSONObject) itr.next();
-							PurchaseHistory purchaseHistory = new PurchaseHistory();
-							purchaseHistory.setAmount(checkJsonObjNull(
-									jsonObjHistory, "amount"));
-							purchaseHistory.setPolicyNumber(checkJsonObjNull(
-									jsonObjHistory, "policyNumber"));
-							purchaseHistory.setSubmissionDate(checkJsonObjNull(
-									jsonObjHistory, "submissionDate"));
-							purchaseHistory.setPlanCode(checkJsonObjNull(
-									jsonObjHistory, "planCode"));
-							al.add(purchaseHistory);
-						}
-					}
-				}
-
-				request.setAttribute("al", al);*/
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "useraccount");
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eservices");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

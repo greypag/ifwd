@@ -87,29 +87,31 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="payment-content-wrapper">
 				<p class="panel-title">Payment</p>						
+				
+				<div class="radio-group clearfix">
+				   <div class="radio-button-group">
+					  <div class="clearfix desktop-align left cstm-md-col">
+						 <div class="pull-left radio-holder">
+							<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
+						 </div>
+						 <div class="pull-left desc">
+							Direct debit
+						 </div>
+					  </div>
+					  <div class="clearfix below desktop-align">
+						 <div class="pull-left radio-holder">
+							<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
+						 </div>
+						 <div class="pull-left desc">
+							Pay later
+							<span>(Pay at Customer Service Center)</span>
+						 </div>
+					  </div>
+				   </div>
+				</div>
+				<div id="errorMsg" style="color: red;"></div>
+				
 				<form action="" id="paymentForm" method="post">
-					<div class="radio-group clearfix">
-					   <div class="radio-button-group">
-						  <div class="clearfix desktop-align left cstm-md-col">
-							 <div class="pull-left radio-holder">
-								<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
-							 </div>
-							 <div class="pull-left desc">
-								Direct debit
-							 </div>
-						  </div>
-						  <div class="clearfix below desktop-align">
-							 <div class="pull-left radio-holder">
-								<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
-							 </div>
-							 <div class="pull-left desc">
-								Pay later
-								<span>(Pay at Customer Service Center)</span>
-							 </div>
-						  </div>
-					   </div>
-					</div>
-					<div id="errorMsg" style="color: red;"></div>
 					<div id="direct-debit-panel">
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
@@ -240,8 +242,9 @@ var language = "${language}";
 							<p class="policy-text">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD Life Insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</p>
 						</div>
 					</div>
-					
-					<!-- merge with pay later -->
+				</form>	
+				<!-- merge with pay later -->
+				<form action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
 					<div id="pay-later-page" class="hidden">
 						<div class="make-an-appointment clearfix">
 							<div class="col-xs-12 col-md-6" id="left-side-form">
@@ -261,8 +264,8 @@ var language = "${language}";
 												<c:choose>
 											        <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 											            <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-                                                        </c:forEach>
+	                                                           <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+	                                                       </c:forEach>
 											        </c:when>
 											        <c:otherwise>
 													    <option value="" ></option>
@@ -319,8 +322,8 @@ var language = "${language}";
 											
 											<!-- <select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown"> -->
 											<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-                                                <option value=""></option>
-                                            </select>
+	                                               <option value=""></option>
+	                                           </select>
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 									</div>
@@ -334,13 +337,14 @@ var language = "${language}";
 							</div>
 						</div>
 					</div>
-					
-					<center>
-						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
-						<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
-						<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
-					</center>
 				</form>
+				
+				<center>
+					<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
+					<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
+					<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
+				</center>
+				
 			</div>
 		</div>
 	</div>
@@ -660,17 +664,17 @@ var language = "${language}";
 					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 					}
 					
-					$('#paymentForm')
+					/* $('#payLaterForm')
 						.data('bootstrapValidator')
 						.updateStatus('preferredDate', 'NOT_VALIDATED', null)
-						.validateField('preferredDate');
+						.validateField('preferredDate'); */
 			   });
 			   
 			   $('#preferred-time').on('change', function() {
-				   $('#paymentForm')
+				   /* $('#payLaterForm')
 						.data('bootstrapValidator')
 						.updateStatus('preferred-time', 'NOT_VALIDATED', null)
-						.validateField('preferred-time');
+						.validateField('preferred-time'); */
 			   });
 			   
 			   $('.policy-text').on('click', function() {
@@ -746,34 +750,6 @@ var language = "${language}";
 					  }
 					}
 				}
-				//,
-				/* tmpCustomerServiceCentre: {
-				   container: '#customerServiceCentreErMsg',
-				   selector: '#tmpCustomerServiceCentre',
-				   validators: {
-					  notEmpty: {
-						 message: "Please select customer service centre."
-					  }
-				   }
-				},
-				"preferredDate": {
-				   container: '#preferredDateErMsg',
-				   selector: '#preferredDate',
-				   validators: {
-					  notEmpty: {
-						 message: "Please specify a date."
-					  }
-				   }
-				},
-				"preferred-time": {
-				   container: '#preferredTimeErMsg',
-				   selector: '#preferred-time',
-				   validators: {
-					  notEmpty: {
-						 message: "Please specify a time."
-					  }
-				   }
-				} */
 			}
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
@@ -862,14 +838,15 @@ var language = "${language}";
 	 
 	 function goNext(){
 			if($('input[name="payment"]:checked ').val() == "false"){
-				//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 				var csCenter = $("#centre").val();
 				var perferredDate = $("#preferred-date").val();
 				var perferredTime = $("#preferred-time").val();
-				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-					//$('#fullyBooked').modal('show');
+				if(perferredDate == null || csCenter == "") {
+					$('#customerServiceCentreErMsg').html('Please select customer service centre.');
+				}else if(perferredDate == null || perferredDate.trim() == ""){
+					$('#preferredDateErMsg').html('Please specify a date.');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
-					//$('#perferredTimeIsNull').modal('show');
+					$('#preferredTimeErMsg').html('Please specify a time.');
 				}else{
 					$.ajax({     
 					    url:context+'/ajax/savings-insurance/upsertAppointment',     
@@ -884,10 +861,7 @@ var language = "${language}";
 					    success:function(data){
 					    	if(data.errMsgs == null){
 					    		//send email
-					    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
-					    		
-					    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
-						    	$("#paymentForm").submit();
+						    	$("#payLaterForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');
 					    		console.log(data.errMsgs);

@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -12,7 +11,6 @@
 		%>
 		<div class="fwd-savie-wrapper">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			<div class="fwd-container container-fluid breadcrumbs purchase-history-bc">
 	            <div class="breadcrumb-container">
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -978,7 +976,7 @@
 											Full name
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											CHAN TAI MAN
+											${userDetails.getFullName() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -986,7 +984,7 @@
 											Mobile no.
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											52295139
+											${userDetails.getMobileNo() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -994,7 +992,7 @@
 											Email address
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											ALEX.PANG@FWD.COM
+											${userDetails.getEmailAddress() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -1002,7 +1000,7 @@
 											Username
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											ALEX PANG
+											${userDetails.firstName } ${userDetails.lastName }
 										</div>
 									</div>
 								</div>
@@ -1135,8 +1133,8 @@
 												 </tbody>
 											</table>
 											<div id="partners-logo" class="visible-md visible-lg">
-												<img src="assets/images/savie-2016/partner_theclub.png" id="the-club" />
-												<img src="assets/images/savie-2016/partner_agoda.png" id="agoda" />
+												<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_theclub.png" id="the-club" />
+												<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
 											</div>
 										</div>
 									</div>		
@@ -1152,7 +1150,7 @@
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! ${userDetails.getFullName() }</h4>
 			     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
 			     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
 			    </div>
@@ -1162,7 +1160,7 @@
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! ${userDetails.getFullName() }</h4>
 			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
 			    </div>
@@ -1181,11 +1179,9 @@
 			</div>
 			
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 
@@ -1278,6 +1274,10 @@
 			function showApplicationAfterDaysModal() {
 				$('#application-after-days').modal('show');
 			}
+			
+			$("#review-fna-btn").on('click', function(){
+				window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+			});
 		</script>
 		
 	</body>
