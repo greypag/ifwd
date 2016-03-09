@@ -1281,7 +1281,6 @@
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer318.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
                             </ul>
 
@@ -1720,7 +1719,11 @@
                         //$('body').css("position", "relative");
                     });
                     $("#hotel-description-modal").on('hidden.bs.modal', function () {
-                        $('body').attr("style", "");
+                        /*($('body').attr("style", "");
+                        if((navigator.userAgent.match(/iPad/i))) { 
+                            $('body').addClass("hidden-show");
+                            
+                        }*/                        
                     });         
                 });            	
                 $(".fwdiscover-plan .details-btn").click(function(){
@@ -1737,7 +1740,7 @@
                         //$('body').css("position", "relative");
                     });
                     $(".fwdiscover-modal").on('hidden.bs.modal', function () {
-                        $('body').attr("style", "");
+                        /*$('body').attr("style", "");*/
                     });         
                 });
             }
