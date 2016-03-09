@@ -357,17 +357,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
 	    
 	    attributeList.add(new PdfAttribute("EducationlevelKey", "educationLevel"));
-	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducation()));
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatusKey"));
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatus()));
-	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "currentEmployNameKey/otherIncomKey"));
-	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
-	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "natureOfBusinessKey/liquidAssetKey"));
-	    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAsset", lifeEmploymentInfo.getNatureOfBusiness()));
-	    attributeList.add(new PdfAttribute("occupationKey", "occupationKey"));
-	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupation()));
-	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncomeKey"));
-	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()));
+	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducationName()));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatus"));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusName()));
+	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "currentEmployNameKey/otherIncom"));
+	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncomeName()));
+	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "natureOfBusiness/liquidAsset"));
+	    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAsset", lifeEmploymentInfo.getNatureOfBusinessName()));
+	    attributeList.add(new PdfAttribute("occupationKey", "occupation"));
+	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationName()));
+	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncome"));
+	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeName()));
 	    
 	    /*attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
 	    attributeList.add(new PdfAttribute("firstYearPremium", "firstYearPremium"));
