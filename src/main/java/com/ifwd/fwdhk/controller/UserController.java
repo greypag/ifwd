@@ -135,10 +135,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						userDetails.setFirstName(firstName);
@@ -445,10 +445,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						loginUserDetails.setFirstName(firstName);
