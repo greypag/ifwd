@@ -1927,7 +1927,7 @@ body.chin span#previous-hotel-date,body.chin span#next-hotel-date{
 }
 body.chin #hotel-description-carosuel span.fanfare-day{
     font-size: 30px;
-    line-height: 1px;
+    line-height: 1;
 }
 body.chin #hotel-description-carosuel div#hotel-lanuch-date{
 	text-align: center;
