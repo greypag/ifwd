@@ -976,7 +976,7 @@
 											Full name
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											CHAN TAI MAN
+											${userDetails.getFullName() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -984,7 +984,7 @@
 											Mobile no.
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											52295139
+											${userDetails.getMobileNo() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -992,7 +992,7 @@
 											Email address
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											ALEX.PANG@FWD.COM
+											${userDetails.getEmailAddress() }
 										</div>
 									</div>
 									<div class="row member-data-holder">
@@ -1000,7 +1000,7 @@
 											Username
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											ALEX PANG
+											${userDetails.lastName } ${userDetails.firstName }
 										</div>
 									</div>
 								</div>
@@ -1133,8 +1133,8 @@
 												 </tbody>
 											</table>
 											<div id="partners-logo" class="visible-md visible-lg">
-												<img src="assets/images/savie-2016/partner_theclub.png" id="the-club" />
-												<img src="assets/images/savie-2016/partner_agoda.png" id="agoda" />
+												<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_theclub.png" id="the-club" />
+												<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
 											</div>
 										</div>
 									</div>		
