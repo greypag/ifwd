@@ -1378,7 +1378,7 @@
 										    <div class="clearfix"></div>
 										  </a>									  
 									  </div>
-				                       <div class="carousel-description-container">
+				                       <div id="hotel-carosuel-selected" class="carousel-description-container">
 			                                <div id="hotel-lanuch-date" class="fanfare-date"></div>
 				                       </div>
 				                       <div class="right-control">
@@ -1420,7 +1420,7 @@
 				                          </div>
 				                          <!-- slide March 11 End -->
 						            	  <!-- slide March 12 -->
-				                          <div class="hotel-description-carosuel-container item">
+				                          <div class="hotel-description-carosuel-container item selected">
 				                                <div class="hotel-description-left-wrapper">
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-rasa-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -1604,19 +1604,24 @@
         		  console.log(currentIndex);
                   switch (currentIndex) {
                   case 0:
-                      assignHotelNav(slide1Nav); 
+                      assignHotelNav(slide1Nav);
+                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 1:
-                      assignHotelNav(slide2Nav); 
+                      assignHotelNav(slide2Nav);
+                      $('#hotel-carosuel-selected').css("background-color","#f68a1d");
                       break;
                   case 2:
-                      assignHotelNav(slide3Nav); 
+                      assignHotelNav(slide3Nav);
+                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 3:
-                      assignHotelNav(slide4Nav); 
+                      assignHotelNav(slide4Nav);
+                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 4:
-                      assignHotelNav(slide5Nav); 
+                      assignHotelNav(slide5Nav);
+                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   }    
         	});
@@ -1628,19 +1633,24 @@
     		  	//console.log(currentIndex);
 				switch (currentIndex + 1) {
 				    case 1:
-				    	assignHotelNav(slide1Nav); 
+				    	assignHotelNav(slide1Nav);
+				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 2:
-				    	assignHotelNav(slide2Nav); 
+				    	assignHotelNav(slide2Nav);
+				    	$('#hotel-carosuel-selected').css("background-color","#f68a1d");
 				        break;
 				    case 3:
-				    	assignHotelNav(slide3Nav); 
+				    	assignHotelNav(slide3Nav);
+				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 4:
-				    	assignHotelNav(slide4Nav); 
+				    	assignHotelNav(slide4Nav);
+				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 5:
-				    	assignHotelNav(slide5Nav); 
+				    	assignHotelNav(slide5Nav);
+				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				}		  	
         	});        	
@@ -1789,7 +1799,44 @@
             }else {
                 assignPromoCode("13");
             }
-        });     
+        });
+        /* Promote code assign and Loginbox pop for Hotel Voucher*/
+        $('#modal-grab-button-offer311').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("13");
+            }else {
+                assignPromoCode("13");
+            }
+        });         
+        $('#modal-grab-button-offer312').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("13");
+            }else {
+                assignPromoCode("13");
+            }
+        }); 
+        $('#modal-grab-button-offer313').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("13");
+            }else {
+                assignPromoCode("13");
+            }
+        }); 
+        $('#modal-grab-button-offer314').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("13");
+            }else {
+                assignPromoCode("13");
+            }
+        });
+        $('#modal-grab-button-offer315').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("13");
+            }else {
+                assignPromoCode("13");
+            }
+        });
+        /* Promote code assign and Loginbox pop for Hotel Voucher End*/
         
         $("#first-plan-button").on('click', function(){
             $('#offer1-details').modal('show');
