@@ -135,83 +135,81 @@ var language = "${language}";
 									</p>
 								</div>
 							</div>
-							<div id="direct-debit-panel">
-								<div class="row">
-									<%-- <div class="col-xs-12 col-md-6">
-										<div class="form-group">
-											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentAmount" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
-												<label class="mdl-textfield__label" for="paymentAmount">Amount</label>
-											</div>
-											<span class="error-msg" id="paymentAmountErMsg"></span>
-										</div>
-										<!-- <div class="form-group">
-											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentMethod" name="paymentMethod" value="Direct debit">
-												<label class="mdl-textfield__label" for="paymentMethod">Payment Method</label>
-											</div>
-											<span class="error-msg" id="paymentMethodErMsg"></span>
-										</div> -->
-										<div class="form-group">
-											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${userDetails.fullName }">
-												<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
-											</div>
-											<span class="error-msg" id="accountHolderNameErMsg"></span>
-										</div>
-									</div> --%>
-									<div class="col-xs-12 col-md-6">
-										<div class="payment-select-wrapper">
-											<p class="bank-info-select-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></p>
-										   <div class="selectDiv centreDiv gray-text-bg">
-												<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
-													<option selected disabled value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
-													<c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${bankCodeEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${bankCodeCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											 </div>
-										</div>
-										<div class="form-group">
-											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
-												<label class="mdl-textfield__label" for="bankAccountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
-											</div>
-											<span class="error-msg" id="bankAccountNoErMsg"></span>
-										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
-												<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
-													<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
-													<c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${branchCodeEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${branchCodeCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="branchNameErMsg"></span>
-										</div>
+							
+							<%-- <div class="col-xs-12 col-md-6">
+								<div class="form-group">
+									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentAmount" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
+										<label class="mdl-textfield__label" for="paymentAmount">Amount</label>
+									</div>
+									<span class="error-msg" id="paymentAmountErMsg"></span>
+								</div>
+								<!-- <div class="form-group">
+									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentMethod" name="paymentMethod" value="Direct debit">
+										<label class="mdl-textfield__label" for="paymentMethod">Payment Method</label>
+									</div>
+									<span class="error-msg" id="paymentMethodErMsg"></span>
+								</div> -->
+								<div class="form-group">
+									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${userDetails.fullName }">
+										<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
+									</div>
+									<span class="error-msg" id="accountHolderNameErMsg"></span>
+								</div>
+							</div> --%>
+							
+							<div class="col-xs-12 col-md-6">
+								<div class="payment-select-wrapper">
+									<p class="bank-info-select-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></p>
+								   <div class="selectDiv centreDiv gray-text-bg">
+										<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
+											<option selected disabled value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
+											<c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${bankCodeEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${bankCodeCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+										</select>
+										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									 </div>
+								</div>
+								<div class="form-group">
+									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
+										<label class="mdl-textfield__label" for="bankAccountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
 								</div>
+								<div class="form-group">
+									<div class="selectDiv centreDiv gray-text-bg">
+										<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
+										<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
+											<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
+											<c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${branchCodeEN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${branchCodeCN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+										</select>
+										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									</div>
+									<span class="error-msg" id="branchNameErMsg"></span>
+								</div>
+								
 								<%-- <div class="form-group">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<label class="mdl-textfield__label cstm-dropdown-label">Branch name (code)</label>
@@ -608,12 +606,6 @@ var language = "${language}";
 		   }
 	   });
 	});
-			
-		}).on('success.form.bv', function(e) {
-				e.preventDefault();
-		}).on('error.form.bv', function(e) {
-		});
-	});
 	
 	// Payment form validation
 	function paymentFormValidation() {
@@ -684,7 +676,6 @@ var language = "${language}";
 					}
 				},
 				tmpCustomerServiceCentre: {
-				/* tmpCustomerServiceCentre: {
 				   container: '#customerServiceCentreErMsg',
 				   selector: '#tmpCustomerServiceCentre',
 				   validators: {

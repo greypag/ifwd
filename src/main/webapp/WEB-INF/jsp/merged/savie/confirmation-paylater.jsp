@@ -28,7 +28,7 @@ var language = "${language}";
                <li class="divider"><i class="fa fa-play"></i></li>
                <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -100,19 +100,19 @@ var language = "${language}";
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
 							<p><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
-							<!-- <p class="details-label">Date</p>
-							<p>${preferredDate}</p>-->
+							<!-- <p class="details-label">Date</p>-->
+							<p>${preferredDate}</p>
 						</div>
 						<div>
 							<p><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
-							<!-- <p class="details-label">Time</p>
-							<p>${preferredTime}</p>-->
+							<!-- <p class="details-label">Time</p>-->
+							<p>${preferredTime}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
-						<!-- <p class="details-label">Branch</p>
-						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>-->
+						<!-- <p class="details-label">Branch</p>-->
+						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
 						<p><fmt:message key="label.openinghours" bundle="${msg}" /></p>
