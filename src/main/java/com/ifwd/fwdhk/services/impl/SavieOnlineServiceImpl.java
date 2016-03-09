@@ -468,24 +468,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
-		String LifeInsuredName = "";
+		/*String LifeInsuredName = "";
 		if(lifeBeneficaryInfo.getIsOwnEstate()){
-			/*LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
+			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
 		                      lifePersonalDetails.getLastname()+" "+
-					          lifePersonalDetails.getChineseName();*/
+					          lifePersonalDetails.getChineseName();
 		}
 		else{
 			LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1() + "\r\n" +
 	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2() + "\r\n" +
 	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
-		}
-		attributeList.add(new PdfAttribute("LifeInsuredName", LifeInsuredName));
+		}*/
+		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 		
 		int AOB = DateApi.getAge(DateApi.formatDate1(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
-		/*attributeList.add(new PdfAttribute("AOB", savieFna.getDob()));*/
 		
 		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getMobileNumber()));
 		
