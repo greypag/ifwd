@@ -1000,7 +1000,7 @@
 											Username
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											${userDetails.lastName } ${userDetails.firstName }
+											${userDetails.firstName } ${userDetails.lastName }
 										</div>
 									</div>
 								</div>
@@ -1150,7 +1150,7 @@
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! ${userDetails.getFullName() }</h4>
 			     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
 			     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
 			    </div>
@@ -1160,7 +1160,7 @@
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! ${userDetails.getFullName() }</h4>
 			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
 			    </div>
@@ -1274,6 +1274,10 @@
 			function showApplicationAfterDaysModal() {
 				$('#application-after-days').modal('show');
 			}
+			
+			$("#review-fna-btn").on('click', function(){
+				window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+			});
 		</script>
 		
 	</body>
