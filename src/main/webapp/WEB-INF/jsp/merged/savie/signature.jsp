@@ -151,7 +151,7 @@ var languageP = "${language}";
 				</div>
 			</form>
 			<!-- Offline Signature -->
-			<form class="form-signatureoffline-info hidden" id="signoff-table">
+			<form class="form-signatureoffline-info hidden" id="signoff-table" method="post">
 				<div id="choose-service-centre">
 					<div class="row">
 						<h5>Please choose service centre</h5>
