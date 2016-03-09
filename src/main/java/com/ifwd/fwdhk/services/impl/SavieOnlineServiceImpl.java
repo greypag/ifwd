@@ -468,24 +468,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
-		String LifeInsuredName = "";
+		/*String LifeInsuredName = "";
 		if(lifeBeneficaryInfo.getIsOwnEstate()){
-			/*LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
+			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
 		                      lifePersonalDetails.getLastname()+" "+
-					          lifePersonalDetails.getChineseName();*/
+					          lifePersonalDetails.getChineseName();
 		}
 		else{
 			LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1() + "\r\n" +
 	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2() + "\r\n" +
 	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
-		}
-		attributeList.add(new PdfAttribute("LifeInsuredName", LifeInsuredName));
+		}*/
+		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 		
 		int AOB = DateApi.getAge(DateApi.formatDate1(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
-		/*attributeList.add(new PdfAttribute("AOB", savieFna.getDob()));*/
 		
 		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getMobileNumber()));
 		
@@ -1073,8 +1072,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
-			//String[] dob = lifePersonalDetails.getDob().split("/");
-			applicant.put("dob", lifePersonalDetails.getDob());
+			String[] dob = lifePersonalDetails.getDob().split("-");
+			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			applicant.put("gender", lifePersonalDetails.getGender());
 			applicant.put("hkId", lifePersonalDetails.getHkid());
 			applicant.put("passport", "");

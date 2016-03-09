@@ -6,6 +6,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
+</script>
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -649,7 +653,7 @@
 					 if($(this).val() == '') {
 					   $(this).parent('.selectDiv').parent('.et-date-info').removeClass('is-not-active');
 					}
-					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
+					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('dob', 'NOT_VALIDATED', null).validateField('dob');
 			   });
 			   
 			   $('.cstm-number-field').on('change', function() {
