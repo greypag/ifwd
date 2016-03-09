@@ -1000,7 +1000,7 @@
 											Username
 										</div>
 										<div class="col-xs-6 col-md-4 member-data-info">
-											${userDetails.lastName } ${userDetails.firstName }
+											${userDetails.firstName } ${userDetails.lastName }
 										</div>
 									</div>
 								</div>

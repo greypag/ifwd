@@ -356,24 +356,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", lifePersonalDetails.getCorrespondenceAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
 	    
-	    attributeList.add(new PdfAttribute("EducationlevelKey", "educationLevel"));
+	    attributeList.add(new PdfAttribute("EducationlevelKey", "Education Level 教育水平"));
 	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducationName()));
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatus"));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "Employment Status 就業狀況"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusName()));
-	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "currentEmployNameKey/otherIncom"));
-	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncomeName()));
-	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "natureOfBusiness/liquidAsset"));
+	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "Current Employer's Name 現時僱主"));
+	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getEmployerName()));
+	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "Nature Of Business 行業"));
 	    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAsset", lifeEmploymentInfo.getNatureOfBusinessName()));
-	    attributeList.add(new PdfAttribute("occupationKey", "occupation"));
+	    attributeList.add(new PdfAttribute("occupationKey", "Occupation 職業"));
 	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationName()));
-	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncome"));
+	    attributeList.add(new PdfAttribute("personalIncomeKey", "Monthly Personal Income(applicable to full-time and part-time job) 個人每月收入（港幣）（全職及兼職適用）"));
 	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeName()));
 	    
-	    /*attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
-	    attributeList.add(new PdfAttribute("firstYearPremium", "firstYearPremium"));
-	    attributeList.add(new PdfAttribute("perMonOnethHKD", "perMonOnethHKD"));
-	    attributeList.add(new PdfAttribute("subsequantPremium", "subsequantPremium"));
-	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));*/
 	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    
 	    attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
@@ -395,28 +390,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelation3()));
 	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    
-	    /*attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
-	    attributeList.add(new PdfAttribute("cardExpireDate", "cardExpireDate"));
-	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));*/
-	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
 	    String bankCode = lifePayment.getBankCode().split("-")[0];
-	    /*for(int i=bankCode.length()-1;i>=3;i--){
-	    	String c = bankCode.charAt(i)+"";
-	    	attributeList.add(new PdfAttribute("BankNo."+(bankCode.length()-i+1), c));
-	    }*/
 	    attributeList.add(new PdfAttribute("BankNo.1", bankCode.charAt(bankCode.length()-1)+""));
 	    attributeList.add(new PdfAttribute("BankNo.2", bankCode.charAt(bankCode.length()-2)+""));
 	    attributeList.add(new PdfAttribute("BankNo.3", bankCode.charAt(bankCode.length()-3)+""));
 	    
 	    String branchCode = lifePayment.getBranchCode();
-	    /*for(int i=branchCode.length()-1;i>=branchCode.length()-3;i++){
-	    	String c = branchCode.charAt(i)+"";
-	    	attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
-	    }*/
 	    attributeList.add(new PdfAttribute("BranchNo.1", branchCode.charAt(branchCode.length()-1)+""));
 	    attributeList.add(new PdfAttribute("BranchNo.2", branchCode.charAt(branchCode.length()-2)+""));
 	    attributeList.add(new PdfAttribute("BranchNo.3", branchCode.charAt(branchCode.length()-3)+""));
@@ -426,15 +409,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	String c = accountNumber.charAt(i)+"";
 	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
 	    }
-	    /*attributeList.add(new PdfAttribute("AccountNo.1", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.2", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.3", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.4", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.5", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.6", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.7", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.8", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
-	    attributeList.add(new PdfAttribute("AccountNo.9", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));*/
 	    
 	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    attributeList.add(new PdfAttribute("ExpiryDate", format.format(new Date())));
