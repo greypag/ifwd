@@ -22,13 +22,13 @@ var language = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#">Home</a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Save </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Savie </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -39,11 +39,11 @@ var language = "${language}";
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
 				 <ul class="common-steps-list three-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; Payment</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Confirmation</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
 		   </div>  
@@ -56,7 +56,7 @@ var language = "${language}";
 					   </a>
 					</div>
 					<div class="et-header-tex">
-					   <h3 id="">Confirmation</h3>
+					   <h3 id=""><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
 					</div>
 				 </div>
 				 <span id="step-of">3 out of 3</span>
@@ -79,63 +79,69 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div id="appointment-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title">Thank you for signing up with us</p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="info.savie.confirmation.success.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="policy-number-label">Policy no. </span>
 						<span class="policy-number">${lifePolicy.policyNo }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p>Your application is being processed.</p>
-						<p id="review-line">Please review the confirmation of your application as detailed here.</p>
+						<p><fmt:message key="info.savie.confirmation.success.copy" bundle="${msg}" /></p>
+						<!-- <p>Your application is being processed.</p>
+						<p id="review-line">Please review the confirmation of your application as detailed here.</p>-->
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
-						<p class="policy-number-label">Policy no.</p>
+						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
 						<p class="policy-number">${lifePolicy.policyNo }</p>
 					</div>
 				</div>
 				<hr>
 				<div class="row appointment-details-panel">
-					<div class="col-xs-12"><p class="panel-title">Appointment details</p></div>
+					<div class="col-xs-12"><p class="panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<p class="details-label">Date</p>
-							<p>${preferredDate}</p>
+							<p><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
+							<!-- <p class="details-label">Date</p>
+							<p>${preferredDate}</p>-->
 						</div>
 						<div>
-							<p class="details-label">Time</p>
-							<p>${preferredTime}</p>
+							<p><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
+							<!-- <p class="details-label">Time</p>
+							<p>${preferredTime}</p>-->
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p class="details-label">Branch</p>
-						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
+						<p><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
+						<!-- <p class="details-label">Branch</p>
+						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>-->
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<p class="details-label">Operating hours</p>
+						<p><fmt:message key="label.openinghours" bundle="${msg}" /></p>
+						<!-- <p class="details-label">Operating hours</p>
 						<p>
 							Mon - Sat 8:30am to 8:00pm<br>Closed on Sun & Public Holidays
 							<span class="phone-num">
 								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 063-2323-123
 							</span>
-						</p>
+						</p>-->
 					</div>				
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="requirements-panel-title">Please bring the following for your appointment at our service centre:</p>
+					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring" bundle="${msg}" />:</p>
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png" /></div>
 							<div class="requirement-text-wrapper">
-								<p>Your HKID card and passport<br>
-								<span class="small">(for non-permanent resident only)</span></p>
+								<p><fmt:message key="info.savie.confirmation.hkid.passport" bundle="${msg}" /></p>
+								<!-- <p>Your HKID card and passport<br>
+								<span class="small">(for non-permanent resident only)</span></p>-->
 							</div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
-							<div class="requirement-text-wrapper"><p>Proof of address</p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="label.addressproof" bundle="${msg}" /></p></div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-3">
@@ -143,13 +149,14 @@ var language = "${language}";
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
 							</div>
-							<div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation" bundle="${msg}" /></p></div>
+							<!-- <div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>-->
 						</div>
 					</div>
-					<p class="note hidden">In order to enjoy Ocean Park premium discount, please bring along your Ocean Park SmartFun Annual Pass (Gold or Silver) or purchase confirmation email for verification purpose.</p>
+					<p class="note hidden"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p>
 				</div>
 				<hr>
-				<center><button type="button" class="btn btn-home savie-common-btn btn-home-pay-later">Back to home</button></center>
+				<center><button type="button" class="btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
 			</div>
 		</div>
 	</div>

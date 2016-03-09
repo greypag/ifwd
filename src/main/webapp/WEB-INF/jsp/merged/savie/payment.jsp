@@ -24,13 +24,13 @@ var language = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#">Home</a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Save </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Savie </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -40,17 +40,17 @@ var language = "${language}";
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
 				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
 		   </div>  
@@ -62,7 +62,7 @@ var language = "${language}";
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id="">Application &amp; payment</h3>
+					<h3 id=""><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
 				 </div>
 				 <p id="step-of">2 of 6</p>
 			  </div>
@@ -86,7 +86,7 @@ var language = "${language}";
 		<!--<div class="fwd-container-limit clearfix sidebar page-application">-->
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="payment-content-wrapper">
-				<p class="panel-title">Payment</p>						
+				<p class="panel-title"><fmt:message key="label.payment.title" bundle="${msg}" /></p>						
 				<form action="" id="paymentForm" method="post">
 					<div class="radio-group clearfix">
 					   <div class="radio-button-group">
@@ -95,7 +95,7 @@ var language = "${language}";
 								<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
 							 </div>
 							 <div class="pull-left desc">
-								Direct debit
+								<fmt:message key="option.direct.debit" bundle="${msg}" />
 							 </div>
 						  </div>
 						  <div class="clearfix below desktop-align">
@@ -103,7 +103,7 @@ var language = "${language}";
 								<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
 							 </div>
 							 <div class="pull-left desc">
-								Pay later
+								<fmt:message key="option.pay.later" bundle="${msg}" />
 								<span>(Pay at Customer Service Center)</span>
 							 </div>
 						  </div>
@@ -114,21 +114,21 @@ var language = "${language}";
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<div class="info-wrapper">
-									<p class="info-label">Amount</p>
+									<p class="info-label"><fmt:message key="placeholder.amount" bundle="${msg}" /></p>
 									<p class="info-value">
 									   HK$ ${saviePlanDetails.insuredAmount1 }
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>
 								<div class="info-wrapper">
-									<p class="info-label">Payment method</p>
+									<p class="info-label">Payment Method</p>
 									<p class="info-value">
-									   Direct debit
+									   <fmt:message key="placeholder.direct.debit" bundle="${msg}" />
 									   <input type="hidden" name="paymentMethod" value="Direct debit">
 									</p>
 								</div>
 								<div class="info-wrapper">
-									<p class="info-label">Bank account holder name</p>
+									<p class="info-label"><fmt:message key="placeholder.name" bundle="${msg}" /></p>
 									<p class="info-value">
 									   ${userDetails.fullName }
 									   <input type="hidden" name="accountHolderName" value="${userDetails.fullName }">
@@ -162,10 +162,10 @@ var language = "${language}";
 									</div> --%>
 									<div class="col-xs-12 col-md-6">
 										<div class="payment-select-wrapper">
-											<p class="bank-info-select-label">Bank name (code)</p>
+											<p class="bank-info-select-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></p>
 										   <div class="selectDiv centreDiv gray-text-bg">
 												<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
-													<option selected disabled value="">Bank name (code)</option>
+													<option selected disabled value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${bankCodeEN}">
 														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -185,15 +185,15 @@ var language = "${language}";
 										<div class="form-group">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
-												<label class="mdl-textfield__label" for="bankAccountNo">Account no.</label>
+												<label class="mdl-textfield__label" for="bankAccountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
 											</div>
 											<span class="error-msg" id="bankAccountNoErMsg"></span>
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Branch name (code)</label>
+												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
 												<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
-													<option selected disabled value="">Branch name (code)</option>
+													<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${branchCodeEN}">
 															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -237,7 +237,7 @@ var language = "${language}";
 						<div class="form-group payment-policy-wrapper">
 							<input type="checkbox" id="payment_confirm_authorize" name="payment_confirm_authorize">
 							<label for="payment_confirm_authorize"></label>
-							<p class="policy-text">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD Life Insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</p>
+							<p class="policy-text"><fmt:message key="decleration.policy.owner" bundle="${msg}" /></p>
 						</div>
 					</div>
 					
@@ -245,11 +245,11 @@ var language = "${language}";
 					<div id="pay-later-page" class="hidden">
 						<div class="make-an-appointment clearfix">
 							<div class="col-xs-12 col-md-6" id="left-side-form">
-								<h5>Please choose service centre</h5>
-								<p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
+								<h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
+								<p class="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
 								<div class="form-group">
 									<div class="payment-select-wrapper">
-										<p class="bank-info-select-label">Customer Service Centre</p>
+										<p class="bank-info-select-label"><fmt:message key="Placeholder.centre" bundle="${msg}" /></p>
 										<div class="selectDiv centreDiv gray-text-bg">
 											<select name="centre" id="centre" class="form-control gray-dropdown">
 												<!--<option value="" disabled="disabled" selected="selected">Customer Service Centre</option>-->
@@ -277,12 +277,12 @@ var language = "${language}";
 								
 								<div class="centre-info visible-xs visible-sm" id="centre-info">
 									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-									<a class="address-link" href="#">View map</a>
+									<a class="address-link" href="#"><fmt:message key="label.view.map" bundle="${msg}" /></a>
 								</div>
 								
 								<div class="form-group">
 									<div class="payment-select-wrapper so-mdl-textfield">
-										<p class="bank-info-select-label">Date</p>
+										<p class="bank-info-select-label"><fmt:message key="Placeholder.date" bundle="${msg}" /></p>
 										<div id="date" class="selectDiv preferred-date gray-text-bg">
 											<!-- <input type="text" class="date preferred-date form-control gray-dropdown" name="preferredDate" id="preferredDate" value=""> -->
 											
@@ -314,7 +314,7 @@ var language = "${language}";
 								
 								<div class="form-group">
 									<div class="payment-select-wrapper so-mdl-textfield">
-										<p class="bank-info-select-label">Time</p>
+										<p class="bank-info-select-label"><fmt:message key="Placeholder.time" bundle="${msg}" /></p>
 										<div class="selectDiv timeslot gray-text-bg">
 											<!-- <input type="text" class="form-control gray-dropdown" name="preferred-time" id="preferred-time" value=""> -->
 											
@@ -331,15 +331,15 @@ var language = "${language}";
 							<div class="col-xs-12 col-md-6" id="right-side-form">
 								<div class="centre-info visible-md visible-lg" id="centre-info">
 									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-									<a class="address-link" href="#">View map</a>
+									<a class="address-link" href="#"><fmt:message key="label.view.map" bundle="${msg}" /></a>
 								</div>
 							</div>
 						</div>
 					</div>
 					
 					<center>
-						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
-						<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
+						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.next" bundle="${msg}" /></button>
+						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 						<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
 					</center>
 				</form>
@@ -354,11 +354,11 @@ var language = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-		<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 		<div class="save-con-btns clearfix">
-			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-			<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+			<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 		</div>
 	</div>
   </div>
@@ -369,11 +369,11 @@ var language = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-		<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 		<div class="save-con-btns text-center clearfix">
-			<button class="btn savie-common-btn" id="keep-going-btn">Keep going</button>
-			<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button>
+			<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+			<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 		</div>
 	</div>
   </div>
@@ -385,14 +385,12 @@ var language = "${language}";
 	<div class="modal-content modal-content-appsave common-welcome-modal">	
 		 <div class="modal-header" id="modal-header-appsave">
 		 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<p class="text-center">Your application has been saved. </p>
+				<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 		 </div>
 		 <div class="modal-body" id="moda-body-appsave">
-			<p class="text-center">A saved application email has been sent to you, you may continue the application through 
-			the application link embedded in the email or you may retrieve your progress from your eService 
-			purchase history. </p>
+			<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 			<div class="btn-appsave">
-				<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+				<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 			</div>
 		 </div>
 	 </div>
@@ -408,9 +406,9 @@ var language = "${language}";
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	
-	$(document).ready(function() {
+	$(document).ready(function() {	
 		paymentFormValidation();
-			
+		
 		//init next button text
 		if('${backSummary}'=="Y"){
 			var htmlObj = document.getElementById('btn-next');
@@ -530,8 +528,6 @@ var language = "${language}";
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});
 		
-		//paymentFormValidation();
-		
 		$("input[type='radio']").on('click', function() {
 			if($('#payment-debit:checked').length > 0 ) {
 				$('#pay-later-page').addClass('hidden');
@@ -571,112 +567,47 @@ var language = "${language}";
 			}
 		});
 						
-		/** temporary code **/
-		 $('.so-mdl-textfield-input').focus(function () {
-			   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-			   $(this).parent('.so-mdl-textfield').addClass('is-active');
-	   }).on('blur', function () {
-			   $(this).parent('.so-mdl-textfield').addClass('is-not-active');
-			   $(this).parent('.so-mdl-textfield').removeClass('is-active');
-			   if($(this).val() == '') {
-				   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-			   }
-	   });
-	   /*****************/
-	   
+		
+				
+		// set fields whether editable or not
+		setInputReadonly('paymentAmount', true);
+		setInputReadonly('paymentMethod', true);
+		setInputReadonly('accountHolderName', true);
+		// -------				
+		
+		paymentFormValidation();
 	   $('#preferredDate').on('changeDate show', function(e) {
 			$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
 			 if($(this).val() == '') {
 			   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 			}
 			
-			$(document).ready(function() {
-				
-				var dummy = true;
-				// dummy condition for displaying the back / next button
-				if(dummy) {
-					// hide the back button and display the Next button
-					$('#btn-next, .save-link').removeClass('hidden');
-					$('#btn-back').addClass('hidden');
-				} else {
-					// display the back button and hide the Next button
-					$('#btn-next, .save-link').addClass('hidden');
-					$('#btn-back').removeClass('hidden');
-				}
-				
-				// application saved modal will show after clicking 'Save and exit' button 
-				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$(this).closest('.modal').modal('hide');
-					$('#application-saved-modal').modal('show');
-				});
-				
-				// set fields whether editable or not
-				setInputReadonly('paymentAmount', true);
-				setInputReadonly('paymentMethod', true);
-				setInputReadonly('accountHolderName', true);
-				// -------				
-				
-				$("input[type='radio']").on('click', function() {
-					if($('#payment-debit:checked').length > 0 ) {
-						$('#pay-later-page').addClass('hidden');
-						$('#direct-debit-panel').removeClass('hidden');
-						$('.save-link').removeClass('hidden');
-					} else {
-						$('#direct-debit-panel').addClass('hidden');
-						$('.save-link').addClass('hidden');
-						$('#pay-later-page').removeClass('hidden');
-					}
-				});
-				
-				$('span.icon-chevron-thin-down.orange-caret').on('click', function() {
-					var selectId = $(this).attr('data-selectId');
-					open($('#' + selectId));
-				});
-				
-				$('#payment-save-and-con').on('click', function (e) {
-                    if($('#paymentForm').data('bootstrapValidator').isValid()) {
-						$('#save-and-continue-batch5-modal').modal('show');
-                    } else {
-						$('#save-and-continue-modal').modal('show');
-                    }
-                });
-				
-				$('.form-control.gray-dropdown').focus(function() {
-					$(this).parent('.selectDiv').siblings('.bank-info-select-label').attr('style', 'color: #ff8200;');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-focused');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-				}).on('blur', function () {
-					$(this).parent('.selectDiv').siblings('.bank-info-select-label').removeAttr('style');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-focused');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
-					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-					}
-				});
-			   
-			   $('#preferredDate').on('changeDate show', function(e) {
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
-					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-					}
-					
-					$('#paymentForm')
-						.data('bootstrapValidator')
-						.updateStatus('preferredDate', 'NOT_VALIDATED', null)
-						.validateField('preferredDate');
-			   });
-			   
-			   $('#preferred-time').on('change', function() {
-				   $('#paymentForm')
-						.data('bootstrapValidator')
-						.updateStatus('preferred-time', 'NOT_VALIDATED', null)
-						.validateField('preferred-time');
-			   });
-			   
-			   $('.policy-text').on('click', function() {
-				   $('#payment_confirm_authorize').click();
-			   });
-			});
+			$('#paymentForm')
+				.data('bootstrapValidator')
+				.updateStatus('preferredDate', 'NOT_VALIDATED', null)
+				.validateField('preferredDate');
+	   });
+	   
+	   $('#preferred-time').on('change', function() {
+		   $('#paymentForm')
+				.data('bootstrapValidator')
+				.updateStatus('preferred-time', 'NOT_VALIDATED', null)
+				.validateField('preferred-time');
+	   });
+	   
+	   $('.policy-text').on('click', function() {
+		   $('#payment_confirm_authorize').click();
+	   });
+	   
+		// only numbers can be inputted
+	   $('#bankAccountNo').keyup(function() {
+		   var val = $(this).val();
+		   var newVal = val.replace(/[^0123456789]/g, '');
+		   if(val != newVal) {
+			   $(this).val(newVal);
+		   }
+	   });
+	});
 			
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
@@ -690,47 +621,52 @@ var language = "${language}";
 			//excluded: [':disabled', ':hidden', ':not(:visible)'],
 			excluded: [':disabled', '.readonly-field'],
 			fields: {
-				'paymentAmount': {
+				paymentAmount: {
 					container: '#paymentAmountErMsg',
+					selector: '#paymentAmount',
 					validators: {
 					  notEmpty: {
-						 message: "Please enter amount."
+				 		message: '<fmt:message key="error.payment.amount.empty" bundle="${msg}" />'
 					  },
 					  regexp: {
-						  regexp: /^[1-9]\d*(\.\d+)?$/,
-						  message: "Amount is invalid."
+						regexp: /^[1-9]\d*(\.\d+)?$/,
+						message: "Amount is invalid."
 					  }
 					}
 				},
-				'paymentMethod': {
+				paymentMethod: {
 					container: '#paymentMethodErMsg',
+					selector: '#paymentMethod',
 					validators: {
 					  notEmpty: {
-						 message: "Please enter payment method."
+					  	message: '<fmt:message key="error.payment.method.empty" bundle="${msg}" />'
 					  }
 					}
 				},
-				'accountHolderName': {
+				accountHolderName: {
 					container: '#accountHolderNameErMsg',
+					selector: '#accountHolderName',
 					validators: {
 					  notEmpty: {
-						 message: "Please enter bank account holder name."
+					  	message: '<fmt:message key="error.payment.bank.acc.holder.name.empty" bundle="${msg}" />'
 					  }
 					}
 				},
-				'bankCode': {
+				tmpBankCode: {
 					container: '#bankCodeErMsg',
+					selector: '#tmpBankCode',
 					validators: {
 					  notEmpty: {
-						 message: "Please select bank code."
+					  	message: '<fmt:message key="error.payment.bank.name.empty" bundle="${msg}" />'
 					  }
 					}
 				},
-				'accountNumber': {
+				bankAccountNo: {
 				   container: '#bankAccountNoErMsg',
+				   selector: '#bankAccountNo',
 				   validators: {
 					  notEmpty: {
-						 message: "Please enter account number."
+					  	message: '<fmt:message key="error.payment.account.no.empty" bundle="${msg}" />'
 					  },
 					   regexp: {
 						  regexp: /^[0-9]*$/,
@@ -738,15 +674,16 @@ var language = "${language}";
 					   }
 				   }
 				},
-				'branchCode': {
+				tmpBranchName: {
 					container: '#branchNameErMsg',
+					selector: '#tmpBranchName',
 					validators: {
 					  notEmpty: {
-						 message: "Please select branch name."
+					  	message: '<fmt:message key="error.payment.branch.name.empty" bundle="${msg}" />'
 					  }
 					}
-				}
-				//,
+				},
+				tmpCustomerServiceCentre: {
 				/* tmpCustomerServiceCentre: {
 				   container: '#customerServiceCentreErMsg',
 				   selector: '#tmpCustomerServiceCentre',
@@ -761,7 +698,7 @@ var language = "${language}";
 				   selector: '#preferredDate',
 				   validators: {
 					  notEmpty: {
-						 message: "Please specify a date."
+					  	message: '<fmt:message key="error.date.empty" bundle="${msg}" />'
 					  }
 				   }
 				},
@@ -770,10 +707,10 @@ var language = "${language}";
 				   selector: '#preferred-time',
 				   validators: {
 					  notEmpty: {
-						 message: "Please specify a time."
+					  	message: '<fmt:message key="error.time.empty" bundle="${msg}" />'
 					  }
 				   }
-				} */
+				}
 			}
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
@@ -816,7 +753,7 @@ var language = "${language}";
              for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
          %>
          if(centre == '<%=entity.getServiceCentreCode() %>') {
-            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
          }
          <%
              }
