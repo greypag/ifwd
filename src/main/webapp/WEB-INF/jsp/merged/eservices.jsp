@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -12,7 +11,6 @@
 		%>
 		<div class="fwd-savie-wrapper">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			<div class="fwd-container container-fluid breadcrumbs purchase-history-bc">
 	            <div class="breadcrumb-container">
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -1181,11 +1179,9 @@
 			</div>
 			
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 
