@@ -64,35 +64,29 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
-		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		Date date = new Date();
+		Calendar startDOB = new GregorianCalendar();
+		startDOB.setTime(date); 
+		startDOB.add(startDOB.YEAR, -70);
+		startDOB.add(startDOB.DATE, 1);
+		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
+		
+		Calendar defaultDOB = new GregorianCalendar();
+		Date date1 = new Date();
+		String type = request.getParameter("type");
+		if("2".equals(type)){
+			model.addAttribute("type", type);
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			date1 = DateApi.formatDate(savieFna.getDob());
+			defaultDOB.setTime(date1); 
 		}
 		else{
-			Date date = new Date();
-			Calendar startDOB = new GregorianCalendar();
-			startDOB.setTime(date); 
-			startDOB.add(startDOB.YEAR, -70);
-			startDOB.add(startDOB.DATE, 1);
-			model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-			
-			Calendar defaultDOB = new GregorianCalendar();
-			Date date1 = new Date();
-			String type = request.getParameter("type");
-			if("2".equals(type)){
-				model.addAttribute("type", type);
-				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
-				date1 = DateApi.formatDate(savieFna.getDob());
-				defaultDOB.setTime(date1); 
-			}
-			else{
-				defaultDOB.setTime(date1); 
-				defaultDOB.add(defaultDOB.YEAR, -18);
-			}
-			
-			model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
+			defaultDOB.setTime(date1); 
+			defaultDOB.add(defaultDOB.YEAR, -18);
 		}
+		
+		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
