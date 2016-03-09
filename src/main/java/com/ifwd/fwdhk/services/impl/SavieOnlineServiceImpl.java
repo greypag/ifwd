@@ -1983,4 +1983,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}
 	}
+	
+	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.VALIDATE_SESSION;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, new JSONObject());
+		return responseJsonObj;
+	}
 }
