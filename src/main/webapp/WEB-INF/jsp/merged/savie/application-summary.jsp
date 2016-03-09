@@ -212,19 +212,19 @@
 							<span class="warning-note">Permanent address (No P.O box address allowed)</span>
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress1" name="permanentAddress1" value="${lifePersonalDetails.permanetAddress1 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="permanentAddress1">Permanent address line 1</label>
+								<label class="mdl-textfield__label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress2" name="permanentAddress2" value="${lifePersonalDetails.permanetAddress2 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="permanentAddress2">Permanent address line 2</label>
+								<label class="mdl-textfield__label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress3" name="permanentAddress3" value="${lifePersonalDetails.permanetAddress3 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="permanentAddress3">Permanent address line 3</label>
+								<label class="mdl-textfield__label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
@@ -240,19 +240,19 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="residentialAddress1">Residential address line 1</label>
+								<label class="mdl-textfield__label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="residentialAddress2">Residential address line 2</label>
+								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="residentialAddress2">Residential address line 3</label>
+								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
@@ -268,19 +268,19 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="correspondenceAddress1">Correspondence address line 1</label>
+								<label class="mdl-textfield__label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="correspondenceAddress2">Correspondence address line 2</label>
+								<label class="mdl-textfield__label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="correspondenceAddress3">Correspondence address line 3</label>
+								<label class="mdl-textfield__label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
@@ -393,7 +393,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryChineseName[0]">Name in Chinese (optional)</label>
+												<label class="mdl-textfield__label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
@@ -452,7 +452,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[1]" name="beneficiaryChineseName[1]" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryChineseName[1]">Name in Chinese (optional)</label>
+												<label class="mdl-textfield__label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
@@ -511,7 +511,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[2]" name="beneficiaryChineseName[2]" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryChineseName[2]">Name in Chinese (optional)</label>
+												<label class="mdl-textfield__label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
@@ -610,7 +610,7 @@
             </div>
 
             <div class="text-center clearfix">
-               <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.next" bundle="${msg}" /></button>
+               <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
                 <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
                <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
             </div>
@@ -621,11 +621,11 @@
         <div class="modal-dialog">
          <div class="modal-content save-con-modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-            <h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-            <p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+            <h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+            <p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
             <div class="save-con-btns clearfix">
-               <button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-               <button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+               <button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+               <button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
             </div>
          </div>
         </div>
@@ -635,10 +635,13 @@
         <div class="modal-dialog">
          <div class="modal-content save-con-modal-content">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-            <h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-            <p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+            <h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+            <p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
             <div class="save-con-btns clearfix">
-               <center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+               <center>
+               	<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+               	<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
+               </center>
             </div>
          </div>
         </div>
@@ -649,14 +652,12 @@
          <div class="modal-content modal-content-appsave common-welcome-modal">  
              <div class="modal-header" id="modal-header-appsave">
              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <p class="text-center">Your application has been saved. </p>
+                  <p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
              </div>
              <div class="modal-body" id="moda-body-appsave">
-               <p class="text-center">A saved application email has been sent to you, you may continue the application through 
-               the application link embedded in the email or you may retrieve your progress from your eService 
-               purchase history. </p>
+               <p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
                <div class="btn-appsave">
-                  <button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+                  <button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
                </div>
              </div>
           </div>
@@ -714,27 +715,27 @@
 			setSelectReadonly('tmpMonthlyPersonalIncome', true);
 			setSelectReadonly('tmpEducationLevel', true);
 			// Beneficiary info
-			setInputReadonly('beneficiaryLastName[0]', true);
-			setInputReadonly('beneficiaryFirstName[0]', true);
-			setInputReadonly('beneficiaryChineseName[0]', true);
-			setInputReadonly('beneficiaryHkid[0]', true);
-			setSelectReadonly('tmpBeneficiaryRelationship[0]', true);
-			setSelectReadonly('tmpBeneficiaryGender[0]', true);
-			setInputReadonly('beneficiaryEntitlement[0]', true);
-			setInputReadonly('beneficiaryLastName[1]', true);
-			setInputReadonly('beneficiaryFirstName[1]', true);
-			setInputReadonly('beneficiaryChineseName[1]', true);
-			setInputReadonly('beneficiaryHkid[1]', true);
-			setSelectReadonly('tmpBeneficiaryRelationship[1]', true);
-			setSelectReadonly('tmpBeneficiaryGender[1]', true);
-			setInputReadonly('beneficiaryEntitlement[1]', true);
-			setInputReadonly('beneficiaryLastName[2]', true);
-			setInputReadonly('beneficiaryFirstName[2]', true);
-			setInputReadonly('beneficiaryChineseName[2]', true);
-			setInputReadonly('beneficiaryHkid[2]', true);
-			setSelectReadonly('tmpBeneficiaryRelationship[2]', true);
-			setSelectReadonly('tmpBeneficiaryGender[2]', true);
-			setInputReadonly('beneficiaryEntitlement[2]', true);
+			setInputReadonly('beneficiaryLastName\\[0\\]', true);
+			setInputReadonly('beneficiaryFirstName\\[0\\]', true);
+			setInputReadonly('beneficiaryChineseName\\[0\\]', true);
+			setInputReadonly('beneficiaryHkid\\[0\\]', true);
+			setSelectReadonly('tmpBeneficiaryRelationship\\[0\\]', true);
+			setSelectReadonly('tmpBeneficiaryGender\\[0\\]', true);
+			setInputReadonly('beneficiaryEntitlement\\[0\\]', true);
+			setInputReadonly('beneficiaryLastName\\[1\\]', true);
+			setInputReadonly('beneficiaryFirstName\\[1\\]', true);
+			setInputReadonly('beneficiaryChineseName\\[1\\]', true);
+			setInputReadonly('beneficiaryHkid\\[1\\]', true);
+			setSelectReadonly('tmpBeneficiaryRelationship\\[1\\]', true);
+			setSelectReadonly('tmpBeneficiaryGender\\[1\\]', true);
+			setInputReadonly('beneficiaryEntitlement\\[1\\]', true);
+			setInputReadonly('beneficiaryLastName\\[2\\]', true);
+			setInputReadonly('beneficiaryFirstName\\[2\\]', true);
+			setInputReadonly('beneficiaryChineseName\\[2\\]', true);
+			setInputReadonly('beneficiaryHkid\\[2\\]', true);
+			setSelectReadonly('tmpBeneficiaryRelationship\\[2\\]', true);
+			setSelectReadonly('tmpBeneficiaryGender\\[2\\]', true);
+			setInputReadonly('beneficiaryEntitlement\\[2\\]', true);
 			// Payment info
 			setInputReadonly('amount', true);
 			setSelectReadonly('tmpPaymentMethod', true);

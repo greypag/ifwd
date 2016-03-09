@@ -135,7 +135,7 @@
   						</div>       	
 		       		 </div>
 			        <div class="row" id="pdf-illustration-holder">
-			        	<p id="review-note"><fmt:message key="remark.sales.illustration" bundle="${msg}" /> <a href="#" data-toggle="modal" data-target="#sales-illustration-modal">sales illustration sample</a> for easy reference.</p>
+			        	<p id="review-note"><fmt:message key="remark.sales.illustration" bundle="${msg}" /></p>
 			        </div>
 					<div class="modal fade common-welcome-modal" id="sales-illustration-modal" tabindex="-1" role="dialog">
 					  <div class="modal-dialog">
@@ -145,7 +145,7 @@
 								<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf"  frameborder="0"></iframe>
 							</div>
 							<div class="text-center">
-								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn">button.close</button>
+								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
 							</div>	
 						</div>
 					  </div>

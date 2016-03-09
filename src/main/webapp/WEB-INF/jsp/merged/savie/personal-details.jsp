@@ -322,16 +322,16 @@
 									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.address.line1" bundle="${msg}" /></label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.address.line2" bundle="${msg}" /></label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.address.line3" bundle="${msg}" /></label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
                                     </div>
 												<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
@@ -445,7 +445,7 @@
                                                 <label for="diffToResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span id="chkboxDiffToResidentialText" class="checkbox-text"><fmt:message key="label.diff.resp.address" bundle="${msg}" /></span>
+                                                <span id="chkboxDiffToResidentialText" class="checkbox-text"><fmt:message key="label.diff.resp.address.diff.resp.address" bundle="${msg}" /></span>
                                              </div>
                                           </div>
                                        </div>
@@ -505,9 +505,9 @@
                               </div>
                            </div>
                            <div class="next-btn">
-                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
+                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
 							  <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
+							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
                            </div>
                         </form>
                      </div>
@@ -736,7 +736,7 @@
 			  $('#soInsuredInfoForm').bootstrapValidator({
 				 excluded: [':disabled', ':hidden', ':not(:visible)'],
 				 fields: {
-					"firstName": {
+					'firstname': {
 					   container: '#firstNameErMsg',
 					   validators: {
 						  notEmpty: {
@@ -752,7 +752,7 @@
 						  }
 					   }
 					},
-					"lastName": {
+					'lastname': {
 					   container: '#lastNameErMsg',
 					   validators: {
 						  notEmpty: {
@@ -768,7 +768,7 @@
 						  }
 					   }
 					},
-					"chineseName": {
+					'chineseName': {
 					   container: '#chineseNameErMsg',
 					   validators: {
 						  stringLength: {
@@ -786,7 +786,7 @@
 						  }
 					   }
 					},
-					"so-calendar-dob": {
+					'dob': {
 					   container: '#so-calendar-dob-msg',
 					   validators: {
 						  notEmpty: {
@@ -794,7 +794,7 @@
 						  }
 					   }
 					},
-					"gender": {
+					'tmpGender': {
 					   container: '#genderErMsg',
 					   validators: {
 						  notEmpty: {
@@ -802,7 +802,7 @@
 						  }
 					   }
 					},
-					"hkId": {
+					'hkid': {
 					   container: '#hkidErMsg',
 					   trigger: 'blur',
 					   validators: {
@@ -826,7 +826,7 @@
 						  }
 					   }
 					},
-					"maritalStatus": {
+					'tmpMaritalStatus': {
 					   container: '#maritalStatErMsg',
 					   validators: {
 						  notEmpty: {
@@ -834,7 +834,7 @@
 						  }
 					   }
 					},
-					"placeOfBirth": {
+					'tmpPlaceOfBirth': {
 					   container: '#placeOfBirthErMsg',
 					   validators: {
 						  notEmpty: {
@@ -842,7 +842,7 @@
 						  }
 					   }
 					},
-					"nationality": {
+					'tmpNationality': {
 					   container: '#nationalityErMsg',
 					   validators: {
 						  notEmpty: {
@@ -850,7 +850,7 @@
 						  }
 					   }
 					},
-					"residentialNo": {
+					'residentialTelNo': {
 					   container: '#resTelNoErMsg',
 					   validators: {
 						  stringLength: {
@@ -864,7 +864,7 @@
 						   }
 					   }
 					},
-					"mobileNo": {
+					'mobileNumber': {
 					   container: '#mobileNoErMsg',
 					   validators: {
 						  notEmpty: {
@@ -881,7 +881,7 @@
 						   }
 					   }
 					},
-					"emailAddress": {
+					'emailAddress': {
 					   container: '#emailErMsg',
 					   validators: {
 						  notEmpty: {
@@ -893,7 +893,7 @@
 						  }
 					   }
 					},
-					"permanentAddress1": {
+					'permanetAddress1': {
 						container: '#permanentAddErMsg',
 						validators: {
 							notEmpty: {
@@ -905,7 +905,7 @@
 							}
 						}
 					 },
-					 "permanentDistrict": {
+					 'tmpPermanentDistrict': {
 					   container: '#permanentDistrictErMsg',
 					   validators: {
 						  notEmpty: {
@@ -913,7 +913,7 @@
 						  }
 					   }
 					},
-					 "residentialAddress1": {
+					 'residentialAddress1': {
 						container: '#residentialAddErMsg',
 						validators: {
 							notEmpty: {
@@ -925,7 +925,7 @@
 							}
 						}
 					 },
-					 "residentialDistrict": {
+					 'tmpResidentialDistrict': {
 					   container: '#residentialDistrictErMsg',
 					   validators: {
 						  notEmpty: {
@@ -933,7 +933,7 @@
 						  }
 					   }
 					},
-					 "correspondenceAddress1": {
+					 'correspondenceAddress1': {
 						container: '#correspondenceAddErMsg',
 						validators: {
 							notEmpty: {
@@ -945,7 +945,7 @@
 							}
 						}
 					 },
-					 "correspondenceDistrict": {
+					 'tmpCorrespondenceDistrict': {
 					   container: '#correspondenceDistrictErMsg',
 					   validators: {
 						  notEmpty: {

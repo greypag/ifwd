@@ -521,7 +521,7 @@
 							<p><fmt:message key="label.change.beneficiary" bundle="${msg}" /></p>
 							<div id="beneficiary-btn">
 								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
-								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden">Back to application summary</button>
+								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.next" bundle="${msg}" /></button>
 								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
 									<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
 								</a>
