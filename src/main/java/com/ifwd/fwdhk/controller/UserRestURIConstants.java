@@ -151,6 +151,7 @@ public class UserRestURIConstants {
 	
 	public static final String CREATE_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater";
 	public static final String GET_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater?planCode=SAVIE-SP";
+	public static final String VALIDATE_SESSION = SERVICE_URL + "/member/token";
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";

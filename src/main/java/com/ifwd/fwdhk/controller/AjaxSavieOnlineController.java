@@ -536,4 +536,20 @@ public class AjaxSavieOnlineController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/validateSession"})
+	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		/*if(Methods.isXssAjax(request)){
+			return;
+		}*/
+		try {
+			jsonObject = savieOnlineService.validateSession(request);
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 }
