@@ -9,6 +9,10 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
+</script>
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -227,7 +231,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo"><fmt:message key="placeholder.residential.number" bundle="${msg}" /></label>
                                           </div>
                                        </div>
@@ -238,7 +242,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo"><fmt:message key="placeholder.mobileno" bundle="${msg}" /></label>
                                           </div>
                                        </div>
@@ -571,7 +575,7 @@
 			$(document).ready(function() {
 				setSelectReadonly('tmpGender', true);
 				setInputReadonly('so-calendar-dob', true);
-				setInputReadonly('residentialNo', true);
+				//setInputReadonly('residentialNo', true);
 				setInputReadonly('mobileNo', true);
 				setSelectReadonly('tmpMaritalStatus', true);
 				
@@ -648,7 +652,7 @@
 					 if($(this).val() == '') {
 					   $(this).parent('.selectDiv').parent('.et-date-info').removeClass('is-not-active');
 					}
-					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
+					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('dob', 'NOT_VALIDATED', null).validateField('dob');
 			   });
 			   
 			   $('.cstm-number-field').on('change', function() {

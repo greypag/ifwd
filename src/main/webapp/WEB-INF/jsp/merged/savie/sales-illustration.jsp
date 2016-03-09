@@ -102,7 +102,7 @@
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.premium.mode" bundle="${msg}" /></label>
-  								<p class="data-info">${saviePlanDetails.paymentType }</p>
+  								<p class="data-info">${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }</p>
   							</div>
   						</div>
   					</div>

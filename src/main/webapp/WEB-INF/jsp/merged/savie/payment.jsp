@@ -87,29 +87,31 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="payment-content-wrapper">
 				<p class="panel-title"><fmt:message key="label.payment.title" bundle="${msg}" /></p>						
-				<form action="" id="paymentForm" method="post">
-					<div class="radio-group clearfix">
-					   <div class="radio-button-group">
-						  <div class="clearfix desktop-align left cstm-md-col">
-							 <div class="pull-left radio-holder">
-								<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
-							 </div>
-							 <div class="pull-left desc">
+				
+				<div class="radio-group clearfix">
+				   <div class="radio-button-group">
+					  <div class="clearfix desktop-align left cstm-md-col">
+						 <div class="pull-left radio-holder">
+							<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
+						 </div>
+						 <div class="pull-left desc">
 								<fmt:message key="option.direct.debit" bundle="${msg}" />
-							 </div>
-						  </div>
-						  <div class="clearfix below desktop-align">
-							 <div class="pull-left radio-holder">
-								<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
-							 </div>
-							 <div class="pull-left desc">
+						 </div>
+					  </div>
+					  <div class="clearfix below desktop-align">
+						 <div class="pull-left radio-holder">
+							<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
+						 </div>
+						 <div class="pull-left desc">
 								<fmt:message key="option.pay.later" bundle="${msg}" />
-								<span>(Pay at Customer Service Center)</span>
-							 </div>
-						  </div>
-					   </div>
-					</div>
-					<div id="errorMsg" style="color: red;"></div>
+							<span>(Pay at Customer Service Center)</span>
+						 </div>
+					  </div>
+				   </div>
+				</div>
+				<div id="errorMsg" style="color: red;"></div>
+				
+				<form action="" id="paymentForm" method="post">
 					<div id="direct-debit-panel">
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
@@ -238,8 +240,9 @@ var language = "${language}";
 							<p class="policy-text"><fmt:message key="decleration.policy.owner" bundle="${msg}" /></p>
 						</div>
 					</div>
-					
-					<!-- merge with pay later -->
+				</form>	
+				<!-- merge with pay later -->
+				<form action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
 					<div id="pay-later-page" class="hidden">
 						<div class="make-an-appointment clearfix">
 							<div class="col-xs-12 col-md-6" id="left-side-form">
@@ -259,8 +262,8 @@ var language = "${language}";
 												<c:choose>
 											        <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 											            <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-                                                        </c:forEach>
+	                                                           <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+	                                                       </c:forEach>
 											        </c:when>
 											        <c:otherwise>
 													    <option value="" ></option>
@@ -274,7 +277,7 @@ var language = "${language}";
 								</div>
 								
 								<div class="centre-info visible-xs visible-sm" id="centre-info">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
+								
 									<a class="address-link" href="#"><fmt:message key="label.view.map" bundle="${msg}" /></a>
 								</div>
 								
@@ -318,8 +321,8 @@ var language = "${language}";
 											
 											<!-- <select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown"> -->
 											<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-                                                <option value=""></option>
-                                            </select>
+	                                               <option value=""></option>
+	                                           </select>
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 									</div>
@@ -328,19 +331,20 @@ var language = "${language}";
 							</div>
 							<div class="col-xs-12 col-md-6" id="right-side-form">
 								<div class="centre-info visible-md visible-lg" id="centre-info">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
+									
 									<a class="address-link" href="#"><fmt:message key="label.view.map" bundle="${msg}" /></a>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<center>
+				</form>
+				
+				<center>
 						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-						<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
-					</center>
-				</form>
+					<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
+				</center>
+				
 			</div>
 		</div>
 	</div>
@@ -476,6 +480,8 @@ var language = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
+		setCentre(serviceCentreCode);
+		
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
@@ -580,17 +586,17 @@ var language = "${language}";
 			   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 			}
 			
-			$('#paymentForm')
+					/* $('#payLaterForm')
 				.data('bootstrapValidator')
 				.updateStatus('preferredDate', 'NOT_VALIDATED', null)
-				.validateField('preferredDate');
+						.validateField('preferredDate'); */
 	   });
 	   
 	   $('#preferred-time').on('change', function() {
-		   $('#paymentForm')
+				   /* $('#payLaterForm')
 				.data('bootstrapValidator')
 				.updateStatus('preferred-time', 'NOT_VALIDATED', null)
-				.validateField('preferred-time');
+						.validateField('preferred-time'); */
 	   });
 	   
 	   $('.policy-text').on('click', function() {
@@ -676,28 +682,7 @@ var language = "${language}";
 					}
 				},
 				tmpCustomerServiceCentre: {
-				   container: '#customerServiceCentreErMsg',
-				   selector: '#tmpCustomerServiceCentre',
-				   validators: {
-					  notEmpty: {
-						 message: "Please select customer service centre."
-					  }
-				   }
-				},
-				"preferredDate": {
-				   container: '#preferredDateErMsg',
-				   selector: '#preferredDate',
-				   validators: {
-					  notEmpty: {
 					  	message: '<fmt:message key="error.date.empty" bundle="${msg}" />'
-					  }
-				   }
-				},
-				"preferred-time": {
-				   container: '#preferredTimeErMsg',
-				   selector: '#preferred-time',
-				   validators: {
-					  notEmpty: {
 					  	message: '<fmt:message key="error.time.empty" bundle="${msg}" />'
 					  }
 				   }
@@ -738,19 +723,10 @@ var language = "${language}";
    
 	 $('#centre').on('change', function() {
          var centre = $('#centre option:selected').val();
-         <%
-         ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
-         if(serviceCentre.getServiceCentres().size() > 0) {
-             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
-         %>
-         if(centre == '<%=entity.getServiceCentreCode() %>') {
+         setCentre(centre);
             $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
-         }
-         <%
-             }
-         }
-         %>
-      });
+     });
+	 
 	 $('.selectDiv').find('span').remove();
 	 console.log($('.ui-select > #centre-button > span').text());
 	 $('#centre-button > span').remove();
@@ -759,7 +735,7 @@ var language = "${language}";
 		if(getWidth()>=992) {
 		   var inner_centre_html = $('#inline-centre').html();
 
-			 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
+			<%--  var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
 			 var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
 			 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
 			 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
@@ -769,7 +745,7 @@ var language = "${language}";
 			 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
 			 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
 			 var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-			 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
+			 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin"; --%>
 
 		}
 		else {
@@ -800,14 +776,15 @@ var language = "${language}";
 	 
 	 function goNext(){
 			if($('input[name="payment"]:checked ').val() == "false"){
-				//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 				var csCenter = $("#centre").val();
 				var perferredDate = $("#preferred-date").val();
 				var perferredTime = $("#preferred-time").val();
-				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-					//$('#fullyBooked').modal('show');
+				if(perferredDate == null || csCenter == "") {
+					$('#customerServiceCentreErMsg').html('Please select customer service centre.');
+				}else if(perferredDate == null || perferredDate.trim() == ""){
+					$('#preferredDateErMsg').html('Please specify a date.');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
-					//$('#perferredTimeIsNull').modal('show');
+					$('#preferredTimeErMsg').html('Please specify a time.');
 				}else{
 					$.ajax({     
 					    url:context+'/ajax/savings-insurance/upsertAppointment',     
@@ -822,10 +799,7 @@ var language = "${language}";
 					    success:function(data){
 					    	if(data.errMsgs == null){
 					    		//send email
-					    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
-					    		
-					    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
-						    	$("#paymentForm").submit();
+						    	$("#payLaterForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');
 					    		console.log(data.errMsgs);
@@ -859,5 +833,20 @@ var language = "${language}";
 	function togglePreferred(id) {
 		$(".form-group .preferred-date .date").hide();
 		$("#"+ id).show();
+	}
+	
+	function setCentre(centre){
+		<%
+        ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
+        if(serviceCentre.getServiceCentres().size() > 0) {
+            for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+        %>
+        if(centre == '<%=entity.getServiceCentreCode() %>') {
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+        }
+        <%
+            }
+        }
+        %>
 	}
 </script>

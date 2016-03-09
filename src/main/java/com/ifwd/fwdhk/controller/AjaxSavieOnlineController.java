@@ -222,8 +222,8 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-			savieFna.setName(userDetails.getUserName());
-			savieFna.setUser_name(userDetails.getUserName());
+			savieFna.setName(userDetails.getFullName());
+			savieFna.setUser_name(userDetails.getFullName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
 		} 
@@ -535,5 +535,21 @@ public class AjaxSavieOnlineController extends BaseController{
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/validateSession"})
+	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		/*if(Methods.isXssAjax(request)){
+			return;
+		}*/
+		try {
+			jsonObject = savieOnlineService.validateSession(request);
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
 	}
 }

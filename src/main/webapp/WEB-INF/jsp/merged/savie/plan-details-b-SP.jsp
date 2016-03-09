@@ -121,7 +121,7 @@ var languageP = "${language}";
 				                   <div class="pull-right">
 				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-									<input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-step="2000" data-slider-min="30000" data-slider-max="" data-slider-step="500" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
 											<fmt:message key="label.min" bundle="${msg}" />
@@ -272,7 +272,7 @@ var languageP = "${language}";
 						</table>
 					</div>
 					<!-- rate2 -->
-					<div id="rate-table-2" class="rate-table">
+					<div id="rate-table-2" class="rate-table hidden">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -314,7 +314,7 @@ var languageP = "${language}";
 						</table>
 					</div>
 					<!-- rate3 -->
-					<div id="rate-table-3" class="rate-table hidden">
+					<div id="rate-table-3" class="rate-table">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -371,7 +371,7 @@ var languageP = "${language}";
 							<tbody>
 								<tr id="new-table-added">
 									<td class="policy-credit policy-number bold" id="policy-year-4-0">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-0">3.3</td> 
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-0">4</td> 
 									<td id="premium-change-4-0">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-0">0</td>    
 									<td id="surrender-change-4-0">0</td>
@@ -379,7 +379,7 @@ var languageP = "${language}";
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-4-1">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-1">3.3</td> 
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-1">4</td> 
 									<td id="premium-change-4-1">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-1">0</td>    
 									<td id="surrender-change-4-1">0</td>
@@ -387,7 +387,7 @@ var languageP = "${language}";
 								</tr>
 								<tr>
 									<td class="policy-credit policy-number bold" id="policy-year-4-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-2">3.3</td>
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-2">4</td>
 									<td id="premium-change-4-2">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-2">0</td>    
 									<td id="surrender-change-4-2">0</td>
@@ -505,7 +505,7 @@ var languageP = "${language}";
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
 			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden">Back to summary</button>
-			<a href="<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre" class="pd-link"><fmt:message key="label.apply.incs" bundle="${msg}" /></a>
+			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">Apply at Customer Service Centre</a>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->
 		<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
@@ -637,7 +637,7 @@ var languageP = "${language}";
 		
 		if('2'!='${type }'){
 			$('#plan-dob-datepicker').datepicker({
-				format: "yyyy-mm-dd",
+				format: "dd-mm-yyyy",
 				startView: "decade",
 				startDate: dob_start_date,
 				endDate: dob_end_date,
@@ -786,6 +786,7 @@ var languageP = "${language}";
 	}
 	
 	$("#btn-proceed").on('click', function(){
+		apply=false;
 		if('2'=='${type }'){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}else {
@@ -809,40 +810,45 @@ var languageP = "${language}";
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 	});
 	
+	var apply=false;//判断是否点击proceed
 	function saviePlanDetailsGoNext(){
-		if($("#type-of-payment").val() == 'regular-payment') {
+		if(apply){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 		}else {
-			$.ajax({     
-			    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-			    type:'get',     
-			    error:function(){       
-			    },     
-			    success:function(data){
-   		    		$('#loginpopup').modal('hide');
-			    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-			    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
-			    		$('#prev-savie-app-modal').modal('show');
-			    		
-			    	}else{
-			    		$.ajax({     
-			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-			    		    type:'get',     
-			    		    error:function(){       
-			    		    },     
-			    		    success:function(data){
-			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-			    		    		$('#review-fna-modal').modal('show');
-			    		    	}
-			    		    	else{
-			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-			    		    	}
-			    		    }  
-			    		});
-			    	}
-			    }  
-			});
+			if($("#type-of-payment").val() == 'regular-payment') {
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+			}else {
+				$.ajax({     
+				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+				    type:'get',     
+				    error:function(){       
+				    },     
+				    success:function(data){
+	   		    		$('#loginpopup').modal('hide');
+				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+				    		$('#prev-savie-app-modal').modal('show');
+				    		
+				    	}else{
+				    		$.ajax({     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+				    		    type:'get',     
+				    		    error:function(){       
+				    		    },     
+				    		    success:function(data){
+				    		    	if(data != null && data.errMsgs == null && data.name !=null){
+				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+				    		    		$('#review-fna-modal').modal('show');
+				    		    	}
+				    		    	else{
+				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+				    		    	}
+				    		    }  
+				    		});
+				    	}
+				    }  
+				});
+			}
 		}
 	}
 	
@@ -885,7 +891,7 @@ var languageP = "${language}";
 	    'iPad',
 	    'iPhone',
 	    'iPod'
-	  ];
+	  ];	
 
 	  if (!!navigator.platform) {
 	    while (iDevices.length) {
@@ -903,6 +909,15 @@ var languageP = "${language}";
 		console.log('browser: false');
 		//$('.rate-btn').attr('style', 'width:60px;');
 	} */
+	function applyCentre(){
+		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		}else{
+			apply=true;
+            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+			$('#loginpopup').modal('show');			
+		}
+	
 </script>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>

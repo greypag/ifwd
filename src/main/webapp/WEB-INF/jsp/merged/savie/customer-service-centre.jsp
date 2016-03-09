@@ -1,205 +1,322 @@
-<%@page pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-      
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-	</head>
-	<body>
-		<%!
-			boolean isSaleActiveClass = false;
-			boolean isEservicesActiveClass = false;
-		%>
-		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="make-an-appointment-page">			
-
-         <div class="fwd-container container-fluid breadcrumbs">
-            <div class="breadcrumb-container">
-               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                   <li><a href="#">Home</a></li>
-				   <li class="divider"><i class="fa fa-play"></i></li>
-				   <li><a href="#">Save </a></li>
-				   <li class="divider"><i class="fa fa-play"></i></li>
-				   <li><a href="#">Savie </a></li>
-				   <li class="divider last"><i class="fa fa-play"></i></i></li>
-				   <li class="active-bc" id="et-active-bc-menu">Application</li>
-               </ol>
-            </div>
-         </div>
-         <!-- STEPS -->
-         <div class="container-fluid fwd-full-container browse-holder">
-            <div class="application-page-header et-header-browse">
-               <div class="browse-container">
-                  <div class="row reset-margin hidden-xs hidden-sm">
-                     <ul class="common-steps-list nav nav-pills">
-                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Make an appointment</button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Confirmation</button></li>
-                     </ul>
-                 </div>
-               </div>  
-               <div class="et-mobile-header-info hidden-md hidden-lg">
-                  <div class="clearfix">
-                     <div class="et-back-arrow">
-                        <a href="#" class="back-arrow-link">
-                           <span class="icon-arrow-left2 arrow-left"></span>
-                        </a>
-                     </div>
-                     <div class="et-header-tex">
-                        <h3 id="">Make an appointment</h3>
-                     </div>
-                  </div>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="java.util.*"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var language = "${language}";
+</script>
+<%!
+	boolean isSaleActiveClass = false;
+	boolean isEservicesActiveClass = false;
+%>
+<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="make-an-appointment-page">			
+       <div class="fwd-container container-fluid breadcrumbs">
+          <div class="breadcrumb-container">
+             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+                 <li><a href="#">Home</a></li>
+		   <li class="divider"><i class="fa fa-play"></i></li>
+		   <li><a href="#">Save </a></li>
+		   <li class="divider"><i class="fa fa-play"></i></li>
+		   <li><a href="#">Savie </a></li>
+		   <li class="divider last"><i class="fa fa-play"></i></i></li>
+		   <li class="active-bc" id="et-active-bc-menu">Application</li>
+             </ol>
+          </div>
+       </div>
+       <!-- STEPS -->
+       <div class="container-fluid fwd-full-container browse-holder">
+          <div class="application-page-header et-header-browse">
+             <div class="browse-container">
+                <div class="row reset-margin hidden-xs hidden-sm">
+                   <ul class="common-steps-list nav nav-pills">
+                      <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+                      <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                      <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Make an appointment</button></li>
+                      <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                      <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Confirmation</button></li>
+                   </ul>
                </div>
-            </div>
+             </div>  
+             <div class="et-mobile-header-info hidden-md hidden-lg">
+                <div class="clearfix">
+                   <div class="et-back-arrow">
+                      <a href="#" class="back-arrow-link">
+                         <span class="icon-arrow-left2 arrow-left"></span>
+                      </a>
+                   </div>
+                   <div class="et-header-tex">
+                      <h3 id="">Make an appointment</h3>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
+          <div class="step-indicator-container clearfix">
+             <ul class="common-step-indicator three-steps nav nav-pills">
+                 <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
+                 <li><a href="#" class="active"><span class="step-no">2</span></a></li>
+                 <li id="last-step"><a href="#"><span class="step-no">3</span></a></li>
+             </ul>
+             <div class="step-line"></div>
+          </div>
+       </div>
+       <div class="container-fluid fwd-container make-an-appointment headerStick">
+         <div class="row" id="appointment-form-holder">
+             <form action="" id="paymentForm" method="post">
+                <div class="col-xs-12 col-md-6" id="left-side-form">
+                   <h5>Please choose service centre</h5>
+			 <p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
+                   <div class="selectDiv centreDiv gray-text-bg">
+                      <select name="centre" id="centre" class="form-control gray-dropdown">
+                         <!-- <option value="" disabled selected>Customer Service Centre</option>
+                         <option value="1">Tsim Sha Tsui</option>
+                         <option value="2">Quarry Bay</option>
+                         <option value="3">Sheung Wan</option>
+                         <option value="4">Kwun Tong</option>
+                         <option value="5">Shatin</option> -->
+                         <c:choose>
+					         <c:when test="${serviceCentre.serviceCentres.size() > 0}">
+					             <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+                                     <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+                                 </c:forEach>
+					         </c:when>
+					         <c:otherwise>
+							     <option value="" ></option>
+							 </c:otherwise>
+					     </c:choose>
+                      </select>
+                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+                   </div>
+                   <div class="centre-info visible-xs visible-sm" id="centre-info">
+                      
+                   </div>
+                   <div id="date" class="selectDiv preferred-date gray-text-bg">
+                      <!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
+                      <%
+					  Map results = (Map)request.getAttribute("datesMap");
+					  Map.Entry<String, List> entry; 
+					  Iterator i;
+					  Boolean result = results.size() > 0; 
+					  if(result) {
+						  i = results.entrySet().iterator();
+						  while(i.hasNext()){
+							  entry=(Map.Entry<String, List>)i.next();
+					  %>
+					  <input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" style="display:none;" >
+					  <%
+						  }
+					  }else {
+					  %>
+					  <input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
+					  <%
+					  }
+					  %>
+					  <input type="hidden" name="preferred-date" id="preferred-date" value="${perferredDate }">
+                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+                   </div>
+                    <div class="selectDiv timeslot gray-text-bg">
+                      <!-- <input type="text" name="preferred-time" id="preferred-time" value="Time"> -->
+                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
+                          <option value=""></option>
+                      </select>
+                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+                   </div>
+                </div>
+                <div class="col-xs-12 col-md-6" id="right-side-form">
+                   <div class="centre-info visible-md visible-lg" id="centre-info">
+                      
+                   </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="text-center clearfix">
+                      <button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter">Next</button>
+                   </div>
+                </div>   
+             </form>
          </div>
-         <div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-            <div class="step-indicator-container clearfix">
-               <ul class="common-step-indicator three-steps nav nav-pills">
-                   <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-                   <li><a href="#" class="active"><span class="step-no">2</span></a></li>
-                   <li id="last-step"><a href="#"><span class="step-no">3</span></a></li>
-               </ul>
-               <div class="step-line"></div>
-            </div>
-         </div>
-         <div class="container-fluid fwd-container make-an-appointment headerStick">
-           <div class="row" id="appointment-form-holder">
-               <form>
-                  <div class="col-xs-12 col-md-6" id="left-side-form">
-                     <h5>Please choose service centre</h5>
-					 <p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
-                     <div class="selectDiv centreDiv gray-text-bg">
-                        <select name="centre" id="centre" class="form-control gray-dropdown">
-                           <option value="" disabled selected>Customer Service Centre</option>
-                           <option value="1">Tsim Sha Tsui</option>
-                           <option value="2">Quarry Bay</option>
-                           <option value="3">Sheung Wan</option>
-                           <option value="4">Kwun Tong</option>
-                           <option value="5">Shatin</option>
-                        </select>
-                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                     </div>
-                     <div class="centre-info visible-xs visible-sm" id="centre-info">
-                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
-						<h4>Address</h4>
-						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-						<a class="address-link" href="http://maps.google.com/?q=Fontaine%20Building%2C%2018%20Mody%20Road%2C%20Tsim%20Sha%20Tsui" target="_blank">View map</a>
-                     </div>
-                     <div id="date" class="selectDiv preferred-date gray-text-bg">
-                        <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly="">
-                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                     </div>
-                      <div class="selectDiv timeslot gray-text-bg">
-                        <input type="text" name="preferred-time" id="preferred-time" value="Time">
-                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                     </div>
-                  </div>
-                  <div class="col-xs-12 col-md-6" id="right-side-form">
-                     <div class="centre-info visible-md visible-lg" id="centre-info">
-                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
-						<h4>Address</h4>
-						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-						<a class="address-link" href="http://maps.google.com/?q=Fontaine%20Building%2C%2018%20Mody%20Road%2C%20Tsim%20Sha%20Tsui" target="_blank">View map</a>
-                     </div>
-                  </div>
-                  <div class="col-xs-12">
-                      <div class="text-center clearfix">
-                        <button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter">Next</button>
-                     </div>
-                  </div>   
-               </form>
-           </div>
-         </div>
-			<!-- FOOTER -->
-		</div>
+       </div>
+	<!-- FOOTER -->
+</div>
+
+<!-- JS INCLUDES -->
+<script type="text/javascript">
+	var language = "en";
+	
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
+	var sFullDate= new Date();
+	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
+	$(document).ready(function() {
+		var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		var perferredTime = $("#preferred-time").val();
+		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			//$('#fullyBooked').modal('show');
+		}
+		<%
+		if(!result) {
+		%>
+		$('#full-date').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: sFullDate,
+			endDate: eFullDate,
+			autoclose: true,
+		}).on('changeDate', function (ev) {
+		});
+		<%
+		}
+		%>
+		<%
+		results = (Map)request.getAttribute("datesMap");
+		if(results != null) {
+			i = results.entrySet().iterator();         
+			while(i.hasNext()){
+				entry=(Map.Entry<String, List>)i.next();
+		%>
+		var data<%=entry.getKey()%>='<%=entry.getValue()%>';
+		$('#preferred-date-<%=entry.getKey()%>').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: startDate,
+			endDate: endDate,
+			autoclose: true,
+			beforeShowDay:function(Date){
+			    var curr_date = Date.toJSON().substring(0,10);
+			    if (data<%=entry.getKey()%>.indexOf(curr_date)>-1){
+			    	return false;        
+			    }
+			}
+		}).on('changeDate', function (ev) {
+			if(ev.date != null){
+				$("#preferred-date-mirror").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
+				$("#preferred-date").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
+			}
+			else{
+				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
+			}
+			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
+				getTimeSlot('${perferredTime }');
+			}
+			else{
+				$("#preferred-time").empty();
+				$("#preferred-time").prepend("<option value=''></option>");
+			}
+		});
+		<%
+			}
+		}
+		%>
+		$("#preferred-date-${csCenter}").show();
+		var serviceCentreCode = '${csCenter }';
+		setCentre(serviceCentreCode);
 		
-		<!-- JS INCLUDES -->
-		<script type="text/javascript">
-			var language = "en";
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
+			getTimeSlot('${perferredTime }');
+		}
+	});
+       $(window).bind('scroll', function() {
+          stickHeaderBrowse();
+       });
 
-         $(window).bind('scroll', function() {
-            stickHeaderBrowse();
-         });
+       /* $('#preferred-time').timepicker({
+          appendTo: '.timeslot',
+          timeFormat: 'H:i',
+       }); */
+       $('#preferred-date').datepicker({
+          format: "dd-mm-yyyy",
+          //format: 'yy-mm-dd',
+          container: "#date",
+          startDate: new Date(),
+          autoclose: true
+       });
 
-         $('#preferred-time').timepicker({
-            appendTo: '.timeslot',
-            timeFormat: 'H:i',
-            disableTextInput: true,
-            disableTouchKeyboard: true
-         });
-         $('#preferred-date').datepicker({
-            format: "dd-mm-yyyy",
-            //format: 'yy-mm-dd',
-            container: "#date",
-            startDate: new Date(),
-            autoclose: true
-         });
+       $('#centre').on('change', function() {
+           var centre = $('#centre option:selected').val();
+           setCentre(centre);
+        });
+       $('.selectDiv').find('span').remove();
+       console.log($('.ui-select > #centre-button > span').text());
+       $('#centre-button > span').remove();
+       applicationCentre();
+       function applicationCentre() {
+          if(getWidth()>=992) {
+             var inner_centre_html = $('#inline-centre').html();
 
-         var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
-         var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
-         var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
-         var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
-         var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
-         var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
-         var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
-         var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
-         var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-         var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
-         var query1 = "Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
-         var query2 = "Taikoo Place Devon House, 979 King’s Road, Quarry Bay";
-         var query3 = "FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
-         var query4 = "Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-         var query5 = "Tower II, Grand Central Plaza, Shatin";
+             $('#inline-centre').addClass('hidden');
+             $('#right-centre').append(inner_centre_html).removeClass('hidden');
+             $('#inline-centre').html('');
 
-         var centre = $('#centre option:selected').val();
-         var gmap_query_url = "http://maps.google.com/?q=";
+          }
+          else {
+             var inner_centre_html = $('#right-centre').html();
+
+             $('#inline-centre').append(inner_centre_html).removeClass('hidden');
+             $('#right-centre').html('');
+          }
+       }
        
-         $('#centre').on('change', function() {
-            var centre = $('#centre option:selected').val();
-            if(centre == 1) {
-               $('.centre-info').html('<img src="'+img1+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr1+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query1) + '" target="_blank">View map</a>');
+       
+    $("#btn-cstmr-srvc-cnter").on('click', function(){
+      	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+      	
+    	var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		var perferredTime = $("#preferred-time").val();
+		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			//$('#fullyBooked').modal('show');
+		}else if(perferredTime == null || perferredTime.trim() == ""){
+			//$('#perferredTimeIsNull').modal('show');
+		}else{
+			$.ajax({     
+			    url:context+'/ajax/savings-insurance/upsertAppointment',
+			    type:'post',     
+			    data:{    
+			    	"csCenter": csCenter,
+			        "perferredDate":perferredDate,
+			        "perferredTime":perferredTime
+		   		},     
+			    error:function(){       
+			    },     
+			    success:function(data){
+			    	if(data.errMsgs == null){
+			    		//send email
+			    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}');
+				    	$("#paymentForm").submit();
+			    	}else if(data.errMsgs == "Access code has already been used"){
+			    		//$('#accessCodeUsed').modal('show');
+			    		console.log(data.errMsgs);
+			    	}else if(data.errMsgs == "Reservation is invalid"){
+			    		//$('#reservationInvalid').modal('show');
+			    		console.log(data.errMsgs);
+			    	}
+			    }  
+			});
+		}
+   	});
+    
+    function setCentre(centre){
+    	<%
+        ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
+        if(serviceCentre.getServiceCentres().size() > 0) {
+            for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+        %>
+        if(centre == '<%=entity.getServiceCentreCode() %>') {
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+        }
+        <%
             }
-            if(centre == 2) {
-               $('.centre-info').html('<img src="'+img2+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr2+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query2) + '" target="_blank">View map</a>');
-            }
-            if(centre == 3) {
-               $('.centre-info').html('<img src="'+img3+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr3+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query3) + '" target="_blank">View map</a>');
-            }
-            if(centre == 4) {
-               $('.centre-info').html('<img src="'+img4+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr4+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query4) + '" target="_blank">View map</a>');
-            }
-            if(centre == 5) {
-               $('.centre-info').html('<img src="'+img5+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr5+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query5) + '" target="_blank">View map</a>');
-            }
-         });
-         $('.selectDiv').find('span').remove();
-         console.log($('.ui-select > #centre-button > span').text());
-         $('#centre-button > span').remove();
-         applicationCentre();
-         function applicationCentre() {
-            if(getWidth()>=992) {
-               var inner_centre_html = $('#inline-centre').html();
-
-               $('#inline-centre').addClass('hidden');
-               $('#right-centre').append(inner_centre_html).removeClass('hidden');
-               $('#inline-centre').html('');
-
-            }
-            else {
-               var inner_centre_html = $('#right-centre').html();
-
-               $('#inline-centre').append(inner_centre_html).removeClass('hidden');
-               $('#right-centre').html('');
-            }
-         }
-         
-         
-         $("#btn-cstmr-srvc-cnter").on('click', function(){
-        	 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-     	});
-		</script>
-		
-		
-	</body>
-</html>
+        }
+        %>
+    }
+</script>

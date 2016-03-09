@@ -1,3 +1,5 @@
+getpath=context;
+
 // Savie Online
 $(document).ready(function() {	
 	
