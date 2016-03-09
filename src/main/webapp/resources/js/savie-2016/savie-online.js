@@ -1,5 +1,3 @@
-getpath=context;
-
 // Savie Online
 $(document).ready(function() {	
 	
@@ -593,32 +591,32 @@ function isBeneficaryFormValid() {
   var beneficiaryRes3 = true;
   // Beneficiary Person 1
   if ($('#beneficiary-info-form\\[0\\]').length) {
-	  $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 	 if ($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes1 = true;
 	 } else {
 		beneficiaryRes1 = false;
-		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 	 }
   }
   // Beneficiary Person 2
   if ($('#beneficiary-info-form\\[1\\]').length) {
-	  $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
 	 if (isBeneficiaryFormEmpty(1) || $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes2 = true;
 	 } else {
 		beneficiaryRes2 = false;
-		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
 	 }
   }
   // Beneficiary Person 3
   if ($('#beneficiary-info-form\\[2\\]').length) {
-	  $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
 	 if (isBeneficiaryFormEmpty(2) || $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes3 = true;
 	 } else {
 		beneficiaryRes3 = false;
-		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
 	 }
   }
   return beneficiaryRes1 && beneficiaryRes2 && beneficiaryRes3;

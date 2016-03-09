@@ -881,6 +881,15 @@ var languageP = "${language}";
 			$('#total-payment-years').append('<option value='+i+'>'+i+'</option>');
 		}
 	}
+	function applyCentre(){
+		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		}else{
+			apply=true;
+            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+			$('#loginpopup').modal('show');			
+		}
+	}	
 	
 	/* // Detect iOS
 	function iOS() {
@@ -909,14 +918,7 @@ var languageP = "${language}";
 		console.log('browser: false');
 		//$('.rate-btn').attr('style', 'width:60px;');
 	} */
-	function applyCentre(){
-		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
-		}else{
-			apply=true;
-            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
-			$('#loginpopup').modal('show');			
-		}
+	
 	
 </script>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
