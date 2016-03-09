@@ -38,7 +38,7 @@
     cursor: pointer;
 
     color: transparent;
-    border: none;
+    /*border: none;*/
     outline: none;
     background: transparent;
 }

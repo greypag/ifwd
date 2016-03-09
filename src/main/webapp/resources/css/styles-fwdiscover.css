@@ -1608,11 +1608,11 @@
 	width: 20%;
 	border-right: 1px solid #081d28;
 	padding: 2%;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 700;
 }
 #hotel-voucher-carousel .carousel-item-container .fanfare-date .fanfare-day{
-	font-size: 36px;
+	font-size: 34px;
 	font-weight: 700;
 }
 #hotel-voucher-carousel .carousel-item-container.selected .hotel-name,
@@ -1879,7 +1879,7 @@ span#previous-hotel-date,span#next-hotel-date{
 }
 #hotel-description-carosuel div#hotel-lanuch-date{
     font-size: 24px;
-    font-weight: 700px;
+    font-weight: 700;
 }
 span#previous-hotel-name,span#next-hotel-name{
     /*line-height: 53px;
