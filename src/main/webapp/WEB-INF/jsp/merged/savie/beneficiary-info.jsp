@@ -726,7 +726,7 @@
 					var counter = 0;
 					$('#beneficiary-info-form\\[0\\]').bootstrapValidator({
 						fields: {
-							'beneficiaryFirstName[0]':{
+							'beneficaryFirstName1':{
 								container: '#beneficiaryFirstErMsg\\[0\\]',
 								validators: {
 									notEmpty: {
@@ -742,7 +742,7 @@
 									}
 								}
 							},
-							'beneficiaryLastName[0]':{
+							'beneficaryLastName1':{
 								container: '#beneficiaryLastErMsg\\[0\\]',
 								validators: {
 									notEmpty: {
@@ -758,7 +758,7 @@
 									}
 								}
 							},
-							'beneficiaryChineseName[0]':{
+							'beneficaryChineseName1':{
 								container: '#beneficiaryChineseNameErMsg\\[0\\]',
 								validators: {
 									stringLength: {
@@ -773,7 +773,7 @@
 									trigger: 'change keyup'
 								}
 							},
-							'beneficiaryHkidPassport[0]':{
+							'beneficiaryHkidPassport1':{
 								container: '#beneficiaryHkidPassportErMsg\\[0\\]',
 								validators: {
 									notEmpty: {
@@ -781,7 +781,7 @@
 				                    }
 								}
 							},
-							'beneficiaryPassport[0]':{
+							'beneficiaryPassport1':{
 								container: '#beneficiaryHkidPassErMsg\\[0\\]',
 								validators: {
 									stringLength: {
@@ -798,7 +798,7 @@
 					               }
 								}
 							},
-							'beneficiaryHkid[0]':{
+							'beneficaryID1':{
 								container: '#beneficiaryHkidPassErMsg\\[0\\]',
 								validators: {
 									notEmpty: {
@@ -817,7 +817,7 @@
 					                }
 								}
 							},
-							"beneficiaryGender[0]": {
+							'beneficaryGender1': {
 							   container: '#beneficiaryGenderErMsg\\[0\\]',
 							   validators: {
 								  notEmpty: {
@@ -825,7 +825,7 @@
 								  }
 							   }
 							},
-							'beneficiaryRelationship[0]':{
+							'beneficaryRelation1':{
 								container: '#beneficiaryRelationErMsg\\[0\\]',
 								validators: {
 									notEmpty: {
@@ -833,7 +833,7 @@
 									}
 								}
 							},
-							'beneficiaryEntitlement[0]':{
+							'beneficaryWeight1':{
 								container: '#beneficiaryEntitlementErMsg\\[0\\]',
 								validators: {
 									integer:{
@@ -890,7 +890,7 @@
 					$(document).on('click','#add-beneficiary-btn-1',function() {
 					 $('#beneficiary-info-form\\[1\\]').bootstrapValidator({
 						 fields: {
-							'beneficiaryFirstName[1]':{
+							'beneficiaryFirstName2':{
 							    container: '#beneficiaryFirstErMsg\\[1\\]',
 							    validators: {
 									notEmpty: {
@@ -906,7 +906,7 @@
 									}
 								}
 							},
-							'beneficiaryLastName[1]':{
+							'beneficiaryLastName2':{
 								container: '#beneficiaryLastErMsg\\[1\\]',
 								validators: {
 									notEmpty: {
@@ -922,7 +922,7 @@
 									}
 								}
 							},
-							'beneficiaryChineseName[1]':{
+							'beneficiaryChineseName2':{
 							   container: '#beneficiaryChineseNameErMsg\\[1\\]',
 							   validators: {
 									stringLength: {
@@ -941,7 +941,7 @@
 									}
 								}
 							},
-							'beneficiaryHkidPassport[1]':{
+							'beneficiaryHkidPassport2':{
 								container: '#beneficiaryHkidPassportErMsg\\[1\\]',
 								validators: {
 									notEmpty: {
@@ -949,7 +949,7 @@
 				                    }
 								}
 							},
-							'beneficiaryPassport[1]':{
+							'beneficiaryPassport2':{
 								container: '#beneficiaryHkidPassErMsg\\[1\\]',
 								validators: {
 									stringLength: {
@@ -966,7 +966,7 @@
 					               }
 								}
 							},
-							'beneficiaryHkid[1]':{
+							'beneficiaryHkid2':{
 								container: '#beneficiaryHkidPassErMsg\\[1\\]',
 								validators: {
 									notEmpty: {
@@ -985,7 +985,7 @@
 					                }
 								}
 							},
-							"beneficiaryGender[1]": {
+							"beneficiaryGender2": {
 							   container: '#beneficiaryGenderErMsg\\[1\\]',
 							   validators: {
 								  notEmpty: {
@@ -993,7 +993,7 @@
 								  }
 							   }
 							},
-							'beneficiaryRelationship[1]':{
+							'beneficiaryRelationship2':{
 							   container: '#beneficiaryRelationErMsg\\[1\\]',
 								validators: {
 									notEmpty: {
@@ -1001,7 +1001,7 @@
 									}
 								}
 							},
-							'beneficiaryEntitlement[1]':{
+							'beneficiaryEntitlement2':{
 							   container: '#beneficiaryEntitlementErMsg\\[1\\]',
 							   validators: {
 									integer:{
@@ -1057,7 +1057,7 @@
 					$(document).on('click','#add-beneficiary-btn-2',function(){
 						$('#beneficiary-info-form\\[2\\]').bootstrapValidator({
 							fields: {
-								'beneficiaryFirstName[2]':{
+								'beneficiaryFirstName3':{
 									container: '#beneficiaryFirstErMsg\\[2\\]',
 									validators: {
 									notEmpty: {
@@ -1073,7 +1073,7 @@
 									},
 								}
 								},
-								'beneficiaryLastName[2]':{
+								'beneficiaryLastName3':{
 									container: '#beneficiaryLastErMsg\\[2\\]',
 									validators: {
 									  notEmpty: {
@@ -1090,7 +1090,7 @@
 									  }
 									}
 								},
-								'beneficiaryChineseName[2]':{
+								'beneficiaryChineseName3':{
 									container: '#beneficiaryChineseNameErMsg\\[2\\]',
 									validators: {
 									  stringLength: {
@@ -1109,7 +1109,7 @@
 									  }
 									}
 								},
-								'beneficiaryHkidPassport[2]':{
+								'beneficiaryHkidPassport3':{
 									container: '#beneficiaryHkidPassportErMsg\\[2\\]',
 									validators: {
 										notEmpty: {
@@ -1117,7 +1117,7 @@
 										}
 									}
 								},
-								'beneficiaryPassport[2]':{
+								'beneficiaryPassport3':{
 									container: '#beneficiaryHkidPassErMsg\\[2\\]',
 									validators: {
 										stringLength: {
@@ -1134,7 +1134,7 @@
 									   }
 									}
 								},
-								'beneficiaryHkid[2]':{
+								'beneficiaryHkid3':{
 								container: '#beneficiaryHkidPassErMsg\\[2\\]',
 								validators: {
 									notEmpty: {
@@ -1153,7 +1153,7 @@
 					                }
 								}
 							},
-								"beneficiaryGender[2]": {
+								'beneficiaryGender3': {
 								   container: '#beneficiaryGenderErMsg\\[2\\]',
 								   validators: {
 									  notEmpty: {
@@ -1161,7 +1161,7 @@
 									  }
 								   }
 								},
-								'beneficiaryRelationship[2]':{
+								'beneficiaryRelationship3':{
 									container: '#beneficiaryRelationErMsg\\[2\\]',
 									validators: {
 										notEmpty: {
@@ -1169,7 +1169,7 @@
 										}
 									}
 								},
-								'beneficiaryEntitlement[2]':{
+								'beneficiaryEntitlement3':{
 									container: '#beneficiaryEntitlementErMsg\\[2\\]',
 									validators: {
 										integer:{

@@ -619,34 +619,6 @@ function maxLengthCheck(object){
 	if (object.value.length > object.maxLength)
 	object.value = object.value.slice(0, object.maxLength)
 }
-
-			'beneficaryFirstName1':{
-			'beneficaryLastName1':{
-			'beneficaryChineseName1':{
-			'beneficiaryHkidPassport1':{
-			'beneficiaryPassport1':{
-			'beneficaryID1':{
-			"beneficaryGender1": {
-			'beneficaryRelation1':{
-			'beneficaryWeight1':{
-			'beneficiaryFirstName2':{
-			'beneficiaryLastName2':{
-			'beneficiaryChineseName2':{
-			'beneficiaryHkidPassport2':{
-			'beneficiaryPassport2':{
-			'beneficiaryHkid2':{
-			"beneficiaryGender2": {
-			'beneficiaryRelationship2':{
-			'beneficiaryEntitlement2':{
-				'beneficiaryFirstName3':{
-				'beneficiaryLastName3':{
-				'beneficiaryChineseName3':{
-				'beneficiaryHkidPassport3':{
-				'beneficiaryPassport3':{
-				'beneficiaryHkid3':{
-				"beneficiaryGender3": {
-				'beneficiaryRelationship3':{
-				'beneficiaryEntitlement3':{
 // Checking Beneficiary entitlement
 function totalBeneficiaryEntitlement() {
 	var doesExceed ='';
