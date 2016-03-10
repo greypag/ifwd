@@ -47,7 +47,7 @@ public class SavieOnlinePageFlowControl {
 		String current = request.getServletPath();
 		if (referer != null) {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
-				referer = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+				referer = UserRestURIConstants.PAGE_SAVIEONLINE_REGULAR_PREMIUM;
 			} else {
 				referer = getSavieOnlinePage(referer);
 			}
@@ -55,7 +55,7 @@ public class SavieOnlinePageFlowControl {
 
 		if (current != null) {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
-				current = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+				current = UserRestURIConstants.PAGE_SAVIEONLINE_REGULAR_PREMIUM;
 			} else {
 				current = getSavieOnlinePage(current);
 			}
@@ -197,6 +197,14 @@ public class SavieOnlinePageFlowControl {
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			filePath = "savie/";
 			break;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SINGLE_PREMIUM:
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
+			filePath = "savie/";
+			break;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_REGULAR_PREMIUM:
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
+			filePath = "savie/";
+			break;
 
 		default:
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
@@ -221,7 +229,8 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LANDING)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS)) {
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_RP) 
+				|| url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_SP)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
 		}
 		
@@ -282,6 +291,12 @@ public class SavieOnlinePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_SAVIEONLINE_SINGLE_PREMIUM)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SINGLE_PREMIUM;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_SAVIEONLINE_REGULAR_PREMIUM)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_REGULAR_PREMIUM;
 		}
 		return "";
 	}

@@ -125,8 +125,8 @@ var language = "${language}";
 								<div class="info-wrapper">
 									<p class="info-label">Payment method</p>
 									<p class="info-value">
-									   Direct debit
-									   <input type="hidden" name="paymentMethod" value="Direct debit">
+									   Direct Debit
+									   <input type="hidden" name="paymentMethod" value="Direct Debit">
 									</p>
 								</div>
 								<div class="info-wrapper">
@@ -508,6 +508,10 @@ var language = "${language}";
 			$('#btn-next, .save-link').addClass('hidden');
 			$('#btn-back').removeClass('hidden');
 		}
+		
+		$('.save-exit-btn1, #keep-going-btn').click(function() {
+			$('#save-and-continue-modal').modal('hide');
+		});
 		
 		// application saved modal will show after clicking 'Save and exit' button 
 		$('.save-exit-btn2, #save-exit-btn').click(function() {
