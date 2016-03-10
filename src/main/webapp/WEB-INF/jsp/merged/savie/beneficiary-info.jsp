@@ -639,6 +639,10 @@ var languageP = "${language}";
 					$('.beneficiary-btn-back').removeClass('hidden');
 				}
 				
+				$('.save-exit-btn1, #keep-going-btn').click(function() {
+					$('#save-and-continue-modal').modal('hide');
+				});
+				
 				// application saved modal will show after clicking 'Save and exit' button 
 				$('.save-exit-btn2, #save-exit-btn').click(function() {
 					$("#errorMsg").html("");

@@ -847,17 +847,30 @@ var languageP = "${language}";
 				    		
 				    	}else{
 				    		$.ajax({     
-				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
 				    		    type:'get',     
 				    		    error:function(){       
 				    		    },     
 				    		    success:function(data){
-				    		    	if(data != null && data.errMsgs == null && data.name !=null){
-				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-				    		    		$('#review-fna-modal').modal('show');
+				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+				    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
 				    		    	}
 				    		    	else{
-				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+				    		    		$.ajax({     
+							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+							    		    type:'get',     
+							    		    error:function(){       
+							    		    },     
+							    		    success:function(data){
+							    		    	if(data != null && data.errMsgs == null && data.name !=null){
+							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+							    		    		$('#review-fna-modal').modal('show');
+							    		    	}
+							    		    	else{
+							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+							    		    	}
+							    		    }  
+							    		});
 				    		    	}
 				    		    }  
 				    		});

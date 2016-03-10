@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -275,7 +276,6 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
-			savieOnlineService.getPolicyApplicationSaveforLater(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -417,6 +417,23 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/getPolicyApplicationSaveforLater"})
+	public void getPolicyApplicationSaveforLater (HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+			jsonObject.put("nextPage", apiResponse.getPolicyApplication().getResumeViewPage());
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
