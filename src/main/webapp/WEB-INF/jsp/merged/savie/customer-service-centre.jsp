@@ -232,6 +232,8 @@ var language = "${language}";
        /* $('#preferred-time').timepicker({
           appendTo: '.timeslot',
           timeFormat: 'H:i',
+          disableTextInput: true,
+          disableTouchKeyboard: true
        }); */
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
