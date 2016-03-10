@@ -537,7 +537,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-insurance/validateSession"})
+	@RequestMapping(value = {"/ajax/validateSession"})
 	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		/*if(Methods.isXssAjax(request)){
