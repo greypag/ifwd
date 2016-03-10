@@ -779,4 +779,18 @@ var Review = {
 	}
 }
 
+function clearFna(){
+	$.ajax({     
+	    url:contextPath+'/ajax/clearFna',     
+	    type:'get',     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	if(data != null && data.errMsgs == null){
+	    		window.location = contextPath + "/" + language + "/FNA/financial-needs-analysis";
+	    	}
+	    }  
+	});
+}
+
 

@@ -171,6 +171,7 @@ public class SavieOnlineController extends BaseController{
 				savieOnlineService.createSalesIllustrationPdf(request);
 			}
 			catch (Exception e) {
+				logger.info(e.getMessage(),e);
 				request.getSession().setAttribute("errorMsg", e.getMessage());
 			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
@@ -401,6 +402,11 @@ public class SavieOnlineController extends BaseController{
 					savieOnlineService.getCustomerServiceCentre(model, request, session);
 					savieOnlineService.createApplicationFormPdf("1", request, session);
 					savieOnlineService.createFnaFormPdf("1", request, session);
+					
+					String pdfName = (String) request.getSession().getAttribute("pdfName");
+					if(pdfName==null || "".equals(pdfName)){
+						savieOnlineService.createSalesIllustrationPdf(request);
+					}
 				}else {
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 							+ "/savings-insurance");

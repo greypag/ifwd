@@ -574,11 +574,27 @@ public class AjaxSavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/ajax/validateSession"})
 	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
-		/*if(Methods.isXssAjax(request)){
+		if(Methods.isXssAjax(request)){
 			return;
-		}*/
+		}
 		try {
 			jsonObject = savieOnlineService.validateSession(request);
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/clearFna"})
+	public void clearFna(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.clearFna(request);
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
