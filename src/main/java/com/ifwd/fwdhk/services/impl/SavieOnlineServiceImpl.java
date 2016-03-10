@@ -202,115 +202,89 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) request.getSession().getAttribute("planDetailData");
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+		
+		
 		if(planDetailData != null && !planDetailData.hasError()){
 			String totalPremium = NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(0).getTotalPremium());
-			int totalYear = 100-Integer.valueOf(planDetailData.getIssueAge());
 			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
-			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
-			attributeList.add(new PdfAttribute("paymentMethod", "HKD"));
-			attributeList.add(new PdfAttribute("chineseName", userDetails.getFullName()));
-			attributeList.add(new PdfAttribute("Premium",totalPremium));
-			attributeList.add(new PdfAttribute("age", planDetailData.getIssueAge()));
-			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
-			attributeList.add(new PdfAttribute("gender", "MALE"));
-			attributeList.add(new PdfAttribute("paymentType","paymentType"));
-			attributeList.add(new PdfAttribute("versonNum","1.0"));
-			//attributeList.add(new PdfAttribute("totalYear",NumberTransferUtils.transferNum(totalYear)));
-			logger.info(planDetailData.getPlanDetails0Rate().size()+"");
 			NumberFormat nt = NumberFormat.getPercentInstance();
 			nt.setMinimumFractionDigits(0);
+			
+			attributeList.add(new PdfAttribute("Nameofinsured", userDetails.getFullName()));
+			attributeList.add(new PdfAttribute("Age", planDetailData.getIssueAge()));
+			attributeList.add(new PdfAttribute("Gender", savieFna.getGender()));
+			
+			attributeList.add(new PdfAttribute("Single/Initialmonthly", "Single/Initial Monthly"));
+			attributeList.add(new PdfAttribute("Benefitdesription", "Savie Insurance Plan(Basic Plan)"));
+			attributeList.add(new PdfAttribute("initialsuminsured", totalPremium));
+			attributeList.add(new PdfAttribute("Single/initialmonthlypremium", NumberFormatUtils.formatNumber(planDetailData.getPremium())));
+			attributeList.add(new PdfAttribute("Premiumpaymentterm", "1/To age 100"));
+			attributeList.add(new PdfAttribute("Benefittem", "To age 100"));
+			attributeList.add(new PdfAttribute("Premiumamount", NumberFormatUtils.formatNumber(planDetailData.getPremium())));
+			
+			attributeList.add(new PdfAttribute("Nameofapplicant_1",savieFna.getName()));
+			attributeList.add(new PdfAttribute("Date_1",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Printdate_1",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Totalpage_1","4"));
+			
+			attributeList.add(new PdfAttribute("CreditingRate_1","2"));
+			attributeList.add(new PdfAttribute("CreditingRate_2","2"));
+			attributeList.add(new PdfAttribute("CreditingRate_3","2"));
+			attributeList.add(new PdfAttribute("CreditingRate_4","2"));
+			attributeList.add(new PdfAttribute("CreditingRate_5","2"));
+			attributeList.add(new PdfAttribute("CreditingRate_6","2"));
+			
 			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
-				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
-				int issueAge = Integer.valueOf(planDetailData.getIssueAge());
+				if(policyYear > 30){
+					attributeList.add(new PdfAttribute("EndofPolicyYear_"+policyYear,policyYear+""));
+				}
+				attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
+				attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+				attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+				attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+				attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+				attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+				attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+				
 				if(policyYear<4){
-					attributeList.add(new PdfAttribute("endYear"+policyYear,policyYear+""));
-					attributeList.add(new PdfAttribute("totalPremium"+policyYear,totalPremium));
-					attributeList.add(new PdfAttribute("interestedRate"+policyYear,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
-					attributeList.add(new PdfAttribute("accountEOP"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-				    attributeList.add(new PdfAttribute("guranteedDeathBenefit"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))); 
-				}
-				else if(policyYear==4){
-					attributeList.add(new PdfAttribute("endYear"+4,"4"));
-					attributeList.add(new PdfAttribute("totalPremium"+4,totalPremium));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit1_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit2_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit3_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit4_4",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-				}
-				else if(policyYear%5==0 && policyYear/5<7){
-					attributeList.add(new PdfAttribute("endYear"+(4+policyYear/5),policyYear+""));
-					attributeList.add(new PdfAttribute("totalPremium"+(4+policyYear/5),totalPremium));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit1_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit2_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit3_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit4_"+(4+policyYear/5),NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-				}
-				else if(issueAge>66){
-					if(age==100){
-						attributeList.add(new PdfAttribute("endYear"+11,"岁数"+100));
-						attributeList.add(new PdfAttribute("totalPremium"+11,totalPremium));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit1_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit2_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit3_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit4_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-					}
-					attributeList.add(new PdfAttribute("endYear"+12,"-"));
-					attributeList.add(new PdfAttribute("totalPremium"+12,"-"));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit1_"+12,"-"));
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit2_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit3_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_"+12,"-")); 
-					attributeList.add(new PdfAttribute("guranteedDeathBenefit4_"+12,"-")); 
-				}
-				else if(issueAge<67){
-					if(age==66){
-						attributeList.add(new PdfAttribute("endYear"+11,"歲數"+66));
-						attributeList.add(new PdfAttribute("totalPremium"+11,totalPremium));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit1_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit2_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit3_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit4_"+11,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-					}
-					else if(age==100){
-						attributeList.add(new PdfAttribute("endYear"+12,"歲數"+100));
-						attributeList.add(new PdfAttribute("totalPremium"+12,totalPremium));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit1_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit1_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit2_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit2_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit3_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit3_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedSurrenderBenefit4_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedSurrenderBenefit()))); 
-						attributeList.add(new PdfAttribute("guranteedDeathBenefit4_"+12,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails4Rate().get(i).getGuranteedDeathBenefit()))); 
-					}
+					attributeList.add(new PdfAttribute("GuaranteedBasis_"+policyYear,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
+					attributeList.add(new PdfAttribute("CurrentAssumedBasis_"+policyYear,nt.format(Float.valueOf(planDetailData.getPlanDetails0Rate().get(i).getInterestedRate()))));
 				}
 			}
+			attributeList.add(new PdfAttribute("EndofContractTerm",""));
+			
+			attributeList.add(new PdfAttribute("Nameofapplicant_2",userDetails.getFullName()));
+			attributeList.add(new PdfAttribute("Date_2",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Printdate_2",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Totalpage_2","4"));
+			
+			attributeList.add(new PdfAttribute("4ii",""));
+			
+			attributeList.add(new PdfAttribute("Nameofapplicant_3",userDetails.getFullName()));
+			attributeList.add(new PdfAttribute("Date_3",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Printdate_3",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Totalpage_3","4"));
+			
+			attributeList.add(new PdfAttribute("Warning_1",""));
+			attributeList.add(new PdfAttribute("Warning_2",""));
+			
+			attributeList.add(new PdfAttribute("Nameofapplicant_4",userDetails.getFullName()));
+			attributeList.add(new PdfAttribute("Date_4",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Printdate_4",format.format(new Date())));
+			attributeList.add(new PdfAttribute("Totalpage_4","4"));
+			
+			attributeList.add(new PdfAttribute("Signature_1",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			attributeList.add(new PdfAttribute("Signature_2",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			attributeList.add(new PdfAttribute("Signature_3",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			attributeList.add(new PdfAttribute("Signature_4",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			
 			
 			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieProposalTemplateEngA.pdf";
 			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
@@ -327,18 +301,27 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void createApplicationFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception {
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		
+		String bankName = lifePayment.getBankName();
+		String branchName = lifePayment.getBranchName();
+		
+		String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");
+		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
 	    
 	    attributeList.add(new PdfAttribute("applicationNo", "applicationNo"));
-	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("applicationChineseName", lifePersonalDetails.getChineseName()));
 	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
 	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
@@ -394,15 +377,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
-	    String bankCode = lifePayment.getBankCode().split("-")[0];
-	    attributeList.add(new PdfAttribute("BankNo.1", bankCode.charAt(bankCode.length()-1)+""));
-	    attributeList.add(new PdfAttribute("BankNo.2", bankCode.charAt(bankCode.length()-2)+""));
-	    attributeList.add(new PdfAttribute("BankNo.3", bankCode.charAt(bankCode.length()-3)+""));
+	    String bankCode = json.get("bankCode")+"";
+	    if(StringUtils.isNotBlank(bankCode) && bankCode != "null"){
+	    	for(int i=0;i<bankCode.length();i++){
+	    		String c = bankCode.charAt(i)+"";
+	    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
+	    	}
+	    }
 	    
-	    String branchCode = lifePayment.getBranchCode();
-	    attributeList.add(new PdfAttribute("BranchNo.1", branchCode.charAt(branchCode.length()-1)+""));
-	    attributeList.add(new PdfAttribute("BranchNo.2", branchCode.charAt(branchCode.length()-2)+""));
-	    attributeList.add(new PdfAttribute("BranchNo.3", branchCode.charAt(branchCode.length()-3)+""));
+	    
+	    String branchCode = json.get("branchCode")+"";
+	    if(StringUtils.isNotBlank(branchCode) && branchCode != "null"){
+	    	for(int i=0;i<branchCode.length();i++){
+	    		String c = branchCode.charAt(i)+"";
+	    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
+	    	}
+	    }
+	    
 	    
 	    String accountNumber = lifePayment.getAccountNumber();
 	    for(int i=0;i<accountNumber.length();i++){
@@ -453,9 +444,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2() + "\r\n" +
 	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
 		}*/
-		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 		
-		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 		
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
@@ -917,9 +908,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
 		if(responseJsonObj.get("errMsgs") == null) {
-			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
-			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
-			request.getSession().setAttribute("productRecommendation", productRecommendation);
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
 			String sort;
@@ -963,6 +951,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			responseJsonObj.put("product_list", sortProductArr);
 		}
+		
+		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+		ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+		request.getSession().setAttribute("productRecommendation", productRecommendation);
 		return responseJsonObj;
 	}
 	
@@ -1041,21 +1033,21 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "SAVIE");
+		parameters.put("planCode", "SAVIE-SP");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			String[] dob = lifePersonalDetails.getDob().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
-			applicant.put("gender", lifePersonalDetails.getGender());
-			applicant.put("hkId", lifePersonalDetails.getHkid());
+			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
+			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");
 			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus().split("-")[0]:"");
 			applicant.put("placeOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth().split("-")[0]:"");
 			applicant.put("nationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty().split("-")[0]:"");
 			applicant.put("residentialTelNoCountryCode", "852");
-			applicant.put("residentialTelNo", "23886166");
+			applicant.put("residentialTelNo", lifePersonalDetails.getResidentialTelNo());
 			applicant.put("mobileNoCountryCode", "852");
 			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
 			applicant.put("email", lifePersonalDetails.getEmailAddress());
@@ -1088,7 +1080,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				employmentStatus.put("occupation", lifeEmploymentInfo.getOccupation()!=null?lifeEmploymentInfo.getOccupation().split("-")[0]:"");
 				employmentStatus.put("educationLevel", lifeEmploymentInfo.getEducation()!=null?lifeEmploymentInfo.getEducation().split("-")[0]:"");
 				employmentStatus.put("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness()!=null?lifeEmploymentInfo.getNatureOfBusiness().split("-")[0]:"");
-				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()!=null?lifeEmploymentInfo.getMonthlyPersonalIncome().split("-")[0]:"");
+				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()!=null?lifeEmploymentInfo.getMonthlyPersonalIncome().split("-")[0].toUpperCase():"");
 				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[0]:"");
 				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[0]:"");
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
@@ -1098,7 +1090,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
-			insured.put("name", applicant.get("firstName")+" "+applicant.get("lastName"));
+			insured.put("name", applicant.get("lastName")+" "+applicant.get("firstName"));
 			insured.put("hkId", applicant.get("hkId"));
 			insured.put("passport", "");
 			insured.put("relationship", "SE");
@@ -1110,8 +1102,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
 						beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
 						beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
-						beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
-						beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
+						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport1())){
+							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1().toUpperCase());
+							beneficiarie1.put("passport", "");
+						}
+						else{
+							beneficiarie1.put("hkId", "");
+							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
+						}
 						beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
 						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
 						beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
@@ -1121,8 +1119,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
 						beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
 						beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
-						beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
-						beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
+						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
+							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
+							beneficiarie1.put("passport", "");
+						}
+						else{
+							beneficiarie1.put("hkId", "");
+							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+						}
 						beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
 						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
 						beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
@@ -1132,8 +1136,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
 						beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
 						beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
-						beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
-						beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
+						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
+							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
+							beneficiarie1.put("passport", "");
+						}
+						else{
+							beneficiarie1.put("hkId", "");
+							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+						}
 						beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
 						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
 						beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
@@ -1465,7 +1475,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return null;
 	}
 	
-	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
+	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
 		final Map<String,String> header = headerUtil.getHeader(request);
 		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
 		
@@ -1565,6 +1575,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
+		return apiResponse;
 	}
 	
 	private String formartNumber(String num){

@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -275,7 +276,6 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
-			savieOnlineService.getPolicyApplicationSaveforLater(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -422,6 +422,26 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savings-insurance/getPolicyApplicationSaveforLater"})
+	public void getPolicyApplicationSaveforLater (HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+			if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null&&apiResponse.getPolicyApplication().getResumeViewPage()!=null){
+				jsonObject.put("nextPage", apiResponse.getPolicyApplication().getResumeViewPage());
+				savieOnlineService.getFna(request);
+			}
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
@@ -537,7 +557,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-insurance/validateSession"})
+	@RequestMapping(value = {"/ajax/validateSession"})
 	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		/*if(Methods.isXssAjax(request)){

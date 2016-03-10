@@ -1005,9 +1005,7 @@ function getSavieOnlinePlandetails() {
 	var premium = amount;
 	
 	var birthOfDay = $('#plan-dob-datepicker').val();
-	var birthDates=birthOfDay.split("-");
-	var issueAge = jsGetAge(birthDates[2]+"-"+birthDates[1]+"-"+birthDates[0]);
-	
+	var issueAge = jsGetAge(birthOfDay);
 	if('one-off-premium' == paymentMode) {
 		paymentMode='SP';
 		premium = amount;
@@ -1081,6 +1079,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -1130,6 +1129,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -1179,6 +1179,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -1228,6 +1229,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));

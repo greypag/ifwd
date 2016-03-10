@@ -150,7 +150,7 @@ var languageP = "${language}";
 							<div class="col-xs-12 hidden" id="total-years-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
 									<select name="total-payment-years" id="total-payment-years" class="form-control gray-dropdown pd-dropdown" data-bv-field="total-payment-years">
-									   <option value="3" selected="">3</option>
+									   <option value=""></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 								</div>
@@ -635,6 +635,20 @@ var languageP = "${language}";
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
 		
+		if('${savieType}' == 'RP') {
+			$("#type-of-payment").val("regular-payment");
+			$('#plan-amount-holder').removeClass('hidden');
+			$('#amount-slide-holder').addClass('hidden');
+			if($('#plan-dob-datepicker').val() != '') {
+				$('#total-years-holder').removeClass('hidden');
+			}
+		} else {
+			$("#type-of-payment").val("one-off-premium");
+			$('#plan-amount-holder').addClass('hidden');
+			$('#amount-slide-holder').removeClass('hidden');
+			$('#total-years-holder').addClass('hidden');
+		}
+		
 		if('2'!='${type }'){
 			$('#plan-dob-datepicker').datepicker({
 				format: "dd-mm-yyyy",
@@ -761,10 +775,10 @@ var languageP = "${language}";
 	        $('#rate-table-4').removeClass('hidden');
 	    });
 	    
-		getSavieOnlinePlandetails();
-		if($("#plan-dob-datepicker").val()!="") {
+		/* if($("#plan-dob-datepicker").val()!="") {
 			setPaymentYears($("#plan-dob-datepicker").val())
-		}
+		} */
+		getSavieOnlinePlandetails();
 	});
 	
 	// changing first/after 3 years button content
@@ -831,17 +845,30 @@ var languageP = "${language}";
 				    		
 				    	}else{
 				    		$.ajax({     
-				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
 				    		    type:'get',     
 				    		    error:function(){       
 				    		    },     
 				    		    success:function(data){
-				    		    	if(data != null && data.errMsgs == null && data.name !=null){
-				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-				    		    		$('#review-fna-modal').modal('show');
+				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+				    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
 				    		    	}
 				    		    	else{
-				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+				    		    		$.ajax({     
+							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+							    		    type:'get',     
+							    		    error:function(){       
+							    		    },     
+							    		    success:function(data){
+							    		    	if(data != null && data.errMsgs == null && data.name !=null){
+							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+							    		    		$('#review-fna-modal').modal('show');
+							    		    	}
+							    		    	else{
+							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+							    		    	}
+							    		    }  
+							    		});
 				    		    	}
 				    		    }  
 				    		});
@@ -868,7 +895,7 @@ var languageP = "${language}";
 	
 	function setPaymentYears(dob){
 		var from = dob.split("-");
-		var birthdate = new Date(from[0], from[1] - 1, from[2]);
+		var birthdate = new Date(from[2], from[1] - 1, from[0]);
 		var cur = new Date();
 		var diff = cur-birthdate;
 		var age = Math.floor(diff/31536000000); //the age val
