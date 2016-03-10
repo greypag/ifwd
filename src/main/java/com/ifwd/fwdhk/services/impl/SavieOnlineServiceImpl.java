@@ -2002,6 +2002,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
+	public JSONObject clearFna(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.CLEAR_FNA;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, new JSONObject());
+		return responseJsonObj;
+	}
+	
 	@Override
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
