@@ -1646,8 +1646,8 @@
                Removed border style in slick-theme.css
             */
             if(msieversion != 9){
-            	$('#hotel-voucher-carousel .slick-prev').addClass('border-fix');
-            	$('#hotel-voucher-carousel .slick-next').addClass('border-fix');
+            	$('#hotel-voucher-carousel').addClass('border-fix');
+            	$('#hotel-voucher-carousel').addClass('border-fix');
             }
         	$('#hotel-description-modal').on('hide.bs.modal', function () {
         		$('.modal-backdrop').remove();

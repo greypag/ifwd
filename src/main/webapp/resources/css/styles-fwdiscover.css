@@ -1654,10 +1654,10 @@
     border-bottom: 27px solid transparent;     
     border-right: 42px solid #ff8200;
 }
-#hotel-voucher-carousel .slick-prev.border-fix{
+#hotel-voucher-carousel.border-fix .slick-prev{
 	border-left:1px solid transparent;
 }
-#hotel-voucher-carousel .slick-next.border-fix{
+#hotel-voucher-carousel.border-fix .slick-next{
     border-right:1px solid transparent;
 }
 .sponsor-logo-wrapper{
