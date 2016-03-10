@@ -10,7 +10,6 @@
 
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
-    hotelVoucherCampaignId = 18;
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();  
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
@@ -2005,10 +2004,10 @@
                     }else if(data["result"]=="notlogin") {
                         loginpopup(campaignId);
                     }else{
-                    	if(data["index"] <=5 && data["index"] >=11){
-	                        $('#offer-details-promotion-code-error-sold').modal('show');
-	                        $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
-                    	}
+                        $('#offer-details-promotion-code-error-sold').modal('show');
+                        if(data["index"] <=5 && data["index"] >=11){
+                            $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
+                        }
                     }
                     updateAllPromoCodeCount();
                 }
