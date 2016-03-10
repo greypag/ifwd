@@ -10,7 +10,7 @@
         <pattern>/*/term-life-insurance/document-upload-address*</pattern>
     </excludes>
 
-	<decorator name="default" page="template_default.jsp">
+	<decorator name="default" page="template_savie_online.jsp">
 		<pattern>/*</pattern>
 		
 	</decorator>
