@@ -10,7 +10,6 @@
 
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
-
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();  
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
@@ -346,8 +345,7 @@
                                 </div>
 
                                 <div class="details-button-holder text-center" name="offer-311">
-                                    <!--<button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-311-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>-->
-                                    <button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-details-hotel-voucher"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
+                                    <button class="details-btn" id="offer-311-button" data-toggle="modal" data-target="#offer-311-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
                                 </div>
                             </div>
                         </div>
@@ -486,7 +484,7 @@
                     </div>
                     <!-- Hotel 3-14 Offer End -->
                     <% } %>
-                    <% if (hotelVoucherCampaignId == 18) { %>
+                    <% if (hotelVoucherCampaignId == 18 || hotelVoucherCampaignId == -1) { %>
                     <!-- Hotel 3-15 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -1677,23 +1675,18 @@
                   switch (currentIndex) {
                   case 0:
                       assignHotelNav(slide1Nav);
-                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 1:
                       assignHotelNav(slide2Nav);
-                      $('#hotel-carosuel-selected').css("background-color","#f68a1d");
                       break;
                   case 2:
                       assignHotelNav(slide3Nav);
-                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 3:
                       assignHotelNav(slide4Nav);
-                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   case 4:
                       assignHotelNav(slide5Nav);
-                      $('#hotel-carosuel-selected').css("background-color","transparent");
                       break;
                   }    
         	});
@@ -1706,23 +1699,18 @@
 				switch (currentIndex + 1) {
 				    case 1:
 				    	assignHotelNav(slide1Nav);
-				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 2:
 				    	assignHotelNav(slide2Nav);
-				    	$('#hotel-carosuel-selected').css("background-color","#f68a1d");
 				        break;
 				    case 3:
 				    	assignHotelNav(slide3Nav);
-				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 4:
 				    	assignHotelNav(slide4Nav);
-				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				    case 5:
 				    	assignHotelNav(slide5Nav);
-				    	$('#hotel-carosuel-selected').css("background-color","transparent");
 				        break;
 				}		  	
         	});        	
@@ -1996,20 +1984,29 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        $('.promo-code-holder .code').html(data["promoCode"]);
-                        $('#offer-details-promotion-code').modal('show');
-                        $('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
-                        $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
-                        setPlanLink(campaignId, data["promoCode"]);
+                        if(data["index"] >="6" && data["index"] <="10"){
+                            $('#offer-details-hotel-voucher').modal('show');
+                            $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
+                        }else{
+                            $('.promo-code-holder .code').html(data["promoCode"]);
+                            $('#offer-details-promotion-code').modal('show');
+                            $('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
+                            $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        
+                            setPlanLink(campaignId, data["promoCode"]);                         
+                        }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
-                        setPlanLink(campaignId, data["promoCode"]);
+                        if(data["index"] <="5" && data["index"] >="11"){
+	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
+	                        setPlanLink(campaignId, data["promoCode"]);
+                        }
                     }else if(data["result"]=="notlogin") {
                         loginpopup(campaignId);
                     }else{
-                        $('#offer-details-promotion-code-error-sold').modal('show');
-                        $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
+                    	if(data["index"] <="5" && data["index"] >="11"){
+	                        $('#offer-details-promotion-code-error-sold').modal('show');
+	                        $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
+                    	}
                     }
                     updateAllPromoCodeCount();
                 }
