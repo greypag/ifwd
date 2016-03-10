@@ -410,7 +410,7 @@ var affiliate = "${affiliate}";
 							<h4>Customer Services</h4>
 							<div class="cont">
 								<p>Please call our Customer Service Hotline <span>3123 3123</span> to find out more or leave your contact and let us call you back.</p>
-								<input type="hidden" id="productCode">
+								<input type="hidden" id="productCode" value="SAVIE-SP"><input type="hidden" id="channel" value="SAVIE">
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 										<label for="FNAinputCustomerName" class="field-label">Name</label>
