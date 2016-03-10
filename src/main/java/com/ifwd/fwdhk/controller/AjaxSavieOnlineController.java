@@ -291,14 +291,28 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}*/
 		
-		String jsonObject = "{\"status\":0}";
+		/*String jsonObject = "{\"status\":0}";
 		logger.info(jsonObject.toString());
 		response.setContentType("text/json;charset=utf-8");
 		try {
 			response.getWriter().print(jsonObject);
 		}catch(Exception e) {
 			e.printStackTrace();
+		}*/
+		
+		
+		if (Methods.isXssAjax(request)) {
+			return;
 		}
+		try {
+			ajaxReturn(response, savieOnlineService.contactCs(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})

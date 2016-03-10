@@ -2001,4 +2001,28 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, new JSONObject());
 		return responseJsonObj;
 	}
+	
+	@Override
+	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse apiReturn = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			
+			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+			parameters.put("name", request.getParameter("customer_name"));
+			parameters.put("email", request.getParameter("email"));
+			parameters.put("mobile", request.getParameter("telephone"));
+			parameters.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
+			parameters.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
+			parameters.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
+			parameters.put("channel", request.getParameter("channel"));
+			parameters.put("product", request.getParameter("product_code"));
+			apiReturn = connector.contactCs(parameters, header);
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl contactCs occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return apiReturn;
+	}
 }
