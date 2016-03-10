@@ -148,6 +148,7 @@ public class UserRestURIConstants {
 	public static final String GET_PRODUCTRECOMMENDATION = SERVICE_URL + "/fna/getProductRecommendation";
 	public static final String CREATE_LIFE_POLICY = "/life/policies";
 	public static final String FINALIZE_LIFE_POLICY = "/life/policies";
+	public static final String GET_BANK_INFO = SERVICE_URL + "/policies/ddaBank";
 	
 	public static final String CREATE_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater";
 	public static final String GET_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater?planCode=SAVIE-SP";
