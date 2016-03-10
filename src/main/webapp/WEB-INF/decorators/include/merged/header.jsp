@@ -926,8 +926,6 @@ function submitLoginForm(formID) {
         </div><!--/.nav-collapse -->
 </div>
     
-    <div class="headingbox"><div class="headingbox-h5">Home > Save > Savie Insurance Plan ></div><div class="headingbox-h3">Application</div></div>
-    <div class="stickybarbox"><div class="stickybarbox-l">Payment</div><div class="stickybarbox-r"><span>HK$</span> 4,470.00</div></div>
 <!--Mobile side-menu-->
 <!--<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
