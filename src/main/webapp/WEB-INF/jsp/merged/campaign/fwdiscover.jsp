@@ -10,6 +10,7 @@
 
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
+    hotelVoucherCampaignId = 18;
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();  
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
@@ -1296,7 +1297,7 @@
                             </ul>
 
                             <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-offer314"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
+                                <button class="details-btn modal-grab-button" id="modal-grab-button-offer315"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
                             </div>
 
                             <div class="terms-and-condition">
@@ -1978,13 +1979,14 @@
                 data : {campaignId:campaignId},
                 async : false,
                 success : function(data) {
+                	console.log(data);
                     $('.modal').modal('hide');
                     var key = "Fanfare.offername"+data["index"];
                     var tncKey = "Fanfare.offer.tnc"+data["index"];
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(data["index"] >="6" && data["index"] <="10"){
+                        if(data["index"] >=6 && data["index"] <=10){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -1996,14 +1998,14 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(data["index"] <="5" && data["index"] >="11"){
+                        if(data["index"] <=5 && data["index"] >=11){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
                     }else if(data["result"]=="notlogin") {
                         loginpopup(campaignId);
                     }else{
-                    	if(data["index"] <="5" && data["index"] >="11"){
+                    	if(data["index"] <=5 && data["index"] >=11){
 	                        $('#offer-details-promotion-code-error-sold').modal('show');
 	                        $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                     	}
