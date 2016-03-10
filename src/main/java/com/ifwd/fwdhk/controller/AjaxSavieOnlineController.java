@@ -432,6 +432,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
 			if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null&&apiResponse.getPolicyApplication().getResumeViewPage()!=null){
 				jsonObject.put("nextPage", apiResponse.getPolicyApplication().getResumeViewPage());
+				savieOnlineService.getFna(request);
 			}
 		}
 		catch (ECOMMAPIException e) {
