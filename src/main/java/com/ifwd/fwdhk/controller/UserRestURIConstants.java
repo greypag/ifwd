@@ -271,6 +271,9 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION = "elite.terms.confirmation";
 	
 	/* Page Flow Control For savie online */
+	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";
+	public static final String URL_SAVIEONLINE_REGULAR_PREMIUM = "regular-premium";
+	
 	public static final String PAGE_SAVIEONLINE_LANDING = "O2O-landing";
 	public static final String PAGE_SAVIEONLINE_PLANDETAILS = "plan-details";
 	public static final String PAGE_SAVIEONLINE_FNA = "financial-needs-analysis";
@@ -292,8 +295,14 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION = "confirmation-paylater";
 	public static final String PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "confirmation-appointment";
 	public static final String PAGE_SAVIEONLINE_SERVICE_CENTER = "customer-service-centre";
+	public static final String PAGE_SAVIEONLINE_SINGLE_PREMIUM = "savings-insurance-sp";
+	public static final String PAGE_SAVIEONLINE_REGULAR_PREMIUM = "savings-insurance-rp";
+	public static final String PAGE_SAVIEONLINE_PLANDETAILS_SP = "plan-details-sp";
+	public static final String PAGE_SAVIEONLINE_PLANDETAILS_RP = "plan-details-rp";
 	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LANDING = "savings.landing";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM = "savings.landing.sp";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM = "savings.landing.rp";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "savings.plan.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_FNA = "fna.fna";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PRODUCT = "fna.product.recommendation";
