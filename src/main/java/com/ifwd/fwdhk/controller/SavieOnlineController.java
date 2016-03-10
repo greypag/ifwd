@@ -171,6 +171,7 @@ public class SavieOnlineController extends BaseController{
 				savieOnlineService.createSalesIllustrationPdf(request);
 			}
 			catch (Exception e) {
+				logger.info(e.getMessage(),e);
 				request.getSession().setAttribute("errorMsg", e.getMessage());
 			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
