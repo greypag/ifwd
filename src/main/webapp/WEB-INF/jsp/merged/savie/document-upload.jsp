@@ -5,8 +5,10 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
-
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var documentUploadNextPageFlow = "${nextPageFlow}";
@@ -28,13 +30,13 @@ var languageP = "${language}";
 			 <div class="fwd-container container-fluid breadcrumbs">
 				<div class="breadcrumb-container">
 				   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-					   <li><a href="#">Home</a></li>
+					   <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#">Save </a></li>
+		               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#">Savie </a></li>
+		               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 		               <li class="divider last"><i class="fa fa-play"></i></i></li>
-		               <li class="active-bc" id="et-active-bc-menu">Application</li>
+		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 				   </ol>
 				</div>
 			 </div>
@@ -44,17 +46,17 @@ var languageP = "${language}";
 				   <div class="browse-container">
 					  <div class="row reset-margin hidden-xs hidden-sm">
 						 <ul class="common-steps-list six-steps nav nav-pills">
-							<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+							<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; payment</button></li>
+							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Summary &amp; declaration</button></li>
+							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
+							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">5</span>Document upload</button></li>
+							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 						 </ul>
 					 </div>
 				   </div> 
@@ -67,7 +69,7 @@ var languageP = "${language}";
 							   </a>
 							</div>
 							<div class="et-header-tex">
-							   <h3>Document upload</h3>
+							   <h3><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></h3>
 							</div>
 						 </div>
 						 <span id="step-of">5 out of 6</span>
@@ -92,7 +94,7 @@ var languageP = "${language}";
 			<div id="so-upload-document-section">
 				<div class="container-fluid fwd-container up-doc-page">
 					<div class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page document-upload">
-						<h4 class="so-h4">Please select the document upload options</h4>
+						<h4 class="so-h4"><fmt:message key="label.select.document.title" bundle="${msg}" /></h4>
 						<div class="radio-group clearfix">
 						  <div class="radio-button-group">
 							 <div class="clearfix desktop-align left">
@@ -100,8 +102,8 @@ var languageP = "${language}";
 								   <input type="radio" id="upload-now-radio" name="upload" value="true" checked /> <label for="upload-now-radio"></label>
 								</div>
 								<div class="pull-left desc">
-								   Upload now
-								   <span>Upload your HKID and proof of address</span>
+								   <fmt:message key="option.upload.now" bundle="${msg}" />
+								   <span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
 								</div>
 							 </div>
 							 <div class="clearfix below desktop-align">
@@ -109,18 +111,18 @@ var languageP = "${language}";
 								   <input type="radio" id="upload-later-radio" name="upload" value="false" /> <label for="upload-later-radio"></label>
 								</div>
 								<div class="pull-left desc">
-								   Upload later
-								   <span>Go to your profile and upload from there, later!</span>
+								   <fmt:message key="option.upload.later" bundle="${msg}" />
+								   <span><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
 								</div>
 							 </div>
 						  </div>
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc">You may upload the document when you have all of them ready from either the following:</p>
+								<p class="first-desc"><fmt:message key="label.upload.doc.when.ready.title" bundle="${msg}" /></p>
 								<ol>
-									<li class="second-desc">We will send you a confirmation email embeded with a upload link, you may access directly;</p>
-									<li class="second-desc">You may login to your <span class="bold">eService</span> membership account, and upload the document under <span class="bold">Purchase History</span> section.</p>
+									<li class="second-desc"><fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" /></p>
+									<li class="second-desc"><fmt:message key="label.upload.doc.when.ready.copy2" bundle="${msg}" /></p>
 								</ol>
 							</div>
 						</div>
@@ -134,7 +136,7 @@ var languageP = "${language}";
 											<label for="hkPermanentRes"></label>
 										 </div>
 										 <div class="pull-left right-checkbox">
-											<span class="checkbox-text">I’m Hong Kong permanent resident</span>
+											<span class="checkbox-text"><fmt:message key="label.hk.permanent.resident" bundle="${msg}" /></span>
 										 </div>
 									  </div>
 								   </div>
@@ -142,8 +144,8 @@ var languageP = "${language}";
 							</div>
 							<div class="row upload-now-row">
 								<div class="col-xs-12 col-md-4 so-upload upload-hkid">
-									<h5 class="so-h5">Your HKID</h5>
-									<h6 class="so-h6 upload-bottom">Upload your HKID</h6>
+									<h5 class="so-h5"><fmt:message key="label.hkid" bundle="${msg}" /></h5>
+									<h6 class="so-h6 upload-bottom"><fmt:message key="label.upload.your.hkid" bundle="${msg}" /></h6>
 									<form action="upload-documents" id="hkid-upload-form" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-hkid">
 											<div class="center-align">
@@ -167,7 +169,7 @@ var languageP = "${language}";
 													</label>
 												</div>
 												<div class="desk hidden-xs hidden-sm">
-													Drag and drop files here<span class="drag-down">(jpg or png)</span>
+													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
 												<div class="mob-desk or">
 													<span class="OR">or</span>
@@ -175,7 +177,7 @@ var languageP = "${language}";
 												<div class="mob-desk">
 													<label for="hkidFileToUpload" class="orange-select-file">
 														<input type="file" id="hkidFileToUpload" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#so-hkid-file-message');" />
-														<span class="input-file-text">Select files</span>
+														<span class="input-file-text"><fmt:message key="button.select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
 											</div>
@@ -202,7 +204,7 @@ var languageP = "${language}";
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section">
-									<h5 class="so-h5">Your passport copy</h5>
+									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom">If you are a non-permanent resident</h6>
 									<form action="" id="passport-upload-form" method="POST" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-passport">
@@ -227,7 +229,7 @@ var languageP = "${language}";
 													</label>
 												</div>
 												<div class="desk hidden-xs hidden-sm">
-													Drag and drop files here<span class="drag-down">(jpg or png)</span>
+													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
 												<div class="mob-desk or">
 													<span class="OR">or</span>
@@ -235,7 +237,7 @@ var languageP = "${language}";
 												<div class="mob-desk">
 													<label for="passportFileToUpload" class="orange-select-file">
 														<input type="file" id="passportFileToUpload" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','', '#so-passport-file-message');" />
-														<span class="input-file-text">Select files</span>
+														<span class="input-file-text"><fmt:message key="button.select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
 											</div>
@@ -262,9 +264,9 @@ var languageP = "${language}";
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="proof-address-holder">
-									<h5 class="so-h5">Proof of address</h5>
-									<h6 class="so-h6">Upload your current residential address copy
-										<span class="upload-h6"><a href="#" class="upload-link" data-toggle="modal" data-target=".modal-address-prof">Valid address proof</a> (within 3 months)</span>
+									<h5 class="so-h5"><fmt:message key="label.proof.of.address" bundle="${msg}" /></h5>
+									<h6 class="so-h6"><fmt:message key="label.upload.address.proof.copy1" bundle="${msg}" />
+										<span class="upload-h6"><a href="#" class="upload-link" data-toggle="modal" data-target=".modal-address-prof"><fmt:message key="label.upload.address.proof.copy2" bundle="${msg}" /></a> <fmt:message key="label.upload.address.proof.copy3" bundle="${msg}" /></span>
 									</h6>
 									<form action="" id="js-upload-form" method="POST" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-addr">
@@ -284,7 +286,7 @@ var languageP = "${language}";
 													</label>
 												</div>
 												<div class="desk hidden-xs hidden-sm">
-													Drag and drop files here<span class="drag-down">(jpg or png)</span>
+													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
 												<div class="mob-desk or">
 													<span class="OR">or</span>
@@ -292,7 +294,7 @@ var languageP = "${language}";
 												<div class="mob-desk">
 													<label for="fileToUploadProofAdd" class="orange-select-file">
 														<input type="file" id="fileToUploadProofAdd" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','', '#so-address-file-message');" />
-														<span class="input-file-text">Select files</span>
+														<span class="input-file-text"><fmt:message key="button.select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
 											</div>
@@ -320,11 +322,11 @@ var languageP = "${language}";
 								</div>
 							</div>
 							<div class="upload-note hidden-sm hidden-xs">
-								<p class="upload-p"><span class="orange">*</span> Please upload all documentation within 30 days, otherwise your application will be void.</p>
+								<p class="upload-p"><span class="orange">*</span> <fmt:message key="label.savie.upload.remark" bundle="${msg}" /></p>
 							</div>
 						</div>
 						<div class="next-btn">
-						  <button id="updoc-complete-btn" class="btn savie-common-btn upload-btn">Complete</button>
+						  <button id="updoc-complete-btn" class="btn savie-common-btn upload-btn"><fmt:message key="button.complete" bundle="${msg}" /></button>
 						</div>
 					</div>
 				</div>
@@ -334,13 +336,16 @@ var languageP = "${language}";
 					<div class="modal-content common-welcome-modal" id="modal-content-addressprof">	
 						<div class="modal-header">
 							<button type="button" class="close" id="close-address-prof" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<p>Address proof</p>
+							<p><fmt:message key="label.address.proof.title" bundle="${msg}" /></p>
 						</div>
 						<div class="modal-body" id="modal-body-addressprof">
 							<ol>
-							 	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec felis ipsum. Vivamus nec dolor vitae neque maximus elementum ut ac ex.</li>
+								<li><fmt:message key="information.address.proof.copy" bundle="${msg}" /></li>
+								<li><fmt:message key="information.address.proof.copy" bundle="${msg}" /></li>
+								<li id="thrid-li"><fmt:message key="information.address.proof.copy" bundle="${msg}" /></li>
+							 	<!-- <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec felis ipsum. Vivamus nec dolor vitae neque maximus elementum ut ac ex.</li>
 							 	<li>Vivamus porta nisl vitae metus aliquet, id tempus mi egestas. Nulla in felis enim. Nam augue enim, accumsan nec tortor et, pellentesque mollis elit. Nunc tempor nisi eu metus sodales dictum. Nunc non ligula commodo est gravida ornare. In molestie mattis magna at dictum. Mauris vel urna lacus.</li>
-							  	<li id="thrid-li">Vestibulum et libero justo. Etiam nisl ex, fringilla vel ultricies et, dignissim viverra purus. Nulla at felis luctus, sodales diam ac, congue urna. Phasellus ac malesuada enim, eget condimentum lacus. Fusce ut ex erat. Etiam ut lobortis elit, vel commodo risus. </li>
+							  	<li id="thrid-li">Vestibulum et libero justo. Etiam nisl ex, fringilla vel ultricies et, dignissim viverra purus. Nulla at felis luctus, sodales diam ac, congue urna. Phasellus ac malesuada enim, eget condimentum lacus. Fusce ut ex erat. Etiam ut lobortis elit, vel commodo risus. </li> -->
 							</ol>
 						</div>
 					</div>

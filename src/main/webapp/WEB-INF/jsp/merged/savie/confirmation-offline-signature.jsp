@@ -21,13 +21,13 @@ var languageP = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#">Home</a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Save </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Savie </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -37,15 +37,15 @@ var languageP = "${language}";
                  <div class="browse-container">
                     <div class="row reset-margin hidden-xs hidden-sm">
                        <ul class="common-steps-list five-steps nav nav-pills">
-                           <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+                           <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
                           <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; Payment</button></li>
+                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
                           <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Summary &amp; Declaration</button></li>
+                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
                           <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
+                          <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
                           <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                          <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">5</span>Confirmation</button></li>
+                          <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">5</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
                        </ul>
                    </div>
                  </div>  
@@ -57,7 +57,7 @@ var languageP = "${language}";
                           </a>
                        </div>
                        <div class="et-header-tex">
-                          <h3 id="">Confirmation</h3>
+                          <h3 id=""><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
                        </div>
                     <p id="step-of">5 of 5</p>
                     </div>
@@ -80,73 +80,63 @@ var languageP = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div id="offline-signature-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title">Thank you for signing up with us</p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="info.savie.confirmation.success.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
-						<span class="policy-number-label">Policy no. </span>
+						<span class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></span>
 						<span class="policy-number">${lifePolicy.policyNo }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p>Your application is being processed.</p>
-						<p id="review-line">Please review the confirmation of your application as detailed here.</p>
+						<p><fmt:message key="info.savie.confirmation.success.copy1" bundle="${msg}" /></p>
+						<p id="review-line"><fmt:message key="info.savie.confirmation.success.copy2" bundle="${msg}" /></p>
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
-						<p class="policy-number-label">Policy no.</p>
+						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
 						<p class="policy-number">${lifePolicy.policyNo }</p>
 					</div>
 				</div>
 				<hr>
 				<div class="row appointment-details-panel">
-					<div class="col-xs-12"><p class="panel-title">Appointment details</p></div>
+					<div class="col-xs-12"><p class="panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<p class="details-label">Date</p>
+							<fmt:message key="label.savie.confirmation.date" bundle="${msg}" />
 							<p>${preferredDate}</p>
 						</div>
 						<div>
-							<p class="details-label">Time</p>
+							<fmt:message key="label.savie.confirmation.time" bundle="${msg}" />
 							<p>${preferredTime}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p class="details-label">Branch</p>
+						<fmt:message key="label.savie.confirmation.branch" bundle="${msg}" />
 						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<p class="details-label">Operating hours</p>
-						<p>
-							Mon - Sat 8:30am to 8:00pm<br>Closed on Sun & Public Holidays
-							<span class="phone-num">
-								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 063-2323-123
-							</span>
-						</p>
+						<fmt:message key="label.openinghours" bundle="${msg}" />
 					</div>
 					<div class="col-xs-12">
 						<div class="appointment-details-note">
-							<p>In order to complete your application, please visit the Customer Service Center at the appointment details.</p>
-							<p>You are required to fulfilled your payment within <b>30 days.</b> </p>
-							<p>The application will automatically expire if we have not received your payment within this time.</p>
+							<fmt:message key="info.visit.customer.service" bundle="${msg}" />
 						</div>
 					</div>
 				</div>
 				<hr>
 				<div class="requirements-panel">
 					<p class="requirements-panel-title visible-xs visible-sm">Please bring the following for your appointment at our service centre:</p>
-					<p class="requirements-panel-title hidden-xs hidden-sm">Offline procedure</p>
-
+					<p class="requirements-panel-title hidden-xs hidden-sm"><fmt:message key="info.savie.confirmation.signoff.procedure" bundle="${msg}" /></p>
 					<div class="row requirements-list">
 						<div class="col-xs-12 col-md-6">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/customer-service-center.png" /></div>
 							<div class="requirement-text-wrapper">
-								<p>Visit the selected Customer Service Center at the appointed time above.<br>
+								<p><fmt:message key="label.visit.selected.service.centre" bundle="${msg}" /><br>
 							</div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 col-md-6">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid-proof-of-address.png" /></div>
-							<div class="requirement-text-wrapper"><p>Please bring along a copy of your HKID, pass-port, proof of address and policy number</p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="label.hkid.passport.proof.of.address.policy.number" bundle="${msg}" /></p></div>
 						</div>
 					</div>
-					
 					<!--<p class="note">In order to enjoy Ocean Park premium discount, please bring along your Ocean Park SmartFun Annual Pass (Gold or Silver) or purchase confirmation email for verification purpose.</p>-->
 				</div>
 				<hr>
@@ -154,12 +144,12 @@ var languageP = "${language}";
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
 					<span>Print this document</span>
 				</a>-->
-				<center><button type="button" class="btn btn-home savie-common-btn">Back to home</button></center>
+				<center><button type="button" class="btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button></center>
 			</div>
 		</div>
 	</div>
 	<!-- FOOTER -->
-</div>			
+</div>
 
 <!-- JS INCLUDES -->
 <script type="text/javascript">

@@ -21,13 +21,13 @@ var languageP = "${language}";
 	 <div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
 		   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-			   <li><a href="#">Home</a></li>
+			   <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">Save </a></li>
+			   <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">Savie </a></li>
+			   <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 			   <li class="divider last"><i class="fa fa-play"></i></i></li>
-			   <li class="active-bc" id="et-active-bc-menu">Application</li>
+			   <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 		   </ol>
 		</div>
 	 </div>
@@ -37,17 +37,17 @@ var languageP = "${language}";
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
 				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; Payment</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Summary &amp; Declaration</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">4</span>Signature</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+					<li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
 		   </div>  
@@ -59,7 +59,7 @@ var languageP = "${language}";
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id="">Signature</h3>
+					<h3 id=""><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></h3>
 				 </div>
 			  </div>
 			  <span id="step-of">4 out of 5</span>
@@ -81,8 +81,7 @@ var languageP = "${language}";
 	</div>
 	<div class="container-fluid fwd-full-container  headerStick" id="container-signatureoffline">
 		<div class="fwd-container-limit clearfix sidebar" id="fwd-container-signatureoffline">
-			<p>Please review and confirm to accept the
-			documents shown below:</p>
+			<p><fmt:message key="label.savie.sign.title" bundle="${msg}" /></p>
 			<div class="form-signatureoffline-info">
 				<div class="radio-group clearfix">
 					 <div class="radio-button-group">
@@ -91,8 +90,8 @@ var languageP = "${language}";
 								<input type="radio" id="digi-radio" name="sign-radio" checked /> <label for="digi-radio"></label>
 							 </div>
 							 <div class="pull-left desc" id="id-digi-sign">
-								Digital signature
-								 <span>Use your mouse or finger to sign the document</span>
+								<fmt:message key="option.savie.online.sign" bundle="${msg}" />
+								 <span><fmt:message key="option.savie.online.sign.copy1" bundle="${msg}" /></span>
 							 </div>
 						  </div>
 						  <div class="clearfix" id="id-offline-signature">
@@ -100,8 +99,8 @@ var languageP = "${language}";
 								<input type="radio" id="off-radio" name="sign-radio" /> <label for="off-radio"></label>
 							 </div>
 							 <div class="pull-left desc" id="id-off-sign">
-								Offline signature
-								 <span>Refer to customer service and sign documents there</span>
+								<fmt:message key="option.savie.offline.sign" bundle="${msg}" />
+								 <span><fmt:message key="option.savie.offline.sign.copy1" bundle="${msg}" /></span>
 							 </div>
 						  </div>
 					</div>
@@ -109,43 +108,42 @@ var languageP = "${language}";
 			</div>
 			<!-- Digital Signature -->
 			<form id="table-info" class="clearfix">
-				<p class="table-info-p">Please review the signature below to make sure all signature is correct</p>
+				<p class="table-info-p"><fmt:message key="label.savie.reviewsign.title" bundle="${msg}" /></p>
 				<table class="table table-bordered table-hover">
 					<tbody>
 					  <tr>
 						<td class="numbers">1</td>
-						<td class="adjust-body-content">Financial
-							Needs Analysis</td>
+						<td class="adjust-body-content"><fmt:message key="label.fna" bundle="${msg}" /></td>
 						<td id="signature-status-1" class="savie-status">
-							<button class="btn savie-common-btn btn-table-savie" data-toggle="modal" data-target="#fna-signature-modal">Review now</button>
-							<p class="table-desc-p p-status hidden" id="id-review">Reviewed <span class="signed-hidden-desktop">and signed</span></p>
+							<button class="btn savie-common-btn btn-table-savie" data-toggle="modal" data-target="#fna-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
+							<p class="table-desc-p p-status hidden" id="id-review"><fmt:message key="label.review.and.sign" bundle="${msg}" /></p>
 						</td>
 					  </tr>
 					  <tr>
 						<td class="numbers">2</td>
-						<td  class="adjust-body-content">Sales illustration</td>
+						<td  class="adjust-body-content"><fmt:message key="label.salesillustration" bundle="${msg}" /></td>
 						<td id="signature-status-2" class="savie-status">
 							<p class="table-desc-p pending">Pending review</p>
-							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#sales-signature-modal">Review now</button>
-							<p class="table-desc-p p-status hidden">Reviewed <span class="signed-hidden-desktop">and signed</span></p>
+							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#sales-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
+							<p class="table-desc-p p-status hidden"><fmt:message key="label.review.and.sign" bundle="${msg}" /></p>
 						</td>
 					  </tr>
 					  <tr>
 						<td class="numbers">3</td>
-						<td class="adjust-body-content">Policy replacement &amp; application form</td>
+						<td class="adjust-body-content"><fmt:message key="label.savie.review.policy" bundle="${msg}" /></td>
 						<td id="signature-status-3" class="savie-status">
 							<p class="table-desc-p pending">Pending review</p>
-							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#policy-signature-modal">Review now</button>
-							<p class="table-desc-p p-status hidden">Reviewed <span class="signed-hidden-desktop">and signed</span></p>
+							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#policy-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
+							<p class="table-desc-p p-status hidden"><fmt:message key="label.review.and.sign" bundle="${msg}" /></p>
 						</td>
 					  </tr>
 					</tbody>
 				</table>
 				<div class="col-xs-12" id="desktop-position-btn">
 					  <div class="text-center clearfix">
-						<button class="btn savie-common-btn disabled-gray-btn" type="button" id="btn-acctps-sign">Accept and sign</button>
+						<button class="btn savie-common-btn disabled-gray-btn" type="button" id="btn-acctps-sign"><fmt:message key="button.accept.and.sign" bundle="${msg}" /></button>
 						<a href="#" id="save-and-con-later" class="span-save-continue" data-toggle="modal" data-target="#save-and-continue-modal">
-							<span>Save and continue later</span>
+							<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
 						</a>
 					 </div>
 				</div>
@@ -154,7 +152,7 @@ var languageP = "${language}";
 			<form class="form-signatureoffline-info hidden" id="signoff-table" method="post">
 				<div id="choose-service-centre">
 					<div class="row">
-						<h5>Please choose service centre</h5>
+						<h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
 						<div class="col-xs-12 col-md-6" id="left-side-form">
 							<div class="selectDiv">
 							   <span class="icon-chevron-thin-down orange-caret"></span>
@@ -213,7 +211,7 @@ var languageP = "${language}";
                                 </select>
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
-							<p id="confirm-call">Appointment can be made up to 20 days in advance.</p>
+							<p id="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
 						</div>
 						<div class="col-xs-12 col-md-6" id="right-side-form">
 							<div class="centre-info visible-md visible-lg" id="centre-info">
@@ -222,7 +220,7 @@ var languageP = "${language}";
 						</div>
 						<div class="col-xs-12" id="desktop-position-btn">
 							<div class="text-center clearfix" id="btn-srv-center">
-								<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter">Next</button>
+								<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.Next" bundle="${msg}" /></button>
 							 </div>
 						</div>
 					</div>
@@ -238,10 +236,10 @@ var languageP = "${language}";
 		<div class="modal-content">
 			  <div class="modal-header">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				 <p class="modal-title visible-xs visible-sm">Signature</p>
+				 <p class="modal-title visible-xs visible-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
 			  </div>
 			  <div class="modal-body">
-				<p class="modal-title hidden-xs hidden-sm">Signature</p>
+				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
 				 <p>Please sign in the grey area</p>
 				 <form action="">
 					<div class="signature-parent">
@@ -270,7 +268,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm">Financial Needs Analysis</h4>
+		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.fna" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
@@ -285,7 +283,7 @@ var languageP = "${language}";
 		    </c:choose>
 		</div>
 		<div class="text-center">
-			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1">Review and agree (<span id="timer-1">8</span>)</button>
+			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">8</span>)</button>
 		</div>	
 	</div>
   </div>
@@ -295,7 +293,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm">Sales illustration</h4>
+		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.salesillustration" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
@@ -310,7 +308,7 @@ var languageP = "${language}";
 		    </c:choose>
 		</div>
 		<div class="text-center">
-			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-2">Review and agree (<span id="timer-2">8</span>)</button>
+			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-2"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-2">8</span>)</button>
 		</div>	
 	</div>
   </div>
@@ -320,7 +318,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm">Policy replacement &amp; application form</h4>
+		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.savie.review.policy" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
@@ -335,7 +333,7 @@ var languageP = "${language}";
 		    </c:choose>
 		</div>
 		<div class="text-center">
-			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-3">Review and agree (<span id="timer-3">8</span>)</button>
+			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-3"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-3">8</span>)</button>
 		</div>	
 	</div>
   </div>
@@ -547,7 +545,7 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-1').text('Review and agree').removeClass('disabled-gray-btn');
+				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
 			}
 			$('#timer-1').text(second);
 		}
@@ -561,7 +559,7 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-2').text('Review and agree').removeClass('disabled-gray-btn');
+				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
 			}
 			$('#timer-2').text(second);
 		}
@@ -575,7 +573,7 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-3').text('Review and agree').removeClass('disabled-gray-btn');
+				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
 			}
 			$('#timer-3').text(second);
 		}
