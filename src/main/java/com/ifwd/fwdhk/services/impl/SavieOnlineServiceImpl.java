@@ -1474,7 +1474,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return null;
 	}
 	
-	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
+	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
 		final Map<String,String> header = headerUtil.getHeader(request);
 		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
 		
@@ -1574,6 +1574,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
+		return apiResponse;
 	}
 	
 	private String formartNumber(String num){
