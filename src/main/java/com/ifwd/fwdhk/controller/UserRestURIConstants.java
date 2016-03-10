@@ -275,7 +275,7 @@ public class UserRestURIConstants {
 	public static final String URL_SAVIEONLINE_REGULAR_PREMIUM = "regular-premium";
 	
 	public static final String PAGE_SAVIEONLINE_LANDING = "O2O-landing";
-	public static final String PAGE_SAVIEONLINE_PLANDETAILS = "plan-details";
+	public static final String PAGE_SAVIEONLINE_PLANDETAILS = "plan-details-sp";
 	public static final String PAGE_SAVIEONLINE_FNA = "financial-needs-analysis";
 	public static final String PAGE_SAVIEONLINE_PRODUCT = "product-recommendation";
 	public static final String PAGE_SAVIEONLINE_REVIEW = "review";
