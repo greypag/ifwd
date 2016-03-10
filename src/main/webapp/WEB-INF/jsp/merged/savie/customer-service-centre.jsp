@@ -229,12 +229,12 @@ var language = "${language}";
           stickHeaderBrowse();
        });
 
-       /* $('#preferred-time').timepicker({
+       $('#preferred-time').timepicker({
           appendTo: '.timeslot',
           timeFormat: 'H:i',
           disableTextInput: true,
           disableTouchKeyboard: true
-       }); */
+       });
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
           //format: 'yy-mm-dd',
