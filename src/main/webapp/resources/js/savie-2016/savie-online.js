@@ -888,7 +888,7 @@ function soFirstBFormValidation() {
 					}
 				}
 			},
-			'beneficaryChineseName1':{
+			/*'beneficaryChineseName1':{
 				container: '#beneficiaryChineseNameErMsg\\[0\\]',
 				validators: {
 					stringLength: {
@@ -902,7 +902,7 @@ function soFirstBFormValidation() {
 					},
 					trigger: 'change keyup'
 				}
-			},
+			},*/
 			'beneficiaryHkidPassport1':{
 				container: '#beneficiaryHkidPassportErMsg\\[0\\]',
 				validators: {
@@ -1052,7 +1052,7 @@ function soFirstBFormValidation() {
 					}
 				}
 			},
-			'beneficiaryChineseName2':{
+			/*'beneficiaryChineseName2':{
 			   container: '#beneficiaryChineseNameErMsg\\[1\\]',
 			   validators: {
 					stringLength: {
@@ -1070,7 +1070,7 @@ function soFirstBFormValidation() {
 						}
 					}
 				}
-			},
+			},*/
 			'beneficiaryHkidPassport2':{
 				container: '#beneficiaryHkidPassportErMsg\\[1\\]',
 				validators: {
@@ -1220,7 +1220,7 @@ function soFirstBFormValidation() {
 					  }
 					}
 				},
-				'beneficiaryChineseName3':{
+				/*'beneficiaryChineseName3':{
 					container: '#beneficiaryChineseNameErMsg\\[2\\]',
 					validators: {
 					  stringLength: {
@@ -1238,7 +1238,7 @@ function soFirstBFormValidation() {
 						}
 					  }
 					}
-				},
+				},*/
 				'beneficiaryHkidPassport3':{
 					container: '#beneficiaryHkidPassportErMsg\\[2\\]',
 					validators: {
