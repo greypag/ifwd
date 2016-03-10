@@ -125,8 +125,8 @@ var language = "${language}";
 								<div class="info-wrapper">
 									<p class="info-label">Payment method</p>
 									<p class="info-value">
-									   Direct debit
-									   <input type="hidden" name="paymentMethod" value="Direct debit">
+									   Direct Debit
+									   <input type="hidden" name="paymentMethod" value="Direct Debit">
 									</p>
 								</div>
 								<div class="info-wrapper">
