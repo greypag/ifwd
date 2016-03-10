@@ -5,6 +5,9 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
@@ -28,13 +31,13 @@ var languageP = "${language}";
 				<div class="fwd-container container-fluid breadcrumbs">
 					<div class="breadcrumb-container">
 					   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-							<li><a href="#">Home</a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#">Save </a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#">Savie </a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 							<li class="divider last"><i class="fa fa-play"></i></i></li>
-							<li class="active-bc" id="et-active-bc-menu">Application</li>
+							<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 					   </ol>
 					</div>
 				 </div>
@@ -44,17 +47,17 @@ var languageP = "${language}";
 					   <div class="browse-container">
 						  <div class="row reset-margin hidden-xs hidden-sm">
 							 <ul class="common-steps-list six-steps nav nav-pills">
-								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 							 </ul>
 						 </div>
 					   </div>  
@@ -66,7 +69,7 @@ var languageP = "${language}";
 								</a>
 							 </div>
 							 <div class="et-header-tex">
-								<h3 id="">Application &amp; payment</h3>
+								<h3 id=""><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
 							 </div>
 							 <p id="step-of">2 out of 6</p>
 						  </div>
@@ -90,9 +93,9 @@ var languageP = "${language}";
 				<div id="so-beneficiary-info-section" class="headerStick">
 					<div class="container-fluid fwd-full-container" id="container-beneficiary">
 						<div id="fwd-container-beneficiary" class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page">
-							<h4 class="so-h4">Beneficiary info</h4>
+							<h4 class="so-h4"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></h4>
 							<div id="errorMsg" style="color: red;"></div>
-							<form id="beneficiary-info-form[0]" class="beneficiary-form-content" method="post" action="">
+							<form id="beneficiary-info-form[0]" class="beneficiary-form-content form-uppercase" method="post" action="">
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
@@ -100,7 +103,7 @@ var languageP = "${language}";
 											<input type="radio" id="own-estate-id" name="isOwnEstate" value="true" checked /> <label for="own-estate-id"></label>
 										 </div>
 										 <div class="pull-left desc">
-											Own estate
+											<fmt:message key="option.own.estate" bundle="${msg}" />
 										 </div>
 									  </div>
 									  <div class="clearfix below desktop-align">
@@ -108,7 +111,7 @@ var languageP = "${language}";
 											<input type="radio" id="name-others-id" name="isOwnEstate" value="false" /> <label for="name-others-id"></label>
 										 </div>
 										 <div class="pull-left desc">
-											Name others
+											<fmt:message key="option.name.other" bundle="${msg}" />
 										 </div>
 									  </div>
 								   </div>
@@ -123,14 +126,14 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[0]" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]">Last name (same as HKID)</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[0]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryFirstName[0]" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]">First name (same as HKID)</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[0]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[0]"></span>
@@ -139,7 +142,7 @@ var languageP = "${language}";
 									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]">Name in Chinese (optional)</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[0]">Duplicate chinese name</span>
@@ -148,9 +151,9 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
-												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
+												  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport1" id="beneficiaryHkidPassport[0]">
-													 <option value="" disabled="disabled">HKID / Passport</option>
+													 <option value="" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
 													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'hkid' }">selected="selected"</c:if>>HKID</option>
 													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' }">selected="selected"</c:if>>Passport</option>
 												  </select>
@@ -163,11 +166,11 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-0">
 											<input type="text" id="beneficiaryHkid[0]" name="beneficaryID1" value="${lifeBeneficaryInfo.beneficaryID1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]">HKID / Passport no.</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-0">
 											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]">HKID / Passport no.</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidPassErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupHkidErMsg[0]">Duplicate beneficiaries HKID</span>
@@ -177,9 +180,9 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]">
-														<option value="" selected="selected" disabled="disabled">Gender</option>
+														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
@@ -194,9 +197,9 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
+													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[0]" name="tmpBeneficiaryRelationship[0]">
-														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
 															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -233,10 +236,10 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]">Entitlement (%)</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[0]"></span>
-									 </div>		                
+									 </div>
 								</div>
 							</form>
 							<!-- Second Beneficiary -->
@@ -246,7 +249,7 @@ var languageP = "${language}";
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
-										<h5>Add beneficiary</h5>
+										<h5><fmt:message key="option.add.beneficiary" bundle="${msg}" /></h5>
 									</div>
 								</div>
 								<div class="clearfix add-on-header hidden" id="beneficiary-header[1]">
@@ -258,7 +261,7 @@ var languageP = "${language}";
 										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[1]"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button>
 									</div>
 								</div>
-								<form id="beneficiary-info-form[1]" class="beneficiary-form-content hidden" method="post" action="">
+								<form id="beneficiary-info-form[1]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
@@ -385,7 +388,7 @@ var languageP = "${language}";
 										<img id="add-btn-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
-										<h5>Add beneficiary</h5>
+										<h5><fmt:message key="option.add.beneficiary" bundle="${msg}" /></h5>
 									</div>
 								</div>
 								<div class="clearfix add-on-header hidden" id="beneficiary-header[2]">
@@ -397,7 +400,7 @@ var languageP = "${language}";
 										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[2]"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button>
 									</div>
 								</div>
-								<form id="beneficiary-info-form[2]" class="beneficiary-form-content hidden" method="post" action="">
+								<form id="beneficiary-info-form[2]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
@@ -519,14 +522,12 @@ var languageP = "${language}";
 							</div>
 						</div>
 						<div class="fwd-container-limitpersonal-info-widget page-application et-application-page clearfix" id="beneficiary-note">
-							<p>You may change the Beneficiary of this Policy by filing a written request at any time and as many times as you wish, 
-							however, for the first time you make the change, you are required to make the change request in person at one of our 
-							Customer Service Centers. </p>
+							<p><fmt:message key="label.change.beneficiary" bundle="${msg}" /></p>
 							<div id="beneficiary-btn">
-								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn">Next</button>
-								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden">Back to application summary</button>
+								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
+								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.next" bundle="${msg}" /></button>
 								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
-									<span>Save and continue later</span>
+									<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
 								</a>
 							</div>
 						</div>
@@ -534,58 +535,57 @@ var languageP = "${language}";
 				</div>
 			<!-- FOOTER -->
 		</div>
-		
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 				</div>
 			</div>
 		  </div>
 		</div>
-		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+					<center>
+						<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+						<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
+					</center>
 				</div>
 			</div>
 		  </div>
 		</div>
-		
 		<!-- Application saved modal -->
 		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog" id="modal-save-app">
 			<div class="modal-content modal-content-appsave common-welcome-modal">	
 				 <div class="modal-header" id="modal-header-appsave">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<p class="text-center">Your application has been saved. </p>
+						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 				 </div>
 				 <div class="modal-body" id="moda-body-appsave">
-					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
-					the application link embedded in the email or you may retrieve your progress from your eService 
-					purchase history. </p>
+					<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 					<div class="btn-appsave">
-						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 					</div>
 				 </div>
 			 </div>
 		  </div>
 		</div>
-		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
+		var getpath = "<%=request.getContextPath()%>";
+		var language = "en";
 		$(document).ready(function() {
 			var isOwnEstate = '${lifeBeneficaryInfo.isOwnEstate}';
 			if(isOwnEstate == 'false'){
@@ -619,121 +619,615 @@ var languageP = "${language}";
 				var htmlObj = document.getElementById('beneficiary-next-btn');
 				htmlObj.innerHTML = 'Back to application summary';
 			}
+	
 			
-		});
-		
-		
-		
-			$(document).ready(function() {
-				var language = "en";
-				var getpath = "<%=request.getContextPath()%>";
-				var dummy = true;
-				// dummy condition for displaying the back / next button
-				if(dummy) {
-					// hide the back button and display the Next button
-					$('.beneficiary-btn-next, #bf-save-and-con-later').removeClass('hidden');
-					$('.beneficiary-btn-back').addClass('hidden');
-				} else {
-					// display the back button and hide the Next button
-					$('.beneficiary-btn-next, #bf-save-and-con-later').addClass('hidden');
-					$('.beneficiary-btn-back').removeClass('hidden');
-				}
-				
+			var dummy = true;
+			// dummy condition for displaying the back / next button
+			if(dummy) {
+				// hide the back button and display the Next button
+				$('.beneficiary-btn-next, #bf-save-and-con-later').removeClass('hidden');
+				$('.beneficiary-btn-back').addClass('hidden');
+			} else {
+				// display the back button and hide the Next button
+				$('.beneficiary-btn-next, #bf-save-and-con-later').addClass('hidden');
+				$('.beneficiary-btn-back').removeClass('hidden');
+			}
+			
 				$('.save-exit-btn1, #keep-going-btn').click(function() {
 					$('#save-and-continue-modal').modal('hide');
 				});
 				
-				// application saved modal will show after clicking 'Save and exit' button 
-				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$("#errorMsg").html("");
-					var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-					   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-					   $('#beneficiary-info-form\\[2\\]').serialize();
-					$.ajax({
-						  type : "POST",
-						  async:false, 
-						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
-						  data: formdata1,
-						  success : function(data) {
-							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  $('#save-and-continue-modal').modal('hide');
-								  $("#errorMsg").html(data.errorMsg);
-							  }
-							  else{
-								  $('#save-and-continue-modal').modal('hide');
-								  $('#application-saved-modal').modal('show');
-							  }
+			// application saved modal will show after clicking 'Save and exit' button 
+			$('.save-exit-btn2, #save-exit-btn').click(function() {
+				$("#errorMsg").html("");
+				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[2\\]').serialize();
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
+					  data: formdata1,
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $('#save-and-continue-modal').modal('hide');
+							  $("#errorMsg").html(data.errorMsg);
 						  }
-				     });
-				});
-				
-				$('#btn-app-save').click(function() {
-					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-				});
-				
-				soFirstBFormValidation();
-				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
-				
-				$('.selectDiv').removeClass('is-not-active');
-				
-				$('#bf-save-and-con-later').on('click', function (e) {
-					if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
-						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
-					}
-					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
-					if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
-					   $('#save-and-continue-batch5-modal').modal('show');           
-					} else {
-						$('#save-and-continue-modal').modal('show');
-					}
-					// second form
-					if($('#beneficiary-info-form\\[1\\]').length == 0) {
-						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName2', false);
-					}
-					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficaryChineseName2');
-					if($('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
-					   $('#save-and-continue-batch5-modal').modal('show');           
-					} else {
-						$('#save-and-continue-modal').modal('show');
-					}
-					// third form
-					if($('#beneficiary-info-form\\[2\\]').length == 0) {
-						$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName3', false);
-					}
-					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficaryChineseName3');
-					if($('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
-					   $('#save-and-continue-batch5-modal').modal('show');           
-					} else {
-						$('#save-and-continue-modal').modal('show');
-					}
-                });
-				$("#beneficiary-next-btn").click(function(){
-					$("#errorMsg").html("");
-					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-								   $('#beneficiary-info-form\\[2\\]').serialize();
-					$.ajax({
-						  type : "POST",
-						  async:false, 
-						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
-						  data: formdata,
-						  success : function(data) {
-							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  $("#errorMsg").html(data.errorMsg);
-							  }
-							  else{
-								  if('${backSummary}'=="Y"){
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
-								  }
-								  else{
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-								  }
-							  }
+						  else{
+							  $('#save-and-continue-modal').modal('hide');
+							  $('#application-saved-modal').modal('show');
 						  }
-				     });
-				});
+					  }
+			     });
 			});
+			
+			$('#btn-app-save').click(function() {
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+			});
+			
+			soFirstBFormValidation();
+			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+			
+			$('.selectDiv').removeClass('is-not-active');
+			
+			$('#bf-save-and-con-later').on('click', function (e) {
+				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
+					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
+				}
+				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
+				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
+				   $('#save-and-continue-batch5-modal').modal('show');           
+				} else {
+					$('#save-and-continue-modal').modal('show');
+				}
+				// second form
+				if($('#beneficiary-info-form\\[1\\]').length == 0) {
+					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName2', false);
+				}
+				$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficaryChineseName2');
+				if($('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
+				   $('#save-and-continue-batch5-modal').modal('show');           
+				} else {
+					$('#save-and-continue-modal').modal('show');
+				}
+				// third form
+				if($('#beneficiary-info-form\\[2\\]').length == 0) {
+					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName3', false);
+				}
+				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficaryChineseName3');
+				if($('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
+				   $('#save-and-continue-batch5-modal').modal('show');           
+				} else {
+					$('#save-and-continue-modal').modal('show');
+				}
+               });
+			$("#beneficiary-next-btn").click(function(){
+				$("#errorMsg").html("");
+				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+							   $('#beneficiary-info-form\\[2\\]').serialize();
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
+					  data: formdata,
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  if('${backSummary}'=="Y"){
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+							  }
+						  }
+					  }
+			     });
+			});
+			
+			// Beneficiary Form validation
+			function soFirstBFormValidation() {
+				var counter = 0;
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator({
+					fields: {
+						'beneficaryFirstName1':{
+							container: '#beneficiaryFirstErMsg\\[0\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.given.name.empty" bundle="${msg}" />'
+			                    },
+								stringLength: {
+			                        max: 25,
+			                        message: 'First Name must be no more than 25 characters.'
+			                    },
+								regexp: {
+									regexp: /^[a-zA-Z\s]+$/ ,
+									message: '<fmt:message key="error.bene.given.name.invalid" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficaryLastName1':{
+							container: '#beneficiaryLastErMsg\\[0\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.last.name.empty" bundle="${msg}" />'
+			                    },
+								stringLength: {
+			                        max: 25,
+			                        message: 'Last Name must be no more than 25 characters.'
+			                    },
+								regexp: {
+									regexp: /^[a-zA-Z\s]+$/ ,
+									message: '<fmt:message key="error.bene.last.name.invalid" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficaryChineseName1':{
+							container: '#beneficiaryChineseNameErMsg\\[0\\]',
+							validators: {
+								stringLength: {
+			                        min: 1,
+			                        max: 6,
+			                        message: 'Chinese Name must be no more than 6 characters.'
+			                    },
+								regexp: {
+									regexp: /^[\s\u4e00-\u9eff]*$/,
+									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
+								},
+								trigger: 'change keyup'
+							}
+						},
+						'beneficiaryHkidPassport1':{
+							container: '#beneficiaryHkidPassportErMsg\\[0\\]',
+							validators: {
+								notEmpty: {
+									message: "Please select HKID or Passport no."
+			                    }
+							}
+						},
+						'beneficiaryPassport1':{
+							container: '#beneficiaryHkidPassErMsg\\[0\\]',
+							validators: {
+								stringLength: {
+			                        min: 5,
+			                        max: 15,
+			                        message: "Passport no. must be no more than 15 characters."
+			                    },
+								notEmpty: {
+									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
+				               },
+				               regexp: {
+				                  regexp: /^[a-zA-Z0-9\-]*$/,
+				                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+				               }
+							}
+						},
+						'beneficaryID1':{
+							container: '#beneficiaryHkidPassErMsg\\[0\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+								},
+								callback: {
+				                  callback: function(value, validator) {
+									if(!isValidHKID(value)) {
+										return {
+											valid: false,
+											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+										}
+									}
+									return true;
+				                  }
+				                }
+							}
+						},
+						'beneficaryGender1': {
+						   container: '#beneficiaryGenderErMsg\\[0\\]',
+						   validators: {
+							  notEmpty: {
+								 message: '<fmt:message key="error.bene.gender.empty" bundle="${msg}" />'
+							  }
+						   }
+						},
+						'beneficaryRelation1':{
+							container: '#beneficiaryRelationErMsg\\[0\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.relationship.empty" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficaryWeight1':{
+							container: '#beneficiaryEntitlementErMsg\\[0\\]',
+							validators: {
+								integer:{
+				                	message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+				                },
+				                between:{
+				                	min: 0,
+				                	max: 100,
+			                        message: "Beneficiary's entitlement must be between 1 and 100."
+			                    },
+								callback: {
+									message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
+									callback: function (value, validator, $field) {
+										if(value==''){
+	                        		// display the range error message if it is empty
+	                        		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'between');
+	                        		return true;
+	                        	} else {
+	                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+		                          		return false;
+		                        	} else {
+		                           		return true;
+		                        	}
+	                        	}
+									}
+								}
+							}
+						}
+					}
+				}).on('success.form.bv', function(e) {
+					e.preventDefault();
+				}).on('error.form.bv', function(e) {
+				});
+				
+				$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
+					if(totalBeneficiaryEntitlement()!="Exceed") {
+						if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+						 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID');
+						}
+						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID');
+						}
+					} else {
+						if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
+						}
+						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
+						}
+					}
+				});
+				
+				//Beneficiary Info Form [1]
+				$(document).on('click','#add-beneficiary-btn-1',function() {
+				 $('#beneficiary-info-form\\[1\\]').bootstrapValidator({
+					 fields: {
+						'beneficiaryFirstName2':{
+						    container: '#beneficiaryFirstErMsg\\[1\\]',
+						    validators: {
+								notEmpty: {
+								  message: '<fmt:message key="error.bene.given.name.empty" bundle="${msg}" />'
+								},
+								stringLength: {
+									max: 25,
+									message: "First Name must be no more than 25 characters."
+								},
+								regexp: {
+									regexp: /^[a-zA-Z\s]+$/ ,
+									message: '<fmt:message key="error.bene.given.name.invalid" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficiaryLastName2':{
+							container: '#beneficiaryLastErMsg\\[1\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.last.name.empty" bundle="${msg}" />'
+								},
+								stringLength: {
+									max: 25,
+									message: "Last Name must be no more than 25 characters."
+								},
+								regexp: {
+									regexp: /^[a-zA-Z\s]+$/ ,
+									message: '<fmt:message key="error.bene.last.name.invalid" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficiaryChineseName2':{
+						   container: '#beneficiaryChineseNameErMsg\\[1\\]',
+						   validators: {
+								stringLength: {
+									min: 1,
+									max: 6,
+									message: "Chinese Name must be no more than 6 characters."
+								},
+								regexp: {
+									regexp: /^[\s\u4e00-\u9eff]*$/,
+									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
+								},
+								callback: {
+									callback: function (value, validator) {
+										return true;		                	  
+									}
+								}
+							}
+						},
+						'beneficiaryHkidPassport2':{
+							container: '#beneficiaryHkidPassportErMsg\\[1\\]',
+							validators: {
+								notEmpty: {
+									message: "Please select HKID or Passport no."
+			                    }
+							}
+						},
+						'beneficiaryPassport2':{
+							container: '#beneficiaryHkidPassErMsg\\[1\\]',
+							validators: {
+								stringLength: {
+			                        min: 5,
+			                        max: 15,
+			                        message: "Passport no. must be no more than 15 characters."
+			                    },
+								notEmpty: {
+									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
+				               },
+				               regexp: {
+				                  regexp: /^[a-zA-Z0-9\-]*$/,
+				                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+				               }
+							}
+						},
+						'beneficiaryHkid2':{
+							container: '#beneficiaryHkidPassErMsg\\[1\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+								},
+								callback: {
+				                  callback: function(value, validator) {
+									if(!isValidHKID(value)) {
+										return {
+											valid: false,
+											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+										}
+									}
+									return true;
+				                  }
+				                }
+							}
+						},
+						"beneficiaryGender2": {
+						   container: '#beneficiaryGenderErMsg\\[1\\]',
+						   validators: {
+							  notEmpty: {
+								 message: '<fmt:message key="error.bene.gender.empty" bundle="${msg}" />'
+							  }
+						   }
+						},
+						'beneficiaryRelationship2':{
+						   container: '#beneficiaryRelationErMsg\\[1\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.relationship.empty" bundle="${msg}" />'
+								}
+							}
+						},
+						'beneficiaryEntitlement2':{
+						   container: '#beneficiaryEntitlementErMsg\\[1\\]',
+						   validators: {
+								integer:{
+									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+								},
+								between:{
+									min: 0,
+									max: 100,
+									message: "Beneficiary's entitlement must be between 1 and 100."
+								},
+								callback: {
+									message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
+									callback: function (value, validator, $field) {
+										if(value=='') {
+											// display the range error message if it is empty
+											$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'between');
+											return true;
+										} else {
+											if (totalBeneficiaryEntitlement() == "Exceed") {
+												return false;
+											} else {
+												return true;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}).on('success.form.bv', function(e) {
+					e.preventDefault();
+				}).on('error.form.bv', function(e) {
+				});
+				 
+				$( "#beneficiaryEntitlement\\[1\\]" ).on('change', function() {
+					if(totalBeneficiaryEntitlement()!="Exceed") {
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
+						 
+						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID', 'callback');
+						}
+					} else {
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
+						
+						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
+						}
+					}
+				});
+				});
+
+				//Beneficiary Info Form [2]
+				$(document).on('click','#add-beneficiary-btn-2',function(){
+					$('#beneficiary-info-form\\[2\\]').bootstrapValidator({
+						fields: {
+							'beneficiaryFirstName3':{
+								container: '#beneficiaryFirstErMsg\\[2\\]',
+								validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.given.name.empty" bundle="${msg}" />'
+								},
+								stringLength: {
+									max: 25,
+									message: "First Name must be no more than 25 characters."
+								},
+							  regexp: {
+									 regexp: /^[a-zA-Z\s]+$/ ,
+									 message: '<fmt:message key="error.bene.given.name.invalid" bundle="${msg}" />'
+								},
+							}
+							},
+							'beneficiaryLastName3':{
+								container: '#beneficiaryLastErMsg\\[2\\]',
+								validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.bene.last.name.empty" bundle="${msg}" />'
+									   },
+								  stringLength: {
+										   min: 1,
+										   max: 25,
+										   message: "Last Name must be no more than 25 characters."
+									   },
+								  regexp: {
+									 regexp: /^[a-zA-Z\s]+$/ ,
+									 message: '<fmt:message key="error.bene.last.name.invalid" bundle="${msg}" />'
+								  }
+								}
+							},
+							'beneficiaryChineseName3':{
+								container: '#beneficiaryChineseNameErMsg\\[2\\]',
+								validators: {
+								  stringLength: {
+									   min: 1,
+									   max: 6,
+									   message: "Chinese Name must be no more than 6 characters."
+									   },
+								  regexp: {
+									 regexp: /^[\s\u4e00-\u9eff]*$/,
+									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
+								  },
+								  callback: {
+									callback: function (value, validator) {
+										return true;		                	  
+									}
+								  }
+								}
+							},
+							'beneficiaryHkidPassport3':{
+								container: '#beneficiaryHkidPassportErMsg\\[2\\]',
+								validators: {
+									notEmpty: {
+										message: "Please select HKID or Passport no."
+									}
+								}
+							},
+							'beneficiaryPassport3':{
+								container: '#beneficiaryHkidPassErMsg\\[2\\]',
+								validators: {
+									stringLength: {
+										min: 5,
+										max: 15,
+										message: "Passport no. must be no more than 15 characters."
+									},
+									notEmpty: {
+										message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
+								   },
+								   regexp: {
+									  regexp: /^[a-zA-Z0-9\-]*$/,
+									  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+								   }
+								}
+							},
+							'beneficiaryHkid3':{
+							container: '#beneficiaryHkidPassErMsg\\[2\\]',
+							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+								},
+								callback: {
+				                  callback: function(value, validator) {
+									if(!isValidHKID(value)) {
+										return {
+											valid: false,
+											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+										}
+									}
+									return true;
+				                  }
+				                }
+							}
+						},
+							'beneficiaryGender3': {
+							   container: '#beneficiaryGenderErMsg\\[2\\]',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.bene.gender.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							'beneficiaryRelationship3':{
+								container: '#beneficiaryRelationErMsg\\[2\\]',
+								validators: {
+									notEmpty: {
+										message: '<fmt:message key="error.bene.relationship.empty" bundle="${msg}" />'
+									}
+								}
+							},
+							'beneficiaryEntitlement3':{
+								container: '#beneficiaryEntitlementErMsg\\[2\\]',
+								validators: {
+									integer:{
+										message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+									},
+									between:{
+										min: 0,
+										max: 100,
+										message: "Beneficiary's entitlement must be between 1 and 100."
+									},
+									callback: {
+										message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
+										callback: function (value, validator, $field) {
+											if(value=='') {
+												// display the range error message if it is empty
+												$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID', 'between');
+												return true;
+											} else {
+												if (totalBeneficiaryEntitlement() == "Exceed") {
+													return false;
+												} else {
+													return true;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}).on('success.form.bv', function(e) {
+						e.preventDefault();
+					}).on('error.form.bv', function(e) {
+					});
+					 
+					$( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
+						if(totalBeneficiaryEntitlement()!="Exceed") {
+							 $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
+							 
+							 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID', 'callback');
+							 }
+						} else {
+							$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'callback');
+							
+							 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'callback');
+							 }
+						}
+					});
+				});
+			}
+		});
 		</script>
-		
 	</body>
 </html>

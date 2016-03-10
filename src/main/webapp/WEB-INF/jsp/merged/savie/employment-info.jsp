@@ -5,7 +5,9 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
@@ -27,13 +29,13 @@ var languageP = "${language}";
 			<div class="fwd-container container-fluid breadcrumbs">
 	            <div class="breadcrumb-container">
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-						<li><a href="#">Home</a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#">Save </a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#">Savie </a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></i></li>
-						<li class="active-bc" id="et-active-bc-menu">Application</li>
+						<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 	               </ol>
 	            </div>
 	        </div>
@@ -43,17 +45,17 @@ var languageP = "${language}";
 	               <div class="browse-container">
 	                  <div class="row reset-margin hidden-xs hidden-sm">
 	                     <ul class="common-steps-list six-steps nav nav-pills">
-	                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+	                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 	                     </ul>
 	                 </div>
 	               </div>  
@@ -65,7 +67,7 @@ var languageP = "${language}";
 	                        </a>
 	                     </div>
 	                     <div class="et-header-tex">
-	                        <h3 id="">Application &amp; payment</h3>
+	                        <h3 id=""><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
 	                     </div>
 	                     <p id="step-of">2 of 6</p>
 	                  </div>
@@ -90,14 +92,14 @@ var languageP = "${language}";
 	  				<div id="unemployed-content">
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
-	  							<h3>Employment information &amp; education level </h3>
+								<h3><fmt:message key="label.employment.education.title" bundle="${msg}" /></h3>
 	  							<div id="errorMsg" style="color: red;"></div>
 								<div class="col-xs-12 col-md-6" id="left-side">
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></label>
 											<select name="tmpEmploymentStatus" id="tmpEmploymentStatus" class="form-control gray-dropdown">
-											   <option value="" disabled="disabled" selected="selected">Employment Status</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -127,9 +129,9 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
 											<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
-											   <option value="" disabled="disabled" selected="selected">Nature of business</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -159,9 +161,9 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
 											<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown occupation">
-											   <option value="" disabled="disabled" selected="selected">Occupation</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -193,15 +195,15 @@ var languageP = "${language}";
 									<div class="form-group employment-field hidden">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="other-occupation" name="otherOccupation" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation">Please specify</label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation"><fmt:message key="placeholder.please.specify" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="otherOccupationErMsg"></span>
 									</div>
 									<div class="form-group unemployment-field hidden">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Amount of other source of income</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></label>
 											<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
-											   <option value="" disabled="disabled" selected="selected">Amount of other source of income</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -223,15 +225,15 @@ var languageP = "${language}";
 									<div class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Current employer's name</label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
 											<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
-											   <option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -265,9 +267,9 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.education.level" bundle="${msg}" /></label>
 											<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
-											   <option value="" disabled="disabled" selected="selected">Education level</option>
+											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.education.level" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" 
@@ -325,9 +327,9 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group unemployment-field hidden">
 										<div class="selectDiv centreDiv gray-text-bg">
-											<label class="mdl-textfield__label cstm-dropdown-label">Amount of liquid assets (HK$)</label>
+											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></label>
 											<select name="tmpLiquidAssetsAmount" id="tmpLiquidAssetsAmount" class="form-control gray-dropdown">
-											   <option value="" disabled selected>Amount of liquid assets (HK$)</option>
+											   <option value="" disabled selected><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
 														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -346,9 +348,9 @@ var languageP = "${language}";
 									</div>
 								</div>
 	  							<div class="col-xs-12 text-center">
-	  								<button type="submit" class="btn savie-common-btn" id="next-btn">Next</button><br />
+	  								<button type="submit" class="btn savie-common-btn" id="next-btn"><fmt:message key="button.next" bundle="${msg}" /></button><br />
 	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button>
-									<a href="#" id="save-cont-link">Save and continue later</a>
+									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 								</div>	
 	  						</form>
 	  					</div>
@@ -363,25 +365,26 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 				</div>
 			</div>
 		  </div>
-		</div>
+		</div>		 
 		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
-				<div class="save-con-btns clearfix">
-					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
+				<div class="save-con-btns text-center clearfix">
+					<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+					<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 				</div>
 			</div>
 		  </div>
@@ -393,14 +396,12 @@ var languageP = "${language}";
 			<div class="modal-content modal-content-appsave common-welcome-modal">	
 				 <div class="modal-header" id="modal-header-appsave">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<p class="text-center">Your application has been saved. </p>
+						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 				 </div>
 				 <div class="modal-body" id="moda-body-appsave">
-					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
-					the application link embedded in the email or you may retrieve your progress from your eService 
-					purchase history. </p>
+					<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 					<div class="btn-appsave">
-						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 					</div>
 				 </div>
 			 </div>
@@ -467,7 +468,7 @@ var languageP = "${language}";
 						   selector: '#tmpEmploymentStatus',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select your employment status."
+								  message: '<fmt:message key="error.employment.status.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -476,7 +477,7 @@ var languageP = "${language}";
 						   selector: '#tmpBusinessNature',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select the nature of business."
+						  		message: '<fmt:message key="error.nature.of.business.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -485,7 +486,7 @@ var languageP = "${language}";
 						   selector: '#tmpOccupation',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select your occupation."
+								 message: '<fmt:message key="error.occupation.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -503,7 +504,7 @@ var languageP = "${language}";
 						   selector: '#currentEmployer',
 						   validators: {
 							  notEmpty: {
-								 message: "Please input employer's name."
+								 message: '<fmt:message key="error.employer.name.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -512,7 +513,7 @@ var languageP = "${language}";
 						   selector: '#tmpMonthlyPersonalIncome',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select monthly personal income."
+								 message: '<fmt:message key="error.monthly.personal.income.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -521,7 +522,7 @@ var languageP = "${language}";
 						   selector: '#tmpEducationLevel',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select your education level."
+								 message: '<fmt:message key="error.education.level.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -529,8 +530,8 @@ var languageP = "${language}";
 						   container: '#otherIncomeAmountErMsg',
 						   selector: '#tmpOtherIncomeAmount',
 						   validators: {
-							  notEmpty: {
-								 message: "Please select amount of other source of income."
+							  notEmpty: {								 
+								 message: '<fmt:message key="error.other.sources.of.income.empty" bundle="${msg}" />'
 							  }
 						   }
 						},
@@ -539,7 +540,7 @@ var languageP = "${language}";
 						   selector: '#tmpLiquidAssetsAmount',
 						   validators: {
 							  notEmpty: {
-								 message: "Please select amount of liquid assets."
+								 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
 							  }
 						   }
 						}

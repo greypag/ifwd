@@ -2058,7 +2058,7 @@ a.eserv-link:hover {
 /* line 623, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content {
   text-align: left;
-  padding: 30px 60px 0;
+  padding: 30px 60px 30px;
 }
 @media screen and (min-width: 992px) {
   /* line 623, ../sass/partials/savie/_homepage.scss */

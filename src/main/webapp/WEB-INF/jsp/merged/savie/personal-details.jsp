@@ -5,6 +5,9 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
@@ -28,13 +31,13 @@ var languageP = "${language}";
 				<div class="fwd-container container-fluid breadcrumbs">
 					<div class="breadcrumb-container">
 					   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-							<li><a href="#">Home</a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#">Save </a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#">Savie </a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 							<li class="divider last"><i class="fa fa-play"></i></i></li>
-							<li class="active-bc" id="et-active-bc-menu">Application</li>
+							<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 					   </ol>
 					</div>
 				 </div>
@@ -44,17 +47,17 @@ var languageP = "${language}";
 					   <div class="browse-container">
 						  <div class="row reset-margin hidden-xs hidden-sm">
 							 <ul class="common-steps-list six-steps nav nav-pills">
-								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 							 </ul>
 						 </div>
 					   </div>  
@@ -66,7 +69,7 @@ var languageP = "${language}";
 								</a>
 							 </div>
 							 <div class="et-header-tex">
-								<h3 id="">Application &amp; payment</h3>
+								<h3 id=""><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
 							 </div>
 							 <p id="step-of">2 out of 6</p>
 						  </div>
@@ -90,36 +93,36 @@ var languageP = "${language}";
 				 <div id="so-application-info-section" class="headerStick">
                   <div class="container-fluid fwd-container">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
-                        <h4 class="so-h4">Applicant info / insured person Info</h4>
+                        <h4 class="so-h4"><fmt:message key="label.savie.application.insured.title" bundle="${msg}" /></h4>
                         <div id="errorMsg" style="color: red;"></div>
-                        <form id="soInsuredInfoForm" method="post" class="form-horizontal" action="" onsubmit="return false">
+                        <form id="soInsuredInfoForm" method="post" class="form-horizontal form-uppercase" action="" onsubmit="return false">
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
 								<div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
-										<label class="mdl-textfield__label so-mdl-textfield-label" for="firstName">Given Name</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label" for="firstName"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="firstNameErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" value="${userDetails.lastName }" autocomplete="off" readonly="readonly" />
-										<label class="mdl-textfield__label so-mdl-textfield-label" for="lastName">Last Name</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="lastNameErMsg"></span>
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
-										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName">Name in Chinese</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
                                  </div>
 								 			<div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-														<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+														<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpGender" id="tmpGender">
-                                             <option value="" selected="selected" disabled="disabled">Gender</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
                                              <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
                                              <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
@@ -132,16 +135,16 @@ var languageP = "${language}";
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkid" type="text" value="${lifePersonalDetails.hkid }" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="hkId">HKID</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="hkId"><fmt:message key="placeholder.hkid" bundle="${msg}" /></label>
                                     </div>
 									<span class="error-msg" id="hkidErMsg"></span>
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">Place of birth</label>
+										  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpPlaceOfBirth" id="tmpPlaceOfBirth">
-                                             <option value="" selected="selected" disabled="disabled">Place of birth</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${placeOfBirthEN}">
 												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -177,9 +180,9 @@ var languageP = "${language}";
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  				<label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
+										  				<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nationality" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpNationality" id="tmpNationality">
-                                             <option value="" selected="selected" disabled="disabled">Nationality</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.nationality" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${nationalityEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -215,7 +218,7 @@ var languageP = "${language}";
                                  <div class="clearfix form-group has-error dob-content">
                                     <div class="left-desktop text-box et-date-info so-mdl-textfield">
 										<div class="selectDiv" id="date">
-											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
+											<label class="mdl-textfield__label cstm-textfield-label"><fmt:message key="placeholder.dob" bundle="${msg}" /></label>
 											<input type="text" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
@@ -229,7 +232,7 @@ var languageP = "${language}";
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
                                              <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
-											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo">Residential tel no. (eg. 1234-5678)</label>
+											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo"><fmt:message key="placeholder.residential.number" bundle="${msg}" /></label>
                                           </div>
                                        </div>
                                     </div>
@@ -240,7 +243,7 @@ var languageP = "${language}";
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
                                              <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
-											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo">Mobile no. (eg. 1234-5678)</label>
+											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo"><fmt:message key="placeholder.mobileno" bundle="${msg}" /></label>
                                           </div>
                                        </div>
                                     </div>
@@ -249,7 +252,7 @@ var languageP = "${language}";
                                  <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-									      			<label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>                                          
+									      			<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></label>                                          
                                           <select class="form-control gray-dropdown" name="tmpMaritalStatus"  id="tmpMaritalStatus">
                                              <option value="" selected="selected" disabled="disabled">Marital status</option>
                                              <c:if test="${language == 'en'}">
@@ -315,7 +318,7 @@ var languageP = "${language}";
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }" readonly="readonly" type="email" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="emailAddress">Email address</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="emailAddress"><fmt:message key="placeholder.email" bundle="${msg}" /></label>
                                     </div>
 									<span class="error-msg" id="emailErMsg"></span>
                                  </div>
@@ -323,16 +326,16 @@ var languageP = "${language}";
 									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1">Permanent address line 1</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2">Permanent address line 2</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3">Permanent address line 3</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
                                     </div>
 												<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
@@ -380,7 +383,7 @@ var languageP = "${language}";
                                                 <label for="diffToPermanent"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span id="chkboxdiffToPermanentText" class="checkbox-text">My residential address is different to my permanent address</span>
+                                                <span id="chkboxdiffToPermanentText" class="checkbox-text"><fmt:message key="label.diff.per.address" bundle="${msg}" /></span>
                                              </div>
                                           </div>
                                        </div>
@@ -389,22 +392,22 @@ var languageP = "${language}";
                                  <div class="clearfix form-group has-error hidden" id="diffToPermanentShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1">Residential address line 1</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2">Residential address line 2</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3">Residential address line 3</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
                                           <select class="form-control gray-dropdown" name="tmpResidentialDistrict" id="tmpResidentialDistrict">
-                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -446,7 +449,7 @@ var languageP = "${language}";
                                                 <label for="diffToResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span id="chkboxDiffToResidentialText" class="checkbox-text">My correspondence address is different to my residential address</span>
+                                                <span id="chkboxDiffToResidentialText" class="checkbox-text"><fmt:message key="label.diff.resp.address.diff.resp.address" bundle="${msg}" /></span>
                                              </div>
                                           </div>
                                        </div>
@@ -455,22 +458,22 @@ var languageP = "${language}";
 								 <div class="clearfix form-group has-error hidden" id="diffToResidentialShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1">Correspondence address line 1</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2">Correspondence address line 2</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Correspondence address line 3</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>                                          
                                           <select class="form-control gray-dropdown" name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict">
-                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -506,9 +509,9 @@ var languageP = "${language}";
                               </div>
                            </div>
                            <div class="next-btn">
-                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn">Next</button>
-							  <a href="#" class="link-btn" id="pd-save-con-later">Save and continue later</a>
-							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
+                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
+							  <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
                            </div>
                         </form>
                      </div>
@@ -517,57 +520,53 @@ var languageP = "${language}";
 			</div>
 			<!-- FOOTER -->
 		</div>
-		
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 				</div>
 			</div>
 		  </div>
 		</div>
-		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+					<center>
+						<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+						<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
+					</center>
 				</div>
 			</div>
 		  </div>
 		 </div>
-		
 		<!-- Application saved modal -->
 		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog" id="modal-save-app">
 			<div class="modal-content modal-content-appsave common-welcome-modal">	
 				 <div class="modal-header" id="modal-header-appsave">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<p class="text-center">Your application has been saved. </p>
+						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 				 </div>
 				 <div class="modal-body" id="moda-body-appsave">
-					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
-					the application link embedded in the email or you may retrieve your progress from your eService 
-					purchase history. </p>
+					<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 					<div class="btn-appsave">
-						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 					</div>
 				 </div>
 			 </div>
 		  </div>
 		</div>
-		
-		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			var language = "en";
@@ -739,6 +738,235 @@ var languageP = "${language}";
 					  }
 			     });
 			});
+			
+			//Applicant Info form validation
+			function soFormValidation() {
+			  $('#soInsuredInfoForm').bootstrapValidator({
+				 excluded: [':disabled', ':hidden', ':not(:visible)'],
+				 fields: {
+					'firstname': {
+					   container: '#firstNameErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.given.name.empty" bundle="${msg}" />'
+						  },
+						  stringLength: {
+							 max: 25,
+							 message: "Given Name must be no more than 25 characters."
+						  },
+						  regexp: {
+							 regexp: /^[a-zA-Z\s]*$/,
+							 message: '<fmt:message key="error.given.name.invalid" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'lastname': {
+					   container: '#lastNameErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.last.name.empty" bundle="${msg}" />'
+						  },
+						  stringLength: {
+							 max: 25,
+							 message: "Last Name must be no more than 25 characters."
+						  },
+						  regexp: {
+							 regexp: /^[a-zA-Z\s]*$/,
+							 message: '<fmt:message key="error.last.name.invalid" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'chineseName': {
+					   container: '#chineseNameErMsg',
+					   validators: {
+						  stringLength: {
+							 max: 6,
+							 message: "Chinese Name must be no more than 6 characters."
+						  },
+						  regexp: {
+								regexp: /^[\s\u4e00-\u9eff]*$/,
+								message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
+						  },
+						  callback: {
+							  callback: function (value, validator) {
+								  return true;		                	  
+							  }
+						  }
+					   }
+					},
+					'dob': {
+					   container: '#so-calendar-dob-msg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.dob.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'tmpGender': {
+					   container: '#genderErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.gender.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'hkid': {
+					   container: '#hkidErMsg',
+					   trigger: 'blur',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
+						  },
+						  callback: {
+							 /* message: "Your HKID no. is invalid.",
+							 callback: function(value, validator) {
+								//return isValidHKID(value);
+							 } */
+							 callback: function(value, validator) {
+								if(!isValidHKID(value)) {
+									return {
+										valid: false,
+										message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+									}
+								}
+								return true;
+							  }
+						  }
+					   }
+					},
+					'tmpMaritalStatus': {
+					   container: '#maritalStatErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.martial.status" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'tmpPlaceOfBirth': {
+					   container: '#placeOfBirthErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.place.of.birth.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'tmpNationality': {
+					   container: '#nationalityErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.nationality.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'residentialTelNo': {
+					   container: '#resTelNoErMsg',
+					   validators: {
+						  stringLength: {
+							  min: 8,
+							  max: 8,
+							  message: "Please enter an 8-digit Tel No."
+						   },
+						   regexp: {
+							  regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,
+							  message: '<fmt:message key="error.residential.no.invalid" bundle="${msg}" />'
+						   }
+					   }
+					},
+					'mobileNumber': {
+					   container: '#mobileNoErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.mobile.empty" bundle="${msg}" />'
+						  },
+						  stringLength: {
+							  min: 8,
+							  max: 8,
+							  message: "Please enter an 8-digit Mobile No."
+						   },
+						   regexp: {
+							  regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/,
+							  message: '<fmt:message key="error.mobile.invalid" bundle="${msg}" />'
+						   }
+					   }
+					},
+					'emailAddress': {
+					   container: '#emailErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.email.empty" bundle="${msg}" />'
+						  },
+						  regexp: {
+							 regexp: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+							 message: '<fmt:message key="error.email.invalid" bundle="${msg}" />'
+						  }
+					   }
+					},
+					'permanetAddress1': {
+						container: '#permanentAddErMsg',
+						validators: {
+							notEmpty: {
+							  message: '<fmt:message key="error.addr.empty" bundle="${msg}" />'
+							},
+							regexp: {
+							  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+							  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+							}
+						}
+					 },
+					 'tmpPermanentDistrict': {
+					   container: '#permanentDistrictErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.district.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					 'residentialAddress1': {
+						container: '#residentialAddErMsg',
+						validators: {
+							notEmpty: {
+							  message: '<fmt:message key="error.addr.empty" bundle="${msg}" />'
+							},
+							regexp: {
+							  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+							  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+							}
+						}
+					 },
+					 'tmpResidentialDistrict': {
+					   container: '#residentialDistrictErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.district.empty" bundle="${msg}" />'
+						  }
+					   }
+					},
+					 'correspondenceAddress1': {
+						container: '#correspondenceAddErMsg',
+						validators: {
+							notEmpty: {
+							  message: '<fmt:message key="error.addr.empty" bundle="${msg}" />'
+							},
+							regexp: {
+							  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+							  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+							}
+						}
+					 },
+					 'tmpCorrespondenceDistrict': {
+					   container: '#correspondenceDistrictErMsg',
+					   validators: {
+						  notEmpty: {
+							 message: '<fmt:message key="error.district.empty" bundle="${msg}" />'
+						  }
+					   }
+					}
+				}
+			  }).on('success.form.bv', function(e) {
+				 e.preventDefault();
+			  }).on('error.form.bv', function(e) {
+			  });
+			}
 		</script>
 	</body>
 </html>
