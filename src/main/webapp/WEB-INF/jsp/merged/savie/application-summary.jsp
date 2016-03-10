@@ -107,8 +107,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
-									<option value="${saviePlanDetails.paymentType }">${saviePlanDetails.paymentType }</option>
+									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${saviePlanDetails.paymentType }">${saviePlanDetails.paymentType }</option>
 								</select>
 								<input type="hidden" id="premiumMode" name="premiumMode" />
 							</div>
@@ -140,8 +140,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 								<select name="tmpGender" id="tmpGender" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.gender }">${lifePersonalDetails.gender }</option>
+									<option value="" ><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.gender }">${lifePersonalDetails.gender }</option>
 								</select>
 								<input type="hidden" id="gender" name="gender" />
 							</div>
@@ -156,8 +156,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
 								<select name="tmpPlaceOfBirth" id="tmpPlaceOfBirth" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.placeOfBirthName }">${lifePersonalDetails.placeOfBirthName }</option>
+									<option value=""><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.placeOfBirthName }">${lifePersonalDetails.placeOfBirthName }</option>
 								</select>
 								<input type="hidden" id="placeOfBirth" name="placeOfBirth" />
 							</div>
@@ -166,8 +166,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nationality" bundle="${msg}" /></label>
 								<select name="tmpNationality" id="tmpNationality" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.nationality" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.nationaltyName }">${lifePersonalDetails.nationaltyName }</option>
+									<option value=""><fmt:message key="placeholder.nationality" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.nationaltyName }">${lifePersonalDetails.nationaltyName }</option>
 								</select>
 								<input type="hidden" id="nationalty" name="nationalty" />
 							</div>
@@ -196,8 +196,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></label>
 								<select name="tmpMaritalStatus" id="tmpMaritalStatus" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.martialStatusName }">${lifePersonalDetails.martialStatusName }</option>
+									<option value=""><fmt:message key="placeholder.martial.status" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.martialStatusName }">${lifePersonalDetails.martialStatusName }</option>
 								</select>
 								<input type="hidden" id="martialStatus" name="martialStatus" />
 							</div>
@@ -231,8 +231,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpPermanentDistrict" id="tmpPermanentDistrict" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.permanetAddressDistrictName }">${lifePersonalDetails.permanetAddressDistrictName }</option>
+									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.permanetAddressDistrictName }">${lifePersonalDetails.permanetAddressDistrictName }</option>
 								</select>
 								<input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
 							</div>
@@ -259,8 +259,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpResidentialDistrict" id="tmpResidentialDistrict" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.residentialAddressDistrictName }">${lifePersonalDetails.residentialAddressDistrictName }</option>
+									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.residentialAddressDistrictName }">${lifePersonalDetails.residentialAddressDistrictName }</option>
 								</select>
 								<input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
 							</div>
@@ -287,8 +287,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option value="${lifePersonalDetails.correspondenceAddressDistrictName }">${lifePersonalDetails.correspondenceAddressDistrictName }</option>
+									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.correspondenceAddressDistrictName }">${lifePersonalDetails.correspondenceAddressDistrictName }</option>
 								</select>
 								<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
 							</div>
@@ -302,8 +302,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></label>
 								<select name="tmpEmploymentStatus" id="tmpEmploymentStatus" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></option>
-									<option value="${lifeEmploymentInfo.employmentStatusName }">${lifeEmploymentInfo.employmentStatusName }</option>
+									<option value=""><fmt:message key="placeholder.employment.status" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.employmentStatusName }">${lifeEmploymentInfo.employmentStatusName }</option>
 								</select>
 								<input type="hidden" id="employmentStatus" name="employmentStatus" />
 							</div>
@@ -312,8 +312,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
 								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
-									<option value="${lifeEmploymentInfo.natureOfBusinessName }">${lifeEmploymentInfo.natureOfBusinessName }</option>
+									<option value=""><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.natureOfBusinessName }">${lifeEmploymentInfo.natureOfBusinessName }</option>
 								</select>
 								<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" />
 							</div>
@@ -322,8 +322,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
 								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
-									<option value="${lifeEmploymentInfo.occupationName }">${lifeEmploymentInfo.occupationName }</option>
+									<option value=""><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.occupationName }">${lifeEmploymentInfo.occupationName }</option>
 								</select>
 								<input type="hidden" id="occupation" name="occupation" />
 							</div>
@@ -346,8 +346,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
 								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
-									<option value="${lifeEmploymentInfo.monthlyPersonalIncomeName }">${lifeEmploymentInfo.monthlyPersonalIncomeName }</option>
+									<option value=""><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.monthlyPersonalIncomeName }">${lifeEmploymentInfo.monthlyPersonalIncomeName }</option>
 								</select>
 								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
 							</div>
@@ -356,8 +356,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
 								<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected">Education level</option>
-									<option value="${lifeEmploymentInfo.educationName }">${lifeEmploymentInfo.educationName }</option>
+									<option value="">Education level</option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.educationName }">${lifeEmploymentInfo.educationName }</option>
 								</select>
 								<input type="hidden" id="education" name="education" />
 							</div>
@@ -408,8 +408,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[0]" id="tmpBeneficiaryRelationship[0]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryRelationName1 }">${lifeBeneficaryInfo.beneficaryRelationName1 }</option>
+													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName1 }">${lifeBeneficaryInfo.beneficaryRelationName1 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" />
 											</div>
@@ -418,8 +418,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryGender1 }">${lifeBeneficaryInfo.beneficaryGender1 }</option>
+													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender1 }">${lifeBeneficaryInfo.beneficaryGender1 }</option>
 												</select>
 												<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" />
 											</div>
@@ -467,8 +467,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[1]" id="tmpBeneficiaryRelationship[1]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryRelationName2 }">${lifeBeneficaryInfo.beneficaryRelationName2 }</option>
+													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName2 }">${lifeBeneficaryInfo.beneficaryRelationName2 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" />
 											</div>
@@ -477,8 +477,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[1]" id="tmpBeneficiaryGender[1]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryGender2 }">${lifeBeneficaryInfo.beneficaryGender2 }</option>
+													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender2 }">${lifeBeneficaryInfo.beneficaryGender2 }</option>
 												</select>
 												<input type="hidden" id="beneficiaryGender[1]" name="beneficiaryGender[1]" />
 											</div>
@@ -526,8 +526,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[2]" id="tmpBeneficiaryRelationship[2]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryRelationName3 }">${lifeBeneficaryInfo.beneficaryRelationName3 }</option>
+													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName3 }">${lifeBeneficaryInfo.beneficaryRelationName3 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" />
 											</div>
@@ -536,8 +536,8 @@
 											<div class="selectDiv centreDiv gray-text-bg is-not-active">
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[2]" id="tmpBeneficiaryGender[2]" class="form-control gray-dropdown">
-													<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option value="${lifeBeneficaryInfo.beneficaryGender3 }">${lifeBeneficaryInfo.beneficaryGender3 }</option>
+													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
+													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender3 }">${lifeBeneficaryInfo.beneficaryGender3 }</option>
 												</select>
 												<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" />
 											</div>
@@ -566,8 +566,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label">Payment method</label>
 								<select name="tmpPaymentMethod" id="tmpPaymentMethod" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected">Payment method</option>
-									<option value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
+									<option value="">Payment method</option>
+									<option disabled="disabled" selected="selected" value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
 								</select>
 								<input type="hidden" id="paymentMethod" name="paymentMethod" />
 							</div>
@@ -584,8 +584,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></label>
 								<select name="tmpBankName" id="tmpBankName" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
-									<option value="${lifePayment.bankName }">${lifePayment.bankName }</option>
+									<option value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePayment.bankName }">${lifePayment.bankName }</option>
 								</select>
 								<input type="hidden" id="bankName" name="bankName" />
 							</div>
@@ -600,8 +600,8 @@
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
 								<select name="tmpBranchName" id="tmpBranchName" class="form-control gray-dropdown">
-									<option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
-									<option value="${lifePayment.branchName }">${lifePayment.branchName }</option>
+									<option value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifePayment.branchName }">${lifePayment.branchName }</option>
 								</select>
 								<input type="hidden" id="branchName" name="branchName" />
 							</div>

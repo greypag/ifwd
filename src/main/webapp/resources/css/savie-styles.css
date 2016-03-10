@@ -7,7 +7,7 @@
   margin-top: 0;
 }
 
-/* line 11, ../sass/partials/savie/_media.scss */
+/* line 10, ../sass/partials/savie/_media.scss */
 .media,
 .media-body {
   zoom: 1;
@@ -24,19 +24,19 @@
   display: block;
 }
 
-/* line 25, ../sass/partials/savie/_media.scss */
+/* line 24, ../sass/partials/savie/_media.scss */
 .media-right,
 .media > .pull-right {
   padding-left: 10px;
 }
 
-/* line 30, ../sass/partials/savie/_media.scss */
+/* line 29, ../sass/partials/savie/_media.scss */
 .media-left,
 .media > .pull-left {
   padding-right: 10px;
 }
 
-/* line 36, ../sass/partials/savie/_media.scss */
+/* line 34, ../sass/partials/savie/_media.scss */
 .media-left,
 .media-right,
 .media-body {
@@ -292,7 +292,7 @@
   text-align: left;
   padding: 5px 0;
 }
-/* line 202, ../sass/partials/savie/_header.scss */
+/* line 200, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li.menu-li-drop:hover, .fwd-savie-wrapper header .navbar-menu .header-menu li.menu-li-drop:active, .fwd-savie-wrapper header .navbar-menu .header-menu li.menu-li-drop:focus {
   background: transparent;
 }
@@ -352,7 +352,7 @@
   opacity: 1;
   cursor: default;
 }
-/* line 18, ../sass/partials/savie/_common.scss */
+/* line 17, ../sass/partials/savie/_common.scss */
 .savie-common-btn:hover, .savie-common-btn:focus {
   opacity: 0.9;
   color: #ffffff;
@@ -540,6 +540,7 @@ a:hover {
 }
 /* line 199, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown {
+  background-color: #f5f5f5;
   z-index: 1;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -554,24 +555,24 @@ a:hover {
   padding: 3px 14px !important;
   cursor: pointer;
 }
-/* line 217, ../sass/partials/savie/_common.scss */
+/* line 218, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown::-ms-expand {
   display: none;
 }
-/* line 220, ../sass/partials/savie/_common.scss */
+/* line 221, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown:active, .selectDiv .gray-dropdown:focus, .selectDiv .gray-dropdown:hover {
   background: none;
   border-bottom: 2px solid #Ff8200 !important;
 }
-/* line 226, ../sass/partials/savie/_common.scss */
+/* line 227, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown.readonly-field:hover {
   border-bottom: none !important;
 }
-/* line 230, ../sass/partials/savie/_common.scss */
+/* line 231, ../sass/partials/savie/_common.scss */
 .selectDiv .form-control:focus {
   border: none;
 }
-/* line 234, ../sass/partials/savie/_common.scss */
+/* line 235, ../sass/partials/savie/_common.scss */
 .selectDiv .orange-caret-bg {
   position: absolute;
   top: 50%;
@@ -579,23 +580,23 @@ a:hover {
   width: 10px;
 }
 @media (min-width: 992px) {
-  /* line 234, ../sass/partials/savie/_common.scss */
+  /* line 235, ../sass/partials/savie/_common.scss */
   .selectDiv .orange-caret-bg {
     right: 20px;
   }
 }
-/* line 244, ../sass/partials/savie/_common.scss */
+/* line 245, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-textbox {
   padding-left: 15px;
   padding-right: 15px;
 }
-/* line 249, ../sass/partials/savie/_common.scss */
+/* line 250, ../sass/partials/savie/_common.scss */
 .selectDiv .cstm-textfield-label {
   padding-left: 15px;
   top: 10px;
   font-size: 14px;
 }
-/* line 255, ../sass/partials/savie/_common.scss */
+/* line 256, ../sass/partials/savie/_common.scss */
 .selectDiv .cstm-dropdown-label {
   display: none;
 }
@@ -607,33 +608,33 @@ a:hover {
   color: #373a36;
   padding-left: 15px;
 }
-/* line 266, ../sass/partials/savie/_common.scss */
+/* line 267, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .cstm-dropdown-label {
   display: block;
 }
-/* line 268, ../sass/partials/savie/_common.scss */
+/* line 269, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .gray-dropdown {
   color: #000 !important;
   padding-top: 10px !important;
 }
-/* line 272, ../sass/partials/savie/_common.scss */
+/* line 273, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .gray-dropdown.pd-dropdown {
   padding-top: 3px !important;
 }
 
-/* line 280, ../sass/partials/savie/_common.scss */
+/* line 281, ../sass/partials/savie/_common.scss */
 .centreDiv {
   overflow: hidden;
 }
 
-/* line 284, ../sass/partials/savie/_common.scss */
+/* line 285, ../sass/partials/savie/_common.scss */
 .breadcrumb-container {
   max-width: 1115px;
   margin: 0 auto 0 25px;
   padding: 0;
 }
 @media (min-width: 992px) {
-  /* line 284, ../sass/partials/savie/_common.scss */
+  /* line 285, ../sass/partials/savie/_common.scss */
   .breadcrumb-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -641,19 +642,19 @@ a:hover {
   }
 }
 
-/* line 295, ../sass/partials/savie/_common.scss */
+/* line 296, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
 }
 
-/* line 298, ../sass/partials/savie/_common.scss */
+/* line 299, ../sass/partials/savie/_common.scss */
 .browse-container {
   max-width: 1115px;
   margin: 0 auto;
   padding-left: 12px;
 }
 
-/* line 303, ../sass/partials/savie/_common.scss */
+/* line 304, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs {
   display: block;
   max-width: none !important;
@@ -661,13 +662,13 @@ a:hover {
   padding-right: 0 !important;
 }
 @media (min-width: 992px) {
-  /* line 303, ../sass/partials/savie/_common.scss */
+  /* line 304, ../sass/partials/savie/_common.scss */
   .fwd-savie-wrapper .breadcrumbs {
     background: #f3f4f5;
     margin: 0;
   }
 }
-/* line 313, ../sass/partials/savie/_common.scss */
+/* line 314, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb {
   display: block;
   		/*li.active-bc {
@@ -682,124 +683,124 @@ a:hover {
   			}
   		}*/
 }
-/* line 317, ../sass/partials/savie/_common.scss */
+/* line 318, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li a {
   color: #333;
   font-size: 14px;
   font-weight: 600;
 }
-/* line 323, ../sass/partials/savie/_common.scss */
+/* line 324, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.active-bc {
   font-size: 14px;
   color: #ff8200;
 }
-/* line 328, ../sass/partials/savie/_common.scss */
+/* line 329, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider {
   border-right: none;
   margin: 0;
   padding: 0 10px;
 }
-/* line 333, ../sass/partials/savie/_common.scss */
+/* line 334, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider .fa-play {
   top: -8px;
 }
-/* line 335, ../sass/partials/savie/_common.scss */
+/* line 336, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider.last {
   padding-right: 10px;
 }
-/* line 338, ../sass/partials/savie/_common.scss */
+/* line 339, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider.last .fa-play {
   left: 6px;
 }
-/* line 356, ../sass/partials/savie/_common.scss */
+/* line 357, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
   padding: 8px 0 0 0;
   margin-top: 0;
 }
 @media (min-width: 992px) {
-  /* line 356, ../sass/partials/savie/_common.scss */
+  /* line 357, ../sass/partials/savie/_common.scss */
   .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
     margin: 0;
     padding: 3px 0;
   }
 }
 
-/* line 366, ../sass/partials/savie/_common.scss */
+/* line 367, ../sass/partials/savie/_common.scss */
 .heading-title {
   font-size: 18px;
   color: #ff8200;
 }
 
-/* line 371, ../sass/partials/savie/_common.scss */
+/* line 372, ../sass/partials/savie/_common.scss */
 .common-steps-list li {
   padding-left: 25px;
 }
-/* line 373, ../sass/partials/savie/_common.scss */
+/* line 374, ../sass/partials/savie/_common.scss */
 .common-steps-list li#first-step {
   padding-left: 0;
 }
-/* line 377, ../sass/partials/savie/_common.scss */
+/* line 378, ../sass/partials/savie/_common.scss */
 .common-steps-list li .incomplete-step .status {
   color: #ff8200 !important;
   background: none !important;
   border: 1px solid #ff8200;
 }
-/* line 383, ../sass/partials/savie/_common.scss */
+/* line 384, ../sass/partials/savie/_common.scss */
 .common-steps-list li .status {
   width: 24px;
   height: 24px !important;
   padding: 0 !important;
 }
-/* line 389, ../sass/partials/savie/_common.scss */
+/* line 390, ../sass/partials/savie/_common.scss */
 .common-steps-list li .active .status {
   padding: 1px !important;
 }
-/* line 395, ../sass/partials/savie/_common.scss */
+/* line 396, ../sass/partials/savie/_common.scss */
 .common-steps-list.six-steps li {
   padding-left: 0;
   margin-left: 0;
 }
 @media (min-width: 1200px) {
-  /* line 395, ../sass/partials/savie/_common.scss */
+  /* line 396, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li {
     padding-left: 6px;
   }
 }
 @media (min-width: 992px) and (max-width: 1069px) {
-  /* line 401, ../sass/partials/savie/_common.scss */
+  /* line 402, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li button {
     font-size: 16px !important;
   }
 }
 @media (min-width: 1070px) {
-  /* line 401, ../sass/partials/savie/_common.scss */
+  /* line 402, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li button {
     font-size: 18px;
   }
 }
-/* line 412, ../sass/partials/savie/_common.scss */
+/* line 413, ../sass/partials/savie/_common.scss */
 .common-steps-list.five-steps li {
   padding-left: 21px;
 }
 
 @media (max-width: 992px) {
-  /* line 418, ../sass/partials/savie/_common.scss */
+  /* line 419, ../sass/partials/savie/_common.scss */
   .with-breadcrumbs-steps .breadcrumbs {
     padding-top: 50px;
   }
 }
 @media (max-width: 992px) {
-  /* line 423, ../sass/partials/savie/_common.scss */
+  /* line 424, ../sass/partials/savie/_common.scss */
   .with-breadcrumbs-steps .browse-holder {
     margin-top: 16px !important;
   }
 }
-/* line 427, ../sass/partials/savie/_common.scss */
+/* line 428, ../sass/partials/savie/_common.scss */
 .with-breadcrumbs-steps .browse-holder h3 {
   line-height: 24px;
 }
 
-/* line 433, ../sass/partials/savie/_common.scss */
+/* line 434, ../sass/partials/savie/_common.scss */
 #step-of {
   position: absolute;
   right: 30px;
@@ -808,37 +809,37 @@ a:hover {
   font-size: 14px;
 }
 
-/* line 441, ../sass/partials/savie/_common.scss */
+/* line 442, ../sass/partials/savie/_common.scss */
 .ui-loader {
   display: none;
 }
 
-/* line 446, ../sass/partials/savie/_common.scss */
+/* line 447, ../sass/partials/savie/_common.scss */
 .radio-group h4 {
   color: #ff8200;
 }
-/* line 449, ../sass/partials/savie/_common.scss */
+/* line 450, ../sass/partials/savie/_common.scss */
 .radio-group .below {
   margin-top: 8px;
 }
 @media (min-width: 992px) {
-  /* line 449, ../sass/partials/savie/_common.scss */
+  /* line 450, ../sass/partials/savie/_common.scss */
   .radio-group .below {
     margin-top: 0;
   }
 }
-/* line 456, ../sass/partials/savie/_common.scss */
+/* line 457, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group {
   margin-top: 8px;
 }
-/* line 459, ../sass/partials/savie/_common.scss */
+/* line 460, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc {
   font-size: 14px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
 }
-/* line 465, ../sass/partials/savie/_common.scss */
+/* line 466, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc span {
   color: #9ba5a7;
   font-family: 'Calibri';
@@ -846,13 +847,13 @@ a:hover {
   line-height: 15px;
 }
 @media (min-width: 992px) {
-  /* line 465, ../sass/partials/savie/_common.scss */
+  /* line 466, ../sass/partials/savie/_common.scss */
   .radio-group .radio-button-group .desc span {
     display: inline-block;
     padding-left: 4px;
   }
 }
-/* line 477, ../sass/partials/savie/_common.scss */
+/* line 478, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder {
   width: 27px;
   position: relative;
@@ -860,7 +861,7 @@ a:hover {
   height: 15px;
   top: 72px;
 }
-/* line 483, ../sass/partials/savie/_common.scss */
+/* line 484, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label {
   width: 15px;
   height: 15px;
@@ -871,7 +872,7 @@ a:hover {
   border: solid 1px #ff8200;
   border-radius: 50%;
 }
-/* line 492, ../sass/partials/savie/_common.scss */
+/* line 493, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:after {
   content: '';
   width: 11px;
@@ -884,43 +885,43 @@ a:hover {
   border: solid 1px #fff;
   opacity: 0;
 }
-/* line 504, ../sass/partials/savie/_common.scss */
+/* line 505, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:hover::after {
   opacity: 0.5;
 }
-/* line 509, ../sass/partials/savie/_common.scss */
+/* line 510, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio] {
   visibility: hidden;
 }
-/* line 511, ../sass/partials/savie/_common.scss */
+/* line 512, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio]:checked + label:after {
   opacity: 1;
 }
 
-/* line 518, ../sass/partials/savie/_common.scss */
+/* line 519, ../sass/partials/savie/_common.scss */
 .centreDiv {
   overflow: hidden;
 }
 
-/* line 521, ../sass/partials/savie/_common.scss */
+/* line 522, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info {
   margin-bottom: 10px;
   padding: 0px 12px 10px 12px;
   background: #F5F5F5;
   height: 40px;
 }
-/* line 526, ../sass/partials/savie/_common.scss */
+/* line 527, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info label {
   font-size: 11px;
   font-weight: bold;
 }
-/* line 530, ../sass/partials/savie/_common.scss */
+/* line 531, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info .data-info {
   font-size: 14px;
   line-height: 5px;
 }
 
-/* line 535, ../sass/partials/savie/_common.scss */
+/* line 536, ../sass/partials/savie/_common.scss */
 .common-yellow-btn {
   border-radius: 5px !important;
   background: #fdb714;
@@ -930,27 +931,27 @@ a:hover {
   padding: 4px 30px;
   border-bottom: 3px solid #cf9611;
 }
-/* line 543, ../sass/partials/savie/_common.scss */
+/* line 544, ../sass/partials/savie/_common.scss */
 .common-yellow-btn:hover {
   color: #FFF;
   opacity: 0.9;
 }
 
-/* line 548, ../sass/partials/savie/_common.scss */
+/* line 549, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator {
   background: #FFF;
   width: 100%;
 }
-/* line 551, ../sass/partials/savie/_common.scss */
+/* line 552, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container {
   padding: 20px 30px 0 30px;
   position: relative;
 }
-/* line 557, ../sass/partials/savie/_common.scss */
+/* line 558, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li#last-step {
   width: 23px;
 }
-/* line 560, ../sass/partials/savie/_common.scss */
+/* line 561, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a {
   width: 24px;
   height: 24px;
@@ -961,79 +962,79 @@ a:hover {
   background: #fff;
   color: #ff8200;
 }
-/* line 569, ../sass/partials/savie/_common.scss */
+/* line 570, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.active {
   background: #ff8200 !important;
   color: #FFF !important;
 }
-/* line 573, ../sass/partials/savie/_common.scss */
+/* line 574, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.completed {
   background: #cdd2d3;
   color: #FFF;
   border: 1px solid #cdd2d3;
   font-size: 13px;
 }
-/* line 579, ../sass/partials/savie/_common.scss */
+/* line 580, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a .step-no {
   display: block;
   font-size: 16px;
   padding: 0 !important;
 }
-/* line 587, ../sass/partials/savie/_common.scss */
+/* line 588, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.six-steps li {
   width: 17.11%;
 }
 @media (min-width: 420px) {
-  /* line 587, ../sass/partials/savie/_common.scss */
+  /* line 588, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 17.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 587, ../sass/partials/savie/_common.scss */
+  /* line 588, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 18.5%;
   }
 }
-/* line 598, ../sass/partials/savie/_common.scss */
+/* line 599, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.five-steps li {
   width: 21.9%;
 }
 @media (min-width: 420px) {
-  /* line 598, ../sass/partials/savie/_common.scss */
+  /* line 599, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 22.5%;
   }
 }
 @media (min-width: 559px) {
-  /* line 598, ../sass/partials/savie/_common.scss */
+  /* line 599, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23%;
   }
 }
 @media (min-width: 593px) {
-  /* line 598, ../sass/partials/savie/_common.scss */
+  /* line 599, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23.5%;
   }
 }
-/* line 612, ../sass/partials/savie/_common.scss */
+/* line 613, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.three-steps li {
   width: 44.5%;
 }
 @media (min-width: 420px) {
-  /* line 612, ../sass/partials/savie/_common.scss */
+  /* line 613, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 45.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 612, ../sass/partials/savie/_common.scss */
+  /* line 613, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 46.9%;
   }
 }
-/* line 623, ../sass/partials/savie/_common.scss */
+/* line 624, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container .step-line {
   height: 1px;
   background: #DDD;
@@ -1041,57 +1042,57 @@ a:hover {
   width: 96%;
 }
 
-/* line 632, ../sass/partials/savie/_common.scss */
+/* line 633, ../sass/partials/savie/_common.scss */
 h1 {
   font-size: 36px;
 }
 
-/* line 635, ../sass/partials/savie/_common.scss */
+/* line 636, ../sass/partials/savie/_common.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 638, ../sass/partials/savie/_common.scss */
+/* line 639, ../sass/partials/savie/_common.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 641, ../sass/partials/savie/_common.scss */
+/* line 642, ../sass/partials/savie/_common.scss */
 h4 {
   font-size: 18px;
 }
 
-/* line 644, ../sass/partials/savie/_common.scss */
+/* line 645, ../sass/partials/savie/_common.scss */
 h5 {
   font-size: 14px;
 }
 
-/* line 647, ../sass/partials/savie/_common.scss */
+/* line 648, ../sass/partials/savie/_common.scss */
 h6 {
   font-size: 12px;
 }
 
-/* line 650, ../sass/partials/savie/_common.scss */
+/* line 651, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield {
   width: 100% !important;
   padding: 0 !important;
   margin-bottom: 10px !important;
 }
-/* line 654, ../sass/partials/savie/_common.scss */
+/* line 655, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input {
   padding: 12px 15px 0 15px !important;
   height: 40px !important;
   margin-bottom: 0 !important;
 }
-/* line 659, ../sass/partials/savie/_common.scss */
+/* line 660, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input:hover, .so-mdl-textfield input:focus {
   border-bottom: 2px solid #Ff8200 !important;
 }
-/* line 664, ../sass/partials/savie/_common.scss */
+/* line 665, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input.readonly-field:hover, .so-mdl-textfield input.readonly-field:focus {
   border-bottom: none !important;
 }
-/* line 668, ../sass/partials/savie/_common.scss */
+/* line 669, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label {
   font-size: 14px;
   left: 0;
@@ -1099,69 +1100,69 @@ h6 {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 674, ../sass/partials/savie/_common.scss */
+/* line 675, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label:after {
   background-color: transparent;
   			/*background-color: #ff8200;
      			bottom: 0;
   			width: 97%;*/
 }
-/* line 682, ../sass/partials/savie/_common.scss */
+/* line 683, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label {
   color: #ff8200 !important;
   top: 1px !important;
   font-size: 12px;
 }
-/* line 688, ../sass/partials/savie/_common.scss */
+/* line 689, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused .readonly-field + label, .so-mdl-textfield.is-dirty .readonly-field + label {
   color: #373a36  !important;
 }
-/* line 691, ../sass/partials/savie/_common.scss */
+/* line 692, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused .readonly-field + label.readonly-field-label, .so-mdl-textfield.is-dirty .readonly-field + label.readonly-field-label {
   top: 10px !important;
   color: rgba(0, 0, 0, 0.26) !important;
   font-size: 14px !important;
 }
-/* line 698, ../sass/partials/savie/_common.scss */
+/* line 699, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-active {
   color: #ff8200 !important;
 }
-/* line 702, ../sass/partials/savie/_common.scss */
+/* line 703, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-not-active label {
   color: #373a36  !important;
   top: 1px !important;
   font-size: 12px;
 }
 
-/* line 710, ../sass/partials/savie/_common.scss */
+/* line 711, ../sass/partials/savie/_common.scss */
 .active-checkbox:after {
   border: 0px solid #FFF !important;
 }
 
-/* line 714, ../sass/partials/savie/_common.scss */
+/* line 715, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder {
   background: #061d29;
   padding: 24px 0 20px 0;
 }
 @media (max-width: 992px) {
-  /* line 714, ../sass/partials/savie/_common.scss */
+  /* line 715, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder {
     margin-top: 20px;
     padding: 24px 0 30px 0;
   }
 }
-/* line 721, ../sass/partials/savie/_common.scss */
+/* line 722, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder {
   margin-bottom: 0 !important;
   padding: 0 30px !important;
 }
 @media (min-width: 992px) {
-  /* line 721, ../sass/partials/savie/_common.scss */
+  /* line 722, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder {
     padding: 0 15px !important;
   }
 }
-/* line 727, ../sass/partials/savie/_common.scss */
+/* line 728, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title {
   color: #FFF;
   margin-left: 15px;
@@ -1169,104 +1170,104 @@ h6 {
   margin-bottom: 15px;
 }
 @media (min-width: 992px) {
-  /* line 727, ../sass/partials/savie/_common.scss */
+  /* line 728, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title {
     margin-bottom: 5px;
   }
 }
-/* line 735, ../sass/partials/savie/_common.scss */
+/* line 736, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle {
   font-size: 14px;
   margin-left: 5px;
 }
-/* line 739, ../sass/partials/savie/_common.scss */
+/* line 740, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
   cursor: pointer;
 }
 @media (max-width: 992px) {
-  /* line 739, ../sass/partials/savie/_common.scss */
+  /* line 740, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
     display: none;
   }
 }
 @media (min-width: 992px) {
-  /* line 747, ../sass/partials/savie/_common.scss */
+  /* line 748, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-payment-type, .plan-calculator-holder .plan-form-holder .plan-amount {
     padding-right: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 752, ../sass/partials/savie/_common.scss */
+  /* line 753, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #payment-type, .plan-calculator-holder .plan-form-holder #plan-dob {
     margin-bottom: 20px;
   }
 }
-/* line 757, ../sass/partials/savie/_common.scss */
+/* line 758, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #plan-dob-datepicker {
   height: 40px;
   font-size: 14px;
   color: #9ba5a7;
 }
-/* line 763, ../sass/partials/savie/_common.scss */
+/* line 764, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
 }
 @media (min-width: 992px) {
-  /* line 767, ../sass/partials/savie/_common.scss */
+  /* line 768, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
     padding-right: 8px;
     padding-left: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 774, ../sass/partials/savie/_common.scss */
+  /* line 775, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-total-years .selectDiv, .plan-calculator-holder .plan-form-holder .plan-amount .selectDiv {
     margin-bottom: 0;
   }
 }
 @media (max-width: 992px) {
-  /* line 780, ../sass/partials/savie/_common.scss */
+  /* line 781, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     margin-top: 10px;
   }
 }
 @media (min-width: 992px) {
-  /* line 780, ../sass/partials/savie/_common.scss */
+  /* line 781, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     padding-left: 8px;
     padding-right: 0;
   }
 }
-/* line 792, ../sass/partials/savie/_common.scss */
+/* line 793, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .orange-caret-bg {
   top: 44% !important;
   width: 14px !important;
 }
-/* line 796, ../sass/partials/savie/_common.scss */
+/* line 797, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder {
   padding-bottom: 30px;
 }
 @media (min-width: 992px) {
-  /* line 796, ../sass/partials/savie/_common.scss */
+  /* line 797, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder {
     padding-bottom: 10px;
   }
 }
-/* line 801, ../sass/partials/savie/_common.scss */
+/* line 802, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-handle {
   background-image: url("../images/savie-2016/handle.png") !important;
   background-repeat: no-repeat;
   background-position: 0px !important;
 }
 @media (min-width: 992px) {
-  /* line 806, ../sass/partials/savie/_common.scss */
+  /* line 807, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-horizontal {
     width: 93%;
     height: 7px;
     margin-left: 10px;
   }
 }
-/* line 813, ../sass/partials/savie/_common.scss */
+/* line 814, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
   font-size: 18px;
   color: #FFFFFF;
@@ -1275,23 +1276,23 @@ h6 {
   margin-top: 20px;
 }
 @media (min-width: 992px) {
-  /* line 813, ../sass/partials/savie/_common.scss */
+  /* line 814, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
     margin-top: 0;
   }
 }
-/* line 823, ../sass/partials/savie/_common.scss */
+/* line 824, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder {
   margin-top: 10px;
   color: #FFF;
 }
-/* line 826, ../sass/partials/savie/_common.scss */
+/* line 827, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
   line-height: 14px;
   font-size: 14px;
 }
 @media (min-width: 992px) {
-  /* line 826, ../sass/partials/savie/_common.scss */
+  /* line 827, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
     font-size: 12px;
   }
@@ -1306,7 +1307,7 @@ h6 {
   margin-top: 0;
 }
 
-/* line 11, ../sass/partials/savie/_media.scss */
+/* line 10, ../sass/partials/savie/_media.scss */
 .media,
 .media-body {
   zoom: 1;
@@ -1323,19 +1324,19 @@ h6 {
   display: block;
 }
 
-/* line 25, ../sass/partials/savie/_media.scss */
+/* line 24, ../sass/partials/savie/_media.scss */
 .media-right,
 .media > .pull-right {
   padding-left: 10px;
 }
 
-/* line 30, ../sass/partials/savie/_media.scss */
+/* line 29, ../sass/partials/savie/_media.scss */
 .media-left,
 .media > .pull-left {
   padding-right: 10px;
 }
 
-/* line 36, ../sass/partials/savie/_media.scss */
+/* line 34, ../sass/partials/savie/_media.scss */
 .media-left,
 .media-right,
 .media-body {
@@ -1768,7 +1769,7 @@ body {
     padding-right: 10%;
   }
 }
-/* line 344, ../sass/partials/savie/_homepage.scss */
+/* line 342, ../sass/partials/savie/_homepage.scss */
 .fna-icons-body .so-fna-row .navtabs-li .navtabs-title:active, .fna-icons-body .so-fna-row .navtabs-li .navtabs-title:hover, .fna-icons-body .so-fna-row .navtabs-li .navtabs-title:focus {
   background: transparent;
 }
@@ -2023,7 +2024,7 @@ a.eserv-link:hover {
   padding: 25px;
   width: 100%;
 }
-/* line 591, ../sass/partials/savie/_homepage.scss */
+/* line 589, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-btn:hover, .psa-divider .psa-btn:focus, .psa-divider .psa-btn:active {
   color: #ffffff;
 }
@@ -2034,7 +2035,7 @@ a.eserv-link:hover {
     border: 0;
     font-size: 36px;
   }
-  /* line 602, ../sass/partials/savie/_homepage.scss */
+  /* line 600, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-btn:hover, .psa-divider .psa-btn:focus, .psa-divider .psa-btn:active {
     color: #ff8200;
     cursor: default;
@@ -2058,7 +2059,7 @@ a.eserv-link:hover {
 /* line 623, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content {
   text-align: left;
-  padding: 30px 60px 30px;
+  padding: 30px 60px 0;
 }
 @media screen and (min-width: 992px) {
   /* line 623, ../sass/partials/savie/_homepage.scss */
@@ -2129,7 +2130,7 @@ a.eserv-link:hover {
   font-size: 14px;
   font-family: 'Calibri-Bold';
 }
-/* line 689, ../sass/partials/savie/_homepage.scss */
+/* line 687, ../sass/partials/savie/_homepage.scss */
 .container-products .li-container ul li a:hover, .container-products .li-container ul li a:focus, .container-products .li-container ul li a:active {
   background-color: #ff8200;
   color: #ffffff;
@@ -2217,13 +2218,13 @@ a.eserv-link:hover {
 }
 /* line 784, ../sass/partials/savie/_homepage.scss */
 #so-carousel .carousel-control.left {
-  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -webkit-linear-gradient(left, color-stop(transparent 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+  background-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, 0.0001) 100%);
 }
 /* line 789, ../sass/partials/savie/_homepage.scss */
 #so-carousel .carousel-control.right {
-  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0) 100%));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(transparent 100%));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, transparent 100%);
 }
 
 /* line 2, ../sass/partials/savie/_review-fna.scss */
@@ -2402,7 +2403,7 @@ a.eserv-link:hover {
     margin-top: 20%;
   }
 }
-/* line 89, ../sass/partials/savie/_make-an-appointment.scss */
+/* line 88, ../sass/partials/savie/_make-an-appointment.scss */
 .make-an-appointment .select:hover,
 .make-an-appointment .select:active {
   color: white;
@@ -2595,7 +2596,7 @@ a.eserv-link:hover {
   padding-left: 60px;
   border-radius: 0;
   border: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 1px 1px transparent;
   background-color: #f1f3f5;
   margin-bottom: 5px;
   background-position-y: -2px;
@@ -2626,7 +2627,7 @@ a.eserv-link:hover {
   margin-bottom: 9px;
   font-family: 'Calibri';
   padding-left: 25px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 1px 1px transparent;
   font-size: 18px;
 }
 /* line 288, ../sass/partials/savie/_make-an-appointment.scss */
@@ -2810,7 +2811,7 @@ a.eserv-link:hover {
 #fullyBooked .modal-dialog .modal-content {
   padding: 35px 30px;
 }
-/* line 463, ../sass/partials/savie/_make-an-appointment.scss */
+/* line 462, ../sass/partials/savie/_make-an-appointment.scss */
 #pickAnotherCentre .modal-dialog .modal-content h2,
 #pickAnotherCentre .modal-dialog .modal-content .registered,
 #fullyBooked .modal-dialog .modal-content h2,
@@ -2858,14 +2859,14 @@ a.eserv-link:hover {
   }
 }
 
-/* line 16, ../sass/partials/savie/_appointment-confirmation.scss */
+/* line 15, ../sass/partials/savie/_appointment-confirmation.scss */
 #appointment-confirmation-page,
 #offline-signature-confirmation-page {
   font-family: Calibri;
   margin-bottom: 10px;
 }
 @media (max-width: 992px) {
-  /* line 16, ../sass/partials/savie/_appointment-confirmation.scss */
+  /* line 15, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page,
   #offline-signature-confirmation-page {
     padding: 10px 30px;
@@ -2921,7 +2922,7 @@ a.eserv-link:hover {
   margin-bottom: 17px;
   margin-top: -2px;
 }
-/* line 56, ../sass/partials/savie/_appointment-confirmation.scss */
+/* line 55, ../sass/partials/savie/_appointment-confirmation.scss */
 #appointment-confirmation-page .policy-number-panel .policy-number-wrapper .policy-number-label,
 #appointment-confirmation-page .policy-number-panel .policy-number-wrapper .policy-number,
 #offline-signature-confirmation-page .policy-number-panel .policy-number-wrapper .policy-number-label,
@@ -2930,7 +2931,7 @@ a.eserv-link:hover {
   line-height: 18px;
   padding: 0;
 }
-/* line 64, ../sass/partials/savie/_appointment-confirmation.scss */
+/* line 63, ../sass/partials/savie/_appointment-confirmation.scss */
 #appointment-confirmation-page .policy-number-panel .policy-number-label,
 #appointment-confirmation-page .policy-number-panel .policy-number,
 #offline-signature-confirmation-page .policy-number-panel .policy-number-label,
@@ -2974,7 +2975,7 @@ a.eserv-link:hover {
   #offline-signature-confirmation-page .policy-number-panel > div:last-child {
     margin-top: -20px;
   }
-  /* line 91, ../sass/partials/savie/_appointment-confirmation.scss */
+  /* line 90, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .policy-number-panel .cstm-md-col-1,
   #appointment-confirmation-page .policy-number-panel .cstm-md-col-2,
   #offline-signature-confirmation-page .policy-number-panel .cstm-md-col-1,
@@ -3007,7 +3008,7 @@ a.eserv-link:hover {
 #offline-signature-confirmation-page .appointment-details-panel {
   margin-bottom: 24px;
 }
-/* line 116, ../sass/partials/savie/_appointment-confirmation.scss */
+/* line 115, ../sass/partials/savie/_appointment-confirmation.scss */
 #appointment-confirmation-page .appointment-details-panel p,
 #appointment-confirmation-page .appointment-details-panel .details-label,
 #offline-signature-confirmation-page .appointment-details-panel p,
@@ -3231,7 +3232,7 @@ a.eserv-link:hover {
   #offline-signature-confirmation-page .requirements-panel .requirements-list {
     background-color: transparent;
   }
-  /* line 277, ../sass/partials/savie/_appointment-confirmation.scss */
+  /* line 276, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list .cstm-md-col-1,
   #appointment-confirmation-page .requirements-panel .requirements-list .cstm-md-col-2,
   #offline-signature-confirmation-page .requirements-panel .requirements-list .cstm-md-col-1,
@@ -3328,7 +3329,7 @@ a.eserv-link:hover {
   padding: 5px 30px;
 }
 @media only screen and (min-width: 992px) {
-  /* line 16, ../sass/partials/savie/_appointment-confirmation.scss */
+  /* line 15, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page,
   #offline-signature-confirmation-page {
     max-width: 710px;
@@ -3647,6 +3648,7 @@ a.eserv-link:hover {
     padding: 10px 0 10px 15px;
   }
 }
+
 /* line 240, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row a {
   color: #ff9500;
@@ -3732,7 +3734,7 @@ a.eserv-link:hover {
 #login-overlay-modal .modal-dialog .modal-content .modal-body {
   padding: 0;
 }
-/* line 28, ../sass/partials/savie/_login-overlay.scss */
+/* line 27, ../sass/partials/savie/_login-overlay.scss */
 #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-left,
 #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right {
   width: 100%;
@@ -3917,7 +3919,7 @@ a.eserv-link:hover {
     margin-right: -15px;
     margin-left: -15px;
   }
-  /* line 192, ../sass/partials/savie/_login-overlay.scss */
+  /* line 191, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-left,
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right {
     float: left;
@@ -3932,7 +3934,7 @@ a.eserv-link:hover {
   }
 }
 
-/* line 215, ../sass/partials/savie/_login-overlay.scss */
+/* line 214, ../sass/partials/savie/_login-overlay.scss */
 #__lpform_username_icon,
 #__lpform_password_icon {
   display: none;
@@ -4331,6 +4333,19 @@ a.eserv-link:hover {
   }
 }
 
+/* line 123, ../sass/partials/savie/_footer.scss */
+.footer-container .upper-footer-wrapper .contact-number {
+  color: #f6871e;
+}
+/* line 127, ../sass/partials/savie/_footer.scss */
+.footer-container .upper-footer-wrapper .bottom-link a {
+  color: #f6871e;
+}
+/* line 129, ../sass/partials/savie/_footer.scss */
+.footer-container .upper-footer-wrapper .bottom-link a:hover {
+  color: #9fb1b2;
+}
+
 /** Save and Continue style**/
 /* line 4, ../sass/partials/savie/_save-and-con.scss */
 #save-and-continue-modal .modal-content.save-con-modal-content {
@@ -4438,10 +4453,12 @@ a.eserv-link:hover {
   font-weight: bold;
   color: #ff8200;
   margin-top: 1px;
-  @-moz-document url-prefix() {
-    font-size: 17px;
 }
-
+@-moz-document url-prefix() {
+  /* line 22, ../sass/partials/savie/_fatca-declaration.scss */
+  #dialog-fatca-declaration #modal-content-fatca .modal-header > p {
+    font-size: 17px;
+  }
 }
 /* line 32, ../sass/partials/savie/_fatca-declaration.scss */
 #dialog-fatca-declaration #modal-content-fatca .modal-body ol {
@@ -5273,7 +5290,7 @@ a.eserv-link:hover {
     float: left;
   }
 }
-/* line 26, ../sass/partials/savie/_payment.scss */
+/* line 25, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .info-wrapper,
 #payment-page .payment-content-wrapper .select-wrapper {
   background-color: #f5f5f5;
@@ -5470,7 +5487,7 @@ a.eserv-link:hover {
   padding: 5px 60px;
   margin-bottom: 5px;
 }
-/* line 213, ../sass/partials/savie/_payment.scss */
+/* line 212, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .btn-payment:hover, #payment-page .payment-content-wrapper .btn-payment:focus {
   opacity: 0.9;
   color: #ffffff;
@@ -5522,7 +5539,7 @@ a.eserv-link:hover {
   height: 45px;
   width: 100%;
 }
-/* line 260, ../sass/partials/savie/_payment.scss */
+/* line 259, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .form-control.gray-dropdown.preferred-date, #payment-page .payment-select-wrapper .form-control.gray-dropdown.ui-timepicker-input {
   padding-left: 15px !important;
 }
@@ -6601,7 +6618,7 @@ h6.so-h6 {
 #upload-document-page .upload-form .finish-upload span.finish-upload-check {
   top: 35%;
 }
-/* line 217, ../sass/partials/savie/_upload-document.scss */
+/* line 215, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form .select-file-hkid.select-zone,
 #upload-document-page .upload-form .select-file-passport.select-zone,
 #upload-document-page .upload-form .select-file.select-zone {
@@ -7108,6 +7125,14 @@ h6.so-h6 {
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child .requirement-text-wrapper p {
     margin-top: -3px;
   }
+}
+@media only screen and (min-width: 992px) and (min-width: 992px) {
+  /* line 53, ../sass/partials/savie/_offline-signature-confirmation.scss */
+  #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child .requirement-text-wrapper p {
+    padding: 0 35px;
+  }
+}
+@media only screen and (min-width: 992px) {
   /* line 62, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:last-child .requirment-img-wrapper {
     padding-top: 20px;
@@ -7116,12 +7141,6 @@ h6.so-h6 {
   /* line 67, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:last-child .requirement-text-wrapper p {
     margin-top: 5px;
-  }
-}
-@media only screen and (min-width: 992px) and (min-width: 992px) {
-  /* line 53, ../sass/partials/savie/_offline-signature-confirmation.scss */
-  #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child .requirement-text-wrapper p {
-    padding: 0 35px;
   }
 }
 /* line 73, ../sass/partials/savie/_offline-signature-confirmation.scss */
@@ -7184,7 +7203,7 @@ h6.so-h6 {
 #declaration-page .declaration-content-wrapper a:hover {
   text-decoration: underline;
 }
-/* line 16, ../sass/partials/savie/_declaration.scss */
+/* line 15, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper p,
 #declaration-page .declaration-content-wrapper ol li {
   color: #373a36;
@@ -7662,10 +7681,12 @@ h6.so-h6 {
   font-weight: bold;
   color: #ff8200;
   margin-top: 1px;
-  @-moz-document url-prefix() {
-    font-size: 17px;
 }
-
+@-moz-document url-prefix() {
+  /* line 23, ../sass/partials/savie/_address-prof.scss */
+  #dialog-address-prof #modal-content-addressprof .modal-header > p {
+    font-size: 17px;
+  }
 }
 /* line 33, ../sass/partials/savie/_address-prof.scss */
 #dialog-address-prof #modal-content-addressprof .modal-body ol {
@@ -9231,16 +9252,20 @@ form#table-info #id-policy, form#table-info #id-application {
 .error-box .ui-pnotify-container {
   background: #fecda7;
   color: #373a36;
+  position: fixed;
+  height: 90px;
+  bottom: 0;
+  width: 100%;
 }
-/* line 5, ../sass/partials/savie/_error-box.scss */
+/* line 9, ../sass/partials/savie/_error-box.scss */
 .error-box .ui-pnotify-container .ui-pnotify-title {
   font-size: 18px;
 }
-/* line 8, ../sass/partials/savie/_error-box.scss */
+/* line 12, ../sass/partials/savie/_error-box.scss */
 .error-box .ui-pnotify-container .ui-pnotify-text {
   font-size: 14px;
 }
-/* line 11, ../sass/partials/savie/_error-box.scss */
+/* line 15, ../sass/partials/savie/_error-box.scss */
 .error-box .ui-pnotify-container .ui-pnotify-sticker {
   display: none;
 }
