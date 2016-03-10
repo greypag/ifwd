@@ -908,9 +908,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
 		if(responseJsonObj.get("errMsgs") == null) {
-			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
-			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
-			request.getSession().setAttribute("productRecommendation", productRecommendation);
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
 			String sort;
@@ -954,6 +951,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			responseJsonObj.put("product_list", sortProductArr);
 		}
+		
+		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+		ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+		request.getSession().setAttribute("productRecommendation", productRecommendation);
 		return responseJsonObj;
 	}
 	
