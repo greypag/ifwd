@@ -12,7 +12,7 @@
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();
-    /*hotelVoucherCampaignId = 16;*/
+    hotelVoucherCampaignId = 18;
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
@@ -2130,9 +2130,14 @@
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
                     $('#offer-details-promotion-code-error-once').modal('show');
                 }else{
-                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
-                    $('#offer-details-promotion-code').modal('show');
-                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
+                    if(<%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                        $('#offer-details-hotel-voucher').modal('show');
+                        $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/${language}/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel" bundle="${msg}" /><%=hotelVoucherCampaignId%>');                 	
+                    }else{
+	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
+	                    $('#offer-details-promotion-code').modal('show');
+	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
+                    }
                 }
             }
         });
