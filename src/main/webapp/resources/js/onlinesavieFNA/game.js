@@ -313,7 +313,7 @@ var fnaSavieGame = {
 		$('.frm-fna-dob').datepicker({
 			startView: "decade",
 			autoclose: true,
-			format: "yyyy-mm-dd",
+			format: "dd-mm-yyyy",
 			startDate: dob_start_date,
 			endDate: dob_end_date
 			/*language: getBundleLanguage*/

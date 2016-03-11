@@ -2,11 +2,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="url">${req.requestURL}</c:set>
+<c:set var="uri" value="${req.requestURI}" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +146,7 @@
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<div id="pdf">
-								<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf"  frameborder="0"></iframe>
+								<iframe src="https://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true""  frameborder="0"></iframe>
 							</div>
 							<div class="text-center">
 								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
@@ -155,7 +159,7 @@
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 	        		<div id="pdf">
-	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>
+	        			<iframe src="https://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
 	        			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 	        				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 	        				<embed id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">

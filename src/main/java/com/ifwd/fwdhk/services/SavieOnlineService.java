@@ -24,7 +24,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 
 public interface SavieOnlineService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
-	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception;
+	public void createSalesIllustrationPdf(String type,HttpServletRequest request) throws Exception;
 	public void createApplicationFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception;
 	public void createFnaFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception;
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;

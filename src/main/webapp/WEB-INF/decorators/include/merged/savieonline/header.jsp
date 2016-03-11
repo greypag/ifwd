@@ -100,6 +100,7 @@ function submitLoginForm(formID) {
 						//history.go(-Backlen);
 						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
 							$("#fullName").html(data.fullName);
+							$("#fullNames").html(data.fullName);
 							saviePlanDetailsGoNext();
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){

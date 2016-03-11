@@ -168,7 +168,7 @@ public class SavieOnlineController extends BaseController{
 		}
 		else{
 			try {
-				savieOnlineService.createSalesIllustrationPdf(request);
+				savieOnlineService.createSalesIllustrationPdf("1",request);
 			}
 			catch (Exception e) {
 				logger.info(e.getMessage(),e);
@@ -405,7 +405,7 @@ public class SavieOnlineController extends BaseController{
 					
 					String pdfName = (String) request.getSession().getAttribute("pdfName");
 					if(pdfName==null || "".equals(pdfName)){
-						savieOnlineService.createSalesIllustrationPdf(request);
+						savieOnlineService.createSalesIllustrationPdf("1",request);
 					}
 				}else {
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
@@ -449,6 +449,12 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			try {
+				savieOnlineService.sendEmails(request, "savieComplete");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 		}
 	}
@@ -460,6 +466,11 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			try {
+				savieOnlineService.sendEmails(request, "uploadDocument");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 		}
 	}
@@ -471,6 +482,13 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			
+			try {
+				savieOnlineService.sendEmails(request, "signLater");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			String centre = request.getParameter("centre");
 			String preferredDate = request.getParameter("preferred-date");
 			String preferredTime = request.getParameter("preferred-time");
@@ -506,6 +524,13 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			
+			try {
+				savieOnlineService.sendEmails(request, "paylater");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			String centre = request.getParameter("centre");
 			String preferredDate = request.getParameter("preferred-date");
 			String preferredTime = request.getParameter("preferred-time");
@@ -541,6 +566,13 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			
+			try {
+				savieOnlineService.sendEmails(request, "offlineApplication");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			String centre = request.getParameter("centre");
 			String preferredDate = request.getParameter("preferred-date");
 			String preferredTime = request.getParameter("preferred-time");
@@ -589,5 +621,4 @@ public class SavieOnlineController extends BaseController{
 			}
 		}
 	}
-	
 }
