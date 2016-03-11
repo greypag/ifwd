@@ -846,6 +846,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.SAVE_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
+		
+		String language = (String) request.getSession().getAttribute("language");
+		if (language.equalsIgnoreCase("EN")) {
+			jsonObject.put("lang", "EN");
+		
+		} else {
+			jsonObject.put("lang", "CH");
+		}
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		String[] dob = savieFna.getDob().split("-");
@@ -889,7 +897,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
+		//jsonObject.put("dob", savieFna.getDob());
+		jsonObject.put("dob", "1990-01-01");
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -970,6 +979,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -987,7 +997,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
 				String[] dob = jobject.get("dob").toString().split("-");
-				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
+				//savieFna.setDob(dob[0]+"-"+dob[1]+"-"+dob[2]);
+				savieFna.setDob("01-01-1990");
+				
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -1017,7 +1029,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				request.getSession().setAttribute("savieFna", savieFna);
 				
 				jobject.put("name", userDetails.getFullName());
-				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+				jobject.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
+				jobject.put("dob", "1990-01-01");
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
@@ -1045,6 +1058,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
+		
+		
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "SAVIE-SP");
 			JSONObject applicant = new JSONObject();
@@ -1052,7 +1067,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			String[] dob = lifePersonalDetails.getDob().split("-");
-			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+			//applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+			//applicant.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
+			applicant.put("dob", "1990-01-01");
+			
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");
