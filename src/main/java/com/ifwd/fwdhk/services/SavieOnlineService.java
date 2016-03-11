@@ -49,6 +49,6 @@ public interface SavieOnlineService {
 	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException;
-	public JSONObject clearFna(HttpServletRequest request) throws ECOMMAPIException;
+	public void clearFna(HttpServletRequest request) throws ECOMMAPIException;
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
 }

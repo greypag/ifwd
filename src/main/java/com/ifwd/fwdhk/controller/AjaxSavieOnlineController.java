@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -594,10 +595,11 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			jsonObject = savieOnlineService.clearFna(request);
+			savieOnlineService.clearFna(request);
+			jsonObject.put("success", "success");
 		} 
 		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", "api error");
+			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
