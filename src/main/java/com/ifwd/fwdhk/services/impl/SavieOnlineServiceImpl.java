@@ -1072,7 +1072,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.GET_PURCHASE_HISTORY_BY_PLANCODE+"?planCode=SAVIE";
+		String planCode = request.getParameter("planCode");
+		String Url = UserRestURIConstants.GET_PURCHASE_HISTORY_BY_PLANCODE+"?planCode="+planCode;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
@@ -2056,11 +2057,21 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject clearFna(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.CLEAR_FNA;
+	public void clearFna(HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject parameters = new JSONObject();
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, new JSONObject());
-		return responseJsonObj;
+		apiReturn = connector.clearFna(parameters, header);
+		if(apiReturn==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
 	}
 	
 	@Override
