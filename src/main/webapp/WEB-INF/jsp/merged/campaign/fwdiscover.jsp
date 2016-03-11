@@ -12,6 +12,7 @@
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();
+    /*hotelVoucherCampaignId = 17;*/
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
@@ -1993,7 +1994,7 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(<%=hotelVoucherCampaignId!=-1%>){
+                        if(<%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -2005,7 +2006,7 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(<%=hotelVoucherCampaignId==-1%>){
+                        if(<%=hotelVoucherCampaignId<13%>){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
@@ -2013,7 +2014,7 @@
                         loginpopup(campaignId);
                     }else{
                         $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(<%=hotelVoucherCampaignId==-1%>){
+                        if(<%=hotelVoucherCampaignId<=13%>){
                             $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                         }
                     }
