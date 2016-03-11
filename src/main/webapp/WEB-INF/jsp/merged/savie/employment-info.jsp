@@ -450,6 +450,7 @@ var languageP = "${language}";
 							  else{
 								  $('#save-and-continue-batch5-modal').modal('hide');
 								  $('#application-saved-modal').modal('show');
+								  sendEmailForSaveLater();
 							  }
 						  }
 				     });

@@ -269,19 +269,19 @@
 					</div>
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox permanent-address"
-							autocomplete="off" id="permanetAddress1"
+							autocomplete="off" id="permanetAddress1" maxlength="29"
 							name="permanetAddress1" type="text" value="${lifePersonalDetails.permanetAddress1 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage1"></span>
 						<input
 							class="form-control gray-textbox permanent-address optional-field"
-							autocomplete="off" id="permanetAddress2"
+							autocomplete="off" id="permanetAddress2" maxlength="29"
 							name="permanetAddress2" type="text" value="${lifePersonalDetails.permanetAddress2 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage2"></span>
 						<input
 							class="form-control gray-textbox permanent-address optional-field"
-							autocomplete="off" id="permanetAddress3"
+							autocomplete="off" id="permanetAddress3" maxlength="19"
 							name="permanetAddress3" type="text" value="${lifePersonalDetails.permanetAddress3 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage3"></span>

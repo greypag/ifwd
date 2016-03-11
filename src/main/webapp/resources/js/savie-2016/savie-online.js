@@ -1629,3 +1629,14 @@ function setSelectReadonly(elementId, isReadonly) {
 		elem.parent('.selectDiv').addClass('is-not-active');
 	}
 }
+
+function sendEmailForSaveLater() {
+	$.ajax({     
+	    url:contextPath+'/ajax/savings-insurance/sendEmailForSaveLater',     
+	    type:'get',     
+	    success:function(data){
+	    },
+	    error:function(){       
+	    }
+	});
+}

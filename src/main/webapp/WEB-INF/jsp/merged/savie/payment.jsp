@@ -527,6 +527,7 @@ var language = "${language}";
 					  else{
 						  $('#save-and-continue-modal').modal('hide');
 						  $('#application-saved-modal').modal('show');
+						  sendEmailForSaveLater();
 					  }
 				  }
 		     });
@@ -802,6 +803,18 @@ var language = "${language}";
 					    success:function(data){
 					    	if(data.errMsgs == null){
 					    		//send email
+					    		$.ajax({     
+								    url:context+'/ajax/savings-insurance/sendEmails',     
+								    type:'post',     
+								    data:{    
+								    	"action": "paylater"
+							   		},     
+								    error:function(){       
+								    },     
+								    success:function(data){
+								    	console.log(data.errorMsg);
+								    }
+					    		});
 						    	$("#payLaterForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');
@@ -845,7 +858,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a target="_blank" class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
         }
         <%
             }

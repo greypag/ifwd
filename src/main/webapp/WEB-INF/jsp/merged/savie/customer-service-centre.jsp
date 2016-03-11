@@ -79,11 +79,6 @@ var language = "${language}";
                    <div class="selectDiv centreDiv gray-text-bg">
                       <select name="centre" id="centre" class="form-control gray-dropdown">
                         <option value="" disabled selected><fmt:message key="Placeholder.centre" bundle="${msg}" /></option>
-                         <option value="1">Tsim Sha Tsui</option>
-                         <option value="2">Quarry Bay</option>
-                         <option value="3">Sheung Wan</option>
-                         <option value="4">Kwun Tong</option>
-                         <option value="5">Shatin</option> -->
                          <c:choose>
 					         <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 					             <c:forEach var="list" items="${serviceCentre.serviceCentres}">
@@ -125,7 +120,6 @@ var language = "${language}";
                       <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                    </div>
                     <div class="selectDiv timeslot gray-text-bg">
-                      <!-- <input type="text" name="preferred-time" id="preferred-time" value="Time"> -->
                       <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
                           <option value=""></option>
                       </select>
@@ -229,12 +223,6 @@ var language = "${language}";
           stickHeaderBrowse();
        });
 
-       $('#preferred-time').timepicker({
-          appendTo: '.timeslot',
-          timeFormat: 'H:i',
-          disableTextInput: true,
-          disableTouchKeyboard: true
-       });
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
           //format: 'yy-mm-dd',
@@ -314,7 +302,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a target="_blank" class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" />View map</a>');
         }
         <%
             }

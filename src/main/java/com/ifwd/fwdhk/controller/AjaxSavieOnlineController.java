@@ -604,4 +604,38 @@ public class AjaxSavieOnlineController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+	/**
+	 * 根据Action来发送邮件
+	 */
+	@RequestMapping(value = {"/ajax/savings-insurance/sendEmails"})
+	public void sendEmails(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject = savieOnlineService.sendEmails(request, request.getParameter("action"));
+		} catch (Exception e) {
+			jsonObject.put("errorMsg", "api error");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		logger.info("sendEmails : " + jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/sendEmailForSaveLater"})
+	public void sendEmailForSaveLater(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.sendEmailForSaveLater(request);
+			jsonObject.put("success", "sendTemplateEmail");
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 }
