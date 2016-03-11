@@ -11,7 +11,7 @@
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    long cCurrent = System.currentTimeMillis();  
+    long cCurrent = System.currentTimeMillis();
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
@@ -1623,9 +1623,15 @@
         $(window).load(function() {
             $('body').css("display","block");
         });
-        $(document).ready(function() {
+        $(document).ready(function() { 
+            var carouselSlideIndex = 0;
+            if(<%=hotelVoucherCampaignId%>==15) carouselSlideIndex = 1;
+            if(<%=hotelVoucherCampaignId%>==16) carouselSlideIndex = 2;
+            if(<%=hotelVoucherCampaignId%>==17) carouselSlideIndex = 3;
+            if(<%=hotelVoucherCampaignId%>==18 ||<%=hotelVoucherCampaignId%>==-1) carouselSlideIndex = 4;
             $('#hotel-voucher-carousel').slick({
-                infinite: false,
+                infinite: true,
+                initialSlide: carouselSlideIndex,
                 arrows: true,
                 speed: 300,
                 prevArrow: '<button type="button" class="slick-prev arrow-left">Previous</button>',
@@ -1636,13 +1642,15 @@
                   {
                     breakpoint: 768,
                     settings: {
+                      initialSlide: carouselSlideIndex,
                       slidesToShow: 3,
-                      slidesToScroll: 3
+                      slidesToScroll: 1
                     }
                   },                                 
                   {
                     breakpoint: 1600,
                     settings: {
+                      initialSlide: 0,
                       arrows: false,  
                       slidesToShow: 5
                     }
@@ -1654,7 +1662,7 @@
             });
             /* IE9 slick carousel custom arrow btn border fix
                Removed border style in slick-theme.css
-            */
+            */            
             if(msieversion != 9){
                 $('#hotel-voucher-carousel').addClass('border-fix');
                 $('#hotel-voucher-carousel').addClass('border-fix');
