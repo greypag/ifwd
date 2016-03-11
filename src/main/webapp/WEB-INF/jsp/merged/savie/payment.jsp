@@ -684,13 +684,13 @@ var language = "${language}";
 					  	message: '<fmt:message key="error.payment.branch.name.empty" bundle="${msg}" />'
 					  }
 					}
-				},
+				}/* ,
 				tmpCustomerServiceCentre: {
 					  	message: '<fmt:message key="error.date.empty" bundle="${msg}" />'
 					  	message: '<fmt:message key="error.time.empty" bundle="${msg}" />'
 					  }
 				   }
-				}
+				} */
 			}
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
@@ -728,7 +728,6 @@ var language = "${language}";
 	 $('#centre').on('change', function() {
          var centre = $('#centre option:selected').val();
          setCentre(centre);
-            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
      });
 	 
 	 $('.selectDiv').find('span').remove();
