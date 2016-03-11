@@ -168,7 +168,7 @@ public class SavieOnlineController extends BaseController{
 		}
 		else{
 			try {
-				savieOnlineService.createSalesIllustrationPdf(request);
+				savieOnlineService.createSalesIllustrationPdf("1",request);
 			}
 			catch (Exception e) {
 				logger.info(e.getMessage(),e);
@@ -405,7 +405,7 @@ public class SavieOnlineController extends BaseController{
 					
 					String pdfName = (String) request.getSession().getAttribute("pdfName");
 					if(pdfName==null || "".equals(pdfName)){
-						savieOnlineService.createSalesIllustrationPdf(request);
+						savieOnlineService.createSalesIllustrationPdf("1",request);
 					}
 				}else {
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
