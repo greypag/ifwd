@@ -595,6 +595,16 @@ var languageP = "${language}";
 			    </div>
 			 </div>
 		</div>
+		<div class="modal fade common-welcome-modal" id="retrieve-application-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
+		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
+		    </div>
+		  </div>
+		</div>
 	</div>
       </div>
 <div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
@@ -719,6 +729,13 @@ var languageP = "${language}";
 		if(dummy) {
 			// show review-fna modal
 			$('#review-fna-modal').modal('show');
+		} 
+		
+		var dummy = false;
+		// dummy condition for displaying retrieve application modal/lightbox
+		if(dummy) {
+			// show retrieve application modal
+			$('#retrieve-application-modal').modal('show');
 		} 
 
 		//dummy condition for plan details if it is RP or SP
