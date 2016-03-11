@@ -609,12 +609,11 @@ var language = "${language}";
 	   });
 	   
 		// only numbers can be inputted
-	   $('#bankAccountNo').keyup(function() {
-		   var val = $(this).val();
-		   var newVal = val.replace(/[^0123456789]/g, '');
-		   if(val != newVal) {
-			   $(this).val(newVal);
-		   }
+	   $('#bankAccountNo').keypress(function(e) {
+		   if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+		        //return false if not digit
+		        return false;
+		    }
 	   });
 	});
 	

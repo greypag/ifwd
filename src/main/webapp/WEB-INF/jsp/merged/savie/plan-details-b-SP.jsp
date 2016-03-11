@@ -38,17 +38,17 @@ var languageP = "${language}";
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
 				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span></i>Select plan</button></li>
+					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span>Application &amp; payment</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
 		   </div>  
@@ -187,7 +187,7 @@ var languageP = "${language}";
 								<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 								<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 								<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-								<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col6" bundle="${msg}" /></th>
 							</tr>
 						</thead>
 						<tbody>
