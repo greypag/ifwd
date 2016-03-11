@@ -2080,7 +2080,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("product", request.getParameter("product_code"));
 			apiReturn = connector.contactCs(parameters, header);
 		}catch(Exception e){
-			logger.info("EliteTermServiceImpl contactCs occurs an exception!");
+			logger.info("SavieOnlineServiceImpl contactCs occurs an exception!");
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
