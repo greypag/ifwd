@@ -779,21 +779,12 @@ var languageP = "${language}";
 					},
 					'chineseName': {
 					   container: '#chineseNameErMsg',
-					   validators: {
-						  stringLength: {
-							 max: 6,
-							 message: "Chinese Name must be no more than 6 characters."
-						  },
-						  regexp: {
-								regexp: /^[\s\u4e00-\u9eff]*$/,
-								message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
-						  },
-						  callback: {
-							  callback: function (value, validator) {
-								  return true;		                	  
-							  }
-						  }
-					   }
+						 validators: {			                   
+			                    regexp: {
+			                        regexp: /^[\s\u4e00-\u9eff]*$/,
+			                        message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
+			                    }			             
+			                }
 					},
 					'dob': {
 					   container: '#so-calendar-dob-msg',
