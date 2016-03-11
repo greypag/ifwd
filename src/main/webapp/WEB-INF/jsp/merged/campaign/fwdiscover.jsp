@@ -12,7 +12,7 @@
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();
-    /*hotelVoucherCampaignId = 17;*/
+    /*hotelVoucherCampaignId = 16;*/
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
@@ -1251,7 +1251,7 @@
                 <div class="modal fade fwdiscover-modal" id="offer-313-detail" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer315.HotelName" bundle="${msg}" /></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer316.HotelName" bundle="${msg}" /></p>
                             <p class="promo"><fmt:message key="Fanfare.landingpage.HotelOfferName" bundle="${msg}" /> </p>
 
                             <ul>
