@@ -130,6 +130,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					inputTable.accumulate("paymentMode", "Single");
 					inputTable.accumulate("paymentTerm", paymentTerm);
 					inputTable.accumulate("promoCode", saviePlanDetails.getPromoCode());
+					inputTable.accumulate("guaranteeRate", apiResponse.getGuaranteeRate());
 					inputTableList.add(inputTable);
 					
 					net.sf.json.JSONObject planDetailJsonObject = new net.sf.json.JSONObject();
