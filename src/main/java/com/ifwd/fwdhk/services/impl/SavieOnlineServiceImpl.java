@@ -130,6 +130,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					inputTable.accumulate("paymentMode", "Single");
 					inputTable.accumulate("paymentTerm", paymentTerm);
 					inputTable.accumulate("promoCode", saviePlanDetails.getPromoCode());
+					inputTable.accumulate("guaranteeRate", apiResponse.getGuaranteeRate());
 					inputTableList.add(inputTable);
 					
 					net.sf.json.JSONObject planDetailJsonObject = new net.sf.json.JSONObject();
@@ -930,8 +931,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		String[] dob = savieFna.getDob().split("-");
-		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+		jsonObject.put("dob", savieFna.getDob());
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -1004,11 +1004,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				}
 			}
 			responseJsonObj.put("product_list", sortProductArr);
+			
+			logger.info(responseJsonObj.toString());
+			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			request.getSession().setAttribute("productRecommendation", productRecommendation);
 		}
-		
-		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
-		ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
-		request.getSession().setAttribute("productRecommendation", productRecommendation);
 		return responseJsonObj;
 	}
 	

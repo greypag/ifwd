@@ -599,7 +599,7 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+		     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullNames">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
 		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
 		    </div>
@@ -842,6 +842,7 @@ var languageP = "${language}";
 	});
 	
 	var apply=false;//判断是否点击proceed
+	var nextPage;
 	function saviePlanDetailsGoNext(){
 		if(apply){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
@@ -885,7 +886,8 @@ var languageP = "${language}";
 							    		    },     
 							    		    success:function(data){
 							    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
-							    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
+							    		    		$('#retrieve-application-modal').modal('show');
+							    		    		nextPage = data.nextPage;
 							    		    	}
 							    		    	else{
 							    		    		$.ajax({     
@@ -922,6 +924,14 @@ var languageP = "${language}";
 	
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	});
+	
+	$("#resume-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+	});
+	
+	$("#start-over-btn").on('click', function(){
+		$('#retrieve-application-modal').modal('hide');
 	});
 	
 	$(document).on('change','#plan-dob-datepicker',function(){
