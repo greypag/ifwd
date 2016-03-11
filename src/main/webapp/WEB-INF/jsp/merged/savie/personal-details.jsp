@@ -641,6 +641,7 @@ var languageP = "${language}";
 							  else{
 								  $('#save-and-continue-modal').modal('hide');
 								  $('#application-saved-modal').modal('show');
+								  sendEmailForSaveLater();
 							  }
 						  }
 				    });

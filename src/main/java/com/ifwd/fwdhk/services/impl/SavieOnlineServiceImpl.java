@@ -2074,6 +2074,31 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException{
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("to", userDetails.getEmailAddress());
+		parameters.put("subject", "Your Savie application is incomplete | 您的Savie自助息申請尚未完成");
+		JSONObject model = new JSONObject();
+		   model.put("name", "Nat");
+		parameters.put("model", model);
+		parameters.put("template", "savie\\saveLater.html");
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		apiReturn = connector.sendTemplateEmail(parameters, header);
+		if(apiReturn==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
+	}
+	
 	@Override
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;

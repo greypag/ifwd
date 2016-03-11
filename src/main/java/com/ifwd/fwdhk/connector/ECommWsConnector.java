@@ -222,6 +222,10 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.CLEAR_FNA,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
+	public BaseResponse sendTemplateEmail(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.SEND_TEMPLATE_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = UserRestURIConstants.SERVICE_URL + path;

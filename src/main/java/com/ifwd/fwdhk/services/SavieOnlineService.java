@@ -50,5 +50,6 @@ public interface SavieOnlineService {
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException;
 	public void clearFna(HttpServletRequest request) throws ECOMMAPIException;
+	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException;
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
 }

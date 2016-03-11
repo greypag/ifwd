@@ -154,6 +154,7 @@ public class UserRestURIConstants {
 	public static final String GET_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater?planCode=SAVIE-SP";
 	public static final String VALIDATE_SESSION = SERVICE_URL + "/member/token";
 	public static final String CLEAR_FNA = "/fna/clear";
+	public static final String SEND_TEMPLATE_EMAIL = "/messages/template/email";
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
