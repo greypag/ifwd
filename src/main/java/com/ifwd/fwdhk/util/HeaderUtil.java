@@ -46,7 +46,7 @@ public class HeaderUtil{
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		header.put("token", token);
 		header.put("username", username);
-		header.put("Content-Type", "application/json");
+		header.put("Content-Type","application/json");
 		return header;
 	}
 }
