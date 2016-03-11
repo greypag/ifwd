@@ -104,6 +104,8 @@ public class CampaignServiceImpl implements CampaignService {
 	        	indexs = new int[]{17};
 	        } else if (day == 18) {
 	        	indexs = new int[]{18};
+	        } else {
+	        	indexs = new int[]{18};
 	        }
 	    }
 		
