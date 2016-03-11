@@ -144,7 +144,7 @@ public class UserRestURIConstants {
 	/*API For savie online*/
 	public static final String GET_FNA = SERVICE_URL + "/fna/history";
 	public static final String GET_PURCHASE_HISTORY_BY_PLANCODE = SERVICE_URL + "/policies/retrieve";
-	public static final String SAVE_FNA = SERVICE_URL + "/fna";
+	public static final String SAVE_FNA = SERVICE_URL + "/fna/save";
 	public static final String GET_PRODUCTRECOMMENDATION = SERVICE_URL + "/fna/getProductRecommendation";
 	public static final String CREATE_LIFE_POLICY = "/life/policies";
 	public static final String FINALIZE_LIFE_POLICY = "/life/policies";
