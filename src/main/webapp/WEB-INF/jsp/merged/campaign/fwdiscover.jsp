@@ -325,6 +325,10 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer314.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
+		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+		                                </li>                                        
                                     </ul>
                                 </div>
                             </div>
@@ -369,6 +373,10 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer315.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
+		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+		                                </li>                                    
                                     </ul>
                                 </div>
                             </div>
@@ -413,6 +421,10 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer316.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
+		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+		                                </li>                                    
                                     </ul>
                                 </div>
                             </div>
@@ -457,6 +469,10 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer317.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
+		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+		                                </li>                                    
                                     </ul>
                                 </div>
                             </div>
@@ -500,6 +516,10 @@
                                     <ul>
                                         <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
+		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+		                                </li>                                        
                                     </ul>
                                 </div>
                             </div>
@@ -1170,7 +1190,10 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer314.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+                                </li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1201,7 +1224,10 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer315.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+                                </li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1232,7 +1258,10 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer316.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+                                </li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1263,7 +1292,10 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer317.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+                                </li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -1293,7 +1325,10 @@
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.HotelOffer.Detail.Lastbullet" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
+                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
+                                </li>
                             </ul>
 
                             <div class="details-button-holder text-center">
