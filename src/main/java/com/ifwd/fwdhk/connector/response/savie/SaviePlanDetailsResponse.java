@@ -11,6 +11,7 @@ public class SaviePlanDetailsResponse extends BaseResponse {
 	private String paymentTerm;
 	private String issueAge;
 	private String referralCode;
+	private String guaranteeRate;
 	private List<SaviePlanDetailsRate> planDetails0Rate;
 	private List<SaviePlanDetailsRate> planDetails2Rate;
 	private List<SaviePlanDetailsRate> planDetails3Rate;
@@ -64,4 +65,11 @@ public class SaviePlanDetailsResponse extends BaseResponse {
 	public void setPlanDetails4Rate(List<SaviePlanDetailsRate> planDetails4Rate) {
 		this.planDetails4Rate = planDetails4Rate;
 	}
+	public String getGuaranteeRate() {
+		return guaranteeRate;
+	}
+	public void setGuaranteeRate(String guaranteeRate) {
+		this.guaranteeRate = guaranteeRate;
+	}
+	
 }

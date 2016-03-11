@@ -139,7 +139,7 @@ var languageP = "${language}";
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-									<input type="text" name="plan-dob" id="plan-dob-datepicker" value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+									<input type="text" name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
@@ -599,7 +599,7 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+		     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullNames">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
 		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
 		    </div>
@@ -667,7 +667,7 @@ var languageP = "${language}";
 				endDate: dob_end_date,
 				autoclose: true,
 				startView: 2
-			});
+			}).css('cursor', 'default');
 		}
 		
 		$('#first-3-years-btn').on('click', function () {
@@ -842,6 +842,7 @@ var languageP = "${language}";
 	});
 	
 	var apply=false;//判断是否点击proceed
+	var nextPage;
 	function saviePlanDetailsGoNext(){
 		if(apply){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
@@ -885,7 +886,8 @@ var languageP = "${language}";
 							    		    },     
 							    		    success:function(data){
 							    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
-							    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
+							    		    		$('#retrieve-application-modal').modal('show');
+							    		    		nextPage = data.nextPage;
 							    		    	}
 							    		    	else{
 							    		    		$.ajax({     
@@ -922,6 +924,14 @@ var languageP = "${language}";
 	
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	});
+	
+	$("#resume-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+	});
+	
+	$("#start-over-btn").on('click', function(){
+		$('#retrieve-application-modal').modal('hide');
 	});
 	
 	$(document).on('change','#plan-dob-datepicker',function(){
