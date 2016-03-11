@@ -212,7 +212,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		
 		if(planDetailData != null && !planDetailData.hasError()){
-			String totalPremium = NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(0).getTotalPremium());
+			String totalPremium = NumberFormatUtils.formatNumber(planDetailData.getPremium());
 			List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			NumberFormat nt = NumberFormat.getPercentInstance();
@@ -225,10 +225,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			attributeList.add(new PdfAttribute("Premiumamount", totalPremium));
 			
 			
-			
-			attributeList.add(new PdfAttribute("CreditingRate_1","2"));
-			attributeList.add(new PdfAttribute("CreditingRate_2","2"));
-			attributeList.add(new PdfAttribute("CreditingRate_3","2"));
+			String guaranteeRate = planDetailData.getGuaranteeRate();
+			String[] rates;
+			if(guaranteeRate != null ){
+				rates = guaranteeRate.split(",");
+				if(rates !=null && rates.length>0){
+					for(int i=0;i<rates.length;i++){
+						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),(Integer.valueOf(rates[i])*100)+""));
+					}
+				}
+			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
 			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){

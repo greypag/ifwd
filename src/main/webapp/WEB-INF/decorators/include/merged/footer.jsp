@@ -140,14 +140,25 @@ $('#timeout-btn').on('click', function(e) {
 <% 
 if(!(request.getRequestURI().indexOf("/term-life-insurance/")>0)) {
 %>
+<% 
+if(!(request.getRequestURI().indexOf("/joinus")>0)) {
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/savie-online.js"></script>
+<%
+}
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <%
 }
 %>
 <script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script>
+<% 
+if(!(request.getRequestURI().indexOf("/joinus")>0)) {
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
+<%
+}
+%>
