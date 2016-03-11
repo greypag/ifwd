@@ -329,7 +329,7 @@ var FNArecommendation = {
 				};
 				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){
 					console.log(res);
-					if(res.status == 0){
+					if(res.errMsgs == null){
 						$('#fnaPopupEnquiry').modal('hide');
 					}else if(res.status == 1){
 
