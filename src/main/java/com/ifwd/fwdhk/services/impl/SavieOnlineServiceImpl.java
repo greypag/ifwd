@@ -862,21 +862,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
 		String Url = UserRestURIConstants.SAVE_FNA;
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		
-		header.put("userName", savieFna.getUser_name());
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-//		jsonObject.put("user_name", savieFna.getUser_name());
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		String[] dob = savieFna.getDob().split("-");
@@ -914,20 +902,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	@SuppressWarnings("unchecked")
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		//String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna/getProductRecommendation";
 		String Url = UserRestURIConstants.GET_PRODUCTRECOMMENDATION;
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
 		String sort_by = StringHelper.emptyIfNull(request.getParameter("sort_by"));
-		
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
@@ -957,7 +934,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		jsonObject.put("lang", lang);
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
