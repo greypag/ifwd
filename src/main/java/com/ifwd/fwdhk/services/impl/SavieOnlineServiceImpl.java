@@ -1015,6 +1015,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
+		//header.put("username", username);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		JSONObject jobject = new JSONObject();
 		HttpSession hashSession = request.getSession();
