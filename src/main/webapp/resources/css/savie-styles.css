@@ -8334,25 +8334,26 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 14, ../sass/partials/savie/_retrieve-application-prompt.scss */
 #retrieve-application-modal .modal-content .welcome-msg {
   font-family: 'Calibri-Bold';
+  margin: 0;
 }
-/* line 17, ../sass/partials/savie/_retrieve-application-prompt.scss */
+/* line 18, ../sass/partials/savie/_retrieve-application-prompt.scss */
 #retrieve-application-modal .modal-content .description-msg {
   padding-top: 7px;
   line-height: 18px;
   padding-bottom: 18px;
 }
-/* line 22, ../sass/partials/savie/_retrieve-application-prompt.scss */
+/* line 23, ../sass/partials/savie/_retrieve-application-prompt.scss */
 #retrieve-application-modal .modal-content #resume-btn {
   margin-right: 5px;
   padding: 5px 33px;
 }
 @media (min-width: 992px) {
-  /* line 22, ../sass/partials/savie/_retrieve-application-prompt.scss */
+  /* line 23, ../sass/partials/savie/_retrieve-application-prompt.scss */
   #retrieve-application-modal .modal-content #resume-btn {
     padding: 5px 39px;
   }
 }
-/* line 29, ../sass/partials/savie/_retrieve-application-prompt.scss */
+/* line 30, ../sass/partials/savie/_retrieve-application-prompt.scss */
 #retrieve-application-modal .modal-content #start-over-btn {
   margin-left: 5px;
   padding: 5px 30px;

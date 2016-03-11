@@ -1072,7 +1072,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.GET_PURCHASE_HISTORY_BY_PLANCODE+"?planCode=SAVIE";
+		String planCode = request.getParameter("planCode");
+		String Url = UserRestURIConstants.GET_PURCHASE_HISTORY_BY_PLANCODE+"?planCode="+planCode;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
@@ -2073,6 +2074,31 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException{
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("to", userDetails.getEmailAddress());
+		parameters.put("subject", "Your Savie application is incomplete | 您的Savie自助息申請尚未完成");
+		JSONObject model = new JSONObject();
+		   model.put("name", "Nat");
+		parameters.put("model", model);
+		parameters.put("template", "savie\\saveLater.html");
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		apiReturn = connector.sendTemplateEmail(parameters, header);
+		if(apiReturn==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
+	}
+	
 	@Override
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
@@ -2095,5 +2121,55 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			e.printStackTrace();
 		}
 		return apiReturn;
+	}
+	public JSONObject sendEmails(HttpServletRequest request, String action) {
+		HttpSession session = request.getSession();
+		String Url = UserRestURIConstants.SEND_EMAILS;
+		String email = (String)session.getAttribute("emailAddress");
+		String template = "";
+		String subject = ""; 
+		if("paylater".equals(action)) {
+			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			template = "savie\\payLater.html";
+		}else if("uploadDocument".equals(action)) {
+			subject = "FWD Savie Insurance Plan – Document Upload | 富衛Savie自助息 – 上載檔案";
+			template = "savie\\uploadDocument.html";
+		}else if("savieComplete".equals(action)) {
+			subject = "FWD Savie Insurance Plan - Complete | 您的網上富衛自助息申請已完成！";
+			template = "savie\\savieComplete.html";
+		}else if("signLater".equals(action)) {
+			subject = "FWD Savie Insurance Plan Appointment Acknowledgement | 自助息理財預約申請確認";
+			template = "savie\\signLater.html";
+		}else if("offlineApplication".equals(action)) {
+			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			template = "savie\\offlineApplication.html";
+		}else if("saveLater".equals(action)) {
+			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
+			template = "savie\\saveLater.html";
+		}
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("to", email);
+		parameters.put("subject", subject);
+		JSONObject model = new JSONObject();
+		model.put("name", "Nat");
+		parameters.put("model", model);
+		parameters.put("template", template);
+		
+		//final Map<String,String> header = headerUtil.getHeader(request);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		logger.info("sendEmails : " + parameters.toString());
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
+		return responseJsonObj;
 	}
 }

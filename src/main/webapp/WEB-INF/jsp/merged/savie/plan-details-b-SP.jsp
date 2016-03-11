@@ -224,9 +224,9 @@ var languageP = "${language}";
 					<h4 class="crediting-rate-title"><fmt:message key="label.creditingrate" bundle="${msg}" /></h4>
 					<div class="rate-buttons">
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
-						<button class="rate-btn" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
-						<button class="rate-btn" id="rate-3" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
-						<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
+						<button class="rate-btn" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
+						<button class="rate-btn" id="rate-3" type="button"><fmt:message key="label.savie.crediting.rate3" bundle="${msg}" /></button>
+						<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate4" bundle="${msg}" /></button>
 					</div>
 				</div>
 				<div class="table-content" id="after-3-years">
@@ -595,6 +595,16 @@ var languageP = "${language}";
 			    </div>
 			 </div>
 		</div>
+		<div class="modal fade common-welcome-modal" id="retrieve-application-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
+		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
+		    </div>
+		  </div>
+		</div>
 	</div>
       </div>
 <div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
@@ -720,6 +730,13 @@ var languageP = "${language}";
 			// show review-fna modal
 			$('#review-fna-modal').modal('show');
 		} 
+		
+		var dummy = false;
+		// dummy condition for displaying retrieve application modal/lightbox
+		if(dummy) {
+			// show retrieve application modal
+			$('#retrieve-application-modal').modal('show');
+		} 
 
 		//dummy condition for plan details if it is RP or SP
 		var isRP = false;
@@ -834,7 +851,10 @@ var languageP = "${language}";
 			}else {
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-				    type:'get',     
+				    type:'get', 
+				    data:{    
+		    	    	"planCode" : "SAVIE-RP"
+		       		}, 
 				    error:function(){       
 				    },     
 				    success:function(data){
@@ -842,36 +862,53 @@ var languageP = "${language}";
 				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 				    		$('#prev-savie-app-modal').modal('show');
-				    		
 				    	}else{
 				    		$.ajax({     
-				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
-				    		    type:'get',     
-				    		    error:function(){       
-				    		    },     
-				    		    success:function(data){
-				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
-				    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
-				    		    	}
-				    		    	else{
-				    		    		$.ajax({     
-							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+							    type:'get', 
+							    data:{    
+					    	    	"planCode" : "SAVIE"
+					       		}, 
+							    error:function(){       
+							    },     
+							    success:function(data){
+				   		    		$('#loginpopup').modal('hide');
+							    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+							    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+							    		$('#prev-savie-app-modal').modal('show');
+							    		
+							    	}else{
+							    		$.ajax({     
+							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
 							    		    type:'get',     
 							    		    error:function(){       
 							    		    },     
 							    		    success:function(data){
-							    		    	if(data != null && data.errMsgs == null && data.name !=null){
-							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-							    		    		$('#review-fna-modal').modal('show');
+							    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+							    		    		window.location = '<%=request.getContextPath()%>/'+data.nextPage;
 							    		    	}
 							    		    	else{
-							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+							    		    		$.ajax({     
+										    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+										    		    type:'get',     
+										    		    error:function(){       
+										    		    },     
+										    		    success:function(data){
+										    		    	if(data != null && data.errMsgs == null && data.name !=null){
+										    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+										    		    		$('#review-fna-modal').modal('show');
+										    		    	}
+										    		    	else{
+										    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+										    		    	}
+										    		    }  
+										    		});
 							    		    	}
 							    		    }  
 							    		});
-				    		    	}
-				    		    }  
-				    		});
+							    	}
+							    }  
+							});
 				    	}
 				    }  
 				});

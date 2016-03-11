@@ -779,8 +779,18 @@ var languageP = "${language}";
 				    success:function(data){
 				    	if(data.errMsgs == null){
 				    		//send email
-				    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
-				    		
+				    		$.ajax({     
+							    url:context+'/ajax/savings-insurance/sendEmails',     
+							    type:'post',     
+							    data:{    
+							    	"action": "signLater"
+						   		},     
+							    error:function(){       
+							    },     
+							    success:function(data){
+							    	console.log(data.errorMsg);
+							    }
+					    	});
 				    		$("#signoff-table").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
 					    	$("#signoff-table").submit();
 				    	}else if(data.errMsgs == "Access code has already been used"){
@@ -802,7 +812,7 @@ var languageP = "${language}";
              for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
          %>
          if(centre == '<%=entity.getServiceCentreCode() %>') {
-            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a target="_blank" class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
          }
          <%
              }

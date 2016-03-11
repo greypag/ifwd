@@ -239,19 +239,19 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" maxlength="29"/>
 								<label class="mdl-textfield__label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" maxlength="29"/>
 								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" maxlength="19"/>
 								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>

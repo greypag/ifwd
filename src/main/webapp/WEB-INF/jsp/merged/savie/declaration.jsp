@@ -489,6 +489,7 @@ var languageP = "${language}";
 						  $('#save-and-continue-modal').modal('hide');
 						  $('#save-and-continue-batch5-modal').modal('hide');
 						  $('#application-saved-modal').modal('show');
+						  sendEmailForSaveLater();
 					  }
 				  }
 		     });

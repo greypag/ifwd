@@ -6,14 +6,14 @@ $(document).ready(function() {
 	var browHeight = $(window).height();
 	var heightToSet =  browHeight - 300;
 	if(browWidth >= 992) {
-		$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
+		$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal,  #sales-illustration-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
 	}
 	window.onresize = function() {
 		browWidth = $(window).width();
 		if(browWidth >= 992) {
-			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
+			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal, #sales-illustration-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
 		} else {
-			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').removeAttr('style');
+			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal, #sales-illustration-modal').find('iframe').removeAttr('style');
 		}
 	};
 
@@ -1628,4 +1628,15 @@ function setSelectReadonly(elementId, isReadonly) {
 	if(elem.val() != '' && elem.val() != null) {
 		elem.parent('.selectDiv').addClass('is-not-active');
 	}
+}
+
+function sendEmailForSaveLater() {
+	$.ajax({     
+	    url:contextPath+'/ajax/savings-insurance/sendEmailForSaveLater',     
+	    type:'get',     
+	    success:function(data){
+	    },
+	    error:function(){       
+	    }
+	});
 }
