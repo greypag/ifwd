@@ -318,6 +318,7 @@ var FNArecommendation = {
 
 				var enquiryObj = {
 					'product_code' : $("#productCode").val(),
+					'channel' : $("#channel").val(),
 					'customer_name' : $("#FNAinputCustomerName").val(),
 					'email' : $("#FNAinputEmail").val(),
 					'telephone' : $("#FNAinputMobileNo").val(),
@@ -327,8 +328,8 @@ var FNArecommendation = {
 
 				};
 				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){
-					// console.log(res);
-					if(res.status == 0){
+					console.log(res);
+					if(res.errMsgs == null){
 						$('#fnaPopupEnquiry').modal('hide');
 					}else if(res.status == 1){
 

@@ -1,59 +1,5 @@
-getpath=context;
-
 // Savie Online
-$(document).ready(function() {
-	window.onresize = function() {
-		if (getWidth()>=992) {
-			$('.psa-collapse-content').addClass('in');
-			$('.psa-btn').removeAttr('data-toggle');
-			
-			$('.fna-tab-content').addClass('col-lg-3 col-md-3 active');
-			$('.navtabs-title').removeAttr('data-toggle');
-			
-			// Carousel modification
-			$('.fna-icons-body .tab-content').removeClass('carousel-inner');
-			$('.fna-icons-body .tab-content').removeAttr('role');
-			$('.fna-tab-content').removeClass('item');
-			
-		} else {
-			$('.psa-collapse-content').removeClass('in');
-			$('.psa-btn').attr('data-toggle', 'collapse');
-			
-			$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
-			$('.navtabs-title').attr('data-toggle', 'tab');
-			$('#navtabs-1').addClass('active');
-			
-			// Carousel modification
-			$('#so-carousel').carousel({
-				interval: false
-			});
-			$('#so-carousel').addClass('carousel slide');
-			$('#so-carousel').attr('data-ride', 'carousel');
-			$('.fna-carousel .tab-content').addClass('carousel-inner');
-			$('.fna-carousel .tab-content').attr('role', 'listbox');
-			$('.fna-tab-content').addClass('item');
-			
-			$('#so-carousel').on('slid.bs.carousel', function() {
-				if($('#navtabs-1').hasClass('active')) {
-					$('.navtabs-li').removeClass('active');
-					$('#nav-title-1').addClass('active');
-				}
-				if($('#navtabs-2').hasClass('active')) {
-					$('.navtabs-li').removeClass('active');
-					$('#nav-title-2').addClass('active');
-				}
-				if($('#navtabs-3').hasClass('active')) {
-					$('.navtabs-li').removeClass('active');
-					$('#nav-title-3').addClass('active');
-				}
-				if($('#navtabs-4').hasClass('active')) {
-					$('.navtabs-li').removeClass('active');
-					$('#nav-title-4').addClass('active');
-				}
-			});
-		}
-	};
-	$(window).resize();
+$(document).ready(function() {	
 	
 	// PDF lightbox resizing
 	var browWidth = $(window).width();
@@ -121,7 +67,7 @@ $(document).ready(function() {
 	});
 	
 	// Convert inputted letters to uppercase
-	$('input[type="text"]').keyup(function() {
+	$('.form-uppercase input[type="text"]').keyup(function() {
 		this.value = this.value.toUpperCase();
 	});
 	
@@ -621,737 +567,6 @@ function maxLengthCheck(object){
 	if (object.value.length > object.maxLength)
 	object.value = object.value.slice(0, object.maxLength)
 }
-
-//Applicant Info form validation
-function soFormValidation() {
-  $('#soInsuredInfoForm').bootstrapValidator({
-	 excluded: [':disabled', ':hidden', ':not(:visible)'],
-	 fields: {
-		"firstname": {
-		   container: '#firstNameErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please enter your given name."
-			  },
-			  stringLength: {
-				 max: 25,
-				 message: "Given Name must be no more than 25 characters."
-			  },
-			  regexp: {
-				 regexp: /^[a-zA-Z\s]*$/,
-				 message: "Please enter your given name in english."
-			  }
-		   }
-		},
-		"lastname": {
-		   container: '#lastNameErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please enter your last name."
-			  },
-			  stringLength: {
-				 max: 25,
-				 message: "Last Name must be no more than 25 characters."
-			  },
-			  regexp: {
-				 regexp: /^[a-zA-Z\s]*$/,
-				 message: "Please enter your last name in english."
-			  }
-		   }
-		},
-		"chineseName": {
-		   container: '#chineseNameErMsg',
-		   validators: {
-			  stringLength: {
-				 max: 6,
-				 message: "Chinese Name must be no more than 6 characters."
-			  },
-			  regexp: {
-					regexp: /^[\s\u4e00-\u9eff]*$/,
-					message: "Please enter a valid chinese name."
-			  },
-			  callback: {
-				  callback: function (value, validator) {
-					  return true;		                	  
-				  }
-			  }
-		   }
-		},
-		"dob": {
-		   container: '#so-calendar-dob-msg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select your date of birth."
-			  }
-		   }
-		},
-		"gender": {
-		   container: '#genderErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select your gender."
-			  }
-		   }
-		},
-		"hkId": {
-		   container: '#hkidErMsg',
-		   trigger: 'blur',
-		   validators: {
-			  notEmpty: {
-				 message: "Please enter your HKID no."
-			  },
-			  callback: {
-				 /* message: "Your HKID no. is invalid.",
-				 callback: function(value, validator) {
-					//return isValidHKID(value);
-				 } */
-				 callback: function(value, validator) {
-					if(!isValidHKID(value)) {
-						return {
-							valid: false,
-							message: "Your HKID no. is invalid.",
-						}
-					}
-					return true;
-				  }
-			  }
-		   }
-		},
-		"martialStatus": {
-		   container: '#maritalStatErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select your marital status."
-			  }
-		   }
-		},
-		"placeOfBirth": {
-		   container: '#placeOfBirthErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select your place of birth."
-			  }
-		   }
-		},
-		"nationalty": {
-		   container: '#nationalityErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select your nationality."
-			  }
-		   }
-		},
-		"residentialTelNo": {
-		   container: '#resTelNoErMsg',
-		   validators: {
-			  stringLength: {
-				  min: 8,
-				  max: 8,
-				  message: "Please enter an 8-digit Tel No."
-			   },
-			   regexp: {
-				  regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,
-				  message: "Your residential phone no. is invalid."
-			   }
-		   }
-		},
-		"mobileNumber": {
-		   container: '#mobileNoErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please enter your mobile no."
-			  },
-			  stringLength: {
-				  min: 8,
-				  max: 8,
-				  message: "Please enter an 8-digit Mobile No."
-			   },
-			   regexp: {
-				  regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/,
-				  message: "Your mobile no. is invalid."
-			   }
-		   }
-		},
-		"emailAddress": {
-		   container: '#emailErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please enter your email address."
-			  },
-			  regexp: {
-				 regexp: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-				 message: "Your email address is invalid."
-			  }
-		   }
-		},
-		"permanetAddress1": {
-			container: '#permanentAddErMsg',
-			validators: {
-				notEmpty: {
-				  message: "Please enter your address."
-				},
-				regexp: {
-				  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-				  message: "Please enter a valid address."
-				}
-			}
-		 },
-		 "permanetAddressDistrict": {
-		   container: '#permanentDistrictErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select a district."
-			  }
-		   }
-		},
-		 "residentialAddress1": {
-			container: '#residentialAddErMsg',
-			validators: {
-				notEmpty: {
-				  message: "Please enter your address."
-				},
-				regexp: {
-				  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-				  message: "Please enter a valid address."
-				}
-			}
-		 },
-		 "residentialAddressDistrict": {
-		   container: '#residentialDistrictErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select a district."
-			  }
-		   }
-		},
-		 "correspondenceAddress1": {
-			container: '#correspondenceAddErMsg',
-			validators: {
-				notEmpty: {
-				  message: "Please enter your address."
-				},
-				regexp: {
-				  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-				  message: "Please enter a valid address."
-				}
-			}
-		 },
-		 "correspondenceAddressDistrict": {
-		   container: '#correspondenceDistrictErMsg',
-		   validators: {
-			  notEmpty: {
-				 message: "Please select a district."
-			  }
-		   }
-		}
-	}
-  }).on('success.form.bv', function(e) {
-	 e.preventDefault();
-  }).on('error.form.bv', function(e) {
-  });
-}
-
-// Beneficiary Form validation
-function soFirstBFormValidation() {
-	var counter = 0;
-	$('#beneficiary-info-form\\[0\\]').bootstrapValidator({
-		fields: {
-			'beneficaryFirstName1':{
-				container: '#beneficiaryFirstErMsg\\[0\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's first name."
-                    },
-					stringLength: {
-                        max: 25,
-                        message: "First Name must be no more than 25 characters."
-                    },
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/ ,
-						message: "Please enter beneficiary's first name in English."
-					}
-				}
-			},
-			'beneficaryLastName1':{
-				container: '#beneficiaryLastErMsg\\[0\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's last name."
-                    },
-					stringLength: {
-                        max: 25,
-                        message: "Last Name must be no more than 25 characters."
-                    },
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/ ,
-						message: "Please enter beneficiary's last name in English."
-					}
-				}
-			},
-			'beneficaryChineseName1':{
-				container: '#beneficiaryChineseNameErMsg\\[0\\]',
-				validators: {
-					stringLength: {
-                        min: 1,
-                        max: 6,
-                        message: "Chinese Name must be no more than 6 characters."
-                    },
-					regexp: {
-						regexp: /^[\s\u4e00-\u9eff]*$/,
-						message: "Please enter a valid Chinese name."
-					},
-					trigger: 'change keyup'
-				}
-			},
-			'beneficiaryHkidPassport1':{
-				container: '#beneficiaryHkidPassportErMsg\\[0\\]',
-				validators: {
-					notEmpty: {
-						message: "Please select HKID or Passport no."
-                    }
-				}
-			},
-			'beneficiaryPassport1':{
-				container: '#beneficiaryHkidPassErMsg\\[0\\]',
-				validators: {
-					stringLength: {
-                        min: 5,
-                        max: 15,
-                        message: "Passport no. must be no more than 15 characters."
-                    },
-					notEmpty: {
-						message: "Please enter beneficiary's Passport no."
-	               },
-	               regexp: {
-	                  regexp: /^[a-zA-Z0-9\-]*$/,
-	                  message: "Beneficiary's Passport no. is invalid."
-	               }
-				}
-			},
-			'beneficaryID1':{
-				container: '#beneficiaryHkidPassErMsg\\[0\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's HKID no."
-					},
-					callback: {
-	                  callback: function(value, validator) {
-						if(!isValidHKID(value)) {
-							return {
-								valid: false,
-								message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
-							}
-						}
-						return true;
-	                  }
-	                }
-				}
-			},
-			"beneficaryGender1": {
-			   container: '#beneficiaryGenderErMsg\\[0\\]',
-			   validators: {
-				  notEmpty: {
-					 message: "Please select your gender."
-				  }
-			   }
-			},
-			'beneficaryRelation1':{
-				container: '#beneficiaryRelationErMsg\\[0\\]',
-				validators: {
-					notEmpty: {
-						message: "Please select beneficiary's relationship with you."
-					}
-				}
-			},
-			'beneficaryWeight1':{
-				container: '#beneficiaryEntitlementErMsg\\[0\\]',
-				validators: {
-					integer:{
-	                	message: "Please enter Beneficiary's entitlement."
-	                },
-	                between:{
-	                	min: 0,
-	                	max: 100,
-                        message: "Beneficiary's entitlement must be between 1 and 100."
-                    },
-					callback: {
-						message: "The sum of entitlements must be 100%.",
-						callback: function (value, validator, $field) {
-							if(value==''){
-                        		// display the range error message if it is empty
-                        		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'between');
-                        		return true;
-                        	} else {
-                        		if (totalBeneficiaryEntitlement() == "Exceed"){
-	                          		return false;
-	                        	} else {
-	                           		return true;
-	                        	}
-                        	}
-						}
-					}
-				}
-			}
-		}
-	}).on('success.form.bv', function(e) {
-		e.preventDefault();
-	}).on('error.form.bv', function(e) {
-	});
-	
-	$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
-		if(totalBeneficiaryEntitlement()!="Exceed") {
-			if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-			 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID');
-			}
-			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID');
-			}
-		} else {
-			if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-			$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
-			}
-			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
-			}
-		}
-	});
-	
-	//Beneficiary Info Form [1]
-	$(document).on('click','#add-beneficiary-btn-1',function() {
-	 $('#beneficiary-info-form\\[1\\]').bootstrapValidator({
-		 fields: {
-			'beneficiaryFirstName2':{
-			    container: '#beneficiaryFirstErMsg\\[1\\]',
-			    validators: {
-					notEmpty: {
-					  message: "Please enter beneficiary's first name."
-					},
-					stringLength: {
-						max: 25,
-						message: "First Name must be no more than 25 characters."
-					},
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/ ,
-						message: "Please enter beneficiary's first name in English."
-					}
-				}
-			},
-			'beneficiaryLastName2':{
-				container: '#beneficiaryLastErMsg\\[1\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's last name."
-					},
-					stringLength: {
-						max: 25,
-						message: "Last Name must be no more than 25 characters."
-					},
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/ ,
-						message: "Please enter beneficiary's last name in English."
-					}
-				}
-			},
-			'beneficiaryChineseName2':{
-			   container: '#beneficiaryChineseNameErMsg\\[1\\]',
-			   validators: {
-					stringLength: {
-						min: 1,
-						max: 6,
-						message: "Chinese Name must be no more than 6 characters."
-					},
-					regexp: {
-						regexp: /^[\s\u4e00-\u9eff]*$/,
-						message: "Please enter a valid Chinese name."
-					},
-					callback: {
-						callback: function (value, validator) {
-							return true;		                	  
-						}
-					}
-				}
-			},
-			'beneficiaryHkidPassport2':{
-				container: '#beneficiaryHkidPassportErMsg\\[1\\]',
-				validators: {
-					notEmpty: {
-						message: "Please select HKID or Passport no."
-                    }
-				}
-			},
-			'beneficiaryPassport2':{
-				container: '#beneficiaryHkidPassErMsg\\[1\\]',
-				validators: {
-					stringLength: {
-                        min: 5,
-                        max: 15,
-                        message: "Passport no. must be no more than 15 characters."
-                    },
-					notEmpty: {
-						message: "Please enter beneficiary's Passport no."
-	               },
-	               regexp: {
-	                  regexp: /^[a-zA-Z0-9\-]*$/,
-	                  message: "Beneficiary's Passport no. is invalid."
-	               }
-				}
-			},
-			'beneficiaryHkid2':{
-				container: '#beneficiaryHkidPassErMsg\\[1\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's HKID no."
-					},
-					callback: {
-	                  callback: function(value, validator) {
-						if(!isValidHKID(value)) {
-							return {
-								valid: false,
-								message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
-							}
-						}
-						return true;
-	                  }
-	                }
-				}
-			},
-			"beneficiaryGender2": {
-			   container: '#beneficiaryGenderErMsg\\[1\\]',
-			   validators: {
-				  notEmpty: {
-					 message: "Please select your gender."
-				  }
-			   }
-			},
-			'beneficiaryRelationship2':{
-			   container: '#beneficiaryRelationErMsg\\[1\\]',
-				validators: {
-					notEmpty: {
-						message: "Please select beneficiary's relationship with you."
-					}
-				}
-			},
-			'beneficiaryEntitlement2':{
-			   container: '#beneficiaryEntitlementErMsg\\[1\\]',
-			   validators: {
-					integer:{
-						message: "Please enter Beneficiary's entitlement."
-					},
-					between:{
-						min: 0,
-						max: 100,
-						message: "Beneficiary's entitlement must be between 1 and 100."
-					},
-					callback: {
-						message: "The sum of entitlements must be 100%.",
-						callback: function (value, validator, $field) {
-							if(value=='') {
-								// display the range error message if it is empty
-								$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'between');
-								return true;
-							} else {
-								if (totalBeneficiaryEntitlement() == "Exceed") {
-									return false;
-								} else {
-									return true;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}).on('success.form.bv', function(e) {
-		e.preventDefault();
-	}).on('error.form.bv', function(e) {
-	});
-	 
-	$( "#beneficiaryEntitlement\\[1\\]" ).on('change', function() {
-		if(totalBeneficiaryEntitlement()!="Exceed") {
-			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
-			 
-			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID', 'callback');
-			}
-		} else {
-			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
-			
-			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
-			}
-		}
-	});
-	});
-
-	//Beneficiary Info Form [2]
-	$(document).on('click','#add-beneficiary-btn-2',function(){
-		$('#beneficiary-info-form\\[2\\]').bootstrapValidator({
-			fields: {
-				'beneficiaryFirstName3':{
-					container: '#beneficiaryFirstErMsg\\[2\\]',
-					validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's first name."
-					},
-					stringLength: {
-						max: 25,
-						message: "First Name must be no more than 25 characters."
-					},
-				  regexp: {
-						 regexp: /^[a-zA-Z\s]+$/ ,
-						 message: "Please enter beneficiary's first name in English."
-					},
-				}
-				},
-				'beneficiaryLastName3':{
-					container: '#beneficiaryLastErMsg\\[2\\]',
-					validators: {
-					  notEmpty: {
-						 message: "Please enter beneficiary's last name."
-						   },
-					  stringLength: {
-							   min: 1,
-							   max: 25,
-							   message: "Last Name must be no more than 25 characters."
-						   },
-					  regexp: {
-						 regexp: /^[a-zA-Z\s]+$/ ,
-						 message: "Please enter beneficiary's last name in English."
-					  }
-					}
-				},
-				'beneficiaryChineseName3':{
-					container: '#beneficiaryChineseNameErMsg\\[2\\]',
-					validators: {
-					  stringLength: {
-						   min: 1,
-						   max: 6,
-						   message: "Chinese Name must be no more than 6 characters."
-						   },
-					  regexp: {
-						 regexp: /^[\s\u4e00-\u9eff]*$/,
-						 message: "Beneficiary's Chinese name is invalid."
-					  },
-					  callback: {
-						callback: function (value, validator) {
-							return true;		                	  
-						}
-					  }
-					}
-				},
-				'beneficiaryHkidPassport3':{
-					container: '#beneficiaryHkidPassportErMsg\\[2\\]',
-					validators: {
-						notEmpty: {
-							message: "Please select HKID or Passport no."
-						}
-					}
-				},
-				'beneficiaryPassport3':{
-					container: '#beneficiaryHkidPassErMsg\\[2\\]',
-					validators: {
-						stringLength: {
-							min: 5,
-							max: 15,
-							message: "Passport no. must be no more than 15 characters."
-						},
-						notEmpty: {
-							message: "Please enter beneficiary's Passport no."
-					   },
-					   regexp: {
-						  regexp: /^[a-zA-Z0-9\-]*$/,
-						  message: "Beneficiary's Passport no. is invalid."
-					   }
-					}
-				},
-				'beneficiaryHkid3':{
-				container: '#beneficiaryHkidPassErMsg\\[2\\]',
-				validators: {
-					notEmpty: {
-						message: "Please enter beneficiary's HKID no."
-					},
-					callback: {
-	                  callback: function(value, validator) {
-						if(!isValidHKID(value)) {
-							return {
-								valid: false,
-								message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
-							}
-						}
-						return true;
-	                  }
-	                }
-				}
-			},
-				"beneficiaryGender3": {
-				   container: '#beneficiaryGenderErMsg\\[2\\]',
-				   validators: {
-					  notEmpty: {
-						 message: "Please select your gender."
-					  }
-				   }
-				},
-				'beneficiaryRelationship3':{
-					container: '#beneficiaryRelationErMsg\\[2\\]',
-					validators: {
-						notEmpty: {
-							message: "Please select beneficiary's relationship with you."
-						}
-					}
-				},
-				'beneficiaryEntitlement3':{
-					container: '#beneficiaryEntitlementErMsg\\[2\\]',
-					validators: {
-						integer:{
-							message: "Please enter Beneficiary's entitlement."
-						},
-						between:{
-							min: 0,
-							max: 100,
-							message: "Beneficiary's entitlement must be between 1 and 100."
-						},
-						callback: {
-							message: "The sum of entitlements must be 100%.",
-							callback: function (value, validator, $field) {
-								if(value=='') {
-									// display the range error message if it is empty
-									$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID', 'between');
-									return true;
-								} else {
-									if (totalBeneficiaryEntitlement() == "Exceed") {
-										return false;
-									} else {
-										return true;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}).on('success.form.bv', function(e) {
-			e.preventDefault();
-		}).on('error.form.bv', function(e) {
-		});
-		 
-		$( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
-			if(totalBeneficiaryEntitlement()!="Exceed") {
-				 $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
-				 
-				 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-					 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID', 'callback');
-				 }
-			} else {
-				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'callback');
-				
-				 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-					 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'callback');
-				 }
-			}
-		});
-	});
-}
-
 // Checking Beneficiary entitlement
 function totalBeneficiaryEntitlement() {
 	var doesExceed ='';
@@ -1376,32 +591,32 @@ function isBeneficaryFormValid() {
   var beneficiaryRes3 = true;
   // Beneficiary Person 1
   if ($('#beneficiary-info-form\\[0\\]').length) {
-	  $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 	 if ($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes1 = true;
 	 } else {
 		beneficiaryRes1 = false;
-		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 	 }
   }
   // Beneficiary Person 2
   if ($('#beneficiary-info-form\\[1\\]').length) {
-	  $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
 	 if (isBeneficiaryFormEmpty(1) || $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes2 = true;
 	 } else {
 		beneficiaryRes2 = false;
-		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
 	 }
   }
   // Beneficiary Person 3
   if ($('#beneficiary-info-form\\[2\\]').length) {
-	  $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validate();
+	  $('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
 	 if (isBeneficiaryFormEmpty(2) || $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
 		beneficiaryRes3 = true;
 	 } else {
 		beneficiaryRes3 = false;
-		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validate();
+		$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
 	 }
   }
   return beneficiaryRes1 && beneficiaryRes2 && beneficiaryRes3;
@@ -1790,9 +1005,7 @@ function getSavieOnlinePlandetails() {
 	var premium = amount;
 	
 	var birthOfDay = $('#plan-dob-datepicker').val();
-	var birthDates=birthOfDay.split("-");
-	var issueAge = jsGetAge(birthDates[2]+"-"+birthDates[1]+"-"+birthDates[0]);
-	
+	var issueAge = jsGetAge(birthOfDay);
 	if('one-off-premium' == paymentMode) {
 		paymentMode='SP';
 		premium = amount;
@@ -1866,6 +1079,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -1915,6 +1129,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -1964,6 +1179,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
@@ -2013,6 +1229,7 @@ function getSavieOnlinePlandetails() {
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
+										break;
 									}
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));

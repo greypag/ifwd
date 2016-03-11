@@ -1,27 +1,19 @@
 package com.ifwd.fwdhk.controller;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +23,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
@@ -40,7 +33,6 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
-import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class SavieOnlineController extends BaseController{
 	
@@ -56,37 +48,82 @@ public class SavieOnlineController extends BaseController{
 	@Autowired
 	protected HeaderUtil headerUtil;
 
-	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
+	/*@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
 		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
+	}*/
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
+		savieOnlineService.removeSavieOnlineSession(request);
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		httpSession.setAttribute("savieType", "RP");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/single-premium"})
+	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
+		savieOnlineService.removeSavieOnlineSession(request);
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		httpSession.setAttribute("savieType", "SP");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-rp", "/{lang}/savings-insurance/plan-details-sp"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
-		Date date = new Date();
-		Calendar startDOB = new GregorianCalendar();
-		startDOB.setTime(date); 
-		startDOB.add(startDOB.YEAR, -70);
-		startDOB.add(startDOB.DATE, 1);
-		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-		
-		Calendar defaultDOB = new GregorianCalendar();
-		Date date1 = new Date();
-		String type = request.getParameter("type");
-		if("2".equals(type)){
-			model.addAttribute("type", type);
-			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
-			date1 = DateApi.formatDate(savieFna.getDob());
-			defaultDOB.setTime(date1); 
+		String savieType = (String)request.getSession().getAttribute("savieType");
+		if(!StringUtils.isBlank(savieType)) {
+			Date date = new Date();
+			Calendar startDOB = new GregorianCalendar();
+			startDOB.setTime(date); 
+			startDOB.add(startDOB.YEAR, -70);
+			startDOB.add(startDOB.DATE, 1);
+			model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
+			
+			Calendar defaultDOB = new GregorianCalendar();
+			Date date1 = new Date();
+			String type = request.getParameter("type");
+			if("2".equals(type)){
+				model.addAttribute("type", type);
+				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+				date1 = DateApi.formatDate(savieFna.getDob());
+				defaultDOB.setTime(date1); 
+			}else {
+				defaultDOB.setTime(date1); 
+				defaultDOB.add(defaultDOB.YEAR, -18);
+			}
+			model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
+			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
-		else{
-			defaultDOB.setTime(date1); 
-			defaultDOB.add(defaultDOB.YEAR, -18);
-		}
-		
-		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
@@ -134,6 +171,7 @@ public class SavieOnlineController extends BaseController{
 				savieOnlineService.createSalesIllustrationPdf(request);
 			}
 			catch (Exception e) {
+				logger.info(e.getMessage(),e);
 				request.getSession().setAttribute("errorMsg", e.getMessage());
 			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
@@ -364,6 +402,11 @@ public class SavieOnlineController extends BaseController{
 					savieOnlineService.getCustomerServiceCentre(model, request, session);
 					savieOnlineService.createApplicationFormPdf("1", request, session);
 					savieOnlineService.createFnaFormPdf("1", request, session);
+					
+					String pdfName = (String) request.getSession().getAttribute("pdfName");
+					if(pdfName==null || "".equals(pdfName)){
+						savieOnlineService.createSalesIllustrationPdf(request);
+					}
 				}else {
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 							+ "/savings-insurance");

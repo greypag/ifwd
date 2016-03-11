@@ -11,8 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pdfobject.js"></script>
-        
+      <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pdfobject.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -25,13 +24,13 @@
 			<div class="fwd-container container-fluid breadcrumbs">
 	            <div class="breadcrumb-container">
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-	                   <li><a href="#">Home</a></li>
+	                   <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#">Save </a></li>
+		               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#">Savie </a></li>
+		               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 		               <li class="divider last"><i class="fa fa-play"></i></i></li>
-		               <li class="active-bc" id="et-active-bc-menu">Application</li>
+		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 	               </ol>
 	            </div>
 	        </div>
@@ -41,17 +40,17 @@
 	               <div class="browse-container">
 	                  <div class="row reset-margin hidden-xs hidden-sm">
 	                     <ul class="common-steps-list six-steps nav nav-pills">
-	                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span>Select plan</button></li>
+	                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn"><span class="status">2</span>Application &amp; payment</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
 	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 	                     </ul>
 	                 </div>
 	               </div>  
@@ -63,7 +62,7 @@
 	                        </a>
 	                     </div>
 	                     <div class="et-header-tex">
-	                        <h3 id="">Select plan</h3>
+	                        <h3 id=""><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></h3>
 	                     </div>
 	                     <p id="step-of">1 of 6</p>
 	                  </div>	                   
@@ -86,57 +85,57 @@
 	        <div class="container-fluid fwd-full-container headerStick">
 	        	<div class="fwd-container-limit clearfix sidebar" id="sales-illustration-content">	
   					<div class="row">
-  						<h3 class="heading-title">Your selected plan<span>
+  						<h3 class="heading-title"><fmt:message key="label.selected.plan" bundle="${msg}" /><span>
   						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?type=2">edit</a>
   						</span></h3>
   						
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Plan name</label>
+  								<label class="data-label"><fmt:message key="label.planname" bundle="${msg}" /></label>
   								<p class="data-info">Savie</p>
   							</div>
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Saving amount</label>
+  								<label class="data-label"><fmt:message key="label.saving.amount" bundle="${msg}" /></label>
   								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount1 }</p>
   							</div>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Premium mode</label>
+  								<label class="data-label"><fmt:message key="label.premium.mode" bundle="${msg}" /></label>
   								<p class="data-info">${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }</p>
   							</div>
   						</div>
   					</div>
   					<div class="row" id="sales-input">
-  						<h3 class="heading-title">Input for sales illustration</h3>
+  						<h3 class="heading-title"><fmt:message key="label.input.for.sales.illustration" bundle="${msg}" /></h3>
   						<p id="info-note"><span class="asterisk">*</span>These information will become your policy information</p>
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Last name(same as HKID)</label>
+  								<label class="data-label"><fmt:message key="label.last.name" bundle="${msg}" /></label>
   								<p class="data-info">${userDetails.firstName }</p>
   							</div>
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Given name(same as HKID)</label>
+  								<label class="data-label"><fmt:message key="label.given.name" bundle="${msg}" /></label>
   								<p class="data-info">${userDetails.lastName }</p>
   							</div>
   							<div class="gray-bg-data-info hidden">
-  								<label class="data-label">Name in Chinese(same as HKID)</label>
+  								<label class="data-label">label.chinese.name</label>
   								<p class="data-info">陳大文</p>
   							</div>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Date of birth</label>
+  								<label class="data-label"><fmt:message key="label.dob" bundle="${msg}" /></label>
   								<p class="data-info">${savieFna.dob }</p>
   							</div>
   							<div class="gray-bg-data-info">
-  								<label class="data-label">Gender</label>
+  								<label class="data-label"><fmt:message key="label.gender" bundle="${msg}" /></label>
   								<p class="data-info">${savieFna.gender=='0'?"Male":"Female" }</p>
   							</div>
   						</div>       	
 		       		 </div>
 			        <div class="row" id="pdf-illustration-holder">
-			        	<p id="review-note">Review and accept your sales illustration in order to proceed, you may refer to the <a href="#" data-toggle="modal" data-target="#sales-illustration-modal">sales illustration sample</a> for easy reference.</p>
+			        	<p id="review-note"><fmt:message key="remark.sales.illustration" bundle="${msg}" /></p>
 			        </div>
 					<div class="modal fade common-welcome-modal" id="sales-illustration-modal" tabindex="-1" role="dialog">
 					  <div class="modal-dialog">
@@ -146,7 +145,7 @@
 								<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf"  frameborder="0"></iframe>
 							</div>
 							<div class="text-center">
-								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn">Close</button>
+								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
 							</div>	
 						</div>
 					  </div>
@@ -164,7 +163,7 @@
 	        		</div>
 	        		<div class="text-center">
 	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
-	        			<button type="" class="btn savie-common-btn" id="accept-btn">Accept</button>
+	        			<button type="" class="btn savie-common-btn" id="accept-btn"><fmt:message key="button.accept" bundle="${msg}" /></button>
 	        		</div>
 	        	</div>
 	        </div>

@@ -152,7 +152,7 @@ var affiliate = "${affiliate}";
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> <a href="#">Clear Record and Leave <i class="fa fa-caret-right"></i></a> </div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> <a href="javascript:void(0);" onclick="clearFna()">Clear Record and Leave <i class="fa fa-caret-right"></i></a> </div>
 		</div>
 		<div class="center row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

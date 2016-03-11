@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -275,7 +276,6 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
-			savieOnlineService.getPolicyApplicationSaveforLater(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -291,14 +291,28 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}*/
 		
-		String jsonObject = "{\"status\":0}";
+		/*String jsonObject = "{\"status\":0}";
 		logger.info(jsonObject.toString());
 		response.setContentType("text/json;charset=utf-8");
 		try {
 			response.getWriter().print(jsonObject);
 		}catch(Exception e) {
 			e.printStackTrace();
+		}*/
+		
+		
+		if (Methods.isXssAjax(request)) {
+			return;
 		}
+		try {
+			ajaxReturn(response, savieOnlineService.contactCs(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})
@@ -422,6 +436,26 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savings-insurance/getPolicyApplicationSaveforLater"})
+	public void getPolicyApplicationSaveforLater (HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			GetPolicyApplicationResponse apiResponse = savieOnlineService.getPolicyApplicationSaveforLater(request);
+			if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null&&apiResponse.getPolicyApplication().getResumeViewPage()!=null){
+				jsonObject.put("nextPage", apiResponse.getPolicyApplication().getResumeViewPage());
+				savieOnlineService.getFna(request);
+			}
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
@@ -537,14 +571,30 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-insurance/validateSession"})
+	@RequestMapping(value = {"/ajax/validateSession"})
 	public void validateSession(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
-		/*if(Methods.isXssAjax(request)){
+		if(Methods.isXssAjax(request)){
 			return;
-		}*/
+		}
 		try {
 			jsonObject = savieOnlineService.validateSession(request);
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/clearFna"})
+	public void clearFna(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.clearFna(request);
 		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");

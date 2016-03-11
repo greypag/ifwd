@@ -22,13 +22,13 @@ var language = "${language}";
        <div class="fwd-container container-fluid breadcrumbs">
           <div class="breadcrumb-container">
              <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                 <li><a href="#">Home</a></li>
+                 <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 		   <li class="divider"><i class="fa fa-play"></i></li>
-		   <li><a href="#">Save </a></li>
+		   <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 		   <li class="divider"><i class="fa fa-play"></i></li>
-		   <li><a href="#">Savie </a></li>
+		   <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 		   <li class="divider last"><i class="fa fa-play"></i></i></li>
-		   <li class="active-bc" id="et-active-bc-menu">Application</li>
+		   <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.make.appointment" bundle="${msg}" /></li>
              </ol>
           </div>
        </div>
@@ -38,11 +38,11 @@ var language = "${language}";
              <div class="browse-container">
                 <div class="row reset-margin hidden-xs hidden-sm">
                    <ul class="common-steps-list nav nav-pills">
-                      <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
+                      <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
                       <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                      <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Make an appointment</button></li>
+                      <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.make.appointment" bundle="${msg}" /></button></li>
                       <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                      <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Confirmation</button></li>
+                      <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
                    </ul>
                </div>
              </div>  
@@ -54,7 +54,7 @@ var language = "${language}";
                       </a>
                    </div>
                    <div class="et-header-tex">
-                      <h3 id="">Make an appointment</h3>
+                      <h3 id=""><fmt:message key="stepindicator.savie.make.appointment" bundle="${msg}" /></h3>
                    </div>
                 </div>
              </div>
@@ -73,12 +73,12 @@ var language = "${language}";
        <div class="container-fluid fwd-container make-an-appointment headerStick">
          <div class="row" id="appointment-form-holder">
              <form action="" id="paymentForm" method="post">
-                <div class="col-xs-12 col-md-6" id="left-side-form">
-                   <h5>Please choose service centre</h5>
-			 <p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
+               <div class="col-xs-12 col-md-6" id="left-side-form">
+                   <h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
+					<p class="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
                    <div class="selectDiv centreDiv gray-text-bg">
                       <select name="centre" id="centre" class="form-control gray-dropdown">
-                         <!-- <option value="" disabled selected>Customer Service Centre</option>
+                        <option value="" disabled selected><fmt:message key="Placeholder.centre" bundle="${msg}" /></option>
                          <option value="1">Tsim Sha Tsui</option>
                          <option value="2">Quarry Bay</option>
                          <option value="3">Sheung Wan</option>
@@ -139,7 +139,7 @@ var language = "${language}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center clearfix">
-                      <button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter">Next</button>
+                      <button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
                    </div>
                 </div>   
              </form>
@@ -229,10 +229,12 @@ var language = "${language}";
           stickHeaderBrowse();
        });
 
-       /* $('#preferred-time').timepicker({
+       $('#preferred-time').timepicker({
           appendTo: '.timeslot',
           timeFormat: 'H:i',
-       }); */
+          disableTextInput: true,
+          disableTouchKeyboard: true
+       });
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
           //format: 'yy-mm-dd',
@@ -312,7 +314,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
         }
         <%
             }

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
@@ -35,7 +36,7 @@ public interface SavieOnlineService {
 	public List<OptionItemDesc> getBranchCode(String value,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException;
-	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
@@ -48,4 +49,6 @@ public interface SavieOnlineService {
 	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject clearFna(HttpServletRequest request) throws ECOMMAPIException;
+	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
 }
