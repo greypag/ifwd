@@ -90,8 +90,8 @@ var languageP = "${language}";
 							<div class="col-xs-12">							
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type">
-									   <option value="regular-payment"><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></option>
-									   <option value="one-off-premium" selected=""><fmt:message key="label.savie.payment.mode.savie.regular.pay" bundle="${msg}" /></option>
+									   <option value="regular-payment"><fmt:message key="label.savie.payment.mode.savie.regular.pay" bundle="${msg}" /></option>
+									   <option value="one-off-premium" selected=""><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 								</div>
