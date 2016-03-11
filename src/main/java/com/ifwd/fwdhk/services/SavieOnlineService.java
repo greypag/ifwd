@@ -52,4 +52,5 @@ public interface SavieOnlineService {
 	public void clearFna(HttpServletRequest request) throws ECOMMAPIException;
 	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException;
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
+	public JSONObject sendEmails(HttpServletRequest request, String action) throws Exception;
 }
