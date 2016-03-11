@@ -802,19 +802,6 @@ var language = "${language}";
 					    },     
 					    success:function(data){
 					    	if(data.errMsgs == null){
-					    		//send email
-					    		$.ajax({     
-								    url:context+'/ajax/savings-insurance/sendEmails',     
-								    type:'post',     
-								    data:{    
-								    	"action": "paylater"
-							   		},     
-								    error:function(){       
-								    },     
-								    success:function(data){
-								    	console.log(data.errorMsg);
-								    }
-					    		});
 						    	$("#payLaterForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');

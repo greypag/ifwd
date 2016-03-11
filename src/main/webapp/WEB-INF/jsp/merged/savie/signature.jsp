@@ -778,19 +778,6 @@ var languageP = "${language}";
 				    },     
 				    success:function(data){
 				    	if(data.errMsgs == null){
-				    		//send email
-				    		$.ajax({     
-							    url:context+'/ajax/savings-insurance/sendEmails',     
-							    type:'post',     
-							    data:{    
-							    	"action": "signLater"
-						   		},     
-							    error:function(){       
-							    },     
-							    success:function(data){
-							    	console.log(data.errorMsg);
-							    }
-					    	});
 				    		$("#signoff-table").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
 					    	$("#signoff-table").submit();
 				    	}else if(data.errMsgs == "Access code has already been used"){
