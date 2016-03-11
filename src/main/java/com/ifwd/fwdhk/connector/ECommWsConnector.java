@@ -218,6 +218,10 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.CREATE_POLICY_APPLICATION_SAVE_FOR_LATER,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
+	public BaseResponse clearFna(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CLEAR_FNA,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = UserRestURIConstants.SERVICE_URL + path;
