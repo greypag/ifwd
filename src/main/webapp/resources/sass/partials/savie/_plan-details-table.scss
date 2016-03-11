@@ -358,6 +358,11 @@
 }
 
 #plan-details-page, #plan-details-b-page {
+	.plan-promo-code {
+		input {
+			color: #000;
+		}
+	}
 	.tooltip {
 		background-color: transparent;
 		color: #000;
