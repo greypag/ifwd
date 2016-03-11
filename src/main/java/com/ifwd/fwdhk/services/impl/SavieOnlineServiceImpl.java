@@ -931,8 +931,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		String[] dob = savieFna.getDob().split("-");
-		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+		jsonObject.put("dob", savieFna.getDob());
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -1005,18 +1004,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				}
 			}
 			responseJsonObj.put("product_list", sortProductArr);
+			
+			logger.info(responseJsonObj.toString());
+			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			request.getSession().setAttribute("productRecommendation", productRecommendation);
 		}
-		
-		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
-		ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
-		request.getSession().setAttribute("productRecommendation", productRecommendation);
 		return responseJsonObj;
 	}
 	
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
-		//header.put("username", username);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		JSONObject jobject = new JSONObject();
 		HttpSession hashSession = request.getSession();
