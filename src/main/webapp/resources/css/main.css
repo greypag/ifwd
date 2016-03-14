@@ -10362,7 +10362,7 @@ ul.promotion-sub-tnc.bullets {
 	}
 	.navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2{
 	    display:none !important;
-	    max-height: 475px;
+	    max-height: 9999px;
 	    overflow-x: visible;
 	    border-top: 1px solid transparent;
 	    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
@@ -10411,7 +10411,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 }
 
 .navbar-collapse{		
-    max-height: 440px;			
+    max-height: 9999px;			
 }		
 /******** Mobile header fix ********/		
 @media screen and (max-width: 767px){		
@@ -11110,17 +11110,58 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	}
 	.navbar-default .mob-menu-btn.navbar-toggle:hover, .navbar-default .mob-menu-btn.navbar-toggle:focus, .navbar-default .navbar-toggle.mob-menu-btn{
         float: left;
+        height: 50px;
+        line-height: 50px;
         margin: 0;
         position: absolute;
+        vertical-align: middle;
         z-index: 1;
 	}
+	.mob-lang-btn {
+	    float: right;
+	    position: absolute;
+	    line-height: 50px;
+	    height: 50px;
+	    right:0;
+        z-index: 1;
+    }
 	.navbar-default .navbar-toggle.mob-menu-btn .icon-bar{
 	   background-color:#fff;
-	   width:30px;
+	   width:22px;
 	   height:2px;
 	}
 	.navbar-toggle .icon-bar+.icon-bar{
-	   margin-top:8px;
+	   margin-top:4px;
 	}
 }
 /*/navbar revamp 1603*/
+/*menu language btn add 160314*/
+.menu-lang {
+    color: #fff;
+}
+.lang-grp ul{
+    margin:0 auto;
+    padding:0;
+    text-align:center;
+    width:50%;
+}
+.lang-grp li {
+    list-style: none;
+    display: inline-block;
+    padding: 12px 0;
+}
+
+.lang-grp li a {
+    padding: 0 12px;
+    border-right: solid 2px #ccc;
+}
+.lang-grp li:last-child a {
+    border-right: none;
+}
+.logobox .mobile-menu-V2 .dropdown-menu {
+    display: none;
+}
+.logobox .mobile-menu-V2 .open .dropdown-menu {
+    display: block;
+}
+/*/menu language btn add 160314*/

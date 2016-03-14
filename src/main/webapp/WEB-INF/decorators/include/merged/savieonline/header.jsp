@@ -768,12 +768,48 @@ function submitLoginForm(formID) {
 				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_150px.jpg"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
+				<!-- 
+			<div class="mob-lang-btn col-xs-1 col-sm1">
+                                <%
+                                    if ("en".equals(session.getAttribute("language").toString())) {
+                                %>
+
+                                <%
+                                    if (request.getServletPath().equals("/en")) {
+                                %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    } else {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    }
+    } else {
+ %> <%
+    if (request.getServletPath().equals("/tc")) {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    } else {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    }
+ %> <%
+    }
+ %>
+                            </div> -->
 			<div class="clearfix"></div>
 		</div>
 	    
 	
     <div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
+             <li class="pad-none col-sm-12 dropdown border-bottom">EN</li>
              <li class="pad-none col-sm-12 dropdown border-bottom">
             <!-- <div
 		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"

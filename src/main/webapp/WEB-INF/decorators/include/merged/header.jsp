@@ -765,6 +765,41 @@ function submitLoginForm(formID) {
 				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_mobile.png"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
+				<!-- 
+			<div class="mob-lang-btn col-xs-1 col-sm1">
+                                <%
+                                    if ("en".equals(session.getAttribute("language").toString())) {
+                                %>
+
+                                <%
+                                    if (request.getServletPath().equals("/en")) {
+                                %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    } else {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    }
+    } else {
+ %> <%
+    if (request.getServletPath().equals("/tc")) {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    } else {
+ %> <a
+                                class="lang pull-right" id="anchor-lang"
+                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
+                                        key="header.menu.language" bundle="${msg}" /></a> <%
+    }
+ %> <%
+    }
+ %>
+                            </div>	 -->			
 			<div class="clearfix"></div>
 		</div>
 	    
@@ -915,13 +950,19 @@ function submitLoginForm(formID) {
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
               <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
-            <li class="pad-none col-sm-12 dropdown link-btn link-grp fwd-header-navgation-menu">
+            <li class="pad-none col-sm-12 dropdown link-btn border-bottom link-grp fwd-header-navgation-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li> 
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a></li>
               </ul>              
             </li>
+             <li class="pad-none dropdown lang-grp">
+                <ul>
+                    <li><a class="lang menu-lang" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.en" bundle="${msg}" /></a></li>
+                    <li><a class="lang menu-lang chin" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.tc" bundle="${msg}" /></a></li>
+                </ul>
+             </li>
           </ul>
         </div><!--/.nav-collapse -->
 </div>
