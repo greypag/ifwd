@@ -182,7 +182,8 @@
 			
 			.crediting-rate-title {
 				color: #ff8200;
-				
+				font-size: 18px;
+    			margin-top: -2px !important;
 				@media screen and (min-width: 992px) {
 					float: left;
 					margin: 5px auto;
