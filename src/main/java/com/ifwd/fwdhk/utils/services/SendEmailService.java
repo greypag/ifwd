@@ -1,13 +1,16 @@
 package com.ifwd.fwdhk.utils.services;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.velocity.app.VelocityEngine;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
@@ -18,6 +21,9 @@ public class SendEmailService implements SendEmailDao {
 
 	@Autowired
 	RestServiceDao restService;
+
+	@Autowired 
+	VelocityEngine velocityEngine;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -198,6 +204,73 @@ public class SendEmailService implements SendEmailDao {
 		if (offername.equals("Fanfare.offername5")) {
 			subject = "A Gift from FWD ● discover!";
 			message = getRedPacketEmailContent(serverUrl, code, username);
+		} else if (offername.equals("Fanfare.offername6")
+				|| offername.equals("Fanfare.offername7")
+				|| offername.equals("Fanfare.offername8")
+				|| offername.equals("Fanfare.offername9")
+				|| offername.equals("Fanfare.offername10")) {
+			String template = "mail-templates/fwddiscover-hotelVoucher-confirmation.vm";
+			final Map<String,Object> model = new HashMap<>();
+			String rewardNameEn = null;
+			String rewardNameCh = null;
+			String hotelUrl = null;
+			String hotelNameEn = null;
+			String hotelNameCh = null;
+			String referenceCode = null;
+			String expiryDate = null;			
+			
+			if (offername.equals("Fanfare.offername6")) {
+				rewardNameEn = "3 Days / 2 Nights Stay in an Executive Deluxe Room with Breakfast for Two Persons";
+				rewardNameCh = "行政豪華房3日2夜的住宿及2份早餐";
+				hotelUrl = "http://www.oneworldhotel.com.my/";
+				hotelNameEn = "One World Hotel";
+				hotelNameCh = "世界酒店";
+				referenceCode = "89811";
+				expiryDate = "04-Apr-2016";
+			} else if (offername.equals("Fanfare.offername7")) {
+				rewardNameEn = "3 Days / 2 Nights Stay in a Standard Room with Breakfast";
+				rewardNameCh = "標準房3日2夜的住宿及早餐";
+				hotelUrl = "http://www.vivatel.com.my/";
+				hotelNameEn = "Vivatel Kuala Lumpur";
+				hotelNameCh = "吉隆坡輝煌酒店";
+				referenceCode = "398975";
+				expiryDate = "05-Apr-2016";
+			} else if (offername.equals("Fanfare.offername8")) {
+				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Garden View Room with Buffet Breakfast for Two Persons";
+				rewardNameCh = "豪華園景房3日2夜的住宿及2份自助早餐";
+				hotelUrl = "http://www.shangri-la.com/penang/rasasayangresort/";
+				hotelNameEn = "Shangri-La's Rasa Sayang Resort & Spa, Penang";
+				hotelNameCh = "檳城香格里拉沙洋度假酒店";
+				referenceCode = "10468";
+				expiryDate = "06-Apr-2016";
+			} else if (offername.equals("Fanfare.offername9")) {
+				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Seafacing Room with Buffet Breakfast for Two Persons";
+				rewardNameCh = "豪華海景房3日2夜的住宿及2份自助早餐";
+				hotelUrl = "http://www.shangri-la.com/penang/goldensandsresort/";
+				hotelNameEn = "Golden Sands Resort, Penang";
+				hotelNameCh = "檳城香格里拉金色海灘度假村";
+				referenceCode = "10466";
+				expiryDate = "07-Apr-2016";
+			} else if (offername.equals("Fanfare.offername10")) {
+				rewardNameEn = "3 Days / 2 Nights Stay in Traders Twins Towers View Suite for Two Persons";
+				rewardNameCh = "雙子塔景套房3日2夜的住宿";
+				hotelUrl = "http://www.shangri-la.com/traders/";
+				hotelNameEn = "Traders Hotels by Shangri-La";
+				hotelNameCh = "吉隆坡商貿飯店";
+				referenceCode = "72006";
+				expiryDate = "08-Apr-2016";
+			}
+			model.put("userName", username);
+			model.put("rewardNameEn", rewardNameEn);
+			model.put("rewardNameCh", rewardNameCh);
+			model.put("hotelUrl", hotelUrl);
+			model.put("hotelNameEn", hotelNameEn);
+			model.put("hotelNameCh", hotelNameCh);
+			model.put("referenceCode", referenceCode);
+			model.put("expiryDate", expiryDate);
+			
+			subject = "A Gift from FWD ● discover!";
+			message = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, template, "UTF-8", model);			
 		} else {
 			String planName_ch = WebServiceUtils.getMessage(planName, "tc");
 			String planName_en = WebServiceUtils.getMessage(planName, "EN");

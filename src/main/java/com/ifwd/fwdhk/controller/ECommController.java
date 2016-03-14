@@ -212,14 +212,19 @@ public class ECommController {
 	    if (month == 2) {
 	        if (day == 14) {
 	            hotelVoucherCampignId = 14;
+	            indexs = new int[]{14};
 	        } else if (day == 15) {
 	            hotelVoucherCampignId = 15;
+	            indexs = new int[]{15};
 	        } else if (day == 16) {
 	            hotelVoucherCampignId = 16;
+	            indexs = new int[]{16};
 	        } else if (day == 17) {
 	            hotelVoucherCampignId = 17;
+	            indexs = new int[]{17};
 	        } else if (day == 18) {
 	            hotelVoucherCampignId = 18;
+	            indexs = new int[]{18};
 	        }
 	    }
 	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampignId);

@@ -333,7 +333,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count6}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer314.enddate" bundle="${msg}" />
@@ -377,7 +377,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count7}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer315.enddate" bundle="${msg}" />
@@ -421,7 +421,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count8}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer316.enddate" bundle="${msg}" />
@@ -465,7 +465,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count9}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer317.enddate" bundle="${msg}" />
@@ -508,7 +508,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count10}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer318.enddate" bundle="${msg}" />
@@ -1985,7 +1985,7 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(data["index"] >=6 && data["index"] <=10){
+                        if(<%=hotelVoucherCampaignId!=-1%>){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -1997,7 +1997,7 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(data["index"] <=5 && data["index"] >=11){
+                        if(<%=hotelVoucherCampaignId==-1%>){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
@@ -2005,7 +2005,7 @@
                         loginpopup(campaignId);
                     }else{
                         $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(data["index"] <=5 && data["index"] >=11){
+                        if(<%=hotelVoucherCampaignId==-1%>){
                             $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                         }
                     }

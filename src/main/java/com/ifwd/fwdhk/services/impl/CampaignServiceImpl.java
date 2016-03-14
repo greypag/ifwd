@@ -85,7 +85,28 @@ public class CampaignServiceImpl implements CampaignService {
 	}
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
-		int[] indexs = {5, 6, 7, 8, 9, 13, 14, 15, 16, 17, 18};
+		int[] indexs = {13, 5, 6, 7, 8, 9};
+		
+	    java.util.Calendar cal = java.util.Calendar.getInstance();
+	    cal.setTime(java.util.Calendar.getInstance().getTime());
+
+	    int month = cal.get(java.util.Calendar.MONTH);
+	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+	    
+	    if (month == 2) {
+	        if (day == 14) {
+	        	indexs = new int[]{14};
+	        } else if (day == 15) {
+	        	indexs = new int[]{15};
+	        } else if (day == 16) {
+	        	indexs = new int[]{16};
+	        } else if (day == 17) {
+	        	indexs = new int[]{17};
+	        } else if (day == 18) {
+	        	indexs = new int[]{18};
+	        }
+	    }
+		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;
