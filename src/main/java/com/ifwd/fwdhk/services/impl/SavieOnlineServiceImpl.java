@@ -229,15 +229,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String[] rates;
 			if(guaranteeRate != null ){
 				rates = guaranteeRate.split(",");
+				double rate;
 				if(rates !=null && rates.length>0){
 					for(int i=0;i<rates.length;i++){
-						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),(Integer.valueOf(rates[i])*100)+""));
+						rate = Double.valueOf(rates[i]);
+						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),rate*100+"%"));
 					}
 				}
 			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
-			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
+			for(int i=0;i<planDetailData.getPlanDetails3Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
 				if(policyYear < 5){
@@ -898,7 +900,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		//jsonObject.put("dob", savieFna.getDob());
-		jsonObject.put("dob", "1990-01-01");
+		String[] dob = savieFna.getDob().split("-");
+		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -997,9 +1000,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
 				String[] dob = jobject.get("dob").toString().split("-");
-				//savieFna.setDob(dob[0]+"-"+dob[1]+"-"+dob[2]);
-				savieFna.setDob("01-01-1990");
-				
+				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -1029,8 +1030,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				request.getSession().setAttribute("savieFna", savieFna);
 				
 				jobject.put("name", userDetails.getFullName());
-				jobject.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
-				jobject.put("dob", "1990-01-01");
+				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
@@ -1067,10 +1067,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			String[] dob = lifePersonalDetails.getDob().split("-");
-			//applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
-			//applicant.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
-			applicant.put("dob", "1990-01-01");
-			
+			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");
@@ -1496,7 +1493,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("clientBrowserInfo", clientBrowserInfo);
-		parameters.accumulate("planCode", "ET");
+		parameters.accumulate("planCode", "savie");
 		parameters.accumulate("fileType", "jpg");
 		parameters.accumulate("documentType", "signature");
 		parameters.accumulate("originalFilePath", "");
@@ -1633,7 +1630,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("policyNo", policyNo);
-			parameters.put("planCode", "ET");
+			parameters.put("planCode", "savie");
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			if(fileToUpload==null){
 				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
@@ -1748,7 +1745,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", "ET");
+			parameters.put("planCode", "savie");
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
