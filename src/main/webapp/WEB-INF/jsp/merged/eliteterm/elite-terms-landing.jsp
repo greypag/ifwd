@@ -535,7 +535,7 @@
          @media screen and (max-width: 991px) {
          body {
             /* Hero image Position Fix*/
-            padding-top: 95px;
+            padding-top: 50px;
          }
       </style>
 
