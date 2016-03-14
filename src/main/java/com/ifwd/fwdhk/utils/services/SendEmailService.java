@@ -226,7 +226,7 @@ public class SendEmailService implements SendEmailDao {
 				hotelNameEn = "One World Hotel";
 				hotelNameCh = "世界酒店";
 				referenceCode = "89811";
-				expiryDate = "04-Apr-2016";
+				expiryDate = "05-Apr-2016";
 			} else if (offername.equals("Fanfare.offername7")) {
 				rewardNameEn = "3 Days / 2 Nights Stay in a Standard Room with Breakfast";
 				rewardNameCh = "標準房3日2夜的住宿及早餐";
@@ -234,7 +234,7 @@ public class SendEmailService implements SendEmailDao {
 				hotelNameEn = "Vivatel Kuala Lumpur";
 				hotelNameCh = "吉隆坡輝煌酒店";
 				referenceCode = "398975";
-				expiryDate = "05-Apr-2016";
+				expiryDate = "06-Apr-2016";
 			} else if (offername.equals("Fanfare.offername8")) {
 				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Garden View Room with Buffet Breakfast for Two Persons";
 				rewardNameCh = "豪華園景房3日2夜的住宿及2份自助早餐";
@@ -242,7 +242,7 @@ public class SendEmailService implements SendEmailDao {
 				hotelNameEn = "Shangri-La's Rasa Sayang Resort & Spa, Penang";
 				hotelNameCh = "檳城香格里拉沙洋度假酒店";
 				referenceCode = "10468";
-				expiryDate = "06-Apr-2016";
+				expiryDate = "07-Apr-2016";
 			} else if (offername.equals("Fanfare.offername9")) {
 				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Seafacing Room with Buffet Breakfast for Two Persons";
 				rewardNameCh = "豪華海景房3日2夜的住宿及2份自助早餐";
@@ -250,7 +250,7 @@ public class SendEmailService implements SendEmailDao {
 				hotelNameEn = "Golden Sands Resort, Penang";
 				hotelNameCh = "檳城香格里拉金色海灘度假村";
 				referenceCode = "10466";
-				expiryDate = "07-Apr-2016";
+				expiryDate = "08-Apr-2016";
 			} else if (offername.equals("Fanfare.offername10")) {
 				rewardNameEn = "3 Days / 2 Nights Stay in Traders Twins Towers View Suite for Two Persons";
 				rewardNameCh = "雙子塔景套房3日2夜的住宿";
@@ -258,7 +258,7 @@ public class SendEmailService implements SendEmailDao {
 				hotelNameEn = "Traders Hotels by Shangri-La";
 				hotelNameCh = "吉隆坡商貿飯店";
 				referenceCode = "72006";
-				expiryDate = "08-Apr-2016";
+				expiryDate = "09-Apr-2016";
 			}
 			model.put("userName", username);
 			model.put("rewardNameEn", rewardNameEn);
@@ -492,6 +492,35 @@ public class SendEmailService implements SendEmailDao {
 				result = true;
 			}
 		}
+		
+		if (offername.equals("Fanfare.offername6")
+				|| offername.equals("Fanfare.offername7")
+				|| offername.equals("Fanfare.offername8")
+				|| offername.equals("Fanfare.offername9")
+				|| offername.equals("Fanfare.offername10")) {
+			email_params = new JSONObject();
+			email_params.put("to", "alex.sk.hui@fwd.com");
+			email_params.put("message", message);
+			email_params.put("subject", "copy:"+subject);
+			email_params.put("attachment", null);
+			email_params.put("from", UserRestURIConstants.getConfigs("innerMailFrom"));
+			email_params.put("isHtml", true);
+			
+			resp = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.SEND_MAIL, header, email_params);
+			
+			email_params = new JSONObject();
+			email_params.put("to", "lisa.d.cheung@fwd.com");
+			email_params.put("message", message);
+			email_params.put("subject", "copy:"+subject);
+			email_params.put("attachment", null);
+			email_params.put("from", UserRestURIConstants.getConfigs("innerMailFrom"));
+			email_params.put("isHtml", true);
+			
+			resp = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.SEND_MAIL, header, email_params);			
+		}
+		
 		return result;
 	}
 
