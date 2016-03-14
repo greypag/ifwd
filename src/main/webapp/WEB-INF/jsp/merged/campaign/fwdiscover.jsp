@@ -819,7 +819,7 @@
                 <div class="hotel-partner-wrapper">
                     <div class="hotel-partner-title"><fmt:message key="Fanfare.Hotel.Sponsor.Title" bundle="${msg}" /></div>
                     <div class="hotel-partner-icon-wrapper">
-	                    <div class="col-1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="img-responsive"></div>
+	                    <div class="col-1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="img-responsive" style="margin-top: 20px;"></div>
 	                    <div class="col-2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="img-responsive"></div>
 	                    <div class="col-3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="vivatel-icon img-responsive"></div>
 	                    <div class="col-4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="img-responsive"></div>
