@@ -33,8 +33,6 @@ public class ProductRecommendation {
 	public void setRemarks(List<String> remarks) {
 		this.remarks = remarks;
 	}
-	
-	
 
 	
 

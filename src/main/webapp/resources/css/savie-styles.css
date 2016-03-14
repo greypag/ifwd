@@ -245,10 +245,11 @@
 
 /** Modified, End **/
 /* line 154, ../sass/partials/savie/_header.scss */
+/*
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+*/
 /* line 158, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu.protect-drop {
   width: 600%;

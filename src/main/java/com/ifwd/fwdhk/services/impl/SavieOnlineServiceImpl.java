@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -252,7 +253,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
 					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
 				}
-				else if(policyYear%5==0 && policyYear/5<7){
+				
+				if(policyYear%5==0 && policyYear/5<7){
 					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
 					attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
 					attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
@@ -263,17 +265,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
 				
 				}
-				else if(issueAge > 66){
-					if(age == 100){
-						attributeList.add(new PdfAttribute("EndofPolicyYear_"+age,"100"));
-						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+age,totalPremium));
-						attributeList.add(new PdfAttribute("Accountvalue_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+				
+				if(issueAge > 66){
+					if(age == 99){
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100","100"));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
 					}
 				}
 				else if(issueAge < 67){
@@ -288,16 +291,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
 						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
 					}
-					else if(age == 100){
-						attributeList.add(new PdfAttribute("EndofPolicyYear_"+age,"100"));
-						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+age,totalPremium));
-						attributeList.add(new PdfAttribute("Accountvalue_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+					else if(age == 99){
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100","100"));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
 					}
 					
 				}
@@ -311,8 +314,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 			attributeList.add(new PdfAttribute("Date",format.format(new Date())));
 			attributeList.add(new PdfAttribute("Printdate",format.format(new Date())));
+			
 			if("2".equals(type)){
-				attributeList.add(new PdfAttribute("Signature",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+				String documentPath = UserRestURIConstants.getConfigs("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+		        String path = uploadDir + "/JSignature.png";
+		        path = path.replace("/", "\\");
+				attributeList.add(new PdfAttribute("Signature",path,"imagepath"));
 			}
 			
 			String pdfTemplateName = "";
@@ -394,21 +403,21 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
 	    attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
 	    attributeList.add(new PdfAttribute("beneficiaryHKID1", lifeBeneficaryInfo.getBeneficaryID1()));
-	    attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:""));
+	    attributeList.add(new PdfAttribute("relationship1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation1())?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:""));
 	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
 	    
 	    attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()));
 	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
 	    attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
 	    attributeList.add(new PdfAttribute("beneficiaryHKID2", lifeBeneficaryInfo.getBeneficaryID2()));
-	    attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:""));
+	    attributeList.add(new PdfAttribute("relationship2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation2())?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:""));
 	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
 	    
 	    attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3()));
 	    attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
 	    attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
 	    attributeList.add(new PdfAttribute("beneficiaryHKID3", lifeBeneficaryInfo.getBeneficaryID3()));
-	    attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:""));
+	    attributeList.add(new PdfAttribute("relationship3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation3())?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:""));
 	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
@@ -451,8 +460,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    
 	    if("2".equals(type)){
-	    	attributeList.add(new PdfAttribute("authSign", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
-	    }
+	    	CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+	        String path = uploadDir + "/JSignature.png";
+	        path = path.replace("/", "\\");
+			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
+		}
 			
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieOnlineApplicationForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
@@ -834,7 +848,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Date1", DateApi.formatString(new Date(), "dd/MM/yyyy")));
 		
 		if("2".equals(type)){
-			attributeList.add(new PdfAttribute("SignatureofApplicant", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+	        String path = uploadDir + "/JSignature.png";
+	        path = path.replace("/", "\\");
+			attributeList.add(new PdfAttribute("SignatureofApplicant", path,"imagepath"));
 		}
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
@@ -1050,6 +1068,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
@@ -1057,8 +1076,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
-		
-		
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "SAVIE-SP");
@@ -1126,58 +1143,70 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					JSONObject beneficiarie1 = new JSONObject();
 					JSONObject beneficiarie2 = new JSONObject();
 					JSONObject beneficiarie3 = new JSONObject();
-					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
-						beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
-						beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
-						beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
-						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport1())){
-							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1().toUpperCase());
-							beneficiarie1.put("passport", "");
-						}
-						else{
-							beneficiarie1.put("hkId", "");
-							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
-						}
-						beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
-						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
-						beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+					if(lifeBeneficaryInfo.getIsOwnEstate()){
+						beneficiarie1.put("firstName", applicant.get("firstName"));
+						beneficiarie1.put("lastName", applicant.get("lastName"));
+						beneficiarie1.put("chineseName", applicant.get("chineseName"));
+						beneficiarie1.put("hkId", applicant.get("hkId"));
+						beneficiarie1.put("passport", applicant.get("passport"));
+						beneficiarie1.put("gender", applicant.get("gender"));
+						beneficiarie1.put("relationship", "SE");
+						beneficiarie1.put("entitlement", "100");
 					beneficiaries.add(beneficiarie1);
 					}
-					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
-						beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
-						beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
-						beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
-						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
-							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
-							beneficiarie1.put("passport", "");
+					else{
+						if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
+							beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
+							beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
+							beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport1())){
+								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1().toUpperCase());
+								beneficiarie1.put("passport", "");
+							}
+							else{
+								beneficiarie1.put("hkId", "");
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
+							}
+							beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+							beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
+							beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+						beneficiaries.add(beneficiarie1);
 						}
-						else{
-							beneficiarie1.put("hkId", "");
-							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+						if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
+							beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
+							beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
+							beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
+								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
+								beneficiarie1.put("passport", "");
+							}
+							else{
+								beneficiarie1.put("hkId", "");
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+							}
+							beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
+							beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
+						beneficiaries.add(beneficiarie2);
 						}
-						beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
-						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
-						beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
-					beneficiaries.add(beneficiarie2);
+						if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
+							beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
+							beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
+							beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
+								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
+								beneficiarie1.put("passport", "");
+							}
+							else{
+								beneficiarie1.put("hkId", "");
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+							}
+							beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
+							beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
+						beneficiaries.add(beneficiarie3);
+						}
 					}
-					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
-						beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
-						beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
-						beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
-						if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
-							beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
-							beneficiarie1.put("passport", "");
-						}
-						else{
-							beneficiarie1.put("hkId", "");
-							beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
-						}
-						beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
-						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
-						beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
-					beneficiaries.add(beneficiarie3);
-					}
-					
 			insured.put("beneficiaries", beneficiaries);
 		parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
@@ -1192,7 +1221,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("referralCode", saviePlanDetails.getPromoCode());
 		logger.info(parameters.toString());
 		
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 		lifePolicy = connector.createLifePolicy(parameters, header);
 		if(!lifePolicy.hasError()){
@@ -1215,7 +1244,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.finalizeLifePolicy(parameters, header);
 		if(apiReturn.hasError()){
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
@@ -1299,7 +1328,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException{
 		String language = (String) request.getSession().getAttribute("language");
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
@@ -1332,7 +1361,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		
 		String language = (String) request.getSession().getAttribute("language");
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
@@ -1383,7 +1412,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		
 		String language = (String) request.getSession().getAttribute("language");
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
@@ -1415,7 +1444,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
 		
 		String language = (String) request.getSession().getAttribute("language");
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
@@ -1455,7 +1484,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		
 		String language = (String) request.getSession().getAttribute("language");
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
@@ -1475,36 +1504,53 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
+	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
+		//sales pdf
+	    this.createSalesIllustrationPdf("2", request);
+	    this.uploadPdf("pdfName", request);
+		
 		//fna pdf
 		this.createFnaFormPdf("2", request, request.getSession());
+		this.uploadPdf("fnaPdfName", request);
 		
 		//application pdf
 		this.createApplicationFormPdf("2", request, request.getSession());
-		
-		//upload signature
+		this.uploadPdf("applicationFormPdf", request);
+	}
+	
+	public void uploadPdf(String fileName,HttpServletRequest request)throws ECOMMAPIException, IOException{
+		byte data[];
+		int i;
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
-        File uploadedFile = new File(request.getRealPath("/")+"resources\\pdf\\signature.png");
-        
-        byte[] toFileBytes= FileCopyUtils.copyToByteArray(uploadedFile);
-        String image = new sun.misc.BASE64Encoder().encode(toFileBytes);
-        
-		final Map<String,String> header = headerUtil.getHeader(request);
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
+		
+		final Map<String, String> header = headerUtil.getHeader1(request);
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("clientBrowserInfo", clientBrowserInfo);
-		parameters.accumulate("planCode", "savie");
-		parameters.accumulate("fileType", "jpg");
-		parameters.accumulate("documentType", "signature");
-		parameters.accumulate("originalFilePath", "");
-		parameters.accumulate("base64", image);
-		parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
-		connector.uploadSignature(parameters, header);
-		return null;
+		parameters.put("clientBrowserInfo", clientBrowserInfo);
+		parameters.put("planCode", "SAVIE-SP");
+		parameters.put("fileType", "pdf");
+		parameters.put("documentType", "pdf");
+		parameters.put("originalFilePath", pdfPath);
+		
+		File f = new File(pdfPath);
+		FileInputStream is = null;
+		is = new FileInputStream(f);
+		i = is.available(); // 得到文件大小  
+		data = new byte[i];  
+		is.read(data); // 读数据  
+		is.close();  
+		String file64 =new sun.misc.BASE64Encoder().encode(data);
+		parameters.put("base64", file64);
+		parameters.put("policyNo", lifePolicy.getPolicyNo());
+		BaseResponse br = connector.uploadDocuments(parameters, header);
+		if(br.getErrMsgs()!=null){
+			throw new ECOMMAPIException(br.getErrMsgs()[0]);
+		}
 	}
 	
 	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
 		
 		if(apiResponse!=null&&apiResponse.hasError()) {
@@ -1625,7 +1671,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			File file = new File(uploadDir);
 			byte data[];
 			int i;
-			final Map<String, String> header = headerUtil.getHeader(request);
+			final Map<String, String> header = headerUtil.getHeader1(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
@@ -1739,9 +1785,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        byte[] toFileBytes= FileCopyUtils.copyToByteArray(toFile);
 	        image = new sun.misc.BASE64Encoder().encode(toFileBytes);
 
-	        FileUtil.deletFile(uploadDir);
+	        //FileUtil.deletFile(uploadDir);
 	        
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
@@ -2023,6 +2069,76 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	/**
+	 * 服务中心确认页面并发送邮件
+	 * @param model request session
+	 * @return
+	 */
+	public void CustomerServiceCentreConfirmation(String action, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String centre = request.getParameter("centre");
+		String preferredDate = request.getParameter("preferred-date");
+		String preferredTime = request.getParameter("preferred-time");
+		Map<String, String> confirmation = new HashMap<String, String>();
+		if(StringUtils.isBlank(centre)) {
+			confirmation = (Map<String, String>)session.getAttribute("confirmationLater");
+			centre = confirmation.get("centre");
+			preferredDate = confirmation.get("preferredDate");
+			preferredTime = confirmation.get("preferredTime");
+		}else {
+			confirmation.put("centre", centre);
+			confirmation.put("preferredDate", preferredDate);
+			confirmation.put("preferredTime", preferredTime);
+			session.setAttribute("confirmationLater", confirmation);
+		}
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		String centerEn = "";
+		String centerCh = "";
+		String centerAddEn = "";
+		String centerAddCh = "";
+		for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreEN.getServiceCentres()) {
+			if(entity.getServiceCentreCode().equals(centre)) {
+				centerEn = entity.getServiceCentreName();
+				centerAddEn = entity.getAddress();
+				break;
+			}
+		}
+		for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreCN.getServiceCentres()) {
+			if(entity.getServiceCentreCode().equals(centre)) {
+				centerCh = entity.getServiceCentreName();
+				centerAddCh = entity.getAddress();
+				break;
+			}
+		}
+		
+		JSONObject models = new JSONObject();
+		models.put("name", session.getAttribute("username"));
+		models.put("refCode", session.getAttribute("accessCode"));
+		models.put("dateEn", preferredDate);
+		models.put("timeSlotEn", preferredTime);
+		models.put("centerEn", centerEn);
+		models.put("centerAddEn", centerEn);
+		models.put("dateCh", preferredDate);
+		models.put("timeSlotCh", preferredTime);
+		models.put("centerCh", centerCh);
+		models.put("centerAddCh", centerAddCh);
+		sendEmails(request, action, models);
+		
+		if (lang.equals("CN")) {
+			model.addAttribute("centerName", centerCh);
+			model.addAttribute("centerAddress", centerAddCh);
+		}else {
+			model.addAttribute("centerName", centerEn);
+			model.addAttribute("centerAddress", centerAddEn);
+		}
+		model.addAttribute("preferredDate", preferredDate);
+		model.addAttribute("preferredTime", preferredTime);
+	}
+	
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.VALIDATE_SESSION;
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -2035,7 +2151,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.clearFna(parameters, header);
 		if(apiReturn==null){
 			logger.info("api error");
@@ -2060,7 +2176,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
-		final Map<String,String> header = headerUtil.getHeader(request);
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.sendTemplateEmail(parameters, header);
 		if(apiReturn==null){
 			logger.info("api error");
@@ -2076,7 +2192,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("name", request.getParameter("customer_name"));
@@ -2095,7 +2211,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		return apiReturn;
 	}
-	public JSONObject sendEmails(HttpServletRequest request, String action) {
+	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) {
 		HttpSession session = request.getSession();
 		String Url = UserRestURIConstants.SEND_EMAILS;
 		String email = (String)session.getAttribute("emailAddress");
@@ -2124,8 +2240,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", email);
 		parameters.put("subject", subject);
-		JSONObject model = new JSONObject();
-		model.put("name", "Nat");
 		parameters.put("model", model);
 		parameters.put("template", template);
 		
