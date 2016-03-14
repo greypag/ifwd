@@ -13,8 +13,15 @@
 	    actionName = request.getAttribute("controller").toString();
 	}
 %>
-<div class="modal fade bs-example-modal-lg " id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog modal-lg <%if(actionName== "SavieOnline"){%>savie-modal-wrapper<%}%>">
+<div class="modal fade" id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div
+        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"
+        class="login-ajax-loading">
+        <img
+            style="width: 100px; height: 100px; position: absolute; top: 30%; left: 50%; margin-left:-50px;"
+            src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+    </div>
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
 			<!-- 登入 -->			    
@@ -35,14 +42,6 @@
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
 			<form name="loginform" id="loginform-pop">
 				<div class="login-form">
-					<div
-						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-						class="login-ajax-loading">
-						<img
-							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-					</div>
-
 
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
@@ -51,25 +50,18 @@
 						<div class="form-group">
 							<!--使用者名 -->
 							<input type="text" name="userName"
-								class="form-control check-emp login-input"
-								placeholder="<fmt:message key="header.login.username" bundle="${msg}" />"
-								id="headerUserName"
-								onkeypress="return validationUsername(event);">
+								class="form-control check-emp login-input" placeholder="<fmt:message key="header.login.username" bundle="${msg}" />" id="headerUserName" onkeypress="return validationUsername(event);">
 							<!-- 忘記使用者名 -->
-							    <span id="errUserName" class="empHide color-red heading-h5"></span>
-								<a id="forgotUserName" class="heading-h6"><fmt:message
-										key="header.login.username.forget" bundle="${msg}" /></a>
+								<a id="forgotUserName" class="heading-h6"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
+								<span id="errUserName" class="empHide color-red heading-h5"></span>
 						</div>
 
 						<div class="form-group">
 							<input type="password" name="password"
-								class="form-control check-emp-forgotusername login-input"
-								placeholder="<fmt:message key="header.login.password" bundle="${msg}" />"
-								autocomplete="off" id="headerPassword">
-							<!--忘記密碼 -->
-							    <span id="errPass" class="empHide color-red heading-h5"></span>  
-								<a id="link-forgotPassword" class="heading-h6"><fmt:message
-										key="header.login.password.forget" bundle="${msg}" /></a>			
+								class="form-control check-emp-forgotusername login-input" placeholder="<fmt:message key="header.login.password" bundle="${msg}" />" autocomplete="off" id="headerPassword">
+							<!--忘記密碼 -->  
+								<a id="link-forgotPassword" class="heading-h6"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
+								<span id="errPass" class="empHide color-red heading-h5"></span>			
 						</div>						
 						<div class="login-button-group">
 						    <input id="fna-check" type="hidden" name="fna" value="false">
@@ -117,13 +109,6 @@
 
 
 				<div class="login-form">
-					<div
-						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-						class="login-ajax-loading">
-						<img
-							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-					</div>
 					<div id="success-message" class="alert alert-success empHide"
 						role="alert" style="display: none;">
 						<P id="error1"></P>
