@@ -22,13 +22,13 @@ var languageP = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-			   <li><a href="#">Home</a></li>
+			   <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Save </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#">Savie </a></li>
+               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.plandetails" bundle="${msg}" /></li>
             </ol>
          </div>
     </div>
@@ -93,7 +93,7 @@ var languageP = "${language}";
 									   <option value="regular-payment"><fmt:message key="label.savie.payment.mode.savie.regular.pay" bundle="${msg}" /></option>
 									   <option value="one-off-premium" selected=""><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></option>
 									</select>
-									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">									
 								</div>
 							</div>
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
@@ -114,6 +114,7 @@ var languageP = "${language}";
 			                           <option value="10000">10,000</option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.savie.amount" bundle="${msg}" /></label>
 								</div>
 							</div>
 							<div class="col-xs-12" id="amount-slide-holder">
@@ -141,6 +142,7 @@ var languageP = "${language}";
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
 									<input type="text" name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.dob" bundle="${msg}" /></label> 
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
 									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }" type="text" name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
@@ -153,6 +155,7 @@ var languageP = "${language}";
 									   <option value=""></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.payment.year" bundle="${msg}" /></label> 
 								</div>
 							</div>								
 						</div>
@@ -235,11 +238,11 @@ var languageP = "${language}";
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-xs hidden-sm credit-rate"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="premium"><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col6" bundle="${msg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -277,11 +280,11 @@ var languageP = "${language}";
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-xs hidden-sm credit-rate"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="premium"><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col6" bundle="${msg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -319,11 +322,11 @@ var languageP = "${language}";
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-xs hidden-sm credit-rate"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="premium"><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col6" bundle="${msg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -361,11 +364,11 @@ var languageP = "${language}";
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-xs hidden-sm credit-rate"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="premium"><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable.col2" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col6" bundle="${msg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -806,6 +809,12 @@ var languageP = "${language}";
 			} else {
 				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
 			}	
+		});
+		
+		$('#plan-dob-datepicker').focus(function () {
+			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
+		}).focusout(function (){
+			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});
 	});
 	

@@ -1297,6 +1297,14 @@ h6 {
     font-size: 12px;
   }
 }
+/* line 839, ../sass/partials/savie/_common.scss */
+.plan-calculator-holder .custom-made-label {
+  color: #000000;
+  font-size: 12px;
+  font-family: calibri-bold;
+  top: -2px;
+  padding-left: 20px;
+}
 
 /* line 1, ../sass/partials/savie/_media.scss */
 .media {
