@@ -671,6 +671,13 @@ var languageP = "${language}";
 			
 			$('.selectDiv').removeClass('is-not-active');
 			
+			$('select').change(function() {
+				$(this).blur();
+			});
+			$('option').click(function() {
+				$('select').blur();
+			});
+			
 			$('#bf-save-and-con-later').on('click', function (e) {
 				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
 					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);

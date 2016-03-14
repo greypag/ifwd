@@ -718,7 +718,14 @@ var languageP = "${language}";
 					var htmlObj = document.getElementById('et-personal-info-next');
 					htmlObj.innerHTML = 'Back to application summary';
 				}
-		    });
+		   });
+			
+			$('select').change(function() {
+				$(this).blur();
+			});
+			$('option').click(function() {
+				$('select').blur();
+			});
 			
 			$("#et-personal-info-next").click(function(){
 				$("#errorMsg").html("");

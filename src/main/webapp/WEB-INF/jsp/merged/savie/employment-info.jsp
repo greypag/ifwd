@@ -460,6 +460,13 @@ var languageP = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 				
+				$('select').change(function() {
+					$(this).blur();
+				});
+				$('option').click(function() {
+					$('select').blur();
+				});
+				
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
