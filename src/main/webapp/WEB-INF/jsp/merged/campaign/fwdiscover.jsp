@@ -375,7 +375,7 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
 		                                </li>                                    
                                     </ul>
