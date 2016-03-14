@@ -229,15 +229,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String[] rates;
 			if(guaranteeRate != null ){
 				rates = guaranteeRate.split(",");
+				double rate;
 				if(rates !=null && rates.length>0){
 					for(int i=0;i<rates.length;i++){
-						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),(Integer.valueOf(rates[i])*100)+""));
+						rate = Double.valueOf(rates[i]);
+						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),rate*100+"%"));
 					}
 				}
 			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
-			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
+			for(int i=0;i<planDetailData.getPlanDetails3Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
 				if(policyYear < 5){
@@ -2021,6 +2023,76 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	/**
+	 * 服务中心确认页面并发送邮件
+	 * @param model request session
+	 * @return
+	 */
+	public void CustomerServiceCentreConfirmation(String action, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String centre = request.getParameter("centre");
+		String preferredDate = request.getParameter("preferred-date");
+		String preferredTime = request.getParameter("preferred-time");
+		Map<String, String> confirmation = new HashMap<String, String>();
+		if(StringUtils.isBlank(centre)) {
+			confirmation = (Map<String, String>)session.getAttribute("confirmationLater");
+			centre = confirmation.get("centre");
+			preferredDate = confirmation.get("preferredDate");
+			preferredTime = confirmation.get("preferredTime");
+		}else {
+			confirmation.put("centre", centre);
+			confirmation.put("preferredDate", preferredDate);
+			confirmation.put("preferredTime", preferredTime);
+			session.setAttribute("confirmationLater", confirmation);
+		}
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		String centerEn = "";
+		String centerCh = "";
+		String centerAddEn = "";
+		String centerAddCh = "";
+		for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreEN.getServiceCentres()) {
+			if(entity.getServiceCentreCode().equals(centre)) {
+				centerEn = entity.getServiceCentreName();
+				centerAddEn = entity.getAddress();
+				break;
+			}
+		}
+		for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreCN.getServiceCentres()) {
+			if(entity.getServiceCentreCode().equals(centre)) {
+				centerCh = entity.getServiceCentreName();
+				centerAddCh = entity.getAddress();
+				break;
+			}
+		}
+		
+		JSONObject models = new JSONObject();
+		models.put("name", session.getAttribute("username"));
+		models.put("refCode", session.getAttribute("accessCode"));
+		models.put("dateEn", preferredDate);
+		models.put("timeSlotEn", preferredTime);
+		models.put("centerEn", centerEn);
+		models.put("centerAddEn", centerEn);
+		models.put("dateCh", preferredDate);
+		models.put("timeSlotCh", preferredTime);
+		models.put("centerCh", centerCh);
+		models.put("centerAddCh", centerAddCh);
+		sendEmails(request, action, models);
+		
+		if (lang.equals("CN")) {
+			model.addAttribute("centerName", centerCh);
+			model.addAttribute("centerAddress", centerAddCh);
+		}else {
+			model.addAttribute("centerName", centerEn);
+			model.addAttribute("centerAddress", centerAddEn);
+		}
+		model.addAttribute("preferredDate", preferredDate);
+		model.addAttribute("preferredTime", preferredTime);
+	}
+	
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.VALIDATE_SESSION;
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -2093,7 +2165,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		return apiReturn;
 	}
-	public JSONObject sendEmails(HttpServletRequest request, String action) {
+	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) {
 		HttpSession session = request.getSession();
 		String Url = UserRestURIConstants.SEND_EMAILS;
 		String email = (String)session.getAttribute("emailAddress");
@@ -2122,8 +2194,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", email);
 		parameters.put("subject", subject);
-		JSONObject model = new JSONObject();
-		model.put("name", "Nat");
 		parameters.put("model", model);
 		parameters.put("template", template);
 		

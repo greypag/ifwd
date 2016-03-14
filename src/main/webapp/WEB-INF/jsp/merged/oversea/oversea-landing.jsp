@@ -405,7 +405,7 @@ function mouseout2div(obj) {
    @media screen and (max-width: 991px) {
    body {
       /* Hero image Position Fix*/
-      padding-top: 95px;
+      padding-top: 50px;
    }
 </style>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>

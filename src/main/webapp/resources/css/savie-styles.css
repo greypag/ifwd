@@ -245,10 +245,11 @@
 
 /** Modified, End **/
 /* line 154, ../sass/partials/savie/_header.scss */
+/*
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+*/
 /* line 158, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu.protect-drop {
   width: 600%;
@@ -1080,7 +1081,7 @@ h6 {
 }
 /* line 656, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input {
-  padding: 12px 15px 0 15px !important;
+  padding: 12px 15px 0 8px !important;
   height: 40px !important;
   margin-bottom: 0 !important;
 }
@@ -1097,7 +1098,7 @@ h6 {
   font-size: 14px;
   left: 0;
   top: 10px;
-  padding-left: 15px;
+  padding-left: 8px;
   font-family: 'Calibri-Bold';
 }
 /* line 676, ../sass/partials/savie/_common.scss */
@@ -8648,6 +8649,8 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 183, ../sass/partials/savie/_plan-details-table.scss */
 .pd-summary-table .summary-table .crediting-rate .crediting-rate-title {
   color: #ff8200;
+  font-size: 18px;
+  margin-top: -2px !important;
 }
 @media screen and (min-width: 992px) {
   /* line 183, ../sass/partials/savie/_plan-details-table.scss */
@@ -8657,35 +8660,35 @@ form#table-info #id-policy, form#table-info #id-application {
     padding-right: 5px;
   }
 }
-/* line 193, ../sass/partials/savie/_plan-details-table.scss */
+/* line 195, ../sass/partials/savie/_plan-details-table.scss */
 .pd-summary-table .summary-table .crediting-rate .rate-buttons {
   margin: 20px auto;
 }
 @media screen and (min-width: 992px) {
-  /* line 193, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 195, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .crediting-rate .rate-buttons {
     margin: 20px auto 10px;
   }
 }
 
-/* line 204, ../sass/partials/savie/_plan-details-table.scss */
+/* line 206, ../sass/partials/savie/_plan-details-table.scss */
 .plan-details-note-container {
   padding: 0 30px;
   font-size: 12px;
   color: #373a36;
   margin-top: 20px;
 }
-/* line 210, ../sass/partials/savie/_plan-details-table.scss */
+/* line 212, ../sass/partials/savie/_plan-details-table.scss */
 .plan-details-note-container ul {
   padding-left: 15px;
 }
-/* line 213, ../sass/partials/savie/_plan-details-table.scss */
+/* line 215, ../sass/partials/savie/_plan-details-table.scss */
 .plan-details-note-container ul li {
   line-height: 15px;
   margin-bottom: 15px;
 }
 
-/* line 220, ../sass/partials/savie/_plan-details-table.scss */
+/* line 222, ../sass/partials/savie/_plan-details-table.scss */
 .pd-date {
   width: 100%;
   border: 0;
@@ -8696,81 +8699,81 @@ form#table-info #id-policy, form#table-info #id-application {
   color: #9ba5a7;
 }
 
-/* line 230, ../sass/partials/savie/_plan-details-table.scss */
+/* line 232, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq {
   margin-top: 20px;
 }
 @media screen and (min-width: 992px) {
-  /* line 230, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 232, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq {
     margin-top: 30px;
   }
 }
-/* line 237, ../sass/partials/savie/_plan-details-table.scss */
+/* line 239, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .pd-sf-tabs-content {
   padding: 0 15px;
 }
 @media screen and (min-width: 992px) {
-  /* line 237, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 239, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq .pd-sf-tabs-content {
     padding: 0 30px;
   }
 }
-/* line 245, ../sass/partials/savie/_plan-details-table.scss */
+/* line 247, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .faq-key-content {
   padding: 0 20px;
 }
-/* line 248, ../sass/partials/savie/_plan-details-table.scss */
+/* line 250, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .faq-key-content .tab-content {
   padding: 0 10px 10px;
 }
-/* line 254, ../sass/partials/savie/_plan-details-table.scss */
+/* line 256, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn {
   margin-bottom: 30px;
 }
-/* line 257, ../sass/partials/savie/_plan-details-table.scss */
+/* line 259, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .plan-details-btn {
   padding: 8px 30px;
 }
 @media screen and (min-width: 330px) {
-  /* line 257, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 259, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq .next-btn .plan-details-btn {
     padding: 8px 37px;
   }
 }
-/* line 265, ../sass/partials/savie/_plan-details-table.scss */
+/* line 267, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .pd-link {
   display: block;
   font-size: 14px;
   margin-top: 15px;
   color: #ff8200;
 }
-/* line 270, ../sass/partials/savie/_plan-details-table.scss */
+/* line 272, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .pd-link:hover {
   text-decoration: underline;
 }
-/* line 276, ../sass/partials/savie/_plan-details-table.scss */
+/* line 278, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs {
   border-bottom: none;
   border: none;
 }
-/* line 280, ../sass/partials/savie/_plan-details-table.scss */
+/* line 282, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab {
   min-width: 95px;
   border: none;
 }
 @media screen and (min-width: 400px) {
-  /* line 280, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 282, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab {
     min-width: 110px;
   }
 }
-/* line 289, ../sass/partials/savie/_plan-details-table.scss */
+/* line 291, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.active a {
   border-bottom: 3px solid #ff8500;
   background: none;
 }
-/* line 295, ../sass/partials/savie/_plan-details-table.scss */
+/* line 297, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a {
   padding: 5px;
   font-size: 13px;
@@ -8779,47 +8782,47 @@ form#table-info #id-policy, form#table-info #id-application {
   background: transparent;
 }
 @media screen and (min-width: 400px) {
-  /* line 295, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 297, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a {
     padding: 10px;
     font-size: 14px;
   }
 }
-/* line 307, ../sass/partials/savie/_plan-details-table.scss */
+/* line 309, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a:after {
   border: none;
 }
-/* line 312, ../sass/partials/savie/_plan-details-table.scss */
+/* line 314, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.pd-sf-tab-right {
   border-left: 1px solid #e6e6e6;
 }
 @media screen and (min-width: 992px) {
-  /* line 312, ../sass/partials/savie/_plan-details-table.scss */
+  /* line 314, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.pd-sf-tab-right {
     border-left: none;
   }
 }
-/* line 322, ../sass/partials/savie/_plan-details-table.scss */
+/* line 324, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-faq-and-glossary-group {
   margin: 30px 0 20px;
 }
-/* line 325, ../sass/partials/savie/_plan-details-table.scss */
+/* line 327, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel {
   margin-top: 2px;
   border: 0;
   border-radius: 0;
 }
-/* line 330, ../sass/partials/savie/_plan-details-table.scss */
+/* line 332, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-heading {
   border-radius: 0;
   background-color: #e1e4e4;
 }
-/* line 336, ../sass/partials/savie/_plan-details-table.scss */
+/* line 338, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-collapse .panel-body {
   font-size: 14px;
   line-height: 20px;
 }
-/* line 343, ../sass/partials/savie/_plan-details-table.scss */
+/* line 345, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-title a {
   display: inline-block;
   width: 100%;
@@ -8827,29 +8830,29 @@ form#table-info #id-policy, form#table-info #id-application {
   color: #ffffff;
   text-decoration: none;
 }
-/* line 354, ../sass/partials/savie/_plan-details-table.scss */
+/* line 356, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .pd-sf-divider {
   height: 2px;
   background-color: #e9edf0;
 }
 
-/* line 362, ../sass/partials/savie/_plan-details-table.scss */
+/* line 364, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .plan-promo-code input, #plan-details-b-page .plan-promo-code input {
   color: #000;
 }
-/* line 366, ../sass/partials/savie/_plan-details-table.scss */
+/* line 368, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip, #plan-details-b-page .tooltip {
   background-color: transparent;
   color: #000;
   opacity: 1;
 }
-/* line 370, ../sass/partials/savie/_plan-details-table.scss */
+/* line 372, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip .tooltip-arrow, #plan-details-b-page .tooltip .tooltip-arrow {
   border-right-color: #fbfbfb;
   border-width: 10px 10px 10px 0;
   top: 46%;
 }
-/* line 375, ../sass/partials/savie/_plan-details-table.scss */
+/* line 377, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip .tooltip-inner, #plan-details-b-page .tooltip .tooltip-inner {
   background-color: #fbfbfb;
   margin-left: 5px;
@@ -8861,21 +8864,21 @@ form#table-info #id-policy, form#table-info #id-application {
   -moz-box-shadow: 0px 0px 4px 0px #838b8f;
   box-shadow: 0px 0px 4px 0px #838b8f;
 }
-/* line 385, ../sass/partials/savie/_plan-details-table.scss */
+/* line 387, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip .tooltip-inner p, #plan-details-b-page .tooltip .tooltip-inner p {
   line-height: 18px;
 }
-/* line 387, ../sass/partials/savie/_plan-details-table.scss */
+/* line 389, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip .tooltip-inner p.info-content, #plan-details-b-page .tooltip .tooltip-inner p.info-content {
   color: #9c9c9c;
   font-family: 'Calibri';
 }
-/* line 391, ../sass/partials/savie/_plan-details-table.scss */
+/* line 393, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-page .tooltip .tooltip-inner p:nth-child(3), #plan-details-b-page .tooltip .tooltip-inner p:nth-child(3) {
   margin-top: 13px;
 }
 
-/* line 401, ../sass/partials/savie/_plan-details-table.scss */
+/* line 403, ../sass/partials/savie/_plan-details-table.scss */
 #table-content-pd .tooltip .tooltip-arrow {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -8890,7 +8893,7 @@ form#table-info #id-policy, form#table-info #id-application {
   border-bottom: 0;
   border-width: 1px !important;
 }
-/* line 416, ../sass/partials/savie/_plan-details-table.scss */
+/* line 418, ../sass/partials/savie/_plan-details-table.scss */
 #table-content-pd .tooltip .tooltip-inner {
   width: inherit;
   max-width: none;

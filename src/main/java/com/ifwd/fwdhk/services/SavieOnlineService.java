@@ -48,9 +48,10 @@ public interface SavieOnlineService {
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) throws Exception;
+	public void CustomerServiceCentreConfirmation(String action, Model model, HttpServletRequest request) throws Exception;
 	public JSONObject validateSession(HttpServletRequest request) throws ECOMMAPIException;
 	public void clearFna(HttpServletRequest request) throws ECOMMAPIException;
 	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException;
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
-	public JSONObject sendEmails(HttpServletRequest request, String action) throws Exception;
+	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) throws Exception;
 }
