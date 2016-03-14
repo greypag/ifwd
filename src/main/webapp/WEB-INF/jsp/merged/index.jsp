@@ -340,14 +340,23 @@
             jQuery(document).ready(function($) {
        
             	// To show review fna modal when clicking FNA CTA button
-				$('#btn-fna-cta').click(function() {
-					var hasDoneFNA = true;
-					
-					// Review FNA modal will only show if a user has done FNA before
-					if(hasDoneFNA) {
-						$('#review-fna-modal').modal('show');
-					}
-				});
+                $('#btn-fna-cta').click(function() {
+                    //var hasDoneFNA = true;
+                    var hasDoneFNA = false;
+                    $('#offline-online-modal').modal('hide');
+                    if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+                        hasDoneFNA = true;
+                    }else{
+                        $('.modal').modal('hide');
+                        $('.login-info').removeClass('hidden');
+                        $('#loginpopup .modal-dialog').addClass('loginpopupext');           
+                        $('#loginpopup').modal('show');         
+                    }               
+                    // Review FNA modal will only show if a user has done FNA before
+                    if(hasDoneFNA) {
+                        $('#review-fna-modal').modal('show');
+                    }
+                });
 				
 				$("#so-carousel").swiperight(function() {
 				   $(this).carousel('prev');

@@ -17,8 +17,8 @@
 	<div class="modal-dialog modal-lg <%if(actionName== "SavieOnline"){%>savie-modal-wrapper<%}%>">
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
-			<!-- 登入 -->
-                <%if(actionName== "SavieOnline"){%>
+			<!-- 登入 -->			    
+                <%if(actionName== "SavieOnline" || request.getRequestURI().indexOf("/")==0){%>
                 <div class="login-info hidden login-info-savie">
                     <div class="upper-overlay">
 	                    <h4 class="heading-h4">
@@ -641,9 +641,7 @@
    
     
        $(document).ready(function(){
-
-           
-           
+          
            $('html').keyup(function(e){
                     
                  var emp= "";
