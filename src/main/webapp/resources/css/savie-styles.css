@@ -1080,7 +1080,7 @@ h6 {
 }
 /* line 656, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input {
-  padding: 12px 15px 0 15px !important;
+  padding: 12px 15px 0 8px !important;
   height: 40px !important;
   margin-bottom: 0 !important;
 }
@@ -1097,7 +1097,7 @@ h6 {
   font-size: 14px;
   left: 0;
   top: 10px;
-  padding-left: 15px;
+  padding-left: 8px;
   font-family: 'Calibri-Bold';
 }
 /* line 676, ../sass/partials/savie/_common.scss */
