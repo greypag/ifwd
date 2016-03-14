@@ -49,4 +49,35 @@ public class HeaderUtil{
 		header.put("Content-Type","application/json");
 		return header;
 	}
+	
+	/**
+	 * init Header Map info
+	 * @param request HttpServletRequest request
+	 * @return Map<String,String>
+	 */
+	public Map<String,String> getHeader1(HttpServletRequest request){
+		String token = null, username = null;
+		HttpSession session = request.getSession();
+		if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		}else{
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CN";
+		}
+		Map<String,String> header = Maps.newHashMap();
+		//header.put("country", "HK");
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		header.put("token", token);
+		header.put("username", username);
+		//header.put("Content-Type","application/json");
+		return header;
+	}
 }
