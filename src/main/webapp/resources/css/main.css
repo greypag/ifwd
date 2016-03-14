@@ -11054,6 +11054,14 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	background-color:#373a36;
 }
 @media screen and (max-width: 991px){
+	/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
+	div.mobile-menu-V2 .navbar-nav>li.dropdown:hover ul.dropdown-menu{
+	   display: none;	   
+	}
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.open:hover ul.dropdown-menu{
+       display: block;      
+    }
+    /* End fix conflict */	
     .logobox{
        background-color:#222;
        border:0;
@@ -11173,3 +11181,11 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     display: block;
 }
 /*/menu language btn add 160314*/
+/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
+#myDropdown.dropdown:hover .dropdown-menu{
+	display: none;
+}
+#myDropdown.dropdown.open:hover .dropdown-menu{
+    display: block;
+}
+/* End fix conflict */
