@@ -874,7 +874,7 @@ var languageP = "${language}";
 				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 				    type:'get', 
 				    data:{    
-		    	    	"planCode" : "SAVIE-RP"
+		    	    	"planCode" : "SAVIE-SP"
 		       		}, 
 				    error:function(){       
 				    },     
@@ -885,52 +885,34 @@ var languageP = "${language}";
 				    		$('#prev-savie-app-modal').modal('show');
 				    	}else{
 				    		$.ajax({     
-							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-							    type:'get', 
-							    data:{    
-					    	    	"planCode" : "SAVIE"
-					       		}, 
-							    error:function(){       
-							    },     
-							    success:function(data){
-				   		    		$('#loginpopup').modal('hide');
-							    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-							    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
-							    		$('#prev-savie-app-modal').modal('show');
-							    		
-							    	}else{
-							    		$.ajax({     
-							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+				    		    type:'get',     
+				    		    error:function(){       
+				    		    },     
+				    		    success:function(data){
+				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+				    		    		$('#retrieve-application-modal').modal('show');
+				    		    		nextPage = data.nextPage;
+				    		    	}
+				    		    	else{
+				    		    		$.ajax({     
+							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
 							    		    type:'get',     
 							    		    error:function(){       
 							    		    },     
 							    		    success:function(data){
-							    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
-							    		    		$('#retrieve-application-modal').modal('show');
-							    		    		nextPage = data.nextPage;
+							    		    	if(data != null && data.errMsgs == null && data.name !=null){
+							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+							    		    		$('#review-fna-modal').modal('show');
 							    		    	}
 							    		    	else{
-							    		    		$.ajax({     
-										    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-										    		    type:'get',     
-										    		    error:function(){       
-										    		    },     
-										    		    success:function(data){
-										    		    	if(data != null && data.errMsgs == null && data.name !=null){
-										    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-										    		    		$('#review-fna-modal').modal('show');
-										    		    	}
-										    		    	else{
-										    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-										    		    	}
-										    		    }  
-										    		});
+							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
 							    		    	}
 							    		    }  
 							    		});
-							    	}
-							    }  
-							});
+				    		    	}
+				    		    }  
+				    		});
 				    	}
 				    }  
 				});

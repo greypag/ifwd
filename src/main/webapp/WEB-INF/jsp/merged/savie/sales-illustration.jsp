@@ -116,11 +116,11 @@
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.last.name" bundle="${msg}" /></label>
-  								<p class="data-info">${userDetails.firstName }</p>
+  								<p class="data-info">${userDetails.lastName }</p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.given.name" bundle="${msg}" /></label>
-  								<p class="data-info">${userDetails.lastName }</p>
+  								<p class="data-info">${userDetails.firstName }</p>
   							</div>
   							<div class="gray-bg-data-info hidden">
   								<label class="data-label">label.chinese.name</label>
