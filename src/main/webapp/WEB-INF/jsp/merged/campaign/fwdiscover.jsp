@@ -30,7 +30,7 @@
         isCNYOffer = true;
     } else {
         disableOfferClass = "";
-        countDownDate = "2016-03-19 00:00:00";
+        countDownDate = "2016-03-21 00:00:00";
         countDownDD = "19";
         countDownMM = "MAR";
         //isCNYOffer = false;
