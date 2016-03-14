@@ -200,7 +200,9 @@
                 <div class="sponsor-logo-wrapper">
                     <div class="sponsor-text">
                         <fmt:message key="Fanfare.Hotel.Sponsor.Text" bundle="${msg}" />
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/agoda-logo.png" class="img-responsive">
+                        <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/agoda-logo.png" class="img-responsive">
+                        </a>
                     </div>
                 </div>
                 <%--<div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
@@ -1481,7 +1483,9 @@
 	                                            <div class="hotel-refer-wrapper">
 	                                                <div class="hotel-refer">
 	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+                                                        </a>
 	                                                </div>
 	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                                                <div class="clearfix"></div>
@@ -1507,7 +1511,9 @@
 	                                            <div class="hotel-refer-wrapper">
 	                                                <div class="hotel-refer">
 	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+                                                        </a>
 	                                                </div>
 	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                                                <div class="clearfix"></div>
@@ -1533,7 +1539,9 @@
 	                                            <div class="hotel-refer-wrapper">
 	                                                <div class="hotel-refer">
 	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+                                                        </a>
 	                                                </div>
 	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                                                <div class="clearfix"></div>
@@ -1560,7 +1568,9 @@
 	                                            <div class="hotel-refer-wrapper">
 	                                                <div class="hotel-refer">
 	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+                                                        </a>
 	                                                </div>
 	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                                                <div class="clearfix"></div>
@@ -1586,7 +1596,9 @@
 	                                            <div class="hotel-refer-wrapper">
 	                                                <div class="hotel-refer">
 	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
+                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+                                                        </a>
 	                                                </div>
 	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                                                <div class="clearfix"></div>

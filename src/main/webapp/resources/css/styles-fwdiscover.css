@@ -1821,6 +1821,12 @@
 #hotel-description-modal .hotel-refer img{
 	display: inline-block;
 }
+
+#hotel-description-modal .hotel-refer a{
+	text-decoration: none;
+	border-bottom: none;
+}
+
 #hotel-description-modal .carousel .carousel-inner{
 	width: 100%;
 }
