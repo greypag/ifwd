@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -450,9 +448,12 @@ public class SavieOnlineController extends BaseController{
 		}
 		else{
 			try {
-				savieOnlineService.sendEmails(request, "savieComplete");
+				JSONObject models = new JSONObject();
+				models.put("name", request.getSession().getAttribute("username"));
+				savieOnlineService.sendEmails(request, "savieComplete", models);
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
 			
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
@@ -467,9 +468,12 @@ public class SavieOnlineController extends BaseController{
 		}
 		else{
 			try {
-				savieOnlineService.sendEmails(request, "uploadDocument");
+				JSONObject models = new JSONObject();
+				models.put("name", request.getSession().getAttribute("username"));
+				savieOnlineService.sendEmails(request, "uploadDocument", models);
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 		}
@@ -484,39 +488,16 @@ public class SavieOnlineController extends BaseController{
 		else{
 			
 			try {
-				savieOnlineService.sendEmails(request, "signLater");
+				savieOnlineService.CustomerServiceCentreConfirmation("signLater", model, request);
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
-			
-			String centre = request.getParameter("centre");
-			String preferredDate = request.getParameter("preferred-date");
-			String preferredTime = request.getParameter("preferred-time");
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			ServiceCentreResponse serviceCentreResponse;
-			if (lang.equals("CN")) {
-				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
-			}else {
-				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
-			}
-			List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
-			for(ServiceCentreResult entity :serviceCentreResultList) {
-				if(entity.getServiceCentreCode().equals(centre)) {
-					model.addAttribute("centerName", entity.getServiceCentreName());
-					model.addAttribute("centerAddress", entity.getAddress());
-					break;
-				}
-			}
-			
-			model.addAttribute("preferredDate", preferredDate);
-			model.addAttribute("preferredTime", preferredTime);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-paylater"})
 	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
@@ -524,37 +505,12 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
-			
 			try {
-				savieOnlineService.sendEmails(request, "paylater");
+				savieOnlineService.CustomerServiceCentreConfirmation("paylater", model, request);
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
-			
-			String centre = request.getParameter("centre");
-			String preferredDate = request.getParameter("preferred-date");
-			String preferredTime = request.getParameter("preferred-time");
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			ServiceCentreResponse serviceCentreResponse;
-			if (lang.equals("CN")) {
-				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
-			}else {
-				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
-			}
-			List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
-			for(ServiceCentreResult entity :serviceCentreResultList) {
-				if(entity.getServiceCentreCode().equals(centre)) {
-					model.addAttribute("centerName", entity.getServiceCentreName());
-					model.addAttribute("centerAddress", entity.getAddress());
-					break;
-				}
-			}
-			
-			model.addAttribute("preferredDate", preferredDate);
-			model.addAttribute("preferredTime", preferredTime);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
 		}
 	}
@@ -564,39 +520,13 @@ public class SavieOnlineController extends BaseController{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
-		else{
-			
+		}else{
 			try {
-				savieOnlineService.sendEmails(request, "offlineApplication");
+				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.info(e.getMessage());
 			}
-			
-			String centre = request.getParameter("centre");
-			String preferredDate = request.getParameter("preferred-date");
-			String preferredTime = request.getParameter("preferred-time");
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			ServiceCentreResponse serviceCentreResponse;
-			if (lang.equals("CN")) {
-				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
-			}else {
-				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
-			}
-			List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
-			for(ServiceCentreResult entity :serviceCentreResultList) {
-				if(entity.getServiceCentreCode().equals(centre)) {
-					model.addAttribute("centerName", entity.getServiceCentreName());
-					model.addAttribute("centerAddress", entity.getAddress());
-					break;
-				}
-			}
-			
-			model.addAttribute("preferredDate", preferredDate);
-			model.addAttribute("preferredTime", preferredTime);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
 		}
 	}

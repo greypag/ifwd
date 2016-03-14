@@ -847,7 +847,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
    @media screen and (max-width: 991px) {
    body {
       /* Hero image Position Fix*/
-      padding-top: 95px;
+      padding-top: 50px;
    }
 </style>
 </body>

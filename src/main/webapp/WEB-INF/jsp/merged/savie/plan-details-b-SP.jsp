@@ -160,7 +160,7 @@ var languageP = "${language}";
 					<div class="col-xs-12 col-md-2 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" />
-				           	<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
+				           	<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="correspondenceAddress3"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
 			           	</div>
 					</div>
 					<div class="col-xs-12 col-md-2 plan-calculate">
@@ -609,7 +609,7 @@ var languageP = "${language}";
       </div>
 <div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
     <img style="width: 300px; height: 300px;"
-        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
+        src="<%=request.getContextPath()%>/resources/images/loading.gif">
 </div>
 <!-- FOOTER -->
 
@@ -796,6 +796,17 @@ var languageP = "${language}";
 			setPaymentYears($("#plan-dob-datepicker").val())
 		} */
 		getSavieOnlinePlandetails();
+		
+		//changing labels of promo code
+		$('#promoCode').focus(function() {
+			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');	
+		}).focusout(function () {
+			if($(this).val() == '' ) {
+				$('.promocode-label').text('<fmt:message key="label.promocode" bundle="${msg}" />');
+			} else {
+				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
+			}	
+		});
 	});
 	
 	// changing first/after 3 years button content

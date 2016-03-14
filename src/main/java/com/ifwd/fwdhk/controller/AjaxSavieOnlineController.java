@@ -183,6 +183,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savings-insurance/createLifePolicy"})
 	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
@@ -602,23 +603,6 @@ public class AjaxSavieOnlineController extends BaseController{
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}
-	/**
-	 * 根据Action来发送邮件
-	 */
-	@RequestMapping(value = {"/ajax/savings-insurance/sendEmails"})
-	public void sendEmails(Model model, HttpServletRequest request,
-			HttpServletResponse response) {
-		JSONObject jsonObject = new JSONObject();
-		try {
-			jsonObject = savieOnlineService.sendEmails(request, request.getParameter("action"));
-		} catch (Exception e) {
-			jsonObject.put("errorMsg", "api error");
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-		logger.info("sendEmails : " + jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
 	
