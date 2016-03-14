@@ -1685,6 +1685,7 @@
                   {
                     breakpoint: 1600,
                     settings: {
+                      infinite: false,
                       initialSlide: 0,
                       arrows: false,  
                       slidesToShow: 5
