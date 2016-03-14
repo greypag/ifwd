@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -313,8 +314,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 			attributeList.add(new PdfAttribute("Date",format.format(new Date())));
 			attributeList.add(new PdfAttribute("Printdate",format.format(new Date())));
+			
 			if("2".equals(type)){
-				attributeList.add(new PdfAttribute("Signature",request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+				String documentPath = UserRestURIConstants.getConfigs("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+		        String path = uploadDir + "/JSignature.png";
+		        path = path.replace("/", "\\");
+				attributeList.add(new PdfAttribute("Signature",path,"imagepath"));
 			}
 			
 			String pdfTemplateName = "";
@@ -453,8 +460,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    
 	    if("2".equals(type)){
-	    	attributeList.add(new PdfAttribute("authSign", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
-	    }
+	    	CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+	        String path = uploadDir + "/JSignature.png";
+	        path = path.replace("/", "\\");
+			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
+		}
 			
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieOnlineApplicationForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
@@ -836,7 +848,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Date1", DateApi.formatString(new Date(), "dd/MM/yyyy")));
 		
 		if("2".equals(type)){
-			attributeList.add(new PdfAttribute("SignatureofApplicant", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
+	        String path = uploadDir + "/JSignature.png";
+	        path = path.replace("/", "\\");
+			attributeList.add(new PdfAttribute("SignatureofApplicant", path,"imagepath"));
 		}
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
@@ -1488,32 +1504,49 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
+	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
+		//sales pdf
+	    this.createSalesIllustrationPdf("2", request);
+	    this.uploadPdf("pdfName", request);
+		
 		//fna pdf
 		this.createFnaFormPdf("2", request, request.getSession());
+		this.uploadPdf("fnaPdfName", request);
 		
 		//application pdf
 		this.createApplicationFormPdf("2", request, request.getSession());
-		
-		//upload signature
+		this.uploadPdf("applicationFormPdf", request);
+	}
+	
+	public void uploadPdf(String fileName,HttpServletRequest request)throws ECOMMAPIException, IOException{
+		byte data[];
+		int i;
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
-        File uploadedFile = new File(request.getRealPath("/")+"resources\\pdf\\signature.png");
-        
-        byte[] toFileBytes= FileCopyUtils.copyToByteArray(uploadedFile);
-        String image = new sun.misc.BASE64Encoder().encode(toFileBytes);
-        
-		final Map<String,String> header = headerUtil.getHeader1(request);
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
+		
+		final Map<String, String> header = headerUtil.getHeader1(request);
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("clientBrowserInfo", clientBrowserInfo);
-		parameters.accumulate("planCode", "savie");
-		parameters.accumulate("fileType", "jpg");
-		parameters.accumulate("documentType", "signature");
-		parameters.accumulate("originalFilePath", "");
-		parameters.accumulate("base64", image);
-		parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
-		connector.uploadSignature(parameters, header);
-		return null;
+		parameters.put("clientBrowserInfo", clientBrowserInfo);
+		parameters.put("planCode", "SAVIE-SP");
+		parameters.put("fileType", "pdf");
+		parameters.put("documentType", "pdf");
+		parameters.put("originalFilePath", pdfPath);
+		
+		File f = new File(pdfPath);
+		FileInputStream is = null;
+		is = new FileInputStream(f);
+		i = is.available(); // 得到文件大小  
+		data = new byte[i];  
+		is.read(data); // 读数据  
+		is.close();  
+		String file64 =new sun.misc.BASE64Encoder().encode(data);
+		parameters.put("base64", file64);
+		parameters.put("policyNo", lifePolicy.getPolicyNo());
+		BaseResponse br = connector.uploadDocuments(parameters, header);
+		if(br.getErrMsgs()!=null){
+			throw new ECOMMAPIException(br.getErrMsgs()[0]);
+		}
 	}
 	
 	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
@@ -1752,7 +1785,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        byte[] toFileBytes= FileCopyUtils.copyToByteArray(toFile);
 	        image = new sun.misc.BASE64Encoder().encode(toFileBytes);
 
-	        FileUtil.deletFile(uploadDir);
+	        //FileUtil.deletFile(uploadDir);
 	        
 			final Map<String,String> header = headerUtil.getHeader1(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
