@@ -843,13 +843,20 @@ var languageP = "${language}";
 		}else{
 			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
+            $('#loginpopup #fna-check').val("true");
             $('#loginpopup .modal-dialog').addClass('loginpopupext');			
 			$('#loginpopup').modal('show');			
 		}
 	});
 	
 	$("#offline-application-btn").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+        if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+        	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+        }else{
+            apply=true;
+            $('#offline-online-modal').modal('hide');
+            $('#loginpopup').modal('show');         
+        }
 	});
 	
 	var apply=false;//判断是否点击proceed
@@ -971,7 +978,7 @@ var languageP = "${language}";
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 		}else{
 			apply=true;
-            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+            $('#loginpopup #fna-check').val("true");
 			$('#loginpopup').modal('show');			
 		}
 	}	

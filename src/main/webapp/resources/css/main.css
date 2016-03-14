@@ -10580,8 +10580,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     padding:0;
 }
 #loginpopup {
-    display:table;
-    position: absolute;
+    display: table;
     height: 100%;
     width:100%;
     top:0;

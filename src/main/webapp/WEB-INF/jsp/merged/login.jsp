@@ -72,6 +72,7 @@
 										key="header.login.password.forget" bundle="${msg}" /></a>			
 						</div>						
 						<div class="login-button-group">
+						    <input id="fna-check" type="hidden" name="fna" value="false">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action" bundle="${msg}" />
@@ -641,7 +642,10 @@
    
     
        $(document).ready(function(){
-          
+	   	   $('#loginpopup').on('hidden.bs.modal', function () {
+		   		console.log("fna-cnacel");   
+		   		$('#loginpopup #fna-check').val("false");
+	   	   })    	             
            $('html').keyup(function(e){
                     
                  var emp= "";

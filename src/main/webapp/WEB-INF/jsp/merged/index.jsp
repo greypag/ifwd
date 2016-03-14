@@ -349,6 +349,7 @@
                     }else{
                         $('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
+                        $('#loginpopup #fna-check').val("true");
                         $('#loginpopup .modal-dialog').addClass('loginpopupext');           
                         $('#loginpopup').modal('show');         
                     }               
