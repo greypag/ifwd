@@ -211,31 +211,31 @@ public class ECommController {
 	    
 	    int hotelVoucherCampaignId = -1;
 	    if (month == 2) {
-	        if (day == 15) {
+	        if (day == 16) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 14;
 	        	} else {
 		            hotelVoucherCampaignId = -1;
 	        	}
-	        } else if (day == 16) {
+	        } else if (day == 17) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 15;
 	        	} else {
 		            hotelVoucherCampaignId = 14;
 	        	}
-	        } else if (day == 17) {
+	        } else if (day == 18) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 16;
 	        	} else {
 		            hotelVoucherCampaignId = 15;
 	        	}
-	        } else if (day == 18) {
+	        } else if (day == 19) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 17;
 	        	} else {
 		            hotelVoucherCampaignId = 16;
 	        	}
-	        } else if (day == 19) {
+	        } else if (day == 20) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 18;
 	        	} else {
