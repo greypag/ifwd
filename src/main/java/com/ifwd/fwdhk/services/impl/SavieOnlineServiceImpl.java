@@ -425,7 +425,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
 	    String bankCode = json.get("bankCode")+"";
-	    if(StringUtils.isNotBlank(bankCode) && bankCode != "null"){
+	    if(StringUtils.isNotBlank(bankCode) && "null".equals(bankCode)){
 	    	for(int i=0;i<bankCode.length();i++){
 	    		String c = bankCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
@@ -434,7 +434,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    
 	    String branchCode = json.get("branchCode")+"";
-	    if(StringUtils.isNotBlank(branchCode) && branchCode != "null"){
+	    if(StringUtils.isNotBlank(branchCode) && "null".equals(branchCode)){
 	    	for(int i=0;i<branchCode.length();i++){
 	    		String c = branchCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
