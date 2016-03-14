@@ -183,6 +183,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savings-insurance/createLifePolicy"})
 	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
