@@ -108,6 +108,16 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
+<!--[if lt IE 8]>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">	
+<![endif]-->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">	
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script> --%>
@@ -119,7 +129,11 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
-
+<!--[if IE]>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/selectivizr-min.js"></script>
+<![endif]-->
 
 
 <script>
