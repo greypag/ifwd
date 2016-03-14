@@ -325,7 +325,7 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<a target="_blank" href="<%=request.getContextPath()%>/<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
 		                                </li>                                        
                                     </ul>
@@ -421,7 +421,7 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
 		                                </li>                                    
                                     </ul>
@@ -469,7 +469,7 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
 		                                </li>                                    
                                     </ul>
@@ -516,7 +516,7 @@
                                         <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-		                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+		                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
 		                                </li>                                        
                                     </ul>
@@ -1190,7 +1190,7 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer314.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer314.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
                                 </li>
                             </ul>
@@ -1204,7 +1204,7 @@
                                 <ul>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel314" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel14" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1224,7 +1224,7 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer315.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer315.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
                                 </li>
                             </ul>
@@ -1238,7 +1238,7 @@
                                 <ul>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel315" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel15" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1258,7 +1258,7 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer316.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer316.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
                                 </li>
                             </ul>
@@ -1272,7 +1272,7 @@
                                 <ul>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel316" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel16" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1292,7 +1292,7 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer317.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer317.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
                                 </li>
                             </ul>
@@ -1306,7 +1306,7 @@
                                 <ul>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel317" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel17" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -1325,7 +1325,7 @@
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offer318.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
-                                	<a target="_blank" href="<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
+                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
                                 </li>
                             </ul>
@@ -1339,7 +1339,7 @@
                                 <ul>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel318" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel18" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.HoteOffer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
 
@@ -2139,7 +2139,7 @@
                 }else{
                     if(<%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                         $('#offer-details-hotel-voucher').modal('show');
-                        $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/${language}/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel" bundle="${msg}" /><%=hotelVoucherCampaignId%>');                 	
+                        $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel${hotelVoucherCampaignId}" bundle="${msg}" />');                 	
                     }else{
 	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 	                    $('#offer-details-promotion-code').modal('show');
