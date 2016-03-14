@@ -8,6 +8,7 @@ public class ProductRecommendation {
 	private String errMsgs;
 	private String next_page;
 	private List<MorphDynaBean> product_list;
+	private List remarks;
 	public String getErrMsgs() {
 		return errMsgs;
 	}
@@ -25,6 +26,12 @@ public class ProductRecommendation {
 	}
 	public void setProduct_list(List<MorphDynaBean> product_list) {
 		this.product_list = product_list;
+	}
+	public List getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(List remarks) {
+		this.remarks = remarks;
 	}
 	
 
