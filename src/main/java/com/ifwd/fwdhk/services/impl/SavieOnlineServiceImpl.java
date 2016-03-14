@@ -229,15 +229,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String[] rates;
 			if(guaranteeRate != null ){
 				rates = guaranteeRate.split(",");
+				double rate;
 				if(rates !=null && rates.length>0){
 					for(int i=0;i<rates.length;i++){
-						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),(Integer.valueOf(rates[i])*100)+""));
+						rate = Double.valueOf(rates[i]);
+						attributeList.add(new PdfAttribute("CreditingRate_"+(i+1),rate*100+"%"));
 					}
 				}
 			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
-			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
+			for(int i=0;i<planDetailData.getPlanDetails3Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
 				if(policyYear < 5){
