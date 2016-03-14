@@ -70,9 +70,9 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	        if(ValidationUtils.isNullOrEmpty(this.beneficaryLastName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryLastName1", "validation.failure", language));
 	        }
-	        if(ValidationUtils.isNullOrEmpty(this.beneficaryChineseName1)){
+	        /*if(ValidationUtils.isNullOrEmpty(this.beneficaryChineseName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryChineseName1", "validation.failure", language));
-	        }
+	        }*/
 	        /*if(ValidationUtils.isNullOrEmpty(this.beneficaryID1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryID1", "validation.failure", language));
 	        }*/

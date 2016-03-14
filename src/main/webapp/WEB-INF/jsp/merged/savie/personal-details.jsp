@@ -610,6 +610,9 @@ var languageP = "${language}";
 				soFormValidation();
 				
 				var dummy = true;
+				if('${backSummary}' == 'Y'){
+					dummy = false;
+				}
                 //dummy condition for displaying the back / next button 
                 if(dummy) { 
                     // hide the back button and display the Next button
@@ -715,7 +718,14 @@ var languageP = "${language}";
 					var htmlObj = document.getElementById('et-personal-info-next');
 					htmlObj.innerHTML = 'Back to application summary';
 				}
-		    });
+		   });
+			
+			$('select').change(function() {
+				$(this).blur();
+			});
+			$('option').click(function() {
+				$('select').blur();
+			});
 			
 			$("#et-personal-info-next").click(function(){
 				$("#errorMsg").html("");

@@ -116,11 +116,11 @@
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.last.name" bundle="${msg}" /></label>
-  								<p class="data-info">${userDetails.firstName }</p>
+  								<p class="data-info">${userDetails.lastName }</p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.given.name" bundle="${msg}" /></label>
-  								<p class="data-info">${userDetails.lastName }</p>
+  								<p class="data-info">${userDetails.firstName }</p>
   							</div>
   							<div class="gray-bg-data-info hidden">
   								<label class="data-label">label.chinese.name</label>
@@ -159,7 +159,7 @@
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 	        		<div id="pdf">
-	        			<iframe src="https://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}&embedded=true"  frameborder="0"></iframe>
+	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>
 	        			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 	        				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 	        				<embed id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
