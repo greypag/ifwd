@@ -609,7 +609,7 @@ var languageP = "${language}";
       </div>
 <div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
     <img style="width: 300px; height: 300px;"
-        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
+        src="<%=request.getContextPath()%>/resources/images/loading.gif">
 </div>
 <!-- FOOTER -->
 
