@@ -90,6 +90,8 @@ public interface SavieService {
 	//6/put the required object into session
 	//7/return result
 	//8/return the next page (if applicable)
+	BaseResponse sendAppointmentAcknowledgeMail(HttpServletRequest request)
+			throws ECOMMAPIException;
 	
 	
 	
