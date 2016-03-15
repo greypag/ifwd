@@ -363,10 +363,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String bankName = lifePayment.getBankName();
 		String branchName = lifePayment.getBranchName();
 		
-		String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
+		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");
+		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");*/
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -431,7 +431,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
-	    String bankCode = json.get("bankCode")+"";
+	   // String bankCode = json.get("bankCode")+"";
+	    String bankCode = bankName.substring(bankName.length()-4, bankName.length()-1);
 	    if(StringUtils.isNotBlank(bankCode) && !"null".equals(bankCode)){
 	    	for(int i=0;i<bankCode.length();i++){
 	    		String c = bankCode.charAt(i)+"";
@@ -440,7 +441,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    
-	    String branchCode = json.get("branchCode")+"";
+	    //String branchCode = json.get("branchCode")+"";
+	    String branchCode = branchName.substring(branchName.length()-4, branchName.length()-1);
 	    if(StringUtils.isNotBlank(branchCode) && !"null".equals(branchCode)){
 	    	for(int i=0;i<branchCode.length();i++){
 	    		String c = branchCode.charAt(i)+"";
