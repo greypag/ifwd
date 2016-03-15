@@ -121,10 +121,10 @@ var languageP = "${language}";
 					</div>
 					
 			  <div class="text-center social-media-share">
-			  		<p>Share with your friends</p>
-			  		<a href="#"><i class="fa fa-facebook"></i></a>
-			  		<a href="#"><i class="fa fa-twitter"></i></a>
-			  		<a href="#"><i class="fa fa-google-plus"></i></a>
+			  		<p><fmt:message key="eliteTerms.confirmation.Share" bundle="${msg}" /></p>
+			  		<a class="share-social" href="https://www.facebook.com/sharer/sharer.php?u=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-facebook"></i></a>
+			  		<a class="share-social" href="https://twitter.com/intent/tweet?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-twitter"></i></a>
+			  		<a class="share-social" href="https://plus.google.com/share?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-google-plus"></i></a>
 			  </div>
 					
                <div class="row">
@@ -141,6 +141,12 @@ var languageP = "${language}";
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script>
+		
+		$('.share-social').click(function(e) {
+	        e.preventDefault();
+	        window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+	        return false;
+	    });
         
 		$("#back-to-home").click(function(){
 	    	  ga('create', 'UA-60032236-1', 'auto');

@@ -757,7 +757,7 @@ var languageP = "${language}";
 							</div>
 						</div>
 						<h3 class="heading-title">Financial needs analysis</h4>	
-						<p id="complete-statement">You have completed FNA on 08-11-2015. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
+						<p id="complete-statement">You have completed FNA on ${fnaLastUpdate }. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
 					</div>
 					<div id="promo-offers-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">

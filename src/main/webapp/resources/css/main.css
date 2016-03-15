@@ -66,6 +66,7 @@
     /* Legacy iOS */
 }
 
+
 .hide1 {
 	display: none;
 }
@@ -347,8 +348,10 @@ ul.maintabs li:hover span, ul.maintabs li:hover a {
 }
 
 ul.maintabs li.active, ul.maintabs li.active > a {
+	/*
 	color: #fff !important;
 	background-color: #f68a1d;
+	*/
 }
 
 /*ul.maintabs li.active a {
@@ -3525,8 +3528,13 @@ table.acc-form tr td {
 }
 
 table.acc-form td .control-label {
-	line-height: 60px;
-	font-size: 24px;
+    line-height: 60px;
+    font-size: 24px;
+}
+
+table.acc-form td .member-account-details-footer {
+    line-height: 22px;
+    font-size: 15px;
 }
 
 table.acc-form2 {
@@ -7743,6 +7751,12 @@ tr.product-landing-error-wrap {
 	max-height: 60px !important;
 }
 
+.addthis_32x32_style .at-icon-wrapper,
+.addthis_32x32_style .at-icon{
+	width: 60px !important;
+	height: 60px !important;
+}
+
 .at4-icon.aticon-facebook {
 	background-position: 10px 10px !important;
 }
@@ -10210,20 +10224,20 @@ ul.promotion-sub-tnc.bullets {
     .nav-group{
        width: 25%;
        float: left;
-    }       
-    .middle-group{
-        border-left-style: solid;
-        border-width: 1px;
-        border-color: #9fb1b2;
-        border-right-style: solid;
-        margin-right: 5%;
-        margin-left: 5%;
-        padding-left: 5%;   
-    }
+    }   	
+	.middle-group{
+	    border-left-style: solid;
+	    border-width: 1px;
+	    border-color: #9fb1b2;
+	    border-right-style: solid;
+	    margin-right: 5%;
+	    margin-left: 5%;
+	    padding-left: 5%;	
+	}
     .nav-group.middle-group{
        width: 37%;
        float: left;
-    }   
+    }	
 }
 .menutab-V2 .main-tab{		
 	height: 76px;		
@@ -10326,6 +10340,9 @@ ul.promotion-sub-tnc.bullets {
         font-size: 12px;
         color: #ff8201;
         padding-left:25px;
+    }
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link span.dot-font{
+        padding-left: 0;
     }
     li.menu-link-grp-title>ul.dropdown-menu,li.link-btn>ul.dropdown-menu{
         padding:0;
@@ -10469,6 +10486,15 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         padding: 20px 0;
     }  
 } 
+.cs-hotline-mob,.cs-hotline-mob:hover{
+    color: #f5f5f5;
+}
+body.chin .dot-font{
+    font-family: Calibri;
+} 
+
+
+
 /* style ben 160202 */
 /* heading */
 .heading-h1{font-size:36px;font-weight: bold;margin:0;padding:0;}

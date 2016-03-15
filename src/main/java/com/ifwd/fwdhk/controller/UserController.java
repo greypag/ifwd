@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -38,6 +39,7 @@ import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -53,6 +55,9 @@ public class UserController {
 	
 	@Autowired 
 	protected ECommWsConnector connector;
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody
@@ -167,6 +172,16 @@ public class UserController {
 					userDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
 					userDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
 					session.setAttribute("userDetails", userDetails);
+					
+					String Url = UserRestURIConstants.GET_FNA;
+					final Map<String,String> header = headerUtil.getHeader(servletRequest);
+					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+					if (responseJsonObj.get("result") != null){
+						JSONObject jobject = (JSONObject)responseJsonObj.get("result");
+						if(jobject.get("name")!=null&&jobject.get("gender")!=null){
+							session.setAttribute("fnaLastUpdate", jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
+						}
+					}
 					
 					jsonObject.put("loginResult", "success");
 					return jsonObject;
@@ -510,10 +525,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						loginUserDetails.setFirstName(firstName);
@@ -635,6 +650,11 @@ public class UserController {
 		} else {
 			return "";
 		}
+	}
+
+	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
+	public String agodaRedirect(Model model, HttpServletRequest request) {
+		return UserRestURIConstants.getSitePath(request)+ "agoda_redirect";
 	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)

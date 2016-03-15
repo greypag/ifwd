@@ -105,10 +105,10 @@ var languageP = "${language}";
 										<span class="text"><fmt:message key="eliteTerms.documentUpload.Upload.Now" bundle="${msg}" /></span>
 									</span>
 								</label>
-								<div class="descriptions">
+								<label for="upload-now" class="descriptions">
 									<span class="desktop-text"><fmt:message key="eliteTerms.documentUpload.Upload.Now" bundle="${msg}" /></span>
 									<p><fmt:message key="eliteTerms.documentUpload.The.policy.will" bundle="${msg}" /></p>
-								</div>
+								</label>
 							</div>
 							<div class="pull-left upload-later" id="et-upload-later">
 								<label class="upload-later-radio" for="upload-later">
@@ -117,10 +117,10 @@ var languageP = "${language}";
 										<span class="text"><fmt:message key="eliteTerms.documentUpload.Upload.Later" bundle="${msg}" /></span>
 									</span>
 								</label>
-								<div class="descriptions">
+								<label for="upload-later" class="descriptions">
 									<span class="desktop-text"><fmt:message key="eliteTerms.documentUpload.Upload.Later" bundle="${msg}" /></span>
 									<p><fmt:message key="eliteTerms.documentUpload.You.may.upload" bundle="${msg}" /></p>
-								</div>
+								</label>
 							
 							</div>
 						</div>
@@ -146,9 +146,9 @@ var languageP = "${language}";
 									<input type="checkbox" value="residence" id="residence-check" name="isResidence" />
 									<label for="residence-check"></label>
 								</div>
-								<div class="pull-left residence-text">
+								<label for="residence-check" class="pull-left residence-text">
 									<fmt:message key="eliteTerms.documentUpload.I'm.Hong" bundle="${msg}" />
-								</div>
+								</label>
 							</div>
 							
 							<div class="row upload-now-row">

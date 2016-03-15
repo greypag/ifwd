@@ -112,6 +112,22 @@ public class AnnualTravelController {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.travel.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.travel.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.travel.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.travel.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.travel",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "annualtravel/annual-travel-plan");
 	}
@@ -331,6 +347,23 @@ public class AnnualTravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.travel.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.travel.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.travel.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.travel.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.travel",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		session.removeAttribute("travelCreatePolicy");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -485,6 +518,23 @@ public class AnnualTravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.travel.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.travel.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.travel.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.travel.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.travel",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/annualtravel/annual-travel-summary-payment");	
 	}
@@ -581,6 +631,23 @@ public class AnnualTravelController {
 				model.addAttribute("utm_nooverride", 1);
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				
+				String twitterCard = WebServiceUtils.getPageTitle("twitter.travel.card",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterImage = WebServiceUtils.getPageTitle("twitter.travel.image",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterSite = WebServiceUtils.getPageTitle("twitter.travel.site",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterUrl = WebServiceUtils.getPageTitle("twitter.travel.url",
+						UserRestURIConstants.getLanaguage(request));
+				String canonical = WebServiceUtils.getPageTitle("canonical.travel",
+						UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("twitterCard", twitterCard);
+				model.addAttribute("twitterImage", twitterImage);
+				model.addAttribute("twitterSite", twitterSite);
+				model.addAttribute("twitterUrl", twitterUrl);
+				model.addAttribute("canonical", canonical);
+				
 				return UserRestURIConstants.getSitePath(request)
 						+ "annualtravel/annual-travel-confirmation";
 			} else {

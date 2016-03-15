@@ -65,6 +65,8 @@ public class CampaignServiceImpl implements CampaignService {
 								.toString());
 				header.put("token", request.getSession().getAttribute("token")
 						.toString());
+			}else {
+				return "notlogin";
 			}
 			
 			JSONObject responseJsonObj = new JSONObject();
@@ -83,7 +85,31 @@ public class CampaignServiceImpl implements CampaignService {
 	}
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
-		int[] indexs = {5, 6, 7, 8, 9};
+		int[] indexs = {13, 5, 6, 7, 8, 9};
+		
+	    if (request.getParameter("hid")!=null) {	  
+		    switch (Integer.parseInt(request.getParameter("hid").toString())) {
+			    case 14:
+		            indexs = new int[]{14};
+		            break;
+			    case 15:
+		            indexs = new int[]{15};
+		            break;
+			    case 16:
+		            indexs = new int[]{16};
+		            break;
+			    case 17:
+		            indexs = new int[]{17};
+		            break;
+			    case 18:
+		            indexs = new int[]{18};
+		            break;
+			    case -1:
+		            indexs = new int[]{-1};
+		            break;
+		    }
+	    }
+		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;

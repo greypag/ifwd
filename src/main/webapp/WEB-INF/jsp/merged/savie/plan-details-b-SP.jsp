@@ -507,7 +507,7 @@ var languageP = "${language}";
 		<div class="next-btn text-center">
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
 			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
-			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden">Back to summary</button>
+			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">Apply at Customer Service Centre</a>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->
@@ -853,6 +853,7 @@ var languageP = "${language}";
 			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
             $('#loginpopup #fna-check').val("true");
+            $('#loginpopup #nav-bar-check').val("false");            
             $('#loginpopup .modal-dialog').addClass('loginpopupext');			
 			$('#loginpopup').modal('show');			
 		}
@@ -866,7 +867,8 @@ var languageP = "${language}";
             $('#offline-online-modal').modal('hide');
             $('.login-info').addClass('hidden');
             $('#loginpopup .modal-dialog').removeClass('loginpopupext');
-            $('#loginpopup #fna-check').val("false");;
+            $('#loginpopup #fna-check').val("false");
+            $('#loginpopup #nav-bar-check').val("false");
             $('#loginpopup').modal('show');         
         }
 	});
@@ -973,6 +975,7 @@ var languageP = "${language}";
 		}else{
 			apply=true;
             $('#loginpopup #fna-check').val("true");
+            $('#loginpopup #nav-bar-check').val("false");            
 			$('#loginpopup').modal('show');			
 		}
 	}	

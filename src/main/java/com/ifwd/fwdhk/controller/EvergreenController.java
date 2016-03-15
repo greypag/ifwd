@@ -403,27 +403,6 @@ public class EvergreenController extends BaseController{
 		return EvergreenPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
 	}
 	
-	/**
-	 * 预约成功跳转页面
-	 * @param model
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value = {"/{lang}/savings-evergreen-insurance/confirmation"})
-	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
-			evergreenService.confirmationOffline(model, request);
-			return EvergreenPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
-		}else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-evergreen-insurance");
-		}
-		
-	}
-	
 	@RequestMapping(value = {"/{lang}/savings-evergreen-insurance","/{lang}/savings-evergreen-insurance/"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
 		String affiliate = (String) request.getParameter("affiliate");

@@ -32,7 +32,6 @@ public class JsonUtils {
 					return Boolean.TRUE;
 				}
 			}else if (obj.get(key) instanceof String) {
-				System.out.println(key + "||" + obj.get(key).toString());
 				if(StringUtils.isEmpty(obj.get(key).toString())) {
 					return Boolean.TRUE;
 				}

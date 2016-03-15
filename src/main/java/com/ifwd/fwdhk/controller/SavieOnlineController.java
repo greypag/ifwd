@@ -1,9 +1,11 @@
 package com.ifwd.fwdhk.controller;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -213,7 +215,6 @@ public class SavieOnlineController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
-			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 		}
 	}
@@ -231,8 +232,6 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
 			model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
 			model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
-			model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
-			model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
 			
 			model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
 			model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
@@ -300,6 +299,79 @@ public class SavieOnlineController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
+			
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			String code = null;
+			if(savieFna!=null && savieFna.getQ4_a() !=null && savieFna.getQ4_a()!=""){
+				if("0".equals(savieFna.getQ4_a())){
+					if(savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""){
+						int money = Integer.valueOf(savieFna.getQ4_a_others().replace(",", ""));
+						if(money<=10000){
+							code = "mpi1";
+						}
+						else if(money>=10001&&money<=15000){
+							code = "mpi2";
+						}
+						else if(money>=15001&&money<=20000){
+							code = "mpi3";
+						}
+						else if(money>=20001&&money<=25000){
+							code = "mpi4";
+						}
+						else if(money>=25001&&money<=30000){
+							code = "mpi5";
+						}
+						else if(money>=30001&&money<=40000){
+							code = "mpi6";
+						}
+						else if(money>=40001&&money<=55000){
+							code = "mpi7";
+						}
+						else if(money>=55001){
+							code = "mpi8";
+						}
+					}
+				}
+				else if("1".equals(savieFna.getQ4_a())){
+					code = "mpi1";
+				}
+				else if("2".equals(savieFna.getQ4_a())){
+					code = "mpi2,mpi3";
+				}
+				else if("3".equals(savieFna.getQ4_a())){
+					code = "mpi4,mpi5,mpi6,mpi7";
+				}
+				else if("4".equals(savieFna.getQ4_a())){
+					code = "mpi7,mpi8";
+				}
+				else if("5".equals(savieFna.getQ4_a())){
+					code = "mpi8";
+				}
+			}
+			List<OptionItemDesc> monthlyPersonalIncomeEN = new ArrayList<OptionItemDesc>();
+			List<OptionItemDesc> monthlyPersonalIncomeCN = new ArrayList<OptionItemDesc>();
+			if(code!=null && code!=""){
+				String[] str = code.split(",");
+				if(str!=null && str.length>0){
+					for(int i=0;i<str.length;i++){
+						for(int j=0;j<InitApplicationMessage.monthlyPersonalIncomeEN.size();j++){
+							OptionItemDesc optionEn = InitApplicationMessage.monthlyPersonalIncomeEN.get(j);
+							OptionItemDesc optionCn = InitApplicationMessage.monthlyPersonalIncomeCN.get(j);
+							if(str[i].equals(optionEn.getItemCode())){
+								monthlyPersonalIncomeEN.add(optionEn);
+								monthlyPersonalIncomeCN.add(optionCn);
+							}
+						}
+					}
+				}
+			}
+			else{
+				monthlyPersonalIncomeEN = InitApplicationMessage.monthlyPersonalIncomeEN;
+				monthlyPersonalIncomeCN = InitApplicationMessage.monthlyPersonalIncomeCN;
+			}
+			
+			model.addAttribute("monthlyPersonalIncomeEN", monthlyPersonalIncomeEN);
+			model.addAttribute("monthlyPersonalIncomeCN", monthlyPersonalIncomeCN);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 		}
 	}

@@ -160,7 +160,9 @@ public class UserRestURIConstants {
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
-	public static final String PAGE_SAVIE_PLAN_DETAILS = "plan-details";	
+	public static final String PAGE_SAVIE_PLAN_DETAILS = "plan-details";
+	public static final String PAGE_SAVIE_PLAN_DETAILS_SP = "plan-details-sp";
+	public static final String PAGE_SAVIE_PLAN_DETAILS_RP = "plan-details-rp";
 	public static final String PAGE_SAVIE_ACCOUNT_ACTIVATION = "account-activation";	
 	public static final String PAGE_SAVIE_FNA = "financial-needs-analysis";
 	public static final String PAGE_SAVIE_SALES_ILLUSTRATION = "sales-illustration";	
@@ -169,8 +171,9 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_DECLARATIONS = "declarations";
 	public static final String PAGE_SAVIE_SIGNATURE = "signature";
 	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
-	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
-	public static final String PAGE_SAVIE_O2O_LANDING = "O2O-landing";
+	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation-sp";
+	public static final String PAGE_SAVIE_CONFIRMATION_RP = "confirmation-rp";
+	public static final String PAGE_SAVIE_O2O_LANDING = "savings-insurance-sp";
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
 	public static final String PAGE_SAVIE_SERVICE_CENTER = "customer-service-centre";
@@ -186,12 +189,18 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_CS = "savie.cs";
 	public static final String PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD = "savie.documentUplaod";
 	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION = "savie.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP = "savierp.confirmation.rp";
 	public static final String PAGE_PROPERTIES_SAVIE_DECLARATION = "savie.declaration";
 	public static final String PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING = "savie.interestGathering";
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
 	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	public static final String PAGE_PROPERTIES_SAVIE_CENTRE = "savie.centre";
+	
+	public static final String URL_SAVIE_LANDING_RP = "regular-premium";
+	public static final String PAGE_SAVIE_LANDING_RP = "savings-insurance-rp";
+	public static final String PAGE_PROPERTIES_SAVIE_LANDING_RP = "savierp.landing.rp";
+	
 	
 	/* Page Flow Control For OverSea */
 	public static final String URL_OVERSEA_LANDING = "overseas-study-insurance";
@@ -224,7 +233,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_EVERGREEN_SIGNATURE = "signature";
 	public static final String PAGE_EVERGREEN_DOCUMENT_UPLOAD = "document-upload";	
 	public static final String PAGE_EVERGREEN_CONFIRMATION = "confirmation";
-	public static final String PAGE_EVERGREEN_O2O_LANDING = "O2O-landing";
+	public static final String PAGE_EVERGREEN_O2O_LANDING = "savings-insurance-sp";
 	public static final String PAGE_EVERGREEN_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_EVERGREEN_EMAIL_SUBMITTED = "email-submitted";
 	public static final String PAGE_EVERGREEN_SERVICE_CENTER = "customer-service-centre";
