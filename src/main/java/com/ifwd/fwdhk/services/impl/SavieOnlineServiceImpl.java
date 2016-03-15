@@ -1612,7 +1612,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("planCode", "SAVIE-SP");
 		parameters.put("fileType", "pdf");
 		parameters.put("documentType", "pdf");
-		parameters.put("originalFilePath", pdfPath);
+		parameters.put("originalFilePath", "");
 		
 		File f = new File(pdfPath);
 		FileInputStream is = null;
@@ -2198,7 +2198,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		JSONObject models = new JSONObject();
 		models.put("name", session.getAttribute("username"));
-		models.put("refCode", session.getAttribute("accessCode"));
+		models.put("accessCode", session.getAttribute("accessCode"));
 		models.put("dateEn", preferredDate);
 		models.put("timeSlotEn", preferredTime);
 		models.put("centerEn", centerEn);
