@@ -65,6 +65,7 @@
 						</div>						
 						<div class="login-button-group">
 						    <input id="fna-check" type="hidden" name="fna" value="false">
+                            <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action" bundle="${msg}" />

@@ -4,10 +4,12 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,6 +38,8 @@ import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -51,6 +55,9 @@ public class UserController {
 	
 	@Autowired 
 	protected ECommWsConnector connector;
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody
@@ -166,6 +173,16 @@ public class UserController {
 					userDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
 					session.setAttribute("userDetails", userDetails);
 					
+					String Url = UserRestURIConstants.GET_FNA;
+					final Map<String,String> header = headerUtil.getHeader(servletRequest);
+					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+					if (responseJsonObj.get("result") != null){
+						JSONObject jobject = (JSONObject)responseJsonObj.get("result");
+						if(jobject.get("name")!=null&&jobject.get("gender")!=null){
+							session.setAttribute("fnaLastUpdate", jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
+						}
+					}
+					
 					jsonObject.put("loginResult", "success");
 					return jsonObject;
 				}else if (response.isEmpty()) {
@@ -218,19 +235,20 @@ public class UserController {
 									.getLanaguage(request)));
 
 					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
-					List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
+					/*List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
 					List<PurchaseHistoryPolicies> policiesLife = new ArrayList<PurchaseHistoryPolicies>();
 					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
 						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
+							
 							SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 							if(purchaseHistory.getPolicies().get(i).getSubmissionDate() !=null){
-						        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") ;
-						        Date d = null ;    
-						        try{    
-						            d = sdf1.parse(purchaseHistory.getPolicies().get(i).getSubmissionDate()) ;
-						        }catch(Exception e){
-						            e.printStackTrace() ;
-						        }    
+								SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") ;
+								Date d = null ;    
+								try{
+									d = sdf1.parse(purchaseHistory.getPolicies().get(i).getSubmissionDate()) ;
+								}catch(Exception e){
+									e.printStackTrace() ;
+								}    
 								purchaseHistory.getPolicies().get(i).setSubmissionDate(sdf.format(d));
 							}
 							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getCommencementDate().length() >9 ){
@@ -250,7 +268,106 @@ public class UserController {
 						}
 					}
 					model.addAttribute("policiesGI", policiesGI);
-					model.addAttribute("policiesLife", policiesLife);
+					model.addAttribute("policiesLife", policiesLife);*/
+//					Life and health - elite term
+//					Saving insurance - savie
+//					Household - easy home
+//					Travel - all others 
+					
+					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
+						List<PurchaseHistoryPolicies> pending_life = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> active_life = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> past_life = new ArrayList<PurchaseHistoryPolicies>();
+						
+						List<PurchaseHistoryPolicies> pending_saving = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> active_saving = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> past_saving = new ArrayList<PurchaseHistoryPolicies>();
+						
+						List<PurchaseHistoryPolicies> pending_house = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> active_house = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> past_house = new ArrayList<PurchaseHistoryPolicies>();
+						
+						List<PurchaseHistoryPolicies> pending_travel = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> active_travel = new ArrayList<PurchaseHistoryPolicies>();
+						List<PurchaseHistoryPolicies> past_travel = new ArrayList<PurchaseHistoryPolicies>();
+						
+						long currentTime = DateApi.getCurrentTime();
+						
+						PurchaseHistoryPolicies entity;
+						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
+							entity = purchaseHistory.getPolicies().get(i);
+							
+							if(!StringUtils.isEmpty(entity.getCommencementDate())) {
+								entity.setCommencementDateDesc(DateApi.formatTime2(entity.getCommencementDate()));
+							}else {
+								entity.setCommencementDateDesc("Not complete");
+						    }
+							if(!StringUtils.isEmpty(entity.getExpiryDate())) {
+								entity.setExpiryDateDesc(DateApi.formatTime2(entity.getExpiryDate()));
+							}else {
+								entity.setExpiryDateDesc("Not complete");
+							}
+							
+							if("ET".equals(entity.getPlanCode())) {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_life.add(entity);
+				 					}else {
+										past_life.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									pending_life.add(entity);
+								}
+							}else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_saving.add(entity);
+									}else {
+										past_saving.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									pending_saving.add(entity);
+								}
+							}else if("EasyHomeCare".equals(entity.getPlanCode())) {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_house.add(entity);
+									}else {
+										past_house.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									pending_house.add(entity);
+								}
+							}else {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_travel.add(entity);
+									}else {
+										past_travel.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									pending_travel.add(entity);
+								}
+							}
+						}
+						
+						
+						model.addAttribute("pending_life", pending_life);
+						model.addAttribute("pending_saving", pending_saving);
+						model.addAttribute("pending_house", pending_house);
+						model.addAttribute("pending_travel", pending_travel);
+						model.addAttribute("active_life", active_life);
+						model.addAttribute("active_saving", active_saving);
+						model.addAttribute("active_house", active_house);
+						model.addAttribute("active_travel", active_travel);
+						model.addAttribute("past_life", past_life);
+						model.addAttribute("past_saving", past_saving);
+						model.addAttribute("past_house", past_house);
+						model.addAttribute("past_travel", past_travel);
+						
+					}
+					
+					
 				}
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eservices");
 			} catch (Exception e) {
@@ -408,10 +525,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						loginUserDetails.setFirstName(firstName);
@@ -533,6 +650,11 @@ public class UserController {
 		} else {
 			return "";
 		}
+	}
+
+	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
+	public String agodaRedirect(Model model, HttpServletRequest request) {
+		return UserRestURIConstants.getSitePath(request)+ "agoda_redirect";
 	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)

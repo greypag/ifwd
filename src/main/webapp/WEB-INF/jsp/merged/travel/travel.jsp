@@ -40,6 +40,26 @@
         $("[data-toggle='tooltip']").tooltip();
     });
 </script>
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${travelScriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_travelcare_en.jpg",
+  "description":"${travelScriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"FWD"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"95",
+    "highPrice":"1800",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
+
 
 <script type="text/javascript">
   // personal or family

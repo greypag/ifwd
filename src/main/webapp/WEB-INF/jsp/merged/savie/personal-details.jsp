@@ -391,16 +391,16 @@ var languageP = "${language}";
                                  </div>
                                  <div class="clearfix form-group has-error hidden" id="diffToPermanentShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
                                     </div>
 									<div class="left-desktop text-box">
@@ -457,16 +457,16 @@ var languageP = "${language}";
                                  </div>
 								 <div class="clearfix form-group has-error hidden" id="diffToResidentialShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
                                     </div>
 									<div class="left-desktop text-box">
@@ -511,7 +511,7 @@ var languageP = "${language}";
                            <div class="next-btn">
                               <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
 							  <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-							   <button type="button" id="btn-back" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
+							   <button type="button" id="btn-back" class="btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
                            </div>
                         </form>
                      </div>
@@ -730,12 +730,6 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
-			// detect IE browsers
-			if (window.clipboardData) {
-				$('.selectDiv .gray-dropdown').addClass('ie-select');
-			} else {
-				$('.selectDiv .gray-dropdown').removeClass('ie-select');
-			}
 			
 			$("#et-personal-info-next").click(function(){
 				$("#errorMsg").html("");

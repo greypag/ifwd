@@ -82,7 +82,7 @@ var language = "${language}";
 					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="info.savie.confirmation.success.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="policy-number-label">Policy no. </span>
-						<span class="policy-number">${lifePolicy.policyNo }</span>
+						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p><fmt:message key="info.savie.confirmation.success.copy" bundle="${msg}" /></p>
@@ -91,7 +91,7 @@ var language = "${language}";
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
-						<p class="policy-number">${lifePolicy.policyNo }</p>
+						<p class="policy-number">${accessCode }</p>
 					</div>
 				</div>
 				<hr>
@@ -99,30 +99,26 @@ var language = "${language}";
 					<div class="col-xs-12"><p class="panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<p><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
-							<!-- <p class="details-label">Date</p>-->
+							<p class="details-label"><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
 							<p>${preferredDate}</p>
 						</div>
 						<div>
-							<p><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
-							<!-- <p class="details-label">Time</p>-->
+							<p class="details-label"><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
 							<p>${preferredTime}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
-						<!-- <p class="details-label">Branch</p>-->
-						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
+						<p class="details-label"><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
+						<p>${serviceCentre.serviceCentreName}<span class="branch-address">${serviceCentre.address}</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<p><fmt:message key="label.openinghours" bundle="${msg}" /></p>
-						<!-- <p class="details-label">Operating hours</p>
+						<p class="details-label"><fmt:message key="label.openinghours" bundle="${msg}" /></p>
 						<p>
-							Mon - Sat 8:30am to 8:00pm<br>Closed on Sun & Public Holidays
+							${serviceCentre.operationHours }
 							<span class="phone-num">
-								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 063-2323-123
+								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> ${serviceCentre.phone }
 							</span>
-						</p>-->
+						</p>
 					</div>				
 				</div>
 				<hr>
@@ -166,4 +162,7 @@ var language = "${language}";
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
+	$('.savie-common-btn').click(function() {
+		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+	});
 </script>

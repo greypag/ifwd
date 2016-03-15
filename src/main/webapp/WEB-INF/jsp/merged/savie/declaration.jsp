@@ -410,14 +410,14 @@ var languageP = "${language}";
 		}
 		
 		$('.btn-proceed').click(function() {
-			var isPassed = false;
+			var isPassed = true;
 			
 			// validation
-			isPassed = validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed = validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
 			
 			if(! isPassed) {
 				return false;
@@ -450,14 +450,14 @@ var languageP = "${language}";
 		});
 		
 		$('.save-link').on('click', function (e) {
-            var isPassed = false;
+            var isPassed = true;
 			
 			// validation
-			isPassed = validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed = validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
 			
             if(isPassed) {
 				$('#save-and-continue-batch5-modal').modal('show');

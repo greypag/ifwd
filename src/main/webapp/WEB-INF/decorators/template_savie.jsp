@@ -6,13 +6,8 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
 
-<%-- <%
-	session.setAttribute("language", "EN");
-	session.setAttribute("page", request.getServletPath());
-%> --%>
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
@@ -57,16 +52,19 @@
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
-<meta property="twitter:card" content="${ogImage}" />
-<meta property="twitter:image:src" content="${ogImage}" />
-     
- 
+<meta property="twitter:card" content="${twitterCard}" />
+<meta property="twitter:image" content="${twitterImage}" />
+<meta name="twitter:site" content="${twitterSite}" />
+<meta name="twitter:url" content="${twitterUrl}" />
+
 <meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="canonical" href="${canonical}"/>
 
 <!-- Bootstrap -->
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
@@ -77,7 +75,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
 <link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
 
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
 
 <!--Mini Calculator Css-->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
@@ -238,10 +236,10 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<%@ include file="include/merged/savie/footer.jsp"%>
 	</div>
 	
-
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> -->
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
@@ -253,8 +251,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<script type="text/javascript">
 		window.status = "Done";
 	</script>
-
-
 
 </body>
 </html>

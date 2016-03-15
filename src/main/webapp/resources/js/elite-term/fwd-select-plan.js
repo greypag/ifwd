@@ -247,8 +247,12 @@
       // Expand next question
       if (nextTarget) {    	  
     	  setTimeout(function() {
-			$('#' + collapseMe).collapse('hide');
-            $('#' + nextTarget).collapse('show');
+			 if(collapseMe==nextTarget) {
+	  			 $('#' + collapseMe).collapse('hide');
+	  		 } else {
+	  			 $('#' + collapseMe).collapse('hide');
+	          	 $('#' + nextTarget).collapse('show');
+	  		 }
          }, 50);
       }
    });
@@ -703,6 +707,13 @@
          e.preventDefault();
          var $self = $(this);
          var $target = $($self.data('target'));
+         
+         if(getWidth()>=992){
+              $('.et-collapse-link[aria-expanded="true"]').parent()
+                 .next()
+                 .find('.et-panel-body')
+                 .jScrollPane({showArrows: true});
+           }
          
          if ($self.hasClass('et-app-edit')) {
 	         var backText = $('#et-brn-proceed-to-application').data('back-text');

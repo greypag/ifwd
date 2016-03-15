@@ -342,7 +342,7 @@ var language = "${language}";
 				<center>
 						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-					<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
+					<button type="button" id="btn-back" class="btn btn-payment hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
 				
 			</div>

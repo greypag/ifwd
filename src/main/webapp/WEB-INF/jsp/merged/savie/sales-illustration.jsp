@@ -90,7 +90,7 @@
 	        	<div class="fwd-container-limit clearfix sidebar" id="sales-illustration-content">	
   					<div class="row">
   						<h3 class="heading-title"><fmt:message key="label.selected.plan" bundle="${msg}" /><span>
-  						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?type=2">edit</a>
+  						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2">edit</a>
   						</span></h3>
   						
   						<div class="col-xs-12 col-md-6 left-side-form">

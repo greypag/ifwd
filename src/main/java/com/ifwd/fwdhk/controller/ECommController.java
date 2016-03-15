@@ -38,14 +38,6 @@ public class ECommController {
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	
-	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
-	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
-	{
-		RedirectView rv = new RedirectView("http://www.agoda.com/fwdtravel");
-		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return rv;
-	}
-	
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) throws IOException {
@@ -166,6 +158,9 @@ public class ECommController {
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("canonical", WebServiceUtils.getPageTitle("canonical.main",
+					UserRestURIConstants.getLanaguage(req)));
+
 			// String lang = "CN";
 	//		session.setAttribute("language", lang);
 	//		// default locale
@@ -202,10 +197,77 @@ public class ECommController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
-		int[] indexs = {5, 6, 7, 8, 9};
+		int[] indexs = {5, 6, 7, 8, 9, 13};
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
+		
+	    java.util.Calendar cal = java.util.Calendar.getInstance();
+	    cal.setTime(java.util.Calendar.getInstance().getTime());
+
+	    int month = cal.get(java.util.Calendar.MONTH);
+	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
+	    
+	    int hotelVoucherCampaignId = -1;
+	    if (month == 2) {
+	        if (day == 16) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = 14;
+	        	} else {
+		            hotelVoucherCampaignId = -1;
+	        	}
+	        } else if (day == 17) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = 15;
+	        	} else {
+		            hotelVoucherCampaignId = 14;
+	        	}
+	        } else if (day == 18) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = 16;
+	        	} else {
+		            hotelVoucherCampaignId = 15;
+	        	}
+	        } else if (day == 19) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = 17;
+	        	} else {
+		            hotelVoucherCampaignId = 16;
+	        	}
+	        } else if (day == 20) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = 18;
+	        	} else {
+		            hotelVoucherCampaignId = 17;
+	        	}
+	        }
+	    }
+	    
+	    if (request.getParameter("hid")!=null) {
+	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
+	    }
+	    switch(hotelVoucherCampaignId) {
+		    case 14:
+	            indexs = new int[]{14};
+	            break;
+		    case 15:
+	            indexs = new int[]{15};
+	            break;
+		    case 16:
+	            indexs = new int[]{16};
+	            break;
+		    case 17:
+	            indexs = new int[]{17};
+	            break;
+		    case 18:
+	            indexs = new int[]{18};
+	            break;
+		    case -1:
+	            indexs = new int[]{-1};
+	            break;
+	    }
+	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampaignId);
 		
 		if(!StringUtils.isEmpty(choose) &&
 				(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true"))) {
@@ -226,38 +288,74 @@ public class ECommController {
 				String offername = "";
 				String tnc = "";
 				switch (Integer.parseInt(choose)) {
-				case 5:
-					discount="Fanfare.discount0";
-					date="31-03-2016";
-					offername="Fanfare.offername0";
-					tnc="Fanfare.tnc0";
-					break;
-				case 6:
-					discount="Fanfare.discount1";;
-					date="31-03-2016";
-					offername="Fanfare.offername1";
-					tnc="Fanfare.tnc1";
-					break;
-				case 7:
-					discount="Fanfare.discount2";;
-					date="31-03-2016";
-					offername="Fanfare.offername2";
-					tnc="Fanfare.tnc2";
-					break;
-				case 8:
-					discount="Fanfare.discount3";;
-					date="31-03-2016";
-					offername="Fanfare.offername3";
-					tnc="Fanfare.tnc3";
-					break;
-				case 9:
-					discount="Fanfare.discount4";;
-					date="31-03-2016";
-					offername="Fanfare.offername4";
-					tnc="Fanfare.tnc4";
-					break;
-				default:
-					break;
+					case 13:
+						discount="Fanfare.discount5";
+						date="31-05-2016";
+						offername="Fanfare.offername5";
+						tnc="Fanfare.tnc5";
+						break;
+					case 5:
+						discount="Fanfare.discount0";
+						date="31-05-2016";
+						offername="Fanfare.offername0";
+						tnc="Fanfare.tnc0";
+						break;
+					case 6:
+						discount="Fanfare.discount1";
+						date="31-05-2016";
+						offername="Fanfare.offername1";
+						tnc="Fanfare.tnc1";
+						break;
+					case 7:
+						discount="Fanfare.discount2";
+						date="31-05-2016";
+						offername="Fanfare.offername2";
+						tnc="Fanfare.tnc2";
+						break;
+					case 8:
+						discount="Fanfare.discount3";
+						date="31-05-2016";
+						offername="Fanfare.offername3";
+						tnc="Fanfare.tnc3";
+						break;
+					case 9:
+						discount="Fanfare.discount4";
+						date="31-05-2016";
+						offername="Fanfare.offername4";
+						tnc="Fanfare.tnc4";
+						break;
+					case 14:
+						discount="Fanfare.discount6";
+						date="31-05-2016";
+						offername="Fanfare.offername6";
+						tnc="Fanfare.tnc6";
+						break;
+					case 15:
+						discount="Fanfare.discount7";
+						date="31-05-2016";
+						offername="Fanfare.offername7";
+						tnc="Fanfare.tnc7";
+						break;
+					case 16:
+						discount="Fanfare.discount8";
+						date="31-05-2016";
+						offername="Fanfare.offername8";
+						tnc="Fanfare.tnc8";
+						break;
+					case 17:
+						discount="Fanfare.discount9";
+						date="31-05-2016";
+						offername="Fanfare.offername9";
+						tnc="Fanfare.tnc9";
+						break;
+					case 18:
+						discount="Fanfare.discount10";
+						date="31-05-2016";
+						offername="Fanfare.offername10";
+						tnc="Fanfare.tnc10";
+						break;					
+					default:
+						break;
 				}
 				sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + choose, code, date, email, header, request, tnc);
 			} else {

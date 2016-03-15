@@ -237,6 +237,32 @@ public class HomeCareController {
 			model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
 			model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 			
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.home.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.home.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.home.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.home.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.home",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
+			String scriptName = WebServiceUtils.getPageTitle("homeCare.script.name",
+					UserRestURIConstants.getLanaguage(request));
+			String scriptDescription = WebServiceUtils.getPageTitle("homeCare.script.description",
+					UserRestURIConstants.getLanaguage(request));
+			String scriptChildName = WebServiceUtils.getPageTitle("homeCare.script.child.name",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("scriptName", scriptName);
+			model.addAttribute("scriptDescription", scriptDescription);
+			model.addAttribute("scriptChildName", scriptChildName);
+			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";
 
@@ -314,6 +340,23 @@ public class HomeCareController {
 			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareQuotation",	lang);
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.home.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.home.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.home.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.home.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.home",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
 			session.setAttribute("referralCode", "");
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare-plan";
@@ -407,6 +450,23 @@ public class HomeCareController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.homeCareUserDetails", lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.home.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.home.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.home.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.home.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.home",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		session.removeAttribute("homeCreatedPolicy");
 		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-plan-details";
@@ -661,6 +721,22 @@ public class HomeCareController {
 				lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.home.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.home.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.home.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.home.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.home",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 
 		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-summary-payment";
@@ -830,6 +906,22 @@ public class HomeCareController {
 				lang);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.home.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.home.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.home.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.home.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.home",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
 		return UserRestURIConstants.getSitePath(request)
 				+ "homecare/homecare-confirmation";
