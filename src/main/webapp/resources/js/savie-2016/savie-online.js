@@ -238,13 +238,17 @@ $(document).ready(function() {
 			str = $(this).val();
 			if (str == 'hkid') {
 				$('#passport-inputfield-0').addClass('hidden');
+				$('#beneficiaryPassErMsg\\[0\\]').addClass('hidden');
 				if($('#hkid-inputfield-0').hasClass('hidden')) {
 					$('#hkid-inputfield-0').removeClass('hidden');
+					$('#beneficiaryHkidErMsg\\[0\\]').removeClass('hidden');
 				}
 			} else {
 				$('#hkid-inputfield-0').addClass('hidden');
+				$('#beneficiaryHkidErMsg\\[0\\]').addClass('hidden');
 				if($('#passport-inputfield-0').hasClass('hidden')) {
 					$('#passport-inputfield-0').removeClass('hidden');
+					$('#beneficiaryPassErMsg\\[0\\]').removeClass('hidden');
 				}
 			}
 		});
@@ -255,13 +259,17 @@ $(document).ready(function() {
 			str = $(this).val();
 			if (str == 'hkid') {
 				$('#passport-inputfield-1').addClass('hidden');
+				$('#beneficiaryPassErMsg\\[1\\]').addClass('hidden');
 				if($('#hkid-inputfield-1').hasClass('hidden')) {
 					$('#hkid-inputfield-1').removeClass('hidden');
+					$('#beneficiaryHkidErMsg\\[1\\]').removeClass('hidden');
 				}
 			} else {
 				$('#hkid-inputfield-1').addClass('hidden');
+				$('#beneficiaryHkidErMsg\\[1\\]').addClass('hidden');
 				if($('#passport-inputfield-1').hasClass('hidden')) {
 					$('#passport-inputfield-1').removeClass('hidden');
+					$('#beneficiaryPassErMsg\\[1\\]').removeClass('hidden');
 				}
 			}
 		});
@@ -272,13 +280,17 @@ $(document).ready(function() {
 			str = $(this).val();
 			if (str == 'hkid') {
 				$('#passport-inputfield-2').addClass('hidden');
+				$('#beneficiaryPassErMsg\\[2\\]').addClass('hidden');
 				if($('#hkid-inputfield-2').hasClass('hidden')) {
 					$('#hkid-inputfield-2').removeClass('hidden');
+					$('#beneficiaryHkidErMsg\\[2\\]').removeClass('hidden');
 				}
 			} else {
 				$('#hkid-inputfield-2').addClass('hidden');
+				$('#beneficiaryHkidErMsg\\[2\\]').addClass('hidden');
 				if($('#passport-inputfield-2').hasClass('hidden')) {
 					$('#passport-inputfield-2').removeClass('hidden');
+					$('#beneficiaryPassErMsg\\[2\\]').removeClass('hidden');
 				}
 			}
 		});
