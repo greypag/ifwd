@@ -10171,7 +10171,7 @@ ul.promotion-sub-tnc.bullets {
 	    border-top:1px;
 	    background-clip: border-box;
 	    text-align:left;
-	    padding: 20px 40px 20px 44px;
+	    padding: 20px 0 20px 44px;
 	}
 	ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
 		width:201%;
@@ -10207,14 +10207,23 @@ ul.promotion-sub-tnc.bullets {
 		margin-right:7px;
 		font-size: 11px;
 	}
-	.middle-group{
-	    border-left-style: solid;
-	    border-width: 1px;
-	    border-color: #9fb1b2;
-	    border-right-style: solid;
-	    margin-right: 5%;
-	    padding-left: 5%;	
-	}
+    .nav-group{
+       width: 25%;
+       float: left;
+    }       
+    .middle-group{
+        border-left-style: solid;
+        border-width: 1px;
+        border-color: #9fb1b2;
+        border-right-style: solid;
+        margin-right: 5%;
+        margin-left: 5%;
+        padding-left: 5%;   
+    }
+    .nav-group.middle-group{
+       width: 37%;
+       float: left;
+    }   
 }
 .menutab-V2 .main-tab{		
 	height: 76px;		
@@ -10953,7 +10962,10 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	color:#f6871e;
 }
 .footer-container .contact-label{
-	color:#fff;
+    color:#fff;
+}
+.footer-container .contact-label a{
+    color:#fff;
 }
 .footer-container{
 	background-color: #222222;
