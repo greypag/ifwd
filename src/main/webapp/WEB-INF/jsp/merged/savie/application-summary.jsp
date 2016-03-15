@@ -87,7 +87,7 @@
          <div class="container-fluid fwd-container savie-application-summary headerStick">
             <h5 class="title"><fmt:message key="label.summary2" bundle="${msg}" /></h5>
             <div class="summary-section clearfix">
-               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
