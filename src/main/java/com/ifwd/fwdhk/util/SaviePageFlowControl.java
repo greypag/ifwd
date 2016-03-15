@@ -36,6 +36,27 @@ public class SaviePageFlowControl {
 		String ogDescription = WebServiceUtils.getPageTitle(
 				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
+		
+		if("RP".equals(request.getSession().getAttribute("savieType"))) {
+			key = "rp";
+		}else {
+			key = "sp";
+		}
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -49,7 +70,8 @@ public class SaviePageFlowControl {
 		String current = request.getServletPath();
 		if (referer != null) {
 			//referer = referer.substring(referer.lastIndexOf("/") + 1);
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")
+					|| referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
 				referer = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 			} else {
 				referer = getSaviePage(referer);
@@ -58,7 +80,8 @@ public class SaviePageFlowControl {
 
 		if (current != null) {
 			//current = current.substring(current.lastIndexOf("/") + 1);
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")
+					|| current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
 				current = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 			} else {
 				current = getSaviePage(current);
@@ -80,7 +103,7 @@ public class SaviePageFlowControl {
 		switch (current) {
 
 		case UserRestURIConstants.PAGE_SAVIE_O2O_LANDING:
-			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_SP;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: 
@@ -166,6 +189,9 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF:
 			to = UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
 			break;
+		/*case UserRestURIConstants.PAGE_SAINTS_LANDING_RP:
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_RP;
+			break;*/
 			
 		default:
 			to = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
@@ -180,7 +206,7 @@ public class SaviePageFlowControl {
 
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
-
+//		to = getSaviePage(to);
 		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/"
 				+ current);
 
@@ -188,6 +214,9 @@ public class SaviePageFlowControl {
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "savie/" + current);
+//		
+//		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+//				+ "savie/" + to);
 
 	}
 	
@@ -196,7 +225,13 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_O2O_LANDING)) {
 			return UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)) {
+		/*if (url.endsWith(UserRestURIConstants.PAGE_SAINTS_LANDING_RP)) {
+			return UserRestURIConstants.PAGE_SAINTS_LANDING_RP;
+		}*/
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_SP)) {
+			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_RP)) {
 			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION)) {
@@ -233,6 +268,9 @@ public class SaviePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_RP)) {
+			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_RP;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
 			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;

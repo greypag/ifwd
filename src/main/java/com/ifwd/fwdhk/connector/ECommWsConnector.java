@@ -78,7 +78,7 @@ public class ECommWsConnector {
 		}
 	}
 	public SaviePlanDetailsResponse saviePlanDetails(String planCode, int issueAge, int paymentTerm, String premium,
-			String referralCode, Locale locale){
+			String referralCode, String paymentMode, Locale locale){
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.SAVIE_PLAN_DETAIL);
 		url.append("?planCode=");
@@ -91,6 +91,8 @@ public class ECommWsConnector {
 		url.append(premium);
 		url.append("&referralCode=");
 		url.append(referralCode);
+		url.append("&paymentMode=");
+		url.append(paymentMode);
 		
 		Map<String,String> header = Maps.newHashMap();
 		if(locale != null){			

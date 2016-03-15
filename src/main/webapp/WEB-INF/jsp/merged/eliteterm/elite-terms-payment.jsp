@@ -245,7 +245,15 @@ var languageP = "${language}";
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
-      
+	      $('p.notice').on('click', function(e) {
+	          if($('#personal-information-statement').prop('checked')==false) {
+	              $('#personal-information-statement').prop('checked', true);
+	          }
+	          else {
+	              $('#personal-information-statement').prop('checked', false);
+	          }
+	      });
+	      
 	      $("#personal-information-statement").focus(function() {
 	    	  $('#personal-information-statement').next('label').addClass('tabbed');
 	      });
@@ -368,7 +376,7 @@ var languageP = "${language}";
  		}
  		if(!validateCardNumber(cardNum.replace(/\s+/g,""))){
  			flag=false;
- 			$('#errcardno').html("invalid card type");
+ 			$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notNull.message"));
  			$("#card-num").addClass("invalid-field");
  			if(firstErrorElementId==""){
  				firstErrorElementId="card-num";

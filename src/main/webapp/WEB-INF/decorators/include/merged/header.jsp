@@ -112,7 +112,7 @@ function submitLoginForm(formID) {
 														'Click',
 														'Login success');
 												//location.reload();
-												window.location.href = window.location.href;
+											    window.location.href = window.location.href;
 											}
 										} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
 											try {
@@ -595,7 +595,7 @@ function submitLoginForm(formID) {
                     <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
 		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
-			                  <li class="col-lg-3 col-md-3 no-padding">
+			                  <li class="nav-group no-padding">
 		                          <ul class="col-lg-12 col-md-12 no-padding">
 		                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></li>
 			                          <li class="menu-link">
@@ -604,8 +604,8 @@ function submitLoginForm(formID) {
 			                          </li>
 		                         </ul> 		                      
 			                  </li>
-	                          <li class="col-lg-5 col-md-5 no-padding middle-group">
-	                              <ul class="col-lg-12 col-md-12">
+	                          <li class="nav-group no-padding middle-group">
+	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
@@ -613,7 +613,7 @@ function submitLoginForm(formID) {
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
 	                             </ul>                            
 	                          </li>
-	                          <li class="col-lg-3 col-md-3 no-padding">
+	                          <li class="nav-group no-padding">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
@@ -647,7 +647,11 @@ function submitLoginForm(formID) {
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
-                                  </li>                                
+                                  </li>
+                                  <li class="menu-link">
+	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	                                  <a class="menu-link" href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a>
+                                  </li>                              
                              </ul>                            
                           </li>
                          </ul>                      
@@ -822,7 +826,7 @@ function submitLoginForm(formID) {
                             .toString())) {
         %>
         <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">       
-        <a href="#" class="dropdown-toggle color-wht log-to-acc"
+        <a class="dropdown-toggle color-wht log-to-acc"
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
                 bundle="${msg}" /> </a>
@@ -900,7 +904,7 @@ function submitLoginForm(formID) {
 
 
         <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-        <a href="#" class="dropdown-toggle" id="fwd-login"
+        <a class="dropdown-toggle" id="fwd-login"
             data-toggle="dropdown"><fmt:message key="header.login.welcome"
                 bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
             <i class="fa fa-caret-right"> </i> </a>
@@ -955,6 +959,7 @@ function submitLoginForm(formID) {
               <ul class="col-sm-12 dropdown-menu">
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li> 
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a></li>
+                   <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a></li>
               </ul>              
             </li>
              <li class="pad-none dropdown lang-grp">
@@ -1199,6 +1204,12 @@ function submitLoginForm(formID) {
 <!--/header-->
 <script>
 $(function() {
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {  
+	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){  
+	        // Update '.change-this-class' to the class of your menu
+	        // Leave this empty, that's the magic sauce
+	    });
+	}	
     var pageControllerName = "#<%=actionName%>";
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
     //console.log(faqProductLink);

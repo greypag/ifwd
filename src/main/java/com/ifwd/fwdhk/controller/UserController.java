@@ -408,10 +408,10 @@ public class UserController {
 						String lastName = "";
 						for(int i=0;i<strArray.length;i++){
 							if(i==0){
-								firstName = strArray[0];
+								lastName = strArray[0];
 							}
 							else{
-								lastName += strArray[i]+" ";
+								firstName += strArray[i]+" ";
 							}
 						}
 						loginUserDetails.setFirstName(firstName);
@@ -533,6 +533,11 @@ public class UserController {
 		} else {
 			return "";
 		}
+	}
+
+	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
+	public String agodaRedirect(Model model, HttpServletRequest request) {
+		return UserRestURIConstants.getSitePath(request)+ "agoda_redirect";
 	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)

@@ -42,6 +42,31 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_easy-homecare_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"HKD",
+    "price":"420",
+    "priceValidUntil":"2016-12-31",
+    "availability":"http://schema.org/InStock",
+    "seller":{
+      "@type":"Organization",
+      "name":"${scriptChildName}"
+    }
+  }
+}
+</script>
 <!-- End fixed header -->
 </head>
 <body class="chin">
@@ -54,7 +79,7 @@ $(document).ready(function() {
 		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />"
 			class="img-responsive hidden-lg hidden-md" />
         <div class="tagline-holder hidden-lg hidden-md">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
         </div>
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
@@ -74,7 +99,7 @@ $(document).ready(function() {
 			</div>
 			<!--/.carousel-inner-->
         <div class="tagline-holder">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
         </div>
 		</div>
 		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">

@@ -39,11 +39,14 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
@@ -61,7 +64,7 @@ public class SavieController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 		
-	/*@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/savie", "/Savie", "/SAVIE"}, method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
@@ -74,11 +77,75 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
-	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
+	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-sp", "/{lang}/savings-insurance/plan-details-rp"})
+	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {
 		HttpSession session = request.getSession();
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
+		String key = "savie.planDetails";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				key + ".og.description",
+				UserRestURIConstants.getLanaguage(request));
+		
+		if (request.getRequestURI().indexOf("plan-details-rp") != -1) {
+			key = "savierp.planDetails.rp";
+			pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+		} 
+		
+		if (request.getRequestURL().toString().contains("-rp")) {
+			httpSession.setAttribute("savieType", "RP");
+			key = "rp";
+		} else {
+			httpSession.setAttribute("savieType", "SP");
+			key = "sp";
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/single-premium");
+		}
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+				UserRestURIConstants.getLanaguage(request));
+		
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
+		/*String current = request.getServletPath();
+		if(current.endsWith("plan-details-sp")) {
+			model.addAttribute("planType", "sp");
+		}else if (current.endsWith("plan-details-rp")) {
+			model.addAttribute("planType", "rp");
+		}*/
+		
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
@@ -92,12 +159,15 @@ public class SavieController extends BaseController{
 			startDOB.add(startDOB.YEAR, -70);
 			startDOB.add(startDOB.DATE, 1);
 			model.addAttribute("startDOB", format.format(startDOB.getTime()));
-			
 			Calendar defaultDOB = new GregorianCalendar();
 			defaultDOB.setTime(date); 
 			defaultDOB.add(defaultDOB.YEAR, -18);
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
+			model.addAttribute("nextPageFlow2", "customer-service-centre");
+			
+			return new ModelAndView("/merged/savie/plan-details");
+			
+			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/savings-insurance");
@@ -209,7 +279,7 @@ public class SavieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}
+	}*/  
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
@@ -348,12 +418,6 @@ public class SavieController extends BaseController{
 		//savingAmount为空时返回首页
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
 			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
-			}else {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
-			}
-			
 			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
 			if (lang.equals("tc")) {
 				lang = "CN";
@@ -369,13 +433,49 @@ public class SavieController extends BaseController{
 			}
 			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			logger.info(responseJsonObj.toString());
 			if(responseJsonObj.get("serviceCentres") == null || responseJsonObj.get("serviceCentres") == ""){
 				logger.info(responseJsonObj.toString());
 			}
 			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
 			org.json.simple.JSONObject serviceCentreObj = new JSONObject();
+			
+			//serviceCentreResponse 没有可以预约的中心不要显示在下拉列中
+			ServiceCentreResponse serviceCentreResponse;
+			if (lang.equals("CN")) {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+			}else {
+				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
+			}
+			
+			Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
+			List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
+			org.json.simple.JSONArray datesArray;
+			org.json.simple.JSONObject datesObj;
+			Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+			List<String> datesList;
+			List<String> calendarList;
+			long beforeDay = 86400000;//1天
+			
 			if(serviceCentresArr!=null && serviceCentresArr.size()>0){
 				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+				calendarList = DateApi.timeslot(2, 24);
+				
+				datesList = new ArrayList<String>();
+				for(ServiceCentreResult entity :serviceCentreResultList) {
+					if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
+						entityMap.put(entity.getServiceCentreCode(), entity);
+						
+						datesArray = (JSONArray) serviceCentreObj.get("dates");
+						for(int j = 0; j< datesArray.size(); j++) {
+							datesObj = (JSONObject)datesArray.get(j);
+							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
+						}
+						calendarList.removeAll(datesList);
+						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						break;
+					}
+				}
 			}
 			if(serviceCentresArr!=null && serviceCentresArr.size()>1){
 				for(int i=1;i<serviceCentresArr.size();i++){
@@ -390,26 +490,100 @@ public class SavieController extends BaseController{
 					if(date>dateB){
 						serviceCentreObj = serviceCentreObjB;
 					}
+					
+					calendarList = DateApi.timeslot(2, 24);
+					datesList = new ArrayList<String>();
+					for(ServiceCentreResult entity : serviceCentreResultList) {
+						if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
+							entityMap.put(entity.getServiceCentreCode(), entity);
+							
+							datesArray = (JSONArray) serviceCentreObjB.get("dates");
+							for(int j = 0; j< datesArray.size(); j++) {
+								datesObj = (JSONObject)datesArray.get(j);
+								datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+							}
+							calendarList.removeAll(datesList);
+							datesMap.put(entity.getServiceCentreCode(), calendarList);
+							break;
+						}
+					}
 				}
-			}
-			else if(serviceCentresArr!=null && serviceCentresArr.size()==1){
+			} /*else if(serviceCentresArr!=null && serviceCentresArr.size()==1){
 				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			}
+			}*/
 			
-			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
-			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
+			List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
+			for(ServiceCentreResult result : entityMap.values()) {
+				results.add(result);
+			}
+			logger.info("entityMap: " + entityMap);
+			logger.info("datesMap: " + datesMap);
+			serviceCentreResponse.setServiceCentres(results);
+			
+			model.addAttribute("serviceCentre", serviceCentreResponse);
+			model.addAttribute("datesMap", datesMap);
+			model.addAttribute("results", results);
+			
+			if(serviceCentreObj != null){
 				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
 			}
-			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
-		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
-		        logger.info(formatter.format(date));
+			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+			if(datesArr != null) {
+				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+				logger.info(formatter.format(date));
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
-			logger.info(session.getAttribute("perferredDate").toString());
+			//logger.info(session.getAttribute("perferredDate").toString());
 			
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
+			String key = "savie.centre";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+			if("RP".equals(session.getAttribute("savieType"))) {
+				key = "rp";
+			}else {
+				key = "sp";
+			}
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
+			return new ModelAndView("/merged/savie/customer-service-centre");
+			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
 		} else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/savings-insurance");
@@ -428,14 +602,57 @@ public class SavieController extends BaseController{
 	 * @param request
 	 * @return
 	 *//*
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-sp"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		//savingAmount为空时返回首页
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
 			savieService.confirmationOffline(model, request);
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
+			
+			
+			String key = "savie.confirmation";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.sp.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.sp.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.sp.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.sp.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie.sp",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			return new ModelAndView("/merged/savie/confirmation-offline");
+			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
+			
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/savings-insurance");
@@ -443,13 +660,76 @@ public class SavieController extends BaseController{
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
-	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
+	/**
+	 * 预约成功跳转页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-rp"})
+	public ModelAndView confirmationOfflinePp(Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		//savingAmount为空时返回首页
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
+			savieService.confirmationOffline(model, request);
+			String key = "savierp.confirmation.rp";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.rp.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.rp.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.rp.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.rp.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie.rp",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
+			
+			return new ModelAndView("/merged/savie/confirmation-rp");
+			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance");
+		}
+		
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/single-premium"})
+	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
 			affiliate = "";
 		}
-		
+		httpSession.setAttribute("savieType", "SP");
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -460,8 +740,135 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
+		String key = "savie.landing";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				key + ".og.description",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.sp.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.sp.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.sp.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.sp.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie.sp",
+				UserRestURIConstants.getLanaguage(request));
 		
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
+
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
+		return new ModelAndView("/merged/savie/savings-insurance-sp");
+
+		
+		//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		httpSession.setAttribute("savieType", "RP");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		String	key = "savierp.landing.rp";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta."
+				+ key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils
+				.getPageTitle(key + ".og.description",
+						UserRestURIConstants.getLanaguage(request));
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.rp.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.rp.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.rp.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.rp.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie.rp",
+				UserRestURIConstants.getLanaguage(request));
+		
+		if (request.getRequestURI().indexOf("regular-premium") == -1) {
+			key = "savie.landing.index";
+			pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+		}
+		
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
+		
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
+		return new ModelAndView("/merged/savie/savings-insurance-rp");
 	}*/
 }

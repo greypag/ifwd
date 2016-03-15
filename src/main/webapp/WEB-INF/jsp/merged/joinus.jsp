@@ -39,8 +39,10 @@
 								$('#success-message').html("User succesfully Register"); 
 // 								setTimeout(function() {document.joinus_form.action= "useraccount";								
 // 								}, 3000);
- 								if(window.top.document.referrer.indexOf("savings-insurance/plan-details")>0){
- 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?thankyou=thankyou';
+ 								if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
+ 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
+ 								} else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
+ 									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?thankyou=thankyou';
  								}
  								else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
  									perventRedirect=false;

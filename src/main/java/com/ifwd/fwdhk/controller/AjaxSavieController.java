@@ -258,20 +258,6 @@ public class AjaxSavieController extends BaseController{
 	}
 	
 	/**
-	 * 预约服务中心提交时调用
-	 */
-	@RequestMapping(value = {"/ajax/savie/savings-insurance/upsertAppointment"})
-	public void upsertAppointment(Model model, HttpServletRequest request,
-			HttpServletResponse response) {
-		try {
-			savieService.upsertAppointment(model, request, response);
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	/**
 	 * 保存储蓄金额
 	 * @return 
 	 */
@@ -285,42 +271,5 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 		
-	}
-	
-	@RequestMapping(value = {"/ajax/savie/service-center-confirm/email"} )
-	public void sendAppointmentAcknowledgeMailByAjax(Model model, HttpServletRequest request,HttpServletResponse response){
-		try {
-			BaseResponse br = savieService.sendAppointmentAcknowledgeMail(request);
-			logger.info("apiJsonObj:"+br);
-			ajaxReturn(response,br);
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	@RequestMapping(value = {"/ajax/savie/savings-insurance/putTimeSession"})
-	public void putTimeSession(Model model, HttpServletRequest request,HttpServletResponse response) {
-		try {
-			String perferredTime = request.getParameter("perferredTime");
-			request.getSession().setAttribute("perferredTime", perferredTime);
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
-	@RequestMapping(value = {"/ajax/savings-insurance/getAppointmentAccessCode"})
-	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request)) {
-			return;
-		}
-
-		try {
-			savieService.getAppointmentAccessCode(model, request, response);
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
 	}
 }

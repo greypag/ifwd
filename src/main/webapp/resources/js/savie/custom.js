@@ -856,6 +856,19 @@ $(function() {
 		}
 		//END
 		
+		//BACK TO TOP RP ON SCREEN RESIZE
+		if(getWidth() < 992) {
+			$('#gotop-rp').addClass('go-top');
+			$('#gotop-rp').removeClass('hidden');
+			checkPositionRP();
+		}
+
+		if(getWidth() > 991){
+			$('#gotop-rp').removeClass('go-top');
+			$('#gotop-rp').addClass('hidden');
+		}
+		//END
+		
 		// Made your decision
 		if (getWidth() >= 992) {
 			$('.made-your-decision-section, footer').removeAttr('style');
@@ -977,9 +990,21 @@ $(function() {
 		$('#gotop').removeClass('go-top');
 		$('#gotop').addClass('hidden');
 	}
+	
+	if(getWidth() < 992) {
+  		$('#gotop-rp').addClass('go-top');
+  		$('#gotop-rp').removeClass('hidden');
+		checkPositionRP();
+	}
+
+	if(getWidth() > 991){
+		$('#gotop-rp').removeClass('go-top');
+		$('#gotop-rp').addClass('hidden');
+	}
 
     // Show or hide the sticky footer button
     $(window).scroll(checkPosition);
+    $(window).scroll(checkPositionRP);
 
     // Animate the scroll to top
     $('.go-top').click(function(event) {
@@ -1089,6 +1114,20 @@ function checkPosition() {
     	$(".go-top").css("bottom", 0);
     	$('#gotop').addClass('go-top-default');
     }
+}
+
+function checkPositionRP() {
+	
+	var footer_height = $(".footer-whole").height();
+
+    if ($(this).scrollTop() > 200) {
+		$('.go-top').fadeIn(400);
+    } 
+    else {
+     	$('.go-top').fadeOut(400);
+    }
+    	$(".go-top").css("bottom", 0);
+    	$('#gotop-rp').addClass('go-top-default');
 }
 
 function forceLower(strInput) {

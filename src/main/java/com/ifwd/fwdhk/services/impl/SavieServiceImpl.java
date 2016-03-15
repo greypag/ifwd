@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -134,11 +133,21 @@ public class SavieServiceImpl implements SavieService {
 		try {
 			String planCode = request.getParameter("planCode");
 			int issueAge = Integer.valueOf(request.getParameter("issueAge"))+1;
-			int paymentTerm = 100-issueAge;
+			int paymentTerm = 0;
 			
 			String premium = request.getParameter("premium");
 			String referralCode = request.getParameter("referralCode");
-			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
+			String paymentMode = request.getParameter("paymentMode");
+			if("SP".equals(paymentMode)) {
+				httpSession.setAttribute("savieType", "SP");
+				paymentTerm = 100-issueAge;
+			}else if("RP".equals(paymentMode)) {
+				httpSession.setAttribute("savieType", "RP");
+				String paymentYear = request.getParameter("paymentYear");
+				paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
+			}
+			
+			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, paymentMode, null);
 			
 			httpSession.setAttribute("planDetailData", apiResponse);
             httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));
@@ -252,7 +261,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan0 = new JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", premium);
+						plan0.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
@@ -260,7 +269,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan2 = new JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", premium);
+						plan2.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
@@ -268,7 +277,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan3 = new JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", premium);
+						plan3.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
@@ -276,7 +285,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan4 = new JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", premium);
+						plan4.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
@@ -1300,75 +1309,6 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	/**
-	 * 服务中心提交
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		response.setContentType("text/json;charset=utf-8");
-		HttpSession session = request.getSession();
-		String csCenter = request.getParameter("csCenter");
-		String perferredDate = request.getParameter("perferredDate");
-		String perferredTime = request.getParameter("perferredTime");
-		String planCode = "savie";
-		String policyNumber = "";
-		String applicationNumber = "";
-		String userName = (String)session.getAttribute("username");
-		String status = "Active";
-		String remarks = "";
-		String accessCode = (String)request.getSession().getAttribute("accessCode");
-		String servicingAgent = "";
-		
-		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
-		String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")) {
-			lang = "CN";
-		}
-		
-		
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		
-		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-		parameters.put("planCode", planCode);
-		parameters.put("accessCode", accessCode);
-		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
-		applicationNumber = (String)appJsonObj.get("applicationNumber");
-		session.setAttribute("applicationNumber", applicationNumber);
-		
-		if(appJsonObj != null) {
-			parameters = new org.json.simple.JSONObject();
-			parameters.put("serviceCentreCode", csCenter);
-			parameters.put("date", perferredDate);
-			parameters.put("timeSlot", perferredTime);
-			parameters.put("planCode", planCode);
-			parameters.put("policyNumber", policyNumber);
-			parameters.put("applicationNumber", applicationNumber);
-			parameters.put("userName", userName);
-			parameters.put("status", status);
-			parameters.put("remarks", remarks);
-			parameters.put("accessCode", accessCode);
-			parameters.put("servicingAgent", servicingAgent);
-			
-			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
-			
-			response.setContentType("text/json;charset=utf-8");
-			try {
-				logger.info(makeJsonObj.toString());
-				response.getWriter().print(makeJsonObj.toString());
-			}catch(Exception e) {  
-				e.printStackTrace();
-				response.getWriter().print("application error!");
-			}
-		}else {
-			response.getWriter().print("application error!");
-		}
-	}
-	
-	/**
 	 * 保存储蓄金额
 	 */
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -1791,29 +1731,4 @@ public class SavieServiceImpl implements SavieService {
 		}
 		return num;
 	}
-	@Override
-	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
-		response.setContentType("text/json;charset=utf-8");
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")) {
-			lang = "CN";
-		}
-		
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		if(responseJsonObj.get("errMsgs")==null){
-			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
-		}
-		response.setContentType("text/json;charset=utf-8");
-		try {
-			logger.info(responseJsonObj.toString());
-			response.getWriter().print(responseJsonObj.toString());
-		}catch(Exception e) {  
-			e.printStackTrace();
-		}
-	}	
 }

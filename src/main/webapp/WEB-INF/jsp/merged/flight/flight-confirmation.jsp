@@ -82,7 +82,7 @@ class="image-order-status image-order-status-active  img-circle">
 		
 		<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 		<div class="hidden-xs hidden-sm">
-            <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-right:15px; margin-bottom: 20px;">
         </div>
         <div class="hidden-lg hidden-md" style="text-align:center;">
             <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-bottom:20px;"><br/>
