@@ -333,7 +333,7 @@
 		  </div>
 		</div>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/jquery.mobile-1.4.5.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
 		<script type="text/javascript">
 			var language = "en";
 	
@@ -358,13 +358,20 @@
                         $('#review-fna-modal').modal('show');
                     }
                 });
-				
-				$("#so-carousel").swiperight(function() {
-				   $(this).carousel('prev');
-				});
-				$("#so-carousel").swipeleft(function() {
-				   $(this).carousel('next');  
-				});
+								
+				$("#so-carousel").swipe( {
+			        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+			          if(direction == 'right') {
+			        	  $(this).carousel('prev');
+			        	  console.log('Previous');
+			          } else if(direction == 'left') {
+			        	  $(this).carousel('next'); 
+			        	  console.log('Next');
+			          }
+			        },
+			        threshold:0,
+			        fingers:'all'
+			      });
 						
 				if(getWidth() < 992) {
 					console.log(getWidth());
