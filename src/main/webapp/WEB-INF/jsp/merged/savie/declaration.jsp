@@ -429,7 +429,7 @@ var languageP = "${language}";
 					  data: $("#declarationForm").serialize(),
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  $.ajax({     
@@ -483,7 +483,7 @@ var languageP = "${language}";
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 						  $('#save-and-continue-modal').modal('hide');
 						  $('#save-and-continue-batch5-modal').modal('hide');
-						  $("#errorMsg").html(data.errorMsg);
+						  show_stack_bar_top(data.errorMsg);
 					  }
 					  else{
 						  $('#save-and-continue-modal').modal('hide');

@@ -88,7 +88,7 @@ var languageP = "${language}";
 	            </div>
 	        </div>
 	        <div class="container-fluid fwd-full-container headerStick" id="unemployed-page-body">
-	        	<div class="fwd-container-limit clearfix sidebar">
+	        	<div id="ie-select-emp" class="fwd-container-limit clearfix sidebar">
 	  				<div id="unemployed-content">
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
@@ -349,7 +349,7 @@ var languageP = "${language}";
 								</div>
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
-	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button>
 									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 								</div>	
 	  						</form>
@@ -447,8 +447,8 @@ var languageP = "${language}";
 						  data: $("#employmentInfoForm").serialize(),
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  $('#save-and-continue-modal').modal('hide');
-								  $("#errorMsg").html(data.errorMsg);
+								  $('#save-and-continue-modal').modal('hide');								  
+	                              show_stack_bar_top(data.errorMsg);								  
 							  }
 							  else{
 								  $('#save-and-continue-batch5-modal').modal('hide');
@@ -473,6 +473,12 @@ var languageP = "${language}";
 				$('option').click(function() {
 					$('select').blur();
 				});
+				// detect IE browsers
+				if (window.clipboardData) {
+					$('.selectDiv .gray-dropdown').addClass('ie-select');
+				} else {
+					$('.selectDiv .gray-dropdown').removeClass('ie-select');
+				}
 				
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
@@ -617,7 +623,7 @@ var languageP = "${language}";
 					  data: $("#employmentInfoForm").serialize(),
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  if('${backSummary}'=="Y"){

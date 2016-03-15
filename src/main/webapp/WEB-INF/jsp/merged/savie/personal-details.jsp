@@ -639,7 +639,7 @@ var languageP = "${language}";
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 								  $('#save-and-continue-modal').modal('hide');
-								  $("#errorMsg").html(data.errorMsg);
+								  show_stack_bar_top(data.errorMsg);
 							  }
 							  else{
 								  $('#save-and-continue-modal').modal('hide');
