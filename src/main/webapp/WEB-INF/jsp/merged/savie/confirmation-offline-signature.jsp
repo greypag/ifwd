@@ -99,20 +99,26 @@ var languageP = "${language}";
 					<div class="col-xs-12"><p class="panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<fmt:message key="label.savie.confirmation.date" bundle="${msg}" />
+							<p class="details-label"><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
 							<p>${preferredDate}</p>
 						</div>
 						<div>
-							<fmt:message key="label.savie.confirmation.time" bundle="${msg}" />
+							<p class="details-label"><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
 							<p>${preferredTime}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<fmt:message key="label.savie.confirmation.branch" bundle="${msg}" />
-						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
+						<p class="details-label"><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
+						<p>${serviceCentre.serviceCentreName}<span class="branch-address">${serviceCentre.address}</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<fmt:message key="label.openinghours" bundle="${msg}" />
+						<p class="details-label"><fmt:message key="label.openinghours" bundle="${msg}" /></p>
+						<p>
+							${serviceCentre.operationHours }
+							<span class="phone-num">
+								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> ${serviceCentre.phone }
+							</span>
+						</p>
 					</div>
 					<div class="col-xs-12">
 						<div class="appointment-details-note">
