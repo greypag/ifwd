@@ -1588,18 +1588,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
 		//sales pdf
 	    this.createSalesIllustrationPdf("2", request);
-	    this.uploadPdf("pdfName", request);
+	    this.uploadPdf("pdfName","salesIllustration", request);
 		
 		//fna pdf
 		this.createFnaFormPdf("2", request, request.getSession());
-		this.uploadPdf("fnaPdfName", request);
+		this.uploadPdf("fnaPdfName","fna", request);
 		
 		//application pdf
 		this.createApplicationFormPdf("2", request, request.getSession());
-		this.uploadPdf("applicationFormPdf", request);
+		this.uploadPdf("applicationFormPdf","applicationForm", request);
 	}
 	
-	public void uploadPdf(String fileName,HttpServletRequest request)throws ECOMMAPIException, IOException{
+	public void uploadPdf(String fileName, String docType, HttpServletRequest request)throws ECOMMAPIException, IOException{
 		byte data[];
 		int i;
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
@@ -1611,7 +1611,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("clientBrowserInfo", clientBrowserInfo);
 		parameters.put("planCode", "SAVIE-SP");
 		parameters.put("fileType", "pdf");
-		parameters.put("documentType", "pdf");
+		parameters.put("documentType", docType);
 		parameters.put("originalFilePath", "");
 		
 		File f = new File(pdfPath);
