@@ -10438,7 +10438,6 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	}		
 	.modal-open {
 	    width: 100%;		
-	    overflow-y: auto;
 	    padding-top: 50px;'		
 	}
 	.home-disclaimer{
@@ -10580,8 +10579,6 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     padding:0;
 }
 #loginpopup {
-    display:table;
-    position: absolute;
     height: 100%;
     width:100%;
     top:0;
@@ -10754,6 +10751,9 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	    width: 100%;
 	    z-index: 999999;
     }
+    #loginpopup .modal-dialog.loginpopupext{
+        margin-bottom: 90px;
+    }
     #loginpopup .modal-dialog{
         height: 100%;
         margin: auto;
@@ -10775,7 +10775,6 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         margin:auto;
         width:100% !important;
         max-width:414px !important;
-        z-index:9999
     }
     #loginpopup .login-info{/*height:235px !important;*/margin-top:50px;/*padding:20px 30px;*/padding:0;text-align:center;flaot:none;}
     #loginpopup .login-info-savie{/*background-image:url(/fwdhk/resources/images/login/savie-mobile.png);*/background-color:#16ab95;}
@@ -10874,9 +10873,6 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 #loginpopup .loginpopupext .login-info-savie img{
 	/*position: absolute;
 	bottom: 0;*/
-}
-.modal-open{
-	overflow-y: auto;
 }
 #loginpopup .loginpopupext .upper-overlay h4{
 	margin-bottom: 10px;
@@ -11058,6 +11054,14 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	background-color:#373a36;
 }
 @media screen and (max-width: 991px){
+	/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
+	div.mobile-menu-V2 .navbar-nav>li.dropdown:hover ul.dropdown-menu{
+	   display: none;	   
+	}
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.open:hover ul.dropdown-menu{
+       display: block;      
+    }
+    /* End fix conflict */	
     .logobox{
        background-color:#222;
        border:0;
@@ -11177,3 +11181,11 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     display: block;
 }
 /*/menu language btn add 160314*/
+/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
+#myDropdown.dropdown:hover .dropdown-menu{
+	display: none;
+}
+#myDropdown.dropdown.open:hover .dropdown-menu{
+    display: block;
+}
+/* End fix conflict */
