@@ -1782,6 +1782,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
+			if(fileToUploadProofAddType==null){
+				fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDropType");
+			}
 			parameters.put("fileType", fileToUploadProofAddType);
 			parameters.put("documentType", "proof");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
@@ -1803,6 +1806,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				is.close();  
 				String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 				String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
+				if(passportFileToUploadType==null){
+					passportFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-passport-dragAndDropType");
+				}
 				parameters.put("fileType", passportFileToUploadType);
 				parameters.put("documentType", "passport");
 				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
@@ -1820,6 +1826,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
+			if(hkidFileToUploadType==null){
+				hkidFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-hkid-dragAndDropType");
+			}
 			parameters.put("fileType", hkidFileToUploadType);
 			parameters.put("documentType", "hkid");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
