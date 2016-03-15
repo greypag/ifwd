@@ -496,6 +496,9 @@ var language = "${language}";
 		
 		
 		var dummy = true;
+		if('${backSummary}' == 'Y'){
+			dummy = false;
+		}
 		// dummy condition for displaying the back / next button
 		if(dummy) {
 			// hide the back button and display the Next button
@@ -535,6 +538,10 @@ var language = "${language}";
 		
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+		});
+		
+		$('#btn-back').click(function() {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 		});
 		
 		$("input[type='radio']").on('click', function() {
