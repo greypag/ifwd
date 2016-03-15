@@ -1328,7 +1328,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", "");
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
-		parameters.put("planCode", "SAVIE");
+		parameters.put("planCode", "SAVIE-SP");
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
@@ -1764,7 +1764,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("policyNo", policyNo);
-			parameters.put("planCode", "savie");
+			parameters.put("planCode", "SAVIE-SP");
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			if(fileToUpload==null){
 				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
@@ -1879,7 +1879,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", "savie");
+			parameters.put("planCode", "SAVIE-SP");
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
@@ -1964,7 +1964,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
-		String planCode = "savie";
+		String planCode = "SAVIE-SP";
 		String policyNumber = "";
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");
