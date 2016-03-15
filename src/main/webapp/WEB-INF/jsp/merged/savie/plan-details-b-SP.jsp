@@ -853,6 +853,7 @@ var languageP = "${language}";
 			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
             $('#loginpopup #fna-check').val("true");
+            $('#loginpopup #nav-bar-check').val("false");            
             $('#loginpopup .modal-dialog').addClass('loginpopupext');			
 			$('#loginpopup').modal('show');			
 		}
@@ -866,7 +867,8 @@ var languageP = "${language}";
             $('#offline-online-modal').modal('hide');
             $('.login-info').addClass('hidden');
             $('#loginpopup .modal-dialog').removeClass('loginpopupext');
-            $('#loginpopup #fna-check').val("false");;
+            $('#loginpopup #fna-check').val("false");
+            $('#loginpopup #nav-bar-check').val("false");
             $('#loginpopup').modal('show');         
         }
 	});
@@ -973,6 +975,7 @@ var languageP = "${language}";
 		}else{
 			apply=true;
             $('#loginpopup #fna-check').val("true");
+            $('#loginpopup #nav-bar-check').val("false");            
 			$('#loginpopup').modal('show');			
 		}
 	}	
