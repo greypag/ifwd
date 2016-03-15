@@ -207,24 +207,50 @@ public class ECommController {
 
 	    int month = cal.get(java.util.Calendar.MONTH);
 	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
 	    
 	    int hotelVoucherCampignId = -1;
 	    if (month == 2) {
 	        if (day == 14) {
-	            hotelVoucherCampignId = 14;
-	            indexs = new int[]{14};
+	        	if (hour >= 15) {
+		            hotelVoucherCampignId = 14;
+		            indexs = new int[]{14};
+	        	} else {
+		            hotelVoucherCampignId = 19;
+		            indexs = new int[]{19};
+	        	}
 	        } else if (day == 15) {
-	            hotelVoucherCampignId = 15;
-	            indexs = new int[]{15};
+	        	if (hour >= 15) {
+		            hotelVoucherCampignId = 15;
+		            indexs = new int[]{15};
+	        	} else {
+		            hotelVoucherCampignId = 14;
+		            indexs = new int[]{14};
+	        	}
 	        } else if (day == 16) {
-	            hotelVoucherCampignId = 16;
-	            indexs = new int[]{16};
+	        	if (hour >= 15) {
+		            hotelVoucherCampignId = 16;
+		            indexs = new int[]{16};
+	        	} else {
+		            hotelVoucherCampignId = 15;
+		            indexs = new int[]{15};
+	        	}
 	        } else if (day == 17) {
-	            hotelVoucherCampignId = 17;
-	            indexs = new int[]{17};
+	        	if (hour >= 15) {
+		            hotelVoucherCampignId = 17;
+		            indexs = new int[]{17};
+	        	} else {
+		            hotelVoucherCampignId = 16;
+		            indexs = new int[]{16};
+	        	}
 	        } else if (day == 18) {
-	            hotelVoucherCampignId = 18;
-	            indexs = new int[]{18};
+	        	if (hour >= 15) {
+		            hotelVoucherCampignId = 18;
+		            indexs = new int[]{18};
+	        	} else {
+		            hotelVoucherCampignId = 17;
+		            indexs = new int[]{17};
+	        	}
 	        }
 	    }
 	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampignId);
