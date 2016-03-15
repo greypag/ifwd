@@ -1612,7 +1612,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("planCode", "SAVIE-SP");
 		parameters.put("fileType", "pdf");
 		parameters.put("documentType", "pdf");
-		parameters.put("originalFilePath", pdfPath);
+		parameters.put("originalFilePath", "");
 		
 		File f = new File(pdfPath);
 		FileInputStream is = null;
