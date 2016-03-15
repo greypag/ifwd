@@ -10628,10 +10628,10 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     height:auto;
 }
 #loginpopup .login-form {
-    /*width: 100% !important;*/
-    max-width: 428px !important;
-    padding:40px 30px 80px 30px;
-    /*float: left;*/
+    width: 428px;
+    /* max-width: 428px !important; */
+    padding: 40px 30px 80px 30px;
+    float: left;
     position: relative !important;
 }
 #loginpopup .login-info {
@@ -10857,14 +10857,14 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 }
 @media (min-width:992px) {
 	#loginpopup .login-info-savie .upper-overlay{
-	    min-height: 344px;
+	    min-height: 200px;
 	}
 	#loginpopup .login-input{
 	   display: inline-block;
 	}
 	#loginpopup .loginpopupext .login-info-savie img {
-	   position: absolute;
-	   bottom: 0;
+	   /*position: absolute;
+	   bottom: 0;*/
 	}		    
 }
 #loginpopup input::-webkit-input-placeholder {
@@ -10883,7 +10883,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     font-size: 14px !important;
 }
 #loginpopup .login-info-savie .upper-overlay{
-	padding: 30px 20px 0 20px;
+	padding: 30px 50px 0 30px;
 }
 #loginpopup .modal-content.plan-modal{
 	padding: 0;
