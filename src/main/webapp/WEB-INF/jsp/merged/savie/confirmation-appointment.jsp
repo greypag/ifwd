@@ -179,4 +179,7 @@ var language = "${language}";
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
+	$('.savie-common-btn').click(function() {
+		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+	});
 </script>

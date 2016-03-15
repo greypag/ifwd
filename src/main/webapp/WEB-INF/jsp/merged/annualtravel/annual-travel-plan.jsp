@@ -447,10 +447,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						%>
 						
 						<div class="clearfix"></div>
-                        <div class="top35 pull-left pad-none" style="width:47%">
+                        <div class="top35 pull-left pad-none hidden-md hidden-lg" style="width:47%">
                             <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                         </div>						
-						<div class="top35 pull-right pad-none" style="width:47%">
+						<div class="top35 pull-right pad-none hidden-md hidden-lg" style="width:47%">
 				          <c:choose>
 	                          <c:when test="${language=='en'}">
 	                              <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;submitPlan();">
@@ -1224,10 +1224,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						</div>
 						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
-                            <div class="top35 pull-left pad-none" style="width:47%">
+                        <div class="top35 pull-left pad-none" style="width:47%">
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /> </a>
                             </div>
-                            <div class="top35 pull-right pad-none" style="width:47%">
+						<div class="top35 pull-right pad-none" style="width:47%">
 	                            <c:choose>
 		                            <c:when test="${language=='en'}">
 		                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;submitPlan();">

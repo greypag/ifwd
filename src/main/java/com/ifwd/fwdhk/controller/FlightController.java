@@ -242,12 +242,27 @@ public class FlightController {
 			googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
 					"flight.googleRickSnippetDescription2",
 					UserRestURIConstants.getLanaguage(request));
-			
-			
-					
-			
-			
 		}
+		String flightScriptName = WebServiceUtils.getPageTitle("flight.script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String flightScriptDescription = WebServiceUtils.getPageTitle("flight.script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String flightScriptChildName = WebServiceUtils.getPageTitle("flight.script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("flightScriptName", flightScriptName);
+		model.addAttribute("flightScriptDescription", flightScriptDescription);
+		model.addAttribute("flightScriptChildName", flightScriptChildName);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+				UserRestURIConstants.getLanaguage(request));
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -259,7 +274,11 @@ public class FlightController {
 		model.addAttribute("ogDescription", ogDescription);
 		model.addAttribute("ogSiteName", ogSiteName);
 		
-		
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
 		model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
 		model.addAttribute("googleRickSnippetName", googleRickSnippetName);
@@ -272,11 +291,6 @@ public class FlightController {
 		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
 		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 		
-
-		
-		
-		
-
 		model.addAttribute(planDetails);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "flight/flight");
@@ -466,6 +480,22 @@ public class FlightController {
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
 			
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
 			return new ModelAndView(
 
 			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
@@ -633,15 +663,6 @@ public class FlightController {
 			planDetails.setFlightQuoteDetails(flightQuoteDetails);
 			model.addAttribute(planDetails);
 			model.addAttribute(flightQuoteDetails);
-			String pageTitle = WebServiceUtils.getPageTitle(
-					"page.flightQuotation",
-					UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-					"meta.flightQuotation",
-					UserRestURIConstants.getLanaguage(request));
-			model.addAttribute("pageTitle", pageTitle);
-			model.addAttribute("pageMetaDataDescription",
-					pageMetaDataDescription);
 //			return new ModelAndView(
 //			UserRestURIConstants.getSitePath(request) + "flight/flight-plan");
 //			return "days: " + planDetails.getTotalTravellingDays();
@@ -807,6 +828,22 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 
 		model.addAttribute("planDetailsForm", planDetails);
 		String returnUrl = UserRestURIConstants.getSitePath(request)
@@ -1408,6 +1445,23 @@ public class FlightController {
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription",
 					pageMetaDataDescription);
+			
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
+			
 			session.removeAttribute("flight-temp-save");
 			jsonObject.put("result", "success");
 			return jsonObject;
@@ -1600,6 +1654,23 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		session.setAttribute("referralCode",
 				StringHelper.emptyIfNull(upgradeReferralCode));
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -1839,6 +1910,23 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.flight.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.flight.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.flight",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return UserRestURIConstants.getSitePath(request)
 				+ "travel/travel-summary-payment";
 	}

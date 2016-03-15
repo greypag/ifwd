@@ -507,7 +507,7 @@ var languageP = "${language}";
 		<div class="next-btn text-center">
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
 			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
-			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden">Back to summary</button>
+			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">Apply at Customer Service Centre</a>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->

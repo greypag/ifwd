@@ -67,37 +67,79 @@ public class AjaxCampaignController extends BaseController {
 			String index = "";
 			String tnc = "";
 			switch (campaignId) {
+			case 13:
+				discount="Fanfare.discount5";
+				date="31-05-2016";
+				offername="Fanfare.offername5";
+				index = "5";
+				tnc="Fanfare.tnc5";
+				break;
+			case 14:
+				discount="Fanfare.discount6";
+				date="31-05-2016";
+				offername="Fanfare.offername6";
+				index = "6";
+				tnc="Fanfare.tnc6";
+				break;
+			case 15:
+				discount="Fanfare.discount7";
+				date="31-05-2016";
+				offername="Fanfare.offername7";
+				index = "7";
+				tnc="Fanfare.tnc7";
+				break;
+			case 16:
+				discount="Fanfare.discount8";
+				date="31-05-2016";
+				offername="Fanfare.offername8";
+				index = "8";
+				tnc="Fanfare.tnc8";
+				break;
+			case 17:
+				discount="Fanfare.discount9";
+				date="31-05-2016";
+				offername="Fanfare.offername9";
+				index = "9";
+				tnc="Fanfare.tnc9";
+				break;
+			case 18:
+				discount="Fanfare.discount10";
+				date="31-05-2016";
+				offername="Fanfare.offername10";
+				index = "10";
+				tnc="Fanfare.tnc10";
+				break;
 			case 5:
 				discount="Fanfare.discount0";
-				date="31-03-2016";
+				date="31-05-2016";
 				offername="Fanfare.offername0";
 				index = "0";
 				tnc="Fanfare.tnc0";
 				break;
 			case 6:
 				discount="Fanfare.discount1";
-				date="31-03-2016";
+				date="31-05-2016";
 				offername="Fanfare.offername1";
 				index = "1";
 				tnc="Fanfare.tnc1";
 				break;
 			case 7:
 				discount="Fanfare.discount2";
-				date="31-03-2016";
+				date="31-05-2016";
 				offername="Fanfare.offername2";
 				index = "2";
 				tnc="Fanfare.tnc2";
 				break;
 			case 8:
 				discount="Fanfare.discount3";
-				date="31-03-2016";
+				date="31-05-2016";
 				offername="Fanfare.offername3";
 				index = "3";
 				tnc="Fanfare.tnc3";
 				break;
 			case 9:
 				discount="Fanfare.discount4";
-				date="31-03-2016";
+				date="31-05-2016";
 				offername="Fanfare.offername4";
 				index = "4";
 				tnc="Fanfare.tnc4";
@@ -111,6 +153,7 @@ public class AjaxCampaignController extends BaseController {
 				case "duplicated":
 				case "failed":
 				case "error":
+				case "notlogin":
 					map.put("result", result);
 					map.put("promoCode", "");
 					map.put("index", index);
