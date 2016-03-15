@@ -32,6 +32,7 @@
 	<decorator name="fwdsavieonline" page="template_savie_online.jsp">
 		<pattern>/*/savings-insurance*</pattern>
 		<pattern>/*/FNA*</pattern>
+		<pattern>/*/account</pattern>
 	</decorator>
 	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
