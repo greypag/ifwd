@@ -94,7 +94,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="payment-mode">
 	        		<div class="desktop-inline">
 		        		<div class="payment-inline">
-			        		<h4 class="text-center"><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></h4>
+			        		<h4 class="text-center"><fmt:message key="label.savie.payment.mode" bundle="${msg}" /></h4>
 			        		<div class="payment-options clearfix">
 			        			<div class="left">
 			        				<button id="regular-button"><fmt:message key="label.savie.payment.mode.savie.regular.monthly" bundle="${msg}" /></button>
@@ -389,8 +389,7 @@ var home_url = "<%=request.getContextPath()%>";
 		       			<h4 class="text-center"><fmt:message key="partner.offer.exclusive" bundle="${msg}" /></h4>
 		       			<div class="gray-divide" id="bar-exclusive"></div>
 		       			<div class="row partners-holder">
-		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
-		       				</div>
+		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
 		       				<div class="col-xs-6 col-md-6 col-lg-6 text-center">
 		       					<div class="desktop-center clearfix">
 									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
@@ -399,8 +398,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        					</div>
 		       					</div>
 		       				</div>
-		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
-		       				</div>
+		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
 		       			</div>
 		       		</div>
 	        		<div class="fna-icons-body text-center clearfix">
