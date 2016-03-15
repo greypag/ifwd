@@ -864,6 +864,9 @@ var languageP = "${language}";
         }else{
             apply=true;
             $('#offline-online-modal').modal('hide');
+            $('.login-info').addClass('hidden');
+            $('#loginpopup .modal-dialog').removeClass('loginpopupext');
+            $('#loginpopup #fna-check').val("false");;
             $('#loginpopup').modal('show');         
         }
 	});
