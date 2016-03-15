@@ -149,7 +149,7 @@
 	        							<p><fmt:message key="partner.offer.copy1" bundle="${msg}" /></p>
 	        						</div>
 	        					</div>
-	        					<div class="row partner">
+	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/buddy-logo.png" class="img-responsive" /> 
 	        						</div>
@@ -157,7 +157,7 @@
 	        							<p><fmt:message key="partner.offer.copy2" bundle="${msg}" /></p>
 	        						</div>
 	        					</div>
-	        					<div class="row partner">
+	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/boconcept-logo.png" class="img-responsive" /> 
 	        						</div>
@@ -165,7 +165,7 @@
 	        							<p><fmt:message key="partner.offer.copy3" bundle="${msg}" /></p>
 	        						</div>
 	        					</div>
-	        					<div class="row partner">
+	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/price-rite-logo.png" class="img-responsive" /> 
 	        						</div>
