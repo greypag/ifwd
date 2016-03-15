@@ -730,7 +730,7 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
-			
+						
 			$("#et-personal-info-next").click(function(){
 				$("#errorMsg").html("");
 				$.ajax({
@@ -740,7 +740,7 @@ var languageP = "${language}";
 					  data: $("#soInsuredInfoForm").serialize(),
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  if('${backSummary}'=="Y"){
