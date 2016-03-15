@@ -9,19 +9,19 @@
 	    <div class="upper-footer-wrapper">
 	        <div class="bottom-contact-wrapper">
 	            <div class="contact-label">
-	               Contact us<i class="fa fa-caret-right" aria-hidden="true"></i><br/><br/>
+	               <a href="<fmt:message key="footer.menu.contactus.link" bundle="${msg}" />" target="_blank">Contact us<i class="fa fa-caret-right" aria-hidden="true"></i></a><br/><br/>
 	               <fmt:message key="footer.hotline.part1" bundle="${msg}" />
 	            </div>
 	            <a class="contact-number" href="tel:31233123"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></a>
 	        </div>
 	        <div class="bottom-link-wrapper">
 	           <div class="bottom-link">
-	               <a href="" target="_blank"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
-	               <a href="" target="_blank"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
-	               <a href="" target="_blank"><fmt:message key="header.product.type3" bundle="${msg}" /></a>           
+	               <a href="<fmt:message key="footer.product.type1.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
+	               <a href="<fmt:message key="footer.product.type2.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
+	               <a href="<fmt:message key="footer.product.type3.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3" bundle="${msg}" /></a>           
 	           </div>
 	           <div class="bottom-link">
-	               <a href="" target="_blank">Support & Claims</a>
+	               <a href="<fmt:message key="footer.menu.support.link" bundle="${msg}" />" target="_blank">Support & Claims</a>
 	               <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a>
 	               <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>        
 	           </div>
