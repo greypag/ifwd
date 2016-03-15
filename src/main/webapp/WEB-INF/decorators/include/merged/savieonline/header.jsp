@@ -98,7 +98,7 @@ function submitLoginForm(formID) {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
-						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
+						if(window.location.href.indexOf("savings-insurance/plan-details")>0 || window.location.href.indexOf("tc/")>0 || window.location.href.indexOf("en/")>0){
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
 							saviePlanDetailsGoNext();

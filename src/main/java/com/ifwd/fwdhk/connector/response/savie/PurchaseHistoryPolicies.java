@@ -9,7 +9,9 @@ public class PurchaseHistoryPolicies{
 	private String totalDue;
 	private String discount;
 	private String commencementDate;
+	private String commencementDateDesc;
 	private String expiryDate;
+	private String expiryDateDesc;
 	private String referralCode;
 	private String promoCode;
 	private String promotionType;
@@ -18,6 +20,18 @@ public class PurchaseHistoryPolicies{
 	private String claimFormUrl;
 	private String documentUploaded;
 	
+	public String getCommencementDateDesc() {
+		return commencementDateDesc;
+	}
+	public void setCommencementDateDesc(String commencementDateDesc) {
+		this.commencementDateDesc = commencementDateDesc;
+	}
+	public String getExpiryDateDesc() {
+		return expiryDateDesc;
+	}
+	public void setExpiryDateDesc(String expiryDateDesc) {
+		this.expiryDateDesc = expiryDateDesc;
+	}
 	public String getPlanCode() {
 		return planCode;
 	}

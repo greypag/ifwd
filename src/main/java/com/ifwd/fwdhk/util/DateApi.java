@@ -264,6 +264,19 @@ public class DateApi {
 	}
 	
 	/**
+	 * 将time毫秒转换为日期格式为dd-MM-yyyy的字符串
+	 * @param time
+	 * @return String
+	 */
+	public static String formatTime2(String time) {
+		long t = Long.valueOf(time);
+		DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(t);
+		return formatter.format(calendar.getTime());
+	}
+	
+	/**
 	 * 获取时间段list
 	 * @param start 距离今天的天数
 	 * @param days 总共多少天
@@ -290,5 +303,28 @@ public class DateApi {
 	public static String formatString(Date date,String format) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.ENGLISH);
 		return dateFormat.format(date);
+	}
+	
+	/**
+	 * 将字符串转化为long类型
+	 * @param String
+	 * @return
+	 */
+	public static Long String2Long(String date) {
+		if(!StringUtils.isEmpty(date)) {
+			return Long.valueOf(date);
+		}else {
+			return 0l;
+		}
+	}
+	
+	/**
+	 * 将Date转化为当前日期time
+	 * @return
+	 */
+	public static Long getCurrentTime() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+		return formatDate1(dateFormat.format(date)).getTime();
 	}
 }
