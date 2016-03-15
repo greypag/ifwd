@@ -13,6 +13,11 @@
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var affiliate = "${affiliate}";
+
+function goLandingPage(){
+	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+}
+	
 </script>
 
 <!--   Main Content Start -->
@@ -444,8 +449,16 @@ var affiliate = "${affiliate}";
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
 											<select name="preferred_date" class="form-control soflow select-label" id="preferred_date">
-												<option value="0" selected>Monday - Friday</option>
-												<option value="1">Saturday – Sunday</option>
+												<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etCsContactPreferredDayEN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etCsContactPreferredDayCN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<span id="errpreferred_date" class="text-red"></span>
@@ -458,9 +471,16 @@ var affiliate = "${affiliate}";
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
 											<select name="preferred_time" class="form-control soflow select-label" id="preferred_time">
-												<option value="0" selected>Morning (after 9am)</option>
-												<option value="1">Afternoon</option>
-												<option value="2">Evening (before 9pm)</option>
+												<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etCsContactPreferredTimeSlotCN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<span id="errpreferred_time" class="text-red"></span>
@@ -473,10 +493,16 @@ var affiliate = "${affiliate}";
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
 											<select name="enquiry_type" class="form-control soflow select-label" id="enquiry_type">
-												<option value="0" selected>Product features</option>
-												<option value="1">Application</option>
-												<option value="2">Policy services</option>
-												<option value="3">Not Specified</option>
+												<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etEnquiryTypeEN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etEnquiryTypeCN}">
+														<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<span id="errenquiry_type" class="text-red"></span>
@@ -484,12 +510,30 @@ var affiliate = "${affiliate}";
 								</div>
 								
 								<p class="remark">* This information will not be used as direct marketing.</p>
-								<input type="button" onclick="" class="bdr-curve btn btn-primary fna-btn-submit" value="Submit">
+								<input type="button" onclick="goCustomerServices()" class="bdr-curve btn btn-primary fna-btn-submit" value="Submit">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		
+		<!-- back landing modal -->
+		<div class="modal fade common-welcome-modal modal-app-save" id="back-landing-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  <div class="modal-dialog" id="modal-save-app">
+			<div class="modal-content modal-content-appsave common-welcome-modal">	
+				 <div class="modal-header" id="modal-header-appsave">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
+				 </div>
+				 <div class="modal-body" id="moda-body-appsave">
+					<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
+					<div class="btn-appsave">
+						<button href="#" class="center-block btn savie-common-btn" id="btn-back" onclick="goLandingPage()"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
+					</div>
+				 </div>
+			 </div>
+		  </div>
 		</div>
 
 		<!--#End# Template for dynamic content-->

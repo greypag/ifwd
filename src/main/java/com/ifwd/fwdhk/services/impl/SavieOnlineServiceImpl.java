@@ -1068,6 +1068,87 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
+	public void contactCs(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("name", request.getParameter("name"));
+		jsonObject.put("email", request.getParameter("email"));
+		jsonObject.put("mobile", request.getParameter("mobile"));
+		jsonObject.put("preferredDay", request.getParameter("preferredDay").split("-")[0]);
+		jsonObject.put("preferredTimeSlot", request.getParameter("preferredTimeSlot").split("-")[0]);
+		jsonObject.put("enquiryType", request.getParameter("enquiryType").split("-")[0]);
+		jsonObject.put("channel", "fna-recommendation");
+		jsonObject.put("product", "savie-sp");
+		logger.info(jsonObject.toString());
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		if(responseJsonObj==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(responseJsonObj.get("errMsgs")!=null && responseJsonObj.get("errMsgs")!="") {
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+		else{
+			List<OptionItemDesc> etCsContactPreferredDayEN = InitApplicationMessage.etCsContactPreferredDayEN;
+			String contactWeekdayEn = null;
+			for(int i=0;i<etCsContactPreferredDayEN.size();i++){
+				if(etCsContactPreferredDayEN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+					contactWeekdayEn = etCsContactPreferredDayEN.get(i).getItemDesc();
+				}
+			}
+			List<OptionItemDesc> etCsContactPreferredDayCN = InitApplicationMessage.etCsContactPreferredDayCN;
+			String contactWeekdayCh = null;
+			for(int i=0;i<etCsContactPreferredDayCN.size();i++){
+				if(etCsContactPreferredDayCN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+					contactWeekdayCh = etCsContactPreferredDayCN.get(i).getItemDesc();
+				}
+			}
+			
+			List<OptionItemDesc> etCsContactPreferredTimeSlotEN = InitApplicationMessage.etCsContactPreferredTimeSlotEN;
+			String contactTimeEn = null;
+			for(int i=0;i<etCsContactPreferredTimeSlotEN.size();i++){
+				if(etCsContactPreferredTimeSlotEN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+					contactTimeEn = etCsContactPreferredTimeSlotEN.get(i).getItemDesc();
+				}
+			}
+			List<OptionItemDesc> etCsContactPreferredTimeSlotCN = InitApplicationMessage.etCsContactPreferredTimeSlotCN;
+			String contactTimeCh = null;
+			for(int i=0;i<etCsContactPreferredTimeSlotCN.size();i++){
+				if(etCsContactPreferredTimeSlotCN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+					contactTimeCh = etCsContactPreferredTimeSlotCN.get(i).getItemDesc();
+				}
+			}
+			
+			
+			JSONObject parameters = new JSONObject();
+			parameters.put("to", request.getParameter("email"));
+			parameters.put("subject", "FWD will contact you shortly | 富衛將會聯繫您");
+			JSONObject model = new JSONObject();
+			   model.put("name", request.getParameter("name"));
+			   model.put("contactPhoneNo", request.getParameter("mobile"));
+			   model.put("contactWeekdayEn", contactWeekdayEn);
+			   model.put("contactTimeEn", contactTimeEn);
+			   model.put("contactWeekdayCh", contactWeekdayCh);
+			   model.put("contactTimeCh", contactTimeCh);
+			parameters.put("model", model); 
+			parameters.put("template", "savie\\leaveContact.html");
+			logger.info(parameters.toString());
+			
+			BaseResponse apiReturn = null;
+			final Map<String,String> header1 = headerUtil.getHeader1(request);
+			apiReturn = connector.sendTemplateEmail(parameters, header1);
+			if(apiReturn==null){
+				logger.info("api error");
+				throw new ECOMMAPIException("api error");
+			}
+			else if(apiReturn.hasError()) {
+				logger.info(apiReturn.getErrMsgs()[0]);
+				throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+			}
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
@@ -2165,12 +2246,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		String language = (String) request.getSession().getAttribute("language");
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", userDetails.getEmailAddress());
 		parameters.put("subject", "Your Savie application is incomplete | 您的Savie自助息申請尚未完成");
 		JSONObject model = new JSONObject();
-		   model.put("name", "Nat");
+		   model.put("name", userDetails.getFullName());
+		   model.put("resumeLink", language+"/savings-insurance/"+request.getParameter("key"));
 		parameters.put("model", model);
 		parameters.put("template", "savie\\saveLater.html");
 		logger.info(parameters.toString());
@@ -2188,29 +2271,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	@Override
-	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
-		BaseResponse apiReturn = null;
-		try {
-			final Map<String,String> header = headerUtil.getHeader1(request);
-			
-			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-			parameters.put("name", request.getParameter("customer_name"));
-			parameters.put("email", request.getParameter("email"));
-			parameters.put("mobile", request.getParameter("telephone"));
-			parameters.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
-			parameters.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
-			parameters.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
-			parameters.put("channel", request.getParameter("channel"));
-			parameters.put("product", request.getParameter("product_code"));
-			apiReturn = connector.contactCs(parameters, header);
-		}catch(Exception e){
-			logger.info("SavieOnlineServiceImpl contactCs occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-		return apiReturn;
-	}
 	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) {
 		HttpSession session = request.getSession();
 		String Url = UserRestURIConstants.SEND_EMAILS;

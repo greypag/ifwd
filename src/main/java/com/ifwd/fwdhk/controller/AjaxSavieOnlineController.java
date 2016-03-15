@@ -286,35 +286,20 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-insurance/enquiry"})
-	public void enquiry(HttpServletRequest request,HttpServletResponse response) {
-		/*JSONObject jsonObject = new JSONObject();
+	@RequestMapping(value = {"/ajax/savings-insurance/contactCs"})
+	public void contactCs(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
-		}*/
-		
-		/*String jsonObject = "{\"status\":0}";
+		}
+		try {
+			savieOnlineService.contactCs(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
 		logger.info(jsonObject.toString());
-		response.setContentType("text/json;charset=utf-8");
-		try {
-			response.getWriter().print(jsonObject);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}*/
-		
-		
-		if (Methods.isXssAjax(request)) {
-			return;
-		}
-		try {
-			ajaxReturn(response, savieOnlineService.contactCs(request));
-		} catch (ECOMMAPIException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-		
-		
-		
+		ajaxReturn(response, jsonObject);
 	}
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})

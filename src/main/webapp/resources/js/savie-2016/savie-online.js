@@ -1630,10 +1630,13 @@ function setSelectReadonly(elementId, isReadonly) {
 	}
 }
 
-function sendEmailForSaveLater() {
+function sendEmailForSaveLater(key) {
 	$.ajax({     
 	    url:contextPath+'/ajax/savings-insurance/sendEmailForSaveLater',     
 	    type:'get',     
+	    data:{    
+	    	"key" : key
+   		},
 	    success:function(data){
 	    },
 	    error:function(){       

@@ -156,6 +156,7 @@ public class UserRestURIConstants {
 	public static final String CLEAR_FNA = "/fna/clear";
 	public static final String SEND_EMAILS = SERVICE_URL + "/messages/template/email";
 	public static final String SEND_TEMPLATE_EMAIL = "/messages/template/email";
+	public static final String SAVIE_CONTACT_CS = SERVICE_URL + "/member/cs/contact";
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
