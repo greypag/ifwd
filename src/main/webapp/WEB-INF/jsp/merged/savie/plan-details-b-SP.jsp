@@ -60,7 +60,7 @@ var languageP = "${language}";
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id="">Select Plan</h3>
+					<h3 id=""><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></h3>
 				 </div>
 				 <p id="step-of">1 of 6</p>
 			  </div>
@@ -84,7 +84,7 @@ var languageP = "${language}";
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.payment.mode.savie.oneoffpremium1" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa fa-info-circle info-tooltip"></i></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.payment.mode.savie.plancalculator" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa fa-info-circle info-tooltip"></i></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">							
@@ -178,7 +178,7 @@ var languageP = "${language}";
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
 				<h4 class="summary-note-title"><fmt:message key="label.summary" bundle="${msg}" /></h4>
-				<p class="summary-note">You will receive <span id="3rd_policy_year" class="received-money">HK$0</span> at the end of 3rd policy year</p>
+				<p class="summary-note"><fmt:message key="label.savie.crediting.rate.copy" bundle="${msg}" /></p>
 			</div>
 			<div class="table-content">					
 				<div class="rate-table">
@@ -200,7 +200,7 @@ var languageP = "${language}";
 								<td id="premium-1">0</td>
 								<td class="hidden-sm hidden-xs" id="account-value-1">0</td>
 								<td id="surrender-1">0</td>
-										<td class="hidden-sm hidden-xs" id="death-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">108,141 / 211,132</span></td>
+								<td class="hidden-sm hidden-xs" id="death-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">108,141 / 211,132</span></td>
 							</tr>
 							<tr>
 								<td class="policy-credit policy-number bold">2</td>
@@ -208,7 +208,7 @@ var languageP = "${language}";
 								<td id="premium-2">0</td>
 								<td class="hidden-sm hidden-xs" id="account-value-2">0</td>
 								<td id="surrender-2">0</td>
-										<td class="hidden-sm hidden-xs" id="death-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">111,385 / 217,466</span></td>
+								<td class="hidden-sm hidden-xs" id="death-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">111,385 / 217,466</span></td>
 							</tr>
 							<tr class="pinkish-shade">
 								<td class="policy-credit policy-number bold">3</td>
@@ -216,7 +216,7 @@ var languageP = "${language}";
 								<td id="premium-3">0</td>
 								<td class="hidden-sm hidden-xs" id="account-value-3">0</td>
 								<td id="surrender-3">0</td>
-										<td class="hidden-sm hidden-xs" id="death-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
+								<td class="hidden-sm hidden-xs" id="death-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -270,7 +270,6 @@ var languageP = "${language}";
 									<td id="surrender-change-0-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								
 							</tbody>
 						</table>
 					</div>
@@ -312,7 +311,6 @@ var languageP = "${language}";
 									<td id="surrender-change-2-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								
 							</tbody>
 						</table>
 					</div>
@@ -354,7 +352,6 @@ var languageP = "${language}";
 									<td id="surrender-change-3-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								
 							</tbody>
 						</table>
 					</div>
@@ -396,14 +393,13 @@ var languageP = "${language}";
 									<td id="surrender-change-4-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 			<div class="after-3-years-btn">
-				<button type="button" class="white-btn up" id="first-3-years-btn" onclick="toggleImg()"><span id="after-3">After 3 years </span><span id="first-3" class="hidden">First 3 years </span><img id="arrow-img-years" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down2.png" /></button>
+				<button type="button" class="white-btn up" id="first-3-years-btn" onclick="toggleImg()"><span id="after-3"><fmt:message key="label.savie.after3year" bundle="${msg}" /></span><span id="first-3" class="hidden"><fmt:message key="label.savie.first3year" bundle="${msg}" /></span> <img id="arrow-img-years" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down2.png" /></button>
 			</div>
 		</div>
 	</div>
@@ -418,25 +414,24 @@ var languageP = "${language}";
 	<div id="plan-details-sample-and-faq">
 		<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
 		   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
-				<li class="pd-sf-tab text-center" role="presentation">
-					<a href="#sale-illustration-sample" class="bold" aria-controls="sale-illustration-sample" role="tab" data-toggle="tab"><fmt:message key="product.details.savie.group1" bundle="${msg}" /></a>
+				<li class="pd-sf-tab text-center active" role="presentation">
+					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="product.details.savie.group1" bundle="${msg}" /></a>
 				</li>
-				<li class="pd-sf-tab pd-sf-tab-right text-center active" role="presentation">
-					<a href="#faq-and-glossary" class="bold" aria-controls="faq-and-glossary" role="tab" data-toggle="tab"><fmt:message key="product.details.savie.group2" bundle="${msg}" /></a>
+				<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
+					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="product.details.savie.group2" bundle="${msg}" /></a>
 				</li>
 		   </ul>
 		</div>
 		<div class="pd-sf-divider"></div>
 		<div id="pd-sf-tab-content-container" class="container-fluid content-container-fluid">
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane" id="pd-sf-sale-illustration-sample"></div>
-				<div role="tabpanel" class="tab-pane active" id="pd-sf-faq-and-glossary-pane">
-					<div class="panel-group" id="pd-sf-faq-and-glossary-group" role="tablist" aria-multiselectable="true">
-						<div class="panel panel-default pd-sf-faq-and-glossary-panel">
+				<div role="tabpanel" class="tab-pane active" id="pd-sf-sale-illustration-sample-pane">
+					<div class="panel-group" id="pd-sf-sale-illustration-sample-group" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
-								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									<fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" />
+								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									<fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -444,16 +439,14 @@ var languageP = "${language}";
 							  </h4>
 						   </div>
 						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
-							  <div class="panel-body">
-								 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							  </div>
+							  <div class="panel-body"><fmt:message key="product.details.savie.group1.section1.copy" bundle="${msg}" /></div>
 						   </div>
 						</div>
-						<div class="panel panel-default pd-sf-faq-and-glossary-panel">
+						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
 						   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									<fmt:message key="product.details.savie.group2.section2.title" bundle="${msg}" />
+									<fmt:message key="product.details.savie.group1.section2.title" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -461,43 +454,26 @@ var languageP = "${language}";
 							  </h4>
 						   </div>
 						   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
-							  <div class="panel-body">
-								 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							  </div>
+							  <div class="panel-body"><fmt:message key="product.details.savie.group1.section2.copy" bundle="${msg}" /></div>
 						   </div>
 						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="pd-sf-faq-and-glossary-pane">
+					<div class="panel-group" id="pd-sf-faq-and-glossary-group" role="tablist" aria-multiselectable="true">
 						<div class="panel panel-default pd-sf-faq-and-glossary-panel">
-						   <div class="panel-heading" role="tab" id="pd-sf-withdrawal">
+						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<fmt:message key="product.details.savie.group2.section3.title" bundle="${msg}" />
+									<fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
 								 </a>
 							  </h4>
 						   </div>
-						   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-withdrawal">
-							  <div class="panel-body">
-								 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							  </div>
-						   </div>
-						</div>
-						<div class="panel panel-default pd-sf-faq-and-glossary-panel">
-						   <div class="panel-heading" role="tab" id="pd-sf-glossary">
-							  <h4 class="panel-title">
-								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									<fmt:message key="product.details.savie.group2.section4.title" bundle="${msg}" />
-									<span class="pull-right">
-									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
-									</span>
-								 </a>
-							  </h4>
-						   </div>
-						   <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-glossary">
-							  <div class="panel-body">
-								 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-							  </div>
+						   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+							  <div class="panel-body"><fmt:message key="product.details.savie.group2.section1.copy" bundle="${msg}" /></div>
 						   </div>
 						</div>
 					</div>
@@ -508,7 +484,7 @@ var languageP = "${language}";
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
 			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
-			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">Apply at Customer Service Centre</a>
+			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->
 		<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
