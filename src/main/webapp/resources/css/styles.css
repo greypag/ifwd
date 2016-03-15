@@ -10644,7 +10644,8 @@ span.dup-error-msg {
     padding-right: 5px;
 }
 /* line 672, ../sass/partials/_personal_info.scss */
-.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text
+.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text,
+.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox label.checkbox-text
 	{
 	color: #061d2a;
 	font-family: 'Calibri';
@@ -25416,25 +25417,19 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	font-size: 18px;
 }
 /* line 185, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid .summary-content .summary-body .info-holder .info-label,
-	#application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label,
-	#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label
+#application-summary .container-fluid .summary-content .summary-body .info-label
 	{
 	margin-bottom: 8px;
 	color: #000;
 	font-size: 18px;
 }
 /* line 190, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid .summary-content .summary-body .info-holder .employment,
-	#application-summary .container-fluid .summary-content .summary-body .info-holder-below .employment,
-	#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .employment
+#application-summary .container-fluid .summary-content .summary-body .employment
 	{
 	margin-bottom: 12px;
 }
 /* line 193, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid .summary-content .summary-body .info-holder .info-label,
-	#application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label,
-	#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label
+#application-summary .container-fluid .summary-content .summary-body .info-label
 	{
 	margin-top: 0;
 	width: 50%;
@@ -25443,33 +25438,19 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 
 @media ( min-width : 992px) {
 	/* line 193, ../sass/partials/_et-application-summary.scss */
-	#application-summary .container-fluid .summary-content .summary-body .info-holder .info-label,
-		#application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label,
-		#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label
+	#application-summary .container-fluid .summary-content .summary-body .info-label
 		{
 		width: 25%;
 	}
 }
-/* line 201, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid .summary-content .summary-body .info-holder .info,
-	#application-summary .container-fluid .summary-content .summary-body .info-holder-below .info,
-	#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info
-	{
-	line-height: 21px;
-	color: #000;
-	width: 50%;
-	float: left;
+#eliteTermsInsuredInfoForm .checkbox-text,
+#beneficiary-info .upper-radio-buttons .description,
+label.et-bene-radio,#et-application-second-section label,
+#paymentForm p.notice,.et-document-upload label{
+	cursor: pointer;
 }
-
-@media ( min-width : 992px) {
-	/* line 201, ../sass/partials/_et-application-summary.scss */
-	#application-summary .container-fluid .summary-content .summary-body .info-holder .info,
-		#application-summary .container-fluid .summary-content .summary-body .info-holder-below .info,
-		#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info
-		{
-		width: 63%;
-		margin-left: 12%;
-	}
+.beneficiary-info-row label.description{
+	vertical-align: top;
 }
 /* line 213, ../sass/partials/_et-application-summary.scss */
 #application-summary .container-fluid .summary-content .summary-body .info-holder-below
@@ -25677,3 +25658,11 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	transition: background 0.1s ease-in;
 }
 
+
+.fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .radio-buttons label.et-bene-radio{
+    position: inherit;
+    color: #061d2a;
+    margin-top: -2px;
+    padding-top: 0;
+    border: 0;	
+}

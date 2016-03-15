@@ -40,7 +40,25 @@ function mouseout2div(obj) {
 	return result;
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_overseas-studycare_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"2000",
+    "highPrice":"8000",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
 <section id="main-slider" class="p_oversea no-margin"> 
   <!--Mobilebanner--> 
   <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
@@ -312,7 +330,7 @@ function mouseout2div(obj) {
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
             <h1><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h1>
-                  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
+                  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
           </div>
         </div>
       </div>
@@ -340,11 +358,11 @@ function mouseout2div(obj) {
   <!--/.container--> 
 </section>
 <!--Desktop Disclaimer--> 
-<section class="hidden-xs hidden-sm">
+<!--<section class="hidden-xs hidden-sm">
     <div class="bottom-disclaimer-wrapper container">
         <p class="h4-6"><fmt:message key="Overseas.Landing.Disclaimer" bundle="${msg}" /></p>
     </div>
-</section>
+</section>-->
 <!--End of Desktop Disclaimer-->     
 <!--/#recent-works-->
 <section id="recent-works-mob" class="hidden-lg hidden-md">
@@ -357,7 +375,7 @@ function mouseout2div(obj) {
               <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
 				  <h2><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h2>
 				  <!-- <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>-->
-				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
+				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -395,11 +413,11 @@ function mouseout2div(obj) {
   </div>
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
-<section class="hidden-lg hidden-md">
+<!--<section class="hidden-lg hidden-md">
     <div class="bottom-disclaimer-wrapper container">
         <p class="h4-6"><fmt:message key="Overseas.Landing.Disclaimer" bundle="${msg}" /></p>
     </div>
-</section>
+</section>-->
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <style>
    @media screen and (max-width: 991px) {

@@ -684,12 +684,6 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
-			// detect IE browsers
-			if (window.clipboardData) {
-				$('.selectDiv .gray-dropdown').addClass('ie-select');
-			} else {
-				$('.selectDiv .gray-dropdown').removeClass('ie-select');
-			}
 			
 			$('#bf-save-and-con-later').on('click', function (e) {
 				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {

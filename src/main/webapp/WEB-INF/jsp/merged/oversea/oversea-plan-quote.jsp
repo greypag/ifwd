@@ -516,7 +516,10 @@ $(document).ready(function() {
 								<div class="oversea-plan-quote-coverage-wrapper<c:if test="${j == 2 || j == 4}"> plan-flow-r-mobile-only</c:if>">
                                     <div class="plan-box-l oversea_productbox_subtitle">
 										<div class="" style="">                           
-											<h2><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" /></h2>
+											<h2><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" />
+											    <!--<c:if test="${ i == 4 }"><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.WorldWideComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(2)" onmouseover="this.style.cursor='pointer';">
+                                                <img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""></a></c:if>-->
+											</h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -640,6 +643,12 @@ $(document).ready(function() {
                             <div class="plan-coverage-box-r">
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit3.Amount" bundle="${msg}" />
+                            </div>                            
                             <div class="sub-link">
 								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
@@ -659,7 +668,12 @@ $(document).ready(function() {
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit2.Amount" bundle="${msg}" />
                             </div>
-
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit3.Amount" bundle="${msg}" />
+                            </div>
                             <div class="sub-link">
                                 <a onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
@@ -702,6 +716,12 @@ $(document).ready(function() {
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit2.Amount" bundle="${msg}" />
                             </div>
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit3.Amount" bundle="${msg}" />
+                            </div>                            
                             <div class="sub-link">
                                 <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
@@ -725,6 +745,12 @@ $(document).ready(function() {
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit3.Amount" bundle="${msg}" />
+                            </div>                            
                             <div class="sub-link">
                                 <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
@@ -816,11 +842,11 @@ $(document).ready(function() {
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>                                                
-                                                  <tr>
+                                                  <!--<tr>
                                                       <td><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="mobile-show planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="mobile-show splanOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>                                                      
-                                                  </tr>												  
+                                                  </tr>-->												  
                                                   </tbody>
                                                </table>
                                         </div>

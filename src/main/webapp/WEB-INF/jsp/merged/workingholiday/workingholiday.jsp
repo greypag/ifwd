@@ -33,10 +33,27 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	return result;
 }
 
-
-
-
 </script>
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_working-holidaycare_en.jpg",
+  "description":"${scriptChildName}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"3500",
+    "highPrice":"4500",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
+
 <section id="main-slider" class="p_workingholiday no-margin"> 
   <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
   <div class="tagline-holder hidden-lg hidden-md">
