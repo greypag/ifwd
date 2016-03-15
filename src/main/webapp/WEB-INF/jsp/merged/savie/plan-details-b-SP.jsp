@@ -520,14 +520,14 @@ var languageP = "${language}";
 			    			<img src="<%=request.getContextPath()%>/resources/images/savie-2016/mb-numbering.png" class="visible-xs visible-sm" />
 			    		</div>
 			    		<div class="col-xs-10 col-md-10" id="steps-holder">
-			    			<h4 class="text-center">Thank you for your interest on this product</h4>
+			    			<h4 class="text-center"><fmt:message key="product.details.savie.step.title" bundle="${msg}" /></h4>
 			    			<div id="step-1" class="step">
 			    				<div class="media">
 			    					<div class="media-left" id="step1-img-holder">
 			    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/book-icon.png" />
 			    					</div>
 			    					<div class="media-body">
-			    						<p class="procedure">According to the Hong Kong Federation of Insurers’ guidelines, insurance companies should carry out Financial Need Analysis(FNA) before selling insurance products. Our professional Customer Service Representatives will provide suitable product options for your comparison after FNA.</p>
+			    						<p class="procedure"><fmt:message key="product.details.savie.step1.copy" bundle="${msg}" /></p>
 			    					</div>
 			    				</div>
 			    			</div>
@@ -537,7 +537,7 @@ var languageP = "${language}";
 			    						  <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/note-icon.png" />
 			    					</div>
 			    					<div class="media-body">
-			    						<p class="procedure">Once FNA and the product comparison confirmed Savie is suitable for you, you may begin the application process immediately at the customer service centre.</p>
+			    						<p class="procedure"><fmt:message key="product.details.savie.step2.copy" bundle="${msg}" /></p>
 			    					</div>
 			    				</div>
 			    			</div>
@@ -549,8 +549,8 @@ var languageP = "${language}";
 					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/pc-icon.png" />
 					    					</div>
 					    					<div class="media-body">
-					    						<p class="procedure"><span class="bold-head">Online procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" />  You may proceed both FNA and application on this platform, you may take your time to fill in the information, we provide a “Save for later” function available at the application section, you may save your application progress and come back to complete later. </p>
-					    						<button class="btn savie-common-btn" id="online-application-btn">Online application</button>
+					    						<p class="procedure"><fmt:message key="product.details.savie.step3.copy" bundle="${msg}" /></p>
+					    						<button class="btn savie-common-btn" id="online-application-btn"><fmt:message key="button.online.application" bundle="${msg}" /></button>
 					    					</div>
 					    				</div>
 			    					</div>
@@ -566,8 +566,8 @@ var languageP = "${language}";
 					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/clockfold-icon.png" />
 					    					</div>
 					    					<div class="media-body">
-					    						<p class="procedure"><span class="bold-head">Offline procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" /> To maintain a high service quality standard, the FNA and application process (if applicable) will take about 30 to 45 minutes. Please choose your preferred timeslot and customer service centre for the appointment. </p>
-					    						<button class="btn savie-common-btn" id="offline-application-btn">Offline application</button>
+					    						<p class="procedure"><fmt:message key="product.details.savie.step4.copy" bundle="${msg}" /></p>
+					    						<button class="btn savie-common-btn" id="offline-application-btn"><fmt:message key="button.offline.application" bundle="${msg}" /></button>
 					    					</div>
 					    				</div>
 			    					</div>
@@ -582,9 +582,9 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back to Savie!</h4>
-		     	<p class="text-center description-msg">Unfortunately, each member can buy one online application only, please make an appointment to our Customer Services center.</p>
-		     	<center><button class="btn savie-common-btn" id="make-appointment-btn">Make an appointment</button></center>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /></h4>
+		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
+		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.appointment" bundle="${msg}" /></button></center>
 		    </div>
 		  </div>
 		</div>
@@ -592,9 +592,9 @@ var languageP = "${language}";
 			<div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullName">${userDetails.fullName }</span></h4>
-			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
-			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
+			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
+			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
+			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
 			    </div>
 			 </div>
 		</div>
@@ -602,9 +602,9 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullNames">${userDetails.fullName }</span></h4>
-		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
-		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.welcome.back" bundle="${msg}" /> <span id="fullNames">${userDetails.fullName }</span></h4>
+		     	<p class="text-center description-msg"><fmt:message key="label.resume.or.start.over" bundle="${msg}" /></p>
+		     	<center><button class="btn savie-common-btn" id="resume-btn"><fmt:message key="button.resume" bundle="${msg}" /></button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn"><fmt:message key="button.start.over" bundle="${msg}" /></button></center>
 		    </div>
 		  </div>
 		</div>
