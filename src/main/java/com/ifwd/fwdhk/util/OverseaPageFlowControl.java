@@ -44,7 +44,33 @@ public class OverseaPageFlowControl {
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.overseas.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.overseas.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.overseas.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.overseas.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.overseas",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
+		
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		String to = "";

@@ -88,7 +88,7 @@ var languageP = "${language}";
 	            </div>
 	        </div>
 	        <div class="container-fluid fwd-full-container headerStick" id="unemployed-page-body">
-	        	<div id="ie-select-emp" class="fwd-container-limit clearfix sidebar">
+	        	<div class="fwd-container-limit clearfix sidebar">
 	  				<div id="unemployed-content">
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
@@ -473,12 +473,6 @@ var languageP = "${language}";
 				$('option').click(function() {
 					$('select').blur();
 				});
-				// detect IE browsers
-				if (window.clipboardData) {
-					$('.selectDiv .gray-dropdown').addClass('ie-select');
-				} else {
-					$('.selectDiv .gray-dropdown').removeClass('ie-select');
-				}
 				
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({

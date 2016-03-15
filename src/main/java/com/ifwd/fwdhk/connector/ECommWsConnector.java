@@ -78,28 +78,6 @@ public class ECommWsConnector {
 		}
 	}
 	public SaviePlanDetailsResponse saviePlanDetails(String planCode, int issueAge, int paymentTerm, String premium,
-			String referralCode, Locale locale){
-		StringBuffer url = new StringBuffer();
-		url.append(UserRestURIConstants.SAVIE_PLAN_DETAIL);
-		url.append("?planCode=");
-		url.append(planCode);
-		url.append("&issueAge=");
-		url.append(issueAge);
-		url.append("&paymentTerm=");
-		url.append(paymentTerm);
-		url.append("&premium=");
-		url.append(premium);
-		url.append("&referralCode=");
-		url.append(referralCode);
-		
-		Map<String,String> header = Maps.newHashMap();
-		if(locale != null){			
-			header.put("language", locale.getLanguage());
-		}
-		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
-	}
-	
-	public SaviePlanDetailsResponse saviePlanDetails(String planCode, int issueAge, int paymentTerm, String premium,
 			String referralCode, String paymentMode, Locale locale){
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.SAVIE_PLAN_DETAIL);
@@ -122,6 +100,8 @@ public class ECommWsConnector {
 		}
 		return consumeECommWs(url.toString(), HttpMethod.GET, null, SaviePlanDetailsResponse.class, header);
 	}
+	
+	
 	
 	public SalesIllustrationResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,SalesIllustrationResponse.class,header);

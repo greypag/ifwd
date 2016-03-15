@@ -20,6 +20,8 @@
 	href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/styles-et.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/styles2.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
@@ -877,7 +879,7 @@ var home_url = "<%=request.getContextPath()%>";
 											for="et-medi-question-4"></label>
 									</div>
 									<div class="pull-left right-checkbox">
-										<span class="checkbox-text"><fmt:message
+										<span class="checkbox-text" id="et-medi-question-4-text"><fmt:message
 												key="eliteTerms.selectPlan.acknowledgement.copy"
 												bundle="${msg}" /></span>
 									</div>
@@ -1257,9 +1259,9 @@ var home_url = "<%=request.getContextPath()%>";
 															for="savieApplicantBean.isResidential"></label>
 													</div>
 													<div class="pull-left right-checkbox">
-														<span class="checkbox-text"><fmt:message
+														<label for="savieApplicantBean.isResidential" class="checkbox-text"><fmt:message
 																key="eliteTerms.selectPlan.My.residential.address"
-																bundle="${msg}" /></span>
+																bundle="${msg}" /></label>
 													</div>
 												</div>
 											</div>
@@ -1349,9 +1351,9 @@ var home_url = "<%=request.getContextPath()%>";
 															for="savieApplicantBean.addressIsSame"></label>
 													</div>
 													<div class="pull-left right-checkbox">
-														<span class="checkbox-text"><fmt:message
+														<label for="savieApplicantBean.addressIsSame" class="checkbox-text"><fmt:message
 																key="eliteTerms.selectPlan.My.correspondence.address"
-																bundle="${msg}" /></span>
+																bundle="${msg}" /></label>
 													</div>
 												</div>
 											</div>
@@ -2026,9 +2028,9 @@ var home_url = "<%=request.getContextPath()%>";
 													class="own-estate-text"> <span class="text"><fmt:message
 																key="eliteTerms.selectPlan.Own.Estate" bundle="${msg}" /></span>
 												</span>
-												</label> <span class="description"> <fmt:message
+												</label> <label for="own-estate-now" class="description"> <fmt:message
 														key="eliteTerms.selectPlan.Own.Estate" bundle="${msg}" />
-												</span>
+												</label>
 											</div>
 											<div class="left-desktop">
 												<label class="name-others-radio" for="name-others-now">
@@ -2037,9 +2039,9 @@ var home_url = "<%=request.getContextPath()%>";
 													<span class="name-others-text"> <span class="text"><fmt:message
 																key="eliteTerms.selectPlan.Name.Others" bundle="${msg}" /></span>
 												</span>
-												</label> <span class="description"> <fmt:message
+												</label> <label for="name-others-now" class="description"> <fmt:message
 														key="eliteTerms.selectPlan.Name.Others" bundle="${msg}" />
-												</span>
+												</label>
 											</div>
 										</div>
 									</div>
@@ -2141,17 +2143,17 @@ var home_url = "<%=request.getContextPath()%>";
 													class="male-0"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
-												</label> <span id="male-label-0"
-													class="pull-left second-label hidden-xs hidden-sm"><fmt:message
-														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <input
+												</label> <label for="male-0" id="male-label-0"
+													class="et-bene-radio pull-left second-label hidden-xs hidden-sm"><fmt:message
+														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></label> <input
 													type="radio" name="savieBeneficiaryBean[0].gender"
 													value="F" id="female-0"> <label for="female-0"
 													class="female"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
-												</label> <span id="female-label-0"
-													class="pull-left second-label-female hidden-xs hidden-sm"><fmt:message
-														key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
+												</label> <label for="female-0" id="female-label-0"
+													class="et-bene-radio pull-left second-label-female hidden-xs hidden-sm"><fmt:message
+														key="eliteTerms.selectPlan.Female" bundle="${msg}" /></label>
 											</div>
 										</div>
 										<div
@@ -2267,7 +2269,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 							<label for="pics-check"></label>
 						</div>
-						<div class="pull-left pics-desc">
+						<div class="pull-left pics-desc checkbox-description">
 							<fmt:message key="eliteTerms.selectPlan.PICS.part1"
 								bundle="${msg}" />
 							<a href="<fmt:message key="PICS.life.link" bundle="${msg}" />"
@@ -2296,7 +2298,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="no-policy-replace-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" />
+									<label for="no-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></label>
 								</div>
 							</div>
 						</div>
@@ -2308,7 +2310,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="yes-policy-replace-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.have" bundle="${msg}" />
+									<label for="yes-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.have" bundle="${msg}" /></label>
 									<span class="note"><fmt:message
 											key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
 								</div>
@@ -2331,7 +2333,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="no-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" />
+									<label for="no-policy-replace-existing-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
 								</div>
 							</div>
 						</div>
@@ -2343,7 +2345,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="yes-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+									<label for="yes-policy-replace-existing-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
 									<span class="note"><fmt:message
 											key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
 								</div>
@@ -2411,7 +2413,7 @@ var home_url = "<%=request.getContextPath()%>";
 								id="cancellation-check" name="isCancel" /> <label
 								for="cancellation-check"></label>
 						</div>
-						<div class="pull-left cancellation-desc">
+						<div class="pull-left cancellation-desc checkbox-description">
 							<fmt:message key="eliteTerms.selectPlan.I.understand.that"
 								bundle="${msg}" />
 						</div>
@@ -2435,7 +2437,7 @@ var home_url = "<%=request.getContextPath()%>";
 										name="isResident" /> <label for="is-resident-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" />
+									<label for="is-resident-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
 								</div>
 							</div>
 						</div>
@@ -2446,7 +2448,7 @@ var home_url = "<%=request.getContextPath()%>";
 										name="nonResident" /> <label for="non-resident-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
-									<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+									<label for="non-resident-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
 									<span class="note"><fmt:message
 											key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
 								</div>
@@ -2469,7 +2471,7 @@ var home_url = "<%=request.getContextPath()%>";
 								id="application-declaration" name="isCancel" /> <label
 								for="application-declaration"></label>
 						</div>
-						<div class="pull-left cancellation-desc">
+						<div class="pull-left cancellation-desc checkbox-description">
 							<h5 class="declare-agree">
 								<fmt:message key="eliteTerms.selectPlan.I.hereby.DECLARE"
 									bundle="${msg}" />
@@ -2477,70 +2479,70 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 					<span id="chk3" class="text-red"></span> <br />
-
-					<div class="clearfix declaration application-declaration">
-						<div class="pull-left cancellation-check"></div>
-						<div class="pull-left cancellation-desc">
-							<div class="clearfix">
-								<div class="pull-left span">
-									<span class="order">i</span>
+                    <label for="application-declaration">
+						<div class="clearfix declaration application-declaration">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">i</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.selectPlan.The.answers.to.all"
+											bundle="${msg}" />
+									</div>
 								</div>
-								<div class="pull-left text">
-									<fmt:message key="eliteTerms.selectPlan.The.answers.to.all"
-										bundle="${msg}" />
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="clearfix declaration application-declaration">
-						<div class="pull-left cancellation-check"></div>
-						<div class="pull-left cancellation-desc">
-							<div class="clearfix">
-								<div class="pull-left span">
-									<span class="order">ii</span>
-								</div>
-								<div class="pull-left text">
-									<fmt:message key="eliteTerms.selectPlan.I.have.the.duty"
-										bundle="${msg}" />
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="clearfix declaration application-declaration">
-						<div class="pull-left cancellation-check">
-							<!--<input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
-                           <label for="cancellation-check"></label>-->
-						</div>
-						<div class="pull-left cancellation-desc">
-							<div class="clearfix">
-								<div class="pull-left span">
-									<span class="order">iii</span>
-								</div>
-								<div class="pull-left text">
-									<fmt:message key="eliteTerms.selectPlan.Any.payment.made"
-										bundle="${msg}" />
-								</div>
+	
 							</div>
 						</div>
-					</div>
-					<div class="clearfix declaration application-declaration">
-						<div class="pull-left cancellation-check"></div>
-						<div class="pull-left cancellation-desc">
-							<div class="clearfix">
-								<div class="pull-left span">
-									<span class="order">iv</span>
+						<div class="clearfix declaration application-declaration">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">ii</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.selectPlan.I.have.the.duty"
+											bundle="${msg}" />
+									</div>
 								</div>
-								<div class="pull-left text">
-									<fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare"
-										bundle="${msg}" />
+	
+							</div>
+						</div>
+						<div class="clearfix declaration application-declaration">
+							<div class="pull-left cancellation-check">
+								<!--<input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
+	                           <label for="cancellation-check"></label>-->
+							</div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">iii</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.selectPlan.Any.payment.made"
+											bundle="${msg}" />
+									</div>
 								</div>
 							</div>
-
 						</div>
-					</div>
-
+						<div class="clearfix declaration application-declaration">
+							<div class="pull-left cancellation-check"></div>
+							<div class="pull-left cancellation-desc">
+								<div class="clearfix">
+									<div class="pull-left span">
+										<span class="order">iv</span>
+									</div>
+									<div class="pull-left text">
+										<fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare"
+											bundle="${msg}" />
+									</div>
+								</div>
+	
+							</div>
+						</div>
+                    </label>
 					<div class="page-divider"></div>
 
 					<h5>
@@ -2554,7 +2556,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<input type="checkbox" value="true" id="marketing-info-check"
 									name="isMarketingInfo" /> <label for="marketing-info-check"></label>
 							</div>
-							<div class="pull-left marketing-info-desk">
+							<div class="pull-left marketing-info-desk checkbox-description">
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send"
 									bundle="${msg}" />
 							</div>
@@ -2565,7 +2567,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<input type="checkbox" value="true" id="personal-data-check"
 									name="isPersonalData" /> <label for="personal-data-check"></label>
 							</div>
-							<div class="pull-left personal-data-desc">
+							<div class="pull-left personal-data-desc checkbox-description">
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
@@ -3820,6 +3822,26 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
+
+	$('#et-medi-question-4-text').on('click', function(e) {
+		if($('#et-medi-question-4').prop('checked')==false) {
+			$('#et-medi-question-4').prop('checked', true);
+			$('#et-medical-dec-next').prop('disabled', false);
+		}
+		else {
+			$('#et-medi-question-4').prop('checked', false);
+			$('#et-medical-dec-next').prop('disabled', true);
+		}
+	});
+	
+	$('.checkbox-description').on('click', function(e) {
+		if($(this).parent().find(':checkbox').prop('checked')==false) {
+			$(this).parent().find(':checkbox').prop('checked',true);
+		}
+		else {
+			$(this).parent().find(':checkbox').prop('checked',false);
+		}
+	});
 		
 	$('#et-btn-before-start').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');

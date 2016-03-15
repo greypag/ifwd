@@ -4280,7 +4280,21 @@ span.explanation {
 
 @media (max-width: 768px){
   .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 320px;
+  }
+
+  .chin .fwd-savie-wrapper #thankYouModal .modal-dialog {
       max-width: 444px;
+  }
+}
+
+@media (max-height: 500px){ /* Iphone5s */
+  .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 250px;
+  }
+
+  .chin .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 300px;
   }
 }
 
@@ -11802,6 +11816,11 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
     line-height: 55px;
     font-size: 66px;
   }
+  
+  body.chin .fwd-savie-wrapper .teaser ul.crediting-rate-list li .percent {
+    font-size: 45px;
+    line-height: 45px;
+  }
 }
 .fwd-savie-wrapper .teaser ul.crediting-rate-list li .gold {
   color: #f28000;
@@ -11813,6 +11832,15 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser ul.crediting-rate-list li .year {
     font-size: 18px;
+  }
+  
+  body.chin .fwd-savie-wrapper .teaser ul.crediting-rate-list li .year {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .fwd-savie-wrapper .teaser ul.crediting-rate-list li .year {
+    font-size: 16px;
   }
 }
 .fwd-savie-wrapper .teaser ul.crediting-rate-list li .white {
@@ -11920,14 +11948,25 @@ body.chin .fwd-savie-wrapper p.additional.top {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.additional.top {
-    padding: 20px 0 0 0;
+    padding: 80px 0 0 0;
     width: 46%;
     font-size: 27px;
     line-height: 40px;
   }
   body.chin .fwd-savie-wrapper p.additional.top {
-          font-size: 25px;
+     font-size: 25px;
   }
+  
+  body.chin .fwd-savie-wrapper p.enjoy-guaranteed {
+  	padding-top: 35px;
+  	max-width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+	.fwd-savie-wrapper p.additional.top {
+		padding-top: 120px;
+	}
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .op-div p.additional.top {
@@ -14280,12 +14319,14 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 @media (min-width: 992px) {
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
     font-size: 36px;
+    line-height: 36px;
     margin-bottom: 21px;
   }
 }
 
 .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-button {
   font-size: 24px;
+  padding-top:5px;
   background: none;
   border: none;
   color: #f28000;
@@ -14305,7 +14346,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 	
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-holder {
-    display: inline;
+    display: inline-block;
   }
 }
 
@@ -14330,6 +14371,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 		display: inline-block;
 		margin-top: 30px;
 		font-size: 36px;
+    line-height: 36px;
 	}
 }
 
@@ -14769,6 +14811,10 @@ body.chin button#thank-you-continue {
     text-align: left;
     margin-top: 20px;
   }
+  
+  body.chin .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1, .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+		margin-left: 0;
+	}
 }
 @media (min-width: 1200px) {
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
@@ -14823,6 +14869,10 @@ body.chin button#thank-you-continue {
   .fwd-savie-wrapper .o2o-landing p.additional.top {
     width: 100%;
     text-align: center;
+  }
+  
+  body.chin .fwd-savie-wrapper .o2o-landing p.additional.top.enjoy-guaranteed {
+  	text-align: left;
   }
 }
 @media (min-width: 992px) {
@@ -14892,12 +14942,26 @@ body.chin button#thank-you-continue {
     margin: 0 auto;
     padding-right: 25%;
     float: left;
-    padding-top: 50px;
+    padding-top: 150px;
   }
+  
+  body.chin .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
+  	padding-top: 80px;
+  }
+}
+@media (min-width: 1200px) {
+	.fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
+		padding-top: 150px;
+	}
 }
 @media (min-width: 1400px) {
   .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
-  	padding-top: 25px;
+  	padding-top: 80px;
+  }
+  
+  body.chin .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
+  	padding-top: 35px;
+  }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .teaser-banner-text {
@@ -14966,24 +15030,24 @@ body.chin button#thank-you-continue {
         max-width: 300px;
     }
     .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
-    	padding-top: 50px;
+    	padding-top: 150px;
     }
+    
+    body.chin .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
+    	padding-top: 80px;
+    }
+    
+    .fwd-savie-wrapper .o2o-landing.saving-plans {
+	  position: relative;
+	}
 }
 @media (min-width: 1400px) {
   .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
-    	padding-top: 20px;
+    	padding-top: 80px;
     }
- }
-.fwd-savie-wrapper .o2o-landing.saving-plans {
-  position: relative;
-}
-.fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
-    	padding-top: 50px;
-    }
- }
-@media (min-width: 1400px) {
-  .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
-    	padding-top: 20px;
+    
+   body.chin .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
+    	padding-top: 35px;
     }
  }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
@@ -16831,6 +16895,14 @@ a:focus {
 .fwd-btn-download-item img {
   margin-right: 5px;
 }
+.cs-hotline-mob,.cs-hotline-mob:hover{
+    color: #f5f5f5;
+} 
+body.chin #header .dot-font{
+    font-family: Calibri !important;
+} 
+
+
 
 
 /******** session pop up for scss later ********/
