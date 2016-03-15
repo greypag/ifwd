@@ -444,11 +444,9 @@
 				$("#so-carousel").swipe( {
 			        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 			          if(direction == 'right') {
-			        	  $(this).carousel('prev');
-			        	  console.log('Previous');
+			        	  $(this).carousel('prev');			        	
 			          } else if(direction == 'left') {
-			        	  $(this).carousel('next'); 
-			        	  console.log('Next');
+			        	  $(this).carousel('next'); 			        	  
 			          }
 			        },
 			        threshold:0,

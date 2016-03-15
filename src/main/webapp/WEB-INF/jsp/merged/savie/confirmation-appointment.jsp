@@ -130,33 +130,13 @@ var language = "${language}";
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
-							<div class="requirement-text-wrapper"><p>Proof of address</p></div>
+							<div class="requirement-text-wrapper"><p>A valid proof of address within the last 3 months. Click <a href="#">here</a> for details.</p></div>
 						</div>
-						<hr>
-						<div class="requirements-panel">
-							<p class="requirements-panel-title">Please bring the following for your appointment at our service centre:</p>
-
-							<div class="row requirements-list">
-								<div class="col-xs-12 cstm-md-col-1">
-									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png" /></div>
-									<div class="requirement-text-wrapper">
-										<p>Your HKID card and passport<br>
-										<span class="small">(for non-permanent resident only)</span></p>
-									</div>
-								</div>
-								<hr class="visible-xs visible-sm">
-								<div class="col-xs-12 cstm-md-col-2">
-									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
-									<div class="requirement-text-wrapper"><p>A valid proof of address within the last 3 months. Click <a href="#">here</a> for details.</p></div>
-								</div>
-								<hr class="visible-xs visible-sm">
-								<div class="col-xs-12 cstm-md-col-3">
-									<div class="requirment-img-wrapper">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
-										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
-									</div>
-									<div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>
-								</div>
+						<hr class="visible-xs visible-sm">
+						<div class="col-xs-12 cstm-md-col-3">
+							<div class="requirment-img-wrapper">
+								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
+								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
 							</div>
 							<div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>
 						</div>
