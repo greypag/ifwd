@@ -612,7 +612,7 @@
             <div class="text-center clearfix">
                <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
                 <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
-               <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
+               <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span></a>
             </div>
          </div>
 			<!-- FOOTER -->
