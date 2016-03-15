@@ -4280,7 +4280,21 @@ span.explanation {
 
 @media (max-width: 768px){
   .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 320px;
+  }
+
+  .chin .fwd-savie-wrapper #thankYouModal .modal-dialog {
       max-width: 444px;
+  }
+}
+
+@media (max-height: 500px){ /* Iphone5s */
+  .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 250px;
+  }
+
+  .chin .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 300px;
   }
 }
 

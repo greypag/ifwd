@@ -1067,6 +1067,23 @@ body {
 .savie-regular-landing .page-banner .img-banner-text.savie-landing {
   bottom: 14px;
 }
+
+.chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+  bottom: 25px;
+}
+
+@media (min-width: 620px) {
+  .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+    bottom: 30px;
+  }
+}
+
+@media (min-width: 750px) {
+  .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+    bottom: 40px;
+  }
+}
+
 @media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text.savie-landing {
@@ -1175,7 +1192,7 @@ body {
   /* line 80, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text .savie-product {
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 0;
     margin-right: 47px;
   }
 }
@@ -1480,6 +1497,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 .savie-regular-landing .payment-mode .payment-options button:hover, .savie-regular-landing .payment-mode .payment-options button.active {
   color: #fff;
   background: #ff8200;
+  text-decoration: underline;
 }
 /* line 284, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode .payment-options .left, .savie-regular-landing .payment-mode .payment-options .right {
@@ -2005,8 +2023,13 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   border: 1px solid #ffffff;
   padding: 0;
   border-left: none;
+  height: 90px;
+}
+
+.chin .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
   height: 68px;
 }
+
 @media screen and (min-width: 635px) {
   /* line 645, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
@@ -5418,4 +5441,10 @@ body.chin .ch-banner-img {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 310px; }
   .chin .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 277px; }
+}
+
+#thankyouPopup .savie-overlay-btn:hover,.savie-overlay-btn:focus{
+  background-color: #fff;
+  color: #fdb714;
+  border: 1px #fdb714  solid;
 }

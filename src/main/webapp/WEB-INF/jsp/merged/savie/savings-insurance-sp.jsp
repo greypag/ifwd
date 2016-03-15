@@ -77,12 +77,12 @@ var home_url = "<%=request.getContextPath()%>";
               		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
               		<div class="fwd-container-limit">
               		
-              		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post">
+              		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
       	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
-      	        			<div id="clearfix-height-rp">
+      	        			<!-- div id="clearfix-height-rp">
       	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-      	        			</div>	        			
+      	        			</div>	 -->        			
               			<div class="savie-product">
       						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
       					</div>
@@ -417,7 +417,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></a>
+							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></a>
 						</li>
 					</ul>
 					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
@@ -446,7 +446,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
 									</div>
 									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
-									<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
+									<p><fmt:message key="pillar.claim.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claim.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy1.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
@@ -454,8 +454,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
-									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
-									<p><fmt:message key="pillar.eservice.app..copy1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></h3>
+									<p><fmt:message key="pillar.eservice.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eservice.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy1.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>
@@ -826,7 +826,15 @@ var home_url = "<%=request.getContextPath()%>";
 					});
 
 				}
-
+				$(window).load(function(){
+			        //Display thankyou popup
+					//$('#thankyouPopup').modal('show');
+					$('#thankyouPopup').modal({
+						backdrop: 'static',
+						keyboard: false
+					});
+			    });
+				
 				$('#btn-blog-link').click(function(){
 					window.location.href='<fmt:message key="link.blog" bundle="${msg}" />';
 				});
@@ -845,4 +853,17 @@ var home_url = "<%=request.getContextPath()%>";
       </div>
     </div>
   </div>
+</div>
+<!--Thank you popup-->
+<div class="savie-overlay-modal modal fade" role="dialog" aria-labelledby="thankyouPopup" id="thankyouPopup">
+	<div class="savie-overlay-container container-fluid modal-dialog" role="document">
+		<div class="modal-content savie-overlay-content">
+			<img class= "en-banner-img hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_desktop_en.jpg"/>
+			<img class= "ch-banner-img hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_desktop_cn.jpg"/>
+			<img class= "en-banner-img img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_mobile_en.jpg"/>
+			<img class= "ch-banner-img img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_mobile_cn.jpg"/>
+			<a type="submit" class="en-banner-img btn savie-overlay-btn" id="savie-overlay-button" href="https://i.fwd.com.hk/en/savings-insurance/regular-premium?utm_campaign=sp_soldout&utm_source=savie_sp&utm_medium=ifwd"><fmt:message key="label.learn.more.offer" bundle="${msg}" /></a>
+			<a type="submit" class="ch-banner-img btn savie-overlay-btn" id="savie-overlay-button" href="https://i.fwd.com.hk/tc/savings-insurance/regular-premium?utm_campaign=sp_soldout&utm_source=savie_sp&utm_medium=ifwd"><fmt:message key="label.learn.more.offer" bundle="${msg}" /></a>	
+		</div>
+	</div>
 </div>

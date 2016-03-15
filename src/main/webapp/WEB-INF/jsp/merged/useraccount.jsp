@@ -322,6 +322,9 @@
    title="Tooltip on bottom Aaliquid explicari his id, cu mea dolorem epicurei tractatos. Tooltip on bottom Aaliquid explicari his id "> <img src="<%=request.getContextPath()%>/resources/images/ic.png"> </a> -->
    										</td>
 									</tr>
+                                    <tr>
+                                        <td colspan="2" class=""><p class="member-account-details-footer"><fmt:message key="member.account.details.footer1" bundle="${msg}" /> <a href="<fmt:message key="member.account.details.footer2.link" bundle="${msg}" />"><fmt:message key="member.account.details.footer2" bundle="${msg}" /></a> <fmt:message key="member.account.details.footer3" bundle="${msg}" /></p></td>
+                                    </tr>
 									<!-- <tr>
 										<td valign="middle" class="pad-none"><label
 											for="inputEmail3" class="control-label h4-4-b">Password</label></td>

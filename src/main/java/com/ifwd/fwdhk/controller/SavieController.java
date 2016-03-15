@@ -78,7 +78,7 @@ public class SavieController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-sp", "/{lang}/savings-insurance/plan-details-rp"})
-	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
+	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {
 		HttpSession session = request.getSession();
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
@@ -111,6 +111,8 @@ public class SavieController extends BaseController{
 		} else {
 			httpSession.setAttribute("savieType", "SP");
 			key = "sp";
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/single-premium");
 		}
 		
 		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
@@ -164,6 +166,7 @@ public class SavieController extends BaseController{
 			model.addAttribute("nextPageFlow2", "customer-service-centre");
 			
 			return new ModelAndView("/merged/savie/plan-details");
+			
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
