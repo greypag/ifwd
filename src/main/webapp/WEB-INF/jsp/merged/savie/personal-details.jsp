@@ -726,6 +726,12 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
+			// detect IE browsers
+			if (window.clipboardData) {
+				$('.selectDiv .gray-dropdown').addClass('ie-select');
+			} else {
+				$('.selectDiv .gray-dropdown').removeClass('ie-select');
+			}
 			
 			$("#et-personal-info-next").click(function(){
 				$("#errorMsg").html("");
