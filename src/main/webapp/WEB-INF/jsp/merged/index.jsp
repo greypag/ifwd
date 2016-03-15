@@ -323,15 +323,38 @@
 		</div>
 		<!-- Review FNA modal  -->
 		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullName">${userDetails.fullName }</span></h4>
+			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
+			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
+			    </div>
+			 </div>
+		</div>
+		
+		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
-			<div class="modal-content">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
-				<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
-				<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
-			</div>
+		    <div class="modal-content">
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		     	<h4 class="text-center welcome-msg">Welcome back to Savie!</h4>
+		     	<p class="text-center description-msg">Unfortunately, each member can buy one online application only, please make an appointment to our Customer Services center.</p>
+		     	<center><button class="btn savie-common-btn" id="make-appointment-btn">Make an appointment</button></center>
+		    </div>
 		  </div>
 		</div>
+		
+		<div class="modal fade common-welcome-modal" id="retrieve-application-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullNames">${userDetails.fullName }</span></h4>
+		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
+		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
+		    </div>
+		  </div>
+		</div>
+		
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
 		<script type="text/javascript">
@@ -341,23 +364,82 @@
        
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
-                    //var hasDoneFNA = true;
-                    var hasDoneFNA = false;
-                    $('#offline-online-modal').modal('hide');
-                    if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-                        hasDoneFNA = true;
-                    }else{
-                        $('.modal').modal('hide');
+                	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+            			saviePlanDetailsGoNext();
+            		}else{
+            			$('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
                         $('#loginpopup #fna-check').val("true");
-                        $('#loginpopup .modal-dialog').addClass('loginpopupext');           
-                        $('#loginpopup').modal('show');         
-                    }               
-                    // Review FNA modal will only show if a user has done FNA before
-                    if(hasDoneFNA) {
-                        $('#review-fna-modal').modal('show');
-                    }
+                        $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+            			$('#loginpopup').modal('show');			
+            		}
                 });
+            	
+            	var nextPage;
+            	function saviePlanDetailsGoNext(){
+      				$.ajax({     
+      				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+      				    type:'get', 
+      				    data:{    
+      		    	    	"planCode" : "SAVIE-SP"
+      		       		}, 
+      				    error:function(){       
+      				    },     
+      				    success:function(data){
+      	   		    		$('#loginpopup').modal('hide');
+      				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+      				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+      				    		$('#prev-savie-app-modal').modal('show');
+      				    	}else{
+      				    		$.ajax({     
+      				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+      				    		    type:'get',     
+      				    		    error:function(){       
+      				    		    },     
+      				    		    success:function(data){
+      				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+      				    		    		$('#retrieve-application-modal').modal('show');
+      				    		    		nextPage = data.nextPage;
+      				    		    	}
+      				    		    	else{
+      				    		    		$.ajax({     
+      							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+      							    		    type:'get',     
+      							    		    error:function(){       
+      							    		    },     
+      							    		    success:function(data){
+      							    		    	if(data != null && data.errMsgs == null && data.name !=null){
+      							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+      							    		    		$('#review-fna-modal').modal('show');
+      							    		    	}
+      							    		    	else{
+      							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+      							    		    	}
+      							    		    }  
+      							    		});
+      				    		    	}
+      				    		    }  
+      				    		});
+      				    	}
+      				    }  
+      				});
+          		}
+            	
+            	$("#make-appointment-btn").on('click', function(){
+            		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+            	});
+            	
+            	$("#review-fna-btn").on('click', function(){
+            		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+            	});
+            	
+            	$("#resume-btn").on('click', function(){
+            		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+            	});
+            	
+            	$("#start-over-btn").on('click', function(){
+            		$('#retrieve-application-modal').modal('hide');
+            	});
 								
 				$("#so-carousel").swipe( {
 			        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {

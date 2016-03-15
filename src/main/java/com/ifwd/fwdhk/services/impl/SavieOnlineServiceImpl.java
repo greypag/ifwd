@@ -245,13 +245,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
 				if(policyYear < 5){
 					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
-					attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
-					attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
-					attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+					if(policyYear < 4){
+						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+					}else{
+						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
+						
+					}
 					
-					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP())));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit())));
+					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit())));
 				}
 				
 				if(policyYear%5==0 && policyYear/5<7){
@@ -260,9 +267,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
 					attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 					
-					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP())));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit())));
+					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit())));
 				
 				}
 				
@@ -274,9 +281,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
 						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit())));
 					}
 				}
 				else if(issueAge < 67){
@@ -287,9 +294,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						attributeList.add(new PdfAttribute("SurrenderBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
 						attributeList.add(new PdfAttribute("DeathBenefit_"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("Accountvalue_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit())));
 					}
 					else if(age == 99){
 						attributeList.add(new PdfAttribute("EndofPolicyYear_100","100"));
@@ -298,9 +305,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit())));
 						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit())));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getAccountEOP())));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedSurrenderBenefit())));
-						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails3Rate().get(i).getGuranteedDeathBenefit())));
+						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP())));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit())));
+						attributeList.add(new PdfAttribute("DeathBenefit_a100",NumberFormatUtils.formatNumber(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit())));
 					}
 					
 				}
@@ -356,10 +363,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String bankName = lifePayment.getBankName();
 		String branchName = lifePayment.getBranchName();
 		
-		String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
+		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");
+		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");*/
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -424,8 +431,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
-	    String bankCode = json.get("bankCode")+"";
-	    if(StringUtils.isNotBlank(bankCode) && "null".equals(bankCode)){
+	   // String bankCode = json.get("bankCode")+"";
+	    String bankCode = bankName.substring(bankName.length()-4, bankName.length()-1);
+	    if(StringUtils.isNotBlank(bankCode) && !"null".equals(bankCode)){
 	    	for(int i=0;i<bankCode.length();i++){
 	    		String c = bankCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
@@ -433,8 +441,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    
-	    String branchCode = json.get("branchCode")+"";
-	    if(StringUtils.isNotBlank(branchCode) && "null".equals(branchCode)){
+	    //String branchCode = json.get("branchCode")+"";
+	    String branchCode = branchName.substring(branchName.length()-4, branchName.length()-1);
+	    if(StringUtils.isNotBlank(branchCode) && !"null".equals(branchCode)){
 	    	for(int i=0;i<branchCode.length();i++){
 	    		String c = branchCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
@@ -1321,7 +1330,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", "");
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
-		parameters.put("planCode", "SAVIE");
+		parameters.put("planCode", "SAVIE-SP");
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
@@ -1588,18 +1597,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
 		//sales pdf
 	    this.createSalesIllustrationPdf("2", request);
-	    this.uploadPdf("pdfName", request);
+	    this.uploadPdf("pdfName","salesIllustration", request);
 		
 		//fna pdf
 		this.createFnaFormPdf("2", request, request.getSession());
-		this.uploadPdf("fnaPdfName", request);
+		this.uploadPdf("fnaPdfName","fna", request);
 		
 		//application pdf
 		this.createApplicationFormPdf("2", request, request.getSession());
-		this.uploadPdf("applicationFormPdf", request);
+		this.uploadPdf("applicationFormPdf","applicationForm", request);
 	}
 	
-	public void uploadPdf(String fileName,HttpServletRequest request)throws ECOMMAPIException, IOException{
+	public void uploadPdf(String fileName, String docType, HttpServletRequest request)throws ECOMMAPIException, IOException{
 		byte data[];
 		int i;
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
@@ -1611,7 +1620,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("clientBrowserInfo", clientBrowserInfo);
 		parameters.put("planCode", "SAVIE-SP");
 		parameters.put("fileType", "pdf");
-		parameters.put("documentType", "pdf");
+		parameters.put("documentType", docType);
 		parameters.put("originalFilePath", "");
 		
 		File f = new File(pdfPath);
@@ -1757,7 +1766,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("policyNo", policyNo);
-			parameters.put("planCode", "savie");
+			parameters.put("planCode", "SAVIE-SP");
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			if(fileToUpload==null){
 				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
@@ -1775,6 +1784,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
+			if(fileToUploadProofAddType==null){
+				fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDropType");
+			}
 			parameters.put("fileType", fileToUploadProofAddType);
 			parameters.put("documentType", "proof");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
@@ -1796,6 +1808,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				is.close();  
 				String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 				String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
+				if(passportFileToUploadType==null){
+					passportFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-passport-dragAndDropType");
+				}
 				parameters.put("fileType", passportFileToUploadType);
 				parameters.put("documentType", "passport");
 				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
@@ -1813,6 +1828,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
+			if(hkidFileToUploadType==null){
+				hkidFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-hkid-dragAndDropType");
+			}
 			parameters.put("fileType", hkidFileToUploadType);
 			parameters.put("documentType", "hkid");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
@@ -1872,7 +1890,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", "savie");
+			parameters.put("planCode", "SAVIE-SP");
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
@@ -1957,7 +1975,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
-		String planCode = "savie";
+		String planCode = "SAVIE-SP";
 		String policyNumber = "";
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");

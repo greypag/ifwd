@@ -525,7 +525,7 @@ var languageP = "${language}";
 							<p><fmt:message key="label.change.beneficiary" bundle="${msg}" /></p>
 							<div id="beneficiary-btn">
 								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
-								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.next" bundle="${msg}" /></button>
+								<button type="button" id="back-summary-btn" class="btn beneficiary-btn-back savie-common-btn hidden">Back to application summary</button>
 								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
 									<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
 								</a>
@@ -622,6 +622,9 @@ var languageP = "${language}";
 	
 			
 			var dummy = true;
+			if('${backSummary}' == 'Y'){
+				dummy = false;
+			}
 			// dummy condition for displaying the back / next button
 			if(dummy) {
 				// hide the back button and display the Next button
@@ -666,6 +669,10 @@ var languageP = "${language}";
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 			});
 			
+			$('#back-summary-btn').click(function() {
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+			});
+			
 			soFirstBFormValidation();
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
 			
@@ -677,6 +684,12 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
+			// detect IE browsers
+			if (window.clipboardData) {
+				$('.selectDiv .gray-dropdown').addClass('ie-select');
+			} else {
+				$('.selectDiv .gray-dropdown').removeClass('ie-select');
+			}
 			
 			$('#bf-save-and-con-later').on('click', function (e) {
 				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
@@ -850,20 +863,24 @@ var languageP = "${language}";
 						'beneficaryWeight1':{
 							container: '#beneficiaryEntitlementErMsg\\[0\\]',
 							validators: {
+								notEmpty: {
+									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+								},
 								integer:{
-				                	message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
-				                },
-				                between:{
-				                	min: 0,
-				                	max: 100,
-			                        message: "Beneficiary's entitlement must be between 1 and 100."
-			                    },
+				               //message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+									message: "Beneficiary's entitlement must be between 1 and 100."
+				            },
+			               between:{
+			                	min: 0,
+			                	max: 100,
+		                     message: "Beneficiary's entitlement must be between 1 and 100."
+		                  },
 								callback: {
 									message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
 									callback: function (value, validator, $field) {
 										if(value==''){
 	                        		// display the range error message if it is empty
-	                        		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'between');
+	                        		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'between');
 	                        		return true;
 	                        	} else {
 	                        		if (totalBeneficiaryEntitlement() == "Exceed"){
@@ -885,17 +902,17 @@ var languageP = "${language}";
 				$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
 					if(totalBeneficiaryEntitlement()!="Exceed") {
 						if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-						 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID');
+						 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'VALID');
 						}
 						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID');
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficaryWeight3', 'VALID');
 						}
 					} else {
 						if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
+						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID','callback');
 						}
 						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficaryWeight3', 'INVALID','callback');
 						}
 					}
 				});
@@ -1015,11 +1032,15 @@ var languageP = "${language}";
 								}
 							}
 						},
-						'beneficiaryEntitlement2':{
+						'beneficaryWeight2':{
 						   container: '#beneficiaryEntitlementErMsg\\[1\\]',
 						   validators: {
-								integer:{
+							   notEmpty: {
 									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+								},
+								integer:{
+									//message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+									message: "Beneficiary's entitlement must be between 1 and 100."
 								},
 								between:{
 									min: 0,
@@ -1031,7 +1052,7 @@ var languageP = "${language}";
 									callback: function (value, validator, $field) {
 										if(value=='') {
 											// display the range error message if it is empty
-											$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'between');
+											$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID', 'between');
 											return true;
 										} else {
 											if (totalBeneficiaryEntitlement() == "Exceed") {
@@ -1052,16 +1073,16 @@ var languageP = "${language}";
 				 
 				$( "#beneficiaryEntitlement\\[1\\]" ).on('change', function() {
 					if(totalBeneficiaryEntitlement()!="Exceed") {
-						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'VALID', 'callback');
 						 
 						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID', 'callback');
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'VALID', 'callback');
 						}
 					} else {
-						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID','callback');
 						
 						if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
-							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
+							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID','callback');
 						}
 					}
 				});
@@ -1183,11 +1204,15 @@ var languageP = "${language}";
 									}
 								}
 							},
-							'beneficiaryEntitlement3':{
+							'beneficaryWeight3':{
 								container: '#beneficiaryEntitlementErMsg\\[2\\]',
 								validators: {
-									integer:{
+									notEmpty: {
 										message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+									},
+									integer:{
+										//message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
+										message: "Beneficiary's entitlement must be between 1 and 100."
 									},
 									between:{
 										min: 0,
@@ -1199,7 +1224,7 @@ var languageP = "${language}";
 										callback: function (value, validator, $field) {
 											if(value=='') {
 												// display the range error message if it is empty
-												$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID', 'between');
+												$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficaryWeight3', 'INVALID', 'between');
 												return true;
 											} else {
 												if (totalBeneficiaryEntitlement() == "Exceed") {
@@ -1220,16 +1245,16 @@ var languageP = "${language}";
 					 
 					$( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
 						if(totalBeneficiaryEntitlement()!="Exceed") {
-							 $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
+							 $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'VALID', 'callback');
 							 
 							 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID', 'callback');
+								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'VALID', 'callback');
 							 }
 						} else {
-							$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'callback');
+							$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'callback');
 							
 							 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
-								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'callback');
+								 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID', 'callback');
 							 }
 						}
 					});
