@@ -310,7 +310,7 @@
                 <!-- PLANS -->
                 <div class="plans-holder fwdiscover-container">
                 <!-- Hotel Promotion Start -->
-                	<% if (hotelVoucherCampaignId == 14) { %>
+                	<% if (hotelVoucherCampaignId == 14 || hotelVoucherCampaignId == -2) { %>
                     <!-- Hotel 3-11 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-mobile.png" class="img-responsive hidden-lg hidden-md">

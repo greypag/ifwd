@@ -211,11 +211,13 @@ public class ECommController {
 	    
 	    int hotelVoucherCampaignId = -1;
 	    if (month == 2) {
-	        if (day == 16) {
+	        if (day <= 16) {
+	            hotelVoucherCampaignId = -2;
+	        } else if (day == 16) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 14;
 	        	} else {
-		            hotelVoucherCampaignId = -1;
+		            hotelVoucherCampaignId = -2;
 	        	}
 	        } else if (day == 17) {
 	        	if (hour >= 15) {
@@ -244,9 +246,6 @@ public class ECommController {
 	        }
 	    }
 	    
-	    if (request.getParameter("hid")!=null) {
-	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
-	    }
 	    switch(hotelVoucherCampaignId) {
 		    case 14:
 	            indexs = new int[]{14};
@@ -263,6 +262,7 @@ public class ECommController {
 		    case 18:
 	            indexs = new int[]{18};
 	            break;
+		    case -2:
 		    case -1:
 	            indexs = new int[]{-1};
 	            break;
