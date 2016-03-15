@@ -103,14 +103,14 @@ var language = "${language}";
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p class="details-label">Branch</p>
-						<p>${centerName}<span class="branch-address">${centerAddress}</span></p>
+						<p>${serviceCentre.serviceCentreName }<span class="branch-address">${serviceCentre.address }</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
 						<p class="details-label">Operating hours</p>
 						<p>
-							Mon - Sat 8:30am to 8:00pm<br>Closed on Sun & Public Holidays
+							${serviceCentre.operationHours }
 							<span class="phone-num">
-								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 063-2323-123
+								<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> ${serviceCentre.phone }
 							</span>
 						</p>
 					</div>				

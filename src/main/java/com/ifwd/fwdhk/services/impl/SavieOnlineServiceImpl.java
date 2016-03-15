@@ -2199,10 +2199,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String centerCh = "";
 		String centerAddEn = "";
 		String centerAddCh = "";
+		ServiceCentreResult entityEn = null;
+		ServiceCentreResult entityCh = null;
 		for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreEN.getServiceCentres()) {
 			if(entity.getServiceCentreCode().equals(centre)) {
 				centerEn = entity.getServiceCentreName();
 				centerAddEn = entity.getAddress();
+				entityEn = entity;
 				break;
 			}
 		}
@@ -2210,6 +2213,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(entity.getServiceCentreCode().equals(centre)) {
 				centerCh = entity.getServiceCentreName();
 				centerAddCh = entity.getAddress();
+				entityCh = entity;
 				break;
 			}
 		}
@@ -2220,7 +2224,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		models.put("dateEn", preferredDate);
 		models.put("timeSlotEn", preferredTime);
 		models.put("centerEn", centerEn);
-		models.put("centerAddEn", centerEn);
+		models.put("centerAddEn", centerAddEn);
+		
 		models.put("dateCh", preferredDate);
 		models.put("timeSlotCh", preferredTime);
 		models.put("centerCh", centerCh);
@@ -2228,11 +2233,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		sendEmails(request, action, models);
 		
 		if (lang.equals("CN")) {
-			model.addAttribute("centerName", centerCh);
-			model.addAttribute("centerAddress", centerAddCh);
+			model.addAttribute("serviceCentre", entityCh);
 		}else {
-			model.addAttribute("centerName", centerEn);
-			model.addAttribute("centerAddress", centerAddEn);
+			model.addAttribute("serviceCentre", entityEn);
 		}
 		model.addAttribute("preferredDate", preferredDate);
 		model.addAttribute("preferredTime", preferredTime);
