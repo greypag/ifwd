@@ -90,13 +90,13 @@
 	        	<div class="fwd-container-limit clearfix sidebar" id="sales-illustration-content">	
   					<div class="row">
   						<h3 class="heading-title"><fmt:message key="label.selected.plan" bundle="${msg}" /><span>
-  						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2">edit</a>
+  						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=2"><fmt:message key="label.edit" bundle="${msg}" /></a>
   						</span></h3>
   						
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.planname" bundle="${msg}" /></label>
-  								<p class="data-info">Savie</p>
+  								<p class="data-info"><fmt:message key="savie.landing.savie" bundle="${msg}" /></p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.saving.amount" bundle="${msg}" /></label>
@@ -106,13 +106,18 @@
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.premium.mode" bundle="${msg}" /></label>
-  								<p class="data-info">${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }</p>
+  								<p class="data-info">
+									<c:choose>
+										<c:when test="${saviePlanDetails.paymentType == 'SP' }"><fmt:message key="savie.application.Single.premium" bundle="${msg}" /></c:when>
+										<c:otherwise>${saviePlanDetails.paymentType }</c:otherwise>
+									</c:choose>
+  								</p>
   							</div>
   						</div>
   					</div>
   					<div class="row" id="sales-input">
   						<h3 class="heading-title"><fmt:message key="label.input.for.sales.illustration" bundle="${msg}" /></h3>
-  						<p id="info-note"><span class="asterisk">*</span>These information will become your policy information</p>
+  						<p id="info-note"><span class="asterisk">*</span><fmt:message key="label.input.for.sales.grey.text" bundle="${msg}" /></p>
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.last.name" bundle="${msg}" /></label>
@@ -125,6 +130,7 @@
   							<div class="gray-bg-data-info hidden">
   								<label class="data-label">label.chinese.name</label>
   								<p class="data-info">陳大文</p>
+  								<p class="data-info"> </p>
   							</div>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
@@ -134,7 +140,7 @@
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.gender" bundle="${msg}" /></label>
-  								<p class="data-info">${savieFna.gender=='0'?"Male":"Female" }</p>
+  								<p class="data-info"><fmt:message key="${savieFna.gender=='0'?'savie.application.Male':'savie.application.Female' }" bundle="${msg}" /></p>
   							</div>
   						</div>       	
 		       		 </div>
