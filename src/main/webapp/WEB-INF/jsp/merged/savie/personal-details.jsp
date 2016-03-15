@@ -511,7 +511,7 @@ var languageP = "${language}";
                            <div class="next-btn">
                               <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
 							  <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
+							   <button type="button" id="btn-back" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
                            </div>
                         </form>
                      </div>
@@ -652,6 +652,10 @@ var languageP = "${language}";
 				
 				$('#btn-app-save').click(function() {
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+				});
+				
+				$('#btn-back').click(function() {
+					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 				});
 
 				// on change

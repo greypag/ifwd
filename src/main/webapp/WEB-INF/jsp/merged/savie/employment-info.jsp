@@ -349,7 +349,7 @@ var languageP = "${language}";
 								</div>
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
-	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
+	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button>
 									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 								</div>	
 	  						</form>
@@ -419,6 +419,9 @@ var languageP = "${language}";
 				setSelectReadonly('tmpEducationLevel', true);
 				
 				var dummy = true;
+				if('${backSummary}' == 'Y'){
+					dummy = false;
+				}
 				// dummy condition for displaying the back / next button
 				if(dummy) {
 					// hide the back button and display the Next button
@@ -458,6 +461,10 @@ var languageP = "${language}";
 				
 				$('#btn-app-save').click(function() {
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+				});
+				
+				$('#back-summary-btn').click(function() {
+					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 				});
 				
 				$('select').change(function() {

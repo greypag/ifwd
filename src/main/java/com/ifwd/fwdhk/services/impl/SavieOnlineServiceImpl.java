@@ -363,10 +363,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String bankName = lifePayment.getBankName();
 		String branchName = lifePayment.getBranchName();
 		
-		String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
+		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");
+		JSONObject json = (JSONObject)responseJsonObj.get("ddaBank");*/
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -431,8 +431,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
-	    String bankCode = json.get("bankCode")+"";
-	    if(StringUtils.isNotBlank(bankCode) && "null".equals(bankCode)){
+	   // String bankCode = json.get("bankCode")+"";
+	    String bankCode = bankName.substring(bankName.length()-4, bankName.length()-1);
+	    if(StringUtils.isNotBlank(bankCode) && !"null".equals(bankCode)){
 	    	for(int i=0;i<bankCode.length();i++){
 	    		String c = bankCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
@@ -440,8 +441,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    
-	    String branchCode = json.get("branchCode")+"";
-	    if(StringUtils.isNotBlank(branchCode) && "null".equals(branchCode)){
+	    //String branchCode = json.get("branchCode")+"";
+	    String branchCode = branchName.substring(branchName.length()-4, branchName.length()-1);
+	    if(StringUtils.isNotBlank(branchCode) && !"null".equals(branchCode)){
 	    	for(int i=0;i<branchCode.length();i++){
 	    		String c = branchCode.charAt(i)+"";
 	    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
@@ -1782,6 +1784,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
+			if(fileToUploadProofAddType==null){
+				fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDropType");
+			}
 			parameters.put("fileType", fileToUploadProofAddType);
 			parameters.put("documentType", "proof");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
@@ -1803,6 +1808,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				is.close();  
 				String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 				String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
+				if(passportFileToUploadType==null){
+					passportFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-passport-dragAndDropType");
+				}
 				parameters.put("fileType", passportFileToUploadType);
 				parameters.put("documentType", "passport");
 				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
@@ -1820,6 +1828,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			is.close();  
 			String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
+			if(hkidFileToUploadType==null){
+				hkidFileToUploadType = (String) request.getSession().getAttribute("fileToUpload-hkid-dragAndDropType");
+			}
 			parameters.put("fileType", hkidFileToUploadType);
 			parameters.put("documentType", "hkid");
 			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
