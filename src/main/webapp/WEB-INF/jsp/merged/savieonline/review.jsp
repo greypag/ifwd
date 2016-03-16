@@ -161,7 +161,7 @@ var affiliate = "${affiliate}";
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> 
-			<a href="javascript:void(0);" class="fna-btn-clear">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
+			<a href="javascript:void(0);" onclick="showFnaPopupClear();">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
 			</div>
 		</div>
 		<div class="center row">
@@ -213,7 +213,7 @@ var affiliate = "${affiliate}";
 							<h4>Do you mean ...</h4>
 							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" class="btn-clear-cancel">Cancel</a>
+							<a href="javascript:void(0);" onclick="clearFna();">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();">Cancel</a>
 							</div>
 						</div>
 					</div>
