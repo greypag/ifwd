@@ -74,6 +74,41 @@ public class AjaxCampaignController extends BaseController {
 				index = "5";
 				tnc="Fanfare.tnc5";
 				break;
+			case 14:
+				discount="Fanfare.discount6";
+				date="31-05-2016";
+				offername="Fanfare.offername6";
+				index = "6";
+				tnc="Fanfare.tnc6";
+				break;
+			case 15:
+				discount="Fanfare.discount7";
+				date="31-05-2016";
+				offername="Fanfare.offername7";
+				index = "7";
+				tnc="Fanfare.tnc7";
+				break;
+			case 16:
+				discount="Fanfare.discount8";
+				date="31-05-2016";
+				offername="Fanfare.offername8";
+				index = "8";
+				tnc="Fanfare.tnc8";
+				break;
+			case 17:
+				discount="Fanfare.discount9";
+				date="31-05-2016";
+				offername="Fanfare.offername9";
+				index = "9";
+				tnc="Fanfare.tnc9";
+				break;
+			case 18:
+				discount="Fanfare.discount10";
+				date="31-05-2016";
+				offername="Fanfare.offername10";
+				index = "10";
+				tnc="Fanfare.tnc10";
+				break;
 			case 5:
 				discount="Fanfare.discount0";
 				date="31-05-2016";
