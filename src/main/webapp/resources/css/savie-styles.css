@@ -2188,6 +2188,7 @@ a.eserv-link:hover {
   display: block;
   height: 100%;
   padding: 15%;
+  width: 98.5%;
 }
 /* line 730, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item:hover .caption .caption-h4 {
