@@ -575,7 +575,7 @@ var affiliate = "${affiliate}";
 				<div class="last-loading-cont">
 					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_02.png" class="img-responsive">
 					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_01.png" class="img-responsive family">
-					<p>Based on the result of your Financial Need Analysis, FWD is researching for respective products which meet your objective(s) and need(s)</p>
+					<p><fmt:message key="fna.info.waiting.result" bundle="${msg}" /></p>
 
 					<div class="bubble-gp">
 						<div class="spinner">

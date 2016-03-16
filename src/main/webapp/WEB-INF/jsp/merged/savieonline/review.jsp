@@ -35,12 +35,12 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 	</div>
-	<form id="frmReview" name="frmReview" action="***" method="post">
+	<form id="frmReview" name="frmReview" action="" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 lead-in">
-				<p>Review and update your Financial Needs Analysis selection to match your current needs</p>
-				<p><span>Last updated on <span id="lastupdate">${savieFna.last_update }</span></span></p>
+				<p><fmt:message key="fna.info.review.and.update.fna" bundle="${msg}" /></p>
+				<p><span><fmt:message key="fna.info.last.updated" bundle="${msg}" /> <span id="lastupdate">${savieFna.last_update }</span></span></p>
 			</div>
 		</div>
 	</div>
@@ -48,7 +48,7 @@ var affiliate = "${affiliate}";
 	<div id="personal_info" class="container review-box display">
 		<div class="row question">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 num">&nbsp;</div>
-			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 title"><p>Personal Information</p></div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 title"><p><fmt:message key="label.personal.info" bundle="${msg}" /></p></div>
 			<!-- <a class="btn_edit" href="javascript:void(0);" rel=">Edit</a> -->
 		</div>
 		<div class="row">
@@ -132,7 +132,7 @@ var affiliate = "${affiliate}";
 				<span class="headline"><fmt:message key="label.nature.of.business" bundle="${msg}" /></span>
 				<span class="displayMode nature content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="nature" name="nature" class="***"></select>
+					<select id="nature" name="nature" class=""></select>
 				</span>
 			</div>
 		</div>
@@ -142,18 +142,18 @@ var affiliate = "${affiliate}";
 				<span class="headline"><fmt:message key="label.occupation" bundle="${msg}" /></span>
 				<span class="displayMode occupation content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="occupation" name="occupation" class="***"></select>
-					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="***" maxlength="100"/></p>
+					<select id="occupation" name="occupation" class=""></select>
+					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="" maxlength="100"/></p>
 				</span>
 			</div>
 		</div>
 
 		<div id="cn" class="btn-action">
 			<p class="error">&nbsp;</p>
-			<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel" rel="personal_info">CANCEL</a>
-			<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok" rel="personal_info">OK</a>
+			<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel" rel="personal_info"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+			<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok" rel="personal_info"><fmt:message key="button.fna.ok" bundle="${msg}" /></a>
 		</div>
-		<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="personal_info" >Edit</a>
+		<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="personal_info" ><fmt:message key="button.edit" bundle="${msg}" /></a>
 	</div>
 
 	<div id="question-list"></div>
@@ -161,7 +161,7 @@ var affiliate = "${affiliate}";
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> 
-			<a href="javascript:void(0);" onclick="showFnaPopupClear();">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
+			<a href="javascript:void(0);" onclick="showFnaPopupClear();"><fmt:message key="fna.link.clearandleave" bundle="${msg}" /> <i class="fa fa-caret-right"></i></a>
 			</div>
 		</div>
 		<div class="center row">
@@ -181,10 +181,10 @@ var affiliate = "${affiliate}";
 			<div class="option row"></div>
 			<div id="cn" class="btn-action">
 				<p class="error">&nbsp;</p>
-				<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel">CANCEL</a>
-				<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok">OK</a>
+				<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+				<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok"><fmt:message key="button.fna.ok" bundle="${msg}" /></a>
 			</div>
-			<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="***">Edit</a>
+			<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel=""><fmt:message key="button.edit" bundle="${msg}" /></a>
 		</div>
 
 		<div id="template_op" class="row">
@@ -213,7 +213,7 @@ var affiliate = "${affiliate}";
 							<h4>Do you mean ...</h4>
 							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" onclick="clearFna();">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();">Cancel</a>
+							<a href="javascript:void(0);" onclick="clearFna();">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>

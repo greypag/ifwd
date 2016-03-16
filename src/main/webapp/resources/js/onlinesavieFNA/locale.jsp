@@ -8,7 +8,7 @@
 <script>
 var ReviewPageLocale = {	
 	'data':{
-		"edit":"Edit",
+		"edit":"<fmt:message key="button.edit" bundle="${msg}" />",
 		"gender":[
 			"<fmt:message key="label.male" bundle="${msg}" />",
 			"<fmt:message key="label.female" bundle="${msg}" />"
