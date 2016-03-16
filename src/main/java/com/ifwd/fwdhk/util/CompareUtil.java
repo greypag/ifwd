@@ -6,8 +6,11 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.ifwd.fwdhk.model.savieOnline.ProductList;
 import com.ifwd.fwdhk.model.savieOnline.Products;
 
 public class CompareUtil {
@@ -16,6 +19,7 @@ public class CompareUtil {
 	private static String TO_100 = "To age 100";
 	private static String ONE_OFF ="One-Off";
 	private static String SAVIE = "SAVIE";
+	private static String SAVIE_GROUP = "Insurance product with savings element -with savings but without investment element";
 	private static Comparator<String> sortProductList = new Comparator<String>() {
 		@Override
 		public int compare(String o1, String o2) {
@@ -119,7 +123,7 @@ public class CompareUtil {
 		Collections.sort(beans, new Comparator<Products>() {
 			@Override
 			public int compare(Products o1, Products o2) {
-				return getAttr(o1, attr) - getAttr(o2, attr);
+				return (int)getAttr(o1, attr) - (int)getAttr(o2, attr);
 			}
 		});
 		return g.toJson(beans);
@@ -141,10 +145,94 @@ public class CompareUtil {
 		Collections.sort(beans, new Comparator<Products>() {
 			@Override
 			public int compare(Products o1, Products o2) {
-				return getAttr(o2, attr) - getAttr(o1, attr);
+				return (int)getAttr(o2, attr) - (int)getAttr(o1, attr);
 			}
 		});
 		return g.toJson(beans);
+	}
+	
+	/**
+	 * 对json数组中字符类型的attr进行升序排序
+	 * @param jsonArr
+	 * @param attr
+	 * @param maxOrMin 如果为max设为true
+	 * @return
+	 */
+	public static String compareArrAsc(String jsonArr, String attr, boolean maxOrMin) {
+		try {
+			LinkedList<Products> beans = g.fromJson(jsonArr,
+					new TypeToken<LinkedList<Products>>() {
+			}.getType());
+			
+			Collections.sort(beans, new Comparator<Products>() {
+				String str1;
+				String str2;
+				String[] strArr1;
+				String[] strArr2;
+				@Override
+				public int compare(Products o1, Products o2) {
+					str1 = (String)getAttr(o1, attr);
+					str2 = (String)getAttr(o1, attr);
+					if(StringUtils.isBlank(str1)) {
+						return -1;
+					}else if (StringUtils.isBlank(str2)) {
+						return -1;
+					}else {
+						strArr1 = ((String)getAttr(o1, attr)).split(",");
+						strArr2 = ((String)getAttr(o2, attr)).split(",");
+						return maxOrMin ? strArr1[strArr1.length - 1].compareTo(strArr2[strArr2.length - 1])
+								: strArr1[0].compareTo(strArr2[0]);
+						
+					}
+				}
+			});
+			return g.toJson(beans);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
+	/**
+	 * 对json数组中字符类型的attr进行降序排序
+	 * @param jsonArr
+	 * @param attr
+	 * @param maxOrMin 如果为max设为true
+	 * @return
+	 */
+	public static String compareArrDesc(String jsonArr, String attr, boolean maxOrMin) {
+		try {
+			LinkedList<Products> beans = g.fromJson(jsonArr,
+					new TypeToken<LinkedList<Products>>() {
+			}.getType());
+			
+			Collections.sort(beans, new Comparator<Products>() {
+				String str1;
+				String str2;
+				String[] strArr1;
+				String[] strArr2;
+				@Override
+				public int compare(Products o1, Products o2) {
+					str1 = (String)getAttr(o1, attr);
+					str2 = (String)getAttr(o1, attr);
+					if(StringUtils.isBlank(str1)) {
+						return -1;
+					}else if (StringUtils.isBlank(str2)) {
+						return -1;
+					}else {
+						strArr1 = ((String)getAttr(o1, attr)).split(",");
+						strArr2 = ((String)getAttr(o2, attr)).split(",");
+						return maxOrMin ? strArr2[strArr2.length - 1].compareTo(strArr1[strArr1.length - 1])
+								: strArr2[0].compareTo(strArr1[0]);
+					}
+				}
+			});
+			return g.toJson(beans);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 	
 	/**
@@ -172,12 +260,38 @@ public class CompareUtil {
 		});
 		return g.toJson(beans);
 	}
+	
+	/**
+	 * 对json数组将包含SAVIE的Group排到前面
+	 * @param jsonArr
+	 * @param attr
+	 * @return
+	 */
+	public static String compareGroup(String jsonArr) {
+		LinkedList<ProductList> beans = g.fromJson(jsonArr,
+				new TypeToken<LinkedList<ProductList>>() {
+				}.getType());
 
-	private static int getAttr(Object obj, String Attr) {
+		Collections.sort(beans, new Comparator<ProductList>() {
+			@Override
+			public int compare(ProductList o1, ProductList o2) {
+				if(SAVIE_GROUP.equals(o1.getGroup())) {
+					return -1;
+				}else if (SAVIE_GROUP.equals(o2.getGroup())) {
+					return 1;
+				}else {
+					return 0;
+				}
+			}
+		});
+		return g.toJson(beans);
+	}
+
+	private static Object getAttr(Object obj, String Attr) {
 		Method method;
 		try {
 			method = obj.getClass().getMethod(Attr);
-			return (int) method.invoke(obj);
+			return method.invoke(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
