@@ -28,7 +28,7 @@
     var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
     lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-    })();
+    })();    
     </script>
     <!-- End of LiveChat code -->
   </c:otherwise>
@@ -59,9 +59,9 @@
 	    </div>
         <div class="social-link-wrapper">
            <div class="social-link">
-	           <a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-share-alt"></i></a>
-	           <a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook-official"></i></a>
-	           <a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-youtube-play"></i></a>        
+	           <a class="fb-share" href="<fmt:message key="footer.fbshare.link" bundle="${msg}" />" target="_blank"><i class="fa fa-share-alt"></i></a>
+	           <a href="<fmt:message key="footer.facebook.link" bundle="${msg}" />" target="_blank"><i class="fa fa-facebook-official"></i></a>
+	           <a href="<fmt:message key="footer.youtube.link" bundle="${msg}" />" target="_blank"><i class="fa fa-youtube-play"></i></a>        
            </div>
            <div class="clearfix"></div>          
         </div>
@@ -101,6 +101,11 @@
 <script>
 $(function() {
     $('input, textarea').placeholder();
+    $('.fb-share').click(function(e) {
+        e.preventDefault();
+        window.open($(this).attr('href'), 'fbShareWindow', 'height=350, width=450, top=' + ($(window).height() / 2 - 175) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        return false;
+    });    
     /*
     function navbarLogoSticky(){
         if(window.pageYOffset<35){
