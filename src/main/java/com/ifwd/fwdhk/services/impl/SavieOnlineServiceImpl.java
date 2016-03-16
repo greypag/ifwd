@@ -551,12 +551,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				occupation = optionItemDescEN.getItemDesc();
 			}
 		}
-		List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
+		/*List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
 		for(OptionItemDesc optionItemDescCN : optionItemDescCNList){
 			if(optionItemDescCN.getItemCode().equals(savieFna.getOccupation())){
 				occupation = occupation + "\r\n" + optionItemDescCN.getItemDesc();
 			}
-		}
+		}*/
 		
 		/*if("NoBD1".equals(savieFna.getOccupation())){
 			occupation = "Farmer -- General Farming";
@@ -800,7 +800,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
 		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
-			int i = 1;
+			for(String l :q1){
+				if("0".equals(l)){
+					attributeList.add(new PdfAttribute("Q1a1", "On"));
+				}
+				if("1".equals(l)){
+					attributeList.add(new PdfAttribute("Q1b1", "On"));
+				}
+				if("2".equals(l)){
+					attributeList.add(new PdfAttribute("Q1c1", "On"));
+				}
+				if("3".equals(l)){
+					attributeList.add(new PdfAttribute("Q1d1", "On"));
+				}
+				if("4".equals(l)){
+					attributeList.add(new PdfAttribute("Q1e1", "On"));
+				}
+				if("5".equals(l)){
+					attributeList.add(new PdfAttribute("Q1f1", "On"));
+					attributeList.add(new PdfAttribute("Q1others1", savieFna.getQ1_others()));
+				}
+			}
+			for(String m :q2){
+				if("0".equals(m)){
+					attributeList.add(new PdfAttribute("Q2a1", "On"));
+				}
+				if("1".equals(m)){
+					attributeList.add(new PdfAttribute("Q2b1", "On"));
+					
+				}
+				if("2".equals(m)){
+					attributeList.add(new PdfAttribute("Q2c1", "On"));
+				}
+				if("3".equals(m)){
+					attributeList.add(new PdfAttribute("Q2d1", "On"));
+				}
+				if("4".equals(m)){
+					attributeList.add(new PdfAttribute("Q2e1", "On"));
+					attributeList.add(new PdfAttribute("Q2others1", savieFna.getQ2_others()));
+				}
+			}
+			attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "SAVIE"));
+			attributeList.add(new PdfAttribute("Product(s)Selected1", "Yes"));
+			
+			
+			int i = 2;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
