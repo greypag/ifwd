@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+	<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -62,19 +62,19 @@ function goLandingPage(){
 								<div class="checkbox-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c1" name="q2" value="0" disabled>
-										<label for="q2_c1">Pure insurance product<br><span>-without any savings or investment element <br>(e.g. term insurance)</span></label>
+										<label for="q2_c1"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c2" name="q2" value="1" disabled>
-										<label for="q2_c2">Insurance product with savings element<br><span>-with savings but without investment element<br>(e.g. non-participating policy)</span></label>
+										<label for="q2_c2"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c3" name="q2" value="2" disabled>
-										<label for="q2_c3">Insurance product with investment element<br><span>-Investment decisions and risks borne by insurer<br>(e.g. participating policy, universal life insurance)</span></label>
+										<label for="q2_c3"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c4" name="q2" value="3" disabled>
-										<label for="q2_c4">Insurance product with investment element<br><span>-Investment decisions and risks borne by policyholder<br>(e.g. Investment-Linked Assurance Schemes)</span></label>
+										<label for="q2_c4"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></label>
 									</div>
 								</div>
 							</div>
@@ -83,23 +83,23 @@ function goLandingPage(){
 								<div class="checkbox-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c1" name="q1" value="0" disabled>
-										<label for="q1_c1">Financial protection against adversities</label>
+										<label for="q1_c1"><fmt:message key="fna.question.q1.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c2" name="q1" value="1" disabled>
-										<label for="q1_c2">Preparation for health care needs</label>
+										<label for="q1_c2"><fmt:message key="fna.question.q1.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c3" name="q1" value="2" disabled>
-										<label for="q1_c3">Providing regular income in the future</label>
+										<label for="q1_c3"><fmt:message key="fna.question.q1.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c4" name="q1" value="3" disabled>
-										<label for="q1_c4">Saving up for the future</label>
+										<label for="q1_c4"><fmt:message key="fna.question.q1.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c5" name="q1" value="4" disabled>
-										<label for="q1_c5">Investment</label>
+										<label for="q1_c5"><fmt:message key="fna.question.q1.option5" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
@@ -108,27 +108,27 @@ function goLandingPage(){
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c1" name="q3" value="0" disabled>
-										<label for="q3_c1">&lt; 1 year</label>
+										<label for="q3_c1"><fmt:message key="fna.question.q3.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c2" name="q3" value="1" disabled>
-										<label for="q3_c2">1-5 years</label>
+										<label for="q3_c2"><fmt:message key="fna.question.q3.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c3" name="q3" value="2" disabled>
-										<label for="q3_c3">6-10 years</label>
+										<label for="q3_c3"><fmt:message key="fna.question.q3.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c4" name="q3" value="3" disabled>
-										<label for="q3_c4">11-20 years</label>
+										<label for="q3_c4"><fmt:message key="fna.question.q3.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c5" name="q3" value="4" disabled>
-										<label for="q3_c5">&gt; 20 years</label>
+										<label for="q3_c5"><fmt:message key="fna.question.q3.option5" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c6" name="q3" value="5" disabled>
-										<label for="q3_c6">Whole of life</label>
+										<label for="q3_c6"><fmt:message key="fna.question.q3.option6" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
@@ -137,27 +137,27 @@ function goLandingPage(){
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c1" name="q4e" value="0" disabled>
-										<label for="q4e_c1">&lt; 1 year</label>
+										<label for="q4e_c1"><fmt:message key="fna.question.q4e.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c2" name="q4e" value="1" disabled>
-										<label for="q4e_c2">1-5 years</label>
+										<label for="q4e_c2"><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c3" name="q4e" value="2" disabled>
-										<label for="q4e_c3">6-10 years</label>
+										<label for="q4e_c3"><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c4" name="q4e" value="3" disabled>
-										<label for="q4e_c4">11-20 years</label>
+										<label for="q4e_c4"><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c5" name="q4e" value="4" disabled>
-										<label for="q4e_c5">&gt; 20 years</label>
+										<label for="q4e_c5"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c6" name="q4e" value="5" disabled>
-										<label for="q4e_c6">Whole of life</label>
+										<label for="q4e_c6"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
@@ -166,27 +166,27 @@ function goLandingPage(){
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c1" name="q4_a" value="0" disabled>
-										<label for="q4a_c1">less than HK$10,000</label>
+										<label for="q4a_c1"><fmt:message key="fna.question.q4a.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c2" name="q4_a" value="1" disabled>
-										<label for="q4a_c2">HK$10,000 - $19,999</label>
+										<label for="q4a_c2"><fmt:message key="fna.question.q4a.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c3" name="q4_a" value="2" disabled>
-										<label for="q4a_c3">HK$20,000 - HK$49,999</label>
+										<label for="q4a_c3"><fmt:message key="fna.question.q4a.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c4" name="q4_a" value="3" disabled>
-										<label for="q4a_c4">HK$50,000 - HK$100,000</label>
+										<label for="q4a_c4"><fmt:message key="fna.question.q4a.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c5" name="q4_a" value="4" disabled>
-										<label for="q4a_c5">over HK$100,000</label>
+										<label for="q4a_c5"><fmt:message key="fna.question.q4a.option5" bundle="${msg}" /></label>
 									</div><!-- 
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c6" name="q4a" value="yes" disabled>
-										<label for="q4a_c6">HK$<input type="text" onkeypress="return isNumeric(event)" value="" readonly></label>
+										<label for="q4a_c6">HK$<input type="text" onkeypress="return isNumeric(event)" value="****" readonly></label>
 									</div> -->
 								</div>
 							</div>
@@ -194,7 +194,7 @@ function goLandingPage(){
 								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_06.png">Liquid assets<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 
 								<label>
-									HK$<input type="text" onkeypress="return isNumeric(event)" value="" readonly>
+									HK$<input type="text" onkeypress="return isNumeric(event)" value="****" readonly>
 								</label>
 							</div>
 
@@ -311,7 +311,7 @@ function goLandingPage(){
 					<div class="fna-product-type">
 						<span class="fna-product-name"></span><br>
 						<span class="fna-product-type-name"></span>
-						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="">i</span>
+						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="***">i</span>
 					</div>
 					<div class="fna-product-cfa hidden-print">
 						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
@@ -451,7 +451,7 @@ function goLandingPage(){
 										<label for="FNAinputCustomerName" class="field-label">Name</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="FNAinputCustomerName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
+										<input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="FNAinputCustomerName" value="****" onkeypress="return alphaOnly(event);" maxlength="50">
 										<span id="errFNAinputCustomerName" class="text-red"></span>
 									</div>
 								</div>
@@ -460,7 +460,7 @@ function goLandingPage(){
 										<label for="FNAinputEmail" class="field-label">Email address</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="FNAinputEmail" maxlength="50" onblur=""> <span id="errFNAinputEmail" class="text-red"></span>
+										<input class="form-control full-control textLower" name="emailAddress" type="email" value="****" id="FNAinputEmail" maxlength="50" onblue="****"> <span id="errFNAinputEmail" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
@@ -468,7 +468,7 @@ function goLandingPage(){
 										<label for="FNAinputMobileNo" class="field-label">Mobile Number</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input name="mobileNo" type="tel" class="form-control full-control" value="" id="FNAinputMobileNo" onkeypress="return isNumeric(event)" maxlength="8"> 
+										<input name="mobileNo" type="tel" class="form-control full-control" value="****" id="FNAinputMobileNo" onkeypress="return isNumeric(event)" maxlength="8"> 
 									<span id="errFNAinputMobileNo" class="text-red"></span>
 									</div>
 								</div>
