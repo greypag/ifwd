@@ -7726,23 +7726,29 @@ h6.so-h6 {
   padding-left: 17px;
 }
 /* line 35, ../sass/partials/savie/_address-prof.scss */
+#dialog-address-prof #modal-content-addressprof .modal-body ol #info-addproof {
+  font-family: 'Calibri';
+  margin-left: -17px;
+  font-size: 14px;
+}
+/* line 40, ../sass/partials/savie/_address-prof.scss */
 #dialog-address-prof #modal-content-addressprof .modal-body ol li {
   font-size: 14px;
   line-height: 17px;
   padding-bottom: 14px;
 }
-/* line 42, ../sass/partials/savie/_address-prof.scss */
-#dialog-address-prof #modal-content-addressprof .modal-body #thrid-li {
+/* line 45, ../sass/partials/savie/_address-prof.scss */
+#dialog-address-prof #modal-content-addressprof .modal-body ol #thrid-li {
   padding-bottom: 5px;
 }
-/* line 46, ../sass/partials/savie/_address-prof.scss */
+/* line 50, ../sass/partials/savie/_address-prof.scss */
 #dialog-address-prof #modal-content-addressprof #modal-body-addressprof {
   margin-top: 10px;
   margin-bottom: 0;
   padding-right: 15px;
 }
 @media screen and (min-width: 992px) {
-  /* line 46, ../sass/partials/savie/_address-prof.scss */
+  /* line 50, ../sass/partials/savie/_address-prof.scss */
   #dialog-address-prof #modal-content-addressprof #modal-body-addressprof {
     padding-right: 0;
   }

@@ -672,10 +672,6 @@ var languageP = "${language}";
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 			});
 			
-			$('#back-summary-btn').click(function() {
-				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
-			});
-			
 			soFirstBFormValidation();
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
 			
@@ -725,7 +721,7 @@ var languageP = "${language}";
 					$('#save-and-continue-modal').modal('show');
 				}
                });
-			$("#beneficiary-next-btn").click(function(){
+			$("#beneficiary-next-btn, #back-summary-btn").click(function(){
 				$("#errorMsg").html("");
 				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
@@ -741,7 +737,7 @@ var languageP = "${language}";
 						  }
 						  else{
 							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 							  }
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';

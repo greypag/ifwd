@@ -14,10 +14,15 @@
   .fna-recommend .fna-txt-result .head {
     font-size: 26px;
     font-weight: bold;
-    line-height: 1.3em; }
+    line-height: 1.3em;
+    margin-bottom: 0; }
     .fna-recommend .fna-txt-result .head .txt_products {
       color: #fdb714;
       white-space: nowrap; }
+  .fna-recommend .fna-txt-result .haveProducts .head {
+    margin-bottom: 10px; }
+  .fna-recommend .fna-txt-result .noProduct {
+    margin-top: 10px; }
   .fna-recommend .fna-txt-result .fna-btn-discover {
     background-color: #fdb714;
     border-bottom: 2px solid #787878;
@@ -273,18 +278,19 @@
     .fna-recommend .fna-col-recommend .fna-product-gp h5 {
       background-color: #293d4c;
       color: #fff;
-      line-height: 2em;
-      padding-left: 15px;
       font-weight: bold;
       position: relative;
-      font-size: 25px; }
+      font-size: 25px;
+      line-height: 1.2em;
+      padding: 5px 0 5px 15px; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 img {
         margin-left: -32px;
         margin-right: 10px; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 span {
         padding-right: 60px;
         padding-left: 32px;
-        display: inline-block; }
+        display: inline-block;
+        line-height: inherit; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 .fna-btn-expand-gp {
         position: absolute;
         top: 0;
@@ -468,6 +474,8 @@
       margin: auto;
       left: 0;
       height: 1px; }
+  .fna-recommend .fna-col-recommend .only1Product, .fna-recommend .fna-col-recommend .noProducts {
+    display: none; }
   .fna-recommend .fna-col-recommend .fna-btn-clear {
     margin: 10px 0;
     display: inline-block; }
@@ -544,6 +552,22 @@
     font-size: 14px;
     color: #000; }
 
+.fna-popup-clear .btn-clear-gp {
+  text-align: center;
+  margin-top: 20px; }
+.fna-popup-clear .btn-clear-confirm, .fna-popup-clear .btn-clear-cancel {
+  background-color: #fdb714;
+  border-bottom: 2px solid #787878;
+  font-size: 20px;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2px;
+  display: inline-block;
+  min-width: 100px;
+  margin: 0 15px 20px; }
+
 #loading-overlay-save .loading-dialog .loading-modal {
   background: #1e333f;
   border-radius: 5px !important;
@@ -557,6 +581,8 @@
   #fnaPopupEnquiry .modal-dialog {
     width: 505px; } }
 @media (max-width: 991px) {
+  .fna-recommend .fna-mobile-header {
+    padding: 0 15px !important; }
   .fna-recommend .fna-col-selection {
     display: none;
     padding-right: 0; }
@@ -620,17 +646,14 @@
     .fna-recommend .fna-txt-result .head {
       font-size: 21px;
       line-height: 1em; }
-    .fna-recommend .fna-mobile-header {
-      padding: 0 15px;
-      margin: 0; }
-      .fna-recommend .fna-mobile-header h2 {
-        font-size: 28px;
-        font-weight: bold;
-        color: #34404b;
-        background-color: #fafafa;
-        text-align: center;
-        line-height: 2.5em;
-        margin-top: 0; }
+    .fna-recommend .fna-mobile-header h2 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #34404b;
+      background-color: #fafafa;
+      text-align: center;
+      line-height: 2.5em;
+      margin-top: 0; }
     .fna-recommend .fna-top-btn-gp .styled-select {
       background: none;
       position: relative; }
@@ -685,7 +708,10 @@
         padding-bottom: 10px; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 {
         font-size: 18px;
-        padding-left: 10px; }
+        line-height: 1.2em;
+        padding: 5px 0 5px 10px; }
+        .fna-recommend .fna-col-recommend .fna-product-gp h5 span {
+          line-height: inherit; }
         .fna-recommend .fna-col-recommend .fna-product-gp h5 .fna-btn-expand-gp {
           width: 60px; }
       .fna-recommend .fna-col-recommend .fna-product-gp .fna-other-product {
@@ -727,6 +753,8 @@
             width: 100%; }
             .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .fna-product-cont .fna-product-cfa-mobile a img {
               display: inline !important; }
+      .fna-recommend .fna-col-recommend .only1product {
+        padding: 15px; }
 
   #loading-overlay-save .loading-dialog .loading-modal {
     width: 90% !important;
@@ -737,10 +765,15 @@
     font-size: 13px; }
   .fna-recommend .fna-top-btn-gp .fna-btn-filter {
     font-size: 13px; }
-  .fna-recommend .fna-col-recommend .fna-product-gp h5 span {
-    /* line-height: 1.2em; */ }
+  .fna-recommend .fna-col-recommend .fna-product-gp img {
+    width: 20px; }
   .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .sort-header > div {
-    font-size: 13px; } }
+    font-size: 13px; }
+
+  .fna-popup-clear .btn-clear-confirm, .fna-popup-clear .btn-clear-cancel {
+    font-size: 16px;
+    min-width: 80px;
+    margin: 0 5px 10px; } }
 .clearfix:before,
 .clearfix:after {
   content: " ";

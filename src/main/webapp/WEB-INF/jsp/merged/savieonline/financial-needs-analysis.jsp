@@ -423,7 +423,7 @@ var affiliate = "${affiliate}";
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									Total Expenses not less than <br class="mob-ignore">
-									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10" > per month
+									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" > per month
 
 									<div class="hidden-lg hidden-md">
 										<div class="img-mob-wrapper clearfix">
@@ -443,7 +443,7 @@ var affiliate = "${affiliate}";
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
-									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
+									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
 									<h4><span class="q-sub-num">ii:</span>What is your total financial targets including<br>but not limited to the education fund for<br>yourself or dependents and estimated marr<br>-iage expenses?</h4>
 									<div class="fna-error-box">
