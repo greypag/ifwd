@@ -8724,7 +8724,7 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 
 /***** faq mobile *****/
 .faq_container_mob {
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 	margin-bottom: 80px;
 }
 
@@ -10253,7 +10253,7 @@ ul.promotion-sub-tnc.bullets {
 @media screen and (max-width: 991px) {
     body {
        /*padding-top: 35%;*/
-       padding-top: 84px;
+       padding-top: 50px;
     }
     div.mobile-menu-V2 div.wd2{
 	    margin:0;
