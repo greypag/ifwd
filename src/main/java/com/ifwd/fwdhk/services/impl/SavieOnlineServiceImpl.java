@@ -512,7 +512,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
-		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getResidentialTelNo()+"/"+lifePersonalDetails.getMobileNumber()));
+		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getResidentialTelNo()+" / "+lifePersonalDetails.getMobileNumber()));
 		
 		String group_1 = "";
 		if("0".equals(savieFna.getMarital_status())){
@@ -545,7 +545,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
 		String occupation = "";
-		if("NoBD1".equals(savieFna.getOccupation())){
+		List<OptionItemDesc> optionItemDescENList = InitApplicationMessage.occupationEN;
+		for(OptionItemDesc optionItemDescEN : optionItemDescENList){
+			if(optionItemDescEN.getItemCode().equals(savieFna.getOccupation())){
+				occupation = optionItemDescEN.getItemDesc();
+			}
+		}
+		List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
+		for(OptionItemDesc optionItemDescCN : optionItemDescCNList){
+			if(optionItemDescCN.getItemCode().equals(savieFna.getOccupation())){
+				occupation = occupation + "\r\n" + optionItemDescCN.getItemDesc();
+			}
+		}
+		
+		/*if("NoBD1".equals(savieFna.getOccupation())){
 			occupation = "Farmer -- General Farming";
 		}
 		else if("NoBD2".equals(savieFna.getOccupation())){
@@ -568,7 +581,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		else if("NoBD8".equals(savieFna.getOccupation())){
 			occupation = "Proprietor -- Farm";
-		}
+		}*/
 		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
