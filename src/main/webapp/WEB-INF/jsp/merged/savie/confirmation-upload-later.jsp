@@ -89,9 +89,9 @@
 	        				<div class="col-md-8" id="thankyou-message">
 	        					<h3 class="heading-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></h3>
 	        					<h3 class="visible-xs visible-sm" id="policy-no-mb">Policy no. <span class="policy-no">${lifePolicy.policyNo }</span></h3>
-	        					<p id="success-purchase"><fmt:message key="info.successful.purchase.copy1" bundle="${msg}" /></p>
-	        					<p><fmt:message key="info.successful.purchase.copy2" bundle="${msg}" /></p>
-	        					<p id="reminder"><fmt:message key="info.successful.purchase.copy3" bundle="${msg}" /></p>
+	        					<p id="success-purchase"><fmt:message key="info.successful.purchase.copy.uploadlater1" bundle="${msg}" /></p>
+	        					<p><fmt:message key="info.successful.purchase.copy.uploadlater2" bundle="${msg}" /></p>
+	        					<p id="reminder"><fmt:message key="link.eservice.Page" bundle="${msg}" /></p>
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
 	        				<div class="col-md-4 visible-md visible-lg" id="policy-no-holder">
@@ -110,30 +110,30 @@
 	        							<h3 class="care-title"><fmt:message key="product.suggestion.travel.care.title" bundle="${msg}" /></h3>
 	        							<p><fmt:message key="product.suggestion.travel.care.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
-	        							<div class="get-qoute-holder visible-md visible-lg">
-	        								<button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button>
+	        							<div class="get-qoute-holder  visible-md visible-lg">
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
-	        						<div class="col-xs-6 col-md-12 care" id="care-2">
+	        						<div class="col-xs-6 col-md-12 care   " id="care-2">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare.jpg" class="img-responsive visible-md visible-lg" />
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
 	        							<h3 class="care-title"><fmt:message key="product.suggestion.home.title" bundle="${msg}" /></h3>
 	        							<p><fmt:message key="product.suggestion.home.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
-	        							<div class="get-qoute-holder visible-md visible-lg">
-	        								<button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button>
+	        							<div class="get-qoute-holder  visible-md visible-lg">
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
 	        					<div class="row visible-xs visible-sm" id="get-btns-holder">
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button>
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button>
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
@@ -146,7 +146,7 @@
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/agoda-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
-	        							<p><fmt:message key="partner.offer.copy1" bundle="${msg}" /></p>
+	        							<p><fmt:message key="partner.offer.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.copy1" bundle="${msg}" />"><fmt:message key="label.agoda.offer.copy" bundle="${msg}" /></a> <fmt:message key="label.agoda.offer.copy2" bundle="${msg}" /></p>
 	        						</div>
 	        					</div>
 	        					<div class="row partner hidden">
@@ -154,7 +154,7 @@
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/buddy-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
-	        							<p><fmt:message key="partner.offer.copy2" bundle="${msg}" /></p>
+	        							<p><fmt:message key="partner.offer.copy2.y5buddy" bundle="${msg}" /><a href="<fmt:message key="link.offer.link.y5buddy" bundle="${msg}" />"><fmt:message key="partner.offer.copy2.y5buddy1" bundle="${msg}" /></a></p>
 	        						</div>
 	        					</div>
 	        					<div class="row partner hidden">
@@ -170,11 +170,11 @@
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/price-rite-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
-	        							<p><fmt:message key="partner.offer.copy4" bundle="${msg}" /></p>
+	        							<p><fmt:message key="partner.offer.copy4.pricerite1" bundle="${msg}" /><a href="<fmt:message key="link.partner.offer.copy.pricerite" bundle="${msg}" />"><fmt:message key="partner.offer.copy4.pricerite2" bundle="${msg}" /></a> <fmt:message key="link.offer.copy4.pricerite3" bundle="${msg}" /></p>
 	        						</div>	
 	        					</div>
 	        					<div class="text-center">
-	        						<button class="btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button>
+	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
 	        					</div>
 	        					<div class="border-gray visible-xs visible-sm"></div>	
 	        				</div>
