@@ -365,7 +365,7 @@
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-            			saviePlanDetailsGoNext();
+                		getStarted();
             		}else{
             			$('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
@@ -376,7 +376,7 @@
             		}
                 });
             	
-            	var nextPage;
+            	<%-- var nextPage;
             	function saviePlanDetailsGoNext(){
                     $.ajax({     
                         url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
@@ -392,7 +392,7 @@
                             }
                         }  
                     });
-          		}
+          		} --%>
             	
             	$("#make-appointment-btn").on('click', function(){
             		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
