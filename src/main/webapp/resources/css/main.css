@@ -11255,11 +11255,8 @@ body.chin .dot-font{
 #header .lang-btn-grp>li>a{
 	padding: 0;
     line-height: 1;
-    padding-left: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 11px;
-    margin-bottom: 11px;
+	margin: 11px 0;
+    font-size: 14px;
 }
 #header .top-bar .lang-btn-grp>li>a.eng{
 	border-right:2px solid #ccc;

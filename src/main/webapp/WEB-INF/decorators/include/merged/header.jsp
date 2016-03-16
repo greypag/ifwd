@@ -1075,10 +1075,44 @@ function getStarted(){
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a></li>
               </ul>              
             </li>
-             <li class="pad-none dropdown lang-grp">
+             <li class="pad-none col-sm-12 dropdown lang-grp">
                 <ul>
-                    <li><a class="lang menu-lang" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.en" bundle="${msg}" /></a></li>
-                    <li><a class="lang menu-lang chin" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.tc" bundle="${msg}" /></a></li>
+ 							<li>
+								<%
+									if ("en".equals(session.getAttribute("language").toString())) {
+								%>
+
+								<%
+									if (request.getServletPath().equals("/en")) {
+								%> <a
+								class="lang menu-lang" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	} else {
+ %> <a
+								class="lang menu-lang" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	}
+ 	} else {
+ %> <%
+ 	if (request.getServletPath().equals("/tc")) {
+ %> <a
+								class="lang menu-lang" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	} else {
+ %> <a
+								class="lang menu-lang" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	}
+ %> <%
+ 	}
+ %>
+							</li>	                
+<%--                     <li><a class="lang menu-lang" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.en" bundle="${msg}" /></a></li>
+                    <li><a class="lang menu-lang chin" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.tc" bundle="${msg}" /></a></li> --%>
                 </ul>
              </li>
           </ul>
