@@ -3252,6 +3252,7 @@ a.eserv-link:hover {
   /* line 200, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list,
   #offline-signature-confirmation-page .requirements-panel .requirements-list {
+    min-height: 176px;
     background-color: transparent;
   }
   /* line 276, ../sass/partials/savie/_appointment-confirmation.scss */
