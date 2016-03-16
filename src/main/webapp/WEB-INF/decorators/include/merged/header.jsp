@@ -259,7 +259,9 @@ function homeFnaGoNext(){
 	    },     
 	    success:function(data){
 	    	if(data != null && data.errMsgs == null && data.name !=null){
-	    		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	    		$('#loginpopup').modal('hide');
+	    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+	    		$('#review-fna-modal').modal('show');
 	    	}
 	    	else{
 	    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
