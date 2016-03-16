@@ -90,8 +90,8 @@ var languageP = "${language}";
 							<div class="col-xs-12">							
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type">
-									   <option value="regular-payment"><fmt:message key="label.savie.payment.mode.savie.regular.pay" bundle="${msg}" /></option>
-									   <option value="one-off-premium" selected=""><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></option>
+									   <option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
+									   <option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">									
 								</div>
@@ -816,7 +816,22 @@ var languageP = "${language}";
 		if('2'=='${type }'){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}else {
-			$('#offline-online-modal').modal('show');
+			//$('#offline-online-modal').modal('show');
+			if($("#type-of-payment").val() == 'regular-payment') {
+				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+		        	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		        }else{
+		            apply=true;
+		            $('#offline-online-modal').modal('hide');
+		            $('.login-info').addClass('hidden');
+		            $('#loginpopup .modal-dialog').removeClass('loginpopupext');
+		            $('#loginpopup #fna-check').val("false");
+		            $('#loginpopup #nav-bar-check').val("false");
+		            $('#loginpopup').modal('show');         
+		        }
+			}else {
+				$('#offline-online-modal').modal('show');
+			}
 		}
 	});
 	
@@ -835,7 +850,7 @@ var languageP = "${language}";
 	});
 	
 	$("#offline-application-btn").on('click', function(){
-        if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
         	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
         }else{
             apply=true;
