@@ -111,6 +111,10 @@ body {
     margin-top: 8px;
     margin-bottom: 0;
   }
+
+  .fwd-savie-wrapper .savie-regular-pay-breadcrumbs{
+    background-color: #ffffff;
+  }
 }
 /* line 35, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb {
