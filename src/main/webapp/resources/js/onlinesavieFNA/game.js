@@ -248,6 +248,10 @@ var fnaSavieGame = {
 
 				//Mirror
 				var mirrorField = p.data("mirrorFld");
+
+				p.parents(".fna-row").find(".fna-error-msg").text("");
+
+
 			});
 		});
 
@@ -271,6 +275,8 @@ var fnaSavieGame = {
 				//Mirror
 				var mirrorField = p.data("mirrorFld");
 
+				p.parents(".fna-row").find(".fna-error-msg").text("");
+
 
 			});
 		});
@@ -281,12 +287,19 @@ var fnaSavieGame = {
 
 			//check datatype (string,int)
 			if(dataType == "int"){
-				console.log(this.value);
+				
 				var val = parseInt(this.value.replace(/\D/g, ''),10);
 
-				if(isNaN(val) || val == 0){
+				if(isNaN(val)){
 					val = "";
 				}
+
+				var allowZero = Boolean($(this).data("allowzero"));
+
+				if(!allowZero && val == 0){
+					val = "";
+				}
+
 				val = val.toString();
 
 				this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -295,6 +308,11 @@ var fnaSavieGame = {
 			that.postData[formField] = ($(this).val() == "") ? null : (dataType == "int")? parseInt(val,10):  $(this).val();
 
 		});
+
+		/*$(".game-fna").find("input[type=text]").blur(function(){
+			$(this).
+		});
+*/
 	},
 
 	initSpecificEvts:function(){
@@ -333,6 +351,7 @@ var fnaSavieGame = {
     		
     		Matrix.start(that.postData.gender,that.age,that.postData.marital_status,that.postData.dependents);
 			
+			$(".step2 .frm-fna-dob").parents(".fna-row").find(".fna-error-msg").text("");
 			//Mirror
 		});
 
@@ -366,7 +385,7 @@ var fnaSavieGame = {
 			var that = this;
 			$(that).addClass("selected");
 			$("#fnaPopupContact").modal({
-			   backdrop: 'static',
+			   
 			   keyboard: false
 			});
 
@@ -398,7 +417,12 @@ var fnaSavieGame = {
 		});
 
 		$(".frm-fna-education").change(function(){
-			that.postData.education = $(this).val() == "" ? null : parseInt($(this).val(),10);
+			that.postData.education = null;
+
+			if($(this).val() != ""){
+				that.postData.education = parseInt($(this).val(),10);
+				$(this).parents(".fna-row").find(".fna-error-msg").text("");
+			}
 		});
 
 		$(".frm-fna-employment-status").change(function(){
@@ -412,6 +436,7 @@ var fnaSavieGame = {
 			}else{
 				var optionSelected = $("option:selected", this);
 				that.postData.employment_status = $(this).val();
+				$(this).parents(".fna-row").find(".fna-error-msg").text("");
 				if(optionSelected.data("noNextFld")){
 					$(".frm-fna-nob, .frm-fna-occupation, .frm-fna-occupation-others").parents(".fna-row").addClass("hide");
 					
@@ -447,6 +472,7 @@ var fnaSavieGame = {
 
 			if($(this).val() != ""){
 				that.postData.nature_of_business = $(this).val();
+				$(this).parents(".fna-row").find(".fna-error-msg").text("");
 				var key = optionSelected.data("key");
 				var sel = $(".frm-fna-occupation");
 				sel.empty();
@@ -476,6 +502,7 @@ var fnaSavieGame = {
 					$(".frm-fna-occupation-others").parents(".fna-row").addClass("hide");
 				}
 				that.postData.occupation = $(this).val();
+				$(this).parents(".fna-row").find(".fna-error-msg").text("");
 			}
 			
 			

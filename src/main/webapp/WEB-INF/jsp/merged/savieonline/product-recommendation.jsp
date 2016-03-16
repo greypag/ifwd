@@ -76,10 +76,6 @@ function goLandingPage(){
 										<input type="checkbox" id="q2_c4" name="q2" value="3" disabled>
 										<label for="q2_c4">Insurance product with investment element<br><span>-Investment decisions and risks borne by policyholder<br>(e.g. Investment-Linked Assurance Schemes)</span></label>
 									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q2_c5" name="q2" value="4" disabled>
-										<label for="q2_c5">Others</label>
-									</div>
 								</div>
 							</div>
 							<div class="fna-sel-grid q1">
@@ -226,10 +222,17 @@ function goLandingPage(){
 						<div class="fna-txt-result hidden-print">
 							<div class="row">
 								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-									<p class="head"><span class="txt_fna_name">${userDetails.fullName }</span>, <br>FWD recommends<span class="txt_products"> <span class="txt_pnum">0</span> products</span> for you</p>
-									<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
-									<div class="hidden-xs">
-										<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
+									<p class="head"><span class="txt_fna_name">${userDetails.fullName }</span>,</p>
+
+									<div class="haveProducts">
+										<p class="head">FWD recommends<span class="txt_products"> <span class="txt_pnum"></span> product(s)</span> for you</p>
+										<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
+										<div class="hidden-xs">
+											<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
+										</div>
+									</div>
+									<div class="noProducts">
+										<p>Based on FNA results, the customer should be recommended of insurance product [without any savings or investment element], [with savings but without investment element], [with investment element and investment decisions and risks borne by insurer], [with investment element and investment decisions and risks borne by policyholder] with [XX] payment term to meet customer’s [financial protection against adversities], [preparation for health care needs], [providing regular income in the future], [saving up for the future], [investment] objective.  However, FWD does not have such type of product available.</p>
 									</div>
 									<a href="<%=request.getContextPath()%>/${language}/FNA/review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>
@@ -248,7 +251,7 @@ function goLandingPage(){
 									<div class="col-lg-12 col-md-12 col-sm-2 col-xs-2 hidden-lg hidden-md pad-none"> 
 										<a href="javascript:void(0)" class="fna-btn-filter">Filter</a>
 									</div>
-									<div class="col-lg-12 col-md-12 col-sm-10 col-xs-10"> 
+									<div class="col-lg-12 col-md-12 col-sm-10 col-xs-10 pad-none fna-sorting"> 
 										<span class="sort-txt">Product Sorting:</span>
 										<div class="styled-select text-right">
 											
@@ -272,8 +275,15 @@ function goLandingPage(){
 						</div>
 						
 						<div class="fna-product-gp-wrapper"></div>
+
+
 						
 						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span>Load more products <i class="fa fa-caret-down"></i></span></a>
+
+						<div class="only1Product">
+							Based on FNA results, the customer should be recommended of insurance product [without any savings or investment element] , [with savings but without investment element], [with investment element and investment decisions and risks borne by insurer], [with investment element and investment decisions and risks borne by policyholder] with [XX] payment term. Currently, only the [XXX] can fit the customer’s needs.
+						</div>
+
 						<div class="text-right">
 							<a href="javascript:void(0);" class="fna-btn-clear">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
 						</div>
@@ -403,6 +413,26 @@ function goLandingPage(){
 			</div>
 		</div>
 
+		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content plan-modal">
+					<div class="fna-popup-cont">
+						
+						<div class="modal-body">
+							<a class="close" aria-label="Close" data-dismiss="modal">
+								<span aria-hidden="true" style="font-size:30px;">×</span>
+							</a>
+							<h4>Do you mean ...</h4>
+							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
+							<div class="btn-clear-gp">
+							<a href="javascript:void(0);" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" class="btn-clear-cancel">Cancel</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="modal modal-vcenter fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupEnquiry">
 			<div class="container-fluid modal-dialog">
 				<div class="modal-content plan-modal">
@@ -517,7 +547,7 @@ function goLandingPage(){
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- back landing modal -->
 		<div class="modal fade common-welcome-modal modal-app-save" id="back-landing-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog" id="modal-save-app">

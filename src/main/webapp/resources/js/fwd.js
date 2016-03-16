@@ -4981,14 +4981,14 @@ function validUser(formID)
 	$("#"+formID+" #errUserName").html("");
 	$("#"+formID+" #errPass").html("");
 
-	if (password.trim() == "")
+	if ($.trim(password) == "" || $.trim(password) == $("#"+formID+" #headerPassword").attr("placeholder"))
 	{    	
 		$("#"+formID+" #headerPassword").addClass("invalid-field");
 		$("#"+formID+" #errPass").html(getBundle(getBundleLanguage, "user.password.notNull.message"));
 		$("#"+formID+" #errPass").attr("style","color: red;");
 		flag = false;
 	} 
-	if (userName.trim() == "") {
+	if ($.trim(userName) == "" || $.trim(userName) == $("#"+formID+" #headerUserName").attr("placeholder")) {
 		$("#"+formID+" #headerUserName").addClass("invalid-field");
 		$("#"+formID+" #errUserName").html(getBundle(getBundleLanguage, "user.username.empty.message"));
 		$("#"+formID+" #errUserName").attr("style","color: red;");

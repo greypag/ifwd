@@ -1361,8 +1361,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONObject payment = new JSONObject();
 			payment.put("amount", saviePlanDetails.getInsuredAmount());
 			payment.put("paymentMethod", lifePayment.getPaymentMethod());
-			payment.put("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode().split("-")[0]:"");
-			payment.put("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode().split("-")[0]:"");
+			payment.put("bankCode", lifePayment.getBankCode()!=null?lifePayment.getBankCode().substring(lifePayment.getBankCode().length()-4, lifePayment.getBankCode().length()-1):"");
+			payment.put("branchCode", lifePayment.getBranchName()!=null?lifePayment.getBranchName().substring(lifePayment.getBranchName().length()-4, lifePayment.getBranchName().length()-1):"");
 			payment.put("accountNo", lifePayment.getAccountNumber());
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
