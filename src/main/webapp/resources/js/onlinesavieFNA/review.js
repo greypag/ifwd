@@ -808,13 +808,14 @@ var Review = {
 	}
 }
 
-$(".fna-btn-clear").click(function(){
+function showFnaPopupClear() {
 	$(".fna-popup-clear").modal({
-	   keyboard: false
-	});
-});
+		   keyboard: false
+		});
+	
+}
 
-$(".btn-clear-confirm").click(function(){
+function clearFna() {
 	$.ajax({     
 	    url:contextPath+'/ajax/clearFna',     
 	    type:'get',     
@@ -826,9 +827,9 @@ $(".btn-clear-confirm").click(function(){
 	    	}
 	    }  
 	});
-})
+}
 
-$(".btn-clear-cancel").click(function(){
+function hideFnaPopupClear() {
 	$(".fna-popup-clear").modal("hide");
-})
+}
 

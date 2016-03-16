@@ -17333,41 +17333,57 @@ button#thank-you-continue {
 }
 /* line 476, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content {
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content{
 	padding: 35px 30px;
 }
 /* line 480, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content h2,
-	.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered
-	{
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .registered{
 	padding-top: 0;
 	text-align: left;
 }
 /* line 485, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered
-	{
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .registered{
 	margin-bottom: 35px;
 }
 /* line 489, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-header,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-header
-	{
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-header,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .modal-header,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .modal-header,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .modal-header{
 	margin-bottom: 30px;
 }
 /* line 493, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body
-	{
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .modal-body,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .modal-body,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .modal-body{
 	text-align: center;
 	margin-bottom: 10px;
 }
 /* line 497, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body button,
-	.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button
-	{
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button,
+.fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .modal-body button,
+.fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .modal-body button,
+.fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .modal-body button{
 	width: 70%;
 	min-width: 200px;
 	font-size: 30px;
