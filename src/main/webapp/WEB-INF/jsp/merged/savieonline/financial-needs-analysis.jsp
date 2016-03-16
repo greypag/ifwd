@@ -165,7 +165,7 @@ var affiliate = "${affiliate}";
 						</div>
 
 						<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-							<!-- <a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a> -->
+							<!-- <a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a> -->
 							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 						</div>
 						<div class="hidden-sm hidden-xs clearfix desktop-btn-gp">
@@ -187,7 +187,7 @@ var affiliate = "${affiliate}";
 						</div>
 
 						<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
+							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
 							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step2-next"><fmt:message key="button.next" bundle="${msg}" /></a>
 						</div>
 					</div>
@@ -196,9 +196,9 @@ var affiliate = "${affiliate}";
 			<div class="step-flow-wrapper">
 				<div class="step-flow">
 					<div class="hidden-sm hidden-xs desktop-btn-gp">
-						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish reverse-color disabled">Save and Proceed to Product Recommendation</a>
+						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish reverse-color disabled"><fmt:message key="button.save.process" bundle="${msg}" /></a>
 						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next reverse-color disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
-						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back reverse-color">Back</a>
+						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back reverse-color"><fmt:message key="button.back" bundle="${msg}" /></a>
 					</div>
 					<div class="step-flow-slider clearfix">
 						<div class="step3 activeState">
@@ -316,7 +316,7 @@ var affiliate = "${affiliate}";
 								
 
 								<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
 									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 								</div>
 
@@ -361,7 +361,7 @@ var affiliate = "${affiliate}";
 										
 
 										<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
 											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 										</div>
 
@@ -396,7 +396,7 @@ var affiliate = "${affiliate}";
 									<p class="note">Note: Liquid assets are assets which may be easily turned into cash.<br>Real estate, coin collection and artwork are not considered to be liquid assets.</p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
@@ -432,7 +432,7 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 
@@ -452,7 +452,7 @@ var affiliate = "${affiliate}";
 									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="fna.question.q4dii.hkd" bundle="${msg}" /><input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
@@ -493,7 +493,7 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
@@ -526,7 +526,7 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
@@ -558,7 +558,7 @@ var affiliate = "${affiliate}";
 								</div>
 
 								<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
 									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish disabled"><fmt:message key="button.save.process" bundle="${msg}" /></a>
 								</div>
 								<div class="hidden-sm hidden-xs">

@@ -19,7 +19,7 @@ var affiliate = "${affiliate}";
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/onlinesavieFNA/select2.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/onlinesavieFNA/onlinesavieFNAReview.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/select2.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/locale.js"></script>
+<jsp:include page="/resources/js/onlinesavieFNA/locale.jsp" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/uifn.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/review.js"></script>
 <section id="FNAReview">
@@ -30,12 +30,12 @@ var affiliate = "${affiliate}";
 					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">Save</a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#">Savie</a></li>
-					<li class="active "><i class="fa fa-caret-right"></i>Financial Needs Analysis</li>
+					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="label.fna" bundle="${msg}" /></li>
 				</ol>
 			</div>
 		</div>
 	</div>
-	<form id="frmReview" name="frmReview" action="" method="post">
+	<form id="frmReview" name="frmReview" action="***" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 lead-in">
@@ -49,32 +49,32 @@ var affiliate = "${affiliate}";
 		<div class="row question">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 num">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 title"><p>Personal Information</p></div>
-			<!-- <a class="btn_edit" href="javascript:void(0);" rel="">Edit</a> -->
+			<!-- <a class="btn_edit" href="javascript:void(0);" rel=">Edit</a> -->
 		</div>
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
-			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline">Name</span><span class="content" id="name">&nbsp;</span></div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline"><fmt:message key="label.name" bundle="${msg}" /></span><span class="content" id="name">&nbsp;</span></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
-			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline">Gender</span><span class="content" id="gender">&nbsp;</span></div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline"><fmt:message key="label.gender" bundle="${msg}" /></span><span class="content" id="gender">&nbsp;</span></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
-			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline">Date of Birth</span><span class="content" id="dob">&nbsp;</span></div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><span class="headline"><fmt:message key="label.dob" bundle="${msg}" /></span><span class="content" id="dob">&nbsp;</span></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">Marital Status</span>
+				<span class="headline"><fmt:message key="label.martial.status" bundle="${msg}" /></span>
 				<span class="displayMode marital_status content">&nbsp;</span>
 				<span class="editMode content">
 					<div class="styled-select">
 						<select id="marital_status" name="marital_status" class="form-control select-label">
-							<option value="0">Single</option>
-							<option value="1">Married</option>
-							<option value="2">Divorced</option>
-							<option value="3">Widowed</option>
+							<option value="0"><fmt:message key="option.martial.status.single" bundle="${msg}" /></option>
+							<option value="1"><fmt:message key="option.martial.status.married" bundle="${msg}" /></option>
+							<option value="2"><fmt:message key="option.martial.status.divorced" bundle="${msg}" /></option>
+							<option value="3"><fmt:message key="option.martial.status.widowed" bundle="${msg}" /></option>
 						</select>
 					</div>
 				</span>
@@ -83,15 +83,15 @@ var affiliate = "${affiliate}";
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">No. of dependents</span>
+				<span class="headline"><fmt:message key="label.no.of.dependents" bundle="${msg}" /></span>
 				<span class="displayMode dependents content">&nbsp;</span>
 				<span class="editMode content">
 					<div class="styled-select">
 						<select id="dependents" name="dependents" class="form-control select-label">
-							<option value="0">Nil</option>
-							<option value="1">1-3</option>
-							<option value="2">4-5</option>
-							<option value="3">7 or above</option>
+							<option value="0"><fmt:message key="option.no.of.dependents.nil" bundle="${msg}" /></option>
+							<option value="1"><fmt:message key="option.no.of.dependents.1to3" bundle="${msg}" /></option>
+							<option value="2"><fmt:message key="option.no.of.dependents.4to6" bundle="${msg}" /></option>
+							<option value="3"><fmt:message key="option.no.of.dependents.7orabove" bundle="${msg}" /></option>
 						</select>
 					</div>
 				</span>
@@ -100,7 +100,7 @@ var affiliate = "${affiliate}";
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">Education Level</span>
+				<span class="headline"><fmt:message key="label.education.level" bundle="${msg}" /></span>
 				<span class="displayMode education content">&nbsp;</span>
 				<span class="editMode content">
 					<div class="styled-select">
@@ -117,7 +117,7 @@ var affiliate = "${affiliate}";
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">Employment Status</span>
+				<span class="headline"><fmt:message key="label.employment.status" bundle="${msg}" /></span>
 				<span class="displayMode status content">&nbsp;</span>
 				<span class="editMode content">
 					<div class="styled-select">
@@ -129,21 +129,21 @@ var affiliate = "${affiliate}";
 		<div class="row NatureRow">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">Nature of Business</span>
+				<span class="headline"><fmt:message key="label.nature.of.business" bundle="${msg}" /></span>
 				<span class="displayMode nature content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="nature" name="nature" class=""></select>
+					<select id="nature" name="nature" class="***"></select>
 				</span>
 			</div>
 		</div>
 		<div class="row OccupationRow">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-				<span class="headline">Occupation</span>
+				<span class="headline"><fmt:message key="label.occupation" bundle="${msg}" /></span>
 				<span class="displayMode occupation content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="occupation" name="occupation" class=""></select>
-					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="" maxlength="100"/></p>
+					<select id="occupation" name="occupation" class="***"></select>
+					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="***" maxlength="100"/></p>
 				</span>
 			</div>
 		</div>
@@ -166,7 +166,7 @@ var affiliate = "${affiliate}";
 		</div>
 		<div class="center row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<input type="button" id="btn_save" name="save" value="Save and Proceed to Product Recommendation" class="bdr-curve btn btn-primary btn-lg btn-color-ylw" >
+				<input type="button" id="btn_save" name="save" value="<fmt:message key="button.save.process" bundle="${msg}" />" class="bdr-curve btn btn-primary btn-lg btn-color-ylw" >
 			</div>
 		</div>
 	</div>
@@ -184,7 +184,7 @@ var affiliate = "${affiliate}";
 				<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel">CANCEL</a>
 				<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok">OK</a>
 			</div>
-			<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="">Edit</a>
+			<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="***">Edit</a>
 		</div>
 
 		<div id="template_op" class="row">
