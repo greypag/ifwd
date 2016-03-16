@@ -687,6 +687,12 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
+			// detect IE browsers
+			if (window.clipboardData) {
+				$('.selectDiv .gray-dropdown').addClass('ie-select');
+			} else {
+				$('.selectDiv .gray-dropdown').removeClass('ie-select');
+			}
 			
 			$('#bf-save-and-con-later').on('click', function (e) {
 				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
@@ -828,17 +834,21 @@ var languageP = "${language}";
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
 								},
+								regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			               },
 								callback: {
-				                  callback: function(value, validator) {
-									if(!isValidHKID(value)) {
-										return {
-											valid: false,
-											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+			                  callback: function(value, validator) {
+										if(!isValidHKID(value)) {
+											return {
+												valid: false,
+												message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+											}
 										}
-									}
-									return true;
-				                  }
-				                }
+										return true;
+			                  }
+				            }
 							}
 						},
 						'beneficaryGender1': {
@@ -994,12 +1004,16 @@ var languageP = "${language}";
 				               }
 							}
 						},
-						'beneficiaryHkid2':{
+						'beneficiaryID2':{
 							container: '#beneficiaryHkidErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
 								},
+								regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			               },
 								callback: {
 				                  callback: function(value, validator) {
 									if(!isValidHKID(value)) {
@@ -1166,12 +1180,16 @@ var languageP = "${language}";
 								   }
 								}
 							},
-							'beneficiaryHkid3':{
+							'beneficiaryID3':{
 							container: '#beneficiaryHkidErMsg\\[2\\]',
 							validators: {
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
 								},
+								regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			               },
 								callback: {
 				                  callback: function(value, validator) {
 									if(!isValidHKID(value)) {
