@@ -9,6 +9,8 @@
 %>
 
 <%
+	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
+
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();  
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
@@ -148,7 +150,7 @@
 	                    <div class="Carousel-subtitle"><fmt:message key="Fanfare.Hotel.Carousel.SubTitle" bundle="${msg}" /></div>
 	                </div>
 	                <div id="hotel-voucher-carousel" class="">
-		                  <div class="carousel-item-container first">
+		                  <div class="carousel-item-container first<%=hotelVoucherCampaignId==14?" selected":"" %>">
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="0">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar14-oneworld.png" class="img-responsive">			                        
 			                        <div class="carousel-description-container">
@@ -157,7 +159,7 @@
 			                        </div> 
 		                        </div>   
 		                  </div>
-		                  <div class="carousel-item-container selected">
+		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==15?" selected":"" %>">
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="1">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar13-Vivatel.png" class="img-responsive">		                        
 			                        <div class="carousel-description-container">
@@ -166,7 +168,7 @@
 			                        </div>
 		                        </div>    
 		                  </div>
-		                  <div class="carousel-item-container">
+		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==16?" selected":"" %>">
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="2">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar12-shangri-la-rasa.png" class="img-responsive">
 			                        <div class="carousel-description-container">
@@ -175,7 +177,7 @@
 			                        </div>
 		                        </div>    
 		                  </div>
-		                  <div class="carousel-item-container">
+		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==17?" selected":"" %>">
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="3">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar11-goldensand-resort.png" class="img-responsive">
 			                        <div class="carousel-description-container">
@@ -184,7 +186,7 @@
 			                        </div>
 		                        </div>    
 		                  </div>
-		                  <div class="carousel-item-container">
+		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==18?" selected":"" %>">
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="4">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar15-traders-hotel.png" class="img-responsive">
 			                        <div class="carousel-description-container">
@@ -307,6 +309,7 @@
                 <!-- PLANS -->
                 <div class="plans-holder fwdiscover-container">
                 <!-- Hotel Promotion Start -->
+                	<% if (hotelVoucherCampaignId == 14) { %>
                     <!-- Hotel 3-11 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -331,7 +334,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count6}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer314.enddate" bundle="${msg}" />
@@ -350,6 +353,8 @@
                         </div>
                     </div>
                     <!-- Hotel 3-11 Offer End -->
+                    <% } %>
+					<% if (hotelVoucherCampaignId == 15) { %>
                     <!-- Hotel 3-12 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -374,7 +379,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count7}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer315.enddate" bundle="${msg}" />
@@ -392,6 +397,8 @@
                         </div>
                     </div>
                     <!-- Hotel 3-12 Offer End -->
+                    <% } %>
+					<% if (hotelVoucherCampaignId == 16) { %>
                     <!-- Hotel 3-13 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/rasa-sayang-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -416,7 +423,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count8}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer316.enddate" bundle="${msg}" />
@@ -434,6 +441,8 @@
                         </div>
                     </div>
                     <!-- Hotel 3-13 Offer End -->
+                    <% } %>
+                    <% if (hotelVoucherCampaignId == 17) { %>
                     <!-- Hotel 3-14 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/golden-sands-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -458,7 +467,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count9}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer317.enddate" bundle="${msg}" />
@@ -476,6 +485,8 @@
                         </div>
                     </div>
                     <!-- Hotel 3-14 Offer End -->
+                    <% } %>
+                    <% if (hotelVoucherCampaignId == 18) { %>
                     <!-- Hotel 3-15 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -499,7 +510,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count10}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.offer318.enddate" bundle="${msg}" />
@@ -516,7 +527,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Hotel 3-15 Offer End -->                                                                                
+                    <!-- Hotel 3-15 Offer End -->
+                    <% } %>
                 <!-- Hotel Promotion End -->          
                 <!-- CNY PROMOTION START -->
                 <%--<%
@@ -1646,8 +1658,8 @@
                Removed border style in slick-theme.css
             */
             if(msieversion != 9){
-            	$('#hotel-voucher-carousel').addClass('border-fix');
-            	$('#hotel-voucher-carousel').addClass('border-fix');
+                $('#hotel-voucher-carousel').addClass('border-fix');
+                $('#hotel-voucher-carousel').addClass('border-fix');
             }
         	$('#hotel-description-modal').on('hide.bs.modal', function () {
         		$('.modal-backdrop').remove();
@@ -1839,37 +1851,37 @@
         /* Promote code assign and Loginbox pop for Hotel Voucher*/
         $('#modal-grab-button-offer311').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("13");
+                loginpopup("<%=hotelVoucherCampaignId%>");
             }else {
-                assignPromoCode("13");
+                assignPromoCode("<%=hotelVoucherCampaignId%>");
             }
         });         
         $('#modal-grab-button-offer312').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("13");
+                loginpopup("<%=hotelVoucherCampaignId%>");
             }else {
-                assignPromoCode("13");
+                assignPromoCode("<%=hotelVoucherCampaignId%>");
             }
         }); 
         $('#modal-grab-button-offer313').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("13");
+                loginpopup("<%=hotelVoucherCampaignId%>");
             }else {
-                assignPromoCode("13");
+                assignPromoCode("<%=hotelVoucherCampaignId%>");
             }
         }); 
         $('#modal-grab-button-offer314').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("13");
+                loginpopup("<%=hotelVoucherCampaignId%>");
             }else {
-                assignPromoCode("13");
+                assignPromoCode("<%=hotelVoucherCampaignId%>");
             }
         });
         $('#modal-grab-button-offer315').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("13");
+                loginpopup("<%=hotelVoucherCampaignId%>");
             }else {
-                assignPromoCode("13");
+                assignPromoCode("<%=hotelVoucherCampaignId%>");
             }
         });
         /* Promote code assign and Loginbox pop for Hotel Voucher End*/
