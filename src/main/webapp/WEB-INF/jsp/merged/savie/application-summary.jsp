@@ -189,7 +189,7 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="telephoneNo" name="telephoneNo" value="${lifePersonalDetails.mobileNumber }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="telephoneNo">Telephone no.</label>
+								<label class="mdl-textfield__label" for="telephoneNo"><fmt:message key="placeholder.mobile.no" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
@@ -566,14 +566,14 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="amount" name="amount" value="HK$ ${lifePayment.paymentAmount }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="amount">Amount</label>
+								<label class="mdl-textfield__label" for="amount"><fmt:message key="placeholder.amount1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
-								<label class="mdl-textfield__label cstm-dropdown-label">Payment method</label>
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></label>
 								<select name="tmpPaymentMethod" id="tmpPaymentMethod" class="form-control gray-dropdown">
-									<option value="">Payment method</option>
+									<option value=""><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></option>
 									<option disabled="disabled" selected="selected" value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
 								</select>
 								<input type="hidden" id="paymentMethod" name="paymentMethod" />
