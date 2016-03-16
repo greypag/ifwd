@@ -969,10 +969,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
-		
+		logger.info("GET_PRODUCTRECOMMENDATION : " + responseJsonObj.toString());
 		if(responseJsonObj.get("errMsgs") == null) {
+			
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
+			String sortGroupArr = "";
 			String sort;
 			JSONObject products;
 			if(productArr != null) {
@@ -984,10 +986,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.comparePeriodAsc(sort);
 						break;
 					case "1":
-						sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
+						sort = CompareUtil.compareArrAsc(sort, "getMin_issue_age", false);
 						break;
 					case "2":
-						sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
+						sort = CompareUtil.compareArrAsc(sort, "getMax_issue_age", true);
 						break;
 					case "3":
 						sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
@@ -996,10 +998,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.comparePeriodDesc(sort);
 						break;
 					case "5":
-						sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
+						sort = CompareUtil.compareArrDesc(sort, "getMin_issue_age", false);
 						break;
 					case "6":
-						sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
+						sort = CompareUtil.compareArrDesc(sort, "getMax_issue_age", true);
 						break;
 					case "7":
 						sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
@@ -1011,10 +1013,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					products.put("products", JSONValue.parse(sort));
 					sortProductArr.add(products);
 				}
+				sortGroupArr = CompareUtil.compareGroup(sortProductArr.toString());
 			}
-			responseJsonObj.put("product_list", sortProductArr);
-			
-			logger.info(responseJsonObj.toString());
+			responseJsonObj.put("product_list", JSONValue.parse(sortGroupArr));
+			logger.info("product_list : " + JSONValue.parse(responseJsonObj.toString()));
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
 			request.getSession().setAttribute("productRecommendation", productRecommendation);
