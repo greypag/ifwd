@@ -85,7 +85,7 @@ var language = "${language}";
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p><fmt:message key="info.savie.confirmation.success.copy" bundle="${msg}" /></p>
+						<p><fmt:message key="info.savie.confirmation.success.copy.payment" bundle="${msg}" /></p>
 						<!-- <p>Your application is being processed.</p>
 						<p id="review-line">Please review the confirmation of your application as detailed here.</p>-->
 					</div>
@@ -123,7 +123,7 @@ var language = "${language}";
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring" bundle="${msg}" />:</p>
+					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" />:</p>
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">
@@ -145,13 +145,17 @@ var language = "${language}";
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
 							</div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation" bundle="${msg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation.payment" bundle="${msg}" /></p></div>
 							<!-- <div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>-->
 						</div>
 					</div>
 					<p class="note hidden"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p>
 				</div>
 				<hr>
+				<a href="#" class="visible-md visible-lg print-doc-link">
+					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
+					<span><fmt:message key="label.print.document" bundle="${msg}" /></span>
+				</a>
 				<center><button type="button" class="btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
 			</div>
 		</div>

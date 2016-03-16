@@ -254,11 +254,11 @@ var languageP = "${language}";
                                        <div class="selectDiv">
 									      			<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></label>                                          
                                           <select class="form-control gray-dropdown" name="tmpMaritalStatus"  id="tmpMaritalStatus">
-                                             <option value="" selected="selected" disabled="disabled">Marital status</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 																<c:forEach var="list" items="${maritalStatusesEN}">
 																	<option value="${list.itemCode }-${list.itemDesc }" 
-																	    <c:choose>  
+																	    <c:choose>
 																		   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
 																		   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
 																		   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
