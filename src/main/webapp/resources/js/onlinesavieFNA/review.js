@@ -1,8 +1,10 @@
 var contextPath = context; //"/fwdhk"
 var UILANGUAGE = language;
 
+
 var url_show = contextPath+"/ajax/savings-insurance/show";
 var url_update = contextPath+"/ajax/savings-insurance/update";
+
 
 $(document).ready(function(){
 	Review.init();
@@ -46,32 +48,21 @@ var fnaOccOther = {
 	"occupation":"NoBD16"
 }
 
-//数字转千分位
+//thousand comma separator
 function formatNum (num) {
-	num = (num + '').replace(",","");
+	num = (num + '').replace(/,/g,"");
     return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 }
 
 $(document).ready(function(){  
-    $("#q4_a_others").bind("blur",function(){
-    	$("#q4_a_others").val(formatNum($("#q4_a_others").val()));
+    $("#q4_a_others, #q4_b_amount, #q4_c_others, #q4_d_1_others, #q4_d_2_others").bind("blur",function(){
+    	var val = $(this).val();
+    	val = (val + '').replace(/,/g,"");
+    	val = parseInt(val+'');
+    	val = isNaN(val) ? "":val;
+    	$(this).val(formatNum(val));
     });
     
-    $("#q4_b_amount").bind("blur",function(){
-    	$("#q4_b_amount").val(formatNum($("#q4_b_amount").val()));
-    });
-    
-    $("#q4_c_others").bind("blur",function(){
-    	$("#q4_c_others").val(formatNum($("#q4_c_others").val()));
-    });
-    
-    $("#q4_d_1_others").bind("blur",function(){
-    	$("#q4_d_1_others").val(formatNum($("#q4_d_1_others").val()));
-    });
-    
-    $("#q4_d_2_others").bind("blur",function(){
-    	$("#q4_d_2_others").val(formatNum($("#q4_d_2_others").val()));
-    });
 })
 
 var Review = {
@@ -108,11 +99,17 @@ var Review = {
 			var special_status = Boolean($("#status option[value='"+status+"']").attr("data-type") =="true");
 
 			if(special_status){
+				$("#nature").select2('destroy'); 
+				$("#occupation").select2('destroy'); 
 				$("#nature").empty().prop("disabled", true).addClass("disabled");
 				$("#occupation").empty().prop("disabled", true).addClass("disabled");
+				$(".NatureRow").hide()
+				$(".OccupationRow").hide()
 			}else if(!$("#nature").is(":visible")){
 				$("#nature").prop("disabled", false).removeClass("disabled");
 				$("#occupation").prop("disabled", false).removeClass("disabled");
+				$(".NatureRow").show()
+				$(".OccupationRow").show()
 				that.constructSelection(status, null, null);
 			}
 			$("#occupation").change();
@@ -142,10 +139,11 @@ var Review = {
 
 			if(parent == fnaOccOther.nature && occ == fnaOccOther.occupation){
 				//others + others
-				$(".occupation_others").show().val("").prop("disabled", false);
-				$("#occupation_others").focus();
+				$(".occupation_others").show();
+				$("#occupation_others").focus().val("").prop("disabled", false);
 			}else{
-				$(".occupation_others").val("").prop("disabled", true).hide();
+				$(".occupation_others").hide();
+				$("#occupation_others").val("").prop("disabled", true);
 			}
 		});
 	},
@@ -156,7 +154,6 @@ var Review = {
 		var checked = $('#'+id).prop('checked');
 		var row = id.replace("c", "r");
 		var qid = $(elm).attr("class");
-
 		
 		$("#"+qid+" .option .row").each(function(){
 			var rid = $(this).attr("id");
@@ -216,6 +213,10 @@ var Review = {
 		}
 		$("#occupation option[value='"+occ+"']").prop("selected", true);
 		
+
+		//$("#status").select2();
+		$("#nature").select2();
+		$("#occupation").select2();
 	},
 
 	constructQuestion:function(data){
@@ -248,7 +249,7 @@ var Review = {
 				}
 				if(options[j].other != undefined){
 					var inputId = options[j].other;
-					text = text.replace("{0}", "<input type='text' id='"+inputId+"' name='"+inputId+"' value='' maxlength='50' />");
+					text = text.replace("{0}", "<input type='text' id='"+inputId+"' name='"+inputId+"' value='' maxlength='10' />");
 					option.find(".checkbox input").attr("data-id", inputId);
 				}
 
@@ -266,6 +267,20 @@ var Review = {
 		//special treatment for "Total Amount"
 		var hr = $("<hr/>");
 		$("#q4_b_r7").prepend(hr);
+
+		$("#q4_a_others").blur(function(){
+			var val = $(this).val();
+			if(!FormValidate.isEmpty(val)){
+				$(".row.rq4_a").removeClass("selected");
+				$("#q4_a").find("input[type='checkbox']").prop("checked", false);
+
+				$("#q4_a_r0").addClass("selected");
+				$("#q4_a_c0").prop("checked", true);
+			}else{
+				$("#q4_a_r0").removeClass("selected");
+				$("#q4_a_c0").prop("checked", false);
+			}
+		});
 	},
 
 	constructInfo:function(data){
@@ -307,17 +322,23 @@ var Review = {
 				
 				that.constructSelection(fnaData.employment_status, fnaData.nature_of_business, fnaData.occupation);
 				
-				$(".status").text($("#status option[value='"+fnaData.employment_status+"']").text());
-				$(".nature").text($("#nature option[value='"+fnaData.nature_of_business+"']").text());
-				
+				var status = $("#status option[value='"+fnaData.employment_status+"']").text();
+				var nature = $("#nature option[value='"+fnaData.nature_of_business+"']").text();
 				var occupation = $("#occupation option[value='"+fnaData.occupation+"']").text();
 				if(fnaData.nature_of_business == fnaOccOther.nature && fnaData.occupation == fnaOccOther.occupation){
 					occupation = fnaData.occupation_others;
 					$(".occupation_others").show();
 					$(".occupation_others input").val(occupation);
 				}
+				
+				if(fnaData.nature_of_business == null && fnaData.occupation == null){
+					$(".NatureRow").hide();
+					$(".OccupationRow").hide();
+				}
 
-				$(".occupation").text( occupation);
+				$(".status").text(status);
+				$(".nature").text(nature);
+				$(".occupation").text(occupation);
 				$("#marital_status option[value='"+fnaData.marital_status+"']").prop("selected", true);
 				$("#dependents option[value='"+fnaData.dependents+"']").prop("selected", true);
 				$("#education option[value='"+fnaData.education+"']").prop("selected", true);
@@ -365,7 +386,8 @@ var Review = {
 				$("#q4_a_r"+fnaData.q4_a).addClass("selected");
 				$("#q4_a_c"+fnaData.q4_a).prop('checked', true);
 				if(fnaData.q4_a_others != null){
-					$("#q4_a_others").val(fnaData.q4_a_others);
+					$("#q4_a_others").val(formatNum(fnaData.q4_a_others));
+
 				}
 				break;
 
@@ -384,7 +406,7 @@ var Review = {
 				}
 
 				if(fnaData.q4_b_amount != null){
-					$("#q4_b_amount").val(fnaData.q4_b_amount);
+					$("#q4_b_amount").val(formatNum(fnaData.q4_b_amount));
 				}else{
 					$("#q4_b_amount").val(0);
 				}
@@ -402,7 +424,7 @@ var Review = {
 				$("#q4_c_r0 .checkbox").attr("class", "textbox");
 				$("#q4_c_others").val("");
 				if(fnaData.q4_c != null){
-					$("#q4_c_others").val(fnaData.q4_c);
+					$("#q4_c_others").val(formatNum(fnaData.q4_c));
 				}
 				break;
 			case "q4_d_1":
@@ -413,7 +435,7 @@ var Review = {
 				$("#q4_d_1_r0 .checkbox").attr("class", "textbox");
 				$("#q4_d_1_others").val("");
 				if(fnaData.q4_d_1 != null){
-					$("#q4_d_1_others").val(fnaData.q4_d_1);
+					$("#q4_d_1_others").val(formatNum(fnaData.q4_d_1));
 				}
 				break;
 			case "q4_d_2":
@@ -424,7 +446,7 @@ var Review = {
 				$("#q4_d_2_r0 .checkbox").attr("class", "textbox");
 				$("#q4_d_2_others").val("");
 				if(fnaData.q4_d_2 != null){
-					$("#q4_d_2_others").val(fnaData.q4_d_2);
+					$("#q4_d_2_others").val(formatNum(fnaData.q4_d_2));
 				}
 				break;
 			case "q4_e":
@@ -461,26 +483,29 @@ var Review = {
 		var answer = "";
 		var other = null;
 		var amount = null;
+		var answerArr = [];
 		$("#"+qid+" .option .row").each(function(){
 			var rid = $(this).attr("id");
 			if($("#"+rid).find("input[type='checkbox']").prop("checked")){
-				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
+				answer += $("#"+rid).find("input[type='checkbox']").val();
+				answerArr.push($("#"+rid).find("input[type='checkbox']").val());
 			}
 		});
-		if(qid == "q1" || qid == "q2" || qid == "q3" || qid == "q4" || qid == "q4_a" || qid == "q4_b" || qid == "q4_e" || qid == "q4_f" || qid == "q4_g"){
-			if(answer.length>0){
-				answer=answer.substring(0,answer.length-1);
-			}
-		}
+		answer = (answerArr.length > 0)?answerArr.join():"";
+
 		var isError = false;
 		
 		if(qid == "personal_info"){
 			var status = $("#status").val();
+			var statusText = $("#status option[value='"+status+"']").text();
 			var special_status = Boolean($("#status option[value='"+status+"']").attr("data-type")=="true");
+			
 			var nature = (special_status)? null : $("#nature").val();
+			var natureText = (nature == null)? "" : $("#nature option[value='"+nature+"']").text();
+			
 			var occ = (special_status)? null : $("#occupation").val();
-			var occText = (special_status)? $("#status option[value='"+status+"']").text(): $("#occupation option[value='"+occ+"']").text();
-			var occ_others = (special_status)? null: $("#occupation_others").val();
+			var occText = (special_status)? "" : $("#occupation option[value='"+occ+"']").text();
+			var occ_others = (special_status)? null : $("#occupation_others").val();
 			occ = (FormValidate.isEmpty(occ))? null : occ;
 			occ_others = (FormValidate.isEmpty(occ_others))? null : occ_others;
 
@@ -488,7 +513,6 @@ var Review = {
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].select_empty);
 				$("#occupation").focus();
 				isError = true;
-
 			}else if(nature == fnaOccOther.nature && occ == fnaOccOther.occupation && occ_others == null){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].occupation_others_empty);
 				$("#occupation_others").focus();
@@ -507,8 +531,8 @@ var Review = {
 				$(".marital_status").text($("#marital_status option[value='"+fnaData.marital_status+"']").text());
 				$(".dependents").text($("#dependents option[value='"+fnaData.dependents+"']").text());
 				$(".education").text($("#education option[value='"+fnaData.education+"']").text());
-				$(".status").text($("#status option[value='"+fnaData.employment_status+"']").text());
-				$(".nature").text($("#nature option[value='"+fnaData.nature_of_business+"']").text());
+				$(".status").text(statusText);
+				$(".nature").text(natureText);
 				$(".occupation").text(occText);
 			}
 		}
@@ -516,6 +540,7 @@ var Review = {
 
 		if(qid == "q4_a"){
 			other = $("#q4_a_others").val();
+			other = (other + '').replace(/,/g,"");
 			if(answer=="0" && other == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_a_others);
 				$("#q4_a_others").focus();
@@ -528,7 +553,7 @@ var Review = {
 			}
 			
 			if(other!=null && other!=""){ 
-				other = parseInt(other.replace(",",""));
+				other = parseInt(other);
 			}
 		}
 
@@ -543,6 +568,7 @@ var Review = {
 			*/
 
 			amount = $("#q4_b_amount").val();
+			amount = (amount + '').replace(/,/g,"");
 			if(amount == "" || amount == 0){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_b_amount);
 				$("#q4_b_amount").focus();
@@ -552,37 +578,40 @@ var Review = {
 				$("#q4_b_amount").focus();
 				isError = true;
 			}
-			amount = parseInt(amount.replace(",",""));
+			amount = parseInt(amount);
 		}
 
 		if(qid == "q4_c"){
 			answer = $("#q4_c_others").val();
+			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
 				$("#q4_c_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer.replace(",",""));  
+			answer = parseInt(answer);
 		}
 
 		if(qid == "q4_d_1"){
 			answer = $("#q4_d_1_others").val();
+			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
 				$("#q4_d_1_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer.replace(",",""));
+			answer = parseInt(answer);
 		}
 
 		if(qid == "q4_d_2"){
 			answer = $("#q4_d_2_others").val();
+			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
 				$("#q4_d_2_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer.replace(",",""));
+			answer = parseInt(answer);
 		}
 
 		/*
@@ -669,10 +698,10 @@ var Review = {
 		evt.preventDefault();
 		var that = Review;
 		var id = $(this).attr("rel");
-		$("#"+id+ " .error").text("");
 		that.constructAnswer(id);
-		
+
 		var target = $("#"+id);
+		target.find(".error").text("");
 		target.addClass("display")
 		target.find(".btn_edit").removeClass("selected")
 		target.find("input[type='checkbox']").attr("disabled", "disabled");	
@@ -706,7 +735,6 @@ var Review = {
 				//$('body').append('<div id="overlay"> </div>');
 				
 				$('#fnaPopupEnquiry').modal({
-				   backdrop: 'static',
 				   keyboard: false
 				});
 
@@ -759,6 +787,7 @@ var Review = {
 		var postData = fnaData;
 		AjaxManager.fire(url, postData, function(result){
 			if(result.status == 0){
+				//window.location.href = "recommendation.html";
 				window.location.href = contextPath + "/" + language + "/FNA/product-recommendation";
 			}else if(result.status == 2){
 				//alert("Please login first");
@@ -779,7 +808,13 @@ var Review = {
 	}
 }
 
-function clearFna(){
+$(".fna-btn-clear").click(function(){
+	$(".fna-popup-clear").modal({
+	   keyboard: false
+	});
+});
+
+$(".btn-clear-confirm").click(function(){
 	$.ajax({     
 	    url:contextPath+'/ajax/clearFna',     
 	    type:'get',     
@@ -791,6 +826,9 @@ function clearFna(){
 	    	}
 	    }  
 	});
-}
+})
 
+$(".btn-clear-cancel").click(function(){
+	$(".fna-popup-clear").modal("hide");
+})
 
