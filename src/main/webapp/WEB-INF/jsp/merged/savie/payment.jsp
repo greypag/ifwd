@@ -198,12 +198,12 @@ var language = "${language}";
 											<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${branchCodeEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${branchCodeCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
