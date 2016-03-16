@@ -5,12 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -20,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -235,10 +231,14 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			
 			model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
 			model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
-			model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
-			model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
+			if(savieFna!=null && savieFna.getNature_of_business() !=null && savieFna.getNature_of_business()!=""){
+				model.addAttribute("occupationEN", InitApplicationMessage.getOccupationByNob(commonUtils,savieFna.getNature_of_business(), "EN", "1"));
+				model.addAttribute("occupationCN", InitApplicationMessage.getOccupationByNob(commonUtils,savieFna.getNature_of_business(), "CH", "1"));
+			}
 			model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
 			model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
 			
@@ -255,7 +255,7 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
 			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
 			
-			model.addAttribute("occupationEnNoB1", InitApplicationMessage.occupationEnNoB1);
+			/*model.addAttribute("occupationEnNoB1", InitApplicationMessage.occupationEnNoB1);
 			model.addAttribute("occupationCnNoB1", InitApplicationMessage.occupationCnNoB1);
 			model.addAttribute("occupationEnNoB2", InitApplicationMessage.occupationEnNoB2);
 			model.addAttribute("occupationCnNoB2", InitApplicationMessage.occupationCnNoB2);
@@ -302,14 +302,13 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("occupationEnNoB23", InitApplicationMessage.occupationEnNoB23);
 			model.addAttribute("occupationCnNoB23", InitApplicationMessage.occupationCnNoB23);
 			model.addAttribute("occupationEnNoB24", InitApplicationMessage.occupationEnNoB24);
-			model.addAttribute("occupationCnNoB24", InitApplicationMessage.occupationCnNoB24);
+			model.addAttribute("occupationCnNoB24", InitApplicationMessage.occupationCnNoB24);*/
 			
 			String backSummary = request.getParameter("backSummary");
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
 			
-			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			String code = null;
 			if(savieFna!=null && savieFna.getQ4_a() !=null && savieFna.getQ4_a()!=""){
 				if("0".equals(savieFna.getQ4_a())){

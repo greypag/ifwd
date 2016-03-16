@@ -127,7 +127,7 @@ var languageP = "${language}";
 										</div>
 										<span class="error-msg" id="employmentStatusErMsg"></span>
 									</div>
-									<div class="form-group employment-field">
+									<div id="natureOfBusinessDiv" class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
 											<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
@@ -159,7 +159,7 @@ var languageP = "${language}";
 										</div>
 										<span class="error-msg" id="businessNatureErMsg"></span>
 									</div>
-									<div class="form-group employment-field">
+									<div id="occupationDiv" class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
 											<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown occupation">
@@ -199,7 +199,7 @@ var languageP = "${language}";
 										</div>
 										<span class="error-msg" id="otherOccupationErMsg"></span>
 									</div>
-									<div class="form-group unemployment-field hidden">
+									<div id="amountOfOtherSourceOfIncomeDiv" class="form-group unemployment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></label>
 											<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
@@ -222,14 +222,14 @@ var languageP = "${language}";
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-6" id="right-side">
-									<div class="form-group employment-field">
+									<div id="employerNameDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>
-									<div class="form-group employment-field">
+									<div id="monthlyPersonalIncomeDiv" class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
 											<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
@@ -325,7 +325,7 @@ var languageP = "${language}";
 										</div>
 										<span class="error-msg" id="educationLevelErMsg"></span>
 									</div>
-									<div class="form-group unemployment-field hidden">
+									<div id="amountOfLiquidAssetsDiv" class="form-group unemployment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></label>
 											<select name="tmpLiquidAssetsAmount" id="tmpLiquidAssetsAmount" class="form-control gray-dropdown">
@@ -349,7 +349,7 @@ var languageP = "${language}";
 								</div>
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
-	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button>
+	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
 									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 								</div>	
 	  						</form>
@@ -417,6 +417,27 @@ var languageP = "${language}";
 				setSelectReadonly('tmpBusinessNature', true);
 				setSelectReadonly('tmpOccupation', true);
 				setSelectReadonly('tmpEducationLevel', true);
+				//setSelectReadonly('tmpOtherIncomeAmount', true);
+				//setSelectReadonly('tmpLiquidAssetsAmount', true);
+				
+				
+				var employmentS = '${savieFna.employment_status }';
+				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7'){
+					$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
+					$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+					$('#natureOfBusinessDiv').addClass('hidden');
+					$('#occupationDiv').addClass('hidden');
+					$('#employerNameDiv').addClass('hidden');
+					$('#monthlyPersonalIncomeDiv').addClass('hidden');
+				}
+				else{
+					$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
+					$('#amountOfLiquidAssetsDiv').addClass('hidden');
+					$('#natureOfBusinessDiv').removeClass('hidden');
+					$('#occupationDiv').removeClass('hidden');
+					$('#employerNameDiv').removeClass('hidden');
+					$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+				}
 				
 				var dummy = true;
 				if('${backSummary}' == 'Y'){

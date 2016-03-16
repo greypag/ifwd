@@ -44,27 +44,33 @@ public class LifeEmploymentInfoBean implements Serializable {
         if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
         	list.add(ErrorMessageUtils.getMessage("employmentStatus", "validation.failure", language));
         }
-        if(ValidationUtils.isNullOrEmpty(this.natureOfBusiness)){
-        	list.add(ErrorMessageUtils.getMessage("natureOfBusiness", "validation.failure", language));
-        }
-        if(ValidationUtils.isNullOrEmpty(this.occupation)){
-        	list.add(ErrorMessageUtils.getMessage("occupation", "validation.failure", language));
-        }
-        if(ValidationUtils.isNullOrEmpty(this.employerName)){
-        	list.add(ErrorMessageUtils.getMessage("employerName", "validation.failure", language));
-        }
-        if(ValidationUtils.isNullOrEmpty(this.monthlyPersonalIncome)){
-        	list.add(ErrorMessageUtils.getMessage("monthlyPersonalIncome", "validation.failure", language));
+        else{
+        	if(this.employmentStatus.split("-")[0].equals("ES4")||this.employmentStatus.split("-")[0].equals("ES5")||this.employmentStatus.split("-")[0].equals("ES7")){
+        		if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
+	            	list.add(ErrorMessageUtils.getMessage("amountOfOtherSourceOfIncome", "validation.failure", language));
+	            }
+	            if(ValidationUtils.isNullOrEmpty(this.amountOfLiquidAssets)){
+	            	list.add(ErrorMessageUtils.getMessage("amountOfLiquidAssets", "validation.failure", language));
+	            }
+        	}
+        	else{
+        		if(ValidationUtils.isNullOrEmpty(this.natureOfBusiness)){
+                	list.add(ErrorMessageUtils.getMessage("natureOfBusiness", "validation.failure", language));
+                }
+                if(ValidationUtils.isNullOrEmpty(this.occupation)){
+                	list.add(ErrorMessageUtils.getMessage("occupation", "validation.failure", language));
+                }
+                if(ValidationUtils.isNullOrEmpty(this.employerName)){
+                	list.add(ErrorMessageUtils.getMessage("employerName", "validation.failure", language));
+                }
+                if(ValidationUtils.isNullOrEmpty(this.monthlyPersonalIncome)){
+                	list.add(ErrorMessageUtils.getMessage("monthlyPersonalIncome", "validation.failure", language));
+                }
+        	}
         }
         if(ValidationUtils.isNullOrEmpty(this.education)){
         	list.add(ErrorMessageUtils.getMessage("education", "validation.failure", language));
         }
-        /*if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
-        	list.add(ErrorMessageUtils.getMessage("amountOfOtherSourceOfIncome", "validation.failure", language));
-        }
-        if(ValidationUtils.isNullOrEmpty(this.amountOfLiquidAssets)){
-        	list.add(ErrorMessageUtils.getMessage("amountOfLiquidAssets", "validation.failure", language));
-        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

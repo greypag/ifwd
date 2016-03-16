@@ -104,7 +104,6 @@ var language = "${language}";
 						 </div>
 						 <div class="pull-left desc">
 								<fmt:message key="option.pay.later" bundle="${msg}" />
-							<span>(Pay at Customer Service Center)</span>
 						 </div>
 					  </div>
 				   </div>
@@ -116,16 +115,15 @@ var language = "${language}";
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<div class="info-wrapper">
-									<p class="info-label"><fmt:message key="placeholder.amount" bundle="${msg}" /></p>
+									<p class="info-label"><fmt:message key="placeholder.total.amount" bundle="${msg}" /></p>
 									<p class="info-value">
 									   HK$ ${saviePlanDetails.insuredAmount1 }
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>
 								<div class="info-wrapper">
-									<p class="info-label">Payment Method</p>
+									<p class="info-label"><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></p>
 									<p class="info-value">
-									   <fmt:message key="placeholder.direct.debit" bundle="${msg}" />
 									   <input type="hidden" name="paymentMethod" value="Direct Debit">
 									</p>
 								</div>
@@ -198,12 +196,12 @@ var language = "${language}";
 											<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${branchCodeEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${branchCodeCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -340,7 +338,7 @@ var language = "${language}";
 				</form>
 				
 				<center>
-						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.next" bundle="${msg}" /></button>
+						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 					<button type="button" id="btn-back" class="btn btn-payment hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
@@ -619,7 +617,7 @@ var language = "${language}";
 	   $('#bankAccountNo').keypress(function(e) {
 		   if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
 		        //return false if not digit
-		        return false;
+				return false;
 		    }
 	   });
 	});

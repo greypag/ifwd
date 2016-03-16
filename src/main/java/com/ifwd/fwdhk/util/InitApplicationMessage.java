@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.util;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
-
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
@@ -1039,5 +1037,16 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("branchCodeCN : " + branchCodeCN);
+	}
+	
+	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type){
+		List<OptionItemDesc> occupation = null;
+		try {
+			occupation = commonUtils.getOptionItemDescList(nobCode,language,type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+		}
+		logger.info("occupation : " + occupation);
+		return occupation;
 	}
 }

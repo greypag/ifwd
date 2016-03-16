@@ -97,9 +97,12 @@ function submitLoginForm(formID) {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
-						if((window.location.href.indexOf("tc/")>0 || window.location.href.indexOf("en/")>0) && $('#loginpopup #nav-bar-check').val() == 'false'){		
+						if(((window.location.href.length - window.location.href.indexOf("tc") <= 3)
+								|| (window.location.href.length - window.location.href.indexOf("en") <= 3)
+								|| (window.location.href.length - window.location.href.indexOf("home") <= 4))
+								&& $('#loginpopup #nav-bar-check').val() == 'false'){		
 							homeFnaGoNext();
-						} else if(window.location.href.indexOf("savings-insurance/plan-details")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){							
+						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
 							saviePlanDetailsGoNext();
@@ -265,7 +268,7 @@ function homeFnaGoNext(){
 	});
 }
 
-function saviePlanDetailsGoNext(){
+function getStarted(){
 		$.ajax({     
 		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 		    type:'get', 

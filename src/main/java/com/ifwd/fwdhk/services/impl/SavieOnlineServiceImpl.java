@@ -512,7 +512,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
-		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getResidentialTelNo()+"/"+lifePersonalDetails.getMobileNumber()));
+		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getResidentialTelNo()+" / "+lifePersonalDetails.getMobileNumber()));
 		
 		String group_1 = "";
 		if("0".equals(savieFna.getMarital_status())){
@@ -545,7 +545,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
 		String occupation = "";
-		if("NoBD1".equals(savieFna.getOccupation())){
+		List<OptionItemDesc> optionItemDescENList = InitApplicationMessage.occupationEN;
+		for(OptionItemDesc optionItemDescEN : optionItemDescENList){
+			if(optionItemDescEN.getItemCode().equals(savieFna.getOccupation())){
+				occupation = optionItemDescEN.getItemDesc();
+			}
+		}
+		/*List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
+		for(OptionItemDesc optionItemDescCN : optionItemDescCNList){
+			if(optionItemDescCN.getItemCode().equals(savieFna.getOccupation())){
+				occupation = occupation + "\r\n" + optionItemDescCN.getItemDesc();
+			}
+		}*/
+		
+		/*if("NoBD1".equals(savieFna.getOccupation())){
 			occupation = "Farmer -- General Farming";
 		}
 		else if("NoBD2".equals(savieFna.getOccupation())){
@@ -568,7 +581,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		else if("NoBD8".equals(savieFna.getOccupation())){
 			occupation = "Proprietor -- Farm";
-		}
+		}*/
 		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
@@ -787,7 +800,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
 		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
-			int i = 1;
+			for(String l :q1){
+				if("0".equals(l)){
+					attributeList.add(new PdfAttribute("Q1a1", "On"));
+				}
+				if("1".equals(l)){
+					attributeList.add(new PdfAttribute("Q1b1", "On"));
+				}
+				if("2".equals(l)){
+					attributeList.add(new PdfAttribute("Q1c1", "On"));
+				}
+				if("3".equals(l)){
+					attributeList.add(new PdfAttribute("Q1d1", "On"));
+				}
+				if("4".equals(l)){
+					attributeList.add(new PdfAttribute("Q1e1", "On"));
+				}
+				if("5".equals(l)){
+					attributeList.add(new PdfAttribute("Q1f1", "On"));
+					attributeList.add(new PdfAttribute("Q1others1", savieFna.getQ1_others()));
+				}
+			}
+			for(String m :q2){
+				if("0".equals(m)){
+					attributeList.add(new PdfAttribute("Q2a1", "On"));
+				}
+				if("1".equals(m)){
+					attributeList.add(new PdfAttribute("Q2b1", "On"));
+					
+				}
+				if("2".equals(m)){
+					attributeList.add(new PdfAttribute("Q2c1", "On"));
+				}
+				if("3".equals(m)){
+					attributeList.add(new PdfAttribute("Q2d1", "On"));
+				}
+				if("4".equals(m)){
+					attributeList.add(new PdfAttribute("Q2e1", "On"));
+					attributeList.add(new PdfAttribute("Q2others1", savieFna.getQ2_others()));
+				}
+			}
+			attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "SAVIE"));
+			attributeList.add(new PdfAttribute("Product(s)Selected1", "Yes"));
+			
+			
+			int i = 2;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
@@ -956,10 +1013,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
-		
+		logger.info("GET_PRODUCTRECOMMENDATION : " + responseJsonObj.toString());
 		if(responseJsonObj.get("errMsgs") == null) {
+			
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
+			String sortGroupArr = "";
 			String sort;
 			JSONObject products;
 			if(productArr != null) {
@@ -971,10 +1030,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.comparePeriodAsc(sort);
 						break;
 					case "1":
-						sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
+						sort = CompareUtil.compareArrAsc(sort, "getMin_issue_age", false);
 						break;
 					case "2":
-						sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
+						sort = CompareUtil.compareArrAsc(sort, "getMax_issue_age", true);
 						break;
 					case "3":
 						sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
@@ -983,10 +1042,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.comparePeriodDesc(sort);
 						break;
 					case "5":
-						sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
+						sort = CompareUtil.compareArrDesc(sort, "getMin_issue_age", false);
 						break;
 					case "6":
-						sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
+						sort = CompareUtil.compareArrDesc(sort, "getMax_issue_age", true);
 						break;
 					case "7":
 						sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
@@ -998,10 +1057,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					products.put("products", JSONValue.parse(sort));
 					sortProductArr.add(products);
 				}
+				sortGroupArr = CompareUtil.compareGroup(sortProductArr.toString());
 			}
-			responseJsonObj.put("product_list", sortProductArr);
-			
-			logger.info(responseJsonObj.toString());
+			responseJsonObj.put("product_list", JSONValue.parse(sortGroupArr));
+			logger.info("product_list : " + JSONValue.parse(responseJsonObj.toString()));
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
 			request.getSession().setAttribute("productRecommendation", productRecommendation);
@@ -1302,8 +1361,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONObject payment = new JSONObject();
 			payment.put("amount", saviePlanDetails.getInsuredAmount());
 			payment.put("paymentMethod", lifePayment.getPaymentMethod());
-			payment.put("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode().split("-")[0]:"");
-			payment.put("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode().split("-")[0]:"");
+			payment.put("bankCode", lifePayment.getBankCode()!=null?lifePayment.getBankCode().substring(lifePayment.getBankCode().length()-4, lifePayment.getBankCode().length()-1):"");
+			payment.put("branchCode", lifePayment.getBranchName()!=null?lifePayment.getBranchName().substring(lifePayment.getBranchName().length()-4, lifePayment.getBranchName().length()-1):"");
 			payment.put("accountNo", lifePayment.getAccountNumber());
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
