@@ -1605,7 +1605,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		//application pdf
 		this.createApplicationFormPdf("2", request, request.getSession());
-		this.uploadPdf("applicationFormPdf","applicationForm", request);
+		this.uploadPdf("applicationFormPdf","appForm", request);
 	}
 	
 	public void uploadPdf(String fileName, String docType, HttpServletRequest request)throws ECOMMAPIException, IOException{
