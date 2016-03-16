@@ -484,10 +484,6 @@ var languageP = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 				
-				$('#back-summary-btn').click(function() {
-					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
-				});
-				
 				$('select').change(function() {
 					$(this).blur();
 				});
@@ -635,7 +631,7 @@ var languageP = "${language}";
 				}
 			}
 			
-			$("#next-btn").click(function(){
+			$("#next-btn, #back-summary-btn").click(function(){
 				$("#errorMsg").html("");
 				$.ajax({
 					  type : "POST",
@@ -648,7 +644,7 @@ var languageP = "${language}";
 						  }
 						  else{
 							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 							  }
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';

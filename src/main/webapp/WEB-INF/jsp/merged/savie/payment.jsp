@@ -340,7 +340,7 @@ var language = "${language}";
 				<center>
 						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-					<button type="button" id="btn-back" class="btn btn-payment hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+					<button type="button" id="btn-back" class="btn btn-payment hidden" onclick="goNext();"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
 				
 			</div>
@@ -536,10 +536,6 @@ var language = "${language}";
 		
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-		});
-		
-		$('#btn-back').click(function() {
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 		});
 		
 		$("input[type='radio']").on('click', function() {
@@ -830,7 +826,12 @@ var language = "${language}";
 							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+							  if('${backSummary}'=="Y"){
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+							  }
 						  }
 					  }
 			     });
