@@ -97,7 +97,9 @@ function submitLoginForm(formID) {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
-						if((window.location.href.indexOf("savings-insurance/plan-details")>0 || window.location.href.indexOf("tc/")>0 || window.location.href.indexOf("en/")>0) && $('#loginpopup #nav-bar-check').val() == 'false'){							
+						if((window.location.href.indexOf("tc/")>0 || window.location.href.indexOf("en/")>0) && $('#loginpopup #nav-bar-check').val() == 'false'){		
+							homeFnaGoNext();
+						} else if(window.location.href.indexOf("savings-insurance/plan-details")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){							
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
 							saviePlanDetailsGoNext();
@@ -246,6 +248,23 @@ function submitLoginForm(formID) {
 	
 	
 var nextPage;
+function homeFnaGoNext(){
+	$.ajax({     
+	    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+	    type:'get',     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	if(data != null && data.errMsgs == null && data.name !=null){
+	    		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	    	}
+	    	else{
+	    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+	    	}
+	    }  
+	});
+}
+
 function saviePlanDetailsGoNext(){
 		$.ajax({     
 		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     

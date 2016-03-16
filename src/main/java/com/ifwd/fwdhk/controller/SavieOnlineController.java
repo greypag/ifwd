@@ -139,7 +139,16 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
-			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
+			try {
+				savieOnlineService.getFna(request);
+			}
+			catch (ECOMMAPIException e) {}
+			
+			if(request.getSession().getAttribute("savieFna")!=null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/FNA/review");
+			} else {
+				return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
+			}
 		}
 		
 	}

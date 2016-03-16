@@ -271,9 +271,26 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		f.parentNode.insertBefore(j, f);
 	})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
 </script>
-
 <!--END -Google Code for SEO-->
-	
+	<script>
+	function show_stack_bar_top(message) {
+		var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+	    var opts = {
+			        title: "",
+			        text: message,
+			        addclass: "stack-bar-top error-box",
+			        cornerclass: "",
+			        width: "100%",
+			        hide: false,
+			        buttons: {
+			       		closer: true,
+			       		sticker: true	
+			       	},	
+			        stack: stack_bar_top
+			};
+	    new PNotify(opts);
+	}
+	</script>
 	<div class="fwd-savie-wrapper">
 				<%@ include file="include/merged/header.jsp"%>
 		<dec:body />

@@ -654,7 +654,7 @@ var languageP = "${language}";
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $('#save-and-continue-modal').modal('hide');
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  $('#save-and-continue-modal').modal('hide');
@@ -728,7 +728,7 @@ var languageP = "${language}";
 					  data: formdata,
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  if('${backSummary}'=="Y"){

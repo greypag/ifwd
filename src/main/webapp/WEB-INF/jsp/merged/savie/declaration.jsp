@@ -410,14 +410,14 @@ var languageP = "${language}";
 		}
 		
 		$('.btn-proceed').click(function() {
-			var isPassed = false;
+			var isPassed = true;
 			
 			// validation
-			isPassed = validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed = validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
 			
 			if(! isPassed) {
 				return false;
@@ -429,7 +429,7 @@ var languageP = "${language}";
 					  data: $("#declarationForm").serialize(),
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
 							  $.ajax({     
@@ -450,14 +450,14 @@ var languageP = "${language}";
 		});
 		
 		$('.save-link').on('click', function (e) {
-            var isPassed = false;
+            var isPassed = true;
 			
 			// validation
-			isPassed = validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
-			isPassed = validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed = validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
+			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
 			
             if(isPassed) {
 				$('#save-and-continue-batch5-modal').modal('show');
@@ -483,7 +483,7 @@ var languageP = "${language}";
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 						  $('#save-and-continue-modal').modal('hide');
 						  $('#save-and-continue-batch5-modal').modal('hide');
-						  $("#errorMsg").html(data.errorMsg);
+						  show_stack_bar_top(data.errorMsg);
 					  }
 					  else{
 						  $('#save-and-continue-modal').modal('hide');

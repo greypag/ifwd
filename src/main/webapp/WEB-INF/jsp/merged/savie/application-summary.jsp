@@ -365,13 +365,20 @@
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+		       <c:if test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
+		             <div class="desktop-left">
+			            <div class="form-group application-summ">
+						   <div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="isOwnEstate" name="isOwnEstate" value="<fmt:message key="option.own.estate" bundle="${msg}" />" readonly="readonly" />
+								<label class="mdl-textfield__label" for="isOwnEstate"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></label>
+						   </div>
+						</div>
+					 </div>
+		       </c:if>
             </div>
             <c:choose>
 			       <c:when test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
-			          <div class="summary-section below-beneficiary clearfix">
-			             <h5>Own estate</h5>
-			          </div>
 			       </c:when>
 			       <c:otherwise>
 			          <c:if test="${lifeBeneficaryInfo.beneficaryFirstName1 != '' }">
