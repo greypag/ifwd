@@ -20,7 +20,7 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	
 	@Autowired
-	private static CommonUtils commonUtils;
+	private CommonUtils commonUtils;
 	
 	public static List<OptionItemDesc> maritalStatusesEN;	
 	public static List<OptionItemDesc> maritalStatusesCN;
@@ -1039,7 +1039,7 @@ public class InitApplicationMessage implements ApplicationListener{
 		logger.info("branchCodeCN : " + branchCodeCN);
 	}
 	
-	public static List<OptionItemDesc> getOccupationByNob(String nobCode,String language,String type){
+	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type){
 		List<OptionItemDesc> occupation = null;
 		try {
 			occupation = commonUtils.getOptionItemDescList(nobCode,language,type);

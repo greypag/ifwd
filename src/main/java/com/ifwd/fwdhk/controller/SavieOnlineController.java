@@ -236,8 +236,8 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
 			model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
 			if(savieFna!=null && savieFna.getNature_of_business() !=null && savieFna.getNature_of_business()!=""){
-				model.addAttribute("occupationEN", InitApplicationMessage.getOccupationByNob(savieFna.getNature_of_business(), "EN", "1"));
-				model.addAttribute("occupationCN", InitApplicationMessage.getOccupationByNob(savieFna.getNature_of_business(), "CH", "1"));
+				model.addAttribute("occupationEN", InitApplicationMessage.getOccupationByNob(commonUtils,savieFna.getNature_of_business(), "EN", "1"));
+				model.addAttribute("occupationCN", InitApplicationMessage.getOccupationByNob(commonUtils,savieFna.getNature_of_business(), "CH", "1"));
 			}
 			model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
 			model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
