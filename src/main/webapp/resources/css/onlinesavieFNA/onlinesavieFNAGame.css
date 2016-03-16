@@ -1,3 +1,6 @@
+.datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
+  background: #fff; }
+
 .banner-onlinesavie {
   background: url(../../images/onlinesavieFNA/bg-start.jpg) center no-repeat;
   height: 310px;
@@ -17,6 +20,7 @@
       top: 0; }
 
 .game-fna {
+  font-family: Calibri,"Microsoft JhengHei", sans-serif !important;
   margin: auto;
   /* Common Components */ }
   .game-fna input[type="text"] {
@@ -82,7 +86,7 @@
     display: none; }
     .game-fna .step2 .cont .img-wrapper {
       position: absolute;
-      top: 30px;
+      top: 45px;
       left: 0;
       width: 393px;
       height: 450px;

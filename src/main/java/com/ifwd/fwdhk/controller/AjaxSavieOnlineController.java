@@ -582,6 +582,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			savieOnlineService.clearFna(request);
+			request.getSession().removeAttribute("savieFna");
 			jsonObject.put("success", "success");
 		} 
 		catch (ECOMMAPIException e) {

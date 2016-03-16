@@ -86,8 +86,7 @@ var languageP = "${language}";
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p><fmt:message key="info.savie.confirmation.success.copy1" bundle="${msg}" /></p>
-						<p id="review-line"><fmt:message key="info.savie.confirmation.success.copy2" bundle="${msg}" /></p>
+						<fmt:message key="info.savie.confirmation.success.copy.signlater" bundle="${msg}" />
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
