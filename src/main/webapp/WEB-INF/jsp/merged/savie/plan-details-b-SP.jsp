@@ -532,8 +532,7 @@ var languageP = "${language}";
 			    					</div>
 			    				</div>
 			    				<div class="or-word">
-			    					<div id="or-mobile"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/or-mobile.png" />
-			    					</div>
+			    					<div id="or-mobile"><fmt:message key="label.icon.or" bundle="${msg}" /></div>
 			    				</div>
 			    				<div class="col-md-6 col-xs-12" id="step-offline">
 			    					<div class="step">
