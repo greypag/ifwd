@@ -4086,16 +4086,20 @@ a.eserv-link:hover {
 }
 /* line 82, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #or-mobile {
+  height: 27px;
+  line-height: 27px;
+  color: #fff;
+  background: #fff url(../images/savie-2016/or-mobile.png) center center no-repeat;
   text-align: center;
 }
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   /* line 82, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #or-mobile {
     margin-left: 15px;
     margin-right: 15px;
-    background: #FFF;
     border-left: 1px solid  #dfe4e9;
     border-right: 1px solid  #dfe4e9;
+    clear: both;
   }
 }
 @media (min-width: 992px) {
@@ -4105,6 +4109,8 @@ a.eserv-link:hover {
     left: 47.5%;
     top: 43%;
     z-index: 6;
+    width: 27px;
+    background-color: transparent;
   }
 }
 /* line 98, ../sass/partials/savie/_online-offline-fna.scss */
