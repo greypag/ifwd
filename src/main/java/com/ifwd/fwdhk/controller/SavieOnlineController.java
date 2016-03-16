@@ -49,7 +49,7 @@ public class SavieOnlineController extends BaseController{
 		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}*/
-	
+
 	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		savieOnlineService.removeSavieOnlineSession(request);
@@ -310,49 +310,47 @@ public class SavieOnlineController extends BaseController{
 			}
 			
 			String code = null;
-			if(savieFna!=null && savieFna.getQ4_a() !=null && savieFna.getQ4_a()!=""){
-				if("0".equals(savieFna.getQ4_a())){
-					if(savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""){
-						int money = Integer.valueOf(savieFna.getQ4_a_others().replace(",", ""));
-						if(money<=10000){
-							code = "mpi1";
-						}
-						else if(money>=10001&&money<=15000){
-							code = "mpi2";
-						}
-						else if(money>=15001&&money<=20000){
-							code = "mpi3";
-						}
-						else if(money>=20001&&money<=25000){
-							code = "mpi4";
-						}
-						else if(money>=25001&&money<=30000){
-							code = "mpi5";
-						}
-						else if(money>=30001&&money<=40000){
-							code = "mpi6";
-						}
-						else if(money>=40001&&money<=55000){
-							code = "mpi7";
-						}
-						else if(money>=55001){
-							code = "mpi8";
-						}
+			if(savieFna!=null && (savieFna.getQ4_a() !=null || (savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""))){
+				if(savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""){
+					int money = Integer.valueOf(savieFna.getQ4_a_others().replace(",", ""));
+					if(money<=10000){
+						code = "mpi1";
+					}
+					else if(money>=10001&&money<=15000){
+						code = "mpi2";
+					}
+					else if(money>=15001&&money<=20000){
+						code = "mpi3";
+					}
+					else if(money>=20001&&money<=25000){
+						code = "mpi4";
+					}
+					else if(money>=25001&&money<=30000){
+						code = "mpi5";
+					}
+					else if(money>=30001&&money<=40000){
+						code = "mpi6";
+					}
+					else if(money>=40001&&money<=55000){
+						code = "mpi7";
+					}
+					else if(money>=55001){
+						code = "mpi8";
 					}
 				}
-				else if("1".equals(savieFna.getQ4_a())){
+				else if("0".equals(savieFna.getQ4_a())){
 					code = "mpi1";
 				}
-				else if("2".equals(savieFna.getQ4_a())){
+				else if("1".equals(savieFna.getQ4_a())){
 					code = "mpi2,mpi3";
 				}
-				else if("3".equals(savieFna.getQ4_a())){
+				else if("2".equals(savieFna.getQ4_a())){
 					code = "mpi4,mpi5,mpi6,mpi7";
 				}
-				else if("4".equals(savieFna.getQ4_a())){
+				else if("3".equals(savieFna.getQ4_a())){
 					code = "mpi7,mpi8";
 				}
-				else if("5".equals(savieFna.getQ4_a())){
+				else if("4".equals(savieFna.getQ4_a())){
 					code = "mpi8";
 				}
 			}
