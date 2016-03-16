@@ -11,8 +11,8 @@ public class Products {
 	private String type_desc;
 	private String product_code;
 	private List<String> contribution_period;
-	private Integer min_issue_age;
-	private Integer max_issue_age;
+	private String min_issue_age;
+	private String max_issue_age;
 	private Integer protection_period;
 	private String key_product_risks;
 	private String key_exclusions;
@@ -60,19 +60,19 @@ public class Products {
 		this.contribution_period = contribution_period;
 	}
 
-	public Integer getMin_issue_age() {
+	public String getMin_issue_age() {
 		return min_issue_age;
 	}
 
-	public void setMin_issue_age(Integer min_issue_age) {
+	public void setMin_issue_age(String min_issue_age) {
 		this.min_issue_age = min_issue_age;
 	}
 
-	public Integer getMax_issue_age() {
+	public String getMax_issue_age() {
 		return max_issue_age;
 	}
 
-	public void setMax_issue_age(Integer max_issue_age) {
+	public void setMax_issue_age(String max_issue_age) {
 		this.max_issue_age = max_issue_age;
 	}
 
