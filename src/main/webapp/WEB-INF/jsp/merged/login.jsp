@@ -25,14 +25,22 @@
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
 			<!-- 登入 -->			    
-                <%if(actionName== "SavieOnline" || request.getRequestURI().indexOf("/")==0){%>
+                <%if(actionName== "SavieOnline" || request.getRequestURI().indexOf("/") == 0){%>
                 <div class="login-info hidden login-info-savie">
                     <div class="upper-overlay">
 	                    <h4 class="heading-h4">
-	                        <fmt:message key="Savie.login.overlay.title" bundle="${msg}" />
+	                    	<%if(request.getRequestURI().indexOf("/savings-insurance") > 0){%>
+	                    		<fmt:message key="Savie.login.overlay.title" bundle="${msg}" />
+	                    	<%} else  { %>
+	                        	<fmt:message key="Landing.login.overlay.title" bundle="${msg}" />
+	                        <% } %>
 	                    </h4>
 	                    <h5 class="heading-h5">
-	                        <fmt:message key="Saive.login.overlay.text" bundle="${msg}" />
+	                    	<%if(request.getRequestURI().indexOf("/savings-insurance") > 0){%>
+	                    		<fmt:message key="Savie.login.overlay.text" bundle="${msg}" />
+	                    	<%} else  { %>
+	                        	<fmt:message key="Landing.login.overlay.text" bundle="${msg}" />
+	                        <% } %>
 	                    </h5>
                     </div>
                     <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image" bundle="${msg}" />" alt="Saive" class="hidden-xs hidden-sm img-responsive">
@@ -42,7 +50,6 @@
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
 			<form name="loginform" id="loginform-pop">
 				<div class="login-form">
-
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
 							<fmt:message key="header.login.heading" bundle="${msg}" />

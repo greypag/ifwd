@@ -11088,15 +11088,15 @@ body.chin .dot-font{
 }
 .top-bar{
 	background-color:#222;
-	line-height:35px;
+	line-height:40px;
 }
-.top-weixin{margin:0 20px;}
+.top-livechat{margin:0 20px;}
 .top-number{
-	line-height:35px;
+	line-height:40px;
 	padding:0!important;
 }
 .top-menu .nav>li>a{
-    line-height:35px;
+    line-height:40px;
     padding:0 8px !important;
 }
 .margin-left1{
@@ -11245,3 +11245,32 @@ body.chin .dot-font{
     display: block;
 }
 /* End fix conflict */
+
+#header .top-bar a{
+	color: #ccc;
+}
+#header .top-bar a:hover{
+	color: #ffffff;
+}
+#header .lang-btn-grp>li>a{
+	padding: 0;
+    line-height: 1;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+#header .top-bar .lang-btn-grp>li>a.eng{
+	border-right:2px solid #ccc;
+	padding-right:10px;
+}
+#header .top-bar .lang-btn-grp>li>a.chi{
+	padding-left:10px;
+}
+#header .top-bar .callus .hotline{
+	color: #f68b1f;
+}
+#header .top-bar .livechat_button:hover{
+	cursor: pointer;
+}

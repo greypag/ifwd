@@ -340,10 +340,82 @@ function saviePlanDetailsGoNext(){
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
-					<div class="top-number">
-						<span class="top-weixin"><a href="#" target="_blank"><i class="fa fa-weixin"></i></a></span> <span class="callus"> <fmt:message key="header.hotline"
-								bundle="${msg}" /></span>
-					</div>
+					<ul class="nav navbar-nav lang-btn-grp">
+ 							<li>
+								<%
+									if ("en".equals(session.getAttribute("language").toString())) {
+								%>
+
+								<%
+									if (request.getServletPath().equals("/en")) {
+								%> <a
+								class="lang eng pull-left" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	} else {
+ %> <a
+								class="lang chi pull-left" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	}
+ 	} else {
+ %> <%
+ 	if (request.getServletPath().equals("/tc")) {
+ %> <a
+								class="lang eng pull-left" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	} else {
+ %> <a
+								class="lang chi pull-left" id="anchor-lang"
+								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
+										key="header.menu.language" bundle="${msg}" /></a> <%
+ 	}
+ %> <%
+ 	}
+ %>
+							</li>					
+					
+<%-- 							<li>														
+  								<% if (request.getServletPath().equals("/en") || request.getServletPath().equals("/tc") ) { %>
+									<a
+									class="lang eng pull-left" id="anchor-lang"
+									href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
+											key="header.menu.language.en" bundle="${msg}" /></a>
+									<a
+									class="lang chi pull-left" id="anchor-lang"
+									href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
+											key="header.menu.language.tc" bundle="${msg}" /></a>									
+								<% }else { %>
+									<% 
+									String relativePath = request.getServletPath().toString();
+									if (request.getServletPath().equals("/en")){
+										relativePath = relativePath.replace("/tc","/tc");
+									}else if(request.getServletPath().equals("/tc")){
+										relativePath = relativePath.replace("/tc","/en");
+									}
+
+									%>
+									<%=relativePath %>
+									<a
+									class="lang eng pull-left" id="anchor-lang"
+									href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=relativePath%>"><fmt:message
+											key="header.menu.language.en" bundle="${msg}" /></a>
+									<a
+									class="lang chi pull-left" id="anchor-lang"
+									href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=relativePath%>"><fmt:message
+											key="header.menu.language.tc" bundle="${msg}" /></a> 																
+								<% }%>
+
+							 </li> --%>
+							<li><span class="top-livechat"><a class="livechat_button"><i class="fa fa-comments-o"></i></a></span></li>								 
+							<li>
+							<div class="top-number">
+															<span class="callus"> <fmt:message key="header.hotline"
+										bundle="${msg}" /></span>
+							</div>
+							</li>      						 
+ 					</ul>					
 				</div>
 				<div class="col-lg-7 col-md-7">
 					<div class="collapse navbar-collapse navbar-right top-menu pad-none" id="headerLoginForm">
@@ -351,12 +423,14 @@ function saviePlanDetailsGoNext(){
 							<li class="active"><a
 								href="<%=request.getContextPath()%>/${language}"><fmt:message
 										key="header.menu.home" bundle="${msg}" /></a></li>
-							<li>|</li>
 							<li><a
 								href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about"
 										bundle="${msg}" /></a></li>
-							<li>|</li>
+							<li class="active"><a
+								href="<fmt:message key="header.menu.contactus.link" bundle="${msg}" />"
+								target="_blank"><fmt:message key="header.menu.contactus"
+										bundle="${msg}" /></a></li></li>
 							<%
 								String username = (String) session.getAttribute("username");
 								//System.out.println("username " + username);   
@@ -365,52 +439,16 @@ function saviePlanDetailsGoNext(){
 							<li><a
 								href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message
 										key="header.menu.join" bundle="${msg}" /></a></li>
-							<li>|</li>
 							<%
 								} else if (username.equals("*DIRECTGI")) {
 							%>
 							<li><a
 								href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message
 										key="header.menu.join" bundle="${msg}" /></a></li>
-							<li>|</li>
 
 							<%
 								}
 							%>
-							<li>
-								<%
-									if ("en".equals(session.getAttribute("language").toString())) {
-								%>
-
-								<%
-									if (request.getServletPath().equals("/en")) {
-								%> <a
-								class="lang pull-right" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang pull-right" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
- 	} else {
- %> <%
- 	if (request.getServletPath().equals("/tc")) {
- %> <a
-								class="lang pull-right" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang pull-right" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
- %> <%
- 	}
- %>
-							</li>
 							<%
 								if (session.getAttribute("authenticate") == null
 										|| session.getAttribute("username") == null) {
@@ -1274,8 +1312,8 @@ function saviePlanDetailsGoNext(){
 </div>
 <!--End Mobile header-->
 <!--/header-->
-<script>
-$(function() {
+<script>  
+$(function() {	
 	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {  
 	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){  
 	        // Update '.change-this-class' to the class of your menu
@@ -1326,7 +1364,20 @@ $(function() {
     		$( ".enjoy" ).addClass( "active" );
     	}
     }
-	$(document).ready(function() {	
+	$(document).ready(function() {
+        $('.livechat_button').on("click",function(){
+        	console.log("hehe");
+            $('#livechat-compact-container').show();
+            $('#livechat-compact-container').css({
+                visibility: 'visible', 
+                opacity: 1 
+            });
+            LC_API.open_chat_window();
+        });
+        $('.copyright .options li').click(function() {
+            var link = $(this).attr('data-raw-value');
+            window.open( link , '_blank');
+        });			
 		offerMenuActive();
 		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
