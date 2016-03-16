@@ -172,7 +172,8 @@ var languageP = "${language}";
 											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
-										<span class="error-msg" id="beneficiaryHkidPassErMsg[0]"></span>
+										<span class="error-msg" id="beneficiaryHkidErMsg[0]"></span>
+										<span class="error-msg" id="beneficiaryPassErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupHkidErMsg[0]">Duplicate beneficiaries HKID</span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupPassportErMsg[0]">Duplicate beneficiaries Passport</span>
 									</div>
@@ -311,7 +312,8 @@ var languageP = "${language}";
 											<input type="text" id="beneficiaryPassport[1]" name="beneficiaryPassport2" value="${lifeBeneficaryInfo.beneficiaryPassport2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
-										<span class="error-msg" id="beneficiaryHkidPassErMsg[1]"></span>
+										<span class="error-msg" id="beneficiaryHkidErMsg[1]"></span>
+										<span class="error-msg" id="beneficiaryPassErMsg[1]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupHkidErMsg[1]">Duplicate beneficiaries HKID</span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupPassportErMsg[1]">Duplicate beneficiaries Passport</span>
 									</div>
@@ -450,7 +452,8 @@ var languageP = "${language}";
 											<input type="text" id="beneficiaryPassport[2]" name="beneficiaryPassport3" value="${lifeBeneficaryInfo.beneficiaryPassport3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
-										<span class="error-msg" id="beneficiaryHkidPassErMsg[2]"></span>
+										<span class="error-msg" id="beneficiaryHkidErMsg[2]"></span>
+										<span class="error-msg" id="beneficiaryPassErMsg[2]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupHkidErMsg[2]">Duplicate beneficiaries HKID</span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupPassportErMsg[2]">Duplicate beneficiaries Passport</span>
 									</div>
@@ -803,7 +806,7 @@ var languageP = "${language}";
 							}
 						},
 						'beneficiaryPassport1':{
-							container: '#beneficiaryHkidPassErMsg\\[0\\]',
+							container: '#beneficiaryPassErMsg\\[0\\]',
 							validators: {
 								stringLength: {
 			                        min: 5,
@@ -820,7 +823,7 @@ var languageP = "${language}";
 							}
 						},
 						'beneficaryID1':{
-							container: '#beneficiaryHkidPassErMsg\\[0\\]',
+							container: '#beneficiaryHkidErMsg\\[0\\]',
 							validators: {
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
@@ -975,7 +978,7 @@ var languageP = "${language}";
 							}
 						},
 						'beneficiaryPassport2':{
-							container: '#beneficiaryHkidPassErMsg\\[1\\]',
+							container: '#beneficiaryPassErMsg\\[1\\]',
 							validators: {
 								stringLength: {
 			                        min: 5,
@@ -992,7 +995,7 @@ var languageP = "${language}";
 							}
 						},
 						'beneficiaryHkid2':{
-							container: '#beneficiaryHkidPassErMsg\\[1\\]',
+							container: '#beneficiaryHkidErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
@@ -1147,7 +1150,7 @@ var languageP = "${language}";
 								}
 							},
 							'beneficiaryPassport3':{
-								container: '#beneficiaryHkidPassErMsg\\[2\\]',
+								container: '#beneficiaryPassErMsg\\[2\\]',
 								validators: {
 									stringLength: {
 										min: 5,
@@ -1164,7 +1167,7 @@ var languageP = "${language}";
 								}
 							},
 							'beneficiaryHkid3':{
-							container: '#beneficiaryHkidPassErMsg\\[2\\]',
+							container: '#beneficiaryHkidErMsg\\[2\\]',
 							validators: {
 								notEmpty: {
 									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
