@@ -69,12 +69,14 @@ var affiliate = "${affiliate}";
 				<span class="headline">Marital Status</span>
 				<span class="displayMode marital_status content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="marital_status" name="marital_status" class="form-control select-label">
-						<option value="0">Single</option>
-						<option value="1">Married</option>
-						<option value="2">Divorced</option>
-						<option value="3">Widowed</option>
-					</select>
+					<div class="styled-select">
+						<select id="marital_status" name="marital_status" class="form-control select-label">
+							<option value="0">Single</option>
+							<option value="1">Married</option>
+							<option value="2">Divorced</option>
+							<option value="3">Widowed</option>
+						</select>
+					</div>
 				</span>
 			</div>
 		</div>
@@ -84,12 +86,14 @@ var affiliate = "${affiliate}";
 				<span class="headline">No. of dependents</span>
 				<span class="displayMode dependents content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="dependents" name="dependents" class="form-control select-label">
-						<option value="0">Nil</option>
-						<option value="1">1-3</option>
-						<option value="2">4-5</option>
-						<option value="3">7 or above</option>
-					</select>
+					<div class="styled-select">
+						<select id="dependents" name="dependents" class="form-control select-label">
+							<option value="0">Nil</option>
+							<option value="1">1-3</option>
+							<option value="2">4-5</option>
+							<option value="3">7 or above</option>
+						</select>
+					</div>
 				</span>
 			</div>
 		</div>
@@ -99,12 +103,14 @@ var affiliate = "${affiliate}";
 				<span class="headline">Education Level</span>
 				<span class="displayMode education content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="education" name="education" class="form-control select-label">
-						<option value="0">Primary or below</option>
-						<option value="1">Secondary / Matriculation</option>
-						<option value="2">Vocational Training / Technical Institute / Business Institute</option>
-						<option value="3">Post-secondary / University or above</option>
-					</select>
+					<div class="styled-select">
+						<select id="education" name="education" class="form-control select-label">
+							<option value="0">Primary or below</option>
+							<option value="1">Secondary / Matriculation</option>
+							<option value="2">Vocational Training / Technical Institute / Business Institute</option>
+							<option value="3">Post-secondary / University or above</option>
+						</select>
+					</div>
 				</span>
 			</div>
 		</div>
@@ -114,7 +120,9 @@ var affiliate = "${affiliate}";
 				<span class="headline">Employment Status</span>
 				<span class="displayMode status content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="status" name="status" class="form-control select-label"></select>
+					<div class="styled-select">
+						<select id="status" name="status" class="form-control select-label"></select>
+					</div>
 				</span>
 			</div>
 		</div>
@@ -152,7 +160,9 @@ var affiliate = "${affiliate}";
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> <a href="javascript:void(0);" onclick="clearFna()">Clear Record and Leave <i class="fa fa-caret-right"></i></a> </div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-clear"> 
+			<a href="javascript:void(0);" class="fna-btn-clear">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
+			</div>
 		</div>
 		<div class="center row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -179,7 +189,8 @@ var affiliate = "${affiliate}";
 
 		<div id="template_op" class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
-			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-10">
 				<div class="wrapper">
 					<div class="checkbox">
 						<input type="checkbox" id="q0-c0" name="q0-c0" value="yes">
@@ -189,8 +200,29 @@ var affiliate = "${affiliate}";
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content plan-modal">
+					<div class="fna-popup-cont">
+						
+						<div class="modal-body">
+							<a class="close" aria-label="Close" data-dismiss="modal">
+								<span aria-hidden="true" style="font-size:30px;">×</span>
+							</a>
+							<h4>Do you mean ...</h4>
+							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
+							<div class="btn-clear-gp">
+							<a href="javascript:void(0);" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" class="btn-clear-cancel">Cancel</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
+	
 	<div class="modal modal-vcenter fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupEnquiry">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">

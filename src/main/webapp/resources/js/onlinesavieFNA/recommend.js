@@ -66,7 +66,6 @@ var FNArecommendation = {
 			
 
 			$('#fnaPopupEnquiry').modal({
-			   backdrop: 'static',
 			   keyboard: false
 			});
 		})
@@ -176,7 +175,6 @@ var FNArecommendation = {
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
 			$('#loading-overlay-save').modal({
-				   backdrop: 'static',
 				   keyboard: false
 			});
 		});
@@ -211,10 +209,17 @@ var FNArecommendation = {
 			}
 		});
 
-		$(".q4_b_amount input").keypress(function(){
-			var q = $(this).parents(".fna-sel-grid").data();
-			var val = parseInt($(this).val(),10);
+		$(".q4_b_amount input").keyup(function(){
+			var q = $(this).data();
+			var val = parseInt(this.value.replace(/\D/g, ''),10);
+			console.log(val);
+			if(isNaN(val) || val == 0){
+				val = "";
+			}
+			
 			var isDifferent = q.originalVal != val;
+			this.value = String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			//$(this).val(val);
 			if(isDifferent){
 				that.fnaData[q.qName] = val;
 			}
@@ -238,35 +243,33 @@ var FNArecommendation = {
 			}
 		});
 
-		//Sorting Button
-		/*$(".fna-col-recommend > .sort-header > div").click(function(){
+		$(".q4_b_amount input").blur(function(){
+			$(this).trigger("keyup");
+		})
 
-			if($(this).find(".sort-arrow-gp").length > 0){
-				
-				that.setLoading(true);
+		$(".fna-btn-clear").click(function(){
+			$(".fna-popup-clear").modal({
+			   keyboard: false
+			});
+		});
+		
+		$(".btn-clear-confirm").click(function(){
+			$.ajax({     
+			    url:contextPath+'/ajax/clearFna',     
+			    type:'get',     
+			    error:function(){       
+			    },     
+			    success:function(data){
+			    	if(data != null && data.errMsgs == null){
+			    		window.location = contextPath + "/" + language + "/FNA/financial-needs-analysis";
+			    	}
+			    }  
+			});
+		})
 
-				if(!$(this).hasClass("selected")){
-					that.sortFld = parseInt($(this).data("sortFld"),10);
-					$(this).parent().find(">div").removeClass("selected");
-					$(this).parent().find(".sort-arrow-gp .fa").removeClass("selected");
-					$(this).addClass("selected");
-				}else{
-					//Swap Order Asc/Desc
-					that.sortAsc = !that.sortAsc;
-				}
-
-				$(this).find(".sort-arrow-gp .fa").removeClass("selected");
-
-				if(that.sortAsc){
-					$(this).find(".sort-arrow-gp .fa-caret-up").addClass("selected");
-				}else{
-					$(this).find(".sort-arrow-gp .fa-caret-down").addClass("selected");
-				}
-
-				that.loadProductRecommendSorting();
-			}
-
-		});*/
+		$(".btn-clear-cancel").click(function(){
+			$(".fna-popup-clear").modal("hide");
+		})
 
 		$("#fnaMobSort").change(function(){
 			if(this.value != "") {
@@ -285,7 +288,6 @@ var FNArecommendation = {
 			setTimeout(function(){
 				that.loadProductRecommend();
 			},750);*/
-				
 			}
 		});
 
@@ -421,6 +423,7 @@ var FNArecommendation = {
 
 		var selectorPattern = ".{q} input[type='checkbox'][value='{v}']";
 		$(selection).each(function(key,val){
+			
 			$("." + val).find("input[type='checkbox']").prop("checked",false);
 			if(typeof(data[val]) == "number"){
 				$(selectorPattern.replace("{q}",val).replace("{v}",data[val])).prop("checked",true);
@@ -443,7 +446,7 @@ var FNArecommendation = {
 		});
 
 		$(".q4_b_amount input").val(data.q4_b_amount);
-		$(".q4_b_amount input").data({"originalVal":data.q4_b_amount,"isDifferent":false});
+		$(".q4_b_amount input").data({"originalVal":data.q4_b_amount,"qName":"q4_b_amount","isDifferent":false});
 
 		/*$(".fna-sel-grid input[type='checkbox']:checked").each(function(){
 			$(this).parent().show();
@@ -475,7 +478,7 @@ var FNArecommendation = {
 		if(!more) gpWrapper.empty();
 
 		//Product Others
-		var gpOthers = $(".fna-recommend .template .fna-product-gp").clone(true,true);;
+		var gpOthers = $(".fna-recommend .template .fna-product-gp").clone(true,true);
 		gpOthers.find(".fna-product-gp-name").text("Unaffordable");
 		gpOthers.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
 		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
@@ -590,11 +593,7 @@ var FNArecommendation = {
 						prod.find(".fna-product-link-keys").hide();
 					}
 
-					if(prod_data.next_page != null || prod_data.next_page != ""){
-						$(".fna-btn-load-products-more").show();
-					}else{
-						$(".fna-btn-load-products-more").hide();
-					}
+					
 					
 					//prodWrapper.append(product_header);
 					//prodWrapper.append(product_type);
@@ -635,15 +634,50 @@ var FNArecommendation = {
 					})
 				}
 
-				$(".txt_pnum").text(pNum);
+				
 			
 
 		}
+		
+		if(data.next_page == null || data.next_page == ""){
+			$(".fna-btn-load-products-more").hide();
+		}else{
+			$(".fna-btn-load-products-more").show();
+		}
 
-		gpWrapper.append(gpOthers);
+		if(pNum > 0){
+			$(".txt_pnum").text(pNum);
+			//Hide No Product description
+			$(".noProducts").hide();
+			//Show Recommendation Anchor and Sorting dropdown
+			$(".haveProducts, .fna-sorting").show();
+		}else{
+			//Show No Product description
+			$(".noProducts").show();
+			//Hide Recommendation Anchor and Sorting dropdown
+			$(".haveProducts, .fna-sorting").hide();
+		}
+
+		if(gpOthersWrapper.find(".fna-other-product").length > 0){
+			gpWrapper.append(gpOthers);
+		}
+		
 
 		//$('.fna-col-recommend .tool-tip').tooltip('destroy');
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
+
+		//Show Only 1 product description
+		that.showOnly1(true);
+	},
+
+	showOnly1:function(display){
+		//some logic in here...
+		if(display){
+			$(".only1Product").show();
+		}else{
+			$(".only1Product").hide();
+		}
+		
 	},
 
 	validateCallForm:function(){
@@ -698,39 +732,4 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
-}
-
-function goCustomerServices(){
-	var name = $('#FNAinputCustomerName').val();
-	var email = $('#FNAinputEmail').val();
-	var mobile = $('#FNAinputMobileNo').val();
-	var preferredDay = $('#preferred_date').val();
-	var preferredTimeSlot = $('#preferred_time').val();
-	var enquiryType = $('#enquiry_type').val();
-	
-	if(name ==null || name =="" || email ==null || email =="" || mobile ==null || mobile =="" || preferredDay ==null || preferredDay =="" || preferredTimeSlot ==null || preferredTimeSlot =="" || enquiryType ==null || enquiryType ==""){
-		console.log("data error");
-	}
-	else{
-		$.ajax({
-		    url:contextPath+'/ajax/savings-insurance/contactCs',     
-		    type:'get',
-		    data:{    
-    	    	"name" : name,
-    	    	"email" : email,
-    	    	"mobile" : mobile,
-    	    	"preferredDay" : preferredDay,
-    	    	"preferredTimeSlot" : preferredTimeSlot,
-    	    	"enquiryType" : enquiryType
-       		},
-		    success:function(data){
-		    	if(data != null && data.errorMsg == null){
-		    		$('#fnaPopupEnquiry').modal('hide');
-		    		$('#back-landing-modal').modal('show');
-		    	}
-		    },
-       		error:function(){       
-		    }
-		});
-	}
 }
