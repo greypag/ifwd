@@ -94,6 +94,8 @@ public class PolicyApplication{
 	private String resumeViewPage;
 	private String createDateTime;
 	private String createBy;
+	private String amount;
+	private String policyNo;
 	
 	public String getLastUpdateBy() {
 		return lastUpdateBy;
@@ -654,5 +656,16 @@ public class PolicyApplication{
 	public void setCreateBy(String createBy) {
 		this.createBy = createBy;
 	}
-	
+	public String getAmount() {
+		return amount;
+	}
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	public String getPolicyNo() {
+		return policyNo;
+	}
+	public void setPolicyNo(String policyNo) {
+		this.policyNo = policyNo;
+	}
 }
