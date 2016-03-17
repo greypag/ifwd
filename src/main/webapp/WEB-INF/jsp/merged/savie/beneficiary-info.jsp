@@ -870,8 +870,7 @@ var languageP = "${language}";
 									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 								},
 								integer:{
-				               //message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
-									message: "Beneficiary's entitlement must be between 1 and 100."
+									message: "Beneficiary's entitlement must be a number."
 				            },
 			               between:{
 			                	min: 0,
@@ -1046,8 +1045,7 @@ var languageP = "${language}";
 									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 								},
 								integer:{
-									//message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
-									message: "Beneficiary's entitlement must be between 1 and 100."
+									message: "Beneficiary's entitlement must be a number."
 								},
 								between:{
 									min: 0,
@@ -1222,8 +1220,7 @@ var languageP = "${language}";
 										message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 									},
 									integer:{
-										//message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
-										message: "Beneficiary's entitlement must be between 1 and 100."
+										message: "Beneficiary's entitlement must be a number."
 									},
 									between:{
 										min: 0,
