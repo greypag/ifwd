@@ -3822,7 +3822,35 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
-
+	function msieversionCheck() { 
+	    var ua = window.navigator.userAgent;
+	    var msie = ua.indexOf ( "MSIE " );
+	    var trident = ua.indexOf('Trident/'); // IE11
+	    var edge = ua.indexOf('Edge/'); // IE12
+	
+	   //if ( msie > 0 )      // If Internet Explorer, return version number
+	   //   return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+	   //else                 // If another browser, return 0
+	   //   return 0
+	
+	    if (msie > 0) {
+	        // IE 10 or older => return version number
+	        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+	    }
+	
+	    if (trident > 0) {
+	        // IE 11 => return version number
+	        var rv = ua.indexOf('rv:');
+	        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+	    }
+	
+	    if (edge > 0) {
+	       // IE 12 => return version number
+	       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+	    }
+	
+	    return 0;
+	}
 	$('#et-medi-question-4-text').on('click', function(e) {
 		if($('#et-medi-question-4').prop('checked')==false) {
 			$('#et-medi-question-4').prop('checked', true);
@@ -4102,7 +4130,7 @@ var home_url = "<%=request.getContextPath()%>";
          });
 
          //IE 11 label for smoker fix
-         if( msieversion()>=11 ){
+         if( msieversionCheck()>=10 ){
             $('label img').on('click', function(){
                $('#' + $(this).parents('label').attr('for')).click();
             })
