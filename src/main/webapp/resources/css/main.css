@@ -10946,6 +10946,7 @@ body.chin .dot-font{
     right: 20px;
 }
 .fwd-modal-wrapper .separator{
+	padding-top: 20px;
     padding-bottom: 40px;
 }
 @media all and (max-width: 767px){

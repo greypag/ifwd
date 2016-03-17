@@ -123,7 +123,7 @@ var languageP = "${language}";
 						<td class="numbers">2</td>
 						<td  class="adjust-body-content"><fmt:message key="label.salesillustration" bundle="${msg}" /></td>
 						<td id="signature-status-2" class="savie-status">
-							<p class="table-desc-p pending">Pending review</p>
+							<p class="table-desc-p pending"><fmt:message key="label.pending.review" bundle="${msg}" /></p>
 							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#sales-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
 							<p class="table-desc-p p-status hidden"><fmt:message key="label.review.and.sign" bundle="${msg}" /></p>
 						</td>
@@ -132,7 +132,7 @@ var languageP = "${language}";
 						<td class="numbers">3</td>
 						<td class="adjust-body-content"><fmt:message key="label.savie.review.policy" bundle="${msg}" /></td>
 						<td id="signature-status-3" class="savie-status">
-							<p class="table-desc-p pending">Pending review</p>
+							<p class="table-desc-p pending"><fmt:message key="label.pending.review" bundle="${msg}" /></p>
 							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#policy-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
 							<p class="table-desc-p p-status hidden"><fmt:message key="label.review.and.sign" bundle="${msg}" /></p>
 						</td>
@@ -157,12 +157,7 @@ var languageP = "${language}";
 							<div class="selectDiv">
 							   <span class="icon-chevron-thin-down orange-caret"></span>
 							   <select name="centre" id="centre" class="form-control gray-dropdown">
-								   <option value="" disabled selected>Customer Service Centre</option>
-								   <!-- <option value="1">Tsim Sha Tsui</option>
-								   <option value="2">Quarry Bay</option>
-								   <option value="3">Sheung Wan</option>
-								   <option value="4">Kwun Tong</option>
-								   <option value="5">Shatin</option> -->
+								   <option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>
 								   <c:choose>
 								       <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 								           <c:forEach var="list" items="${serviceCentre.serviceCentres}">
@@ -184,6 +179,7 @@ var languageP = "${language}";
 								
 								<%
 								Map results = (Map)request.getAttribute("datesMap");
+								Map defaultDate = (Map)request.getAttribute("defaultDate");
 								Map.Entry<String, List> entry; 
 								Iterator i;
 								Boolean result = results.size() > 0; 
@@ -192,7 +188,7 @@ var languageP = "${language}";
 									while(i.hasNext()){
 										entry=(Map.Entry<String, List>)i.next();
 								%>
-								<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" style="display:none;" >
+								<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" style="display:none;" >
 								<%
 									}
 								}else {
@@ -236,27 +232,27 @@ var languageP = "${language}";
 		<div class="modal-content">
 			  <div class="modal-header">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				 <p class="modal-title visible-xs visible-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
+				 <p class="modal-title visible-xs visible-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
 			  </div>
 			  <div class="modal-body">
-				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
-				 <p>Please sign in the grey area</p>
+				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
+				 <p><fmt:message key="label.please.sign.in.grey.area" bundle="${msg}" /></p>
 				 <form action="">
 					<div class="signature-parent">
 						<div id="signature-1" class="signature-img so-signature"></div>
 					</div>
 					<div class="clearfix">
-						<a id="link-clear-1" class="pull-left link-clear">Clear</a>
+						<a id="link-clear-1" class="pull-left link-clear"><fmt:message key="label.clear" bundle="${msg}" /></a>
 						<div class="pull-right">
 							<div id="correct-signature-1" class="correct-signature hidden">
 								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png" />
-								<span>Correct Signature</span>
+								<span><fmt:message key="label.correct.signature" bundle="${msg}" /></span>
 							</div>
-							<p class="text-right">Signed in Hong Kong.</p>
+							<p class="text-right"><fmt:message key="label.sign.in.hk" bundle="${msg}" /></p>
 						</div>
 					</div>
 					<center>
-						<button class="btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1">Confirm</button>
+						<button class="btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1"><fmt:message key="button.confirm.button" bundle="${msg}" /></button>
 					</center>
 				 </form>
 			  </div>
@@ -268,7 +264,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.fna" bundle="${msg}" /></h4>
+		<h4 class="text-center"><fmt:message key="label.fna" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
@@ -278,7 +274,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaPdfName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>
@@ -303,7 +299,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>
@@ -328,7 +324,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormPdf }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>
@@ -476,12 +472,12 @@ var languageP = "${language}";
 	});
 	
 	$(document).ready(function() {
-		var csCenter = $("#centre").val();
+		/* var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 			//$('#fullyBooked').modal('show');
-		}
+		} */
 		<%
 		if(!result) {
 		%>
@@ -541,13 +537,14 @@ var languageP = "${language}";
 		var serviceCentreCode = '${csCenter }';
 		setCentre(serviceCentreCode);
 		
-		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
+				$("#preferred-date").val($("#preferred-date-"+ centre).val());
 				getTimeSlot('${perferredTime }');
 			}
 		});
@@ -573,6 +570,9 @@ var languageP = "${language}";
 		if ($(this).is(':checked')) {
 			$('#signoff-table').removeClass('hidden');
 			$('#table-info').addClass('hidden');
+			if($("#full-date").length > 0){
+				$('#fullyBooked').modal('show');
+			}
 		}
 	});
 	

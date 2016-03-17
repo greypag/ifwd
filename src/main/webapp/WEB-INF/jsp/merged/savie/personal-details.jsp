@@ -333,10 +333,12 @@ var languageP = "${language}";
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" maxlength="29"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 									</div>
+									<span class="error-msg" id="permanentAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" maxlength="19"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
                                     </div>
+                                    <span class="error-msg" id="permanentAdd3ErMsg"></span>
 												<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
 										 				<label class="mdl-textfield__label cstm-dropdown-label">District</label>
@@ -399,10 +401,12 @@ var languageP = "${language}";
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 									</div>
+									<span class="error-msg" id="residentialAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
                                     </div>
+                                    <span class="error-msg" id="residentialAdd3ErMsg"></span>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
@@ -465,10 +469,12 @@ var languageP = "${language}";
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 									</div>
+									<span class="error-msg" id="correspondenceAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
                                     </div>
+                                    <span class="error-msg" id="correspondenceAdd3ErMsg"></span>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>                                          
@@ -921,6 +927,24 @@ var languageP = "${language}";
 							}
 						}
 					 },
+					 'permanetAddress2': {
+							container: '#permanentAdd2ErMsg',
+							validators: {
+								regexp: {
+								  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+								  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+								}
+							}
+						 },
+						 'permanetAddress3': {
+								container: '#permanentAdd3ErMsg',
+								validators: {
+									regexp: {
+									  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+									  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+									}
+								}
+							 },
 					 'tmpPermanentDistrict': {
 					   container: '#permanentDistrictErMsg',
 					   validators: {
@@ -941,6 +965,24 @@ var languageP = "${language}";
 							}
 						}
 					 },
+					 'residentialAddress2': {
+							container: '#residentialAdd2ErMsg',
+							validators: {
+								regexp: {
+								  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+								  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+								}
+							}
+						 },
+						 'residentialAddress3': {
+								container: '#residentialAdd3ErMsg',
+								validators: {
+									regexp: {
+									  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+									  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+									}
+								}
+							 },
 					 'tmpResidentialDistrict': {
 					   container: '#residentialDistrictErMsg',
 					   validators: {
@@ -961,6 +1003,24 @@ var languageP = "${language}";
 							}
 						}
 					 },
+					 'correspondenceAddress2': {
+							container: '#correspondenceAdd2ErMsg',
+							validators: {
+								regexp: {
+								  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+								  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+								}
+							}
+						 },
+						 'correspondenceAddress3': {
+								container: '#correspondenceAdd3ErMsg',
+								validators: {
+									regexp: {
+									  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+									  message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
+									}
+								}
+							 },
 					 'tmpCorrespondenceDistrict': {
 					   container: '#correspondenceDistrictErMsg',
 					   validators: {

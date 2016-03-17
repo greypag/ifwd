@@ -27,9 +27,10 @@ var affiliate = "${affiliate}";
 		<div class="container">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Save</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Savie</a></li>
+					<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+
 					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="label.fna" bundle="${msg}" /></li>
 				</ol>
 			</div>
@@ -231,9 +232,9 @@ var affiliate = "${affiliate}";
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
 						<div class="modal-body">
-							<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
+							<h4><fmt:message key="fna.popup.other.title" bundle="${msg}" /></h4>
 							<div class="d-cont">
-								<p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p>
+								<p><fmt:message key="fna.popup.other.desc" bundle="${msg}" /></p>
 							</div>
 						</div>
 					</div>

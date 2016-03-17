@@ -186,7 +186,7 @@ var language = "${language}";
 								</div>
 								<div class="form-group">
 									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" maxlength="9" value="${lifePayment.accountNumber }">
 										<label class="mdl-textfield__label" for="bankAccountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
@@ -289,6 +289,7 @@ var language = "${language}";
 											
 											<%
 											Map results = (Map)request.getAttribute("datesMap");
+											Map defaultDate = (Map)request.getAttribute("defaultDate");
 											Map.Entry<String, List> entry; 
 											Iterator i;
 											Boolean result = results.size() > 0; 
@@ -297,12 +298,12 @@ var language = "${language}";
 												while(i.hasNext()){
 													entry=(Map.Entry<String, List>)i.next();
 											%>
-											<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" style="display:none;" >
+											<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
 											<%
 												}
 											}else {
 											%>
-											<input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
+											<input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
 											<%
 											}
 											%>
@@ -497,12 +498,12 @@ var language = "${language}";
 		}
 
 		
-		var csCenter = $("#centre").val();
+		/* var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 			$('#fullyBooked').modal('show');
-		}
+		} */
 		<%
 		if(!result) {
 		%>
@@ -562,13 +563,14 @@ var language = "${language}";
 		var serviceCentreCode = '${csCenter }';
 		setCentre(serviceCentreCode);
 		
-		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
+				$("#preferred-date").val($("#preferred-date-"+ centre).val());
 				getTimeSlot('${perferredTime }');
 			}
 		});
@@ -629,6 +631,10 @@ var language = "${language}";
 				$('#direct-debit-panel').addClass('hidden');
 				$('.save-link').addClass('hidden');
 				$('#pay-later-page').removeClass('hidden');
+				
+				if($("#full-date").length > 0){
+					$('#fullyBooked').modal('show');
+				}
 			}
 		});
 		

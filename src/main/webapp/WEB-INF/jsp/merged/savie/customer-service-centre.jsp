@@ -99,6 +99,7 @@ var language = "${language}";
                       <!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
                       <%
 					  Map results = (Map)request.getAttribute("datesMap");
+                      Map defaultDate = (Map)request.getAttribute("defaultDate");
 					  Map.Entry<String, List> entry; 
 					  Iterator i;
 					  Boolean result = results.size() > 0; 
@@ -107,12 +108,12 @@ var language = "${language}";
 						  while(i.hasNext()){
 							  entry=(Map.Entry<String, List>)i.next();
 					  %>
-					  <input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" style="display:none;" >
+					  <input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
 					  <%
 						  }
 					  }else {
 					  %>
-					  <input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
+					  <input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
 					  <%
 					  }
 					  %>
@@ -235,10 +236,13 @@ var language = "${language}";
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
-		var csCenter = $("#centre").val();
+		/* var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			$('#fullyBooked').modal('show');
+		} */
+		if($("#full-date").length > 0){
 			$('#fullyBooked').modal('show');
 		}
 		<%
@@ -299,10 +303,25 @@ var language = "${language}";
 		var serviceCentreCode = '${csCenter }';
 		setCentre(serviceCentreCode);
 		
-		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
 			getTimeSlot('${perferredTime }');
 		}
+		
+		$('#centre').on('change', function() {
+			var centre = $('#centre option:selected').val();
+			togglePreferred('preferred-date-'+ centre)
+			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
+				$("#preferred-date").val($("#preferred-date-"+ centre).val());
+				getTimeSlot('${perferredTime }');
+			}
+		});
 	});
+	
+	function togglePreferred(id) {
+		$(".col-xs-12 .preferred-date .date").hide();
+		$("#"+ id).show();
+	}
+	
        $(window).bind('scroll', function() {
           stickHeaderBrowse();
        });

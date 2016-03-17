@@ -297,59 +297,8 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
 			model.addAttribute("etLiquidAssetEN", InitApplicationMessage.etLiquidAssetEN);
 			model.addAttribute("etLiquidAssetCN", InitApplicationMessage.etLiquidAssetCN);
-			model.addAttribute("etAmountOtherSourceEN", InitApplicationMessage.etAmountOtherSourceEN);
-			model.addAttribute("etAmountOtherSourceCN", InitApplicationMessage.etAmountOtherSourceCN);
 			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
 			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
-			
-			/*model.addAttribute("occupationEnNoB1", InitApplicationMessage.occupationEnNoB1);
-			model.addAttribute("occupationCnNoB1", InitApplicationMessage.occupationCnNoB1);
-			model.addAttribute("occupationEnNoB2", InitApplicationMessage.occupationEnNoB2);
-			model.addAttribute("occupationCnNoB2", InitApplicationMessage.occupationCnNoB2);
-			model.addAttribute("occupationEnNoB3", InitApplicationMessage.occupationEnNoB3);
-			model.addAttribute("occupationCnNoB3", InitApplicationMessage.occupationCnNoB3);
-			model.addAttribute("occupationEnNoB4", InitApplicationMessage.occupationEnNoB4);
-			model.addAttribute("occupationCnNoB4", InitApplicationMessage.occupationCnNoB4);
-			model.addAttribute("occupationEnNoB5", InitApplicationMessage.occupationEnNoB5);
-			model.addAttribute("occupationCnNoB5", InitApplicationMessage.occupationCnNoB5);
-			model.addAttribute("occupationEnNoB6", InitApplicationMessage.occupationEnNoB6);
-			model.addAttribute("occupationCnNoB6", InitApplicationMessage.occupationCnNoB6);
-			model.addAttribute("occupationEnNoB7", InitApplicationMessage.occupationEnNoB7);
-			model.addAttribute("occupationCnNoB7", InitApplicationMessage.occupationCnNoB7);
-			model.addAttribute("occupationEnNoB8", InitApplicationMessage.occupationEnNoB8);
-			model.addAttribute("occupationCnNoB8", InitApplicationMessage.occupationCnNoB8);
-			model.addAttribute("occupationEnNoB9", InitApplicationMessage.occupationEnNoB9);
-			model.addAttribute("occupationCnNoB9", InitApplicationMessage.occupationCnNoB9);
-			model.addAttribute("occupationEnNoB10", InitApplicationMessage.occupationEnNoB10);
-			model.addAttribute("occupationCnNoB10", InitApplicationMessage.occupationCnNoB10);
-			model.addAttribute("occupationEnNoB11", InitApplicationMessage.occupationEnNoB11);
-			model.addAttribute("occupationCnNoB11", InitApplicationMessage.occupationCnNoB11);
-			model.addAttribute("occupationEnNoB12", InitApplicationMessage.occupationEnNoB12);
-			model.addAttribute("occupationCnNoB12", InitApplicationMessage.occupationCnNoB12);
-			model.addAttribute("occupationEnNoB13", InitApplicationMessage.occupationEnNoB13);
-			model.addAttribute("occupationCnNoB13", InitApplicationMessage.occupationCnNoB13);
-			model.addAttribute("occupationEnNoB14", InitApplicationMessage.occupationEnNoB14);
-			model.addAttribute("occupationCnNoB14", InitApplicationMessage.occupationCnNoB14);
-			model.addAttribute("occupationEnNoB15", InitApplicationMessage.occupationEnNoB15);
-			model.addAttribute("occupationCnNoB15", InitApplicationMessage.occupationCnNoB15);
-			model.addAttribute("occupationEnNoB16", InitApplicationMessage.occupationEnNoB16);
-			model.addAttribute("occupationCnNoB16", InitApplicationMessage.occupationCnNoB16);
-			model.addAttribute("occupationEnNoB17", InitApplicationMessage.occupationEnNoB17);
-			model.addAttribute("occupationCnNoB17", InitApplicationMessage.occupationCnNoB17);
-			model.addAttribute("occupationEnNoB18", InitApplicationMessage.occupationEnNoB18);
-			model.addAttribute("occupationCnNoB18", InitApplicationMessage.occupationCnNoB18);
-			model.addAttribute("occupationEnNoB19", InitApplicationMessage.occupationEnNoB19);
-			model.addAttribute("occupationCnNoB19", InitApplicationMessage.occupationCnNoB19);
-			model.addAttribute("occupationEnNoB20", InitApplicationMessage.occupationEnNoB20);
-			model.addAttribute("occupationCnNoB20", InitApplicationMessage.occupationCnNoB20);
-			model.addAttribute("occupationEnNoB21", InitApplicationMessage.occupationEnNoB21);
-			model.addAttribute("occupationCnNoB21", InitApplicationMessage.occupationCnNoB21);
-			model.addAttribute("occupationEnNoB22", InitApplicationMessage.occupationEnNoB22);
-			model.addAttribute("occupationCnNoB22", InitApplicationMessage.occupationCnNoB22);
-			model.addAttribute("occupationEnNoB23", InitApplicationMessage.occupationEnNoB23);
-			model.addAttribute("occupationCnNoB23", InitApplicationMessage.occupationCnNoB23);
-			model.addAttribute("occupationEnNoB24", InitApplicationMessage.occupationEnNoB24);
-			model.addAttribute("occupationCnNoB24", InitApplicationMessage.occupationCnNoB24);*/
 			
 			String backSummary = request.getParameter("backSummary");
 			if(backSummary!=null && "Y".equals(backSummary)){
@@ -357,48 +306,62 @@ public class SavieOnlineController extends BaseController{
 			}
 			
 			String code = null;
+			String codeO = null;
 			if(savieFna!=null && (savieFna.getQ4_a() !=null || (savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""))){
 				if(savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""){
 					int money = Integer.valueOf(savieFna.getQ4_a_others().replace(",", ""));
 					if(money<=10000){
 						code = "mpi1";
+						codeO = "AOS1";
 					}
 					else if(money>=10001&&money<=15000){
 						code = "mpi2";
+						codeO = "AOS2";
 					}
 					else if(money>=15001&&money<=20000){
 						code = "mpi3";
+						codeO = "AOS3";
 					}
 					else if(money>=20001&&money<=25000){
 						code = "mpi4";
+						codeO = "AOS4";
 					}
 					else if(money>=25001&&money<=30000){
 						code = "mpi5";
+						codeO = "AOS5";
 					}
 					else if(money>=30001&&money<=40000){
 						code = "mpi6";
+						codeO = "AOS6";
 					}
 					else if(money>=40001&&money<=55000){
 						code = "mpi7";
+						codeO = "AOS7";
 					}
 					else if(money>=55001){
 						code = "mpi8";
+						codeO = "AOS8";
 					}
 				}
 				else if("0".equals(savieFna.getQ4_a())){
 					code = "mpi1";
+					codeO = "AOS1";
 				}
 				else if("1".equals(savieFna.getQ4_a())){
 					code = "mpi2,mpi3";
+					codeO = "AOS2,AOS3";
 				}
 				else if("2".equals(savieFna.getQ4_a())){
 					code = "mpi4,mpi5,mpi6,mpi7";
+					codeO = "AOS4,AOS5,AOS6,AOS7";
 				}
 				else if("3".equals(savieFna.getQ4_a())){
 					code = "mpi7,mpi8";
+					codeO = "AOS7,AOS8";
 				}
 				else if("4".equals(savieFna.getQ4_a())){
 					code = "mpi8";
+					codeO = "AOS8";
 				}
 			}
 			List<OptionItemDesc> monthlyPersonalIncomeEN = new ArrayList<OptionItemDesc>();
@@ -422,9 +385,32 @@ public class SavieOnlineController extends BaseController{
 				monthlyPersonalIncomeEN = InitApplicationMessage.monthlyPersonalIncomeEN;
 				monthlyPersonalIncomeCN = InitApplicationMessage.monthlyPersonalIncomeCN;
 			}
-			
 			model.addAttribute("monthlyPersonalIncomeEN", monthlyPersonalIncomeEN);
 			model.addAttribute("monthlyPersonalIncomeCN", monthlyPersonalIncomeCN);
+			
+			List<OptionItemDesc> etAmountOtherSourceEN = new ArrayList<OptionItemDesc>();
+			List<OptionItemDesc> etAmountOtherSourceCN = new ArrayList<OptionItemDesc>();
+			if(codeO!=null && codeO!=""){
+				String[] str = codeO.split(",");
+				if(str!=null && str.length>0){
+					for(int i=0;i<str.length;i++){
+						for(int j=0;j<InitApplicationMessage.etAmountOtherSourceEN.size();j++){
+							OptionItemDesc optionEn = InitApplicationMessage.etAmountOtherSourceEN.get(j);
+							OptionItemDesc optionCn = InitApplicationMessage.etAmountOtherSourceCN.get(j);
+							if(str[i].equals(optionEn.getItemCode())){
+								etAmountOtherSourceEN.add(optionEn);
+								etAmountOtherSourceCN.add(optionCn);
+							}
+						}
+					}
+				}
+			}
+			else{
+				etAmountOtherSourceEN = InitApplicationMessage.etAmountOtherSourceEN;
+				etAmountOtherSourceCN = InitApplicationMessage.etAmountOtherSourceCN;
+			}
+			model.addAttribute("etAmountOtherSourceEN", etAmountOtherSourceEN);
+			model.addAttribute("etAmountOtherSourceCN", etAmountOtherSourceCN);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 		}
 	}

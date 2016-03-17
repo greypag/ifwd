@@ -165,7 +165,7 @@ var languageP = "${language}";
 									</div>
 								</div>									
 								<!--SAVING INSURANCE -->
-								<div class="saving-insurance-container">
+								<div class="saving-insurance-container hidden">
 									<div class="category-holder">
 										<h4 class="category-title">Household</h4>
 										<div class="row category-head">
@@ -220,7 +220,7 @@ var languageP = "${language}";
 									</div>
 								</div>
 								<!--SAVING INSURANCE -->
-								<div class="saving-insurance-container">
+								<div class="saving-insurance-container hidden">
 									<div class="category-holder">
 										<h4 class="category-title">Travel</h4>
 										<div class="row category-head">

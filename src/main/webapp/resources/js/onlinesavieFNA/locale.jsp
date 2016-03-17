@@ -56,7 +56,7 @@ var FNAQuestion ={
 	"data":[{
 		  "id": "q1",
 		  "num": "1",
-		  "title": "<fmt:message key="fna.question.q1" bundle="${msg}" /><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
+		  "title": "<fmt:message key="fna.question.q1" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 0,
 		    "title": "<fmt:message key="fna.question.q1.option1" bundle="${msg}" />",
@@ -87,7 +87,7 @@ var FNAQuestion ={
 		}, {
 		  "id": "q2",
 		  "num": "2",
-		  "title": "<fmt:message key="fna.question.q2" bundle="${msg}" /><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
+		  "title": "<fmt:message key="fna.question.q2" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 0,
 		    "title": "<fmt:message key="fna.question.q2.option1" bundle="${msg}" />",
@@ -218,7 +218,7 @@ var FNAQuestion ={
 		  }, {
 		    "id": 7,
 		    "title": "<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> HK$ {0}",
-		    "caption": " Note: Liquid assets are assets which may be easily turned into cash. <br>Real estate, coin collection and arkwork are not considered to be liquid assets.",
+		    "caption": " <fmt:message key="fna.question.q4b.note" bundle="${msg}" />",
 		    "other": "q4_b_amount"
 		  }]
 		}, {
@@ -254,7 +254,7 @@ var FNAQuestion ={
 		}, {
 		  "id": "q4_e",
 		  "num": "4e",
-		  "title": "<fmt:message key="fna.question.q4e" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span>",
+		  "title": "<fmt:message key="fna.question.q4e" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 0,
 		    "title": "<fmt:message key="fna.question.q4e.option1" bundle="${msg}" />",
