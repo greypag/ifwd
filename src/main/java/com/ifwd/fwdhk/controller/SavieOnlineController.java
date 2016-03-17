@@ -129,6 +129,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
 	public ModelAndView getSavieOnlineFna(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -150,6 +156,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/FNA/review"}) 
 	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -161,6 +173,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/FNA/product-recommendation"}) 
 	public ModelAndView getSavieOnlinepProduct(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -178,6 +196,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/sales-illustration"})
 	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -196,6 +220,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -207,6 +237,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -231,6 +267,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/employment-info"})
 	public ModelAndView getSavieOnlineLifeEmploymentInfo(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -389,6 +431,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/beneficiary-info"})
 	public ModelAndView getSavieOnlineLifeBeneficaryInfo(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -407,6 +455,13 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/payment"})
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -455,6 +510,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"})
 	public ModelAndView getSavieOnlineLifePolicySummary(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -477,6 +538,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/signature"})
 	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request,HttpSession session) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -509,6 +576,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -531,6 +604,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -551,6 +630,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-upload-later"})
 	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -570,6 +655,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline-signature"})
 	public ModelAndView getSavieOnlineSignOfflineConfirmation(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -589,6 +680,12 @@ public class SavieOnlineController extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-paylater"})
 	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -606,6 +703,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment"})
 	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -622,6 +725,12 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
 	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
