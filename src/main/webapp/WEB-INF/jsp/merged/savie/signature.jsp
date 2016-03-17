@@ -449,6 +449,10 @@ var languageP = "${language}";
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->	
 </div><!-- /.modal -->
+<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+    <img style="width: 300px; height: 300px;"
+        src="<%=request.getContextPath()%>/resources/images/loading.gif">
+</div>
 
 <script type="text/javascript">
 	var language = "en";
@@ -739,6 +743,7 @@ var languageP = "${language}";
 			if($(this).hasClass('disabled-gray-btn') == false) {
 				$('#signature-box-1').modal('show');
 			}
+			
 		});
 		
 		var signatureFileSize = "${signatureFileSize}";
@@ -760,6 +765,7 @@ var languageP = "${language}";
 					    //$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
 					    alert(getBundle(getBundleLanguage, "error.signature.size"));
 					    $('#loading-overlay').modal('hide');
+	
 					}else if($('.correct-signature').hasClass('hide-element')){
 						//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
 						alert(getBundle(getBundleLanguage, "error.signature.empty"));
@@ -771,11 +777,14 @@ var languageP = "${language}";
 					    	type:'post',     
 					    	data:{ "image" : datapair[1] },     
 					    	success:function(data){
+					    		//loading mask 
+					    		$('#loadingDiv').toggle();
+								$('body').addClass('modal-open');
 					    	    if(data==null || data == ''){
 					    	    	//Unknown errors
 					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
-					    	    	$('#loading-overlay').modal('hide');
+					    	    	$('#loading-overlay').modal('hide');					   
 					    	    } 
 					    	    else if( data.errMsgs == 'session expired'){
 					    	    	//Timeout errors
@@ -851,7 +860,8 @@ var languageP = "${language}";
 				    data:{    
 				    	"csCenter": csCenter,
 				        "perferredDate":perferredDate,
-				        "perferredTime":perferredTime
+				        "perferredTime":perferredTime,
+				        "type":"3"
 			   		},     
 				    error:function(){       
 				    },     

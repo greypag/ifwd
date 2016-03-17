@@ -224,7 +224,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog1.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog1.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1.jpg" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">

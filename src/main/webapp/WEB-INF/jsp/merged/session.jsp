@@ -78,13 +78,13 @@
            $(this).html(event.strftime('Expire in<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
        }
    });
-   <% } %>
    function sessionPopup(){
        if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 600){
            $('#session-alert').modal('show');
-      }	    	   
+      }            
    }
    $(function() {
-	   setInterval(sessionPopup, 300000);
-   });
+       setInterval(sessionPopup, 300000);
+   });   
+   <% } %>
 </script>

@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
@@ -102,6 +103,7 @@ function submitLoginForm(formID) {
 								|| (window.location.href.length - window.location.href.indexOf("home") <= 4))
 								&& $('#loginpopup #nav-bar-check').val() == 'false'){		
 							homeFnaGoNext();
+							$("#fullName").html(data.fullName);
 						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
