@@ -3,6 +3,8 @@ package com.ifwd.fwdhk.model.savieOnline;
 import java.util.List;
 
 public class Products {
+	private String q1;
+	private String q2;
 	private String name;
 	private String type;
 	private Boolean show;
@@ -19,6 +21,22 @@ public class Products {
 	private String brochure_url;
 	private String product_url;
 	
+
+	public String getQ1() {
+		return q1;
+	}
+
+	public void setQ1(String q1) {
+		this.q1 = q1;
+	}
+
+	public String getQ2() {
+		return q2;
+	}
+
+	public void setQ2(String q2) {
+		this.q2 = q2;
+	}
 
 	public String getType_desc() {
 		return type_desc;
