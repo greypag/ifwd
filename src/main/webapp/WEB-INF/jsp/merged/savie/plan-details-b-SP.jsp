@@ -563,10 +563,9 @@ var languageP = "${language}";
 		    </div>
 		  </div>
 		</div>
-		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+		<div class="modal fade common-welcome-modal" id="review-fna-modal"  data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
 			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
