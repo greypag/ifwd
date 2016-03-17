@@ -49,6 +49,11 @@ public class SavieOnlineController extends BaseController{
 		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}*/
+	
+    @RequestMapping(value = {"/{lang}/savings-insurance/fna-test"})
+    public ModelAndView getFnaTestPage(Model model, HttpServletRequest request, HttpSession httpSession) {
+           return new ModelAndView(UserRestURIConstants.getSitePath(request) + "fna-test");
+    }	
 
 	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
