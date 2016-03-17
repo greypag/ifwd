@@ -831,8 +831,9 @@ var languageP = "${language}";
 			$signatureFirstDiv.jSignature({
 			   height: _height, 
 			   width: _width,
-			   lineWidth: 2,
+			   lineWidth: 1,
 			   'decor-color': 'transparent',
+			   'signatureLine': false,
 			});
 		}
 		

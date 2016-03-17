@@ -117,6 +117,7 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
   <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">	
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <script src="<%=request.getContextPath()%>/resources/js/elite-term/flashcanvas.js"></script>
 <![endif]-->
 
 
@@ -129,6 +130,7 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
 <!--[if IE]>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
