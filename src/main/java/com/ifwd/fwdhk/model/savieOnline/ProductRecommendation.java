@@ -6,6 +6,7 @@ import net.sf.ezmorph.bean.MorphDynaBean;
 
 public class ProductRecommendation {
 	private String errMsgs;
+	private Float affordabilityPremium;
 	private String next_page;
 	private List<MorphDynaBean> product_list;
 	private List<String> remarks;
@@ -33,7 +34,11 @@ public class ProductRecommendation {
 	public void setRemarks(List<String> remarks) {
 		this.remarks = remarks;
 	}
-
-	
+	public Float getAffordabilityPremium() {
+		return affordabilityPremium;
+	}
+	public void setAffordabilityPremium(Float affordabilityPremium) {
+		this.affordabilityPremium = affordabilityPremium;
+	}
 
 }

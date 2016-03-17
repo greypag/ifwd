@@ -9,6 +9,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'400000' };
 </script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -122,13 +123,17 @@ var languageP = "${language}";
 				                   <div class="pull-right">
 				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
-											<fmt:message key="label.min" bundle="${msg}" />
+											<p><fmt:message key="label.min" bundle="${msg}" /></p>
+											<p>30,000</p>
 										</div>
 										<div class="pull-right text-center">
-											<fmt:message key="label.max" bundle="${msg}" />
+											<p><fmt:message key="label.max" bundle="${msg}" /></p>
+											<p>
+											<fmt:formatNumber value="${affordabilityPremium!=null?affordabilityPremium:'400000' }" type="number"/>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -226,8 +231,8 @@ var languageP = "${language}";
 				<div class="crediting-rate">
 					<h4 class="crediting-rate-title"><fmt:message key="label.creditingrate" bundle="${msg}" /></h4>
 					<div class="rate-buttons">
-						<button class="rate-btn" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.guaranteed.basis" bundle="${msg}" />' class="rate-btn" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.current.assumed.basis" bundle="${msg}" />' class="rate-btn active" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
 						<button class="rate-btn" id="rate-3" type="button"><fmt:message key="label.savie.crediting.rate3" bundle="${msg}" /></button>
 						<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate4" bundle="${msg}" /></button>
 					</div>
@@ -403,7 +408,7 @@ var languageP = "${language}";
 			</div>
 		</div>
 	</div>
-	<div class="plan-details-note-container hidden-sm hidden-xs">
+	<div class="plan-details-note-container hidden-sm hidden-xs hidden">
 		<h5>Note</h5>
 		<ul>
 			<li>This summary is for illustrative and information purposes only. This summary is not an insurance illustration document or insurance contract, nor it does not belong to or constitute part of an insurance illustration or insurance contract.</li>
@@ -941,7 +946,7 @@ var languageP = "${language}";
 	});
 	
 	$("#resume-btn").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+		window.location = '<%=request.getContextPath()%>/'+nextPage;
 	});
 	
 	$("#start-over-btn").on('click', function(){

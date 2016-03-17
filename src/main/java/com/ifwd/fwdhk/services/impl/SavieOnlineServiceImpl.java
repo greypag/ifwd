@@ -570,8 +570,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
-		attributeList.add(new PdfAttribute("TelephoneNo", StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
-						lifePersonalDetails.getResidentialTelNo()+" / ":"" + lifePersonalDetails.getMobileNumber()));
+		attributeList.add(new PdfAttribute("TelephoneNo", (StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
+						lifePersonalDetails.getResidentialTelNo()+" / ":"") + lifePersonalDetails.getMobileNumber()));
 		
 		String group_1 = "";
 		if("0".equals(savieFna.getMarital_status())){
@@ -908,6 +908,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
 				for(int b=0;b<products.size();b++){
+					q1 = ((String)products.get(b).get("q1")).split(",");
 					for(String j :q1){
 						if("0".equals(j)){
 							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
@@ -929,7 +930,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
 						}
 					}
-					
+					q2 = ((String)products.get(b).get("q2")).split(",");
 					for(String k :q2){
 						if("0".equals(k)){
 							attributeList.add(new PdfAttribute("Q2a"+i, "On"));
@@ -1122,6 +1123,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			logger.info("product_list : " + JSONValue.parse(responseJsonObj.toString()));
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			Float affordabilityPremium = productRecommendation.getAffordabilityPremium()/1000;
+			request.getSession().setAttribute("affordabilityPremium", affordabilityPremium.intValue()*1000);
 			request.getSession().setAttribute("productRecommendation", productRecommendation);
 		}
 		return responseJsonObj;
@@ -1646,7 +1649,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return parameters;
 	}
 	
-	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifePaymentSaveforLater(String type,LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1658,8 +1661,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
-		parameters = this.lifePaymentPutData(lifePayment, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/application-summary");
+		String resumeViewPage = null;
+		if("2".equals(type)){
+			parameters = this.lifePaymentPutData(lifePayment, parameters);
+			resumeViewPage = language+"/savings-insurance/application-summary";
+		}
+		else{
+			resumeViewPage = language+"/savings-insurance/payment";
+		}
+		
+		parameters.accumulate("resumeViewPage", resumeViewPage);
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");

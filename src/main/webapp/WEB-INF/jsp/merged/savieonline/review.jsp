@@ -210,10 +210,10 @@ var affiliate = "${affiliate}";
 							<a class="close" aria-label="Close" data-dismiss="modal">
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
-							<h4>Do you mean ...</h4>
-							<div class="cont"><p>You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</p></div>
+							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
+							<div class="cont"><p><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></p></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel">Cancel</a>
+							<a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>
