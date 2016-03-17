@@ -553,6 +553,16 @@ var languageP = "${language}";
 			    </div>
 			</div>
 		</div>
+		<!-- Thank you -->
+		<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content thank-you-content">
+					<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.desktop" bundle="${msg}" />" class="img-responsive hidden-xs">
+					<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.mobile" bundle="${msg}" />" class="img-responsive visible-xs">
+					<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
+				</div>
+			</div>
+		</div>
 		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -621,7 +631,7 @@ var languageP = "${language}";
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
-		
+		console.log('${savieType}');
 		if('${savieType}' == 'RP') {
 			$("#type-of-payment").val("regular-payment");
 			$('#plan-amount-holder').removeClass('hidden');
@@ -818,7 +828,8 @@ var languageP = "${language}";
 			//$('#offline-online-modal').modal('show');
 			if($("#type-of-payment").val() == 'regular-payment') {
 				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-		        	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		        	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		        	$('#thankYouModal').modal('show');
 		        }else{
 		            apply=true;
 		            $('#offline-online-modal').modal('hide');
@@ -967,7 +978,11 @@ var languageP = "${language}";
             $('#loginpopup #nav-bar-check').val("false");            
 			$('#loginpopup').modal('show');			
 		}
-	}	
+	}
+	
+	function goServiceCenter() {
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+	}
 	
 	/* // Detect iOS
 	function iOS() {
