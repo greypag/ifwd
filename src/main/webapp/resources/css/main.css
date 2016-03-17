@@ -10687,6 +10687,7 @@ body.chin .dot-font{
     border-radius: 0;
     width:260px;
     height:33px;
+    line-height: 14px;
     line-height: 14px\9;
     display:inline;
 }
@@ -10724,7 +10725,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     width: 428px;
     background-color: #ebebeb;
     height: 38px;
-    line-height: 38px;
     padding: 0 30px;
     font-size: 14px;
     z-index: 1;
@@ -10906,10 +10906,12 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 
 #loginpopup input:-moz-placeholder { /* Firefox 18- */
     font-size: 14px !important;
+    line-height: 14px;
 }
 
 #loginpopup input::-moz-placeholder { /* Firefox 19+ */
     font-size: 14px !important;
+    line-height: 14px;
 }
 
 #loginpopup input:-ms-input-placeholder {
