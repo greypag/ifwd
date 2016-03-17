@@ -119,7 +119,7 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[1\\]').removeClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
 		$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
-		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
+		$('#add-btn-img').attr('src', '<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png');
 	});
 	$('#add-beneficiary-btn-2').click(function (e) {
 		e.preventDefault();
@@ -133,7 +133,7 @@ $(document).ready(function() {
 	// Deleting new form for additional beneficiary
 	$('#remove-beneficiary\\[1\\]').click(function () {
 		$('#beneficiaryFirstName\\[1\\]').val("");
-		$('#add-beneficiary-btn-2').find('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
+		$('#add-beneficiary-btn-2').find('#add-btn-img').attr('src', '<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png');
 		$('#add-beneficiary-btn-2').addClass('disabled-beneficiary-add');
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
@@ -143,7 +143,7 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);
 		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
-		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
+		$('#add-btn-img').attr('src', '<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png');
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 	});
 	$('#remove-beneficiary\\[2\\]').click(function () {
