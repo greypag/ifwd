@@ -726,7 +726,13 @@ var languageP = "${language}";
 			$('option').click(function() {
 				$('select').blur();
 			});
-						
+			// detect IE browsers
+			if (window.clipboardData) {
+				$('.selectDiv .gray-dropdown').addClass('ie-select');
+			} else {
+				$('.selectDiv .gray-dropdown').removeClass('ie-select');
+			}
+			
 			$("#et-personal-info-next, #btn-back").click(function(){
 				$("#errorMsg").html("");
 				$.ajax({
@@ -735,7 +741,7 @@ var languageP = "${language}";
 					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
 					  data: $("#soInsuredInfoForm").serialize(),
 					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  if(data != null && data.errorMsg != null && data.errorMsg != "" && !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()){
 							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
