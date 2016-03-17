@@ -232,11 +232,11 @@ var languageP = "${language}";
 		<div class="modal-content">
 			  <div class="modal-header">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				 <p class="modal-title visible-xs visible-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
+				 <p class="modal-title visible-xs visible-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
 			  </div>
 			  <div class="modal-body">
-				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></p>
-				 <p><fmt:message key="label.please.sign.in.the.grey.area" bundle="${msg}" /></p>
+				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
+				 <p><fmt:message key="label.please.sign.in.grey.area" bundle="${msg}" /></p>
 				 <form action="">
 					<div class="signature-parent">
 						<div id="signature-1" class="signature-img so-signature"></div>
@@ -248,11 +248,11 @@ var languageP = "${language}";
 								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png" />
 								<span><fmt:message key="label.correct.signature" bundle="${msg}" /></span>
 							</div>
-							<p class="text-right"><fmt:message key="label.correct.signed.in.hk" bundle="${msg}" /></p>
+							<p class="text-right"><fmt:message key="label.sign.in.hk" bundle="${msg}" /></p>
 						</div>
 					</div>
 					<center>
-						<button class="btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1"><fmt:message key="button.confirm" bundle="${msg}" /></button>
+						<button class="btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1"><fmt:message key="button.confirm.button" bundle="${msg}" /></button>
 					</center>
 				 </form>
 			  </div>
