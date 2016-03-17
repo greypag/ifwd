@@ -206,16 +206,31 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etAmountOtherSourceCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome">
+											
+											<c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${etAmountOtherSourceEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${etAmountOtherSourceCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${amountOfOtherSourceOfIncomeCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="otherIncomeAmountErMsg"></span>
@@ -332,16 +347,43 @@ var languageP = "${language}";
 											   <option value="" disabled selected><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<option value="${list.itemCode }-${list.itemDesc }" 
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<option value="${list.itemCode }-${list.itemDesc }" 
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets">
+											
+											<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etLiquidAssetEN}">
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etLiquidAssetCN}">
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>	
+											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
@@ -418,7 +460,7 @@ var languageP = "${language}";
 				setSelectReadonly('tmpOccupation', true);
 				setSelectReadonly('tmpEducationLevel', true);
 				//setSelectReadonly('tmpOtherIncomeAmount', true);
-				//setSelectReadonly('tmpLiquidAssetsAmount', true);
+				setSelectReadonly('tmpLiquidAssetsAmount', true);
 				
 				
 				var employmentS = '${savieFna.employment_status }';
