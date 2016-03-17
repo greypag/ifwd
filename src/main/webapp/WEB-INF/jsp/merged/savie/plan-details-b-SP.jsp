@@ -408,7 +408,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 			</div>
 		</div>
 	</div>
-	<div class="plan-details-note-container hidden-sm hidden-xs">
+	<div class="plan-details-note-container hidden-sm hidden-xs hidden">
 		<h5>Note</h5>
 		<ul>
 			<li>This summary is for illustrative and information purposes only. This summary is not an insurance illustration document or insurance contract, nor it does not belong to or constitute part of an insurance illustration or insurance contract.</li>

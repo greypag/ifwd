@@ -8860,17 +8860,18 @@ form#table-info #id-policy, form#table-info #id-application {
   border-radius: 0;
 }
 /* line 332, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-heading {
+#plan-details-sample-and-faq .tab-content .panel-heading {
   border-radius: 0;
   background-color: #e1e4e4;
 }
 /* line 338, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-collapse .panel-body {
+#plan-details-sample-and-faq .tab-content .panel-collapse .panel-body {
   font-size: 14px;
   line-height: 20px;
+  padding: 20px;
 }
 /* line 345, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-title a {
+#plan-details-sample-and-faq .tab-content .panel-title a {
   display: inline-block;
   width: 100%;
   font-size: 14px;
