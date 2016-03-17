@@ -9,6 +9,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'400000' };
 </script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -122,13 +123,17 @@ var languageP = "${language}";
 				                   <div class="pull-right">
 				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
-											<fmt:message key="label.min" bundle="${msg}" />
+											<p><fmt:message key="label.min" bundle="${msg}" /></p>
+											<p>30,000</p>
 										</div>
 										<div class="pull-right text-center">
-											<fmt:message key="label.max" bundle="${msg}" />
+											<p><fmt:message key="label.max" bundle="${msg}" /></p>
+											<p>
+											<fmt:formatNumber value="${affordabilityPremium!=null?affordabilityPremium:'400000' }" type="number"/>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -403,7 +408,7 @@ var languageP = "${language}";
 			</div>
 		</div>
 	</div>
-	<div class="plan-details-note-container hidden-sm hidden-xs">
+	<div class="plan-details-note-container hidden-sm hidden-xs hidden">
 		<h5>Note</h5>
 		<ul>
 			<li>This summary is for illustrative and information purposes only. This summary is not an insurance illustration document or insurance contract, nor it does not belong to or constitute part of an insurance illustration or insurance contract.</li>
@@ -563,10 +568,9 @@ var languageP = "${language}";
 		    </div>
 		  </div>
 		</div>
-		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+		<div class="modal fade common-welcome-modal" id="review-fna-modal"  data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
 			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
@@ -931,7 +935,7 @@ var languageP = "${language}";
 	});
 	
 	$("#resume-btn").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+		window.location = '<%=request.getContextPath()%>/'+nextPage;
 	});
 	
 	$("#start-over-btn").on('click', function(){

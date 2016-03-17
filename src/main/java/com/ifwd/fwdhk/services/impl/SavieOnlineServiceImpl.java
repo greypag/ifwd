@@ -570,8 +570,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
-		attributeList.add(new PdfAttribute("TelephoneNo", StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
-						lifePersonalDetails.getResidentialTelNo()+" / ":"" + lifePersonalDetails.getMobileNumber()));
+		attributeList.add(new PdfAttribute("TelephoneNo", (StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
+						lifePersonalDetails.getResidentialTelNo()+" / ":"") + lifePersonalDetails.getMobileNumber()));
 		
 		String group_1 = "";
 		if("0".equals(savieFna.getMarital_status())){
@@ -908,6 +908,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
 				for(int b=0;b<products.size();b++){
+					q1 = ((String)products.get(b).get("q1")).split(",");
 					for(String j :q1){
 						if("0".equals(j)){
 							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
@@ -929,7 +930,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
 						}
 					}
-					
+					q2 = ((String)products.get(b).get("q2")).split(",");
 					for(String k :q2){
 						if("0".equals(k)){
 							attributeList.add(new PdfAttribute("Q2a"+i, "On"));

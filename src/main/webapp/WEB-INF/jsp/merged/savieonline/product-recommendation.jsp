@@ -412,8 +412,7 @@ function goLandingPage(){
 				</div>
 			</div>
 		</div>
-
-		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	    <div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupClear">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">
 					<div class="fna-popup-cont">
@@ -423,9 +422,9 @@ function goLandingPage(){
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
 							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
-							<div class="cont"><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></div>
+                            <div class="cont"><p><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></p></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+                            <a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>

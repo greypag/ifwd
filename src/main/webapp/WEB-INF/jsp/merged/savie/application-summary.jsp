@@ -308,7 +308,7 @@
 								<input type="hidden" id="employmentStatus" name="employmentStatus" />
 							</div>
 						</div>
-                  <div class="form-group application-summ">
+                  <div id="natureOfBusinessDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
 								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
@@ -318,7 +318,7 @@
 								<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" />
 							</div>
 						</div>
-                  <div class="form-group application-summ">
+                  <div id="occupationDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
 								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
@@ -336,13 +336,13 @@
 						</div>-->
                </div>
                <div class="desktop-right">
-                  <div class="form-group application-summ">
+                  <div id="employerNameDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="currentEmployer">Current employer's name</label>
 							</div>
 						</div>
-                  <div class="form-group application-summ">
+                  <div id="monthlyPersonalIncomeDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
 								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
@@ -360,6 +360,28 @@
 									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.educationName }">${lifeEmploymentInfo.educationName }</option>
 								</select>
 								<input type="hidden" id="education" name="education" />
+							</div>
+						</div>
+						
+						<div id="amountOfOtherSourceOfIncomeDiv" class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></label>
+								<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
+									<option value=""><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }</option>
+								</select>
+								<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" />
+							</div>
+						</div>
+						
+						<div id="amountOfLiquidAssetsDiv" class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></label>
+								<select name="tmpLiquidAssetsAmount" id="tmpLiquidAssetsAmount" class="form-control gray-dropdown">
+									<option value=""><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.amountOfLiquidAssets }">${lifeEmploymentInfo.amountOfLiquidAssetsName }</option>
+								</select>
+								<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" />
 							</div>
 						</div>
                </div>
@@ -683,6 +705,27 @@
             $(this).closest('.modal').modal('hide');
             $('#application-saved-modal').modal('show');
          });
+         
+         var employmentS = '${savieFna.employment_status }';
+		 if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7'){
+			$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
+			$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+			$('#natureOfBusinessDiv').addClass('hidden');
+			$('#occupationDiv').addClass('hidden');
+			$('#employerNameDiv').addClass('hidden');
+			$('#monthlyPersonalIncomeDiv').addClass('hidden');
+		 }
+		 else{
+			$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
+			$('#amountOfLiquidAssetsDiv').addClass('hidden');
+			$('#natureOfBusinessDiv').removeClass('hidden');
+			$('#occupationDiv').removeClass('hidden');
+			$('#employerNameDiv').removeClass('hidden');
+			$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+		 }
+         
+         
+         
       	// set fields whether editable or not
 			// Your selected plan block
 			setInputReadonly('planName', true);
@@ -721,6 +764,8 @@
 			setInputReadonly('currentEmployer', true);
 			setSelectReadonly('tmpMonthlyPersonalIncome', true);
 			setSelectReadonly('tmpEducationLevel', true);
+			setSelectReadonly('tmpOtherIncomeAmount', true);
+			setSelectReadonly('tmpLiquidAssetsAmount', true);
 			// Beneficiary info
 			setInputReadonly('beneficiaryLastName\\[0\\]', true);
 			setInputReadonly('beneficiaryFirstName\\[0\\]', true);
