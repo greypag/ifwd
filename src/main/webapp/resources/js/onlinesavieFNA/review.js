@@ -237,11 +237,11 @@ var Review = {
 			
 			for(var j = 0; j < options.length; j++){
 				var option = $("#template_op").clone(true, true);
-				option.attr({"id":qid+"_r"+j});
+				option.attr({"id":qid+"_r"+options[j].id});
 				option.addClass("r"+qid);
-				option.find("input").attr({"id": qid+"_c"+j, "name": qid+"_c"+j, "value":options[j].id});
+				option.find("input").attr({"id": qid+"_c"+options[j].id, "name": qid+"_c"+options[j].id, "value":options[j].id});
 				option.find("input").addClass(qid);
-				option.find(".checkbox label").attr("for", qid+"_c"+j);
+				option.find(".checkbox label").attr("for", qid+"_c"+options[j].id);
 
 				var text = options[j].title;
 				if(options[j].caption != ""){
@@ -274,11 +274,11 @@ var Review = {
 				$(".row.rq4_a").removeClass("selected");
 				$("#q4_a").find("input[type='checkbox']").prop("checked", false);
 
-				$("#q4_a_r0").addClass("selected");
-				$("#q4_a_c0").prop("checked", true);
+				$("#q4_a_r5").addClass("selected");
+				$("#q4_a_c5").prop("checked", true);
 			}else{
-				$("#q4_a_r0").removeClass("selected");
-				$("#q4_a_c0").prop("checked", false);
+				$("#q4_a_r5").removeClass("selected");
+				$("#q4_a_c5").prop("checked", false);
 			}
 		});
 	},
@@ -385,9 +385,12 @@ var Review = {
 				$("#q4_a_others").val("");
 				$("#q4_a_r"+fnaData.q4_a).addClass("selected");
 				$("#q4_a_c"+fnaData.q4_a).prop('checked', true);
-				if(fnaData.q4_a_others != null){
+				if(fnaData.q4_a_others != null && fnaData.q4_a_others.replace(" ", "")!=""){
 					$("#q4_a_others").val(formatNum(fnaData.q4_a_others));
-
+					$(".row.rq4_a").removeClass("selected");
+					$("#q4_a").find("input[type='checkbox']").prop("checked", false);
+					$("#q4_a_r5").addClass("selected");
+					$("#q4_a_c5").prop("checked", true);
 				}
 				break;
 
@@ -494,6 +497,7 @@ var Review = {
 		answer = (answerArr.length > 0)?answerArr.join():"";
 
 		var isError = false;
+		var isNullable = false;
 		
 		if(qid == "personal_info"){
 			var status = $("#status").val();
@@ -541,7 +545,7 @@ var Review = {
 		if(qid == "q4_a"){
 			other = $("#q4_a_others").val();
 			other = (other + '').replace(/,/g,"");
-			if(answer=="0" && other == ""){
+			if(answer=="5" && other == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_a_others);
 				$("#q4_a_others").focus();
 				isError = true; 
@@ -554,6 +558,8 @@ var Review = {
 			
 			if(other!=null && other!=""){ 
 				other = parseInt(other);
+				answer = null;
+				isNullable = true;
 			}
 		}
 
@@ -625,7 +631,7 @@ var Review = {
 		}
 		*/
 
-		if(answer == null || answer == ""){
+		if((answer == null || answer == "") && !isNullable){
 			$("#"+qid+ " .error").text(ReviewPageLocale['data'][qid+"_empty"]);
 			isError = true;
 		}
@@ -832,4 +838,3 @@ function clearFna() {
 function hideFnaPopupClear() {
 	$(".fna-popup-clear").modal("hide");
 }
-
