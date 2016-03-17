@@ -327,8 +327,6 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
 			model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
 			model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
-			model.addAttribute("etLiquidAssetEN", InitApplicationMessage.etLiquidAssetEN);
-			model.addAttribute("etLiquidAssetCN", InitApplicationMessage.etLiquidAssetCN);
 			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
 			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
 			
@@ -339,9 +337,24 @@ public class SavieOnlineController extends BaseController{
 			
 			String code = null;
 			String codeO = null;
-			if(savieFna!=null && (savieFna.getQ4_a() !=null || (savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""))){
+			String liquidAssets = null;
+			if(savieFna!=null){
+				int liquidAssetsAmt = Integer.valueOf(savieFna.getQ4_b_amount());
+				if(liquidAssetsAmt<=10000){
+					liquidAssets = "LA1";
+				}
+				else if (liquidAssetsAmt>10000&&liquidAssetsAmt<=50000){
+					liquidAssets = "LA2";
+				}
+				else if (liquidAssetsAmt>50000&&liquidAssetsAmt<=100000){
+					liquidAssets = "LA3";
+				}
+				else{
+					liquidAssets = "LA4";						
+				}
 				if(savieFna.getQ4_a_others()!=null && savieFna.getQ4_a_others()!=""){
 					int money = Integer.valueOf(savieFna.getQ4_a_others().replace(",", ""));
+					
 					if(money<=10000){
 						code = "mpi1";
 						codeO = "AOS1";
@@ -443,6 +456,25 @@ public class SavieOnlineController extends BaseController{
 			}
 			model.addAttribute("etAmountOtherSourceEN", etAmountOtherSourceEN);
 			model.addAttribute("etAmountOtherSourceCN", etAmountOtherSourceCN);
+
+			List<OptionItemDesc> liquidAssetsEN = new ArrayList<OptionItemDesc>();
+			List<OptionItemDesc> liquidAssetsCN = new ArrayList<OptionItemDesc>();
+			if(liquidAssets!=null && liquidAssets!=""){
+				for(int j=0;j<InitApplicationMessage.etLiquidAssetEN.size();j++){
+					OptionItemDesc optionEn = InitApplicationMessage.etLiquidAssetEN.get(j);
+					OptionItemDesc optionCn = InitApplicationMessage.etLiquidAssetCN.get(j);
+					if(liquidAssets.equals(optionEn.getItemCode())){
+						liquidAssetsEN.add(optionEn);
+						liquidAssetsCN.add(optionCn);
+					}
+				}
+			}
+			else{
+				liquidAssetsEN = InitApplicationMessage.etLiquidAssetEN;
+				liquidAssetsCN = InitApplicationMessage.etLiquidAssetCN;
+			}
+			model.addAttribute("etLiquidAssetEN", liquidAssetsEN);
+			model.addAttribute("etLiquidAssetCN", liquidAssetsCN);
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 		}
 	}
