@@ -201,7 +201,7 @@ var affiliate = "${affiliate}";
 		</div>
 	</div>
 	
-	<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupClear">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">
 					<div class="fna-popup-cont">
@@ -211,9 +211,9 @@ var affiliate = "${affiliate}";
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
 							<h4>Do you mean ...</h4>
-							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
+							<div class="cont"><p>You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</p></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" onclick="clearFna();">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel">Cancel</a>
 							</div>
 						</div>
 					</div>
