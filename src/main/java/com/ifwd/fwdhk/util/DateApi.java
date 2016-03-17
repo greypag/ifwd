@@ -277,6 +277,19 @@ public class DateApi {
 	}
 	
 	/**
+	 * 将time毫秒转换为日期格式为dd-MM-yyyy的字符串
+	 * @param time
+	 * @return String
+	 */
+	public static String formatTime2(Long time) {
+		long t = Long.valueOf(time);
+		DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(t);
+		return formatter.format(calendar.getTime());
+	}
+	
+	/**
 	 * 获取时间段list
 	 * @param start 距离今天的天数
 	 * @param days 总共多少天

@@ -2215,11 +2215,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
 		Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+		Map<String, String> defaultDate = new HashMap<String, String>();
 		JSONArray datesArray;
+		JSONObject dateObj;
 		JSONObject datesObj;
 		List<String> datesList;
 		List<String> calendarList;
 		long beforeDay = 86400000;
+		long dateTime;
+		JSONObject serviceCentreObjB;
+		JSONArray datesArrB;
+		JSONObject dateObjB;
+		long dateTimeB;
 		
 		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
 			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
@@ -2229,14 +2236,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			for(ServiceCentreResult entity :serviceCentreResultList) {
 				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
 					entityMap.put(entity.getServiceCentreCode(), entity);
-					
 					datesArray = (JSONArray) serviceCentreObj.get("dates");
+					dateObj = (JSONObject) datesArray.get(0);
+					dateTime = (long) dateObj.get("date");
+					
 					for(int j = 0; j< datesArray.size(); j++) {
 						datesObj = (JSONObject)datesArray.get(j);
 						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 					}
 					calendarList.removeAll(datesList);
 					datesMap.put(entity.getServiceCentreCode(), calendarList);
+					defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTime));
 					break;
 				}
 			}
@@ -2244,15 +2254,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
 			for(int i=1;i<serviceCentresArr.size();i++){
-				JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-				JSONObject dateObj = (JSONObject) datesArr.get(0);
-				long date = (long) dateObj.get("date");
+				datesArray = (JSONArray) serviceCentreObj.get("dates");
+				dateObj = (JSONObject) datesArray.get(0);
+				dateTime = (long) dateObj.get("date");
 				
-				JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
-				JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
-				JSONObject dateObjB = (JSONObject) datesArrB.get(0);
-				long dateB = (long) dateObjB.get("date");
-				if(date>dateB){
+				serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+				datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+				dateObjB = (JSONObject) datesArrB.get(0);
+				dateTimeB = (long) dateObjB.get("date");
+				if(dateTime>dateTimeB){
 					serviceCentreObj = serviceCentreObjB;
 				}
 				
@@ -2265,10 +2275,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						datesArray = (JSONArray) serviceCentreObjB.get("dates");
 						for(int j = 0; j< datesArray.size(); j++) {
 							datesObj = (JSONObject)datesArray.get(j);
-							datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 						}
 						calendarList.removeAll(datesList);
 						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
 						break;
 					}
 				}
@@ -2283,12 +2294,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		serviceCentreResponse.setServiceCentres(results);
 		model.addAttribute("serviceCentre", serviceCentreResponse);
 		model.addAttribute("datesMap", datesMap);
+		model.addAttribute("defaultDate", defaultDate);
 		model.addAttribute("results", results);
 		if(serviceCentreObj != null){
 			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
 			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
 			if(datesArr != null) {
-				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				dateObj = (JSONObject) datesArr.get(0);
 				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
 				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
 				logger.info(formatter.format(date));
