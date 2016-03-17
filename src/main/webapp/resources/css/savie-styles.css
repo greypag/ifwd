@@ -9133,6 +9133,9 @@ form#table-info #id-policy, form#table-info #id-application {
     padding-top: 15px;
   }
 }
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder {
+  position: relative;
+}
 @media (min-width: 992px) {
   /* line 156, ../sass/partials/savie/_eservices.scss */
   .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder {
@@ -9143,6 +9146,11 @@ form#table-info #id-policy, form#table-info #id-application {
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .promo-code-input {
   height: 40px;
   font-size: 14px;
+  cursor: text;
+}
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .boxMain {
+  top: 37px;
+  bottom: initial;
 }
 /* line 165, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder {
@@ -9159,17 +9167,13 @@ form#table-info #id-policy, form#table-info #id-application {
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li {
   margin-left: 0;
 }
-/* line 174, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a {
-  padding: 9px;
-  color: #FFF;
-  border-radius: 0;
-}
 /* line 178, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a#copy-link-btn {
   background: #ff8200;
   text-align: center;
   padding: 9px;
+  color: #FFF;
+  border-radius: 0;
 }
 @media (min-width: 992px) {
   /* line 178, ../sass/partials/savie/_eservices.scss */
@@ -9178,32 +9182,11 @@ form#table-info #id-policy, form#table-info #id-application {
   }
 }
 /* line 188, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a {
-  width: 40px;
-  padding: 9px 14px;
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li .at-share-tbx-element * {
+  max-width: 40px !important;
+  max-height: 40px !important;
 }
-/* line 192, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon {
-  background: #153a83;
-}
-/* line 194, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon .fa-facebook {
-  font-size: 20px;
-}
-/* line 198, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon {
-  background: #2d99d3;
-  padding: 9px 10px;
-}
-/* line 201, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon .fa-twitter {
-  font-size: 20px;
-}
-/* line 205, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#gplus-icon {
-  background: #be1c3b;
-  padding: 9px 12px;
-}
+
 /* line 214, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {
   font-size: 12px;
