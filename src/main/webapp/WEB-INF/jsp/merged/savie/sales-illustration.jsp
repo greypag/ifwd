@@ -152,7 +152,7 @@
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<div id="pdf">
-								<iframe src="https://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}&embedded=true"  frameborder="0"></iframe>
+								<iframe src="https://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 							</div>
 							<div class="text-center">
 								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
