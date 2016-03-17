@@ -10687,7 +10687,11 @@ body.chin .dot-font{
     border-radius: 0;
     width:260px;
     height:33px;
+    line-height: 14px\9;
     display:inline;
+}
+_:-ms-fullscreen, :root #loginpopup .login-input {
+	line-height: 14px;
 }
 #loginpopup .login-input-error, #loginpopup .invalid-field {
     border: 1px solid #e4002b !important;
@@ -10909,7 +10913,7 @@ body.chin .dot-font{
 }
 
 #loginpopup input:-ms-input-placeholder {
-    font-size: 18px !important;
+    font-size: 14px !important;
 }
 #loginpopup .login-info-savie .upper-overlay{
 	padding: 30px 50px 0 30px;
