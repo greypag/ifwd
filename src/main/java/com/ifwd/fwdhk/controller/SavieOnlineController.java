@@ -645,7 +645,7 @@ public class SavieOnlineController extends BaseController{
 				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse)request.getSession().getAttribute("lifePolicy");
 				String url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
 				
-				models.put("uploadlink", url);
+				models.put("uploadLink", url);
 				savieOnlineService.sendEmails(request, "uploadDocument", models);
 			} catch (Exception e) {
 				e.printStackTrace();
