@@ -464,7 +464,7 @@ var languageP = "${language}";
 				
 				
 				var employmentS = '${savieFna.employment_status }';
-				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7'){
+				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 					$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
 					$('#amountOfLiquidAssetsDiv').removeClass('hidden');
 					$('#natureOfBusinessDiv').addClass('hidden');

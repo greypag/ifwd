@@ -45,7 +45,7 @@ public class LifeEmploymentInfoBean implements Serializable {
         	list.add(ErrorMessageUtils.getMessage("employmentStatus", "validation.failure", language));
         }
         else{
-        	if(this.employmentStatus.split("-")[0].equals("ES4")||this.employmentStatus.split("-")[0].equals("ES5")||this.employmentStatus.split("-")[0].equals("ES7")){
+        	if(this.employmentStatus.split("-")[0].equals("ES4")||this.employmentStatus.split("-")[0].equals("ES5")||this.employmentStatus.split("-")[0].equals("ES7")||this.employmentStatus.split("-")[0].equals("ES6")){
         		if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
 	            	list.add(ErrorMessageUtils.getMessage("amountOfOtherSourceOfIncome", "validation.failure", language));
 	            }
