@@ -950,7 +950,17 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	});
 	
 	$("#start-over-btn").on('click', function(){
-		$('#retrieve-application-modal').modal('hide');
+		$.ajax({    
+			url:'${pageContext.request.contextPath}/ajax/savings-insurance/clearPolicyApplication',   
+		    type:'get',     
+		    error:function(){       
+		    },     
+		    success:function(data){
+		    	if(data != null && data.errorMsg == null){
+		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/personal-details';
+		    	}
+		    }  
+		});
 	});
 	
 	$(document).on('change','#plan-dob-datepicker',function(){

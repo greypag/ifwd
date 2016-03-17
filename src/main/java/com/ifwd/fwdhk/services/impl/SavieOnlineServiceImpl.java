@@ -246,9 +246,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
-			for(int i=0;i<planDetailData.getPlanDetails3Rate().size();i++){
-				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getPolicyYear())+1;
-				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
+			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
+				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getType().substring(1));
 				if(policyYear < 5){
 					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
 					if(policyYear < 4){
@@ -296,11 +295,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				String show66Age = "";
 				String show100Age = "";
 				if(issueAge > 66){
-					if(age == 99){
+					if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至 100 岁";
+							show100Age = "至100歲";
 						}else{
-							show100Age = "at age 100";
+							show100Age = "Age 100";
 						}
 						attributeList.add(new PdfAttribute("EndofPolicyYear_100",show100Age));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
@@ -320,33 +319,33 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 66){
+					if(policyYear == 66){
 						if("tc".equals(lang)){
-							show66Age = "至 66 岁";
+							show66Age = "至66歲";
 						}else{
-							show66Age = "at age 66";
+							show66Age = "Age 66";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_"+age,show66Age));
-						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+age,totalPremium));
-						attributeList.add(new PdfAttribute("Accountvalue_"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+policyYear,show66Age));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
 						
-						attributeList.add(new PdfAttribute("Accountvalue_a"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_a"+age,NumberFormatUtils.formatNumber(
+						attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
 					}
-					else if(age == 99){
+					else if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至 100 岁";
+							show100Age = "至100歲";
 						}else{
-							show100Age = "at age 100";
+							show100Age = "Age 100";
 						}
 						attributeList.add(new PdfAttribute("EndofPolicyYear_100",show100Age));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
@@ -415,6 +414,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		String bankName = lifePayment.getBankName();
 		String branchName = lifePayment.getBranchName();
@@ -521,8 +521,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
 	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
 	    
-	    attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
-	    attributeList.add(new PdfAttribute("ThirdParty", "Yes"));
+	    if(lifeDeclaration.getChkboxDoNotSendMarketingInfo() != null && lifeDeclaration.getChkboxDoNotSendMarketingInfo()){
+	    	attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
+	    }
+	    if(lifeDeclaration.getChkboxDoNotProvidePersonalData() != null && lifeDeclaration.getChkboxDoNotProvidePersonalData()){
+	    	attributeList.add(new PdfAttribute("ThirdParty", "Yes"));
+	    }
 	    attributeList.add(new PdfAttribute("ForeignAccountTaxComplianceAct", "On"));
 	    attributeList.add(new PdfAttribute("applicationNote", "On"));
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
@@ -2480,5 +2484,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		return responseJsonObj;
+	}
+	
+	public void clearPolicyApplication(HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject parameters = new JSONObject();
+		parameters.put("planCode", "SAVIE-SP");
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		apiReturn = connector.clearPolicyApplication(parameters, header);
+		if(apiReturn==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
 	}
 }
