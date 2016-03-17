@@ -391,7 +391,7 @@ var languageP = "${language}";
 								</div>
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
-	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
+	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 								</div>	
 	  						</form>
