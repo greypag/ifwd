@@ -812,17 +812,20 @@ var languageP = "${language}";
 									<p>Refer a friend to earn discounts and rewards now!</p>
 									<div class="row" id="input-social-holder">
 										<div class="col-xs-12 col-md-7" id="promo-input-holder">
-											<input type="text" class="form-control gray-textbox promo-code-input" name="promo-code-link" value="https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V"  readonly/>
+											<div class="form-control gray-textbox promo-code-input" id="toBeCopied">https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V</div>
+											<div id="copyTipBox" class="boxMain boxSub" style="display: none;">
+												<span class="boxMessage hidden-sm hidden-xs">Press CTRL-C to copy</span>
+												<span class="boxMessage hidden-md hidden-lg">Long-press to copy</span>
+												<span class="boxDownArrow"></span>
+											</div>
 										</div>
 										<div class="col-xs-12 col-md-5" id="social-btns-holder">
 											<ul class="nav nav-pills">
-											  <li role="presentation" class="click-copy-btn"><a href="#" id="copy-link-btn"><fmt:message key="Button.copy.link" bundle="${msg}" /></a></li>
-											  <li role="presentation" class="social-icon"><a id="fb-icon" href="#"><i class="fa fa-facebook"></i></a></li>
-											  <li role="presentation" class="social-icon"><a id="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>									
-											  <li role="presentation" class="social-icon"><a id="gplus-icon" href="#"><img src="assets/images/savie-2016/gplus-icon.png" /></a></li>
+											  <li role="presentation" class="click-copy-btn"><a href="javascript:autoSelect('toBeCopied');" id="copy-link-btn"><fmt:message key="Button.copy.link" bundle="${msg}" /></a></li>
+											  <li role="presentation"><div class="addthis_sharing_toolbox"></div></li>
 											</ul>
 										</div>
-									</div>									
+									</div>				
 									<table class="table table-striped" id="referral-program-table">
 										 <thead>
 										 	<tr>
@@ -934,6 +937,7 @@ var languageP = "${language}";
 </div>
 
 <!-- JS INCLUDES -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186"></script>
 <script type="text/javascript">
 	var language = "en";
 
