@@ -24,7 +24,7 @@ $(document).ready(function() {
 	});
 
 	// Datepicker
-	$('#so-calendar-dob').datepicker({
+	/*$('#so-calendar-dob').datepicker({
 		format: "mm-dd-yyyy",
 		container: "#date",
 		//startDate: new Date()
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		endDate: dob_end_date,
 		autoclose: true,
 		startView: 2
-	 });
+	 });*/
 	 
 	// Placeholder	 
 	$('input[placeholder]').placeholder();
