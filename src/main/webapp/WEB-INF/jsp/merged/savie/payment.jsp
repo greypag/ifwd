@@ -186,7 +186,7 @@ var language = "${language}";
 								</div>
 								<div class="form-group">
 									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
+										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" maxlength="9" value="${lifePayment.accountNumber }">
 										<label class="mdl-textfield__label" for="bankAccountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
