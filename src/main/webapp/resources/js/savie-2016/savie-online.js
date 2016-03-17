@@ -388,7 +388,7 @@ $(document).ready(function() {
 		}
 	});
 	//method to change the minimum and maximum value of one-off premium
-	var oneOffPremiumMax = 400000;
+	var oneOffPremiumMax = affordabilityPremium;
 	var oneOffPremiumMin = 30000;
 	$('.amount-slider').slider({
 		min: oneOffPremiumMin,

@@ -1122,6 +1122,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			logger.info("product_list : " + JSONValue.parse(responseJsonObj.toString()));
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			Float affordabilityPremium = productRecommendation.getAffordabilityPremium()/1000;
+			request.getSession().setAttribute("affordabilityPremium", affordabilityPremium.intValue()*1000);
 			request.getSession().setAttribute("productRecommendation", productRecommendation);
 		}
 		return responseJsonObj;
