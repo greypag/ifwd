@@ -220,7 +220,7 @@ var affiliate = "${affiliate}";
 										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q1.option3" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option3example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q1.option4" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option4example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="4"><fmt:message key="fna.question.q1.option5" bundle="${msg}" /></li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="5"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="5"><fmt:message key="fna.question.others.details" bundle="${msg}" /></li>
 									</ul>
 									<hr>
 									<div class="hidden-lg hidden-md">
@@ -243,7 +243,7 @@ var affiliate = "${affiliate}";
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<ul class="fna-checkbox-gp frm-fna-q2" data-mirror-fld="frm-fna-q2-mob" data-frm-fld="q2">
-										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /></span><br><span>-<fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></li>	
+										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /></span><br><span><fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></li>	
 										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></li>
@@ -393,7 +393,7 @@ var affiliate = "${affiliate}";
 									</div>
 									<div class="sep"></div>
 									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
-									<p class="note">Note: Liquid assets are assets which may be easily turned into cash.<br>Real estate, coin collection and artwork are not considered to be liquid assets.</p>
+									<p class="note"><fmt:message key="fna.question.q4b.note" bundle="${msg}" /></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
@@ -600,8 +600,8 @@ var affiliate = "${affiliate}";
 						<a class="close" aria-label="Close" data-dismiss="modal">
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
-						<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
-						<div class="d-cont"><p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p></div>
+						<h4><fmt:message key="fna.popup.other.title" bundle="${msg}" /></h4>
+						<div class="d-cont"><p><fmt:message key="fna.popup.other.desc" bundle="${msg}" /></p></div>
 					</div>
 				</div>
 			</div>
