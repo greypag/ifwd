@@ -39,7 +39,7 @@ public interface SavieOnlineService {
 	public GetPolicyApplicationResponse getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePaymentSaveforLater(String type,LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
-	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifeDeclarationSaveforLater(String type,LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
@@ -54,4 +54,5 @@ public interface SavieOnlineService {
 	public void sendEmailForSaveLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void contactCs(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) throws Exception;
+	public void clearPolicyApplication(HttpServletRequest request) throws ECOMMAPIException;
 }

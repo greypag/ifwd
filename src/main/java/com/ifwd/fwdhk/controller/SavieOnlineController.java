@@ -5,9 +5,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -17,7 +19,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -630,6 +634,18 @@ public class SavieOnlineController extends BaseController{
 			try {
 				JSONObject models = new JSONObject();
 				models.put("name", request.getSession().getAttribute("username"));
+				String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+				if (request.getServerPort() != 80 && request.getServerPort() != 443){
+					serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+				}
+				String language = (String) request.getSession().getAttribute("language");
+				if(StringUtils.isEmpty(language)){
+					language = "tc";
+				}
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse)request.getSession().getAttribute("lifePolicy");
+				String url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				
+				models.put("uploadlink", url);
 				savieOnlineService.sendEmails(request, "uploadDocument", models);
 			} catch (Exception e) {
 				e.printStackTrace();

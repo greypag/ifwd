@@ -194,7 +194,7 @@
 				</a> -->
 				<div class="read-blog text-center fwd-container-limit">
 					<div class="blog-img-container hidden-lg hidden-md">
-						<img class="img-responsive blog-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-img.png" />
+						<img class="img-responsive blog-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1-mobile.jpg" />
 						<div class="transparent-overlay"></div>
 						<p class="blog-img-text">7 musts before a long vacation</p>
 					</div>
@@ -224,7 +224,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog1.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog1.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-21.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1.png" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
@@ -233,7 +233,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog2.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog2.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-22.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-2.jpg" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
@@ -242,7 +242,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog3.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog3.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img  class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-23.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-3.jpg" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
@@ -251,7 +251,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog4.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog4.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-24.png" />	
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-4.jpg" />
 						</div>
 					</div>
 					<div class="products-first-block">
@@ -262,7 +262,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog5.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog5.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-25.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-5.jpg" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
@@ -271,7 +271,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog6.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog6.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-26.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-6.jpg" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
@@ -280,7 +280,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog7.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog7.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-27.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-7.jpg" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
@@ -289,7 +289,7 @@
 								<p class="show-sentence"><fmt:message key="blog.blog8.title3" bundle="${msg}" /></p>
 								<a href="<fmt:message key="link.blog8.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
-							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-28.png" />
+							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-8.jpg" />
 						</div>
 					</div>	
 				</div>

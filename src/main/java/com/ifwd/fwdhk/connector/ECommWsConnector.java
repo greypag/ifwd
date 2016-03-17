@@ -206,6 +206,10 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.SEND_TEMPLATE_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
+	public BaseResponse clearPolicyApplication(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.START_POLICY_APPLICATION,HttpMethod.PUT,parameters,BaseResponse.class,header);
+	}
+	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = UserRestURIConstants.SERVICE_URL + path;

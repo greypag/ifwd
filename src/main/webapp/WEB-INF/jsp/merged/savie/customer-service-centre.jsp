@@ -306,7 +306,22 @@ var language = "${language}";
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
 			getTimeSlot('${perferredTime }');
 		}
+		
+		$('#centre').on('change', function() {
+			var centre = $('#centre option:selected').val();
+			togglePreferred('preferred-date-'+ centre)
+			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
+				$("#preferred-date").val($("#preferred-date-"+ centre).val());
+				getTimeSlot('${perferredTime }');
+			}
+		});
 	});
+	
+	function togglePreferred(id) {
+		$(".col-xs-12 .preferred-date .date").hide();
+		$("#"+ id).show();
+	}
+	
        $(window).bind('scroll', function() {
           stickHeaderBrowse();
        });
@@ -378,7 +393,8 @@ var language = "${language}";
 			    data:{    
 			    	"csCenter": csCenter,
 			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime
+			        "perferredTime":perferredTime,
+			        "type":"4"
 		   		},     
 			    error:function(){       
 			    },     
