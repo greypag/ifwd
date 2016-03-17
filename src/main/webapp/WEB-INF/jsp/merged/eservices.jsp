@@ -812,7 +812,7 @@ var languageP = "${language}";
 									<p>Refer a friend to earn discounts and rewards now!</p>
 									<div class="row" id="input-social-holder">
 										<div class="col-xs-12 col-md-7" id="promo-input-holder">
-											<div class="form-control gray-textbox promo-code-input" id="toBeCopied">https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V</div>
+											<div class="form-control gray-textbox promo-code-input" id="toBeCopied" contenteditable="true">https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V</div>
 											<div id="copyTipBox" class="boxMain boxSub" style="display: none;">
 												<span class="boxMessage hidden-sm hidden-xs">Press CTRL-C to copy</span>
 												<span class="boxMessage hidden-md hidden-lg">Long-press to copy</span>
