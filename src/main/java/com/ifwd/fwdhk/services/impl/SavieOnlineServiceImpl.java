@@ -1548,6 +1548,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		parameters.accumulate("resumeViewPage", language+"/savings-insurance/employment-info");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1582,6 +1584,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters.accumulate("resumeViewPage", language+"/savings-insurance/beneficiary-info");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1634,6 +1638,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
 		parameters.accumulate("resumeViewPage", language+"/savings-insurance/payment");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");
@@ -1666,15 +1673,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
 		String resumeViewPage = null;
-		if("2".equals(type)){
+		if("1".equals(type)){
+			resumeViewPage = language+"/savings-insurance/payment";
+		}
+		else if("2".equals(type)){
 			parameters = this.lifePaymentPutData(lifePayment, parameters);
 			resumeViewPage = language+"/savings-insurance/application-summary";
 		}
-		else{
-			resumeViewPage = language+"/savings-insurance/payment";
-		}
-		
 		parameters.accumulate("resumeViewPage", resumeViewPage);
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");
@@ -1700,7 +1709,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return parameters;
 	}
 	
-	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifeDeclarationSaveforLater(String type,LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1716,6 +1725,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifePaymentPutData(lifePayment, parameters);
 		parameters = this.lifeDeclarationPutData(lifeDeclaration, parameters);
 		parameters.accumulate("resumeViewPage", language+"/savings-insurance/signature");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		if("3".equals(type)){
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
+		}
+		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");
@@ -1871,6 +1887,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
+			
+			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
+			request.getSession().setAttribute("amount", policyApplication.getAmount());
 		}
 		return apiResponse;
 	}

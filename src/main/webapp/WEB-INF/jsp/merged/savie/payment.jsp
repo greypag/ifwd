@@ -882,7 +882,8 @@ var language = "${language}";
 					    data:{    
 					    	"csCenter": csCenter,
 					        "perferredDate":perferredDate,
-					        "perferredTime":perferredTime
+					        "perferredTime":perferredTime,
+					        "type":"1"
 				   		},     
 					    error:function(){       
 					    },     

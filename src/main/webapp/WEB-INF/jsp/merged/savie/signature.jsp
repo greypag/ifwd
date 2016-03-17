@@ -851,7 +851,8 @@ var languageP = "${language}";
 				    data:{    
 				    	"csCenter": csCenter,
 				        "perferredDate":perferredDate,
-				        "perferredTime":perferredTime
+				        "perferredTime":perferredTime,
+				        "type":"3"
 			   		},     
 				    error:function(){       
 				    },     
