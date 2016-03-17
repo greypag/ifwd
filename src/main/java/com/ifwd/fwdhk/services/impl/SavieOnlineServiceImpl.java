@@ -570,8 +570,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		int AOB = DateApi.getAge(DateApi.formatDate(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", AOB+""));
 		
-		attributeList.add(new PdfAttribute("TelephoneNo", StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
-						lifePersonalDetails.getResidentialTelNo()+" / ":"" + lifePersonalDetails.getMobileNumber()));
+		attributeList.add(new PdfAttribute("TelephoneNo", (StringUtils.isNotBlank(lifePersonalDetails.getResidentialTelNo())?
+						lifePersonalDetails.getResidentialTelNo()+" / ":"") + lifePersonalDetails.getMobileNumber()));
 		
 		String group_1 = "";
 		if("0".equals(savieFna.getMarital_status())){
@@ -908,6 +908,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
 				for(int b=0;b<products.size();b++){
+					q1 = ((String)products.get(b).get("q1")).split(",");
 					for(String j :q1){
 						if("0".equals(j)){
 							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
@@ -929,7 +930,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
 						}
 					}
-					
+					q2 = ((String)products.get(b).get("q2")).split(",");
 					for(String k :q2){
 						if("0".equals(k)){
 							attributeList.add(new PdfAttribute("Q2a"+i, "On"));
@@ -1122,6 +1123,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			logger.info("product_list : " + JSONValue.parse(responseJsonObj.toString()));
 			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			Float affordabilityPremium = productRecommendation.getAffordabilityPremium()/1000;
+			request.getSession().setAttribute("affordabilityPremium", affordabilityPremium.intValue()*1000);
 			request.getSession().setAttribute("productRecommendation", productRecommendation);
 		}
 		return responseJsonObj;
@@ -1420,8 +1423,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONObject payment = new JSONObject();
 			payment.put("amount", saviePlanDetails.getInsuredAmount());
 			payment.put("paymentMethod", lifePayment.getPaymentMethod());
-			payment.put("bankCode", lifePayment.getBankCode()!=null?lifePayment.getBankCode().substring(lifePayment.getBankCode().length()-4, lifePayment.getBankCode().length()-1):"");
-			payment.put("branchCode", lifePayment.getBranchName()!=null?lifePayment.getBranchName().substring(lifePayment.getBranchName().length()-4, lifePayment.getBranchName().length()-1):"");
+			payment.put("bankCode", lifePayment.getBankCode()!=null?lifePayment.getBankCode().split("-")[0]:"");
+			payment.put("branchCode", lifePayment.getBranchCode());
 			payment.put("accountNo", lifePayment.getAccountNumber());
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
@@ -1646,7 +1649,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return parameters;
 	}
 	
-	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifePaymentSaveforLater(String type,LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1658,8 +1661,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
-		parameters = this.lifePaymentPutData(lifePayment, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/application-summary");
+		String resumeViewPage = null;
+		if("2".equals(type)){
+			parameters = this.lifePaymentPutData(lifePayment, parameters);
+			resumeViewPage = language+"/savings-insurance/application-summary";
+		}
+		else{
+			resumeViewPage = language+"/savings-insurance/payment";
+		}
+		
+		parameters.accumulate("resumeViewPage", resumeViewPage);
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");
@@ -2204,11 +2215,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
 		Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+		Map<String, String> defaultDate = new HashMap<String, String>();
 		JSONArray datesArray;
+		JSONObject dateObj;
 		JSONObject datesObj;
 		List<String> datesList;
 		List<String> calendarList;
 		long beforeDay = 86400000;
+		long dateTime;
+		JSONObject serviceCentreObjB;
+		JSONArray datesArrB;
+		JSONObject dateObjB;
+		long dateTimeB;
 		
 		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
 			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
@@ -2218,14 +2236,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			for(ServiceCentreResult entity :serviceCentreResultList) {
 				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
 					entityMap.put(entity.getServiceCentreCode(), entity);
-					
 					datesArray = (JSONArray) serviceCentreObj.get("dates");
+					dateObj = (JSONObject) datesArray.get(0);
+					dateTime = (long) dateObj.get("date");
+					
 					for(int j = 0; j< datesArray.size(); j++) {
 						datesObj = (JSONObject)datesArray.get(j);
 						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 					}
 					calendarList.removeAll(datesList);
 					datesMap.put(entity.getServiceCentreCode(), calendarList);
+					defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTime));
 					break;
 				}
 			}
@@ -2233,15 +2254,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
 			for(int i=1;i<serviceCentresArr.size();i++){
-				JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-				JSONObject dateObj = (JSONObject) datesArr.get(0);
-				long date = (long) dateObj.get("date");
+				datesArray = (JSONArray) serviceCentreObj.get("dates");
+				dateObj = (JSONObject) datesArray.get(0);
+				dateTime = (long) dateObj.get("date");
 				
-				JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
-				JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
-				JSONObject dateObjB = (JSONObject) datesArrB.get(0);
-				long dateB = (long) dateObjB.get("date");
-				if(date>dateB){
+				serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+				datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+				dateObjB = (JSONObject) datesArrB.get(0);
+				dateTimeB = (long) dateObjB.get("date");
+				if(dateTime>dateTimeB){
 					serviceCentreObj = serviceCentreObjB;
 				}
 				
@@ -2254,10 +2275,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						datesArray = (JSONArray) serviceCentreObjB.get("dates");
 						for(int j = 0; j< datesArray.size(); j++) {
 							datesObj = (JSONObject)datesArray.get(j);
-							datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 						}
 						calendarList.removeAll(datesList);
 						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
 						break;
 					}
 				}
@@ -2272,12 +2294,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		serviceCentreResponse.setServiceCentres(results);
 		model.addAttribute("serviceCentre", serviceCentreResponse);
 		model.addAttribute("datesMap", datesMap);
+		model.addAttribute("defaultDate", defaultDate);
 		model.addAttribute("results", results);
 		if(serviceCentreObj != null){
 			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
 			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
 			if(datesArr != null) {
-				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				dateObj = (JSONObject) datesArr.get(0);
 				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
 				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
 				logger.info(formatter.format(date));

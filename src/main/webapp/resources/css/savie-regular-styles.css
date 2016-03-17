@@ -1071,11 +1071,11 @@ body {
 .savie-regular-landing .page-banner .img-banner-text.savie-landing {
   bottom: 14px;
 }
-
+/*
 .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
   bottom: 25px;
 }
-
+*/
 @media (min-width: 620px) {
   .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
     bottom: 30px;

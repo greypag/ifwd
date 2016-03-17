@@ -316,7 +316,13 @@ public class UserController {
 										past_life.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
-									pending_life.add(entity);
+									if("PENDING".equals(entity.getStatus())) {
+										pending_life.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										active_life.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										past_life.add(entity);
+									}
 								}
 							}else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
@@ -326,7 +332,13 @@ public class UserController {
 										past_saving.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
-									pending_saving.add(entity);
+									if("PENDING".equals(entity.getStatus())) {
+										pending_saving.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										active_saving.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										past_saving.add(entity);
+									}
 								}
 							}else if("EasyHomeCare".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
@@ -336,7 +348,13 @@ public class UserController {
 										past_house.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
-									pending_house.add(entity);
+									if("PENDING".equals(entity.getStatus())) {
+										pending_house.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										active_house.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										past_house.add(entity);
+									}
 								}
 							}else {
 								if("GI".equals(entity.getPolicyType())) {
@@ -346,7 +364,13 @@ public class UserController {
 										past_travel.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
-									pending_travel.add(entity);
+									if("PENDING".equals(entity.getStatus())) {
+										pending_travel.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										active_travel.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										past_travel.add(entity);
+									}
 								}
 							}
 						}

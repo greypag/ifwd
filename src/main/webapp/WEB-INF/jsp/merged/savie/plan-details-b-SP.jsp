@@ -9,6 +9,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'400000' };
 </script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -122,13 +123,17 @@ var languageP = "${language}";
 				                   <div class="pull-right">
 				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
-											<fmt:message key="label.min" bundle="${msg}" />
+											<p><fmt:message key="label.min" bundle="${msg}" /></p>
+											<p>30,000</p>
 										</div>
 										<div class="pull-right text-center">
-											<fmt:message key="label.max" bundle="${msg}" />
+											<p><fmt:message key="label.max" bundle="${msg}" /></p>
+											<p>
+											<fmt:formatNumber value="${affordabilityPremium!=null?affordabilityPremium:'400000' }" type="number"/>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -226,8 +231,8 @@ var languageP = "${language}";
 				<div class="crediting-rate">
 					<h4 class="crediting-rate-title"><fmt:message key="label.creditingrate" bundle="${msg}" /></h4>
 					<div class="rate-buttons">
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
-						<button class="rate-btn" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.guaranteed.basis" bundle="${msg}" />' class="rate-btn" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.current.assumed.basis" bundle="${msg}" />' class="rate-btn active" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
 						<button class="rate-btn" id="rate-3" type="button"><fmt:message key="label.savie.crediting.rate3" bundle="${msg}" /></button>
 						<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate4" bundle="${msg}" /></button>
 					</div>
@@ -274,7 +279,7 @@ var languageP = "${language}";
 						</table>
 					</div>
 					<!-- rate2 -->
-					<div id="rate-table-2" class="rate-table hidden">
+					<div id="rate-table-2" class="rate-table">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -315,7 +320,7 @@ var languageP = "${language}";
 						</table>
 					</div>
 					<!-- rate3 -->
-					<div id="rate-table-3" class="rate-table">
+					<div id="rate-table-3" class="rate-table hidden">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -403,7 +408,7 @@ var languageP = "${language}";
 			</div>
 		</div>
 	</div>
-	<div class="plan-details-note-container hidden-sm hidden-xs">
+	<div class="plan-details-note-container hidden-sm hidden-xs hidden">
 		<h5>Note</h5>
 		<ul>
 			<li>This summary is for illustrative and information purposes only. This summary is not an insurance illustration document or insurance contract, nor it does not belong to or constitute part of an insurance illustration or insurance contract.</li>
@@ -553,6 +558,16 @@ var languageP = "${language}";
 			    </div>
 			</div>
 		</div>
+		<!-- Thank you -->
+		<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content thank-you-content">
+					<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.desktop" bundle="${msg}" />" class="img-responsive hidden-xs">
+					<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.mobile" bundle="${msg}" />" class="img-responsive visible-xs">
+					<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
+				</div>
+			</div>
+		</div>
 		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -563,10 +578,9 @@ var languageP = "${language}";
 		    </div>
 		  </div>
 		</div>
-		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+		<div class="modal fade common-welcome-modal" id="review-fna-modal"  data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
 			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
@@ -622,7 +636,7 @@ var languageP = "${language}";
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
-		
+		console.log('${savieType}');
 		if('${savieType}' == 'RP') {
 			$("#type-of-payment").val("regular-payment");
 			$('#plan-amount-holder').removeClass('hidden');
@@ -819,7 +833,8 @@ var languageP = "${language}";
 			//$('#offline-online-modal').modal('show');
 			if($("#type-of-payment").val() == 'regular-payment') {
 				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-		        	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		        	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		        	$('#thankYouModal').modal('show');
 		        }else{
 		            apply=true;
 		            $('#offline-online-modal').modal('hide');
@@ -931,7 +946,7 @@ var languageP = "${language}";
 	});
 	
 	$("#resume-btn").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+		window.location = '<%=request.getContextPath()%>/'+nextPage;
 	});
 	
 	$("#start-over-btn").on('click', function(){
@@ -968,7 +983,11 @@ var languageP = "${language}";
             $('#loginpopup #nav-bar-check').val("false");            
 			$('#loginpopup').modal('show');			
 		}
-	}	
+	}
+	
+	function goServiceCenter() {
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+	}
 	
 	/* // Detect iOS
 	function iOS() {

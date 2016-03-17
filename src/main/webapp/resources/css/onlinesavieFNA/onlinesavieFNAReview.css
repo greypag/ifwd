@@ -215,22 +215,37 @@
     font-size: 23px;
     font-weight: bold; }
 
-#fnaPopupEnquiry .fna-popup-cont {
+#fnaPopupEnquiry .fna-popup-cont, #fnaPopupClear .fna-popup-cont {
   max-width: 600px;
   margin: auto; }
-  #fnaPopupEnquiry .fna-popup-cont h4 {
+  #fnaPopupEnquiry .fna-popup-cont h4, #fnaPopupClear .fna-popup-cont h4 {
     font-size: 24px;
     font-weight: bold;
     color: #f68a1d;
     margin-bottom: 20px; }
-  #fnaPopupEnquiry .fna-popup-cont p {
+  #fnaPopupEnquiry .fna-popup-cont p, #fnaPopupClear .fna-popup-cont p {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px; }
-  #fnaPopupEnquiry .fna-popup-cont .close {
+  #fnaPopupEnquiry .fna-popup-cont .close, #fnaPopupClear .fna-popup-cont .close {
     position: absolute;
     top: 10px;
     right: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont .btn-clear-gp, #fnaPopupClear .fna-popup-cont .btn-clear-gp {
+    text-align: center;
+    margin-top: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont .btn-clear-confirm, #fnaPopupEnquiry .fna-popup-cont .btn-clear-cancel, #fnaPopupClear .fna-popup-cont .btn-clear-confirm, #fnaPopupClear .fna-popup-cont .btn-clear-cancel {
+    background-color: #fdb714;
+    border-bottom: 2px solid #787878;
+    font-size: 20px;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2px;
+    display: inline-block;
+    min-width: 100px;
+    margin: 0 15px 20px; }
 
 @media (min-width: 767px) {
   #fnaPopupEnquiry .modal-dialog {
@@ -337,6 +352,11 @@
       line-height: 40px;
       padding: 0; }
   #FNAReview #btn_save {
-    font-size: 14px; } }
+    font-size: 14px; }
+
+  #fnaPopupClear .fna-popup-cont .btn-clear-confirm, #fnaPopupClear .fna-popup-cont .btn-clear-cancel {
+    font-size: 16px;
+    min-width: 80px;
+    margin: 0 5px 10px; } }
 
 /*# sourceMappingURL=onlinesavieFNAReview.css.map */

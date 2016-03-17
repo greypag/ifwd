@@ -27,9 +27,10 @@ var affiliate = "${affiliate}";
 		<div class="container">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Save</a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#">Savie</a></li>
+					<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+
 					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="label.fna" bundle="${msg}" /></li>
 				</ol>
 			</div>
@@ -201,7 +202,7 @@ var affiliate = "${affiliate}";
 		</div>
 	</div>
 	
-	<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupClear">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">
 					<div class="fna-popup-cont">
@@ -210,10 +211,10 @@ var affiliate = "${affiliate}";
 							<a class="close" aria-label="Close" data-dismiss="modal">
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
-							<h4>Do you mean ...</h4>
-							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
+							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
+							<div class="cont"><p><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></p></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" onclick="clearFna();">Confirm</a><a href="javascript:void(0);" onclick="hideFnaPopupClear();"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>
@@ -231,9 +232,9 @@ var affiliate = "${affiliate}";
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
 						<div class="modal-body">
-							<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
+							<h4><fmt:message key="fna.popup.other.title" bundle="${msg}" /></h4>
 							<div class="d-cont">
-								<p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p>
+								<p><fmt:message key="fna.popup.other.desc" bundle="${msg}" /></p>
 							</div>
 						</div>
 					</div>

@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -32,7 +32,7 @@ function goLandingPage(){
 				<div class="row">
 					<ol class="breadcrumb pad-none hidden-sm hidden-xs">
 						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
 						<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="breadcrumb.production.recommendation" bundle="${msg}" /></li>
 					</ol>
 				</div>
@@ -51,13 +51,13 @@ function goLandingPage(){
 									<a href="javascript:void(0);" class="fna-btn-cancel btn btn-primary btn-lg"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 								</div>
 							</div>
-							<h4 class="fna-sel-title"><fmt:message key=“fna.label.fna.selection" bundle="${msg}" />
+							<h4 class="fna-sel-title"><fmt:message key="fna.label.fna.selection" bundle="${msg}" />
 								<div class="hidden-lg hidden-md">
 									<a href="javascript:void(0);" class="fna-btn-mob-close"><i class="fa fa-times"></i></a>
 								</div>
 							</h4>
 							<div class="fna-sel-grid q2">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key=“fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key="fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 
 								<div class="checkbox-gp">
 									<div class="checkbox">
@@ -226,7 +226,7 @@ function goLandingPage(){
 
 									<div class="haveProducts">
 										<p class="head"><fmt:message key="fna.label.headline.part1" bundle="${msg}" /><span class="txt_products"> <span class="txt_pnum"></span> <fmt:message key="fna.label.headline.part2" bundle="${msg}" /></span> <fmt:message key="fna.label.headline.part3" bundle="${msg}" /></p>
-										<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
+										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
 										<div class="hidden-xs">
 											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
 										</div>
@@ -252,7 +252,7 @@ function goLandingPage(){
 										<a href="javascript:void(0)" class="fna-btn-filter">Filter</a>
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-10 col-xs-10 pad-none fna-sorting"> 
-										<span class="sort-txt">Product Sorting:</span>
+										<span class="sort-txt"><fmt:message key="fna.label.productsort" bundle="${msg}" /></span>
 										<div class="styled-select text-right">
 											
 											<select name="fnaMobSort" class="form-control soflow select-label" id="fnaMobSort">
@@ -387,8 +387,8 @@ function goLandingPage(){
 			<div class="sort-header clearfix fna-product-lv-header">
 				<div class="con_prd"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_contribution.png"> <fmt:message key="fna.label.contributionperiod" bundle="${msg}" /></div>
 				<div class="prd_age"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_benefit.png"> <fmt:message key="fna.label.benefit" bundle="${msg}" /></div>
-				<div class="min_age"><fmt:message key="fna.label.minage" bundle="${msg}" /> <span>(year)</span></div>
-				<div class="max_age"><fmt:message key="fna.label.maxage" bundle="${msg}" /> <span>(year)</span></div>
+				<div class="min_age"><fmt:message key="fna.label.minage" bundle="${msg}" /></div>
+				<div class="max_age"><fmt:message key="fna.label.maxage" bundle="${msg}" /></div>
 			</div>
 
 			<!-- <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-tick.png" class="fna-ico-tick"> -->
@@ -412,8 +412,7 @@ function goLandingPage(){
 				</div>
 			</div>
 		</div>
-
-		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	    <div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-clear" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupClear">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">
 					<div class="fna-popup-cont">
@@ -423,9 +422,9 @@ function goLandingPage(){
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
 							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
-							<div class="cont"><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></div>
+                            <div class="cont"><p><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></p></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
+                            <a href="javascript:void(0);" onclick="clearFna();" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" onclick="hideFnaPopupClear();" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>
@@ -442,13 +441,13 @@ function goLandingPage(){
 						</a>
 						<div class="modal-body">
 							
-							<h4>Customer Services</h4>
+							<h4><fmt:message key="label.customer.service" bundle="${msg}" /></h4>
 							<div class="cont">
-								<p>Please call our Customer Service Hotline <span>3123 3123</span> to find out more or leave your contact and let us call you back.</p>
+								<p><fmt:message key="popup.callus.info.please.call.part1" bundle="${msg}" /> <span><fmt:message key="label.hotelineno" bundle="${msg}" /></span> <fmt:message key="popup.callus.info.please.call.part2" bundle="${msg}" /></p>
 								<input type="hidden" id="productCode" value="SAVIE-SP"><input type="hidden" id="channel" value="SAVIE">
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="FNAinputCustomerName" class="field-label">Name</label>
+										<label for="FNAinputCustomerName" class="field-label"><fmt:message key="label.name" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="FNAinputCustomerName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
@@ -457,7 +456,7 @@ function goLandingPage(){
 								</div>
 								<div class="form-group float">
 									<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="FNAinputEmail" class="field-label">Email address</label>
+										<label for="FNAinputEmail" class="field-label"><fmt:message key="label.email" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="FNAinputEmail" maxlength="50" onblue=""> <span id="errFNAinputEmail" class="text-red"></span>
@@ -465,7 +464,7 @@ function goLandingPage(){
 								</div>
 								<div class="form-group float">
 									<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="FNAinputMobileNo" class="field-label">Mobile Number</label>
+										<label for="FNAinputMobileNo" class="field-label"><fmt:message key="label.mobile" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<input name="mobileNo" type="tel" class="form-control full-control" value="" id="FNAinputMobileNo" onkeypress="return isNumeric(event)" maxlength="8"> 
@@ -474,7 +473,7 @@ function goLandingPage(){
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Preferred day</label>
+										<label class="field-label"><fmt:message key="label.preferred.day" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
@@ -496,7 +495,7 @@ function goLandingPage(){
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Perferred timeslot</label>
+										<label class="field-label"><fmt:message key="label.preferred.timeslot" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
@@ -518,7 +517,7 @@ function goLandingPage(){
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Enquiry Type</label>
+										<label class="field-label"><fmt:message key="label.enquire.type" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
@@ -539,8 +538,8 @@ function goLandingPage(){
 									</div>
 								</div>
 								
-								<p class="remark">* This information will not be used as direct marketing.</p>
-								<input type="button" onclick="goCustomerServices()" class="bdr-curve btn btn-primary fna-btn-submit" value="Submit">
+								<p class="remark"><fmt:message key="popup.callus.info.not.direct.marketing" bundle="${msg}" /></p>
+								<input type="button" onclick="goCustomerServices()" class="bdr-curve btn btn-primary fna-btn-submit" value="<fmt:message key="button.submit" bundle="${msg}" />">
 							</div>
 						</div>
 					</div>
