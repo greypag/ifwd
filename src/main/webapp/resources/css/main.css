@@ -10882,6 +10882,9 @@ body.chin .dot-font{
 	}   
 }
 @media (min-width:992px) {
+	#errUserName,#errPass{
+		display: block;
+	}
 	#loginpopup .login-info-savie .upper-overlay{
 	    min-height: 200px;
 	}
@@ -10906,7 +10909,7 @@ body.chin .dot-font{
 }
 
 #loginpopup input:-ms-input-placeholder {
-    font-size: 14px !important;
+    font-size: 18px !important;
 }
 #loginpopup .login-info-savie .upper-overlay{
 	padding: 30px 50px 0 30px;
@@ -11270,4 +11273,10 @@ body.chin .dot-font{
 }
 #header .top-bar .livechat_button:hover{
 	cursor: pointer;
+}
+#success-message-password,#forgotpassword-err-msg,#success-message,#login-err-msg{
+	/*background-color: transparent;
+    border: none;*/
+    font-size: 14px;
+    color: #e4002b;
 }

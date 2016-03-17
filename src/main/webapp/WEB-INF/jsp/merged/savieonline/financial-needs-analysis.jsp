@@ -33,7 +33,7 @@ var affiliate = "${affiliate}";
 				<div class="cont clearfix">
 					<div>
 						<div class="hidden-sm hidden-xs">
-							<h2>Financial Needs Analysis</h2>
+							<h2><fmt:message key="label.fna" bundle="${msg}" /></h2>
 							<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step1-img1.png" class="img-family">
 						</div>
 						<div class="hidden-lg hidden-md">
@@ -54,8 +54,8 @@ var affiliate = "${affiliate}";
 							<div class="clearfix">
 							<div class="fna-radio-gp-wrapper">
 								<div class="fna-radio-gp frm-fna-gender" data-mirror-fld="frm-fna-gender-mob" data-frm-fld="gender">
-									<div class="fna-radio-btn" data-val="0"><span>Male</span></div>
-									<div class="fna-radio-btn" data-val="1"><span>Female</span></div>
+									<div class="fna-radio-btn" data-val="0"><span><fmt:message key="label.male" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="1"><span><fmt:message key="label.female" bundle="${msg}" /></span></div>
 								</div>
 								<div class="fna-error-box">
 									<span class="fna-error-msg text-red"></span>
@@ -66,7 +66,7 @@ var affiliate = "${affiliate}";
 							</div>
 							<input type="text" name="frm-fna-name" value="${userDetails.fullName }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
 							</div>
-							<a href="javascript:void(0);" class="fna-btn fna-btn-step1-start disabled">Let's get started</a>
+							<a href="javascript:void(0);" class="fna-btn fna-btn-step1-start disabled"><fmt:message key="button.lets.get.started" bundle="${msg}" /></a>
 						</div>
 					</div>
 					
@@ -79,7 +79,7 @@ var affiliate = "${affiliate}";
 					<div class="step2-input-gp mob-view">
 
 						<div class="fna-row">
-							<div class="lbl">Date of Birth<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.dob" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="round-box date frm-fna-dob" data-mirror-fld="frm-fna-dob-mob" data-frm-fld="dob">
 									<span class="txt_dob">${saviePlanDetails.dob1 }</span>
@@ -90,33 +90,33 @@ var affiliate = "${affiliate}";
 							</div>
 						</div>
 						<div class="fna-row">
-							<div class="lbl">Marital Status<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.martial.status" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="fna-radio-gp frm-fna-marital-status" data-mirror-fld="frm-fna-marital-status-mob" data-frm-fld="marital_status">
-									<div class="fna-radio-btn" data-val="0"><span>Single</span></div>
-									<div class="fna-radio-btn" data-val="1"><span>Married</span></div>
-									<div class="fna-radio-btn" data-val="2"><span>Divorced</span></div>
-									<div class="fna-radio-btn" data-val="3"><span>Widowed</span></div>
+									<div class="fna-radio-btn" data-val="0"><span><fmt:message key="option.martial.status.single" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="1"><span><fmt:message key="option.martial.status.married" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="2"><span><fmt:message key="option.martial.status.divorced" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="3"><span><fmt:message key="option.martial.status.widowed" bundle="${msg}" /></span></div>
 								</div>
 							</div>
 						</div>
 						<div class="fna-row">
-							<div class="lbl">No of dependents<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.no.of.dependents" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="fna-radio-gp frm-fna-dependents" data-mirror-fld="frm-fna-dependents-mob" data-frm-fld="dependents">
-									<div class="fna-radio-btn" data-val="0"><span>Nil</span></div>
-									<div class="fna-radio-btn" data-val="1"><span>1-3</span></div>
-									<div class="fna-radio-btn" data-val="2"><span>4-6</span></div>
-									<div class="fna-radio-btn" data-val="3"><span>7 or above</span></div>
+									<div class="fna-radio-btn" data-val="0"><span><fmt:message key="option.no.of.dependents.nil" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="1"><span><fmt:message key="option.no.of.dependents.1to3" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="2"><span><fmt:message key="option.no.of.dependents.4to6" bundle="${msg}" /></span></div>
+									<div class="fna-radio-btn" data-val="3"><span><fmt:message key="option.no.of.dependents.7orabove" bundle="${msg}" /></span></div>
 								</div>
 							</div>
 						</div>
 						<div class="fna-row">
-							<div class="lbl">Education Level<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.education.level" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="styled-select">
 									<select class="frm-fna-education" data-mirror-fld="frm-fna-education-mob" data-frm-fld="education">
-										<option value="">Please select</option>
+										<option value=""><fmt:message key="option.please.select" bundle="${msg}" /></option>
 										<option value="0">Primary or below</option>
 										<option value="1">Secondary / Matriculation</option>
 										<option value="2">Vocational Training / Technical Institute /Business Institue</option>
@@ -126,33 +126,33 @@ var affiliate = "${affiliate}";
 							</div>
 						</div>
 						<div class="fna-row">
-							<div class="lbl">Employment Status<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.employment.status" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="styled-select">
 									<select class="frm-fna-employment-status" data-mirror-fld="frm-fna-employment-status-mob" data-frm-fld="employment_status">
-										<option value="">Please select</option>
+										<option value=""><fmt:message key="option.please.select" bundle="${msg}" /></option>
 									</select>
 								</div>
 
 							</div>
 						</div>
 						<div class="fna-row hide">
-							<div class="lbl">Nature of business<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.nature.of.business" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="styled-select">
 									<select class="frm-fna-nob" data-mirror-fld="frm-fna-nob-mob" data-frm-fld="nature_of_business">
-										<option value="">Please select</option>
+										<option value=""><fmt:message key="option.please.select" bundle="${msg}" /></option>
 									</select>
 								</div>
 								
 							</div>
 						</div>
 						<div class="fna-row hide">
-							<div class="lbl">Occupation<span class="fna-error-msg text-red"></span></div>
+							<div class="lbl"><fmt:message key="label.occupation" bundle="${msg}" /><span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="styled-select">
 									<select class="frm-fna-occupation" data-mirror-fld="frm-fna-occupation-mob" data-frm-fld="occupation">
-										<option value="">Please select</option>
+										<option value=""><fmt:message key="option.please.select" bundle="${msg}" /></option>
 									</select>
 								</div>
 							</div>
@@ -165,11 +165,11 @@ var affiliate = "${affiliate}";
 						</div>
 
 						<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-							<!-- <a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a> -->
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
+							<!-- <a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a> -->
+							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 						</div>
 						<div class="hidden-sm hidden-xs clearfix desktop-btn-gp">
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step2-next disabled">Next</a>
+							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step2-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 						</div>
 
 					</div>
@@ -181,14 +181,14 @@ var affiliate = "${affiliate}";
 								<div class="dependents"><img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/spacer.png"></div>
 							</div>
 						</div>
-						<h3>Hi,<span class="dp-gender">Mr.</span> <span class="dp-name">Chan</span></h3>
+						<h3><fmt:message key="label.hi" bundle="${msg}" /><span class="dp-gender">Mr.</span> <span class="dp-name">Chan</span></h3>
 						<div class="hidden-lg hidden-md">
 							<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/matrix_m1.png" class="img-martix-mob">
 						</div>
 
 						<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step2-next">Next</a>
+							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
+							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step2-next"><fmt:message key="button.next" bundle="${msg}" /></a>
 						</div>
 					</div>
 				</div>
@@ -196,9 +196,9 @@ var affiliate = "${affiliate}";
 			<div class="step-flow-wrapper">
 				<div class="step-flow">
 					<div class="hidden-sm hidden-xs desktop-btn-gp">
-						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish reverse-color disabled">Save and Proceed to Product Recommendation</a>
-						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next reverse-color disabled">Next</a>
-						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back reverse-color">Back</a>
+						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish reverse-color disabled"><fmt:message key="button.save.process" bundle="${msg}" /></a>
+						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next reverse-color disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
+						<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back reverse-color"><fmt:message key="button.back" bundle="${msg}" /></a>
 					</div>
 					<div class="step-flow-slider clearfix">
 						<div class="step3 activeState">
@@ -209,18 +209,18 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q1 mob-view">
 									<div class="q-head">
-										<h4 class="clearfix">What are your objectives of buying our product? <span>(tick one or more) </span> </h4>
+										<h4 class="clearfix"><fmt:message key="fna.question.q1" bundle="${msg}" /><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span> </h4>
 									</div>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<ul class="fna-checkbox-gp frm-fna-q1" data-mirror-fld="frm-fna-q1-mob" data-frm-fld="q1">
-										<li class="fna-checkbox-btn" data-val="0">Financial protection against adversities<br><span>(e.g. death, accident, disability etc)</span></li>
-										<li class="fna-checkbox-btn" data-val="1">Preparation for health care needs<br><span>(e.g. critical illness, hospitalization etc)</span></li>
-										<li class="fna-checkbox-btn" data-val="2">Providing regular income in the future<br><span>(e.g. retirement income etc)</span></li>
-										<li class="fna-checkbox-btn" data-val="3">Saving up for the future<br><span>(e.g. child education, retirement etc)</span></li>
-										<li class="fna-checkbox-btn" data-val="4">Investment</li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="5">Others</li>
+										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q1.option1" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option1example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q1.option2" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option2example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q1.option3" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option3example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q1.option4" bundle="${msg}" /><br><span><fmt:message key="fna.question.q1.option4example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="4"><fmt:message key="fna.question.q1.option5" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="5"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
 									</ul>
 									<hr>
 									<div class="hidden-lg hidden-md">
@@ -230,24 +230,24 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 
 								<div class="q2 mob-hide mob-view">
 									<div class="q-head">
-										<h4 class="clearfix">What type(s) of insurance products you are looking for to meet your objectives above? <span>(tick one or more)</span></h4>
+										<h4 class="clearfix"><fmt:message key="fna.question.q2" bundle="${msg}" /><br><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span></h4>
 									</div>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<ul class="fna-checkbox-gp frm-fna-q2" data-mirror-fld="frm-fna-q2-mob" data-frm-fld="q2">
-										<li class="fna-checkbox-btn" data-val="0">Pure insurance product <br><span>-without any savings or investment element <br>(e.g. term insurance)</span></li>
-										<li class="fna-checkbox-btn" data-val="1">Insurance product with savings element <br><span>-with savings but without investment element<br>(e.g. non-participating policy)</span></li>
-										<li class="fna-checkbox-btn" data-val="2">Insurance product with investment element<br><span>-Investment decisions and risks borne by insurer<br>(e.g. participating policy, universal life insurance)</span></li>
-										<li class="fna-checkbox-btn" data-val="3">Insurance product with investment element<br><span>-Investment decisions and risks borne by policyholder<br>(e.g. Investment-Linked Assurance Schemes)</span></li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="4">Others</li>
+										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /></span><br><span>-<fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></li>	
+										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
 									</ul>
 
 									<div class="hidden-lg hidden-md">
@@ -258,7 +258,7 @@ var affiliate = "${affiliate}";
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 								<div class="hidden-sm hidden-xs">
@@ -282,28 +282,28 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step4-indicator2.png" class="step-indicator2">
 								</div>
 								<div class="q3">
-									<h4>What is your target benefit / protection period for insurance policy and/or investment plan? <span>(tick one)</span></h4>
+									<h4><fmt:message key="fna.question.q3" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<div class="fna-radio-gp frm-fna-q3" data-mirror-fld="frm-fna-q3-mob" data-frm-fld="q3">
-										<div class="fna-radio-btn" data-val="0"><span>&lt; 1 year</span></div>
-										<div class="fna-radio-btn" data-val="1"><span>1-5 years</span></div>
-										<div class="fna-radio-btn" data-val="2"><span>6-10 years</span></div>
-										<div class="fna-radio-btn" data-val="3"><span>11-20 years</span></div>
-										<div class="fna-radio-btn" data-val="4"><span>&gt; 20 years</span></div>
-										<div class="fna-radio-btn" data-val="5"><span>Whole of life</span></div>
+										<div class="fna-radio-btn" data-val="0"><span><fmt:message key="fna.question.q3.option1" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="1"><span><fmt:message key="fna.question.q3.option2" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="2"><span><fmt:message key="fna.question.q3.option3" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="3"><span><fmt:message key="fna.question.q3.option4" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="4"><span><fmt:message key="fna.question.q3.option5" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="5"><span><fmt:message key="fna.question.q3.option6" bundle="${msg}" /></span></div>
 									</div>
 								</div>
 
 								<div class="q4">
-									<h4>Your ability to pay premiums:<br>Is the source of income regular?</h4>
+									<h4><fmt:message key="fna.question.q4" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<div class="fna-radio-gp frm-fna-q4" data-mirror-fld="frm-fna-q4-mob" data-frm-fld="q4">
-										<div class="fna-radio-btn" data-val="0"><span>Yes</span></div>
-										<div class="fna-radio-btn" data-val="1"><span>No</span></div>
+										<div class="fna-radio-btn" data-val="0"><span><fmt:message key="label.yes" bundle="${msg}" /></span></div>
+										<div class="fna-radio-btn" data-val="1"><span><fmt:message key="label.no" bundle="${msg}" /></span></div>
 									</div>
 								</div>
 
@@ -316,8 +316,8 @@ var affiliate = "${affiliate}";
 								
 
 								<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled">Next</a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 								</div>
 
 								<div class="hidden-sm hidden-xs">
@@ -339,18 +339,18 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step5-indicator3.png" class="step-indicator3">
 								</div>
 								<div class="q4a mob-view">
-										<h4>What is your average monthly income from<br>all sources in the past 2 years? <span>(tick one or more)</span></h4>
+										<h4><fmt:message key="fna.question.q4a" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
-										<p>Speciﬁc amount:<br>Not less than HK$ <input type="text" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int"> per month <div class="sep"></div> or In the following range:</p>
+										<p><fmt:message key="fna.question.q4a.amount" bundle="${msg}" /><br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> <input type="text" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int"> <fmt:message key="fna.question.q4a.month" bundle="${msg}" /> <div class="sep"></div> <fmt:message key="fna.question.q4a.range" bundle="${msg}" /></p>
 
 										<ul class="fna-radio-gp-indv clearfix frm-fna-q4a" data-mirror-fld="frm-fna-q4a-mob" data-frm-fld="q4_a">
-											<li class="fna-radio-btn" data-val="0">less than HK$10,000</li>
-											<li class="fna-radio-btn" data-val="1">HK$10,000 - $19,999</li>
-											<li class="fna-radio-btn" data-val="2">HK$20,000 - HK$49,999</li>
-											<li class="fna-radio-btn" data-val="3">HK$50,000 - HK$100,000</li>
-											<li class="fna-radio-btn" data-val="4">over HK$100,000</li>
+											<li class="fna-radio-btn" data-val="0"><fmt:message key="fna.question.q4a.option1" bundle="${msg}" /></li>
+											<li class="fna-radio-btn" data-val="1"><fmt:message key="fna.question.q4a.option2" bundle="${msg}" /></li>
+											<li class="fna-radio-btn" data-val="2"><fmt:message key="fna.question.q4a.option3" bundle="${msg}" /></li>
+											<li class="fna-radio-btn" data-val="3"><fmt:message key="fna.question.q4a.option4" bundle="${msg}" /></li>
+											<li class="fna-radio-btn" data-val="4"><fmt:message key="fna.question.q4a.option5" bundle="${msg}" /></li>
 										</ul>
 
 										<div class="hidden-lg hidden-md">
@@ -361,8 +361,8 @@ var affiliate = "${affiliate}";
 										
 
 										<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
+											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+											<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 										</div>
 
 								</div>
@@ -375,29 +375,29 @@ var affiliate = "${affiliate}";
 										</div>
 									</div>
 
-									<h4>What is your approximate current accumulative<br>amount of liquid assets?  <span>Please specify type(s) and total amount</span></h4>
+									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /><span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="err_q4b1 fna-error-msg text-red"></span>
 									</div>
 									<ul class="fna-checkbox-gp no-line clearfix frm-fna-q4b" data-mirror-fld="frm-fna-q4b-mob" data-frm-fld="q4_b">
-										<li class="fna-checkbox-btn" data-val="0">Cash</li>
-										<li class="fna-checkbox-btn" data-val="1">Money market accounts</li>
-										<li class="fna-checkbox-btn" data-val="2">Money in bank accounts</li>
-										<li class="fna-checkbox-btn" data-val="3">Actively traded stocks</li>
-										<li class="fna-checkbox-btn" data-val="4">Bonds and mutual funds</li>
-										<li class="fna-checkbox-btn" data-val="5">US Treasury bills</li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="6">Others</li>
+										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q4b.option1" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q4b.option2" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q4b.option3" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q4b.option4" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="4"><fmt:message key="fna.question.q4b.option5" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="5"><fmt:message key="fna.question.q4b.option6" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="6"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
 									</ul>
 									<div class="fna-error-box">
 										<span class="err_q4b2 fna-error-msg text-red"></span>
 									</div>
 									<div class="sep"></div>
-									Amount: HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
+									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
 									<p class="note">Note: Liquid assets are assets which may be easily turned into cash.<br>Real estate, coin collection and artwork are not considered to be liquid assets.</p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 								<div class="hidden-sm hidden-xs">
@@ -418,12 +418,12 @@ var affiliate = "${affiliate}";
 								</div>
 
 								<div class="q4c mob-view">
-									<h4><span class="q-num">4c</span>What is your average monthly expenses<br>including but not limited to living expenses,<br>household expenses, including dependent’s<br>expenses mortgage payment and regular<br>payment in the past 2 years?</h4>
+									<h4><span class="q-num">4c</span><fmt:message key="fna.question.q4c" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
-									Total Expenses not less than <br class="mob-ignore">
-									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" > per month
+									<fmt:message key="fna.question.q4c.totallessthen" bundle="${msg}" /> <br class="mob-ignore">
+									<fmt:message key="fna.question.q4c.month" bundle="${msg}" /><input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" > <fmt:message key="fna.question.q4c.hkd" bundle="${msg}" />
 
 									<div class="hidden-lg hidden-md">
 										<div class="img-mob-wrapper clearfix">
@@ -432,28 +432,28 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 
 
 								</div>
 								<div class="q4d mob-view mob-hide">
-									<h4><span class="q-num">4d</span><span class="q-sub-num">i:</span>What is your total liabilities and estimated<br>ﬁnal expenses including but not limited to<br>the outstanding mortgage loan,<br>loans/debts, estate duties, funeral and<br>associated expenses and emergency fund? </h4>
+									<h4><span class="q-num">4d</span><span class="q-sub-num">i:</span><fmt:message key="fna.question.q4di" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
-									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"></p>
+									<p><fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="fna.question.q4di.hkd" bundle="${msg}" /><input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
-									<h4><span class="q-sub-num">ii:</span>What is your total financial targets including<br>but not limited to the education fund for<br>yourself or dependents and estimated marr<br>-iage expenses?</h4>
+									<h4><span class="q-sub-num">ii:</span><fmt:message key="fna.question.q4dii" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4d2 fna-error-msg text-red"></span>
 									</div>
-									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
+									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="fna.question.q4dii.hkd" bundle="${msg}" /><input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 								<div class="hidden-sm hidden-xs">
@@ -472,17 +472,17 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4e mob-view">
 									<div class="inner-cont">
-										<h4><span class="q-num">4e</span>For how long are you able and willing to contribute to an insurance policy and/or investment plan?<span>(tick one)</span></h4>
+										<h4><span class="q-num">4e</span><fmt:message key="fna.question.q4e" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
 										<div class="fna-radio-gp frm-fna-q4e" data-mirror-fld="frm-fna-q4e-mob" data-frm-fld="q4_e">
-											<div class="fna-radio-btn" data-val="0"><span>&lt; 1 year</span></div>
-											<div class="fna-radio-btn" data-val="1"><span>1-5 years</span></div>
-											<div class="fna-radio-btn" data-val="2"><span>6-10 years</span></div>
-											<div class="fna-radio-btn" data-val="3"><span>11-20 years</span></div>
-											<div class="fna-radio-btn" data-val="4"><span>&gt; 20 years</span></div>
-											<div class="fna-radio-btn" data-val="5"><span>Whole of life</span></div>
+											<div class="fna-radio-btn" data-val="0"><span><fmt:message key="fna.question.q4e.option1" bundle="${msg}" /></span></div>
+											<div class="fna-radio-btn" data-val="1"><span><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></span></div>
+											<div class="fna-radio-btn" data-val="2"><span><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></span></div>
+											<div class="fna-radio-btn" data-val="3"><span><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></span></div>
+											<div class="fna-radio-btn" data-val="4"><span><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></span></div>
+											<div class="fna-radio-btn" data-val="5"><span><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></span></div>
 										</div>
 									</div>
 
@@ -493,13 +493,13 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 								<div class="q4f mob-view mob-hide">
 									<div class="inner-cont">
-										<h4><span class="q-num">4f</span>Approximately what percentage of your disposable income would you be able to use to pay your monthly<br>premium for the entire term of the insurance policy / investment plan in (4e) above? <span>(tick one)</span></h4>
+										<h4><span class="q-num">4f</span><fmt:message key="fna.question.q4f" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
@@ -526,8 +526,8 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled">Next</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
 							</div>
@@ -538,16 +538,16 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step8-indicator1.png" class="step-indicator1">
 								</div>
 								<div class="q4g">
-									<h4><span class="q-num">4g</span>In considering your ability to make payments,<br>what are your sources of funds? <span>(tick one or more)</span></h4>
+									<h4><span class="q-num">4g</span><fmt:message key="fna.question.q4g" bundle="${msg}" /><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<ul class="fna-checkbox-gp no-line frm-fna-q4g" data-mirror-fld="frm-fna-q4g-mob" data-frm-fld="q4_g">
-										<li class="fna-checkbox-btn" data-val="0">Salary</li>
-										<li class="fna-checkbox-btn" data-val="1">Income</li>
-										<li class="fna-checkbox-btn" data-val="2">Savings</li>
-										<li class="fna-checkbox-btn" data-val="3">Investment</li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="4">Others</li>
+										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q4g.option1" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q4g.option2" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q4g.option3" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q4g.option4" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
 									</ul>
 								</div>
 
@@ -558,8 +558,8 @@ var affiliate = "${affiliate}";
 								</div>
 
 								<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
-									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish disabled">Save and Proceed to <br>Product Recommendation</a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back"><fmt:message key="button.back" bundle="${msg}" /></a>
+									<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-finish disabled"><fmt:message key="button.save.process" bundle="${msg}" /></a>
 								</div>
 								<div class="hidden-sm hidden-xs">
 									<div class="img1-wrapper" id="family">
@@ -575,7 +575,7 @@ var affiliate = "${affiliate}";
 				<div class="last-loading-cont">
 					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_02.png" class="img-responsive">
 					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_01.png" class="img-responsive family">
-					<p>Based on the result of your Financial Need Analysis, FWD is researching for respective products which meet your objective(s) and need(s)</p>
+					<p><fmt:message key="fna.info.waiting.result" bundle="${msg}" /></p>
 
 					<div class="bubble-gp">
 						<div class="spinner">

@@ -18,61 +18,61 @@ var languageP = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs purchase-history-bc">
            <div class="breadcrumb-container">
               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-				<li><a href="#">Home</a></li>
+				<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 				<li class="divider last"><i class="fa fa-play"></i></li>
-				<li class="active-bc">FWD Member Account</li>
+				<li class="active-bc"><fmt:message key="label.fwd.member.account" bundle="${msg}" /></li>
               </ol>
            </div>
         </div>
 	<div class="container-fluid fwd-full-container eservices profile-active-page" id="savie-online-purchase-history">
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="row" id="purchase-history-page">
-				<h2>FWD member account</h2>
+				<h2><fmt:message key="label.fwd.member.account2" bundle="${msg}" /></h2>
 				<div class="btn-group account-dropdown hidden-md hidden-lg clearfix">
                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                           <span class="button-text">Insurance plan</span>
+                           <span class="button-text"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></span>
                            <i class="fa fa-angle-down"></i>
                        </button>
                        <ul class="dropdown-menu" role="menu">
-                           <li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true">Profile</a></li>
-                           <li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true">Insurance plan</a></li>
-                           <li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true">Promo &amp; offers</a></li>
+                           <li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+                           <li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+                           <li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
                        </ul>
                    </div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span>Profile</a></li>
-						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="insurance-plan"></span>Insurance plan</a></li>
-						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="promo-offers"></span>Promo &amp; offers</a></li>
+						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">
 					<div id="purchase-history-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified">
-							<li class="active"><a href="#pending" data-toggle="tab">Pending</a></li>
-							<li><a href="#active" data-toggle="tab">Active</a></li>
-							<li id="past-tab"><a href="#past" data-toggle="tab">Past</a></li>
+							<li class="active"><a href="#pending" data-toggle="tab"><fmt:message key="tab.member.top.pending" bundle="${msg}" /></a></li>
+							<li><a href="#active" data-toggle="tab"><fmt:message key="tab.member.top.active" bundle="${msg}" /></a></li>
+							<li id="past-tab"><a href="#past" data-toggle="tab"><fmt:message key="tab.member.top.past" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="pending">
 								<div class="life-and-health-container">
 									<div class="category-holder">
-										<h4 class="category-title">Life &amp; Health</h4>
+										<h4 class="category-title"><fmt:message key="label.life&health" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -80,28 +80,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${pending_life}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+															<h4 class="visible-xs visible-sm info-head">fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>													
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>													
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -115,19 +115,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Saving insurance</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -135,28 +135,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${pending_saving}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Resources</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">Claim form</a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>												
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -170,19 +170,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Household</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -190,28 +190,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${pending_house}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data pls-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -225,19 +225,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Travel</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -245,28 +245,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${pending_travel}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}~${list.expiryDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data pls-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -278,22 +278,22 @@ var languageP = "${language}";
 							<div class="tab-pane" id="active">
 								<div class="life-and-health-container">
 									<div class="category-holder">
-										<h4 class="category-title">Life &amp; Health</h4>
+										<h4 class="category-title"><fmt:message key="label.life&health" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -301,28 +301,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${active_life}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+															<h4 class="visible-xs visible-sm info-head">fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>	
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>	
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -336,19 +336,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Saving insurance</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -356,28 +356,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${active_saving}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Resources</h4>
-															<p class="info-data"><a href="#">Claim form</a></p>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>												
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -391,19 +391,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Household</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -411,28 +411,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${active_house}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data please-visit">Please visit<br>FWD customer Center</p>												
+															<p class="info-data please-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -446,19 +446,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Travel</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -466,28 +466,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${active_travel}">
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}~${list.expiryDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data please-visit">Please visit<br>FWD customer Center</p>												
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data please-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -499,22 +499,22 @@ var languageP = "${language}";
 							<div class="tab-pane" id="past">
 								<div class="life-and-health-container">
 									<div class="category-holder">
-										<h4 class="category-title">Life &amp; Health</h4>
+										<h4 class="category-title"><fmt:message key="label.life&health" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -522,28 +522,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${past_life}">
 									            	<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -557,19 +557,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Saving insurance</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -577,28 +577,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${past_saving}">
 									            	<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Resources</h4>
-															<p class="info-data"><a href="#">Claim form</a></p>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data"><a href="#">Upload document now</a></p>												
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data"><a href="#"><fmt:message key="label.status.upload.doc.now" bundle="${msg}" /></a></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -612,19 +612,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Household</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -632,28 +632,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${past_house}">
 									                <div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Start date</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data pls-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -667,19 +667,19 @@ var languageP = "${language}";
 										<h4 class="category-title">Travel</h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-2">
-												<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -687,28 +687,28 @@ var languageP = "${language}";
 									            <c:forEach varStatus="status" var="list" items="${past_travel}">
 									                <div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
 															<p class="info-data plan-name">${list.planCode}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 															<p class="info-data">${list.policyNumber}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /></h4>
 															<p class="info-data">${list.commencementDateDesc}~${list.expiryDateDesc}</p>
 														</div>
 														<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 															<p class="info-data pls-visit">${list.status}</p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Account value</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.account.value" bundle="${msg}" /></h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">Status</h4>
-															<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
+															<p class="info-data pls-visit"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -718,14 +718,14 @@ var languageP = "${language}";
 								</div>						
 							</div>
 						</div>
-						<p id="note"><span id="orange-ast">*</span> Amount indicative only. Please call our 24-hour hotline at 3123 3123 for up-to-date account value. </p>
+						<p id="note"><fmt:message key="label.remark.status.account.value" bundle="${msg}" /></p>
 					</div>
 					<div id="eservices-tab-contents">
-						<h3 class="heading-title">Member details</h4>
+						<h3 class="heading-title"><fmt:message key="label.member.detail" bundle="${msg}" /></h3>
 						<div id="member-details">	
 							<div class="row member-data-holder">
 								<div class="col-xs-6 col-md-4 member-data-label">
-									Full name
+									<fmt:message key="label.fullname" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.getFullName() }
@@ -733,7 +733,7 @@ var languageP = "${language}";
 							</div>
 							<div class="row member-data-holder">
 								<div class="col-xs-6 col-md-4 member-data-label">
-									Mobile no.
+									<fmt:message key="label.mobile.no." bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.getMobileNo() }
@@ -741,7 +741,7 @@ var languageP = "${language}";
 							</div>
 							<div class="row member-data-holder">
 								<div class="col-xs-6 col-md-4 member-data-label">
-									Email address
+									<fmt:message key="label.email.address" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.getEmailAddress() }
@@ -749,35 +749,35 @@ var languageP = "${language}";
 							</div>
 							<div class="row member-data-holder">
 								<div class="col-xs-6 col-md-4 member-data-label">
-									Username
+									<fmt:message key="label.username" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
 									${userDetails.firstName } ${userDetails.lastName }
 								</div>
 							</div>
 						</div>
-						<h3 class="heading-title">Financial needs analysis</h4>	
-						<p id="complete-statement">You have completed FNA on ${fnaLastUpdate }. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
+						<h3 class="heading-title"><fmt:message key="label.fna" bundle="${msg}" /></h3>	
+						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
 					</div>
 					<div id="promo-offers-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
-							<li class="active"><a href="#promo-code" data-toggle="tab">Personal<br /> promotion code</a></li>
-							<li><a href="#ref-program" data-toggle="tab">Referral<br /> program</a></li>
-							<li><a href="#fwd-partner" data-toggle="tab">FWD<br/>partner</a></li>
+							<li class="active"><a href="#promo-code" data-toggle="tab"><fmt:message key="label.personnal.promotion.code" bundle="${msg}" /></a></li>
+							<li><a href="#ref-program" data-toggle="tab"><fmt:message key="label.personnal.promotion.code" bundle="${msg}" /></a></li>
+							<li><a href="#fwd-partner" data-toggle="tab"><fmt:message key="label.member.top.active" bundle="${msg}" /></a></li>
 						</ul>
 						<div class="tab-content">
 							<!--promotion code-->
 							<div class="tab-pane active" id="promo-code">
 								<div class="promotion-code-container">
-									<h3 class="heading-title hidden-xs hidden-sm">Personal promotion code</h3>
+									<h3 class="heading-title hidden-xs hidden-sm"><fmt:message key="label.personnal.promotion.code1" bundle="${msg}" /></h3>
 									<p>Use your code to enjoy discounts from our partners</p>
 									<p>Your code: <br class="visible-xs visible-sm" /><span class="your-code">V3B68V</span></p>
 									<table class="table table-striped" id="promotion-code-table">
 										 <thead>
 										 	<tr>
-										 		<th class="first-col">Type of Offer</th>
-										 		<th>Discount</th>
-										 		<th>Offer period</th>
+										 		<th class="first-col"><fmt:message key="label.type.of.offer" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.discount" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.offer.period" bundle="${msg}" /></th>
 										 	</tr>
 										 </thead>
 										 <tbody>
@@ -808,7 +808,7 @@ var languageP = "${language}";
 							<!--referral program code-->
 							<div class="tab-pane" id="ref-program">
 								<div class="referral-program-container">
-									<h3 class="heading-title hidden-xs hidden-sm">Referral program</h3>
+									<h3 class="heading-title hidden-xs hidden-sm"><fmt:message key="label.refferal.program1" bundle="${msg}" /></h3>
 									<p>Refer a friend to earn discounts and rewards now!</p>
 									<div class="row" id="input-social-holder">
 										<div class="col-xs-12 col-md-7" id="promo-input-holder">
@@ -816,7 +816,7 @@ var languageP = "${language}";
 										</div>
 										<div class="col-xs-12 col-md-5" id="social-btns-holder">
 											<ul class="nav nav-pills">
-											  <li role="presentation" class="click-copy-btn"><a href="#" id="copy-link-btn">Copy link</a></li>
+											  <li role="presentation" class="click-copy-btn"><a href="#" id="copy-link-btn"><fmt:message key="Button.copy.link" bundle="${msg}" /></a></li>
 											  <li role="presentation" class="social-icon"><a id="fb-icon" href="#"><i class="fa fa-facebook"></i></a></li>
 											  <li role="presentation" class="social-icon"><a id="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>									
 											  <li role="presentation" class="social-icon"><a id="gplus-icon" href="#"><img src="assets/images/savie-2016/gplus-icon.png" /></a></li>
@@ -826,9 +826,9 @@ var languageP = "${language}";
 									<table class="table table-striped" id="referral-program-table">
 										 <thead>
 										 	<tr>
-										 		<th class="first-col">Type of Offer</th>
-										 		<th>Discount</th>
-										 		<th>Offer period</th>
+										 		<th class="first-col"><fmt:message key="label.type.of.offer" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.discount" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.offer.period" bundle="${msg}" /></th>
 										 	</tr>
 										 </thead>
 										 <tbody>
@@ -861,9 +861,9 @@ var languageP = "${language}";
 									<table class="table table-striped" id="fwd-partner-table">
 										 <thead>
 										 	<tr>
-										 		<th class="first-col">Type of Offer</th>
-										 		<th>Discount</th>
-										 		<th>Offer period</th>
+										 		<th class="first-col"><fmt:message key="label.type.of.offer" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.discount" bundle="${msg}" /></th>
+										 		<th><fmt:message key="label.offer.period" bundle="${msg}" /></th>
 										 	</tr>
 										 </thead>
 										 <tbody>

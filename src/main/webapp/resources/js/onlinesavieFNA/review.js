@@ -71,7 +71,7 @@ var Review = {
 		var that = this;
 
 		//Get question
-		var question = FNAQuestion[UILANGUAGE];
+		var question = FNAQuestion['data'];
 		that.constructQuestion(question);
 
 		//default disable all input
@@ -119,9 +119,9 @@ var Review = {
 			var val = $(this).val();
 			var id = $("#nature option[value='"+val+"']").attr("data-id");
 			$("#occupation").empty();
-			var occupations = Occupation[UILANGUAGE][id].position;
+			var occupations = Occupation['data'][id].position;
 			var opt = $("<option/>");
-			opt.val("").text(ReviewPageLocale[UILANGUAGE].select).attr("selected");
+			opt.val("").text(ReviewPageLocale['data'].select).attr("selected");
 			$("#occupation").append(opt);
 			for(var i = 0; i< occupations.length; i++){
 				var opt = $("<option/>");
@@ -171,8 +171,8 @@ var Review = {
 		nature = (nature == undefined || nature == "")? "NoB1" :nature;
 		occ = (occ == undefined || occ == "")? -1 :occ;
 
-		var s = Status[UILANGUAGE];
-		var natures = Occupation[UILANGUAGE];
+		var s = Status['data'];
+		var natures = Occupation['data'];
 		var occupations = natures[0].position;
 		
 		//status
@@ -204,7 +204,7 @@ var Review = {
 		//occupation
 		$("#occupation").empty();
 		var opt = $("<option/>");
-		opt.val(-1).text(ReviewPageLocale[UILANGUAGE].select).attr("selected");
+		opt.val(-1).text(ReviewPageLocale['data'].select).attr("selected");
 		$("#occupation").append(opt);
 		for(var i = 0; i< occupations.length; i++){
 			var opt = $("<option/>");
@@ -308,10 +308,10 @@ var Review = {
 
 		switch(qid){
 			case "personal_info":
-				var gender = ReviewPageLocale[UILANGUAGE].gender[fnaData.gender];
-				var marital_status = ReviewPageLocale[UILANGUAGE].marital_status[fnaData.marital_status];
-				var dependents = ReviewPageLocale[UILANGUAGE].dependents[fnaData.dependents];
-				var education = ReviewPageLocale[UILANGUAGE].education[fnaData.education];
+				var gender = ReviewPageLocale['data'].gender[fnaData.gender];
+				var marital_status = ReviewPageLocale['data'].marital_status[fnaData.marital_status];
+				var dependents = ReviewPageLocale['data'].dependents[fnaData.dependents];
+				var education = ReviewPageLocale['data'].education[fnaData.education];
 
 				$("#name").text(fnaData.name);
 				$("#gender").text(gender);
@@ -510,11 +510,11 @@ var Review = {
 			occ_others = (FormValidate.isEmpty(occ_others))? null : occ_others;
 
 			if(!special_status && occ == null ){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].select_empty);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].select_empty);
 				$("#occupation").focus();
 				isError = true;
 			}else if(nature == fnaOccOther.nature && occ == fnaOccOther.occupation && occ_others == null){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].occupation_others_empty);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].occupation_others_empty);
 				$("#occupation_others").focus();
 				isError = true;
 			}else{
@@ -542,12 +542,12 @@ var Review = {
 			other = $("#q4_a_others").val();
 			other = (other + '').replace(/,/g,"");
 			if(answer=="0" && other == ""){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_a_others);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_a_others);
 				$("#q4_a_others").focus();
 				isError = true; 
 
 			}else if(!FormValidate.isNumber(other)){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_a_others").focus();
 				isError = true;
 			}
@@ -561,7 +561,7 @@ var Review = {
 			/*
 			other = $("#q4_b_others").val();
 			if(answer.indexOf("6") >= 0 && other == ""){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_b_others);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_b_others);
 				$("#q4_b_others").focus();
 				isError = true;
 			}
@@ -570,11 +570,11 @@ var Review = {
 			amount = $("#q4_b_amount").val();
 			amount = (amount + '').replace(/,/g,"");
 			if(amount == "" || amount == 0){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_b_amount);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_b_amount);
 				$("#q4_b_amount").focus();
 				isError = true;
 			}else if(!FormValidate.isNumber(amount)){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_b_amount").focus();
 				isError = true;
 			}
@@ -585,7 +585,7 @@ var Review = {
 			answer = $("#q4_c_others").val();
 			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_c_others").focus();
 				isError = true;
 			}
@@ -596,7 +596,7 @@ var Review = {
 			answer = $("#q4_d_1_others").val();
 			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_d_1_others").focus();
 				isError = true;
 			}
@@ -607,7 +607,7 @@ var Review = {
 			answer = $("#q4_d_2_others").val();
 			answer = (answer + '').replace(/,/g,"");
 			if(!FormValidate.isNumber(answer)){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].number);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_d_2_others").focus();
 				isError = true;
 			}
@@ -618,7 +618,7 @@ var Review = {
 		if(qid == "q4_g"){
 			other = $("#q4_g_others").val();
 			if(answer.indexOf("4") >= 0 && other == ""){
-				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].q4_g_others);
+				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_g_others);
 				$("#q4_g_others").focus();
 				isError = true;
 			}
@@ -626,7 +626,7 @@ var Review = {
 		*/
 
 		if(answer == null || answer == ""){
-			$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE][qid+"_empty"]);
+			$("#"+qid+ " .error").text(ReviewPageLocale['data'][qid+"_empty"]);
 			isError = true;
 		}
 

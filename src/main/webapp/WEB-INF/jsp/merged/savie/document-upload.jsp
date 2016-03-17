@@ -120,10 +120,7 @@ var languageP = "${language}";
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
 								<p class="first-desc"><fmt:message key="label.upload.doc.when.ready.title" bundle="${msg}" /></p>
-								<ol>
-									<li class="second-desc"><fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" /></p>
-									<li class="second-desc"><fmt:message key="label.upload.doc.when.ready.copy2" bundle="${msg}" /></p>
-								</ol>
+								<fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" />
 							</div>
 						</div>
 						<div class="upload-now-section" id="upload-now-section">

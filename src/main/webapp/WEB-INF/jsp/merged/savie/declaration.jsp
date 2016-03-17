@@ -85,18 +85,17 @@ var languageP = "${language}";
 					<p class="title"><fmt:message key="label.declaration.authorization" bundle="${msg}" /></p>
 					
 					<div class="cstm-panel">
-						<p><b>Declaration - Foreign Account Tax Compliance Act</b></p>
+						<p><b><fmt:message key="label.declaration.dda.title" bundle="${msg}" /></b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAcceptFATC" name="hasReadAndAcceptFATC" value="true">
-							<label for="hasReadAndAcceptFATC"></label>
-							<p class="chkboxText">I declare, agree and acknowledge that:</p>
+							<input type="checkbox" id="hasReadAndAcceptDDA" name="hasReadAndAcceptDDA" value="true">
+							<label for="hasReadAndAcceptDDA"></label>
+							<p class="chkboxText"><fmt:message key="label.declaration.dda.agree" bundle="${msg}" /></p>
 						</div>
-						<p id="chkFATCErMsg" class="err-msg hidden">Please read and accept the Foreign Account Tax Compliance Act statement before submitting the application.</p>
+						<p id="chkDDAErMsg" class="err-msg hidden"><fmt:message key="error.dda.not.checked" bundle="${msg}" /></p>
 						<nav>
 							<ol type="i">
-								<li><p>FWD Life Insurance Company (Bermuda) Limited (“FWD”) and/or its affiliates are obliged to comply with all laws, regulations, orders, guidelines and codes, including the applicable requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial, taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of the United States of America (the “Authorities” and each an “Authority” ) in various jurisdictions as promulgated and amended from time to time (the “Applicable Requirements”).</p></li>
-								<li><p>I am not and not acting for and on behalf of, a United States person, being a U.S. citizen, U.S. resident for U.S. federal income tax purposes or U.S. Resident Alien (i.e. a so-called U.S. green card holder) and I will notify FWD in writing within 30 days if there is any change of details provided to FWD in this application, in particular, my nationality, tax status or tax residency changes and will provide</p></li>
+								<fmt:message key="declaration.dda.content" bundle="${msg}" />
 							</ol>
 						</nav>
 					</div>
@@ -105,16 +104,14 @@ var languageP = "${language}";
 						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAcceptFATC2" name="hasReadAndAcceptFATC2" value="true">
-							<label for="hasReadAndAcceptFATC2"></label>
+							<input type="checkbox" id="hasReadAndAcceptFATC" name="hasReadAndAcceptFATC" value="true">
+							<label for="hasReadAndAcceptFATC"></label>
 							<p class="chkboxText"><fmt:message key="label.declaration.tnc.agree" bundle="${msg}" /></p>
 						</div>
-						<p id="chkFATC2ErMsg" class="err-msg hidden">Please read and accept the Foreign Account Tax Compliance Act statement before submitting the application.</p>
+						<p id="chkFATCErMsg" class="err-msg hidden"><fmt:message key="error.fatca.not.checked" bundle="${msg}" /></p>
 						<nav>
 							<ol type="i">
 								<fmt:message key="declaration.tnc.tax" bundle="${msg}" />
-								<!-- <li><p>FWD Life Insurance Company (Bermuda) Limited (“FWD”) and/or its affiliates are obliged to comply with all laws, regulations, orders, guidelines and codes, including the applicable requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial, taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of the United States of America (the “Authorities” and each an “Authority” ) in various jurisdictions as promulgated and amended from time to time (the “Applicable Requirements”).</p></li>
-								<li><p>I am not and not acting for and on behalf of, a United States person, being a U.S. citizen, U.S. resident for U.S. federal income tax purposes or U.S. Resident Alien (i.e. a so-called U.S. green card holder) and I will notify FWD in writing within 30 days if there is any change of details provided to FWD in this application, in particular, my nationality, tax status or tax residency changes and will provide</p></li>-->
 							</ol>
 						</nav>
 					</div>
@@ -127,10 +124,10 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper clearfix">
 							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
 							<label for="hasReadAndAcceptPICS"></label>
-							<p class="desktop-left chkboxText"><fmt:message key="declaration.declarations.pics.agree" bundle="${msg}" /></p>
+							<fmt:message key="declaration.pics.agree" bundle="${msg}" />
 							<!--<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>-->
 						</div>
-						<p id="chkPICSErMsg" class="err-msg hidden">Please read and accept the Personal Information Collection statement before submitting the application.</p>
+						<p id="chkPICSErMsg" class="err-msg hidden"><fmt:message key="error.pics.not.checked" bundle="${msg}" /></p>
 					</div>
 					
 					<div class="cstm-panel">
@@ -234,9 +231,6 @@ var languageP = "${language}";
 						<nav>
 							<ol type="i">
 								<fmt:message key="declaration.application.copy1" bundle="${msg}" />
-								<!--<li><p>I am in Hong Kong at the time of making this application and the answers to all the above questions are complete, true and accurate and are given to the best of my knowledge and belief;</p></li>-->
-								<li><p>I have the duty to immediately inform the Company and correct the answers to the above questions if they have become incomplete, untrue and inaccurate subsequently before any policy is issued;</p></li>
-								<li><p>Any payment made in connection with this application does not guarantee immediate approval of the coverage applied for. The insurance coverage applied for shall only take effect when the relevant policy has been issued and the initial premium paid (including any additional initial premium payable due to revisions of the policy terms and conditions);</p></li>
 							</ol>
 						</nav>
 					</div>
@@ -282,38 +276,35 @@ var languageP = "${language}";
 	  </div>
 	</div>
 	
-	<!-- Modal for Personal Information Collection Statement -->
-	<div class="modal fade modal-fatca-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	<!-- Modal for Foreign Account Tax Compliance Act -->
+	<div class="modal fade modal-fatca-declaration" id="modal-fatca-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	  <div class="modal-dialog" id="dialog-fatca-declaration">
 		<div class="modal-content common-welcome-modal" id="modal-content-fatca">	
 			 <div class="modal-header">
-			 <button type="button" class="close" id="close-fatca" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<p>Foreign Account Tax Compliance Act </p>
+			 	<button type="button" class="close" id="close-fatca" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<p><fmt:message key="label.declaration.fatca" bundle="${msg}" /></p>
 			 </div>
 			 <div class="modal-body" id="modal-body-fatca">
 				<ol>
 					<li><fmt:message key="declaration.tnc.fatca" bundle="${msg}" /></li>
 					<li id="fourth-li"><fmt:message key="declaration.tnc.disclose.to.authority" bundle="${msg}" /></li>
-					
-					  <!--<li>FWD Life Insurance Company (Bermuda) Limited ("FWD") and/or its affiliates are obliged 
-					  to comply with all laws, regulations, orders, guidelines and codes, including the applicable 
-					  requirements under the Foreign Account Tax Compliance Act or agreements with any public, judicial,
-					  taxation, governmental and/or other regulatory authorities, including the Internal Revenue Service of 
-					  the United States of America (the "Authorities" and each an "Authority" ) in various jurisdictions as
-					  promulgated and amended from time to time (the "Applicable Requirements").</li>
-					  <li>I am not and not acting for and on behalf of, a United States person, being a U.S. citizen, U.S. 
-					  resident for U.S. federal income tax purposes or U.S. Resident Alien (i.e. a so-called U.S. green card holder) 
-					  and I will notify FWD in writing within 30 days if there is any change of details provided to FWD in this 
-					  application, in particular, my nationality, tax status or tax residency changes and will provide any further 
-					  information or document requested by FWD.</li>
-					  <li>FWD may disclose my particulars or any information to any Authority (within or outside Hong Kong) 
-					  in connection or adherence with the Applicable Requirements. I also agree to provide FWD with assistance as 
-					  may be necessary to enable FWD to comply with its obligations under all Applicable Requirements.</li>
-					  <li id="fourth-li">FWD may withhold payment of any amount due to myself under my policy(ies) if I have failed to provide 
-					  any up-to-date or complete information or documents to FWD in compliance with the Applicable Requirements and/or pay 
-					  the same to any relevant Authority on my behalf as the relevant Authority may require. I also agree that the 
-					  Company reserves the right and shall be entitled to terminate my policy(ies) and return to me the cash value 
-					  (if any) calculated pursuant to the provisions of such policy(ies). </li>-->
+				</ol>
+			 </div>
+		 </div>
+	  </div>
+	</div>
+	
+	<!-- Modal for Personal Information Collection Statement -->
+	<div class="modal fade" id="modal-pics-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  <div class="modal-dialog" id="dialog-pics-declaration">
+		<div class="modal-content common-welcome-modal" id="modal-content-pics">	
+			 <div class="modal-header">
+			 	<button type="button" class="close" id="close-pics" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<p><fmt:message key="label.savie.pics" bundle="${msg}" /></p>
+			 </div>
+			 <div class="modal-body" id="modal-body-pics">
+				<ol>
+					<fmt:message key="info.savie.pics.copy" bundle="${msg}" />
 				</ol>
 			 </div>
 		 </div>
@@ -325,11 +316,11 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-		<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 		<div class="save-con-btns clearfix">
-			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-			<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+			<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 		</div>
 	</div>
   </div>
@@ -340,11 +331,11 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-		<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 		<div class="save-con-btns text-center clearfix">
-			<button class="btn savie-common-btn" id="keep-going-btn">Keep going</button>
-			<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button>
+			<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+			<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 		</div>
 	</div>
   </div>
@@ -356,14 +347,12 @@ var languageP = "${language}";
 	<div class="modal-content modal-content-appsave common-welcome-modal">	
 		 <div class="modal-header" id="modal-header-appsave">
 		 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<p class="text-center">Your application has been saved. </p>
+				<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 		 </div>
 		 <div class="modal-body" id="moda-body-appsave">
-			<p class="text-center">A saved application email has been sent to you, you may continue the application through 
-			the application link embedded in the email or you may retrieve your progress from your eService 
-			purchase history. </p>
+			<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 			<div class="btn-appsave">
-				<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+				<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 			</div>
 		 </div>
 	 </div>
@@ -413,8 +402,8 @@ var languageP = "${language}";
 			var isPassed = true;
 			
 			// validation
+			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
@@ -453,8 +442,8 @@ var languageP = "${language}";
             var isPassed = true;
 			
 			// validation
+			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
-			isPassed &= validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
