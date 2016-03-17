@@ -76,8 +76,7 @@ var FNAQuestion ={
 		  }, {
 		    "id": 4,
 		    "title": "<fmt:message key="fna.question.q1.option5" bundle="${msg}" />",
-		    "caption": "",
-		    "popup": true
+		    "caption": ""
 		  }, {
 		  	"id": 5,
 		    "title": "<fmt:message key="fna.question.others" bundle="${msg}" />",
@@ -157,28 +156,28 @@ var FNAQuestion ={
 		  "num": "4a",
 		  "title": "<fmt:message key="fna.question.q4a" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
 		  "option": [{
-		    "id": 0,
+		    "id": 5,
 		    "title": "<fmt:message key="fna.question.q4a.amount" bundle="${msg}" /> <br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> {0} <fmt:message key="fna.question.q4a.month" bundle="${msg}" />",
 		    "caption": "",
 		    "other": "q4_a_others"
 		  }, {
-		    "id": 1,
+		    "id": 0,
 		    "title": "<fmt:message key="fna.question.q4a.option1" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
-		    "id": 2,
+		    "id": 1,
 		    "title": "<fmt:message key="fna.question.q4a.option2" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
-		    "id": 3,
+		    "id": 2,
 		    "title": "<fmt:message key="fna.question.q4a.option3" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
-		    "id": 4,
+		    "id": 3,
 		    "title": "<fmt:message key="fna.question.q4a.option4" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
-		    "id": 5,
+		    "id": 4,
 		    "title": "<fmt:message key="fna.question.q4a.option5" bundle="${msg}" />",
 		    "caption": ""
 		  }]
