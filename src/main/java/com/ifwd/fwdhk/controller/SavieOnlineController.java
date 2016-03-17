@@ -144,6 +144,20 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			
+			model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+			model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+			
+			model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+			model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+
+			model.addAttribute("nob_occListEN", InitApplicationMessage.nob_occListEN);
+			model.addAttribute("nob_occListCN", InitApplicationMessage.nob_occListCN);
+
+			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
+			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
+			
 			try {
 				savieOnlineService.getFna(request);
 			}
@@ -171,6 +185,20 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			
+			model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+			model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+			
+			model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+			model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+
+			model.addAttribute("nob_occListEN", InitApplicationMessage.nob_occListEN);
+			model.addAttribute("nob_occListCN", InitApplicationMessage.nob_occListCN);
+
+			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
+			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
+
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 		}
 	}

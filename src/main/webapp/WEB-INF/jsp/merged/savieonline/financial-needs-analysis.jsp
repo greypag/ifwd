@@ -21,7 +21,7 @@ var affiliate = "${affiliate}";
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/select2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/jquery.animateSprite.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/locale.js"></script>
+<jsp:include page="/resources/js/onlinesavieFNA/locale.jsp" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/uifn.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/animation.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/game.js"></script>
@@ -117,10 +117,19 @@ var affiliate = "${affiliate}";
 								<div class="styled-select">
 									<select class="frm-fna-education" data-mirror-fld="frm-fna-education-mob" data-frm-fld="education">
 										<option value=""><fmt:message key="option.please.select" bundle="${msg}" /></option>
-										<option value="0">Primary or below</option>
-										<option value="1">Secondary / Matriculation</option>
-										<option value="2">Vocational Training / Technical Institute /Business Institue</option>
-										<option value="3">Post-secondary / University or above</option>
+										<c:set var="level_id" value="0" scope="page" />
+										<c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${etEducationLevelEN}">
+												<option value="${level_id}">${list.itemDesc }</option>
+												<c:set var="level_id" value="${level_id + 1}" scope="page" />
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${etEducationLevelCN}">
+												<option value="${level_id}">${list.itemDesc }</option>
+												<c:set var="level_id" value="${level_id + 1}" scope="page" />
+											</c:forEach>
+										</c:if>
 									</select>
 								</div>
 							</div>
@@ -423,7 +432,7 @@ var affiliate = "${affiliate}";
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<fmt:message key="fna.question.q4c.totallessthen" bundle="${msg}" /> <br class="mob-ignore">
-									<fmt:message key="fna.question.q4c.month" bundle="${msg}" /><input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" > <fmt:message key="fna.question.q4c.hkd" bundle="${msg}" />
+									<fmt:message key="fna.question.q4c.month" bundle="${msg}" /> <input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" > <fmt:message key="fna.question.q4c.hkd" bundle="${msg}" />
 
 									<div class="hidden-lg hidden-md">
 										<div class="img-mob-wrapper clearfix">

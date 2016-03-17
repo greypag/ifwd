@@ -106,10 +106,19 @@ var affiliate = "${affiliate}";
 				<span class="editMode content">
 					<div class="styled-select">
 						<select id="education" name="education" class="form-control select-label">
-							<option value="0">Primary or below</option>
-							<option value="1">Secondary / Matriculation</option>
-							<option value="2">Vocational Training / Technical Institute / Business Institute</option>
-							<option value="3">Post-secondary / University or above</option>
+							<c:set var="level_id" value="0" scope="page" />
+							<c:if test="${language == 'en'}">
+								<c:forEach var="list" items="${etEducationLevelEN}">
+									<option value="${level_id}">${list.itemDesc }</option>
+									<c:set var="level_id" value="${level_id + 1}" scope="page" />
+								</c:forEach>
+							</c:if>
+							<c:if test="${language == 'tc'}">
+								<c:forEach var="list" items="${etEducationLevelCN}">
+									<option value="${level_id}">${list.itemDesc }</option>
+									<c:set var="level_id" value="${level_id + 1}" scope="page" />
+								</c:forEach>
+							</c:if>
 						</select>
 					</div>
 				</span>

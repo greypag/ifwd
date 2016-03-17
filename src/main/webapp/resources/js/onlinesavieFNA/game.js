@@ -182,7 +182,7 @@ var fnaSavieGame = {
 
 		var sel = $(".frm-fna-employment-status");
 
-		$(Status["en"]).each(function(key,val){
+		$(Status["data"]).each(function(key,val){
 			var option = $("<option/>");
 			option.val(val.id).text(val.name).data("noNextFld",val.disable);
 			sel.append(option);
@@ -448,8 +448,8 @@ var fnaSavieGame = {
 					
 					var sel = $(".frm-fna-nob");
 					sel.empty();
-					sel.append($("<option/>").val("").text("Please select"));
-					$(Occupation["en"]).each(function(key,val){
+					sel.append($("<option/>").val("").text(getBundle(getBundleLanguage, "option.fna.select")));
+					$(Occupation["data"]).each(function(key,val){
 						var option = $("<option/>");
 						option.val(val.id).text(val.nob).data("key",key);
 						sel.append(option);
@@ -476,8 +476,8 @@ var fnaSavieGame = {
 				var key = optionSelected.data("key");
 				var sel = $(".frm-fna-occupation");
 				sel.empty();
-				sel.append($("<option/>").val("").text("Please select"));
-				$(Occupation["en"][key]["position"]).each(function(key,val){
+				sel.append($("<option/>").val("").text(getBundle(getBundleLanguage, "option.fna.select")));
+				$(Occupation["data"][key]["position"]).each(function(key,val){
 					var option = $("<option/>");
 					option.val(val.id).text(val.name).data("key",key);
 					sel.append(option);
@@ -860,29 +860,29 @@ var fnaSavieGame = {
 		switch(step){
 			case 1:
 				if(that.postData.gender == null){
-					$(".step1 .fna-error-msg").text("Please select");
+					$(".step1 .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				break;
 			case 2:
 				if(that.postData.dob == null){
-					$(".step2 .frm-fna-dob").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+					$(".step2 .frm-fna-dob").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(that.postData.marital_status == null){
-					$(".step2 .frm-fna-marital-status").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+					$(".step2 .frm-fna-marital-status").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(that.postData.dependents == null){
-					$(".step2 .frm-fna-dependents").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+					$(".step2 .frm-fna-dependents").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(that.postData.education == null){
-					$(".step2 .frm-fna-education").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+					$(".step2 .frm-fna-education").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(that.postData.employment_status == null){
-					$(".step2 .frm-fna-employment-status").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+					$(".step2 .frm-fna-employment-status").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}else{
 					//Full time, part time, self employ
@@ -891,12 +891,12 @@ var fnaSavieGame = {
 						that.postData.employment_status == "ES3"
 					){
 						if(that.postData.nature_of_business == null){
-							$(".step2 .frm-fna-nob").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+							$(".step2 .frm-fna-nob").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 							result = false;
 						}else{
 
 							if(that.postData.occupation == null){
-								$(".step2 .frm-fna-occupation").parents(".fna-row").find(".fna-error-msg").text("(Please select)");
+								$(".step2 .frm-fna-occupation").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 								result = false;
 							}else{
 								if(that.postData.nature_of_business == "NoB23" &&
@@ -918,23 +918,23 @@ var fnaSavieGame = {
 				break;
 			case 3:
 				if(that.postData.q1 == null){
-					$(".q1 .fna-error-msg").text("(Please select)");
+					$(".q1 .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(mobileSplit) break;
 				if(that.postData.q2 == null){
-					$(".q2 .fna-error-msg").text("(Please select)");
+					$(".q2 .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				break;
 			case 4:
 				if(that.postData.q3 == null){
-					$(".q3 .fna-error-msg").text("(Please select)");
+					$(".q3 .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(mobileSplit) break;
 				if(that.postData.q4 == null){
-					$(".q4 .fna-error-msg").text("(Please select)");
+					$(".q4 .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				break;
@@ -945,7 +945,7 @@ var fnaSavieGame = {
 				}
 				if(mobileSplit) break;
 				if(that.postData.q4_b == null){
-					$(".q4b .err_q4b1.fna-error-msg").text("(Please select)");
+					$(".q4b .err_q4b1.fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(that.postData.q4_b_amount == null){
@@ -970,18 +970,18 @@ var fnaSavieGame = {
 				break;
 			case 7:
 				if(that.postData.q4_e == null){
-					$(".q4e .fna-error-msg").text("(Please select)");
+					$(".q4e .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(mobileSplit) break;
 				if(that.postData.q4_f == null){
-					$(".q4f .fna-error-msg").text("(Please select)");
+					$(".q4f .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				break;
 			case 8:
 				if(that.postData.q4_g == null){
-					$(".q4g .fna-error-msg").text("(Please select)");
+					$(".q4g .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 		}

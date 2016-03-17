@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.util;
 
 import java.util.List;
+import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> occupationCN;
 	public static List<OptionItemDesc> natureOfBusinessEN;
 	public static List<OptionItemDesc> natureOfBusinessCN;
+	public static HashMap<String, List<OptionItemDesc>> nob_occListEN;
+	public static HashMap<String, List<OptionItemDesc>> nob_occListCN;
 	public static List<OptionItemDesc> monthlyPersonalIncomeEN;
 	public static List<OptionItemDesc> monthlyPersonalIncomeCN;
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
@@ -269,6 +272,36 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
 		
+		try {
+			nob_occListEN = new HashMap<String, List<OptionItemDesc>>();
+			String itemCode = "";
+			for( OptionItemDesc item: natureOfBusinessEN ) {
+				itemCode = item.getItemCode();
+				nob_occListEN.put(itemCode, commonUtils.getOptionItemDescList(itemCode,"EN",type));
+			}
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("natureOfBusiness_OccupationEN : " + nob_occListEN);
+		
+		try {
+			nob_occListCN = new HashMap<String, List<OptionItemDesc>>();
+			String itemCode = "";
+			for( OptionItemDesc item: natureOfBusinessEN ) {
+				itemCode = item.getItemCode();
+				nob_occListCN.put(itemCode, commonUtils.getOptionItemDescList(itemCode,"CH",type));
+			}
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("natureOfBusiness_OccupationCN : " + nob_occListCN);
+
 		try {
 			monthlyPersonalIncomeEN = commonUtils.getOptionItemDescList("monthlyPersonalIncome","EN",type);
 		} catch (Exception e) {
