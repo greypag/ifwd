@@ -390,7 +390,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifePayment.validate(language);
-			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
+			savieOnlineService.lifePaymentSaveforLater("2", lifePayment, request);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
@@ -552,6 +552,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			savieOnlineService.getAccessCode(request);
 			savieOnlineService.upsertAppointment(model, request, response);
+			savieOnlineService.lifePaymentSaveforLater("1", new LifePaymentBean(), request);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
