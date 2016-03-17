@@ -18,7 +18,7 @@
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"
         class="login-ajax-loading">
         <img
-            style="width: 100px; height: 100px; position: absolute; top: 30%; left: 50%; margin-left:-50px;"
+            style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-left:-50px; margin-top: -50px;"
             src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
     </div>
 	<div class="modal-dialog modal-lg">
@@ -113,21 +113,14 @@
 				action="forgotUserNameFields" method="post"
 				commandName="forgotUserName" style="display: none">
 
-
-
-
 				<div class="login-form">
-					<div id="success-message" class="alert alert-success empHide"
-						role="alert" style="display: none;">
-						<P id="error1"></P>
-					</div>
-
-
-
-
-					<div id="login-err-msg" class="alert alert-danger" role="alert"
-						style="display: none;"></div>
-
+				<div id="success-message" class="alert alert-success empHide"
+					role="alert" style="display: none;">
+					<P id="error1"></P>
+				</div>
+				<div id="login-err-msg" class="alert alert-danger" role="alert"
+					style="display: none;"></div>					
+				
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
 							<!--Message 忘記用戶名稱 -->
@@ -214,14 +207,8 @@
 
 
 
-					</div>
-					
-					
-                    
-			
-					
+					</div>				
 				</div>
-
 			</form>
 
 			<!-- 忘記使用者END -->
@@ -282,19 +269,20 @@
 				action="forgotPassword" method="post"
 				commandName="forgotUserPassword" style="display: none">
 
-
-
-
-
 				<div class="login-form">
-					<div
-						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-						class="login-ajax-loading">
-						<img
-							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
-							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-					</div>
 
+                 <div id="forgotpassword-err-msg" class="color-red heading-h5"
+                     role="alert" style="display: none;">
+                     <P id="error1"></P>
+                 </div>
+                 <div id="success-message-password" class="alert alert-success"
+                     role="alert" style="display: none;">
+                     <P id="error1"></P>
+                 </div>
+
+
+                 <div id="login-err-msg" class="alert alert-danger" role="alert"
+                     style="display: none;"></div>
 
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
@@ -410,19 +398,7 @@
 							</button>
 
 						</div>
-	                    <div id="hide-field"></div>
-	                    <div id="forgotpassword-err-msg" class="color-red heading-h5"
-	                        role="alert" style="display: none;">
-	                        <P id="error1"></P>
-	                    </div>
-	                    <div id="success-message-password" class="alert alert-success"
-	                        role="alert" style="display: none;">
-	                        <P id="error1"></P>
-	                    </div>
-	
-	
-	                    <div id="login-err-msg" class="alert alert-danger" role="alert"
-	                        style="display: none;"></div>						                                                                       
+	                    <div id="hide-field"></div>						                                                                       
 						</div>
 
 

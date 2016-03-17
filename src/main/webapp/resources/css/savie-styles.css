@@ -2188,6 +2188,7 @@ a.eserv-link:hover {
   display: block;
   height: 100%;
   padding: 15%;
+  width: 98.5%;
 }
 /* line 730, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item:hover .caption .caption-h4 {
@@ -4459,7 +4460,8 @@ a.eserv-link:hover {
   }
 }
 /* line 8, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca {
+#dialog-fatca-declaration #modal-content-fatca,
+#dialog-pics-declaration #modal-content-pics {
   padding-right: 25px;
   padding-left: 25px;
   padding-bottom: 13px;
@@ -4467,17 +4469,20 @@ a.eserv-link:hover {
 }
 @media screen and (min-width: 992px) {
   /* line 8, ../sass/partials/savie/_fatca-declaration.scss */
-  #dialog-fatca-declaration #modal-content-fatca {
+  #dialog-fatca-declaration #modal-content-fatca,
+  #dialog-pics-declaration #modal-content-pics {
     padding-left: 35px;
   }
 }
 /* line 17, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca #close-fatca {
+#dialog-fatca-declaration #modal-content-fatca #close-fatca,
+#dialog-pics-declaration #modal-content-pics #close-pics {
   margin-top: -13px;
   margin-right: -5px;
 }
 /* line 22, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-header > p {
+#dialog-fatca-declaration #modal-content-fatca .modal-header > p,
+#dialog-pics-declaration #modal-content-pics .modal-header > p {
   font-size: 18px;
   font-weight: bold;
   color: #ff8200;
@@ -4485,16 +4490,19 @@ a.eserv-link:hover {
 }
 @-moz-document url-prefix() {
   /* line 22, ../sass/partials/savie/_fatca-declaration.scss */
-  #dialog-fatca-declaration #modal-content-fatca .modal-header > p {
+  #dialog-fatca-declaration #modal-content-fatca .modal-header > p,
+  #dialog-pics-declaration #modal-content-pics .modal-header > p {
     font-size: 17px;
   }
 }
 /* line 32, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-body ol {
+#dialog-fatca-declaration #modal-content-fatca .modal-body ol,
+#dialog-pics-declaration #modal-content-pics .modal-body ol {
   padding-left: 17px;
 }
 /* line 34, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-body ol li {
+#dialog-fatca-declaration #modal-content-fatca .modal-body ol li,
+#dialog-pics-declaration #modal-content-pics .modal-body ol li {
   font-size: 14px;
   line-height: 17px;
   text-align: justify;
@@ -4505,7 +4513,8 @@ a.eserv-link:hover {
   padding-bottom: 0;
 }
 /* line 46, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca #modal-body-fatca {
+#dialog-fatca-declaration #modal-content-fatca #modal-body-fatca,
+#dialog-pics-declaration #modal-content-pics .modal-body-pics {
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -7726,23 +7735,29 @@ h6.so-h6 {
   padding-left: 17px;
 }
 /* line 35, ../sass/partials/savie/_address-prof.scss */
+#dialog-address-prof #modal-content-addressprof .modal-body ol #info-addproof {
+  font-family: 'Calibri';
+  margin-left: -17px;
+  font-size: 14px;
+}
+/* line 40, ../sass/partials/savie/_address-prof.scss */
 #dialog-address-prof #modal-content-addressprof .modal-body ol li {
   font-size: 14px;
   line-height: 17px;
   padding-bottom: 14px;
 }
-/* line 42, ../sass/partials/savie/_address-prof.scss */
-#dialog-address-prof #modal-content-addressprof .modal-body #thrid-li {
+/* line 45, ../sass/partials/savie/_address-prof.scss */
+#dialog-address-prof #modal-content-addressprof .modal-body ol #thrid-li {
   padding-bottom: 5px;
 }
-/* line 46, ../sass/partials/savie/_address-prof.scss */
+/* line 50, ../sass/partials/savie/_address-prof.scss */
 #dialog-address-prof #modal-content-addressprof #modal-body-addressprof {
   margin-top: 10px;
   margin-bottom: 0;
   padding-right: 15px;
 }
 @media screen and (min-width: 992px) {
-  /* line 46, ../sass/partials/savie/_address-prof.scss */
+  /* line 50, ../sass/partials/savie/_address-prof.scss */
   #dialog-address-prof #modal-content-addressprof #modal-body-addressprof {
     padding-right: 0;
   }

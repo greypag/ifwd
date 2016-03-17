@@ -140,6 +140,89 @@ var language = "${language}";
          </div>
        </div>
 	<!-- FOOTER -->
+		<!--Modal in Customer Service Centre-->
+		<div class="modal fade" role="dialog" aria-labelledby="pickAnotherCentre" id="pickAnotherCentre">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+						<h2><fmt:message key="savie.customerServiceCentre.modalheader" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.modalothertimeslots" bundle="${msg}" /></p>
+						
+						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+						<button type="button" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
+		
+		<!--Modal in Customer Service Centre-->
+		<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+						<h2><fmt:message key="savie.customerServiceCentre.fullyBookmodalheader" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbody" bundle="${msg}" /></p>
+						
+						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbtnTxt" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
+		
+		<!--Modal in Customer Service Centre (access code had been used)-->
+		<div class="modal fade" role="dialog" aria-labelledby="accessCodeUsed" id="accessCodeUsed">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<h2><fmt:message key="savie.customerServiceCentre.accessCodeUsedheader" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>
+						<button type="button" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
+		
+		<!--Modal in Customer Service Centre-->
+		<div class="modal fade" role="dialog" aria-labelledby="perferredTimeIsNull" id="perferredTimeIsNull">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+						<h2><fmt:message key="savie.customerServiceCentre.perferredTimeIsNull" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.perferredTimeIsNullContext" bundle="${msg}" /></p>
+						
+						<!--<button type="button" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+						<button type="button" class="btn btn-orange" id="perferredTimeIsNull-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
+		
+		<!--Modal in Customer Service Centre (Reservation Invalid)-->
+		<div class="modal fade" role="dialog" aria-labelledby="reservationInvalid" id="reservationInvalid">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.customerServiceCentre.reservationInvalid.body" bundle="${msg}" /></p>
+						<button type="button" class="btn btn-orange" id="reservationInvalid-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
 </div>
 
 <!-- JS INCLUDES -->
@@ -156,7 +239,7 @@ var language = "${language}";
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			//$('#fullyBooked').modal('show');
+			$('#fullyBooked').modal('show');
 		}
 		<%
 		if(!result) {
@@ -257,6 +340,22 @@ var language = "${language}";
           }
        }
        
+	$('#pick-another-centre-btn').click(function(){
+		$('#pickAnotherCentre').modal('hide');
+	});
+	$('#fullyBooked-button').click(function(){
+		$('#fullyBooked').modal('hide');
+	});
+	$('#perferredTimeIsNull-btn').click(function(){
+		$('#perferredTimeIsNull').modal('hide');
+	});
+	$('#reservationInvalid-btn').click(function(){
+		$('#reservationInvalid').modal('hide');
+	});
+
+	$('#back-to-home-btn').click(function(){
+		window.location.href= context + "/" + language + "/savings-insurance";
+	});
        
     $("#btn-cstmr-srvc-cnter").on('click', function(){
       	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
@@ -265,9 +364,9 @@ var language = "${language}";
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			//$('#fullyBooked').modal('show');
+			$('#fullyBooked').modal('show');
 		}else if(perferredTime == null || perferredTime.trim() == ""){
-			//$('#perferredTimeIsNull').modal('show');
+			$('#perferredTimeIsNull').modal('show');
 		}else{
 			$.ajax({     
 			    url:context+'/ajax/savings-insurance/upsertAppointment',
@@ -285,10 +384,10 @@ var language = "${language}";
 			    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}');
 				    	$("#paymentForm").submit();
 			    	}else if(data.errMsgs == "Access code has already been used"){
-			    		//$('#accessCodeUsed').modal('show');
+			    		$('#accessCodeUsed').modal('show');
 			    		console.log(data.errMsgs);
 			    	}else if(data.errMsgs == "Reservation is invalid"){
-			    		//$('#reservationInvalid').modal('show');
+			    		$('#reservationInvalid').modal('show');
 			    		console.log(data.errMsgs);
 			    	}
 			    }  
@@ -303,7 +402,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4><fmt:message key="label.address" bundle="${msg}" /></h4><p class="centre-address"><%=entity.getAddress() %></p><a target="_blank" class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
+           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\" /><h4><fmt:message key="label.address" bundle="${msg}" /></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}" /></a>");
         }
         <%
             }

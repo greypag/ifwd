@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+	<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -31,9 +31,9 @@ function goLandingPage(){
 			<div class="container">
 				<div class="row">
 					<ol class="breadcrumb pad-none hidden-sm hidden-xs">
-						<li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#">Savie</a></li>
-						<li class="active "><i class="fa fa-caret-right"></i>Product Recommendation</li>
+						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+						<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="breadcrumb.production.recommendation" bundle="${msg}" /></li>
 					</ol>
 				</div>
 			</div>
@@ -47,142 +47,142 @@ function goLandingPage(){
 							<div class="hidden-sm hidden-xs">
 								<div class="fna-sel-floating-panel">
 									
-									<a href="javascript:void(0);" class="fna-btn-analyse btn btn-primary btn-lg">Save All and Analyse Again <i class="fa fa-caret-right"></i></a>
-									<a href="javascript:void(0);" class="fna-btn-cancel btn btn-primary btn-lg">Cancel</a>
+									<a href="javascript:void(0);" class="fna-btn-analyse btn btn-primary btn-lg"><fmt:message key="fna.button.saveagain" bundle="${msg}" /> <i class="fa fa-caret-right"></i></a>
+									<a href="javascript:void(0);" class="fna-btn-cancel btn btn-primary btn-lg"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 								</div>
 							</div>
-							<h4 class="fna-sel-title">Your FNA Selection
+							<h4 class="fna-sel-title"><fmt:message key=“fna.label.fna.selection" bundle="${msg}" />
 								<div class="hidden-lg hidden-md">
 									<a href="javascript:void(0);" class="fna-btn-mob-close"><i class="fa fa-times"></i></a>
 								</div>
 							</h4>
 							<div class="fna-sel-grid q2">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png">Insurance products<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key=“fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 
 								<div class="checkbox-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c1" name="q2" value="0" disabled>
-										<label for="q2_c1">Pure insurance product<br><span>-without any savings or investment element <br>(e.g. term insurance)</span></label>
+										<label for="q2_c1"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c2" name="q2" value="1" disabled>
-										<label for="q2_c2">Insurance product with savings element<br><span>-with savings but without investment element<br>(e.g. non-participating policy)</span></label>
+										<label for="q2_c2"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c3" name="q2" value="2" disabled>
-										<label for="q2_c3">Insurance product with investment element<br><span>-Investment decisions and risks borne by insurer<br>(e.g. participating policy, universal life insurance)</span></label>
+										<label for="q2_c3"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q2_c4" name="q2" value="3" disabled>
-										<label for="q2_c4">Insurance product with investment element<br><span>-Investment decisions and risks borne by policyholder<br>(e.g. Investment-Linked Assurance Schemes)</span></label>
+										<label for="q2_c4"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></label>
 									</div>
 								</div>
 							</div>
 							<div class="fna-sel-grid q1">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_01.png">Objectives<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_01.png"><fmt:message key="fna.label.objectives" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 								<div class="checkbox-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c1" name="q1" value="0" disabled>
-										<label for="q1_c1">Financial protection against adversities</label>
+										<label for="q1_c1"><fmt:message key="fna.question.q1.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c2" name="q1" value="1" disabled>
-										<label for="q1_c2">Preparation for health care needs</label>
+										<label for="q1_c2"><fmt:message key="fna.question.q1.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c3" name="q1" value="2" disabled>
-										<label for="q1_c3">Providing regular income in the future</label>
+										<label for="q1_c3"><fmt:message key="fna.question.q1.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c4" name="q1" value="3" disabled>
-										<label for="q1_c4">Saving up for the future</label>
+										<label for="q1_c4"><fmt:message key="fna.question.q1.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c5" name="q1" value="4" disabled>
-										<label for="q1_c5">Investment</label>
+										<label for="q1_c5"><fmt:message key="fna.question.q1.option5" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
 							<div class="fna-sel-grid q3">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_03.png">Benefit/ protection period<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_03.png"><fmt:message key="fna.label.benefit" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c1" name="q3" value="0" disabled>
-										<label for="q3_c1">&lt; 1 year</label>
+										<label for="q3_c1"><fmt:message key="fna.question.q3.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c2" name="q3" value="1" disabled>
-										<label for="q3_c2">1-5 years</label>
+										<label for="q3_c2"><fmt:message key="fna.question.q3.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c3" name="q3" value="2" disabled>
-										<label for="q3_c3">6-10 years</label>
+										<label for="q3_c3"><fmt:message key="fna.question.q3.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c4" name="q3" value="3" disabled>
-										<label for="q3_c4">11-20 years</label>
+										<label for="q3_c4"><fmt:message key="fna.question.q3.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c5" name="q3" value="4" disabled>
-										<label for="q3_c5">&gt; 20 years</label>
+										<label for="q3_c5"><fmt:message key="fna.question.q3.option5" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q3_c6" name="q3" value="5" disabled>
-										<label for="q3_c6">Whole of life</label>
+										<label for="q3_c6"><fmt:message key="fna.question.q3.option6" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
 							<div class="fna-sel-grid q4_e">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_04.png">Contribution period<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_04.png"><fmt:message key="fna.label.contributionperiod" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c1" name="q4e" value="0" disabled>
-										<label for="q4e_c1">&lt; 1 year</label>
+										<label for="q4e_c1"><fmt:message key="fna.question.q4e.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c2" name="q4e" value="1" disabled>
-										<label for="q4e_c2">1-5 years</label>
+										<label for="q4e_c2"><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c3" name="q4e" value="2" disabled>
-										<label for="q4e_c3">6-10 years</label>
+										<label for="q4e_c3"><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c4" name="q4e" value="3" disabled>
-										<label for="q4e_c4">11-20 years</label>
+										<label for="q4e_c4"><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c5" name="q4e" value="4" disabled>
-										<label for="q4e_c5">&gt; 20 years</label>
+										<label for="q4e_c5"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4e_c6" name="q4e" value="5" disabled>
-										<label for="q4e_c6">Whole of life</label>
+										<label for="q4e_c6"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></label>
 									</div>
 								</div>
 							</div>
 							<div class="fna-sel-grid q4_a">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_05.png">Your ability to pay premium<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_05.png"><fmt:message key="fna.label.abilitytopay" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 								<div class="radio-gp">
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c1" name="q4_a" value="0" disabled>
-										<label for="q4a_c1">less than HK$10,000</label>
+										<label for="q4a_c1"><fmt:message key="fna.question.q4a.option1" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c2" name="q4_a" value="1" disabled>
-										<label for="q4a_c2">HK$10,000 - $19,999</label>
+										<label for="q4a_c2"><fmt:message key="fna.question.q4a.option2" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c3" name="q4_a" value="2" disabled>
-										<label for="q4a_c3">HK$20,000 - HK$49,999</label>
+										<label for="q4a_c3"><fmt:message key="fna.question.q4a.option3" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c4" name="q4_a" value="3" disabled>
-										<label for="q4a_c4">HK$50,000 - HK$100,000</label>
+										<label for="q4a_c4"><fmt:message key="fna.question.q4a.option4" bundle="${msg}" /></label>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c5" name="q4_a" value="4" disabled>
-										<label for="q4a_c5">over HK$100,000</label>
+										<label for="q4a_c5"><fmt:message key="fna.question.q4a.option5" bundle="${msg}" /></label>
 									</div><!-- 
 									<div class="checkbox">
 										<input type="checkbox" id="q4a_c6" name="q4a" value="yes" disabled>
@@ -191,7 +191,7 @@ function goLandingPage(){
 								</div>
 							</div>
 							<div class="fna-sel-grid no-line q4_b_amount">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_06.png">Liquid assets<a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_06.png"><fmt:message key="fna.label.liquid.assets" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 
 								<label>
 									HK$<input type="text" onkeypress="return isNumeric(event)" value="" readonly>
@@ -202,7 +202,7 @@ function goLandingPage(){
 						<div class="floating-marker"></div>
 						<div class="fna-btn-gp hidden-lg hidden-md row">
 							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
-								<a href="javascript:void(0);" class="fna-btn-mob-cancel">Cancel</a>
+								<a href="javascript:void(0);" class="fna-btn-mob-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 
 							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
@@ -225,16 +225,16 @@ function goLandingPage(){
 									<p class="head"><span class="txt_fna_name">${userDetails.fullName }</span>,</p>
 
 									<div class="haveProducts">
-										<p class="head">FWD recommends<span class="txt_products"> <span class="txt_pnum"></span> product(s)</span> for you</p>
+										<p class="head"><fmt:message key="fna.label.headline.part1" bundle="${msg}" /><span class="txt_products"> <span class="txt_pnum"></span> <fmt:message key="fna.label.headline.part2" bundle="${msg}" /></span> <fmt:message key="fna.label.headline.part3" bundle="${msg}" /></p>
 										<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
 										<div class="hidden-xs">
-											<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
+											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
 										</div>
 									</div>
 									<div class="noProducts">
-										<p>Based on FNA results, the customer should be recommended of insurance product [without any savings or investment element], [with savings but without investment element], [with investment element and investment decisions and risks borne by insurer], [with investment element and investment decisions and risks borne by policyholder] with [XX] payment term to meet customer’s [financial protection against adversities], [preparation for health care needs], [providing regular income in the future], [saving up for the future], [investment] objective.  However, FWD does not have such type of product available.</p>
+										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
 									</div>
-									<a href="<%=request.getContextPath()%>/${language}/FNA/review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
+									<a href="<%=request.getContextPath()%>/${language}/FNA/review" class="fna-btn-review"><fmt:message key="fna.button.back2review" bundle="${msg}" />&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-xs hidden-sm">
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/recommend_box_pic_01.png" class="img-responsive">
@@ -256,14 +256,14 @@ function goLandingPage(){
 										<div class="styled-select text-right">
 											
 											<select name="fnaMobSort" class="form-control soflow select-label" id="fnaMobSort">
-												<option value="0" selected>Contribution Period - High To Low</option>
-												<option value="4">Contribution Period - Low To High</option>
-												<option value="1">Min issue age - High To Low</option>
-												<option value="5">Min issue age - Low To High</option>
-												<option value="2">Max issue age - High To Low</option>
-												<option value="6">Max issue age - Low To High</option>
-												<option value="3">Protection Period - High To Low</option>
-												<option value="7">Protection Period - Low To High</option>
+												<option value="0" selected><fmt:message key="fna.option.productsort.option1" bundle="${msg}" /></option>
+												<option value="4"><fmt:message key="fna.option.productsort.option2" bundle="${msg}" /></option>
+												<option value="1"><fmt:message key="fna.option.productsort.option3" bundle="${msg}" /></option>
+												<option value="5"><fmt:message key="fna.option.productsort.option4" bundle="${msg}" /></option>
+												<option value="2"><fmt:message key="fna.option.productsort.option5" bundle="${msg}" /></option>
+												<option value="6"><fmt:message key="fna.option.productsort.option6" bundle="${msg}" /></option>
+												<option value="3"><fmt:message key="fna.option.productsort.option7" bundle="${msg}" /></option>
+												<option value="7"><fmt:message key="fna.option.productsort.option8" bundle="${msg}" /></option>
 											</select>
 											
 											<i class="fa fa-caret-down"></i>
@@ -278,14 +278,14 @@ function goLandingPage(){
 
 
 						
-						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span>Load more products <i class="fa fa-caret-down"></i></span></a>
+						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span><fmt:message key="fna.link.moreproduct" bundle="${msg}" /> <i class="fa fa-caret-down"></i></span></a>
 
 						<div class="only1Product">
-							Based on FNA results, the customer should be recommended of insurance product [without any savings or investment element] , [with savings but without investment element], [with investment element and investment decisions and risks borne by insurer], [with investment element and investment decisions and risks borne by policyholder] with [XX] payment term. Currently, only the [XXX] can fit the customer’s needs.
+							<fmt:message key="fna.text.only1product" bundle="${msg}" />
 						</div>
 
 						<div class="text-right">
-							<a href="javascript:void(0);" class="fna-btn-clear">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
+							<a href="javascript:void(0);" class="fna-btn-clear"><fmt:message key="fna.link.clearandleave" bundle="${msg}" /> <i class="fa fa-caret-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -311,7 +311,7 @@ function goLandingPage(){
 					<div class="fna-product-type">
 						<span class="fna-product-name"></span><br>
 						<span class="fna-product-type-name"></span>
-						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="">i</span>
+						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="***">i</span>
 					</div>
 					<div class="fna-product-cfa hidden-print">
 						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
@@ -333,8 +333,8 @@ function goLandingPage(){
 					<div class="row fna-btn-show-detail-row hidden-print">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<a href="javascript:void(0);" class="fna-btn-show-detail">
-								<span class="fna-txt-show">Show Details <i class="fa fa-caret-down"></i></span>
-								<span class="fna-txt-hide">Hide Details <i class="fa fa-caret-up"></i></span>
+								<span class="fna-txt-show"><fmt:message key="fna.link.showdetails" bundle="${msg}" /> <i class="fa fa-caret-down"></i></span>
+								<span class="fna-txt-hide"><fmt:message key="fna.link.hidedetails" bundle="${msg}" /> <i class="fa fa-caret-up"></i></span>
 							</a>
 						</div>
 					</div>
@@ -358,9 +358,9 @@ function goLandingPage(){
 								
 								<div class="fna-product-link-details">
 									<a href="javascript:void(0);" class="fna-btn-download">Product brochure <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-download.png"></a>
-									<a href="javascript:void(0);" class="fna-link-key-risk">Key product risks<i class="fa fa-caret-right"></i></a>
-									<a href="javascript:void(0);" class="fna-link-key-exclusions">Key exclusions<i class="fa fa-caret-right"></i></a>
-									<a href="javascript:void(0);" class="fna-btn-details">Product details<i class="fa fa-caret-right"></i></a>
+									<a href="javascript:void(0);" class="fna-link-key-risk"><fmt:message key="fna.link.keyrisk" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
+									<a href="javascript:void(0);" class="fna-link-key-exclusions"><fmt:message key="fna.link.keyexclusion" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
+									<a href="javascript:void(0);" class="fna-btn-details"><fmt:message key="fna.link.prodict.details" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 								</div>
 
 							</div>
@@ -380,15 +380,15 @@ function goLandingPage(){
 				<span class="fna-product-type-name"></span><br>
 				<p class="subject">This product type meets your FNA objective:</p>
 				<p class="desc"></p>
-				<p class="no-product-match">However, no products can be recommended since the results of your FNA do not meet the affordability requirement of our products.</p>
+				<p class="no-product-match"><fmt:message key="fna.text.product.otherstype.description" bundle="${msg}" /></p>
 
 			</div>
 
 			<div class="sort-header clearfix fna-product-lv-header">
-				<div class="con_prd"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_contribution.png"> Contribution period</div>
-				<div class="prd_age"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_benefit.png"> Benefit / protection period up to age</div>
-				<div class="min_age">Min issue age <span>(year)</span></div>
-				<div class="max_age">Max issue age <span>(year)</span></div>
+				<div class="con_prd"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_contribution.png"> <fmt:message key="fna.label.contributionperiod" bundle="${msg}" /></div>
+				<div class="prd_age"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/tab_icon_benefit.png"> <fmt:message key="fna.label.benefit" bundle="${msg}" /></div>
+				<div class="min_age"><fmt:message key="fna.label.minage" bundle="${msg}" /> <span>(year)</span></div>
+				<div class="max_age"><fmt:message key="fna.label.maxage" bundle="${msg}" /> <span>(year)</span></div>
 			</div>
 
 			<!-- <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-tick.png" class="fna-ico-tick"> -->
@@ -422,10 +422,10 @@ function goLandingPage(){
 							<a class="close" aria-label="Close" data-dismiss="modal">
 								<span aria-hidden="true" style="font-size:30px;">×</span>
 							</a>
-							<h4>Do you mean ...</h4>
-							<div class="cont">You want to delete the FNA data (which include the answer and recommended product info). Please confirm and we will bring you back to Savings Insurance page.</div>
+							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
+							<div class="cont"><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></div>
 							<div class="btn-clear-gp">
-							<a href="javascript:void(0);" class="btn-clear-confirm">Confirm</a><a href="javascript:void(0);" class="btn-clear-cancel">Cancel</a>
+							<a href="javascript:void(0);" class="btn-clear-confirm"><fmt:message key="button.confirm" bundle="${msg}" /></a><a href="javascript:void(0);" class="btn-clear-cancel"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>
@@ -460,7 +460,7 @@ function goLandingPage(){
 										<label for="FNAinputEmail" class="field-label">Email address</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="FNAinputEmail" maxlength="50" onblur=""> <span id="errFNAinputEmail" class="text-red"></span>
+										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="FNAinputEmail" maxlength="50" onblue=""> <span id="errFNAinputEmail" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">

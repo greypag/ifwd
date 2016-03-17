@@ -340,7 +340,7 @@ var language = "${language}";
 				<center>
 						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-					<button type="button" id="btn-back" class="btn btn-payment hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+					<button type="button" id="btn-back" class="btn btn-payment hidden" onclick="goNext();"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
 				
 			</div>
@@ -396,6 +396,72 @@ var language = "${language}";
 	 </div>
   </div>
 </div>
+
+<!--Modal in Customer Service Centre-->
+<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+	<div class="modal-dialog teaserSurvey" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey">
+				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+				<h2><fmt:message key="savie.customerServiceCentre.fullyBookmodalheader" bundle="${msg}" /></h2>
+			</div>
+			<div class="modal-body teaserSurvey">
+				<p class="registered"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbody" bundle="${msg}" /></p>
+				
+				<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+				<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbtnTxt" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
+
+<!--Modal in Customer Service Centre (access code had been used)-->
+<div class="modal fade" role="dialog" aria-labelledby="accessCodeUsed" id="accessCodeUsed">
+	<div class="modal-dialog teaserSurvey" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey">
+				<h2><fmt:message key="savie.customerServiceCentre.accessCodeUsedheader" bundle="${msg}" /></h2>
+			</div>
+			<div class="modal-body teaserSurvey">
+				<p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>
+				<button type="button" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
+
+<!--Modal in Customer Service Centre-->
+<div class="modal fade" role="dialog" aria-labelledby="perferredTimeIsNull" id="perferredTimeIsNull">
+	<div class="modal-dialog teaserSurvey" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey">
+				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+				<h2><fmt:message key="savie.customerServiceCentre.perferredTimeIsNull" bundle="${msg}" /></h2>
+			</div>
+			<div class="modal-body teaserSurvey">
+				<p class="registered"><fmt:message key="savie.customerServiceCentre.perferredTimeIsNullContext" bundle="${msg}" /></p>
+				
+				<!--<button type="button" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
+				<button type="button" class="btn btn-orange" id="perferredTimeIsNull-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
+
+<!--Modal in Customer Service Centre (Reservation Invalid)-->
+<div class="modal fade" role="dialog" aria-labelledby="reservationInvalid" id="reservationInvalid">
+	<div class="modal-dialog teaserSurvey" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey">
+				<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
+			</div>
+			<div class="modal-body teaserSurvey">
+				<p class="registered"><fmt:message key="savie.customerServiceCentre.reservationInvalid.body" bundle="${msg}" /></p>
+				<button type="button" class="btn btn-orange" id="reservationInvalid-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
@@ -405,6 +471,19 @@ var language = "${language}";
 	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
+
+	$('#fullyBooked-button').click(function(){
+		$('#fullyBooked').modal('hide');
+	});
+	$('#perferredTimeIsNull-btn').click(function(){
+		$('#perferredTimeIsNull').modal('hide');
+	});
+	$('#reservationInvalid-btn').click(function(){
+		$('#reservationInvalid').modal('hide');
+	});
+	$('#back-to-home-btn').click(function(){
+		window.location.href= context + "/" + language + "/savings-insurance";
+	});
 	
 	$(document).ready(function() {	
 		paymentFormValidation();
@@ -420,7 +499,7 @@ var language = "${language}";
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			//$('#fullyBooked').modal('show');
+			$('#fullyBooked').modal('show');
 		}
 		<%
 		if(!result) {
@@ -468,6 +547,7 @@ var language = "${language}";
 				getTimeSlot('${perferredTime }');
 			}
 			else{
+				$('#perferredTimeIsNull').modal('show');				
 				$("#preferred-time").empty();
 				$("#preferred-time").prepend("<option value=''></option>");
 			}
@@ -536,10 +616,6 @@ var language = "${language}";
 		
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-		});
-		
-		$('#btn-back').click(function() {
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
 		});
 		
 		$("input[type='radio']").on('click', function() {
@@ -787,12 +863,10 @@ var language = "${language}";
 				var csCenter = $("#centre").val();
 				var perferredDate = $("#preferred-date").val();
 				var perferredTime = $("#preferred-time").val();
-				if(perferredDate == null || csCenter == "") {
-					$('#customerServiceCentreErMsg').html('Please select customer service centre.');
-				}else if(perferredDate == null || perferredDate.trim() == ""){
-					$('#preferredDateErMsg').html('Please specify a date.');
+				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+					$('#fullyBooked').modal('show');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
-					$('#preferredTimeErMsg').html('Please specify a time.');
+					$('#perferredTimeIsNull').modal('show');
 				}else{
 					$.ajax({     
 					    url:context+'/ajax/savings-insurance/upsertAppointment',     
@@ -808,10 +882,10 @@ var language = "${language}";
 					    	if(data.errMsgs == null){
 						    	$("#payLaterForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
-					    		//$('#accessCodeUsed').modal('show');
+					    		$('#accessCodeUsed').modal('show');
 					    		console.log(data.errMsgs);
 					    	}else if(data.errMsgs == "Reservation is invalid"){
-					    		//$('#reservationInvalid').modal('show');
+					    		$('#reservationInvalid').modal('show');
 					    		console.log(data.errMsgs);
 					    	}
 					    }  
@@ -830,7 +904,12 @@ var language = "${language}";
 							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+							  if('${backSummary}'=="Y"){
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+							  }
 						  }
 					  }
 			     });
@@ -849,7 +928,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4><fmt:message key="label.address" bundle="${msg}" /><fmt:message key="label.address" bundle="${msg}" /></h4><p class="centre-address"><%=entity.getAddress() %></p><a target="_blank" class="viewmap-link" href="<%=entity.getMap() %>"><fmt:message key="label.view.map" bundle="${msg}" /></a>');
+           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\" /><h4><fmt:message key="label.address" bundle="${msg}" /><fmt:message key="label.address" bundle="${msg}" /></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}" /></a>");
         }
         <%
             }

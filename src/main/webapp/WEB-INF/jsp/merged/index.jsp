@@ -52,6 +52,7 @@
 				<div class="banner-text">
 					<p>Discover a</p>
 					<p class="lower-text">new experience</p>
+					<fmt:message key="label.status.visit.customer.service" bundle="${msg}" />
 				</div>
 			</div>
 			<div class="product-list">
@@ -61,46 +62,46 @@
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-1">
 						  <div class="psa-content">
-							<p class="description">From health, accident and disability cover, to home, travel and car insurance, our policies are designed with one thing in mind - to enable you to live your life to the full, without hesitation.</p>
+							<p class="description"><fmt:message key="custom.index.protect.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
 								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="#">Elite Term <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="#">FlightCare <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="#">TravelCare <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="#">Working HolidaysCare <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="#">Easy HomeCare <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="psa-title">Save</span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-2">
 						  <div class="psa-content">
-							<p class="description">Whether it’s for you, your family or your business, set your signhts on smart investment products made simple, with cover designed to protect what's really important to you.</p>
+							<p class="description"><fmt:message key="custom.index.save.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
 								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="#">Savie insurance <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="psa-title">Enjoy</span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-3">
 						  <div class="psa-content">
-							<p class="description save">The future always seems a long way off, but the sooner you start planning for it the better the return when it does come around. Our saving plans are easy, flexible and designed to work for you overtime. So you can focus on the now and let us take care of the future!</p>
+							<p class="description save"><fmt:message key="custom.index.enjoy.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
 								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="#">FWDiscover <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="#">Partners &amp; Offers <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -108,7 +109,7 @@
 					</div>
 				</div>					
 				<div class="see-more text-center hidden-sm hidden-xs">
-					<p id="see-all-product-btn">See all our products <i class="fa fa-caret-right"></i></p>
+					<p id="see-all-product-btn"><fmt:message key="label.seeallourproducts" bundle="${msg}" /> <i class="fa fa-caret-right"></i></p>
 				</div>
 			</div>
 			<div class="fna fwd-full-container">
@@ -121,22 +122,22 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
 						<button class="btn savie-common-btn get-btn">Get Started</button>
 					</div>-->
-					<button id="btn-fna-cta" class="btn common-yellow-btn get-btn">Let's get started</button>
+					<button id="btn-fna-cta" class="btn common-yellow-btn get-btn"><fmt:message key="button.getstart" bundle="${msg}" /></button>
 				</div>
 				<div class="fna-icons-body text-center clearfix">
 					<div class="fwd-container-limit container-fluid" id="nav-holder">
 						<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
 							<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
-								<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna">Here when you need us</a>
+								<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna"><fmt:message key="pillar.support.title" bundle="${msg}" /></a>
 							</li>
 							<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
-								<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title">Convenience to reach</a>
+								<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></a>
 							</li>
 							<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
-								<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title">Make claims easy</a>
+								<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></a>
 							</li>
 							<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-4">
-								<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna">eService app available</a>
+								<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></a>
 							</li>
 						</ul>
 						<div class="fna-carousel" id="so-carousel">
@@ -146,8 +147,8 @@
 										<div class="fna-icon-circle">
 											<span class="fa fa-commenting-o fa-3x"></span>
 										</div>
-										<h3 class="visible-md visible-lg  tab-head">Here when you need us</h3>
-										<p>Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href="#" class="eserv-link">eServices</a></p>
+										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
+										<p><fmt:message key="pillar.support.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
 								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-2">
@@ -155,8 +156,8 @@
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-2.png" />
 										</div>
-										<h3 class="visible-md visible-lg tab-head">Convenience to reach</h3>
-										<p> Our 5 drip-in location across Hong Kong, Kowloon &amp; New territories</p>
+										<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
+										<p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
 								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-3">
@@ -164,8 +165,8 @@
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-3.png" />
 										</div>
-										<h3 class="visible-md visible-lg tab-head">Make claims easy</h3>
-										<p> For any claims, simply send the completed claim form to our office within 30 days of the expiry of the policy (except personal liability related claims). Refer to our Claims section or download the claim form.</p>
+										<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
+										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
 								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-4">
@@ -173,8 +174,8 @@
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-4.png" />
 										</div>
-										<h3 class="visible-md visible-lg  tab-head">eService app available</h3>
-										<p>Download our <a href="#" class="eserv-link ui-link">eService App</a> App and get the support you need, when you need it.</p>
+										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></h3>
+										<p><fmt:message key="pillar.eservice.app.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.eservice.app" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy3" bundle="${msg}" /></p>
 									</div>
 								</div>
 							</div>
@@ -197,8 +198,8 @@
 						<div class="transparent-overlay"></div>
 						<p class="blog-img-text">7 musts before a long vacation</p>
 					</div>
-					<p class="savie-common-btn visible-md visible-lg read-more-btn">Read more from our blog</p>
-					<button class="savie-common-btn btn read-more-btn  read-more-btn-mb ui-btn ui-shadow">Read more from our blog</button>
+					<p class="savie-common-btn visible-md visible-lg read-more-btn"><fmt:message key="blog.title" bundle="${msg}" /></p>
+					<button class="savie-common-btn btn read-more-btn  read-more-btn-mb ui-btn ui-shadow"><fmt:message key="blog.title" bundle="${msg}" /></button>
 					<hr class="hidden-sm hidden-xs" />
 					<p class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
 				</div>
@@ -218,37 +219,37 @@
 					<div class="products-first-block">
 						<div class="col-lg-3 col-md-3 portfolio-item">	
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog1.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog1.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog1.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog1.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-21.png" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog2.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog2.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog2.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog2.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-22.png" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog3.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog3.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog3.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog3.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img  class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-23.png" />
 						</div>
 						<div class="col-lg-3 col-md-3 portfolio-item">
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog4.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog4.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog4.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog4.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-24.png" />	
 						</div>
@@ -256,37 +257,37 @@
 					<div class="products-first-block">
 						<div class="col-md-3 col-lg-3 portfolio-item">	
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog5.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog5.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog5.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog5.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-25.png" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog6.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog6.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog6.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog6.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-26.png" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
-								<h4>Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog7.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog7.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog7.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog7.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-27.png" />
 						</div>
 						<div class="col-md-3 col-lg-3 portfolio-item">
 							<div class="caption">
-								<h4 class="caption-h4">Kala Patthar</h4>
-								<h5 class="show-travel">TRAVEL</h5>
-								<p class="show-sentence">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<button class="btn-readnow" rel="tooltip">Read now</button>
+								<h4><fmt:message key="blog.blog8.title1" bundle="${msg}" /></h4>
+								<h5 class="show-travel"><fmt:message key="blog.blog8.title2" bundle="${msg}" /></h5>
+								<p class="show-sentence"><fmt:message key="blog.blog8.title3" bundle="${msg}" /></p>
+								<a href="<fmt:message key="link.blog8.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/Layer-28.png" />
 						</div>
@@ -299,7 +300,7 @@
 			<!-- Business Partners -->
 			<div class="bg-business-partners">
 				<div id="business-partners-container" class="container-fluid content-container">
-				   <h2 class="text-center">Partners</h2>				   
+				   <h2 class="text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
 					  <!--<div class="hidden-xs hidden-sm col-xs-1"></div>-->
@@ -307,14 +308,14 @@
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
 							<a href="#" class="hidden-md hidden-lg">Enjoy 8% </a>
-							<p class="hidden-xs hidden-sm">Enjoy 8%  <a href="#">Agoda</a> discount on all travel products upon successful registration of FWD online membership.</p>
+							<p class="hidden-xs hidden-sm">Enjoy 8%  <a href="<fmt:message key="link.partner.offer.copy1" bundle="${msg}" />"><fmt:message key="label.partner.offer.copy1" bundle="${msg}" /></a> discount on all travel products upon successful registration of FWD online membership.</p>
 						</div>
 					  </div>
 					  <div id="bp-pricerite" class="col-xs-6 text-center">
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_pricerite.png">
 							<a href="#" class="hidden-md hidden-lg">HK$ 50 e-coupon from </a>
-							<p class="hidden-xs hidden-sm">HK$ 50 e-coupon from  <a href="#">Pricerite</a> for every successful referral.</p>
+							<p class="hidden-xs hidden-sm">HK$ 50 e-coupon from  <a href="<fmt:message key="link.partner.offer.copy2" bundle="${msg}" />"><fmt:message key="label.partner.offer.copy2" bundle="${msg}" /></a> for every successful referral.</p>
 						</div>
 					  </div>
 				   </div>
