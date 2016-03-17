@@ -2481,4 +2481,22 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		return responseJsonObj;
 	}
+	
+	public void clearPolicyApplication(HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject parameters = new JSONObject();
+		parameters.put("planCode", "SAVIE-SP");
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		apiReturn = connector.clearPolicyApplication(parameters, header);
+		if(apiReturn==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
+	}
 }

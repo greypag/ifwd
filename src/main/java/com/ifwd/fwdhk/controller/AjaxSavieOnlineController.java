@@ -609,4 +609,21 @@ public class AjaxSavieOnlineController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/clearPolicyApplication"})
+	public void clearPolicyApplication(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.clearPolicyApplication(request);
+			jsonObject.put("success", "success");
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 }
