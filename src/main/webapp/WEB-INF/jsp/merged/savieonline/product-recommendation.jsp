@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -51,13 +51,13 @@ function goLandingPage(){
 									<a href="javascript:void(0);" class="fna-btn-cancel btn btn-primary btn-lg"><fmt:message key="button.cancel" bundle="${msg}" /></a>
 								</div>
 							</div>
-							<h4 class="fna-sel-title"><fmt:message key=“fna.label.fna.selection" bundle="${msg}" />
+							<h4 class="fna-sel-title"><fmt:message key="fna.label.fna.selection" bundle="${msg}" />
 								<div class="hidden-lg hidden-md">
 									<a href="javascript:void(0);" class="fna-btn-mob-close"><i class="fa fa-times"></i></a>
 								</div>
 							</h4>
 							<div class="fna-sel-grid q2">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key=“fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key="fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 
 								<div class="checkbox-gp">
 									<div class="checkbox">
