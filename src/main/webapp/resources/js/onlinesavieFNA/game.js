@@ -341,8 +341,8 @@ var fnaSavieGame = {
 			var val = elm.find("input").val();
 			that.postData[formField] = val;
 
-			var dt = val.split("-");
-			elm.find(".txt_dob").html(dt[2] +"&nbsp;&#8226;&nbsp;"+ dt[1]+"&nbsp;&#8226;&nbsp;"+ dt[0]);
+			//var dt = val.split("-");
+			elm.find(".txt_dob").html(val);
 
 			var today = new Date();
 			that.age = today.getFullYear() - ev.date.getFullYear();
@@ -354,6 +354,13 @@ var fnaSavieGame = {
 			$(".step2 .frm-fna-dob").parents(".fna-row").find(".fna-error-msg").text("");
 			//Mirror
 		});
+		
+		if($(".step2 .txt_dob").text() != "DD-MM-YYYY"){
+			var dt = $(".step2 .txt_dob").text().split("-");
+			$('.frm-fna-dob').datepicker("setDate", new Date(dt[2],dt[1]-1,dt[0]) );
+		}
+		
+		
 
 		/*$('#fna_dob').datepicker('setDate', dob_end_date);*/
 
