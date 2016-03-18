@@ -193,9 +193,7 @@ function goLandingPage(){
 										
 										<p class="onlyOneProduct"></p>
 										<p class="hasManyProduct"><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
-										<div class="hidden-xs">
-											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
-										</div>
+										
 									</div>
 									<div class="noProducts">
 										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
