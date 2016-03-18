@@ -354,10 +354,16 @@ var fnaSavieGame = {
 			$(".step2 .frm-fna-dob").parents(".fna-row").find(".fna-error-msg").text("");
 			//Mirror
 		});
-		
-		if($(".step2 .txt_dob").text() != "DD-MM-YYYY"){
+		//
+		if($(".step2 .txt_dob").text() != "DD-MM-YYYY" && $.trim($(".step2 .txt_dob").text() != "")){
 			var dt = $(".step2 .txt_dob").text().split("-");
-			$('.frm-fna-dob').datepicker("setDate", new Date(dt[2],dt[1]-1,dt[0]) );
+			if(dt.length == 3){
+				$('.frm-fna-dob').datepicker("setDate", new Date(dt[2],dt[1]-1,dt[0]) );
+			}else{
+				$(".step2 .txt_dob").text("DD-MM-YYYY");
+			}
+		}else{
+			$(".step2 .txt_dob").text("DD-MM-YYYY");
 		}
 		
 		
