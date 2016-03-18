@@ -191,10 +191,9 @@ var languageP = "${language}";
 										</div>
 										<span class="error-msg" id="occupationErMsg"></span>
 									</div>
-									<!--<input type="text" name="other-occupation" id="other-occupation" class="gray-textbox hidden" placeholder="Please specify" />-->
-									<div class="form-group employment-field hidden">
+									<div id="otherOccupationDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
-											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="other-occupation" name="otherOccupation" />
+											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="other-occupation" name="otherOccupation" value="${savieFna.occupation_others }" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation"><fmt:message key="placeholder.please.specify" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="otherOccupationErMsg"></span>
@@ -461,7 +460,7 @@ var languageP = "${language}";
 				setSelectReadonly('tmpEducationLevel', true);
 				//setSelectReadonly('tmpOtherIncomeAmount', true);
 				setSelectReadonly('tmpLiquidAssetsAmount', true);
-				
+				setInputReadonly('other-occupation', true);
 				
 				var employmentS = '${savieFna.employment_status }';
 				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
@@ -479,6 +478,12 @@ var languageP = "${language}";
 					$('#occupationDiv').removeClass('hidden');
 					$('#employerNameDiv').removeClass('hidden');
 					$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+					if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
+						$('#otherOccupationDiv').removeClass('hidden');
+					}
+					else{
+						$('#otherOccupationDiv').addClass('hidden');
+					}
 				}
 				
 				var dummy = true;

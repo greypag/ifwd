@@ -120,14 +120,13 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 							</div>
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
-				                   <div class="pull-right">
-				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
+				                   <div>				               
+				                   		<h3 class="amount-selected"><span class="pull-left"><fmt:message key="label.savie.amount" bundle="${msg}" /></span><span class="pull-right">HKD <span class="pull-right" id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></span></h3>
 				                   </div>
 				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
-											<p><fmt:message key="label.min" bundle="${msg}" /></p>
-											<p>30,000</p>
+											<p><fmt:message key="label.min" bundle="${msg}" /></p>											
 										</div>
 										<div class="pull-right text-center">
 											<p><fmt:message key="label.max" bundle="${msg}" /></p>
@@ -572,7 +571,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /></h4>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
 		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.appointment" bundle="${msg}" /></button></center>
 		    </div>

@@ -104,9 +104,11 @@ function submitLoginForm(formID) {
 								&& $('#loginpopup #nav-bar-check').val() == 'false'){		
 							homeFnaGoNext();
 							$("#fullName").html(data.fullName);
+							$("#fullName1").html(data.fullName);
 						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
+							$("#fullName1").html(data.fullName);
 							saviePlanDetailsGoNext();
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){

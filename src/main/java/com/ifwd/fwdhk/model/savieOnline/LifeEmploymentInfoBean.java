@@ -21,6 +21,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String natureOfBusinessName;
 	private String occupation;
 	private String occupationName;
+	private String otherOccupation;
 	private String employerName;
 	private String monthlyPersonalIncome;
 	private String monthlyPersonalIncomeName;
@@ -195,6 +196,14 @@ public class LifeEmploymentInfoBean implements Serializable {
 
 	public void setAmountOfLiquidAssetsName(String amountOfLiquidAssetsName) {
 		this.amountOfLiquidAssetsName = amountOfLiquidAssetsName;
+	}
+
+	public String getOtherOccupation() {
+		return otherOccupation;
+	}
+
+	public void setOtherOccupation(String otherOccupation) {
+		this.otherOccupation = otherOccupation;
 	}
 	
 }

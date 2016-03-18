@@ -55,4 +55,6 @@ public interface SavieOnlineService {
 	public void contactCs(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) throws Exception;
 	public void clearPolicyApplication(HttpServletRequest request) throws ECOMMAPIException;
+	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
+	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
 }

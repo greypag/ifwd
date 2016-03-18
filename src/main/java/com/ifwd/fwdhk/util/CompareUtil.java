@@ -19,7 +19,6 @@ public class CompareUtil {
 	private static String TO_100 = "To age 100";
 	private static String ONE_OFF ="One-Off";
 	private static String SAVIE = "SAVIE";
-	private static String SAVIE_GROUP = "Insurance product with savings element -with savings but without investment element";
 	private static Comparator<String> sortProductList = new Comparator<String>() {
 		@Override
 		public int compare(String o1, String o2) {
@@ -275,13 +274,17 @@ public class CompareUtil {
 		Collections.sort(beans, new Comparator<ProductList>() {
 			@Override
 			public int compare(ProductList o1, ProductList o2) {
-				if(SAVIE_GROUP.equals(o1.getGroup())) {
-					return -1;
-				}else if (SAVIE_GROUP.equals(o2.getGroup())) {
-					return 1;
-				}else {
-					return 0;
+				for(Products entity : o1.getProducts()) {
+					if(SAVIE.equals(entity.getProduct_code())){
+						return -1;
+					}
 				}
+				for(Products entity : o2.getProducts()) {
+					if(SAVIE.equals(entity.getProduct_code())){
+						return 1;
+					}
+				}
+				return 0;
 			}
 		});
 		return g.toJson(beans);
