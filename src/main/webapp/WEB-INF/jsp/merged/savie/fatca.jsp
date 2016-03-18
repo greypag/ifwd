@@ -109,11 +109,8 @@ var languageP = "${language}";
 					 </div>
 					 <div class="modal-body" id="modal-body-fatca">
 						<ol>
-							<li><fmt:message key="declaration.fatca.copy1" bundle="${msg}" /></li>
-							<li><fmt:message key="declaration.fatca.copy3" bundle="${msg}" /></li>
-							<li><fmt:message key="declaration.fatca.copy4" bundle="${msg}" /></li>
-							<li id="fourth-li"><fmt:message key="declaration.fatca.copy5" bundle="${msg}" /></li>
-							</ol>
+							<fmt:message key="declaration.fatca.copy1" bundle="${msg}" />	
+						</ol>
 					 </div>
 				 </div>
 			  </div>

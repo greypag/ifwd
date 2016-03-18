@@ -180,7 +180,7 @@ var Review = {
 		for(var i = 0; i< s.length; i++){
 			var opt = $("<option/>");
 			opt.val(s[i].id).text(s[i].name);
-			opt.attr("data-type", s[i].disable);
+			opt.attr("data-type", (s[i].id == "ES4" || s[i].id == "ES5" || s[i].id == "ES6" || s[i].id == "ES7"));
 			$("#status").append(opt);
 		}
 		$("#status option[value='"+status+"']").prop("selected", true);

@@ -184,7 +184,7 @@ var fnaSavieGame = {
 
 		$(Status["data"]).each(function(key,val){
 			var option = $("<option/>");
-			option.val(val.id).text(val.name).data("noNextFld",val.disable);
+			option.val(val.id).text(val.name).data("noNextFld",(val.id == "ES4" || val.id == "ES5" || val.id == "ES6" || val.id == "ES7"))
 			sel.append(option);
 		});
 		
@@ -454,8 +454,8 @@ var fnaSavieGame = {
 						option.val(val.id).text(val.nob).data("key",key);
 						sel.append(option);
 					});
-					$(".frm-fna-nob").select2();
-					$(".frm-fna-occupation").select2();
+					if (!isMobile) $(".frm-fna-nob").select2();
+					if (!isMobile) $(".frm-fna-occupation").select2();
 					$(".frm-fna-nob").parents(".fna-row").removeClass("hide");
 				}
 			}
@@ -484,7 +484,7 @@ var fnaSavieGame = {
 				});
 				$(".frm-fna-occupation").parents(".fna-row").removeClass("hide");
 			}		
-			$(".frm-fna-occupation").select2();
+			if (!isMobile) $(".frm-fna-occupation").select2();
 		});
 
 		$(".frm-fna-occupation").change(function(){
@@ -509,8 +509,8 @@ var fnaSavieGame = {
 		});
 
 		
-		$(".frm-fna-nob").select2();
-		$(".frm-fna-occupation").select2();
+		if (!isMobile) $(".frm-fna-nob").select2();
+		if (!isMobile) $(".frm-fna-occupation").select2();
 	},
 
 	registerStep:function(){
