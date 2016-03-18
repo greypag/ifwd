@@ -101,7 +101,7 @@ var languageP = "${language}";
 								<div class="pull-left radio-holder">
 								   <input type="radio" id="upload-now-radio" name="upload" value="true" checked /> <label for="upload-now-radio"></label>
 								</div>
-								<div class="pull-left desc">
+								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.now" bundle="${msg}" />
 								   <span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
 								</div>
@@ -110,7 +110,7 @@ var languageP = "${language}";
 								<div class="pull-left radio-holder">
 								   <input type="radio" id="upload-later-radio" name="upload" value="false" /> <label for="upload-later-radio"></label>
 								</div>
-								<div class="pull-left desc">
+								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.later" bundle="${msg}" />
 								   <span><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
 								</div>
@@ -133,7 +133,7 @@ var languageP = "${language}";
 											<label for="hkPermanentRes"></label>
 										 </div>
 										 <div class="pull-left right-checkbox">
-											<span class="checkbox-text"><fmt:message key="label.hk.permanent.resident" bundle="${msg}" /></span>
+											<span class="text-bold checkbox-text"><fmt:message key="label.hk.permanent.resident" bundle="${msg}" /></span>
 										 </div>
 									  </div>
 								   </div>
@@ -263,7 +263,7 @@ var languageP = "${language}";
 								<div class="col-xs-12 col-md-4 so-upload" id="proof-address-holder">
 									<h5 class="so-h5"><fmt:message key="label.proof.of.address" bundle="${msg}" /></h5>
 									<h6 class="so-h6"><fmt:message key="label.upload.address.proof.copy1" bundle="${msg}" />
-										<span class="upload-h6"><a href="#" class="upload-link" data-toggle="modal" data-target=".modal-address-prof"><fmt:message key="label.upload.address.proof.copy2" bundle="${msg}" /></a> <fmt:message key="label.upload.address.proof.copy3" bundle="${msg}" /></span>
+										<span class="text-bold upload-h6"><a href="#" class="text-bold upload-link" data-toggle="modal" data-target=".modal-address-prof"><fmt:message key="label.upload.address.proof.copy2" bundle="${msg}" /></a> <fmt:message key="label.upload.address.proof.copy3" bundle="${msg}" /></span>
 									</h6>
 									<form action="" id="js-upload-form" method="POST" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-addr">
@@ -282,7 +282,7 @@ var languageP = "${language}";
 														</span>
 													</label>
 												</div>
-												<div class="desk hidden-xs hidden-sm">
+												<div class="text-bold desk hidden-xs hidden-sm">
 													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
 												<div class="mob-desk or">

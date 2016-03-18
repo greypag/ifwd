@@ -724,7 +724,7 @@ var languageP = "${language}";
 						<h3 class="heading-title"><fmt:message key="label.member.detail" bundle="${msg}" /></h3>
 						<div id="member-details">	
 							<div class="row member-data-holder">
-								<div class="col-xs-6 col-md-4 member-data-label">
+								<div class="text-bold col-xs-6 col-md-4 member-data-label">
 									<fmt:message key="label.fullname" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
@@ -732,7 +732,7 @@ var languageP = "${language}";
 								</div>
 							</div>
 							<div class="row member-data-holder">
-								<div class="col-xs-6 col-md-4 member-data-label">
+								<div class="text-bold col-xs-6 col-md-4 member-data-label">
 									<fmt:message key="label.mobile.no." bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
@@ -740,7 +740,7 @@ var languageP = "${language}";
 								</div>
 							</div>
 							<div class="row member-data-holder">
-								<div class="col-xs-6 col-md-4 member-data-label">
+								<div class="text-bold col-xs-6 col-md-4 member-data-label">
 									<fmt:message key="label.email.address" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
@@ -748,7 +748,7 @@ var languageP = "${language}";
 								</div>
 							</div>
 							<div class="row member-data-holder">
-								<div class="col-xs-6 col-md-4 member-data-label">
+								<div class="text-bold col-xs-6 col-md-4 member-data-label">
 									<fmt:message key="label.username" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
@@ -757,7 +757,7 @@ var languageP = "${language}";
 							</div>
 						</div>
 						<h3 class="heading-title"><fmt:message key="label.fna" bundle="${msg}" /></h3>	
-						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a href="javascript:void(0);" onclick="goFna();" >Review FNA</a></p>	
+						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a class="bold text-bold" href="javascript:void(0);" onclick="goFna();" >Review FNA</a></p>	
 					</div>
 					<div id="promo-offers-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
@@ -771,7 +771,7 @@ var languageP = "${language}";
 								<div class="promotion-code-container">
 									<h3 class="heading-title hidden-xs hidden-sm"><fmt:message key="label.personnal.promotion.code1" bundle="${msg}" /></h3>
 									<p>Use your code to enjoy discounts from our partners</p>
-									<p>Your code: <br class="visible-xs visible-sm" /><span class="your-code">V3B68V</span></p>
+									<p>Your code: <br class="visible-xs visible-sm" /><span class="text-bold bold your-code">V3B68V</span></p>
 									<table class="table table-striped" id="promotion-code-table">
 										 <thead>
 										 	<tr>

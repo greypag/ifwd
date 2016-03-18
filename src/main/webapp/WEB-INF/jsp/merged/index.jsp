@@ -56,7 +56,7 @@
 			<div class="product-list">
 				<div class="content-container row fwd-container-limit">
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-1">
 						  <div class="psa-content">
@@ -75,7 +75,7 @@
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-2">
 						  <div class="psa-content">
@@ -90,7 +90,7 @@
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-3">
 						  <div class="psa-content">
@@ -107,7 +107,7 @@
 					</div>
 				</div>					
 				<div class="see-more text-center hidden-sm hidden-xs">
-					<p id="see-all-product-btn"><fmt:message key="label.seeallourproducts" bundle="${msg}" /> <i class="fa fa-caret-right"></i></p>
+					<p class="text-bold" id="see-all-product-btn"><fmt:message key="label.seeallourproducts" bundle="${msg}" /> <i class="fa fa-caret-right"></i></p>
 				</div>
 			</div>
 			<div class="fna fwd-full-container">
@@ -120,7 +120,7 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
 						<button class="btn savie-common-btn get-btn">Get Started</button>
 					</div>-->
-					<button id="btn-fna-cta" class="btn common-yellow-btn get-btn"><fmt:message key="button.getstart" bundle="${msg}" /></button>
+					<button id="btn-fna-cta" class="text-bold btn common-yellow-btn get-btn"><fmt:message key="button.getstart" bundle="${msg}" /></button>
 				</div>
 				<div class="fna-icons-body text-center clearfix">
 					<div class="fwd-container-limit container-fluid" id="nav-holder">
@@ -196,7 +196,7 @@
 						<div class="transparent-overlay"></div>
 						<p class="blog-img-text">7 musts before a long vacation</p>
 					</div>
-					<p class="savie-common-btn visible-md visible-lg read-more-btn"><fmt:message key="blog.title" bundle="${msg}" /></p>
+					<p class="text-bold savie-common-btn visible-md visible-lg read-more-btn"><fmt:message key="blog.title" bundle="${msg}" /></p>
 					<button class="savie-common-btn btn read-more-btn  read-more-btn-mb ui-btn ui-shadow"><fmt:message key="blog.title" bundle="${msg}" /></button>
 					<hr class="hidden-sm hidden-xs" />
 					<p class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
@@ -298,7 +298,7 @@
 			<!-- Business Partners -->
 			<div class="bg-business-partners">
 				<div id="business-partners-container" class="container-fluid content-container">
-				   <h2 class="text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
+				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
 					  <!--<div class="hidden-xs hidden-sm col-xs-1"></div>-->

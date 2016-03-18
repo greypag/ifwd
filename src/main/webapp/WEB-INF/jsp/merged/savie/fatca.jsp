@@ -91,8 +91,8 @@ var languageP = "${language}";
 	  					<h3><fmt:message key="info.fatca.copy1" bundle="${msg}" /></h3>
 	  					<p id="agreement"><fmt:message key="decleration.fatca.copy1" bundle="${msg}" /></p>
 	  					<div id="buttons-holder" class="text-center clearfix">
-	  						<button type="button" class="btn savie-common-btn" id="yes-btn"><fmt:message key="button.yes" bundle="${msg}" /></button>
-	  						<button type="button" class="btn savie-common-btn" id="no-btn"><fmt:message key="button.no" bundle="${msg}" /></button>
+	  						<button type="button" class="text-bold btn savie-common-btn" id="yes-btn"><fmt:message key="button.yes" bundle="${msg}" /></button>
+	  						<button type="button" class="text-bold btn savie-common-btn" id="no-btn"><fmt:message key="button.no" bundle="${msg}" /></button>
 	  					</div>
 	  					<div id="condition-holder" class="clearfix pull-right">
 	  						<p><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>

@@ -17,7 +17,9 @@ var affiliate = "${affiliate}";
 function goLandingPage(){
 	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 }
-	
+
+var fnaq1 = '${savieFna.q1 }';
+var fnaq4e = '${savieFna.q4_e }';
 </script>
 
 <!--   Main Content Start -->
@@ -193,9 +195,7 @@ function goLandingPage(){
 										
 										<p class="onlyOneProduct"></p>
 										<p class="hasManyProduct"><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
-										<div class="hidden-xs">
-											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
-										</div>
+										
 									</div>
 									<div class="noProducts">
 										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
@@ -322,10 +322,10 @@ function goLandingPage(){
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-product-col-obj pad-none">
 								
 								<div class="fna-product-link-details">
-									<a href="javascript:void(0);" class="fna-btn-download">Product brochure <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-download.png"></a>
+									<a href="javascript:void(0);" class="fna-btn-download" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-download.png"></a>
 									<a href="javascript:void(0);" class="fna-link-key-risk"><fmt:message key="fna.link.keyrisk" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 									<a href="javascript:void(0);" class="fna-link-key-exclusions"><fmt:message key="fna.link.keyexclusion" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
-									<a href="javascript:void(0);" class="fna-btn-details"><fmt:message key="fna.link.prodict.details" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
+									<a href="javascript:void(0);" class="fna-btn-details" target="_blank"><fmt:message key="fna.link.prodict.details" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 								</div>
 
 							</div>
@@ -366,10 +366,17 @@ function goLandingPage(){
 			<p class="txt_onlyOneProduct"><fmt:message key="fna.text.only1product" bundle="${msg}" /></p>
 
 			<p class="txt_noAvailableProduct"><fmt:message key="fna.text.noavailableproduct" bundle="${msg}" /></p>
-			<p class="txt_q4e_0"><fmt:message key="fna.text.q4e.array0" bundle="${msg}" /></p>
-			<p class="txt_q4e_1"><fmt:message key="fna.text.q4e.array1" bundle="${msg}" /></p>
-			<p class="txt_q4e_2"><fmt:message key="fna.text.q4e.array2" bundle="${msg}" /></p>
-			<p class="txt_q4e_3"><fmt:message key="fna.text.q4e.array3" bundle="${msg}" /></p>
+			<p class="txt_q2_0"><fmt:message key="fna.text.q2.array0" bundle="${msg}" /></p>
+			<p class="txt_q2_1"><fmt:message key="fna.text.q2.array1" bundle="${msg}" /></p>
+			<p class="txt_q2_2"><fmt:message key="fna.text.q2.array2" bundle="${msg}" /></p>
+			<p class="txt_q2_3"><fmt:message key="fna.text.q2.array3" bundle="${msg}" /></p>
+			
+			<p class="txt_q4e_0"><fmt:message key="fna.question.q4e.option1" bundle="${msg}" /></p>
+			<p class="txt_q4e_1"><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></p>
+			<p class="txt_q4e_2"><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></p>
+			<p class="txt_q4e_3"><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></p>
+			<p class="txt_q4e_5"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></p>
+			<p class="txt_q4e_6"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></p>
 
 			<p class="txt_obj_0"><fmt:message key="fna.text.objectives.array0" bundle="${msg}" /></p>
 			<p class="txt_obj_1"><fmt:message key="fna.text.objectives.array1" bundle="${msg}" /></p>

@@ -179,7 +179,7 @@ var Review = {
 		$("#status").empty();
 		for(var i = 0; i< s.length; i++){
 			var opt = $("<option/>");
-			opt.val(s[i].id).text(s[i].name);
+			opt.val(s[i].id).html(s[i].name);
 			opt.attr("data-type", (s[i].id == "ES4" || s[i].id == "ES5" || s[i].id == "ES6" || s[i].id == "ES7"));
 			$("#status").append(opt);
 		}
@@ -190,7 +190,7 @@ var Review = {
 		$("#nature").empty();
 		for(var i = 0; i< natures.length; i++){
 			var opt = $("<option/>");
-			opt.val(natures[i].id).text(natures[i].nob);
+			opt.val(natures[i].id).html(natures[i].nob);
 			opt.attr("data-id", i);
 			$("#nature").append(opt);
 
@@ -208,7 +208,7 @@ var Review = {
 		$("#occupation").append(opt);
 		for(var i = 0; i< occupations.length; i++){
 			var opt = $("<option/>");
-			opt.val(occupations[i].id).text(occupations[i].name);
+			opt.val(occupations[i].id).html(occupations[i].name);
 			$("#occupation").append(opt);
 		}
 		$("#occupation option[value='"+occ+"']").prop("selected", true);

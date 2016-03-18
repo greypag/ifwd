@@ -89,7 +89,7 @@ var languageP = "${language}";
 							 <div class="pull-left radio-holder">
 								<input type="radio" id="digi-radio" name="sign-radio" checked /> <label for="digi-radio"></label>
 							 </div>
-							 <div class="pull-left desc" id="id-digi-sign">
+							 <div class="text-bold pull-left desc" id="id-digi-sign">
 								<fmt:message key="option.savie.online.sign" bundle="${msg}" />
 								 <span><fmt:message key="option.savie.online.sign.copy1" bundle="${msg}" /></span>
 							 </div>
@@ -98,7 +98,7 @@ var languageP = "${language}";
 							 <div class="pull-left radio-holder">
 								<input type="radio" id="off-radio" name="sign-radio" /> <label for="off-radio"></label>
 							 </div>
-							 <div class="pull-left desc" id="id-off-sign">
+							 <div class="text-bold pull-left desc" id="id-off-sign">
 								<fmt:message key="option.savie.offline.sign" bundle="${msg}" />
 								 <span><fmt:message key="option.savie.offline.sign.copy1" bundle="${msg}" /></span>
 							 </div>
@@ -232,10 +232,10 @@ var languageP = "${language}";
 		<div class="modal-content">
 			  <div class="modal-header">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				 <p class="modal-title visible-xs visible-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
+				 <p class="text-bold modal-title visible-xs visible-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
 			  </div>
 			  <div class="modal-body">
-				<p class="modal-title hidden-xs hidden-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
+				<p class="text-bold modal-title hidden-xs hidden-sm"><fmt:message key="label.signature.title" bundle="${msg}" /></p>
 				 <p><fmt:message key="label.please.sign.in.grey.area" bundle="${msg}" /></p>
 				 <form action="">
 					<div class="signature-parent">
@@ -252,7 +252,7 @@ var languageP = "${language}";
 						</div>
 					</div>
 					<center>
-						<button class="btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1"><fmt:message key="button.confirm.button" bundle="${msg}" /></button>
+						<button class="text-bold btn savie-common-btn btn-confirm disabled-gray-btn" id="btn-confirm-1"><fmt:message key="button.confirm.button" bundle="${msg}" /></button>
 					</center>
 				 </form>
 			  </div>

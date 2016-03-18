@@ -515,9 +515,9 @@ var languageP = "${language}";
                               </div>
                            </div>
                            <div class="next-btn">
-                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
+                              <button id="et-personal-info-next" class="text-bold btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
 							  <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-							   <button type="button" id="btn-back" class="btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+							   <button type="button" id="btn-back" class="text-bold btn hidden beneficiary-btn-back savie-common-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
                            </div>
                         </form>
                      </div>

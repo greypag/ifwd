@@ -156,7 +156,7 @@
 								<a class="embed" id="pdf-modal-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf" /></a>
 							</div>
 							<div class="text-center">
-								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
+								<button class="text-bold btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
 							</div>	
 						</div>
 					  </div>
@@ -171,7 +171,7 @@
 	        		</div>
 	        		<div class="text-center">
 	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
-	        			<button type="" class="btn savie-common-btn" id="accept-btn"><fmt:message key="button.accept" bundle="${msg}" /></button>
+	        			<button type="" class="text-bold btn savie-common-btn" id="accept-btn"><fmt:message key="button.accept" bundle="${msg}" /></button>
 	        		</div>
 	        	</div>
 	        </div>
