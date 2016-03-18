@@ -8,13 +8,13 @@
         aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg fwd-modal-wrapper">
             <div class="modal-content">
-<!--                 <div class="modal-header"> -->
+<!--                 <div class="modal-header">
 <!--                   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
 <!--                 </div> -->
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="modal-body text-center">
-                    <div class="gary h5 separator"><fmt:message key="session.alert.headline" bundle="${msg}" /></div>
-                    <div class="gary h6"><fmt:message key="session.alert.headline2" bundle="${msg}" /></div>
+                    <div class="gary h5 separator"><fmt:message key="session.alert.headline" bundle="${msg}" /></div>                   
+                    <!--<div class="gary h6"><fmt:message key="session.alert.headline2" bundle="${msg}" /></div>-->
                     <div id="session-alert-counter" class="separator"></div>
                     <button id="session-extend" type="button" class="cta-font cta-apply cta-orange" data-dismiss="modal"><fmt:message key="session.alert.btn.continue" bundle="${msg}" /></button>
                     <!--<button id="session-save" type="button" class="cta-font cta-apply cta-gary" data-dismiss="modal"><fmt:message key="session.alert.btn.home" bundle="${msg}" /></button>-->                  
@@ -45,9 +45,14 @@
     
     <c:out value="${timeValues}"/>
 	<%
-	if (session.getAttribute("userDetails") != null && request.getAttribute("controller") == "SavieOnline" && request.isRequestedSessionIdValid()==true) {
-	    session.setMaxInactiveInterval(1800);
-	}
+/* 	session = request.getSession(false);
+    if(session==null){
+        session.invalidate();
+    }	
+	if (session.getAttribute("userDetails") != null) {
+	    //session.setMaxInactiveInterval(60);
+	    out.println(session.getAttribute("username"));
+	} */
 	long creationTime = session.getLastAccessedTime() + (session.getMaxInactiveInterval()* 1000);
 	long now = new Date().getTime();
 	
@@ -56,34 +61,35 @@
 
 
 <script type="text/javascript">
-   console.log(${pageContext.session.maxInactiveInterval});
+   console.log(<%=session.getMaxInactiveInterval() %>);
    var sessionTimer = <%=creationTime%>;
-   <% if (session.getAttribute("userDetails") != null && request.getAttribute("controller") == "SavieOnline" && request.isRequestedSessionIdValid()==true) {%>
+   <% if (session.getAttribute("userDetails") != null) {%>
    $("#session-alert-counter").countdown(new Date(sessionTimer),{elapse: true}).on('update.countdown', function(event) {	   
        if(event.elapsed){
-           $(this).html('Expired');
            $('#session-extend').prop('disabled', true);
-           location.replace("<%=request.getContextPath()%>/${language}");
+           window.location.href = "<%=request.getContextPath()%>/userLogout";
+           <%--location.replace("<%=request.getContextPath()%>/${language}");--%>
            //$(this).html(event.strftime('Expired after<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> '));
-       }else{
-           $( "#session-extend" ).on( "click", function() {
-                $.ajax({
-                   url: "<%=request.getContextPath()%>/ajax/validateSession",
-                      async : false,
-                      success : function() {
-                   	   $("#session-alert-counter").html('Your session is extended.');
-                      }
-                 });                
-           });             
-           $(this).html(event.strftime('Expire in<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
+       }else{            
+           $(this).html(event.strftime('<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
        }
    });
+   $( "#session-extend" ).on( "click", function() {
+       $.ajax({
+          url: "<%=request.getContextPath()%>/ajax/validateSession",
+             async : false,
+             success : function() {
+              $("#session-alert-counter").html('Your session is extended.');
+             }
+        });                
+  });    
    function sessionPopup(){
        if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 600){
            $('#session-alert').modal('show');
       }            
    }
    $(function() {
+	   //$('#session-alert').modal('show');
        setInterval(sessionPopup, 300000);
    });   
    <% } %>
