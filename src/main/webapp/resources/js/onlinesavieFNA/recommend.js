@@ -496,6 +496,15 @@ var FNArecommendation = {
 			var prodWrapper = gp.find(".fna-product-wrapper");
 			
 			//Product in Type
+			
+			//ILAS Handling
+			if(gp_data.groupCode == "ILAS"){
+				var prod = $(".fna-recommend .template .fna-other-product").clone();
+				prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
+				prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
+				
+				prodWrapper.append(prod);
+			}
 
 			if(gp_data.products){
 
@@ -504,15 +513,7 @@ var FNArecommendation = {
 					pNum++;
 					var prod_data = gp_data.products[j];
 
-					//ILAS Handling
-					if(gp_data.groupCode == "ILAS"){
-						var prod = $(".fna-recommend .template .fna-other-product").clone();
-						prod.find(".fna-product-type-name").text(prod_data.type);
-						prod.find(".desc").html(prod_data.type_desc).addClass("ilas");
-						prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
-						prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
-
-					}else{
+					
 						var product_header = $(".fna-recommend .template .fna-product-lv-header").clone();
 
 						
@@ -604,7 +605,7 @@ var FNArecommendation = {
 						if(prod.find(".fna-link-key-exclusions").hasClass("hide") && prod.find(".fna-link-key-risk").hasClass("hide")){
 							prod.find(".fna-product-link-keys").hide();
 						}
-					}
+					
 					
 
 					
@@ -722,15 +723,17 @@ var FNArecommendation = {
 
 			var arr_p = products.split(",");
 			var arr_p_str = [];
-			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q4e_" + v).text())});
+			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
 			products_str = arr_p_str.join(sep);
 
 			var arr_o = products.split(",");
 			var arr_o_str = [];
 			$(arr_o).each(function(k,v){arr_o_str.push($(".template .txt_obj_" + v).text())});
 			obj_str = arr_o_str.join(sep);
+			
+			var year_str = $(".template .txt_q4e_" + year).text();
 
-			cont = cont.replace("{products}",products_str).replace("{objectives}",obj_str).replace("{year}",year);
+			cont = cont.replace("{products}",products_str).replace("{objectives}",obj_str).replace("{year}",year_str);
 
 			$(".noAvailableProduct").show();
 			$(".noAvailableProduct").text(cont);
@@ -750,10 +753,12 @@ var FNArecommendation = {
 
 			var arr_p = products.split(",");
 			var arr_p_str = [];
-			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q4e_" + v).text())});
+			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
 			products_str = arr_p_str.join(sep);
+			
+			var year_str = $(".template .txt_q4e_" + year).text();
 
-			cont = cont.replace("{products}",products_str).replace("{year}",year);
+			cont = cont.replace("{products}",products_str).replace("{year}",year_str);
 
 			$(".onlyOneProduct").show();
 			$(".onlyOneProduct").text(cont);

@@ -134,7 +134,12 @@ var language = "${language}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center clearfix">
-                      <button class="text-bold btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
+                      <c:if test="${savieType == 'RP'}">
+                     	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="Button.savie.confirm" bundle="${msg}" /></button>
+                      </c:if>
+                      <c:if test="${savieType == 'SP'}">
+                     	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
+                      </c:if>
                    </div>
                 </div>   
              </form>
@@ -242,6 +247,7 @@ var language = "${language}";
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 			$('#fullyBooked').modal('show');
 		} */
+		console.log('${savieType}');
 		if($("#full-date").length > 0){
 			$('#fullyBooked').modal('show');
 		}

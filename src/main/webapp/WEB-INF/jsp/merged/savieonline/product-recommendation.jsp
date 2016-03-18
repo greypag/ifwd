@@ -195,9 +195,7 @@ var fnaq4e = '${savieFna.q4_e }';
 										
 										<p class="onlyOneProduct"></p>
 										<p class="hasManyProduct"><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
-										<div class="hidden-xs">
-											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
-										</div>
+										
 									</div>
 									<div class="noProducts">
 										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
@@ -368,10 +366,17 @@ var fnaq4e = '${savieFna.q4_e }';
 			<p class="txt_onlyOneProduct"><fmt:message key="fna.text.only1product" bundle="${msg}" /></p>
 
 			<p class="txt_noAvailableProduct"><fmt:message key="fna.text.noavailableproduct" bundle="${msg}" /></p>
-			<p class="txt_q4e_0"><fmt:message key="fna.text.q4e.array0" bundle="${msg}" /></p>
-			<p class="txt_q4e_1"><fmt:message key="fna.text.q4e.array1" bundle="${msg}" /></p>
-			<p class="txt_q4e_2"><fmt:message key="fna.text.q4e.array2" bundle="${msg}" /></p>
-			<p class="txt_q4e_3"><fmt:message key="fna.text.q4e.array3" bundle="${msg}" /></p>
+			<p class="txt_q2_0"><fmt:message key="fna.text.q2.array0" bundle="${msg}" /></p>
+			<p class="txt_q2_1"><fmt:message key="fna.text.q2.array1" bundle="${msg}" /></p>
+			<p class="txt_q2_2"><fmt:message key="fna.text.q2.array2" bundle="${msg}" /></p>
+			<p class="txt_q2_3"><fmt:message key="fna.text.q2.array3" bundle="${msg}" /></p>
+			
+			<p class="txt_q4e_0"><fmt:message key="fna.question.q4e.option1" bundle="${msg}" /></p>
+			<p class="txt_q4e_1"><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></p>
+			<p class="txt_q4e_2"><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></p>
+			<p class="txt_q4e_3"><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></p>
+			<p class="txt_q4e_5"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></p>
+			<p class="txt_q4e_6"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></p>
 
 			<p class="txt_obj_0"><fmt:message key="fna.text.objectives.array0" bundle="${msg}" /></p>
 			<p class="txt_obj_1"><fmt:message key="fna.text.objectives.array1" bundle="${msg}" /></p>

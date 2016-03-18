@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.common.document.PDFGeneration;
+import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
