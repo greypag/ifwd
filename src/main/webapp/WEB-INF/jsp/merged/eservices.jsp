@@ -752,12 +752,12 @@ var languageP = "${language}";
 									<fmt:message key="label.username" bundle="${msg}" />
 								</div>
 								<div class="col-xs-6 col-md-4 member-data-info">
-									${userDetails.firstName } ${userDetails.lastName }
+									${username }
 								</div>
 							</div>
 						</div>
 						<h3 class="heading-title"><fmt:message key="label.fna" bundle="${msg}" /></h3>	
-						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
+						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a href="javascript:void(0);" onclick="goFna();" >Review FNA</a></p>	
 					</div>
 					<div id="promo-offers-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
@@ -1034,4 +1034,10 @@ var languageP = "${language}";
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 	});
+	
+	function goFna() {
+		if('${fnaLastUpdate }'!=null && '${fnaLastUpdate }'!=''){
+			$('#review-fna-modal').modal('show');
+		}
+	}
 </script>
