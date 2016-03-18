@@ -18,6 +18,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	boolean isSaleActiveClass = false;
 	boolean isEservicesActiveClass = false;
 %>
+ <c:set var="applicationType" scope="session" value="${'online'}"/>
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="plan-details-b-page">
 	<!-- HEADER -->
 	<div class="fwd-container container-fluid breadcrumbs">
@@ -643,7 +644,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
-		console.log('${savieType}');
+		//console.log('${savieType}');
 		if('${savieType}' == 'RP') {
 			$("#type-of-payment").val("regular-payment");
 			$('#plan-amount-holder').removeClass('hidden');
@@ -872,6 +873,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	});
 	
 	$("#offline-application-btn").on('click', function(){
+		 <c:set var="applicationType" scope="session" value="${'offline'}"/>
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
         	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
         }else{
@@ -888,9 +890,12 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	var apply=false;//判断是否点击proceed
 	var nextPage;
 	function saviePlanDetailsGoNext(){
-		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+		if(!apply) {
+			window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+		}
 		if(apply){
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+			//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+			$('#thankYouModal').modal('show');
 		}else {
 			if($("#type-of-payment").val() == 'regular-payment') {
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
