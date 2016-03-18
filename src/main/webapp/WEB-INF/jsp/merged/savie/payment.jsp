@@ -94,7 +94,7 @@ var language = "${language}";
 						 <div class="pull-left radio-holder">
 							<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
 						 </div>
-						 <div class="pull-left desc">
+						 <div class="text-bold pull-left desc">
 								<fmt:message key="option.direct.debit" bundle="${msg}" />
 						 </div>
 					  </div>
@@ -102,7 +102,7 @@ var language = "${language}";
 						 <div class="pull-left radio-holder">
 							<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
 						 </div>
-						 <div class="pull-left desc">
+						 <div class="text-bold pull-left desc">
 								<fmt:message key="option.pay.later" bundle="${msg}" />
 						 </div>
 					  </div>
@@ -332,7 +332,6 @@ var language = "${language}";
 							</div>
 							<div class="col-xs-12 col-md-6" id="right-side-form">
 								<div class="centre-info visible-md visible-lg" id="centre-info">
-									
 									<a class="address-link" href="#"><fmt:message key="label.view.map" bundle="${msg}" /></a>
 								</div>
 							</div>
@@ -341,9 +340,9 @@ var language = "${language}";
 				</form>
 				
 				<center>
-						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
+						<button type="button" id="btn-next" class="text-bold btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
-					<button type="button" id="btn-back" class="btn btn-payment hidden" onclick="goNext();"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+					<button type="button" id="btn-back" class="text-bold btn btn-payment hidden" onclick="goNext();"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
 				
 			</div>
@@ -937,7 +936,7 @@ var language = "${language}";
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
         if(centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\" /><h4><fmt:message key="label.address" bundle="${msg}" /><fmt:message key="label.address" bundle="${msg}" /></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}" /></a>");
+           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\" /><h4><fmt:message key="label.address" bundle="${msg}" /></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}" /></a>");
         }
         <%
             }

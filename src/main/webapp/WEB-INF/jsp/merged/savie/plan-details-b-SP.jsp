@@ -411,7 +411,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 				</div>
 			</div>
 			<div class="after-3-years-btn">
-				<button type="button" class="white-btn up" id="first-3-years-btn" onclick="toggleImg()"><span id="after-3"><fmt:message key="label.savie.after3year" bundle="${msg}" /></span><span id="first-3" class="hidden"><fmt:message key="label.savie.first3year" bundle="${msg}" /></span> <img id="arrow-img-years" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down2.png" /></button>
+				<button type="button" class="text-bold white-btn up" id="first-3-years-btn" onclick="toggleImg()"><span id="after-3"><fmt:message key="label.savie.after3year" bundle="${msg}" /></span><span id="first-3" class="hidden"><fmt:message key="label.savie.first3year" bundle="${msg}" /></span> <img id="arrow-img-years" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down2.png" /></button>
 			</div>
 		</div>
 	</div>

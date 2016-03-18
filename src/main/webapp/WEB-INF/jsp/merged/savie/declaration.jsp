@@ -206,14 +206,14 @@ var languageP = "${language}";
 									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false" checked="checked" class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
-								 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
+								 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 							  </div>
 							  <div class="clearfix below desktop-align">
 								 <div class="pull-left radio-holder">
 									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
-								 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+								 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 							  </div>
 						   </div>
 						</div>
@@ -257,7 +257,7 @@ var languageP = "${language}";
 					<div id="errorMsg" style="color: red;"></div>
 						
 					<center>
-						<button type="button" class="btn savie-common-btn btn-proceed"><fmt:message key="button.proceed.to.signature" bundle="${msg}" /></button>
+						<button type="button" class="text-bold btn savie-common-btn btn-proceed"><fmt:message key="button.proceed.to.signature" bundle="${msg}" /></button>
 						<a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 					</center>
 				</form>
@@ -316,7 +316,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+		<h4 class="text-bold text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
 		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 		<div class="save-con-btns clearfix">
 			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
@@ -331,7 +331,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content save-con-modal-content">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+		<h4 class="text-bold text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
 		<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 		<div class="save-con-btns text-center clearfix">
 			<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
