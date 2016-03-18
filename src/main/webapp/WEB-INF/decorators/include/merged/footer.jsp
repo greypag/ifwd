@@ -59,7 +59,7 @@
 	    </div>
         <div class="social-link-wrapper">
            <div class="social-link">
-	           <a class="fb-share" href="<fmt:message key="footer.fbshare.link" bundle="${msg}" />" target="_blank"><i class="fa fa-share-alt"></i></a>
+	           <a id="fb-dialog-share" href="<fmt:message key="footer.fbshare.link" bundle="${msg}" />" target="_blank"><i class="fa fa-share-alt"></i></a>
 	           <a href="<fmt:message key="footer.facebook.link" bundle="${msg}" />" target="_blank"><i class="fa fa-facebook-official"></i></a>
 	           <a href="<fmt:message key="footer.youtube.link" bundle="${msg}" />" target="_blank"><i class="fa fa-youtube-play"></i></a>        
            </div>
@@ -101,11 +101,14 @@
 <script>
 $(function() {
     $('input, textarea').placeholder();
-    $('.fb-share').click(function(e) {
-        e.preventDefault();
-        window.open($(this).attr('href'), 'fbShareWindow', 'height=350, width=450, top=' + ($(window).height() / 2 - 175) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-        return false;
-    });    
+    var winWidth = 575;
+    var winHeight = 575;
+    var winTop = (screen.height / 2) - (winHeight / 2);
+    var winLeft = (screen.width / 2) - (winWidth / 2);
+    $('#fb-dialog-share').click(function(e) {
+    	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + $('meta[property="og:title"]').attr("content") + '&p[summary]=' + $('meta[property="og:description"]').attr("content") + '&p[url]=' + $('meta[property="og:url"]').attr("content") + '&p[images][0]=' + $('meta[property="og:image"]').attr("content"), 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);    	
+    });
+     
     /*
     function navbarLogoSticky(){
         if(window.pageYOffset<35){
