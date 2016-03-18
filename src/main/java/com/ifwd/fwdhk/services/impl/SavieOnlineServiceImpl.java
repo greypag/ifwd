@@ -321,7 +321,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				else if(issueAge < 67){
 					if(policyYear == 66){
 						if("tc".equals(lang)){
-							show66Age = "至66岁";
+							show66Age = "至66歲";
 						}else{
 							show66Age = "Age 66";
 						}
@@ -343,7 +343,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 					else if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至100岁";
+							show100Age = "至100歲";
 						}else{
 							show100Age = "Age 100";
 						}
@@ -607,13 +607,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
-		String occupation = "";
+		/*String occupation = "";
 		List<OptionItemDesc> optionItemDescENList = InitApplicationMessage.occupationEN;
 		for(OptionItemDesc optionItemDescEN : optionItemDescENList){
 			if(optionItemDescEN.getItemCode().equals(savieFna.getOccupation())){
 				occupation = optionItemDescEN.getItemDesc();
 			}
-		}
+		}*/
 		/*List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
 		for(OptionItemDesc optionItemDescCN : optionItemDescCNList){
 			if(optionItemDescCN.getItemCode().equals(savieFna.getOccupation())){
@@ -621,8 +621,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}*/
 		
-		//attributeList.add(new PdfAttribute("ApplicantOccupation", lifeEmploymentInfo.getOccupationName()));
-		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
+		attributeList.add(new PdfAttribute("ApplicantOccupation", lifeEmploymentInfo.getOccupationName()));
+		//attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
 		if("0".equals(savieFna.getEducation())){
