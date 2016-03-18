@@ -22,11 +22,11 @@ var language = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
                <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
             </ol>
@@ -56,7 +56,7 @@ var language = "${language}";
 					   </a>
 					</div>
 					<div class="et-header-tex">
-					   <h3 id=""><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
+					   <h3 class="text-bold"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
 					</div>
 				 </div>
 				 <span id="step-of">3 out of 3</span>
@@ -156,7 +156,7 @@ var language = "${language}";
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
 					<span><fmt:message key="label.print.document" bundle="${msg}" /></span>
 				</a>
-				<center><button type="button" class="btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
+				<center><button type="button" class="text-bold btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
 			</div>
 		</div>
 	</div>
