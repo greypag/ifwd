@@ -681,10 +681,34 @@ var FNArecommendation = {
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
 
 		//Show Only 1 product description
-		FNArecommendation.showNoAvailableProduct(true,"0,2","1,3",15);
-		FNArecommendation.showOnly1Product(true,"0,2",15);
-		FNArecommendation.showILASsDescription(true);
-		FNArecommendation.showILASsDescriptionOnly1(true);
+		if(data.product_list.length == 1){
+			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
+		}
+		if(data.product_list.length>0 && data.hasILAS=='Y'){
+			FNArecommendation.showILASsDescription(true);
+		}
+		if(data.product_list.length==0 && data.hasILAS=='Y'){
+			FNArecommendation.showILASsDescriptionOnly1(true);
+		}
+		if(data.fulfilled=='N'){
+			var rq1="";
+			var fq1= fnaq1.split(",");
+			var pq1= data.q1.split(",");
+		    for (i=0;i<pq1.length ;i++ ){
+		    	for (j=0;j<fq1.length ;j++ ){
+		    		var r = true;
+			    	if(pq1[i]==fq1[j]){
+			    		r = false;
+			    		break;
+			    	}
+			    	if(r){
+			    		rq1 = rq1+pq1[i]+",";
+			    	}
+			    }
+		    }
+		    //alert(rq1.substring(0,rq1.length-1));
+			FNArecommendation.showNoAvailableProduct(true,data.q2,rq1.substring(0,rq1.length-1),fnaq4e);
+		}
 	},
 
 	showNoAvailableProduct:function(display,products,objectives,year){

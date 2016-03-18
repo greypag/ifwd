@@ -17,7 +17,9 @@ var affiliate = "${affiliate}";
 function goLandingPage(){
 	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 }
-	
+
+var fnaq1 = '${savieFna.q1 }';
+var fnaq4e = '${savieFna.q4_e }';
 </script>
 
 <!--   Main Content Start -->
