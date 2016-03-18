@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -626,29 +627,47 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
+		
+		String policyNumber = (String) request.getParameter("policyNumber");
 		String userName = (String)request.getSession().getAttribute("username");
-		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
-		else{
-			JSONObject jsonObject = new JSONObject();
+		
+		if(StringUtils.isNotEmpty(policyNumber)){
 			try {
-				savieOnlineService.uploadSavieOnlineDocument(request);
-				savieOnlineService.finalizeLifePolicy(request, session);
+				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			catch (ECOMMAPIException e) {
-				jsonObject.put("errorMsg", e.getMessage());
-			}
-			catch (Exception e) {
-				jsonObject.put("errorMsg", e.getMessage());
+			if(!savieOnlineService.checkIsDocumentUpload(request,policyNumber)){
+				String policyUserName = savieOnlineService.getPolicyUserName(request,policyNumber);
+				request.getSession().setAttribute("policyUserName", policyUserName);
+				CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
+				lifePolicy.setPolicyNo(policyNumber);
+				request.getSession().setAttribute("lifePolicy", lifePolicy);
 			}
 			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+		}else{
+			if(userName == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			} else if ("*DIRECTGI".equalsIgnoreCase(userName)) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			}
+			if(userDetails == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			}else{
+				JSONObject jsonObject = new JSONObject();
+				try {
+					savieOnlineService.uploadSavieOnlineDocument(request);
+					savieOnlineService.finalizeLifePolicy(request, session);
+				}
+				catch (ECOMMAPIException e) {
+					jsonObject.put("errorMsg", e.getMessage());
+				}
+				catch (Exception e) {
+					jsonObject.put("errorMsg", e.getMessage());
+				}
+				return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			}
 		}
 	}
 	
