@@ -346,12 +346,71 @@ var languageP = "${language}";
 			<!-- FOOTER -->
 		</div>
 		
+		<!-- Error to Home Modal -->
+		<div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
+		  <div class="modal-dialog">
+		      <div class="modal-content" align="center">
+		        <div class="modal-body form-container" style="color:#fc6d08">
+		           <div class="row">
+		              <h2 id="error-to-home-modal-errorMessage">Unexpected Error</h2>  
+		           </div>
+		           <div class="row">
+		              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">		                 
+	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="error-to-home-btn" data-dismiss="modal">
+	                 		<fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" />
+	                 	</button>
+	                 	<script>
+	                 		$('#error-to-home-btn').on('click', function(e) {
+							  window.onbeforeunload=null;
+							  window.location.href= '<%=request.getContextPath()%>/${language}/savings-insurance';
+							});
+	                 	</script>
+		              </div>
+		           </div>
+		        </div>
+		     </div>
+		  </div>
+		</div>
+		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
+				
+				var errorMessageType = "${errorMessageType}";
+            	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
+            		if(errorMessageType == 'alreadyUploaded'){
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+            		}else if(errorMessageType == 'UrlExpired' ){
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+            		}else{
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+            		}
+                	$('#error-to-home-modal').modal('show');
+            	}else{
+            		var userName = "${username}";
+                	var policyUserName = "${policyUserName}";
+                	if(policyUserName != null && policyUserName != ''){
+        				$('#et-upload-now').hide();
+        				$('#et-upload-later').hide();
+        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+            				$('#loginpopup').find(".close").hide(); 
+            				$('#loginpopup').find(".text-left").hide(); 
+        				}
+    				}
+    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+    					$('#loginpopup').modal('show');
+    				}else{
+    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
+    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+    						$('#error-to-home-modal').modal('show'); 
+    				         
+    					}
+    				}
+            	}
 				
 				// Toggle passport
 				$('#hkPermanentRes').click(function() {

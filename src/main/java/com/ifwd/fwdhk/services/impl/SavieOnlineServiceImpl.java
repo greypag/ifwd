@@ -2499,4 +2499,59 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 	}
+	
+	@Override
+	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber){
+		String relationshipCode = UserRestURIConstants.GET_IS_UPLOAD
+				+ "?policyNo="+policyNumber;
+		Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
+				HttpMethod.GET, relationshipCode, header, null);
+		org.json.simple.JSONArray errMsgs = (org.json.simple.JSONArray) jsonRelationShipCode.get("errMsgs");
+		if(errMsgs != null){
+			String errMessage = errMsgs.get(0).toString().replace("[", "").replace("]", "");
+			request.getSession().setAttribute("errorMessageType",errMessage);
+			return true;
+		}
+		org.json.simple.JSONArray policy = (org.json.simple.JSONArray) jsonRelationShipCode.get("uploadedDocuments");
+		
+		/*if (policy.size() > 0) {
+			request.getSession().setAttribute("errorMessageType", "alreadyUploaded");
+			return true;
+		}*/
+		
+		for(Object obj : policy) {
+			JSONObject entity = (JSONObject)obj;
+			String documentType = entity != null ? (String)entity.get("documentType") : "";
+			if("proof".equals(documentType) || "passport".equals(documentType) || "passport".equals(documentType)) {
+				request.getSession().setAttribute("errorMessageType", "alreadyUploaded");
+				return true;
+			}
+		}
+		
+		long commencementDate = (long) jsonRelationShipCode.get("commencementDate");
+		Date date = new Date();
+		long days = (date.getTime()-commencementDate) / (1000 * 60 * 60 * 24);
+		if(days > 42){
+			request.getSession().setAttribute("errorMessageType", "UrlExpired");
+			return true;
+		}
+		request.getSession().setAttribute("errorMessageType", null);
+		return false;
+	}
+	
+	@Override
+	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
+		String userName="";
+		String relationshipCode = UserRestURIConstants.GET_POLICY
+				+ "?policyNo="+policyNumber;
+		Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
+				HttpMethod.GET, relationshipCode, header, null);
+		if (jsonRelationShipCode.get("errMsgs") == null) {
+			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
+			 userName = (String) policy.get("userName");
+		}
+		return userName;
+	}
 }
