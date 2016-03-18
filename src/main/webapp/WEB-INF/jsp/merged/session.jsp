@@ -8,10 +8,9 @@
         aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg fwd-modal-wrapper">
             <div class="modal-content">
-<!--                 <div class="modal-header">
-<!--                   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-<!--                 </div> -->
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="button-wrapper">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
                 <div class="modal-body text-center">
                     <div class="gary h5 separator"><fmt:message key="session.alert.headline" bundle="${msg}" /></div>                   
                     <!--<div class="gary h6"><fmt:message key="session.alert.headline2" bundle="${msg}" /></div>-->
@@ -89,6 +88,7 @@
       }            
    }
    $(function() {
+	   $('#session-alert').modal('show');
 	   //$('#session-alert').modal('show');
        setInterval(sessionPopup, 300000);
    });   

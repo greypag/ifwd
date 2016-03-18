@@ -10942,8 +10942,8 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     width: 435px;
 }
 #session-alert .fwd-modal-wrapper .modal-body{
-    padding: 40px;
-    margin-top 0;
+    padding: 0 40px 40px 40px;
+    margin: 0;
 }
 .fwd-modal-wrapper .modal-body button.close{
     font-weight: bold;
@@ -11288,4 +11288,10 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 }
 #session-alert .close{
 	padding: 20px 20px 0 0;
+}
+#session-alert .button-wrapper{
+	overflow: hidden;
+}
+#session-alert .modal-content{
+	padding: 0;
 }
