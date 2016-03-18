@@ -20,11 +20,11 @@ var language = "${language}";
 	<div class="fwd-container container-fluid breadcrumbs">
 		<div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
+               <li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
                <li class="divider last"><i class="fa fa-play"></i></i></li>
                <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
             </ol>
@@ -52,7 +52,7 @@ var language = "${language}";
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id=""><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
+					<h3 class="text-bold"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
 				 </div>
 				 <p id="step-of">3 of 3</p>
 			  </div>
@@ -74,38 +74,38 @@ var language = "${language}";
 
 			<div id="appointment-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="label.savie.confirmation.success.title" bundle="${msg}" /></p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="label.savie.confirmation.success.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
-						<span class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></span>
+						<span class="text-bold policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></span>
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p><fmt:message key="info.savie.confirmation.success.copy" bundle="${msg}" /></p>
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
-						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
+						<p class="text-bold policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
 						<p class="policy-number">${accessCode }</p>
 					</div>
 				</div>
 				<hr>
 				<div class="row appointment-details-panel">
-					<div class="col-xs-12"><p class="panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
+					<div class="col-xs-12"><p class="text-bold panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
-							<p class="details-label"><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
+							<p class="text-bold details-label"><fmt:message key="label.savie.confirmation.date" bundle="${msg}" /></p>
 							<p>${preferredDate}</p>
 						</div>
 						<div>
-							<p class="details-label"><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
+							<p class="text-bold details-label"><fmt:message key="label.savie.confirmation.time" bundle="${msg}" /></p>
 							<p>${preferredTime}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p class="details-label"><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
+						<p class="text-bold details-label"><fmt:message key="label.savie.confirmation.branch" bundle="${msg}" /></p>
 						<p>${serviceCentre.serviceCentreName }<span class="branch-address">${serviceCentre.address }</span></p>
 					</div>
 					<div class="col-xs-12 cstm-md-col-3">
-						<p class="details-label"><fmt:message key="label.openinghours" bundle="${msg}" /></p>
+						<p class="text-bold details-label"><fmt:message key="label.openinghours" bundle="${msg}" /></p>
 						<p>
 							${serviceCentre.operationHours }
 							<span class="phone-num">
@@ -116,7 +116,7 @@ var language = "${language}";
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring" bundle="${msg}" /></p>
+					<p class="text-bold requirements-panel-title"><fmt:message key="info.savie.confirmation.docs.to.bring" bundle="${msg}" /></p>
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">
@@ -147,7 +147,7 @@ var language = "${language}";
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
 					<span><fmt:message key="label.print.this.document" bundle="${msg}" /></span>
 				</a>
-				<center><button type="button" class="btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button></center>
+				<center><button type="button" class="text-bold btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button></center>
 			</div>
 		</div>
 	</div>

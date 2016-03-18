@@ -143,14 +143,14 @@ var languageP = "${language}";
 											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false" checked="checked" class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
-										 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
-										 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 								   </div>
 								</div>
@@ -164,14 +164,14 @@ var languageP = "${language}";
 											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false" checked="checked" class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
-										 <div class="pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
-										 <div class="pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 								   </div>
 								</div>
