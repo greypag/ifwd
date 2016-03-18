@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-      <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pdfobject.js"></script>
+      <script src="<%=request.getContextPath()%>/resources/js/savie-2016/jquery.gdocsviewer.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -152,7 +152,8 @@
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<div id="pdf">
-								<iframe src="https://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
+								<!-- <iframe class="embed" src="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf"  frameborder="0"></iframe>-->
+								<a class="embed" id="pdf-modal-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf" /></a>
 							</div>
 							<div class="text-center">
 								<button class="text-bold btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
@@ -165,11 +166,8 @@
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 	        		<div id="pdf">
-	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>
-	        			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
-	        				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
-	        				<embed id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
-						</object>-->
+	        			<!--<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>-->
+	        			<a class="embed" id="pdf-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}" /></a>
 	        		</div>
 	        		<div class="text-center">
 	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
@@ -190,7 +188,11 @@
 			$("#accept-btn").click(function(){
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			});
-
+			$(document).ready(function() {
+				$('#pdf-modal-view').gdocsViewer();
+				$('#pdf-view').gdocsViewer();
+			});
+		
 
         </script> 
 	</body>
