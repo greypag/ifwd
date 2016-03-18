@@ -111,7 +111,7 @@
 	        							<p><fmt:message key="product.suggestion.travel.care.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
 	        							<div class="get-qoute-holder  visible-md visible-lg">
-	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12 care   " id="care-2">
@@ -121,19 +121,19 @@
 	        							<p><fmt:message key="product.suggestion.home.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
 	        							<div class="get-qoute-holder  visible-md visible-lg">
-	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
 	        					<div class="row visible-xs visible-sm" id="get-btns-holder">
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
@@ -174,13 +174,13 @@
 	        						</div>	
 	        					</div>
 	        					<div class="text-center">
-	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
+	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
 	        					</div>
 	        					<div class="border-gray visible-xs visible-sm"></div>	
 	        				</div>
 	        			</div>
 	        			<div class="text-center">
-    						<button class="btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+    						<button class="text-bold btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
     					</div>
 	        		</div>
 	        	</div>

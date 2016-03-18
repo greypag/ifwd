@@ -134,7 +134,7 @@ var language = "${language}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center clearfix">
-                      <button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
+                      <button class="text-bold btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
                    </div>
                 </div>   
              </form>

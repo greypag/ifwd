@@ -117,7 +117,7 @@ var languageP = "${language}";
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
                                  </div>
-								 			<div class="clearfix form-group has-error">
+								 			<div class="clearfix form-group has-error" id="gender-errormsg">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
 														<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
@@ -126,10 +126,10 @@ var languageP = "${language}";
                                              <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
                                              <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
-                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+                                          <input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}" />
+                                       	<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="genderErMsg"></span>
-									   			<input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}" />
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
@@ -740,6 +740,11 @@ var languageP = "${language}";
 			}
 			
 			$("#et-personal-info-next, #btn-back").click(function(){
+				if ( $('#gender-errormsg').hasClass('has-error') ) {
+					$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
+				} else {
+					$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
+				}
 				$("#errorMsg").html("");
 				$.ajax({
 					  type : "POST",
@@ -826,11 +831,15 @@ var languageP = "${language}";
 					},
 					'hkid': {
 					   container: '#hkidErMsg',
-					   trigger: 'blur',
+					   //trigger: 'blur',
 					   validators: {
 						  notEmpty: {
 							 message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
 						  },
+						  regexp: {
+		                  regexp: /^[a-zA-Z0-9\-]*$/,
+		                  message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />'
+		               },
 						  callback: {
 							 /* message: "Your HKID no. is invalid.",
 							 callback: function(value, validator) {

@@ -24,11 +24,11 @@
 			<div class="fwd-container container-fluid breadcrumbs">
 	            <div class="breadcrumb-container">
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
+						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
+						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 						<li class="divider last"><i class="fa fa-play"></i></i></li>
 						<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 	               </ol>
@@ -62,7 +62,7 @@
 	                        </a>
 	                     </div>
 	                     <div class="et-header-tex">
-	                        <h3 id=""><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
+	                        <h3 class="text-bold"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
 	                     </div>
 	                     <p id="step-of">6 of 6</p>
 	                  </div>
@@ -87,13 +87,13 @@
 	        		<div id="upload-later-confirmation-content">
 	        			<div class="row">
 	        				<div class="col-md-8" id="thankyou-message">
-	        					<h3 class="heading-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></h3>
-	        					<h3 class="visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
+	        					<h3 class="text-bold heading-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></h3>
+	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
 	        					<p id="success-purchase"><fmt:message key="information.successful.purchase.copy4" bundle="${msg}" /></p>
 	        					<!--<p><fmt:message key="info.successful.purchase.copy2" bundle="${msg}" /></p> -->
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
-	        				<div class="col-md-4 visible-md visible-lg" id="policy-no-holder">
+	        				<div class="text-bold col-md-4 visible-md visible-lg" id="policy-no-holder">
 	        					<h2><fmt:message key="label.policyno" bundle="${msg}" /></h2>
 	        					<h2 id="policy-no">${lifePolicy.policyNo }</h2>
 	        				</div>
@@ -102,44 +102,44 @@
 	        			<div class="row" id="partner-care-holder">
 	        				<div class="col-md-6" id="care-holder">
 	        					<div class="row">
-	        						<h3 class="heading-title"><fmt:message key="label.you.may.interested.in" bundle="${msg}" /></h3>
+	        						<h3 class="text-bold heading-title"><fmt:message key="label.you.may.interested.in" bundle="${msg}" /></h3>
 	        						<div class="col-xs-6 col-md-12 care" id="care-1">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/travel-care.jpg" class="img-responsive visible-md visible-lg" />
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/travel-care-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
-	        							<h3 class="care-title"><fmt:message key="product.suggestion.travel.care.title" bundle="${msg}" /></h3>
+	        							<h3 class="text-bold care-title"><fmt:message key="product.suggestion.travel.care.title" bundle="${msg}" /></h3>
 	        							<p><fmt:message key="product.suggestion.travel.care.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
 	        							<div class="get-qoute-holder  visible-md visible-lg">
-	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12 care   " id="care-2">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare.jpg" class="img-responsive visible-md visible-lg" />
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
-	        							<h3 class="care-title"><fmt:message key="product.suggestion.home.title" bundle="${msg}" /></h3>
+	        							<h3 class="text-bold care-title"><fmt:message key="product.suggestion.home.title" bundle="${msg}" /></h3>
 	        							<p><fmt:message key="product.suggestion.home.copy" bundle="${msg}" /></p>
 	        							<div class="clearfix"></div>
 	        							<div class="get-qoute-holder  visible-md visible-lg">
-	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
 	        					<div class="row visible-xs visible-sm" id="get-btns-holder">
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.travel.care" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12">
 	        							<div class="get-qoute-holder">
-	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
+	        								<a href="<fmt:message key="link.product.easy.home" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn get-quote-btn"><fmt:message key="button.get.quote" bundle="${msg}" /></button></a>
 	        							</div>
 	        						</div>
 	        					</div>
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
 	        				<div class="col-md-6 partners">
-	        					<h3 class="heading-title"><fmt:message key="partner.savie.confirmation.title4" bundle="${msg}" /></h3>
+	        					<h3 class="text-bold heading-title"><fmt:message key="partner.savie.confirmation.title4" bundle="${msg}" /></h3>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
 	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/agoda-logo.png" class="img-responsive" /> 
@@ -173,13 +173,13 @@
 	        						</div>	
 	        					</div>
 	        					<div class="text-center">
-	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
+	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
 	        					</div>
 	        					<div class="border-gray visible-xs visible-sm"></div>	
 	        				</div>
 	        			</div>
 	        			<div class="text-center">
-    						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+    						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="text-bold btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
     					</div>
 	        		</div>
 	        	</div>
