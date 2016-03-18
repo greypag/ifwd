@@ -321,7 +321,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				else if(issueAge < 67){
 					if(policyYear == 66){
 						if("tc".equals(lang)){
-							show66Age = "至66歲";
+							show66Age = "至66岁";
 						}else{
 							show66Age = "Age 66";
 						}
@@ -343,7 +343,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 					else if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至100歲";
+							show100Age = "至100岁";
 						}else{
 							show100Age = "Age 100";
 						}
@@ -552,7 +552,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
-		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
@@ -621,30 +621,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}*/
 		
-		/*if("NoBD1".equals(savieFna.getOccupation())){
-			occupation = "Farmer -- General Farming";
-		}
-		else if("NoBD2".equals(savieFna.getOccupation())){
-			occupation = "Farmer -- Poultry";
-		}
-		else if("NoBD3".equals(savieFna.getOccupation())){
-			occupation = "Fisherman -- Pond, Lake & River";
-		}
-		else if("NoBD4".equals(savieFna.getOccupation())){
-			occupation = "Fisherman -- Coming Ashore Daily";
-		}
-		else if("NoBD5".equals(savieFna.getOccupation())){
-			occupation = "Fisherman -- Not Coming Ashore Daily";
-		}
-		else if("NoBD6".equals(savieFna.getOccupation())){
-			occupation = "Gardener";
-		}
-		else if("NoBD7".equals(savieFna.getOccupation())){
-			occupation = "Labourer -- Farm";
-		}
-		else if("NoBD8".equals(savieFna.getOccupation())){
-			occupation = "Proprietor -- Farm";
-		}*/
+		//attributeList.add(new PdfAttribute("ApplicantOccupation", lifeEmploymentInfo.getOccupationName()));
 		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
@@ -734,30 +711,30 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		
 		String group_4a = "";
-		if("0".equals(savieFna.getQ4_a())){
+		if(StringUtils.isBlank(savieFna.getQ4_a())){
 			group_4a = "4ai";
 			attributeList.add(new PdfAttribute("AverageMonthlyIncome", NumberFormatUtils.formatNumber(savieFna.getQ4_a_others())));
 		}
-		else if("1".equals(savieFna.getQ4_a())){
+		else if("0".equals(savieFna.getQ4_a())){
 			group_4a = "4aa";
 			attributeList.add(new PdfAttribute("group_4aii", "4aii"));
 			
 		}
-		else if("2".equals(savieFna.getQ4_a())){
+		else if("1".equals(savieFna.getQ4_a())){
 			group_4a = "4ab";
 			attributeList.add(new PdfAttribute("group_4aii", "4aii"));
 			
 		}
-		else if("3".equals(savieFna.getQ4_a())){
+		else if("2".equals(savieFna.getQ4_a())){
 			group_4a = "4ac";
 			attributeList.add(new PdfAttribute("group_4aii", "4aii"));
 			
 		}
-		else if("4".equals(savieFna.getQ4_a())){
+		else if("3".equals(savieFna.getQ4_a())){
 			group_4a = "4ad";
 			attributeList.add(new PdfAttribute("group_4aii", "4aii"));	
 		}
-		else if("5".equals(savieFna.getQ4_a())){
+		else if("4".equals(savieFna.getQ4_a())){
 			group_4a = "4ae";
 			attributeList.add(new PdfAttribute("group_4aii", "4aii"));	
 		}
