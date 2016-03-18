@@ -329,12 +329,12 @@
 								<input type="hidden" id="occupation" name="occupation" />
 							</div>
 						</div>
-                  <!--<div class="form-group application-summ">
+                  <div id="otherOccupationDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
 							</div>
-						</div>-->
+						</div>
                </div>
                <div class="desktop-right">
                   <div id="employerNameDiv" class="form-group application-summ">
@@ -708,7 +708,7 @@
          });
          
          var employmentS = '${savieFna.employment_status }';
-		 if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7'){
+         if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 			$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
 			$('#amountOfLiquidAssetsDiv').removeClass('hidden');
 			$('#natureOfBusinessDiv').addClass('hidden');
@@ -723,6 +723,12 @@
 			$('#occupationDiv').removeClass('hidden');
 			$('#employerNameDiv').removeClass('hidden');
 			$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+			if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
+				$('#otherOccupationDiv').removeClass('hidden');
+			}
+			else{
+				$('#otherOccupationDiv').addClass('hidden');
+			}
 		 }
          
          
