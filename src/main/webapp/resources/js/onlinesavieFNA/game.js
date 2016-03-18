@@ -458,7 +458,7 @@ var fnaSavieGame = {
 					sel.append($("<option/>").val("").text(getBundle(getBundleLanguage, "option.fna.select")));
 					$(Occupation["data"]).each(function(key,val){
 						var option = $("<option/>");
-						option.val(val.id).text(val.nob).data("key",key);
+						option.val(val.id).html(val.nob).data("key",key);
 						sel.append(option);
 					});
 					if (!isMobile) $(".frm-fna-nob").select2();
@@ -486,7 +486,7 @@ var fnaSavieGame = {
 				sel.append($("<option/>").val("").text(getBundle(getBundleLanguage, "option.fna.select")));
 				$(Occupation["data"][key]["position"]).each(function(key,val){
 					var option = $("<option/>");
-					option.val(val.id).text(val.name).data("key",key);
+					option.val(val.id).html(val.name).data("key",key);
 					sel.append(option);
 				});
 				$(".frm-fna-occupation").parents(".fna-row").removeClass("hide");
