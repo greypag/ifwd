@@ -50,15 +50,13 @@
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/hero-mobile.png" class="img-responsive banner-image" />
 				</div>
 				<div class="banner-text">
-					<p>Discover a</p>
-					<p class="lower-text">new experience</p>
-					<fmt:message key="label.status.visit.customer.service" bundle="${msg}" />
+					<fmt:message key="jumbo.homepage.homepage" bundle="${msg}" />
 				</div>
 			</div>
 			<div class="product-list">
 				<div class="content-container row fwd-container-limit">
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="psa-title">Protect</span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-1">
 						  <div class="psa-content">
@@ -295,7 +293,7 @@
 				</div>
 			</div>
 			<div class="container-information hidden-sm hidden-xs">
-				<p>The information provided in the blog is for reference only. While FWD Life Insurance Company (Bermuda) Limited and its affiliates ("FWD") use all reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof. FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material. Users should carefully evaluate the information.</p>
+				<p><fmt:message key="p.information.text" bundle="${msg}" /></p>
 			</div>
 			<!-- Business Partners -->
 			<div class="bg-business-partners">
@@ -327,9 +325,9 @@
 			<div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullName">${userDetails.fullName }</span></h4>
-			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
-			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
+			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
+			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
+			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
 			    </div>
 			 </div>
 		</div>
@@ -338,9 +336,9 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back to Savie!</h4>
-		     	<p class="text-center description-msg">Unfortunately, each member can buy one online application only, please make an appointment to our Customer Services center.</p>
-		     	<center><button class="btn savie-common-btn" id="make-appointment-btn">Make an appointment</button></center>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /></h4>
+		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
+		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.appointment" bundle="${msg}" /></button></center>
 		    </div>
 		  </div>
 		</div>
@@ -349,9 +347,9 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullNames">${userDetails.fullName }</span></h4>
-		     	<p class="text-center description-msg">Do you want to resume your application or start over?</p>
-		     	<center><button class="btn savie-common-btn" id="resume-btn">Resume</button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn">Start over</button></center>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.welcome.back" bundle="${msg}" /> <span id="fullNames">${userDetails.fullName }</span></h4>
+		     	<p class="text-center description-msg"><fmt:message key="label.resume.or.start.over" bundle="${msg}" /></p>
+		     	<center><button class="btn savie-common-btn" id="resume-btn"><fmt:message key="button.resume" bundle="${msg}" /></button><button class="btn savie-common-btn disabled-gray-btn" id="start-over-btn"><fmt:message key="button.start.over" bundle="${msg}" /></button></center>
 		    </div>
 		  </div>
 		</div>
