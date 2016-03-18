@@ -180,7 +180,7 @@
 	        				</div>
 	        			</div>
 	        			<div class="text-center">
-    						<button class="text-bold btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+    						<a href="<fmt:message key="link.back.to.home" bundle="${msg}" />"><button class="text-bold btn savie-common-btn" id="back-to-home-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button></a>
     					</div>
 	        		</div>
 	        	</div>
