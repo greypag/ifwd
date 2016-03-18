@@ -292,16 +292,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
 				
 				}
-				String show66Age = "";
-				String show100Age = "";
+				String showAge = "";
 				if(issueAge > 66){
 					if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至100歲";
+							showAge = "至100歲";
 						}else{
-							show100Age = "Age 100";
+							showAge = "Age 100";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_100",show100Age));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100",showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
 						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
@@ -321,11 +320,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				else if(issueAge < 67){
 					if(policyYear == 66){
 						if("tc".equals(lang)){
-							show66Age = "至66歲";
+							showAge = "至66歲";
 						}else{
-							show66Age = "Age 66";
+							showAge = "Age 66";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_"+policyYear,show66Age));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_"+policyYear,showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
 						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
@@ -343,11 +342,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 					else if(policyYear == 100){
 						if("tc".equals(lang)){
-							show100Age = "至100歲";
+							showAge = "至100歲";
 						}else{
-							show100Age = "Age 100";
+							showAge = "Age 100";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_100",show100Age));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100",showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
 						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
@@ -621,7 +620,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}*/
 		
-		attributeList.add(new PdfAttribute("ApplicantOccupation", lifeEmploymentInfo.getOccupationName()));
+		String occupation = lifeEmploymentInfo.getOccupationName();
+		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
+			occupation = lifeEmploymentInfo.getOtherOccupation();
+		}
+		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		//attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";

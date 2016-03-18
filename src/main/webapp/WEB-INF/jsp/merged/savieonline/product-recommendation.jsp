@@ -161,42 +161,6 @@ function goLandingPage(){
 									</div>
 								</div>
 							</div>
-							<div class="fna-sel-grid q4_a">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_05.png"><fmt:message key="fna.label.abilitytopay" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
-								<div class="radio-gp">
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c1" name="q4_a" value="0" disabled>
-										<label for="q4a_c1"><fmt:message key="fna.question.q4a.option1" bundle="${msg}" /></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c2" name="q4_a" value="1" disabled>
-										<label for="q4a_c2"><fmt:message key="fna.question.q4a.option2" bundle="${msg}" /></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c3" name="q4_a" value="2" disabled>
-										<label for="q4a_c3"><fmt:message key="fna.question.q4a.option3" bundle="${msg}" /></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c4" name="q4_a" value="3" disabled>
-										<label for="q4a_c4"><fmt:message key="fna.question.q4a.option4" bundle="${msg}" /></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c5" name="q4_a" value="4" disabled>
-										<label for="q4a_c5"><fmt:message key="fna.question.q4a.option5" bundle="${msg}" /></label>
-									</div><!-- 
-									<div class="checkbox">
-										<input type="checkbox" id="q4a_c6" name="q4a" value="yes" disabled>
-										<label for="q4a_c6">HK$<input type="text" onkeypress="return isNumeric(event)" value="" readonly></label>
-									</div> -->
-								</div>
-							</div>
-							<div class="fna-sel-grid no-line q4_b_amount">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_06.png"><fmt:message key="fna.label.liquid.assets" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
-
-								<label>
-									HK$<input type="text" onkeypress="return isNumeric(event)" value="" readonly>
-								</label>
-							</div>
 
 						</div>
 						<div class="floating-marker"></div>
@@ -226,7 +190,9 @@ function goLandingPage(){
 
 									<div class="haveProducts">
 										<p class="head"><fmt:message key="fna.label.headline.part1" bundle="${msg}" /><span class="txt_products"> <span class="txt_pnum"></span> <fmt:message key="fna.label.headline.part2" bundle="${msg}" /></span> <fmt:message key="fna.label.headline.part3" bundle="${msg}" /></p>
-										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
+										
+										<p class="onlyOneProduct"></p>
+										<p class="hasManyProduct"><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
 										<div class="hidden-xs">
 											<a href="javascript:void(0);" class="fna-btn-discover"><fmt:message key="fna.button.discover" bundle="${msg}" /></a>
 										</div>
@@ -280,9 +246,8 @@ function goLandingPage(){
 						
 						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span><fmt:message key="fna.link.moreproduct" bundle="${msg}" /> <i class="fa fa-caret-down"></i></span></a>
 
-						<div class="only1Product">
-							<fmt:message key="fna.text.only1product" bundle="${msg}" />
-						</div>
+						<div class="noAvailableProduct"></div>
+
 
 						<div class="text-right">
 							<a href="javascript:void(0);" class="fna-btn-clear"><fmt:message key="fna.link.clearandleave" bundle="${msg}" /> <i class="fa fa-caret-right"></i></a>
@@ -376,11 +341,13 @@ function goLandingPage(){
 				</div>
 			</div>
 
+			<div class="fna-other-product-header">
+				<p class="no-product-match"><fmt:message key="fna.text.product.otherstype.description" bundle="${msg}" /></p>
+			</div>
+
 			<div class="fna-other-product">
 				<span class="fna-product-type-name"></span><br>
-				<p class="subject">This product type meets your FNA objective:</p>
 				<p class="desc"></p>
-				<p class="no-product-match"><fmt:message key="fna.text.product.otherstype.description" bundle="${msg}" /></p>
 
 			</div>
 
@@ -395,6 +362,27 @@ function goLandingPage(){
 			<i class="fa fa-check fna-ico-tick"></i>
 
 			<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/product-result-type-icon.png" class="result-type-ico">
+
+			<p class="txt_onlyOneProduct"><fmt:message key="fna.text.only1product" bundle="${msg}" /></p>
+
+			<p class="txt_noAvailableProduct"><fmt:message key="fna.text.noavailableproduct" bundle="${msg}" /></p>
+			<p class="txt_q4e_0"><fmt:message key="fna.text.q4e.array0" bundle="${msg}" /></p>
+			<p class="txt_q4e_1"><fmt:message key="fna.text.q4e.array1" bundle="${msg}" /></p>
+			<p class="txt_q4e_2"><fmt:message key="fna.text.q4e.array2" bundle="${msg}" /></p>
+			<p class="txt_q4e_3"><fmt:message key="fna.text.q4e.array3" bundle="${msg}" /></p>
+
+			<p class="txt_obj_0"><fmt:message key="fna.text.objectives.array0" bundle="${msg}" /></p>
+			<p class="txt_obj_1"><fmt:message key="fna.text.objectives.array1" bundle="${msg}" /></p>
+			<p class="txt_obj_2"><fmt:message key="fna.text.objectives.array2" bundle="${msg}" /></p>
+			<p class="txt_obj_3"><fmt:message key="fna.text.objectives.array3" bundle="${msg}" /></p>
+			<p class="txt_obj_4"><fmt:message key="fna.text.objectives.array4" bundle="${msg}" /></p>
+
+			<p class="txt_sep"><fmt:message key="fna.text.separater" bundle="${msg}" /></p>
+
+			<p class="txt_ilas"><fmt:message key="fna.text.ilas.desc" bundle="${msg}" /></p>
+
+			<p class="txt_ilas_only1"><fmt:message key="fna.text.lias.desc.only1" bundle="${msg}" /></p>
+
 		</div>
 		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-keys" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">

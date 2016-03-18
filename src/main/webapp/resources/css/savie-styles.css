@@ -1,3 +1,13 @@
+body.chin {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+body .text-bold {
+  font-family: "Calibri-bold", Calibri, sans-serif !important;
+}
+body.chin .text-bold {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
 /* line 1, ../sass/partials/savie/_media.scss */
 .media {
   margin-top: 15px;

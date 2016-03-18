@@ -121,9 +121,17 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
 				                   <div>				               
-				                   		<h3 class="amount-selected"><span class="pull-left"><fmt:message key="label.savie.amount" bundle="${msg}" /></span><span class="pull-right">HKD <span class="pull-right" id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></span></h3>
+				                   		<h3 class="amount-selected"><span class="pull-left"><fmt:message key="label.savie.amount" bundle="${msg}" /></span><span class="pull-right">HKD <span class="pull-right" id="range">
+				                   		<fmt:formatNumber value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" type="number"/>
+				                   		</span></span></h3>
 				                   </div>
-				                    <input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+				                    <input type="text" class="span2 amount-slider" name="amount" 
+				                    value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" 
+				                    data-slider-min="30000" 
+				                    data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" 
+				                    data-slider-step="1000" 
+				                    data-slider-value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" 
+				                    data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
 											<p><fmt:message key="label.min" bundle="${msg}" /></p>											
@@ -880,6 +888,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	var apply=false;//判断是否点击proceed
 	var nextPage;
 	function saviePlanDetailsGoNext(){
+		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
 		if(apply){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 		}else {

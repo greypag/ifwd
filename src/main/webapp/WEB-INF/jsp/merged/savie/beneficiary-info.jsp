@@ -31,11 +31,11 @@ var languageP = "${language}";
 				<div class="fwd-container container-fluid breadcrumbs">
 					<div class="breadcrumb-container">
 					   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
+							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
+							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 							<li class="divider last"><i class="fa fa-play"></i></i></li>
 							<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 					   </ol>
@@ -69,7 +69,7 @@ var languageP = "${language}";
 								</a>
 							 </div>
 							 <div class="et-header-tex">
-								<h3 id=""><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
+								<h3 class="text-bold"><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
 							 </div>
 							 <p id="step-of">2 out of 6</p>
 						  </div>
@@ -93,7 +93,7 @@ var languageP = "${language}";
 				<div id="so-beneficiary-info-section" class="headerStick">
 					<div class="container-fluid fwd-full-container" id="container-beneficiary">
 						<div id="fwd-container-beneficiary" class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page">
-							<h4 class="so-h4"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></h4>
+							<h4 class="so-h4 text-bold"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></h4>
 							<div id="errorMsg" style="color: red;"></div>
 							<form id="beneficiary-info-form[0]" class="beneficiary-form-content form-uppercase" method="post" action="">
 								<div class="radio-group clearfix">
@@ -102,7 +102,7 @@ var languageP = "${language}";
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="own-estate-id" name="isOwnEstate" value="true" checked /> <label for="own-estate-id"></label>
 										 </div>
-										 <div class="pull-left desc">
+										 <div class="pull-left desc text-bold">
 											<fmt:message key="option.own.estate" bundle="${msg}" />
 										 </div>
 									  </div>
@@ -110,7 +110,7 @@ var languageP = "${language}";
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="name-others-id" name="isOwnEstate" value="false" /> <label for="name-others-id"></label>
 										 </div>
-										 <div class="pull-left desc">
+										 <div class="pull-left desc text-bold">
 											<fmt:message key="option.name.other" bundle="${msg}" />
 										 </div>
 									  </div>
@@ -126,14 +126,14 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[0]" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[0]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryFirstName[0]" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[0]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[0]"></span>
@@ -142,7 +142,7 @@ var languageP = "${language}";
 									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[0]">Duplicate chinese name</span>
@@ -151,7 +151,7 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
-												  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
+												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport1" id="beneficiaryHkidPassport[0]">
 													 <option value="" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
 													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'hkid' }">selected="selected"</c:if>>HKID</option>
@@ -166,11 +166,11 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-0">
 											<input type="text" id="beneficiaryHkid[0]" name="beneficaryID1" value="${lifeBeneficaryInfo.beneficaryID1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-0">
 											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[0]"></span>
 										<span class="error-msg" id="beneficiaryPassErMsg[0]"></span>
@@ -181,8 +181,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-1" id="tmpBeneficiaryGender-1">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
@@ -198,8 +198,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[0]" name="tmpBeneficiaryRelationship[0]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship-1" name="tmpBeneficiaryRelationship-1">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
@@ -237,7 +237,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[0]"></span>
 									 </div>
@@ -266,14 +266,14 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[1]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[1]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[1]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryFirstName[1]" name="beneficaryFirstName2" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[1]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[1]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[1]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[1]"></span>
@@ -282,7 +282,7 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[1]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[1]">Duplicate chinese name</span>
@@ -291,7 +291,7 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
-												  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
+												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport2" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
 													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'hkid' }">selected="selected"</c:if>>HKID</option>
@@ -306,11 +306,11 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-1">
 											<input type="text" id="beneficiaryHkid[1]" name="beneficaryID2" value="${lifeBeneficaryInfo.beneficaryID2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-1">
 											<input type="text" id="beneficiaryPassport[1]" name="beneficiaryPassport2" value="${lifeBeneficaryInfo.beneficiaryPassport2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[1]"></span>
 										<span class="error-msg" id="beneficiaryPassErMsg[1]"></span>
@@ -321,8 +321,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[1]" id="tmpBeneficiaryGender[1]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-2" id="tmpBeneficiaryGender-2">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
@@ -338,8 +338,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[1]" name="tmpBeneficiaryRelationship[1]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship-2" name="tmpBeneficiaryRelationship-2">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
@@ -377,7 +377,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[1]" name="beneficaryWeight2" value="${lifeBeneficaryInfo.beneficaryWeight2 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[1]"></span>
 									 </div>
@@ -406,14 +406,14 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[2]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[2]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[2]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryFirstName[2]" name="beneficaryFirstName3" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[2]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[2]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[2]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[2]"></span>
@@ -422,7 +422,7 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[2]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[2]">Duplicate chinese name</span>
@@ -431,7 +431,7 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
-												  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
+												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport3" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
 													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'hkid' }">selected="selected"</c:if>>HKID</option>
@@ -446,11 +446,11 @@ var languageP = "${language}";
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-2">
 											<input type="text" id="beneficiaryHkid[2]" name="beneficaryID3" value="${lifeBeneficaryInfo.beneficaryID3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-2">
 											<input type="text" id="beneficiaryPassport[2]" name="beneficiaryPassport3" value="${lifeBeneficaryInfo.beneficiaryPassport3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[2]"></span>
 										<span class="error-msg" id="beneficiaryPassErMsg[2]"></span>
@@ -461,8 +461,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[2]" id="tmpBeneficiaryGender[2]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-3" id="tmpBeneficiaryGender-3">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
@@ -478,8 +478,8 @@ var languageP = "${language}";
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
-													<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
-													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[2]" name="tmpBeneficiaryRelationship[2]">
+													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship-3" name="tmpBeneficiaryRelationship-3">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
@@ -517,7 +517,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[2]" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input"  />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[2]"></span>
 									 </div>
@@ -527,8 +527,8 @@ var languageP = "${language}";
 						<div class="fwd-container-limitpersonal-info-widget page-application et-application-page clearfix" id="beneficiary-note">
 							<p><fmt:message key="label.change.beneficiary" bundle="${msg}" /></p>
 							<div id="beneficiary-btn">
-								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
-								<button type="button" id="back-summary-btn" class="btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
+								<button type="submit" class="text-bold btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
+								<button type="button" id="back-summary-btn" class="text-bold btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
 									<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
 								</a>
@@ -543,11 +543,11 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
+				<h4 class="text-bold text-center welcome-msg"><fmt:message key="label.savie.save.continue.title1" bundle="${msg}" /></h4>
 				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy1" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
-					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
-					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
+					<button class="text-bold btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+					<button class="text-bold btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 				</div>
 			</div>
 		  </div>
@@ -557,12 +557,12 @@ var languageP = "${language}";
 		  <div class="modal-dialog">
 			<div class="modal-content save-con-modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-				<h4 class="text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
+				<h4 class="text-bold text-center welcome-msg"><fmt:message key="label.savie.save.continue.title2" bundle="${msg}" /></h4>
 				<p class="text-center description-msg"><fmt:message key="label.savie.save.continue.copy2" bundle="${msg}" /></p>
 				<div class="save-con-btns clearfix">
 					<center>
-						<button class="btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
-						<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
+						<button class="text-bold btn savie-common-btn" id="keep-going-btn"><fmt:message key="button.keep.going" bundle="${msg}" /></button>
+						<button class="text-bold btn savie-common-btn disabled-gray-btn" id="save-exit-btn"><fmt:message key="button.save.and.exit" bundle="${msg}" /></button>
 					</center>
 				</div>
 			</div>
@@ -577,9 +577,9 @@ var languageP = "${language}";
 						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
 				 </div>
 				 <div class="modal-body" id="moda-body-appsave">
-					<p class="text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
+					<p class="text-bold text-center"><fmt:message key="label.saved.application.copy" bundle="${msg}" /></p>
 					<div class="btn-appsave">
-						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
+						<button href="#" class="text-bold center-block btn savie-common-btn" id="btn-app-save"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
 					</div>
 				 </div>
 			 </div>
@@ -818,10 +818,10 @@ var languageP = "${language}";
 								notEmpty: {
 									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
 				               },
-				               regexp: {
-				                  regexp: /^[a-zA-Z0-9\-]*$/,
-				                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-				               }
+			               regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+			               }
 							}
 						},
 						'beneficaryID1':{
@@ -847,7 +847,7 @@ var languageP = "${language}";
 				            }
 							}
 						},
-						'beneficaryGender1': {
+						'tmpBeneficiaryGender-1': {
 						   container: '#beneficiaryGenderErMsg\\[0\\]',
 						   validators: {
 							  notEmpty: {
@@ -855,7 +855,7 @@ var languageP = "${language}";
 							  }
 						   }
 						},
-						'beneficaryRelation1':{
+						'tmpBeneficiaryRelationship-1':{
 							container: '#beneficiaryRelationErMsg\\[0\\]',
 							validators: {
 								notEmpty: {
@@ -993,10 +993,10 @@ var languageP = "${language}";
 								notEmpty: {
 									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
 				               },
-				               regexp: {
-				                  regexp: /^[a-zA-Z0-9\-]*$/,
-				                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-				               }
+			               regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+			               }
 							}
 						},
 						'beneficiaryID2':{
@@ -1022,7 +1022,7 @@ var languageP = "${language}";
 				                }
 							}
 						},
-						"beneficiaryGender2": {
+						"tmpBeneficiaryGender-2": {
 						   container: '#beneficiaryGenderErMsg\\[1\\]',
 						   validators: {
 							  notEmpty: {
@@ -1030,7 +1030,7 @@ var languageP = "${language}";
 							  }
 						   }
 						},
-						'beneficiaryRelationship2':{
+						'tmpBeneficiaryRelationship-2':{
 						   container: '#beneficiaryRelationErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
@@ -1197,7 +1197,7 @@ var languageP = "${language}";
 				                }
 							}
 						},
-							'beneficiaryGender3': {
+							'tmpBeneficiaryGender-3': {
 							   container: '#beneficiaryGenderErMsg\\[2\\]',
 							   validators: {
 								  notEmpty: {
@@ -1205,7 +1205,7 @@ var languageP = "${language}";
 								  }
 							   }
 							},
-							'beneficiaryRelationship3':{
+							'tmpBeneficiaryRelationship-3':{
 								container: '#beneficiaryRelationErMsg\\[2\\]',
 								validators: {
 									notEmpty: {

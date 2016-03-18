@@ -10941,8 +10941,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #session-alert .fwd-modal-wrapper{
     width: 435px;
 }
-.fwd-modal-wrapper .modal-body{
-    padding: 40px;
+#session-alert .fwd-modal-wrapper .modal-body{
+    padding: 0 40px 40px 40px;
+    margin: 0;
 }
 .fwd-modal-wrapper .modal-body button.close{
     font-weight: bold;
@@ -10951,7 +10952,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     right: 20px;
 }
 .fwd-modal-wrapper .separator{
-	padding-top: 20px;
     padding-bottom: 40px;
 }
 @media all and (max-width: 767px){
@@ -11285,4 +11285,13 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     border: none;*/
     font-size: 14px;
     color: #e4002b;
+}
+#session-alert .close{
+	padding: 20px 20px 0 0;
+}
+#session-alert .button-wrapper{
+	overflow: hidden;
+}
+#session-alert .modal-content{
+	padding: 0;
 }
