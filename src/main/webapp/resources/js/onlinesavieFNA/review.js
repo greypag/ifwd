@@ -331,7 +331,7 @@ var Review = {
 					$(".occupation_others input").val(occupation);
 				}
 				
-				if(fnaData.nature_of_business == null && fnaData.occupation == null){
+				if((fnaData.nature_of_business == null || fnaData.nature_of_business == "" ) && (fnaData.occupation == null || fnaData.occupation == "")){
 					$(".NatureRow").hide();
 					$(".OccupationRow").hide();
 				}
