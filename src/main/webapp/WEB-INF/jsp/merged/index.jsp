@@ -199,7 +199,6 @@
 					<p class="text-bold savie-common-btn visible-md visible-lg read-more-btn"><fmt:message key="blog.title" bundle="${msg}" /></p>
 					<button class="savie-common-btn btn read-more-btn  read-more-btn-mb ui-btn ui-shadow"><fmt:message key="blog.title" bundle="${msg}" /></button>
 					<hr class="hidden-sm hidden-xs" />
-					<p class="hidden-sm hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
 				</div>
 			</div>
 			<!-- Products Gallery -->

@@ -134,10 +134,10 @@ var language = "${language}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center clearfix">
-                      <c:if test="${savieType == 'RP'}">
+                      <c:if test="${((savieType == 'RP') || (savieType == 'SP' && applicationType == 'offline'))}">
                      	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="Button.savie.confirm" bundle="${msg}" /></button>
                       </c:if>
-                      <c:if test="${savieType == 'SP'}">
+                      <c:if test="${(savieType == 'SP' && applicationType == 'online')}">
                      	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
                       </c:if>
                    </div>
@@ -247,7 +247,9 @@ var language = "${language}";
 		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 			$('#fullyBooked').modal('show');
 		} */
-		console.log('${savieType}');
+		//console.log('${savieType}');
+		//console.log('${applicationType}');
+		
 		if($("#full-date").length > 0){
 			$('#fullyBooked').modal('show');
 		}

@@ -315,8 +315,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_PLANDETAILS_RP = "plan-details-rp";
 	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LANDING = "savings.landing";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM = "savings.landing.sp";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM = "savings.landing.rp";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM = "savie.landing.sp";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM = "savie.landing.rp";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "savings.plan.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_FNA = "fna.fna";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PRODUCT = "fna.product.recommendation";

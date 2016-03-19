@@ -70,7 +70,6 @@ var fnaSavieGame = {
 					$(".step2").fadeIn();
 					Matrix.start(that.postData.gender,that.age,null,-1);
 
-					$(".dp-gender").text(that.postData.gender == 0 ? "Mr. " : "Ms. ");
 					$(".dp-name").text($(".frm-fna-name").val());
 				});
 
