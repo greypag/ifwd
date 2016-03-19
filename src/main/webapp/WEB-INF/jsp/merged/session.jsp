@@ -88,7 +88,7 @@
       }            
    }
    $(function() {
-	   $('#session-alert').modal('show');
+	   //$('#session-alert').modal('show');
 	   //$('#session-alert').modal('show');
        setInterval(sessionPopup, 300000);
    });   
