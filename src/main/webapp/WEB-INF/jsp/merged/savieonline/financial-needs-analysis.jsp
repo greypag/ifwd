@@ -291,7 +291,7 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step4-indicator2.png" class="step-indicator2">
 								</div>
 								<div class="q3">
-									<h4><fmt:message key="fna.question.q3" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
+									<h4><fmt:message key="fna.question.q3" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
@@ -348,7 +348,7 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step5-indicator3.png" class="step-indicator3">
 								</div>
 								<div class="q4a mob-view">
-										<h4><fmt:message key="fna.question.q4a" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
+										<h4><fmt:message key="fna.question.q4a" bundle="${msg}" /><span> <fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
@@ -384,7 +384,7 @@ var affiliate = "${affiliate}";
 										</div>
 									</div>
 
-									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /><span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span></h4>
+									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /> <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="err_q4b1 fna-error-msg text-red"></span>
 									</div>
@@ -401,7 +401,7 @@ var affiliate = "${affiliate}";
 										<span class="err_q4b2 fna-error-msg text-red"></span>
 									</div>
 									<div class="sep"></div>
-									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int" data-allowzero="true">
+									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int" data-allowzero="true"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />
 									<p class="note"><fmt:message key="fna.question.q4b.note" bundle="${msg}" /></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
@@ -452,13 +452,13 @@ var affiliate = "${affiliate}";
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
-									<p><fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="fna.question.q4di.hkd" bundle="${msg}" /><input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"></p>
+									<p><fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
 
 									<h4><span class="q-sub-num">ii:</span><fmt:message key="fna.question.q4dii" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4d2 fna-error-msg text-red"></span>
 									</div>
-									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="fna.question.q4dii.hkd" bundle="${msg}" /><input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"></p>
+									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
@@ -481,7 +481,7 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4e mob-view">
 									<div class="inner-cont">
-										<h4><span class="q-num">4e</span><fmt:message key="fna.question.q4e" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
+										<h4><span class="q-num">4e</span><fmt:message key="fna.question.q4e" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
@@ -508,7 +508,7 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4f mob-view mob-hide">
 									<div class="inner-cont">
-										<h4><span class="q-num">4f</span><fmt:message key="fna.question.q4f" bundle="${msg}" /><span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
+										<h4><span class="q-num">4f</span><fmt:message key="fna.question.q4f" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span></h4>
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
@@ -547,7 +547,7 @@ var affiliate = "${affiliate}";
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/step8-indicator1.png" class="step-indicator1">
 								</div>
 								<div class="q4g">
-									<h4><span class="q-num">4g</span><fmt:message key="fna.question.q4g" bundle="${msg}" /><span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span></h4>
+									<h4><span class="q-num">4g</span><fmt:message key="fna.question.q4g" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span></h4>
 									<div class="fna-error-box">
 										<span class="fna-error-msg text-red"></span>
 									</div>
