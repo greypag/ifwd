@@ -190,7 +190,7 @@ var affiliate = "${affiliate}";
 								<div class="dependents"><img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/spacer.png"></div>
 							</div>
 						</div>
-						<h3><fmt:message key="label.hi" bundle="${msg}" /><span class="dp-gender">Mr.</span> <span class="dp-name">Chan</span></h3>
+						<h3><fmt:message key="label.hi" bundle="${msg}" /> <span class="dp-name">Chan</span></h3>
 						<div class="hidden-lg hidden-md">
 							<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/matrix_m1.png" class="img-martix-mob">
 						</div>

@@ -467,9 +467,7 @@ var FNArecommendation = {
 			}
 		});
 
-		$(".txt_fna_name").text(
-			((data.gender == 0)?"Mr. ":"Ms. ") + data.name
-		);
+		$(".txt_fna_name").text(data.name);
 	},
 	parseProductRecommend:function(data,more){
 		var that = this;
