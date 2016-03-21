@@ -63,7 +63,7 @@
    console.log(<%=session.getMaxInactiveInterval() %>);
    var sessionTimer = <%=creationTime%>;
    <% if (session.getAttribute("userDetails") != null) {%>
-   $("#session-alert-counter").countdown(new Date(sessionTimer),{elapse: true}).on('update.countdown', function(event) {	   
+   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {	   
        if(event.elapsed){
            $('#session-extend').prop('disabled', true);
            window.location.href = "<%=request.getContextPath()%>/userLogout";
@@ -78,9 +78,12 @@
           url: "<%=request.getContextPath()%>/ajax/validateSession",
              async : false,
              success : function() {
-              $("#session-alert-counter").html('Your session is extended.');
-             }
-        });                
+                 $("#session-alert-counter").html('Your session is extended.');             
+             } 
+             /*complete: function(){
+            	 $('#session-alert-counter').countdown('2012/20/20 12:34:56');
+    	     }*/          
+        });
   });    
    function sessionPopup(){
        if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 600){
@@ -89,7 +92,7 @@
    }
    $(function() {
 	   //$('#session-alert').modal('show');
-	   //$('#session-alert').modal('show');
+	   sessionPopup();
        setInterval(sessionPopup, 300000);
    });   
    <% } %>
