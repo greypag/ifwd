@@ -441,6 +441,24 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savings-insurance/signatureSaveforLater"})
+	public void signatureSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+			lifeDeclaration.setType("3");
+			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getPolicyApplicationSaveforLater"})
 	public void getPolicyApplicationSaveforLater (HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
