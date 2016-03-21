@@ -22,6 +22,7 @@ public class LifePaymentBean implements Serializable {
 	private String accountNumber;
 	private String accountHolderName;
 	private String paymentAmount;
+	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		this.bankName = this.bankCode !=null && !"".equals(this.bankCode)?this.bankCode.split("-")[1]:"";
@@ -131,6 +132,18 @@ public class LifePaymentBean implements Serializable {
 
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
+	}
+
+
+
+	public String getType() {
+		return type;
+	}
+
+
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }

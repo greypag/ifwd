@@ -31,6 +31,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String amountOfOtherSourceOfIncomeName;
 	private String amountOfLiquidAssets;
 	private String amountOfLiquidAssetsName;
+	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		this.employmentStatusName = !"".equals(this.employmentStatus)?this.employmentStatus.split("-")[1]:"";
@@ -204,6 +205,14 @@ public class LifeEmploymentInfoBean implements Serializable {
 
 	public void setOtherOccupation(String otherOccupation) {
 		this.otherOccupation = otherOccupation;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }

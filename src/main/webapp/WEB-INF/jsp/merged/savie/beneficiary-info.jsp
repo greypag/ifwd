@@ -644,11 +644,12 @@ var languageP = "${language}";
 				});
 				
 			// application saved modal will show after clicking 'Save and exit' button 
-			$('.save-exit-btn2, #save-exit-btn').click(function() {
+			// no full fill type = 1
+			$('.save-exit-btn2').click(function() {
 				$("#errorMsg").html("");
 				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-				   $('#beneficiary-info-form\\[2\\]').serialize();
+				   $('#beneficiary-info-form\\[2\\]').serialize()+"&type="+1;
 				$.ajax({
 					  type : "POST",
 					  async:false, 
@@ -661,6 +662,30 @@ var languageP = "${language}";
 						  }
 						  else{
 							  $('#save-and-continue-modal').modal('hide');
+							  $('#application-saved-modal').modal('show');
+							  sendEmailForSaveLater("beneficiary-info");
+						  }
+					  }
+			     });
+			});
+			//full fill type = 2
+			$('#save-exit-btn').click(function() {
+				$("#errorMsg").html("");
+				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[2\\]').serialize()+"&type="+2;
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
+					  data: formdata1,
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $('#save-and-continue-batch5-modal').modal('hide');
+							  show_stack_bar_top(data.errorMsg);
+						  }
+						  else{
+							  $('#save-and-continue-batch5-modal').modal('hide');
 							  $('#application-saved-modal').modal('show');
 							  sendEmailForSaveLater("payment");
 						  }

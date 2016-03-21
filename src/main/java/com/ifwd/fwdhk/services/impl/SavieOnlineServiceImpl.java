@@ -1526,8 +1526,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
-		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/employment-info");
+		String resumeViewPage = null;
+		if("1".equals(lifePersonalDetails.getType())){
+			resumeViewPage = language+"/savings-insurance/personal-details";
+		}
+		else if("2".equals(lifePersonalDetails.getType())){
+			parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
+			resumeViewPage = language+"/savings-insurance/employment-info";
+		}
+		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
@@ -1562,8 +1569,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
-		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/beneficiary-info");
+		String resumeViewPage = null;
+		if("1".equals(lifeEmploymentInfo.getType())){
+			resumeViewPage = language+"/savings-insurance/employment-info";
+		}
+		else if("2".equals(lifeEmploymentInfo.getType())){
+			parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
+			resumeViewPage = language+"/savings-insurance/beneficiary-info";
+		}
+		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
@@ -1616,8 +1630,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
-		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/payment");
+		String resumeViewPage = null;
+		if("1".equals(lifeBeneficaryInfo.getType())){
+			resumeViewPage = language+"/savings-insurance/beneficiary-info";
+		}
+		else if("2".equals(lifeBeneficaryInfo.getType())){
+			parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
+			resumeViewPage = language+"/savings-insurance/payment";
+		}
+		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
@@ -1640,7 +1661,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return parameters;
 	}
 	
-	public void lifePaymentSaveforLater(String type,LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1653,10 +1674,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
 		String resumeViewPage = null;
-		if("1".equals(type)){
+		if("1".equals(lifePayment.getType())){
 			resumeViewPage = language+"/savings-insurance/payment";
 		}
-		else if("2".equals(type)){
+		else if("2".equals(lifePayment.getType())){
 			parameters = this.lifePaymentPutData(lifePayment, parameters);
 			resumeViewPage = language+"/savings-insurance/application-summary";
 		}
@@ -1689,7 +1710,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return parameters;
 	}
 	
-	public void lifeDeclarationSaveforLater(String type,LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1703,14 +1724,24 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
 		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
 		parameters = this.lifePaymentPutData(lifePayment, parameters);
-		parameters = this.lifeDeclarationPutData(lifeDeclaration, parameters);
-		parameters.accumulate("resumeViewPage", language+"/savings-insurance/signature");
-		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
-		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
-		if("3".equals(type)){
+		String resumeViewPage = null;
+		if("1".equals(lifeDeclaration.getType())){
+			resumeViewPage = language+"/savings-insurance/declaration";
+		}
+		else if("2".equals(lifeDeclaration.getType())){
+			parameters = this.lifeDeclarationPutData(lifeDeclaration, parameters);
+			resumeViewPage = language+"/savings-insurance/signature";
+		}
+		else if("3".equals(lifeDeclaration.getType())){
+			parameters = this.lifeDeclarationPutData(lifeDeclaration, parameters);
+			resumeViewPage = language+"/savings-insurance/signature";
+			
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 			parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
 		}
+		parameters.accumulate("resumeViewPage", resumeViewPage);
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){

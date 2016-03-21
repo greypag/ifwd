@@ -47,6 +47,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryRelation3;
 	private String beneficaryRelationName3;
 	private String beneficaryWeight3;
+	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		if(!this.isOwnEstate){
@@ -337,6 +338,14 @@ public class LifeBeneficaryInfoBean implements Serializable {
 
 	public void setBeneficiaryHkidPassport3(String beneficiaryHkidPassport3) {
 		this.beneficiaryHkidPassport3 = beneficiaryHkidPassport3;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	
