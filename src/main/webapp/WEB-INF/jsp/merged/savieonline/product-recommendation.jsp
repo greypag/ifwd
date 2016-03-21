@@ -388,7 +388,7 @@ var fnaq4e = '${savieFna.q4_e }';
 
 			<p class="txt_ilas"><fmt:message key="fna.text.ilas.desc" bundle="${msg}" /></p>
 
-			<p class="txt_ilas_only1"><fmt:message key="fna.text.lias.desc.only1" bundle="${msg}" /></p>
+			<p class="txt_ilas_only1"><fmt:message key="fna.text.ilas.desc.only1" bundle="${msg}" /></p>
 
 		</div>
 		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-keys" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
