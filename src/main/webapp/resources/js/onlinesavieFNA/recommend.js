@@ -689,24 +689,25 @@ var FNArecommendation = {
 		if(data.product_list.length==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
-		if(data.fulfilled=='N'){
+		if(data.fulfilled=='Y'){
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");
 		    for (i=0;i<pq1.length ;i++ ){
+		    	var r = true;
 		    	for (j=0;j<fq1.length ;j++ ){
-		    		var r = true;
-			    	if(pq1[i]==fq1[j]){
+			    	if(fq1[j]==pq1[i]){
 			    		r = false;
 			    		break;
 			    	}
-			    	if(r){
-			    		rq1 = rq1+pq1[i]+",";
-			    	}
 			    }
+		    	if(r){
+		    		rq1 = rq1+pq1[i]+",";
+		    	}
 		    }
-		    //alert(rq1.substring(0,rq1.length-1));
-			FNArecommendation.showNoAvailableProduct(true,data.q2,rq1.substring(0,rq1.length-1),fnaq4e);
+		    if(rq1!=null && rq1!=''){
+		    	FNArecommendation.showNoAvailableProduct(true,data.q2,rq1.substring(0,rq1.length-1),fnaq4e);
+		    }
 		}
 	},
 
