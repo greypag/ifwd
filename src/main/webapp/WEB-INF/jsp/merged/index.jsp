@@ -393,8 +393,7 @@
           		} --%>
             	
             	$("#make-appointment-btn").on('click', function(){
-            		<%-- window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre'; --%>
-            		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+            		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
             	});
             	
             	$("#review-fna-btn").on('click', function(){
