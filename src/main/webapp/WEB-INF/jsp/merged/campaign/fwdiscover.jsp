@@ -205,7 +205,7 @@
                         </a>
                     </div>
                 </div> --%>
-                <%--<div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
+                <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
                     
                     <!-- Carousel items -->
                     <div class="carousel-inner clearfix">
@@ -304,7 +304,7 @@
                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-right.png" class="img-responsive">
                         </div>
                     </a>
-                </div>--%>
+                </div>
                 <!--/myCarousel-->
                 
                 <!-- PLANS -->
