@@ -726,6 +726,8 @@ var languageP = "${language}";
 						$('#soInsuredInfoForm').data('bootstrapValidator').enableFieldValidators('residentialTelNo', false);
 					}
 					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('residentialTelNo');
+					
+					$('#soInsuredInfoForm').bootstrapValidator('validate');
 					if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');
 					} else {
@@ -762,31 +764,34 @@ var languageP = "${language}";
 			}
 			
 			$("#et-personal-info-next, #btn-back").click(function(){
-				if ( $('#gender-errormsg').hasClass('has-error') ) {
-					$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
-				} else {
-					$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
-				}
-				$("#errorMsg").html("");
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
-					  data: $("#soInsuredInfoForm").serialize(),
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != "" && !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()){
-							  show_stack_bar_top(data.errorMsg);
-						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+				$('#soInsuredInfoForm').bootstrapValidator('validate');
+				if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+					if ( $('#gender-errormsg').hasClass('has-error') ) {
+						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
+					} else {
+						$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
+					}
+					$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
+						  data: $("#soInsuredInfoForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != "" && !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()){
+								  show_stack_bar_top(data.errorMsg);
 							  }
 							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
 							  }
 						  }
-					  }
-			     });
+				     });
+				}
 			});
 			
 			//Applicant Info form validation
