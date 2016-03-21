@@ -102,7 +102,7 @@ function submitLoginForm(formID) {
 								|| (window.location.href.length - window.location.href.indexOf("en") <= 3)
 								|| (window.location.href.length - window.location.href.indexOf("home") <= 4))
 								&& $('#loginpopup #nav-bar-check').val() == 'false'){		
-							homeFnaGoNext();
+							getStarted();
 							$("#fullName").html(data.fullName);
 							$("#fullName1").html(data.fullName);
 						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0){
@@ -256,24 +256,6 @@ function submitLoginForm(formID) {
 	
 	
 var nextPage;
-function homeFnaGoNext(){
-	$.ajax({     
-	    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-	    type:'get',     
-	    error:function(){       
-	    },     
-	    success:function(data){
-	    	if(data != null && data.errMsgs == null && data.name !=null){
-	    		$('#loginpopup').modal('hide');
-	    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-	    		$('#review-fna-modal').modal('show');
-	    	}
-	    	else{
-	    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
-	    	}
-	    }  
-	});
-}
 
 function getStarted(){
 		$.ajax({     
@@ -285,9 +267,9 @@ function getStarted(){
 		    error:function(){       
 		    },     
 		    success:function(data){
-		    		$('#loginpopup').modal('hide');
 		    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 		    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
 		    	}else{
 		    		$.ajax({     
@@ -297,6 +279,8 @@ function getStarted(){
 		    		    },     
 		    		    success:function(data){
 		    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+		    		    		$('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
+		    			    	$('#loginpopup').modal('hide');
 		    		    		$('#retrieve-application-modal').modal('show');
 		    		    		nextPage = data.nextPage;
 		    		    	}
@@ -309,6 +293,7 @@ function getStarted(){
 					    		    success:function(data){
 					    		    	if(data != null && data.errMsgs == null && data.name !=null){
 					    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+					    			    	$('#loginpopup').modal('hide');
 					    		    		$('#review-fna-modal').modal('show');
 					    		    	}
 					    		    	else{
