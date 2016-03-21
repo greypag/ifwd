@@ -62,35 +62,35 @@
 <script type="text/javascript">
    console.log(<%=session.getMaxInactiveInterval() %>);
    var sessionTimer = <%=creationTime%>;
-   <% if (session.getAttribute("userDetails") != null) {%>
-   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {	   
-       if(event.elapsed){
-           $('#session-extend').prop('disabled', true);
-           window.location.href = "<%=request.getContextPath()%>/userLogout";
-           <%--location.replace("<%=request.getContextPath()%>/${language}");--%>
-           //$(this).html(event.strftime('Expired after<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> '));
-       }else{            
-           $(this).html(event.strftime('<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
-       }
-   });
-   $( "#session-extend" ).on( "click", function() {
-       $.ajax({
-          url: "<%=request.getContextPath()%>/ajax/validateSession",
-             async : false,
-             success : function() {
-                 $("#session-alert-counter").html('Your session is extended.');             
-             } 
-             /*complete: function(){
-            	 $('#session-alert-counter').countdown('2012/20/20 12:34:56');
-    	     }*/          
-        });
-  });    
+   <% if (session.getAttribute("userDetails") != null) {%>  
    function sessionPopup(){
        if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 600){
            $('#session-alert').modal('show');
       }            
    }
    $(function() {
+	   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {       
+	       if(event.elapsed){
+	           $('#session-extend').prop('disabled', true);
+	           window.location.href = "<%=request.getContextPath()%>/userLogout";
+	           <%--location.replace("<%=request.getContextPath()%>/${language}");--%>
+	           //$(this).html(event.strftime('Expired after<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> '));
+	       }else{            
+	           $(this).html(event.strftime('<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
+	       }
+	   });
+	   $( "#session-extend" ).on( "click", function() {
+	       $.ajax({
+	          url: "<%=request.getContextPath()%>/ajax/validateSession",
+	             async : false,
+	             success : function() {
+	                 $("#session-alert-counter").html('Your session is extended.');
+                     var nextExpire = new Date();
+                     nextExpire.setMinutes(nextExpire.getMinutes() + 28);
+                     $('#session-alert-counter').countdown(nextExpire);	                 
+	             }       
+	        });
+	  });  	   
 	   //$('#session-alert').modal('show');
 	   sessionPopup();
        setInterval(sessionPopup, 300000);
