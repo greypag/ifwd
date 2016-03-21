@@ -491,24 +491,28 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
 	   // String bankCode = json.get("bankCode")+"";
-	    String bankCode = bankName.substring(bankName.length()-4, bankName.length()-1);
-	    if(StringUtils.isNotBlank(bankCode) && !"null".equals(bankCode)){
-	    	for(int i=0;i<bankCode.length();i++){
-	    		String c = bankCode.charAt(i)+"";
-	    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
-	    	}
+	    if(bankName!=null && bankName.length()>4){
+	    	String bankCode = bankName.substring(bankName.length()-4, bankName.length()-1);
+		    if(StringUtils.isNotBlank(bankCode) && !"null".equals(bankCode)){
+		    	for(int i=0;i<bankCode.length();i++){
+		    		String c = bankCode.charAt(i)+"";
+		    		attributeList.add(new PdfAttribute("BankNo."+(i+1), c));
+		    	}
+		    }
 	    }
+	    
 	    
 	    
 	    //String branchCode = json.get("branchCode")+"";
-	    String branchCode = branchName.substring(branchName.length()-4, branchName.length()-1);
-	    if(StringUtils.isNotBlank(branchCode) && !"null".equals(branchCode)){
-	    	for(int i=0;i<branchCode.length();i++){
-	    		String c = branchCode.charAt(i)+"";
-	    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
-	    	}
+	    if(branchName!=null && branchName.length()>4){
+	    	String branchCode = branchName.substring(branchName.length()-4, branchName.length()-1);
+		    if(StringUtils.isNotBlank(branchCode) && !"null".equals(branchCode)){
+		    	for(int i=0;i<branchCode.length();i++){
+		    		String c = branchCode.charAt(i)+"";
+		    		attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
+		    	}
+		    }
 	    }
-	    
 	    
 	    String accountNumber = lifePayment.getAccountNumber();
 	    for(int i=0;i<accountNumber.length();i++){
@@ -1896,8 +1900,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			lifePayment.setPaymentMethod(policyApplication.getPaymentMethod()!=null?policyApplication.getPaymentMethod():"");
 			lifePayment.setBankCode(policyApplication.getBankName()!=null?policyApplication.getBankName():"");
+			lifePayment.setBankName(lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())?lifePayment.getBankCode().split("-")[1]:"");
 			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
+			lifePayment.setPaymentAmount(policyApplication.getAmount());
 			request.getSession().setAttribute("lifePayment", lifePayment);
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
