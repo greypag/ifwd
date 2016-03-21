@@ -6,10 +6,14 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<c:set var="slider_min" value="30000"/>
+<c:set var="slider_max" value="400000" />
+<c:set var="affordabilityPremium" value="${affordabilityPremium = affordabilityPremium != null && affordabilityPremium > slider_min && affordabilityPremium < slider_max ? affordabilityPremium : slider_max}" />
+<c:set var="slider_value" value="${saviePlanDetails.insuredAmount != null && saviePlanDetails.insuredAmount > slider_min ? affordabilityPremium != null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount : affordabilityPremium : saviePlanDetails.insuredAmount : '100000'}" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
-var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'400000' };
+var affordabilityPremium = ${affordabilityPremium};
 </script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -123,15 +127,15 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 								<div class="one-off-premium">
 				                   <div>				               
 				                   		<h3 class="amount-selected"><span class="pull-left"><fmt:message key="label.savie.amount" bundle="${msg}" /></span><span class="pull-right">HKD <span class="pull-right" id="range">
-				                   		<fmt:formatNumber value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" type="number"/>
+				                   		<fmt:formatNumber value="${slider_value}" type="number"/>
 				                   		</span></span></h3>
 				                   </div>
 				                    <input type="text" class="span2 amount-slider" name="amount" 
-				                    value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" 
-				                    data-slider-min="30000" 
-				                    data-slider-max="${affordabilityPremium!=null?affordabilityPremium:'400000' }" 
+				                    value="${slider_value}" 
+				                    data-slider-min="${slider_min}" 
+				                    data-slider-max="${slider_max}" 
 				                    data-slider-step="1000" 
-				                    data-slider-value="${saviePlanDetails.insuredAmount !=null ? affordabilityPremium !=null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount:affordabilityPremium:saviePlanDetails.insuredAmount:'100000' }" 
+				                    data-slider-value="${slider_value}" 
 				                    data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
@@ -139,9 +143,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 										</div>
 										<div class="pull-right text-center">
 											<p><fmt:message key="label.max" bundle="${msg}" /></p>
-											<p>
-											<fmt:formatNumber value="${affordabilityPremium!=null?affordabilityPremium:'400000' }" type="number"/>
-											</p>
+											<p><fmt:formatNumber value="${affordabilityPremium}" type="number"/></p>
 										</div>
 									</div>
 								</div>
