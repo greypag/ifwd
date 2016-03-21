@@ -134,10 +134,11 @@
         		</div>
         	</div>
         	<div class="hidden-xs hidden-sm">
-        		<h3 class="benefits-desktop text-center"><fmt:message key="savie.online.landing.benefits" bundle="${msg}" /></h3>
+
         		<div class="gray-divide"></div>
         	</div>
        		<div class="regular-benefit">
+       		        		<h3 class="benefits-desktop text-center"><fmt:message key="savie.online.landing.benefits" bundle="${msg}" /></h3>
        			<div class="hidden-md hidden-lg">
         			<h4 class="text-center"><fmt:message key="savie.online.landing.benefits" bundle="${msg}" /></h4>
         			<div class="gray-divide"></div>

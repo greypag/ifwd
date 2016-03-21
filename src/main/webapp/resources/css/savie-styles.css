@@ -2310,6 +2310,7 @@ a.eserv-link:hover {
 #review-fna-modal .modal-dialog .modal-content .description-msg, .common-welcome-modal .modal-dialog .modal-content .description-msg {
   padding-top: 7px;
   line-height: 18px;
+  padding-bottom: 20px;
 }
 /* line 32, ../sass/partials/savie/_review-fna.scss */
 #review-fna-modal .modal-dialog .modal-content #review-fna-btn, .common-welcome-modal .modal-dialog .modal-content #review-fna-btn {
@@ -8593,15 +8594,12 @@ form#table-info #id-policy, form#table-info #id-application {
 }
 /* line 61, ../sass/partials/savie/_plan-details-table.scss */
 .pd-summary-table .summary-table .summary-table-head .summary-note-title {
-  font-size: 18px;
+  font-size: 24px;
   padding-top: 30px;
   color: #ff8200;
   margin: 0;
 }
 
-h4 .summary-note-title{
-  font-size: :24px;
-}
 
 #info-addproof{
   font-size: 24px;
@@ -8617,13 +8615,11 @@ h4 .summary-note-title{
 /* line 73, ../sass/partials/savie/_plan-details-table.scss */
 .pd-summary-table .summary-table .summary-table-head .summary-note {
   color: #ff8200;
-  font-size: 14px;
+  font-size: 18px;
   margin: 10px auto;
 }
 
-p .summary-note{
-  font-size: 18px;
-}
+
 
 @media screen and (min-width: 992px) {
   /* line 73, ../sass/partials/savie/_plan-details-table.scss */
@@ -9383,4 +9379,16 @@ h3 .heading-title{
   display: none;
 }
 
+.item-desc p{
+  font-size: 18px;
+}
+
+#benefits-navtabs-6 .benefits-content .info p{
+  font-size: 18px;
+}
+
+.one-off-premium  .amount-selected  .pull-left, 
+.one-off-premium  .amount-selected  .pull-right{
+  font-size: 18px;
+}
 
