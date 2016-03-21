@@ -76,6 +76,7 @@ var language = "${language}";
                <div class="col-xs-12 col-md-6" id="left-side-form">
                    <h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
 					<p class="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
+					<p class="confirm-call"><fmt:message key="label.appointment.booking" bundle="${msg}" /></p>
                    <div class="selectDiv centreDiv gray-text-bg">
                       <select name="centre" id="centre" class="form-control gray-dropdown">
                         <option value="" disabled selected><fmt:message key="Placeholder.centre" bundle="${msg}" /></option>

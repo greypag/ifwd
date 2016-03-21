@@ -658,6 +658,7 @@ var languageP = "${language}";
 				});
 				
 				$('#save-cont-link').on('click', function (e) {
+					$('#employmentInfoForm').bootstrapValidator('validate');
                     if($('#employmentInfoForm').data('bootstrapValidator').isValid()) {
 						$('#save-and-continue-batch5-modal').modal('show');
                     } else {
@@ -701,26 +702,29 @@ var languageP = "${language}";
 			}
 			
 			$("#next-btn, #back-summary-btn").click(function(){
-				$("#errorMsg").html("");
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfo",
-					  data: $("#employmentInfoForm").serialize(),
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  show_stack_bar_top(data.errorMsg);
-						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+				$('#employmentInfoForm').bootstrapValidator('validate');
+				if($('#employmentInfoForm').data('bootstrapValidator').isValid()){
+					$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfo",
+						  data: $("#employmentInfoForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  show_stack_bar_top(data.errorMsg);
 							  }
 							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
 							  }
 						  }
-					  }
-			     });
+				     });
+				}
 			});
 		</script>
 	</body>

@@ -84,18 +84,18 @@ public class LifePersonalDetailsBean implements Serializable {
 		}
 		
 		List<String> list = new ArrayList<String>();
-        if(ValidationUtils.isNullOrEmpty(this.firstname)){
+        /*if(ValidationUtils.isNullOrEmpty(this.firstname)){
         	list.add(ErrorMessageUtils.getMessage("firstname", "validation.failure", language));
         }
         if(ValidationUtils.isNullOrEmpty(this.lastname)){
         	list.add(ErrorMessageUtils.getMessage("lastname", "validation.failure", language));
         }
-        /*if(ValidationUtils.isNullOrEmpty(this.chineseName)){
+        if(ValidationUtils.isNullOrEmpty(this.chineseName)){
         	list.add(ErrorMessageUtils.getMessage("chineseName", "validation.failure", language));
-        }*/
-        /*if(!ValidationUtils.isNullOrEmpty(this.dob)){
+        }
+        if(!ValidationUtils.isNullOrEmpty(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
-        }*/
+        }
         if(ValidationUtils.isNullOrEmpty(this.gender)){
         	list.add(ErrorMessageUtils.getMessage("gender", "validation.failure", language));
         }
@@ -116,7 +116,7 @@ public class LifePersonalDetailsBean implements Serializable {
         }
         if(ValidationUtils.isNullOrEmpty(this.nationalty)){
         	list.add(ErrorMessageUtils.getMessage("nationalty", "validation.failure", language));
-        }
+        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

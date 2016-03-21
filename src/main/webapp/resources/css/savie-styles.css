@@ -2747,7 +2747,7 @@ a.eserv-link:hover {
 @media (min-width: 992px) {
   /* line 360, ../sass/partials/savie/_make-an-appointment.scss */
   .make-an-appointment p.confirm-call {
-    line-height: 10px;
+    /*line-height: 10px;*/
   }
 }
 /* line 370, ../sass/partials/savie/_make-an-appointment.scss */

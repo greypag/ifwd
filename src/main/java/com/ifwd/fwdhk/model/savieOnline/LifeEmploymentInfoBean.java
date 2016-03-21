@@ -43,7 +43,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 		this.amountOfLiquidAssetsName = !"".equals(this.amountOfLiquidAssets)?this.amountOfLiquidAssets.split("-")[1]:"";
 		
 		List<String> list = new ArrayList<String>();
-        if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
+        /*if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
         	list.add(ErrorMessageUtils.getMessage("employmentStatus", "validation.failure", language));
         }
         else{
@@ -72,7 +72,7 @@ public class LifeEmploymentInfoBean implements Serializable {
         }
         if(ValidationUtils.isNullOrEmpty(this.education)){
         	list.add(ErrorMessageUtils.getMessage("education", "validation.failure", language));
-        }
+        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

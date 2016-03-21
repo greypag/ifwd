@@ -335,6 +335,12 @@
 				   $(this).carousel('next');  
 				});
 			});
+
+			$(document).ready(function(){
+				$('#see-all-product-btn').on('click', function () {
+					$('.psa-link-content').slideDown('fast');
+				});
+			})
 		</script>
 		
 	</body>

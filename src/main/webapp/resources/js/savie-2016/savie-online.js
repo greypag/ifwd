@@ -390,14 +390,18 @@ $(document).ready(function() {
 		}
 	});
 	//method to change the minimum and maximum value of one-off premium
-	var oneOffPremiumMax = affordabilityPremium;
-	var oneOffPremiumMin = 30000;
-	$('.amount-slider').slider({
-		min: oneOffPremiumMin,
-		max: oneOffPremiumMax,
-	});
-	$('#max-value').text(commaSeparateNumber(oneOffPremiumMax));
-	$('#min-value').text(commaSeparateNumber(oneOffPremiumMin));
+	if( $('.amount-slider').length ){
+		var oneOffPremiumMax = affordabilityPremium;
+		var oneOffPremiumMin = 30000;
+
+		$('.amount-slider').slider({
+			min: oneOffPremiumMin,
+			max: oneOffPremiumMax,
+		});
+
+		$('#max-value').text(commaSeparateNumber(oneOffPremiumMax));
+		$('#min-value').text(commaSeparateNumber(oneOffPremiumMin));
+	}
 
 	$('.amount-slider').on('slide', function (slideEvt) {
 		var amountSelected = commaSeparateNumber($(this).val());

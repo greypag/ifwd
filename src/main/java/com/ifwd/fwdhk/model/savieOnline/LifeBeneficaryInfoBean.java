@@ -64,19 +64,19 @@ public class LifeBeneficaryInfoBean implements Serializable {
 		
 		List<String> list = new ArrayList<String>();
 		logger.info("isOwnEstate:"+isOwnEstate);
-		if(!this.isOwnEstate){
+		/*if(!this.isOwnEstate){
 			if(ValidationUtils.isNullOrEmpty(this.beneficaryFirstName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryFirstName1", "validation.failure", language));
 	        }
 	        if(ValidationUtils.isNullOrEmpty(this.beneficaryLastName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryLastName1", "validation.failure", language));
 	        }
-	        /*if(ValidationUtils.isNullOrEmpty(this.beneficaryChineseName1)){
+	        if(ValidationUtils.isNullOrEmpty(this.beneficaryChineseName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryChineseName1", "validation.failure", language));
-	        }*/
-	        /*if(ValidationUtils.isNullOrEmpty(this.beneficaryID1)){
+	        }
+	        if(ValidationUtils.isNullOrEmpty(this.beneficaryID1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryID1", "validation.failure", language));
-	        }*/
+	        }
 	        if(ValidationUtils.isNullOrEmpty(this.beneficaryGender1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryGender1", "validation.failure", language));
 	        }
@@ -86,7 +86,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	        if(ValidationUtils.isNullOrEmpty(this.beneficaryWeight1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryWeight1", "validation.failure", language));
 	        }
-		}
+		}*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

@@ -258,7 +258,7 @@ function submitLoginForm(formID) {
 var nextPage;
 
 function getStarted(){
-		$.ajax({     
+		/* $.ajax({     
 		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 		    type:'get', 
 		    data:{    
@@ -271,7 +271,7 @@ function getStarted(){
 		    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
-		    	}else{
+		    	}else{ */
 		    		$.ajax({     
 		    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
 		    		    type:'get',     
@@ -304,9 +304,9 @@ function getStarted(){
 		    		    	}
 		    		    }  
 		    		});
-		    	}
+		    	/* }
 		    }  
-		});
+		}); */
 	}
 </script>
 
