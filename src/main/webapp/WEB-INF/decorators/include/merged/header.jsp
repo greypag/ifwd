@@ -105,7 +105,8 @@ function submitLoginForm(formID) {
 							homeFnaGoNext();
 							$("#fullName").html(data.fullName);
 							$("#fullName1").html(data.fullName);
-						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0 && $('#loginpopup #nav-bar-check').val() == 'false'){
+						} else if(window.location.href.indexOf("savings-insurance/plan-details-")>0){
+							// && $('#loginpopup #nav-bar-check').val() == 'false'
 							$("#fullName").html(data.fullName);
 							$("#fullNames").html(data.fullName);
 							$("#fullName1").html(data.fullName);
