@@ -523,6 +523,9 @@
 	                return 0;
 	            }
 				
+				$('#see-all-product-btn').on('click', function () {
+					$('.psa-link-content').slideDown('fast');
+				});
             });
             
 		</script>
