@@ -251,7 +251,7 @@ var languageP = "${language}";
 					
 					<div class="recommendation-note visible-xs visible-sm">
 						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-						We recommend using a desktop PC for a better signatory experience.
+						<fmt:message key="note.mobile.recommend" bundle="${msg}" />
 					</div>
 					
 					<div id="errorMsg" style="color: red;"></div>

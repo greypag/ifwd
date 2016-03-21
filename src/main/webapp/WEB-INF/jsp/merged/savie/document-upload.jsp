@@ -202,7 +202,7 @@ var languageP = "${language}";
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section">
 									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
-									<h6 class="so-h6 upload-bottom">If you are a non-permanent resident</h6>
+									<h6 class="so-h6 upload-bottom"><fmt:message key="label.passport.copy.des" bundle="${msg}" /></h6>
 									<form action="" id="passport-upload-form" method="POST" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-passport">
 											<div class="center-align">
