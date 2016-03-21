@@ -890,9 +890,6 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	var apply=false;//判断是否点击proceed
 	var nextPage;
 	function saviePlanDetailsGoNext(){
-		<%-- if(!apply) {
-			window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-		} --%>
 		if(apply){
 			//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 			$('#thankYouModal').modal('show');
