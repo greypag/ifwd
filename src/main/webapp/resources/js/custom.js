@@ -1501,13 +1501,15 @@ function addFormBeneficiary (counter) {
 		+ '<span class="hidden-lg hidden-md">' + fm_option_male + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
-		+ '<label for="male-'+counter+'" id="male-label-'+counter+'" class="et-bene-radio pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</label>'
+		/*+ '<label for="male-'+counter+'" id="male-label-'+counter+'" class="et-bene-radio pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</label>'*/
+		+ '<span id="male-label-'+counter+'" class="pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</span>'
 		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="F" id="female-'+counter+'">'
 		+ '<label for="female-'+counter+'" class="female">'
 		+ '<span class="hidden-lg hidden-md">' + fm_option_female + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
-		+ '<label for="female-'+counter+'" id="female-label-'+counter+'" class="et-bene-radio pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</label>'
+		/*+ '<label for="female-'+counter+'" id="female-label-'+counter+'" class="et-bene-radio pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</label>'*/
+		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</span>'
 		+ '</div>'
 		+ '</div>'
 
