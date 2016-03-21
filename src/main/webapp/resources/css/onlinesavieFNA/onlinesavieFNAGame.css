@@ -327,10 +327,12 @@
             bottom: -29px;
             right: 0; }
       .game-fna .step3 .cont .q1 .fna-checkbox-gp {
-        margin: 0 0 0 50px; }
+        margin: 0 0 0 50px; 
+        font-size: 16px;}
         .game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-cb-others {
           min-height: initial !important;
           line-height: 15px; }
+
       .game-fna .step3 .cont .q1 hr {
         width: 290px;
         background-color: #8e8b7f;
@@ -862,7 +864,7 @@
       list-style: none;
       position: relative;
       line-height: 15px;
-      font-size: 14px;
+      font-size: 16px;
       padding-left: 20px;
       min-height: 36px;
       -webkit-user-select: none;
@@ -880,7 +882,7 @@
       			}
        */ }
       .game-fna .fna-checkbox-gp .fna-checkbox-btn span, .game-fna .fna-checkbox-gp .fna-radio-btn span, .game-fna .fna-radio-gp-cb .fna-checkbox-btn span, .game-fna .fna-radio-gp-cb .fna-radio-btn span {
-        font-size: 11px;
+        font-size: 12px;
         line-height: 11px; }
       .game-fna .fna-checkbox-gp .fna-checkbox-btn:before, .game-fna .fna-checkbox-gp .fna-radio-btn:before, .game-fna .fna-radio-gp-cb .fna-checkbox-btn:before, .game-fna .fna-radio-gp-cb .fna-radio-btn:before {
         content: '';

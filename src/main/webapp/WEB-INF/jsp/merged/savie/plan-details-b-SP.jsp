@@ -497,7 +497,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		</div>
 		<div class="next-btn text-center">
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
-			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
+			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
 		</div>

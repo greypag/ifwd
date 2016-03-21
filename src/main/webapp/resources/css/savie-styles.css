@@ -347,7 +347,7 @@ body.chin .text-bold {
 
 /* line 1, ../sass/partials/savie/_common.scss */
 .savie-common-btn {
-  background: #ff8200;
+  background: #ffa500;
   color: #FFF;
   font-size: 18px;
   font-weight: bold;
@@ -488,7 +488,7 @@ a:hover {
 }
 /* line 131, ../sass/partials/savie/_common.scss */
 .savie-online-container .container-fluid .application-page-header.et-header-browse .et-mobile-header-info .et-header-tex h3 {
-  padding-top: 14px;
+  padding-top: 14px;  
   padding-bottom: 14px;
   font-size: 18px;
 }
@@ -753,6 +753,10 @@ a:hover {
 .common-steps-list li {
   padding-left: 25px;
 }
+.common-steps-list{
+  width: 105%;
+}
+
 /* line 380, ../sass/partials/savie/_common.scss */
 .common-steps-list li#first-step {
   padding-left: 0;
@@ -926,16 +930,16 @@ a:hover {
   margin-bottom: 10px;
   padding: 0px 12px 10px 12px;
   background: #F5F5F5;
-  height: 40px;
+  height: 44px;
 }
 /* line 533, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
 }
 /* line 537, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info .data-info {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 5px;
 }
 
@@ -4097,6 +4101,12 @@ a.eserv-link:hover {
 #offline-online-modal .modal-dialog .modal-content #steps-holder #or-mobile {
   text-align: center;
 }
+
+#or-mobile{
+  position: absolute;
+  left:49%;
+}
+
 @media (max-width: 992px) {
   /* line 82, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #or-mobile {
@@ -4148,6 +4158,11 @@ a.eserv-link:hover {
     padding-right: 5px;
   }
 }
+
+#step-online .step{
+  height: 191px;
+}
+
 /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
   font-size: 16px;
@@ -5309,6 +5324,9 @@ a.eserv-link:hover {
 #payment-page .payment-content-wrapper {
   padding: 26px 30px 25px 30px;
 }
+#payment-page .payment-content-wrapper .radio-gorup .radio-button-group{
+  font-size: 16px;
+}
 /* line 6, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .panel-title {
   color: #ff8200;
@@ -5445,6 +5463,11 @@ a.eserv-link:hover {
     margin-top: -8px;
   }
 }
+
+p .payment-policy-wrapper{
+  font-size: 16px;
+}
+
 /* line 137, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .payment-policy-wrapper {
   display: table;
@@ -6050,12 +6073,12 @@ a.eserv-link:hover {
 }
 /* line 10, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content h3 {
-  font-size: 18px;
+  font-size: 24px;
   color: #ff8200;
 }
 /* line 14, ../sass/partials/savie/_fatca.scss */
 #fatca-page #fatca-content #agreement {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 20px;
 }
 /* line 17, ../sass/partials/savie/_fatca.scss */
@@ -6250,6 +6273,11 @@ a.eserv-link:hover {
 #sales-illustration-page #sales-illustration-content {
   padding: 23px 30px 15px 23px;
 }
+
+#sales-illustration-content a{
+  font-size: 18px;
+}
+
 @media (min-width: 992px) {
   /* line 2, ../sass/partials/savie/_sales-illustration.scss */
   #sales-illustration-page #sales-illustration-content {
@@ -6298,7 +6326,7 @@ a.eserv-link:hover {
 }
 /* line 37, ../sass/partials/savie/_sales-illustration.scss */
 #sales-illustration-page #sales-illustration-content #info-note {
-  font-size: 12px;
+  font-size: 14px;
   color: #9ba5a7;
   line-height: 16px;
   margin-bottom: 8px;
@@ -6350,7 +6378,7 @@ a.eserv-link:hover {
 }
 /* line 76, ../sass/partials/savie/_sales-illustration.scss */
 #sales-illustration-page #sales-illustration-content #review-note {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   font-weight: bold;
 }
@@ -7477,6 +7505,9 @@ h6.so-h6 {
   #declaration-page .declaration-content-wrapper .title {
     margin-bottom: 29px;
   }
+  #declarationForm .title{
+    font-size: 24px;
+  }
   /* line 224, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .btn-proceed {
     padding: 6px 30px;
@@ -7563,6 +7594,11 @@ h6.so-h6 {
 .signature-box .modal-dialog .modal-content .modal-body .signature-parent .signature-img {
   background-color: #f7f7f7;
   width: 100%;
+  position:absolute;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto; 
 }
 /* line 48, ../sass/partials/savie/_signature-box.scss */
 .signature-box .modal-dialog .modal-content .modal-body .correct-signature {
@@ -8229,7 +8265,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 120, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre h5 {
   padding-left: 15px;
-  font-size: 14px;
+  font-size: 18px;
 }
 /* line 124, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre p {
@@ -8561,6 +8597,15 @@ form#table-info #id-policy, form#table-info #id-application {
   color: #ff8200;
   margin: 0;
 }
+
+h4 .summary-note-title{
+  font-size: :24px;
+}
+
+#info-addproof{
+  font-size: 24px;
+}
+
 @media screen and (min-width: 992px) {
   /* line 61, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head .summary-note-title {
@@ -8574,6 +8619,11 @@ form#table-info #id-policy, form#table-info #id-application {
   font-size: 14px;
   margin: 10px auto;
 }
+
+p .summary-note{
+  font-size: 18px;
+}
+
 @media screen and (min-width: 992px) {
   /* line 73, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head .summary-note {
@@ -8632,6 +8682,9 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .table-content .table thead tr th {
   padding: 8px;
   border-bottom: none;
+}
+.table thead tr th{
+  font-size: 18px;
 }
 /* line 132, ../sass/partials/savie/_plan-details-table.scss */
 .pd-summary-table .summary-table .table-content .table thead tr th.first-head {
@@ -8788,7 +8841,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 273, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .pd-link {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 15px;
   color: #ff8200;
 }
@@ -8857,21 +8910,21 @@ form#table-info #id-policy, form#table-info #id-application {
   border-radius: 0;
 }
 /* line 338, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-heading {
+#plan-details-sample-and-faq .tab-content .panel-heading {
   border-radius: 0;
   background-color: #e1e4e4;
 }
 /* line 344, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-collapse .panel-body {
-  font-size: 14px;
+#plan-details-sample-and-faq .tab-content .panel-collapse .panel-body {
+  font-size: 18px;
   line-height: 20px;
+  padding: :20px;
 }
 /* line 351, ../sass/partials/savie/_plan-details-table.scss */
-#plan-details-sample-and-faq #pd-sf-faq-and-glossary-group .pd-sf-faq-and-glossary-panel .panel-title a {
+#plan-details-sample-and-faq .tab-content .panel-title a {
   display: inline-block;
   width: 100%;
-  font-size: 14px;
-  color: #ffffff;
+  font-size: 18px;
   text-decoration: none;
 }
 /* line 362, ../sass/partials/savie/_plan-details-table.scss */
@@ -8997,7 +9050,9 @@ form#table-info #id-policy, form#table-info #id-application {
 .profile-active-page .right-side-content .heading-title {
   margin-top: 0;
 }
-
+h3 .heading-title{
+  font-size: 24px;
+}
 /* line 41, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content {
   padding: 0 !important;
@@ -9326,3 +9381,5 @@ form#table-info #id-policy, form#table-info #id-application {
 .error-box .ui-pnotify-container .ui-pnotify-sticker {
   display: none;
 }
+
+
