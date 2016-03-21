@@ -182,6 +182,7 @@ var language = "${language}";
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 									 </div>
+									 <span class="error-msg" id="bankCodeErMsg"></span>
 								</div>
 								<div class="form-group">
 									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -664,6 +665,7 @@ var language = "${language}";
 		});
 		
 		$('#payment-save-and-con').on('click', function (e) {
+			$('#paymentForm').bootstrapValidator('validate');
             if($('#paymentForm').data('bootstrapValidator').isValid()) {
 				$('#save-and-continue-batch5-modal').modal('show');
             }
@@ -732,7 +734,7 @@ var language = "${language}";
 			//excluded: [':disabled', ':hidden', ':not(:visible)'],
 			excluded: [':disabled', '.readonly-field'],
 			fields: {
-				paymentAmount: {
+				/* paymentAmount: {
 					container: '#paymentAmountErMsg',
 					selector: '#paymentAmount',
 					validators: {
@@ -762,19 +764,17 @@ var language = "${language}";
 					  	message: '<fmt:message key="error.payment.bank.acc.holder.name.empty" bundle="${msg}" />'
 					  }
 					}
-				},
-				tmpBankCode: {
+				}, */
+				'bankCode': {
 					container: '#bankCodeErMsg',
-					selector: '#tmpBankCode',
 					validators: {
-					  notEmpty: {
-					  	message: '<fmt:message key="error.payment.bank.name.empty" bundle="${msg}" />'
-					  }
+						  notEmpty: {
+							 message: '<fmt:message key="error.payment.bank.name.empty" bundle="${msg}" />'
+						  }
 					}
 				},
-				bankAccountNo: {
+				'accountNumber': {
 				   container: '#bankAccountNoErMsg',
-				   selector: '#bankAccountNo',
 				   validators: {
 					  notEmpty: {
 					  	message: '<fmt:message key="error.payment.account.no.empty" bundle="${msg}" />'
@@ -785,9 +785,8 @@ var language = "${language}";
 					   }
 				   }
 				},
-				tmpBranchName: {
+				'branchCode': {
 					container: '#branchNameErMsg',
-					selector: '#tmpBranchName',
 					validators: {
 					  notEmpty: {
 					  	message: '<fmt:message key="error.payment.branch.name.empty" bundle="${msg}" />'
@@ -922,26 +921,29 @@ var language = "${language}";
 				}
 			}
 			else{
-				$("#errorMsg").html("");
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
-					  data: $("#paymentForm").serialize(),
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  show_stack_bar_top(data.errorMsg);
-						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+				$('#paymentForm').bootstrapValidator('validate');
+	            if($('#paymentForm').data('bootstrapValidator').isValid()) {
+	            	$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
+						  data: $("#paymentForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  show_stack_bar_top(data.errorMsg);
 							  }
 							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
 							  }
 						  }
-					  }
-			     });
+				     });
+	            }
 			}
 		}
 	 

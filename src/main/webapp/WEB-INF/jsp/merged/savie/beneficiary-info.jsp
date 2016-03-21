@@ -720,6 +720,7 @@ var languageP = "${language}";
 					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
 				}
 				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 				   $('#save-and-continue-batch5-modal').modal('show');           
 				} else {
@@ -747,29 +748,32 @@ var languageP = "${language}";
 				}
                });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function(){
-				$("#errorMsg").html("");
-				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[2\\]').serialize();
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
-					  data: formdata,
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  show_stack_bar_top(data.errorMsg);
-						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
+					$("#errorMsg").html("");
+					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
+						  data: formdata,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  show_stack_bar_top(data.errorMsg);
 							  }
 							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
 							  }
 						  }
-					  }
-			     });
+				     });
+				}
 			});
 			
 			// Beneficiary Form validation
