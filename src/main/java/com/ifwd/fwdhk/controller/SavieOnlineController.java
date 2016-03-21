@@ -122,7 +122,10 @@ public class SavieOnlineController extends BaseController{
 				model.addAttribute("type", type);
 				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				date1 = DateApi.formatDate(savieFna.getDob());
-				defaultDOB.setTime(date1); 
+				defaultDOB.setTime(date1);
+			}else if("3".equals(type)){
+				model.addAttribute("type", type);
+				request.getSession().setAttribute("savieType", "SP");
 			}else {
 				defaultDOB.setTime(date1); 
 				defaultDOB.add(defaultDOB.YEAR, -18);

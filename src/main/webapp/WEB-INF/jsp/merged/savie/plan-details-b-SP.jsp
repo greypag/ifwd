@@ -95,7 +95,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						<div class="row">
 							<div class="col-xs-12">							
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
-									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type">
+									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" <c:if test="${type == '2' }">disabled</c:if>>
 									   <option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
 									   <option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
@@ -815,6 +815,10 @@ var affordabilityPremium = ${affordabilityPremium};
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});
+
+		if('3'=='${type }'){
+			proceedLogin();
+		}
 	});
 	
 	// changing first/after 3 years button content
@@ -862,16 +866,7 @@ var affordabilityPremium = ${affordabilityPremium};
 	
 	$("#online-application-btn").on('click', function(){
 		$('#offline-online-modal').modal('hide');
-		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-			saviePlanDetailsGoNext();
-		}else{
-			$('.modal').modal('hide');
-            $('.login-info').removeClass('hidden');
-            $('#loginpopup #fna-check').val("true");
-            $('#loginpopup #nav-bar-check').val("false");            
-            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
-			$('#loginpopup').modal('show');			
-		}
+		proceedLogin();
 	});
 	
 	$("#offline-application-btn").on('click', function(){
@@ -888,6 +883,19 @@ var affordabilityPremium = ${affordabilityPremium};
             $('#loginpopup').modal('show');         
         }
 	});
+
+	function proceedLogin(){
+		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+			saviePlanDetailsGoNext();
+		}else{
+			$('.modal').modal('hide');
+            $('.login-info').removeClass('hidden');
+            $('#loginpopup #fna-check').val("true");
+            $('#loginpopup #nav-bar-check').val("false");            
+            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+			$('#loginpopup').modal('show');			
+		}
+	}
 	
 	var apply=false;//判断是否点击proceed
 	var nextPage;
