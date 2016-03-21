@@ -279,9 +279,9 @@ var fnaq4e = '${savieFna.q4_e }';
 						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="***">i</span>
 					</div>
 					<div class="fna-product-cfa hidden-print">
-						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
 
-						<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png">Call For Details</a>
+						<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png"><fmt:message key="fna.button.callfordetails" bundle="${msg}" /></a>
 					</div>
 				</div>
 				<!-- <div class="product-type-cont hidden-lg hidden-md">
@@ -322,7 +322,7 @@ var fnaq4e = '${savieFna.q4_e }';
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-product-col-obj pad-none">
 								
 								<div class="fna-product-link-details">
-									<a href="javascript:void(0);" class="fna-btn-download" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-download.png"></a>
+									<a href="javascript:void(0);" class="fna-btn-download" target="_blank"><fmt:message key="fna.link.download.prochure" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/icon-download.png"></a>
 									<a href="javascript:void(0);" class="fna-link-key-risk"><fmt:message key="fna.link.keyrisk" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 									<a href="javascript:void(0);" class="fna-link-key-exclusions"><fmt:message key="fna.link.keyexclusion" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 									<a href="javascript:void(0);" class="fna-btn-details" target="_blank"><fmt:message key="fna.link.prodict.details" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
@@ -331,9 +331,9 @@ var fnaq4e = '${savieFna.q4_e }';
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-print">
 								<div class="fna-product-cfa-mobile">
-									<a href="javascript:void(0);" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
+									<a href="javascript:void(0);" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
 
-									<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png">Call For Details</a>
+									<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png"><fmt:message key="fna.button.callfordetails" bundle="${msg}" /></a>
 								</div>
 							</div>
 						</div>
