@@ -60,7 +60,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			saviePlanDetails.validate(language);
+			//saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
 			String[] dob = saviePlanDetails.getDob().split("-");
@@ -68,9 +68,9 @@ public class AjaxSavieOnlineController extends BaseController{
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		} 
@@ -85,13 +85,14 @@ public class AjaxSavieOnlineController extends BaseController{
 		if(Methods.isXssAjax(request)){
 			return;
 		}
-		try {
+		/*try {
 			lifePersonalDetails.validate(language);
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
+		request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
@@ -103,13 +104,14 @@ public class AjaxSavieOnlineController extends BaseController{
 		if(Methods.isXssAjax(request)){
 			return;
 		}
-		try {
+		/*try {
 			lifeEmploymentInfo.validate(language);
 			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
+		request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
@@ -121,13 +123,14 @@ public class AjaxSavieOnlineController extends BaseController{
 		if(Methods.isXssAjax(request)){
 			return;
 		}
-		try {
+		/*try {
 			lifeBeneficaryInfo.validate(language);
 			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
+		request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
@@ -139,7 +142,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		if(Methods.isXssAjax(request)){
 			return;
 		}
-		try {
+		/*try {
 			lifePayment.validate(language);
 			if(lifePayment!=null && lifePayment.getBranchCode()!=null && !"".equals(lifePayment.getBranchCode())){
 				try {
@@ -160,7 +163,24 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+		}*/
+		
+		if(lifePayment!=null && lifePayment.getBranchCode()!=null && !"".equals(lifePayment.getBranchCode())){
+			try {
+				List<OptionItemDesc> OptionItemDescList = savieOnlineService.getBranchCode(lifePayment.getBankCode(), request);
+				if(OptionItemDescList!=null && OptionItemDescList.size()>0){
+					for(int i=0;i<OptionItemDescList.size();i++){
+						if(OptionItemDescList.get(i).getItemCode().equals(lifePayment.getBranchCode())){
+							lifePayment.setBranchName(OptionItemDescList.get(i).getItemDesc());
+						}
+					}
+				}
+			} 
+			catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+			}
 		}
+		request.getSession().setAttribute("lifePayment", lifePayment);
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
@@ -172,13 +192,15 @@ public class AjaxSavieOnlineController extends BaseController{
 		if(Methods.isXssAjax(request)){
 			return;
 		}
-		try {
+		/*try {
 			lifeDeclaration.validate(language);
 			request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
+		
+		request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
@@ -326,12 +348,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifePersonalDetails.validate(language);
+			//lifePersonalDetails.validate(language);
 			savieOnlineService.lifePersonalDetailsSaveforLater(lifePersonalDetails, request);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
@@ -347,12 +369,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifeEmploymentInfo.validate(language);
+			//lifeEmploymentInfo.validate(language);
 			savieOnlineService.lifeEmploymentInfoSaveforLater(lifeEmploymentInfo, request);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
@@ -368,12 +390,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifeBeneficaryInfo.validate(language);
+			//lifeBeneficaryInfo.validate(language);
 			savieOnlineService.lifeBeneficaryInfoSaveforLater(lifeBeneficaryInfo, request);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
@@ -389,12 +411,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifePayment.validate(language);
+			//lifePayment.validate(language);
 			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
@@ -410,12 +432,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifeDeclaration.validate(language);
+			//lifeDeclaration.validate(language);
 			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
 		}
-		catch (ValidateExceptions e) {
+		/*catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		}
+		}*/
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}

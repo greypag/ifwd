@@ -5,7 +5,16 @@ import java.util.List;
 public class ProductList {
 	private List<OtherTypes> other_types;
 	private String group;
+	private String groupCode;
 	private List<Products> products;
+
+	public String getGroupCode() {
+		return groupCode;
+	}
+
+	public void setGroupCode(String groupCode) {
+		this.groupCode = groupCode;
+	}
 
 	public List<OtherTypes> getOther_types() {
 		return other_types;

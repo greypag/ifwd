@@ -890,9 +890,6 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	var apply=false;//判断是否点击proceed
 	var nextPage;
 	function saviePlanDetailsGoNext(){
-		<%-- if(!apply) {
-			window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-		} --%>
 		if(apply){
 			//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 			$('#thankYouModal').modal('show');
@@ -909,8 +906,8 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 				    error:function(){       
 				    },     
 				    success:function(data){
-	   		    		$('#loginpopup').modal('hide');
 				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+					    	$('#loginpopup').modal('hide');
 				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 				    		$('#prev-savie-app-modal').modal('show');
 				    	}else{
@@ -921,6 +918,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 				    		    },     
 				    		    success:function(data){
 				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
+					    		    	$('#loginpopup').modal('hide');
 				    		    		$('#retrieve-application-modal').modal('show');
 				    		    		nextPage = data.nextPage;
 				    		    	}
@@ -931,6 +929,7 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 							    		    error:function(){       
 							    		    },     
 							    		    success:function(data){
+							    		    	$('#loginpopup').modal('hide');
 							    		    	if(data != null && data.errMsgs == null && data.name !=null){
 							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
 							    		    		$('#review-fna-modal').modal('show');
@@ -951,7 +950,8 @@ var affordabilityPremium = ${affordabilityPremium!=null?affordabilityPremium:'40
 	}
 	
 	$("#make-appointment-btn").on('click', function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		<%-- window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre'; --%>
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});
 	
 	$("#review-fna-btn").on('click', function(){

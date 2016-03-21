@@ -110,10 +110,9 @@ var language = "${language}";
 				</div>
 				<div id="errorMsg" style="color: red;"></div>
 				
-				<p class="payment-policy-wrapper"><fmt:message key="label.payment.period.tnc" bundle="${msg}" /></p>
-				
 				<form action="" id="paymentForm" method="post">
 					<div id="direct-debit-panel">
+						<p class="payment-policy-wrapper"><fmt:message key="label.payment.period.tnc" bundle="${msg}" /></p>
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<div class="info-wrapper">

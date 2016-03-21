@@ -274,7 +274,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaPdfName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>
@@ -299,7 +299,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>
@@ -324,7 +324,7 @@ var languageP = "${language}";
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormPdf }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
-					<iframe src="http://docs.google.com/gview?url=<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
 				</c:otherwise>
 		    </c:choose>
 		</div>

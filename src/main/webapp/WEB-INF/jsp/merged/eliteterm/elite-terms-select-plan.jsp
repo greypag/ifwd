@@ -2143,17 +2143,21 @@ var home_url = "<%=request.getContextPath()%>";
 													class="male-0"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
-												</label> <label for="male-0" id="male-label-0"
+												</label> <!-- <label for="male-0" id="male-label-0"
 													class="et-bene-radio pull-left second-label hidden-xs hidden-sm"><fmt:message
-														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></label> <input
+														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></label> --><span id="male-label-0"
+													class="pull-left second-label hidden-xs hidden-sm"><fmt:message
+														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <input
 													type="radio" name="savieBeneficiaryBean[0].gender"
 													value="F" id="female-0"> <label for="female-0"
 													class="female"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
-												</label> <label for="female-0" id="female-label-0"
+												</label> <!-- <label for="female-0" id="female-label-0"
 													class="et-bene-radio pull-left second-label-female hidden-xs hidden-sm"><fmt:message
-														key="eliteTerms.selectPlan.Female" bundle="${msg}" /></label>
+														key="eliteTerms.selectPlan.Female" bundle="${msg}" /></label> --><span id="female-label-0"
+													class="pull-left second-label-female hidden-xs hidden-sm"><fmt:message
+														key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
 											</div>
 										</div>
 										<div
