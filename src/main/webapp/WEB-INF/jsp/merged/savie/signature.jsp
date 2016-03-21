@@ -559,11 +559,6 @@ var languageP = "${language}";
 	}
 	
 	// application saved modal will show after clicking 'Save and exit' button 
-	$('.save-exit-btn2, #save-exit-btn').click(function() {
-		$(this).closest('.modal').modal('hide');
-		$('#application-saved-modal').modal('show');
-	});
-	
 	$('#digi-radio').click(function () {
 		if ($(this).is(':checked')) {
 			$('#table-info').removeClass('hidden');
@@ -896,4 +891,34 @@ var languageP = "${language}";
          }
          %>
 	 }
+	 
+	 
+	 $('.save-exit-btn1').click(function() {
+			$('#save-and-continue-modal').modal('hide');
+		});
+		
+		//full fill type = 2
+		$('.save-exit-btn2').click(function() {
+			$("#errorMsg").html("");
+			$.ajax({
+				  type : "POST",
+				  async:false, 
+				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/signatureSaveforLater",
+				  success : function(data) {
+					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  $('#save-and-continue-modal').modal('hide');
+						  show_stack_bar_top(data.errorMsg);
+					  }
+					  else{
+						  $('#save-and-continue-modal').modal('hide');
+						  $('#application-saved-modal').modal('show');
+						  sendEmailForSaveLater("signature");
+					  }
+				  }
+		    });
+		});
+		
+		$('#btn-app-save').click(function() {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+		});
 </script>

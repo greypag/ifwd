@@ -402,6 +402,24 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savings-insurance/applicationSummarySaveforLater"})
+	public void applicationSummarySaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			LifeDeclarationBean lifeDeclaration = new LifeDeclarationBean();
+			lifeDeclaration.setType("1");
+			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclarationSaveforLater"})
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -415,6 +433,24 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/signatureSaveforLater"})
+	public void signatureSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+			lifeDeclaration.setType("3");
+			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

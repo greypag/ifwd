@@ -702,11 +702,6 @@
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			}
 		$(document).ready(function() {
-         $('.save-exit-btn2, #save-exit-btn').click(function() {
-            $(this).closest('.modal').modal('hide');
-            $('#application-saved-modal').modal('show');
-         });
-         
          var employmentS = '${savieFna.employment_status }';
          if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 			$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
@@ -802,6 +797,35 @@
 			setSelectReadonly('tmpBankName', true);
 			setInputReadonly('accountNo', true);
 			setSelectReadonly('tmpBranchName', true);
+		});
+		
+		$('#keep-going-btn').click(function() {
+			$('#save-and-continue-batch5-modal').modal('hide');
+		});
+		
+		//full fill type = 2
+		$('#save-exit-btn').click(function() {
+			$("#errorMsg").html("");
+			$.ajax({
+				  type : "POST",
+				  async:false, 
+				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/applicationSummarySaveforLater",
+				  success : function(data) {
+					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  $('#save-and-continue-batch5-modal').modal('hide');
+						  show_stack_bar_top(data.errorMsg);
+					  }
+					  else{
+						  $('#save-and-continue-batch5-modal').modal('hide');
+						  $('#application-saved-modal').modal('show');
+						  sendEmailForSaveLater("declaration");
+					  }
+				  }
+		    });
+		});
+		
+		$('#btn-app-save').click(function() {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});
 		</script>
 	</body>
