@@ -125,7 +125,7 @@ var Review = {
 			$("#occupation").append(opt);
 			for(var i = 0; i< occupations.length; i++){
 				var opt = $("<option/>");
-				opt.val(occupations[i].id).text(occupations[i].name);
+				opt.val(occupations[i].id).html(occupations[i].name);
 				$("#occupation").append(opt);
 			}
 			$("#occupation").change();
