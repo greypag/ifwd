@@ -164,7 +164,7 @@
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-3.png" />
 										</div>
 										<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
-										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
+										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.claim.easy.link1" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.claim.easy.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy3" bundle="${msg}" /></p>
 									</div>
 								</div>
 								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-4">
@@ -300,21 +300,16 @@
 				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
-					  <!--<div class="hidden-xs hidden-sm col-xs-1"></div>-->
+					  <div class="col-xs-3">&nbsp;</div>
 					  <div id="bp-agoda" class="col-xs-6 text-center">
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
-							<a href="#" class="hidden-md hidden-lg">Enjoy 8% </a>
-							<p class="hidden-xs hidden-sm">Enjoy 8%  <a href="<fmt:message key="link.partner.offer.copy1" bundle="${msg}" />"><fmt:message key="label.partner.offer.copy1" bundle="${msg}" /></a> discount on all travel products upon successful registration of FWD online membership.</p>
+							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a>
+							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" />
+							</p>
 						</div>
 					  </div>
-					  <div id="bp-pricerite" class="col-xs-6 text-center">
-						 <div class="desktop-center clearfix">
-							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_pricerite.png">
-							<a href="#" class="hidden-md hidden-lg">HK$ 50 e-coupon from </a>
-							<p class="hidden-xs hidden-sm">HK$ 50 e-coupon from  <a href="<fmt:message key="link.partner.offer.copy2" bundle="${msg}" />"><fmt:message key="label.partner.offer.copy2" bundle="${msg}" /></a> for every successful referral.</p>
-						</div>
-					  </div>
+					  <div class="col-xs-3">&nbsp;</div>
 				   </div>
 				</div>
 			</div>								
