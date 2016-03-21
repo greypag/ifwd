@@ -12,7 +12,6 @@
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     long cCurrent = System.currentTimeMillis();
-    /*hotelVoucherCampaignId = 18;*/
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
@@ -2063,6 +2062,13 @@
                 type : "POST",
                 url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
                 async : false,
+                <%
+                	if (hotelVoucherCampaignId >= 14 && hotelVoucherCampaignId <=18) {
+				%>
+                data : "hid=<%=hotelVoucherCampaignId%>",                
+				<%                		
+                	}
+                %>
                 success : function(data) {
                     $(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
                         $(this).html(data["count"+index]);

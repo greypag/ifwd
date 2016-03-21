@@ -197,7 +197,7 @@ public class ECommController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
-		int[] indexs = {5, 6, 7, 8, 9, 13, 14, 15, 16, 17, 18};
+		int[] indexs = {5, 6, 7, 8, 9, 13};
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
@@ -209,51 +209,65 @@ public class ECommController {
 	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
 	    
-	    int hotelVoucherCampignId = -1;
+	    int hotelVoucherCampaignId = -1;
 	    if (month == 2) {
 	        if (day == 14) {
 	        	if (hour >= 15) {
-		            hotelVoucherCampignId = 14;
-		            indexs = new int[]{14};
+		            hotelVoucherCampaignId = 14;
 	        	} else {
-		            hotelVoucherCampignId = 19;
-		            indexs = new int[]{19};
+		            hotelVoucherCampaignId = -1;
 	        	}
 	        } else if (day == 15) {
 	        	if (hour >= 15) {
-		            hotelVoucherCampignId = 15;
-		            indexs = new int[]{15};
+		            hotelVoucherCampaignId = 15;
 	        	} else {
-		            hotelVoucherCampignId = 14;
-		            indexs = new int[]{14};
+		            hotelVoucherCampaignId = 14;
 	        	}
 	        } else if (day == 16) {
 	        	if (hour >= 15) {
-		            hotelVoucherCampignId = 16;
-		            indexs = new int[]{16};
+		            hotelVoucherCampaignId = 16;
 	        	} else {
-		            hotelVoucherCampignId = 15;
-		            indexs = new int[]{15};
+		            hotelVoucherCampaignId = 15;
 	        	}
 	        } else if (day == 17) {
 	        	if (hour >= 15) {
-		            hotelVoucherCampignId = 17;
-		            indexs = new int[]{17};
+		            hotelVoucherCampaignId = 17;
 	        	} else {
-		            hotelVoucherCampignId = 16;
-		            indexs = new int[]{16};
+		            hotelVoucherCampaignId = 16;
 	        	}
 	        } else if (day == 18) {
 	        	if (hour >= 15) {
-		            hotelVoucherCampignId = 18;
-		            indexs = new int[]{18};
+		            hotelVoucherCampaignId = 18;
 	        	} else {
-		            hotelVoucherCampignId = 17;
-		            indexs = new int[]{17};
+		            hotelVoucherCampaignId = 17;
 	        	}
 	        }
 	    }
-	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampignId);
+	    
+	    if (request.getParameter("hid")!=null) {
+	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
+	    }
+	    switch(hotelVoucherCampaignId) {
+		    case 14:
+	            indexs = new int[]{14};
+	            break;
+		    case 15:
+	            indexs = new int[]{15};
+	            break;
+		    case 16:
+	            indexs = new int[]{16};
+	            break;
+		    case 17:
+	            indexs = new int[]{17};
+	            break;
+		    case 18:
+	            indexs = new int[]{18};
+	            break;
+		    case -1:
+	            indexs = new int[]{-1};
+	            break;
+	    }
+	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampaignId);
 		
 		if(!StringUtils.isEmpty(choose) &&
 				(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true"))) {
