@@ -401,7 +401,7 @@
             	});
             	
             	$("#resume-btn").on('click', function(){
-            		window.location = '<%=request.getContextPath()%>/${language}/'+nextPage;
+            		window.location = '<%=request.getContextPath()%>/'+nextPage;
             	});
             	
             	$("#start-over-btn").on('click', function(){
