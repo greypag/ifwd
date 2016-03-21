@@ -5363,6 +5363,7 @@ a.eserv-link:hover {
 /* line 53, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .info-wrapper {
   padding: 1px 15px 4px 15px;
+  height: 45px;
 }
 /* line 56, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .info-wrapper .info-label {
