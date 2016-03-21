@@ -588,7 +588,7 @@
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="amount" name="amount" value="HK$ ${NumberFormatUtils.formatNumber(lifePayment.paymentAmount) }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="amount" name="amount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="amount"><fmt:message key="placeholder.amount1" bundle="${msg}" /></label>
 							</div>
 						</div>

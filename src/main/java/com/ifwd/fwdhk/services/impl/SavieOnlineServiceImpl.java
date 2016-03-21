@@ -1339,7 +1339,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					JSONObject beneficiarie1 = new JSONObject();
 					JSONObject beneficiarie2 = new JSONObject();
 					JSONObject beneficiarie3 = new JSONObject();
-					if(lifeBeneficaryInfo.getIsOwnEstate()){
+					if(lifeBeneficaryInfo.getIsOwnEstate()!=null && lifeBeneficaryInfo.getIsOwnEstate()){
 						beneficiarie1.put("firstName", applicant.get("firstName"));
 						beneficiarie1.put("lastName", applicant.get("lastName"));
 						beneficiarie1.put("chineseName", applicant.get("chineseName"));
