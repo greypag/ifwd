@@ -755,7 +755,7 @@ var affordabilityPremium = ${affordabilityPremium};
 			
 			$("#errorMsg").html("");
 			$("#apiData").html("");
-			getSavieOnlinePlandetails();
+			getSavieOnlinePlandetails(false);
 		});
 		
 		$('#rate-0').on('click', function() {
@@ -797,7 +797,11 @@ var affordabilityPremium = ${affordabilityPremium};
 		/* if($("#plan-dob-datepicker").val()!="") {
 			setPaymentYears($("#plan-dob-datepicker").val())
 		} */
-		getSavieOnlinePlandetails();
+		if('3'=='${type }'){
+			getSavieOnlinePlandetails(true);
+		} else {
+			getSavieOnlinePlandetails(false);
+		}
 		
 		//changing labels of promo code
 		$('#promoCode').focus(function() {
@@ -816,9 +820,6 @@ var affordabilityPremium = ${affordabilityPremium};
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});
 
-		if('3'=='${type }'){
-			proceedLogin();
-		}
 	});
 	
 	// changing first/after 3 years button content

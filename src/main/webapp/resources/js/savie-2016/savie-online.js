@@ -1008,7 +1008,7 @@ function duplicateBeneficiaryEnglishName() {
 	}
 }
 
-function getSavieOnlinePlandetails() {
+function getSavieOnlinePlandetails(isSavedReturn) {
 	
 	var amount = $('#R').val();
 	var amount_rp = $('#plan-amount').val();
@@ -1502,6 +1502,12 @@ function getSavieOnlinePlandetails() {
 			}
 			$('#loadingDiv').toggle();
 			$('body').removeClass('modal-open');
+
+			//If it is a return from save later, prompt login box
+
+			if(isSavedReturn){
+				proceedLogin();
+			}
 		}
     });
 }
