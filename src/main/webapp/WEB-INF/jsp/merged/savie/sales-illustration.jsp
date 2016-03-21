@@ -152,8 +152,8 @@
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<div id="pdf">
-								<!-- <iframe class="embed" src="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf"  frameborder="0"></iframe>-->
-								<a class="embed" id="pdf-modal-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf" /></a>
+								<iframe class="embed" src="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf"  frameborder="0"></iframe>
+								<!--<a class="embed" id="pdf-modal-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf" /></a>-->
 							</div>
 							<div class="text-center">
 								<button class="text-bold btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
@@ -166,8 +166,8 @@
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 	        		<div id="pdf">
-	        			<!--<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>-->
-	        			<a class="embed" id="pdf-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}" /></a>
+	        			<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>
+	        			<!--<a class="embed" id="pdf-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}" /></a>-->
 	        		</div>
 	        		<div class="text-center">
 	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
@@ -189,8 +189,8 @@
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			});
 			$(document).ready(function() {
-				$('#pdf-modal-view').gdocsViewer();
-				$('#pdf-view').gdocsViewer();
+				//$('#pdf-modal-view').gdocsViewer();
+				//$('#pdf-view').gdocsViewer();
 			});
 		
 
