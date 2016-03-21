@@ -307,13 +307,13 @@ var fnaq4e = '${savieFna.q4_e }';
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fna-product-col-feature">
 								<div class="fna-product-obj">
-									<h4>Objectives</h4>
+									<h4><fmt:message key="fna.label.objectives" bundle="${msg}" /></h4>
 									<div class="fna-product-obj-cont"></div>
 								</div>
 								<div>
-									<h4>Key features</h4>
+									<h4><fmt:message key="fna.label.keyfeatures" bundle="${msg}" /></h4>
 									<div class="fna-product-feature-cont">
-										<a href="javascript:void(0);" class="fna-btn-feature-more"><span>Read More<i class="fa fa-caret-down"></i></span></a>
+										<a href="javascript:void(0);" class="fna-btn-feature-more"><span><fmt:message key="fna.label.readmore" bundle="${msg}" /><i class="fa fa-caret-down"></i></span></a>
 									</div>
 									
 								</div>

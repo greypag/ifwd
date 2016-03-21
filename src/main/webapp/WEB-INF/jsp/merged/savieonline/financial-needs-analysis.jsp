@@ -256,7 +256,7 @@ var affiliate = "${affiliate}";
 										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></li>
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others.details" bundle="${msg}" /></li>
 									</ul>
 
 									<div class="hidden-lg hidden-md">
@@ -395,7 +395,7 @@ var affiliate = "${affiliate}";
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q4b.option4" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="4"><fmt:message key="fna.question.q4b.option5" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="5"><fmt:message key="fna.question.q4b.option6" bundle="${msg}" /></li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="6"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="6"><fmt:message key="fna.question.others.details" bundle="${msg}" /></li>
 									</ul>
 									<div class="fna-error-box">
 										<span class="err_q4b2 fna-error-msg text-red"></span>
@@ -556,7 +556,7 @@ var affiliate = "${affiliate}";
 										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q4g.option2" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q4g.option3" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q4g.option4" bundle="${msg}" /></li>
-										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn fna-cb-others" data-val="4"><fmt:message key="fna.question.others.details" bundle="${msg}" /></li>
 									</ul>
 								</div>
 
