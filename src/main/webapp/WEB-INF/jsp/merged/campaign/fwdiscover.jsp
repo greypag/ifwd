@@ -30,7 +30,7 @@
         isCNYOffer = true;
     } else {
         disableOfferClass = "";
-        countDownDate = "2016-03-20 23:59:59";
+        countDownDate = "2016-04-14 23:59:59";
         countDownDD = "20";
         countDownMM = "MAR";
         //isCNYOffer = false;
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hotel-voucher-carousel-wrapper">
+                <%--<div class="hotel-voucher-carousel-wrapper">
 	                <div class="hotel-voucher-carousel-title-wrapper">
 	                    <div class="Carousel-title"><fmt:message key="Fanfare.Hotel.Carousel.Title" bundle="${msg}" /></div>
 	                    <div class="Carousel-subtitle"><fmt:message key="Fanfare.Hotel.Carousel.SubTitle" bundle="${msg}" /></div>
@@ -196,15 +196,15 @@
 		                  </div>
 	                </div>
 	                <div class="clearfix"></div>
-                </div>
-                <div class="sponsor-logo-wrapper">
+                </div> --%>
+                <%-- <div class="sponsor-logo-wrapper">
                     <div class="sponsor-text">
                         <fmt:message key="Fanfare.Hotel.Sponsor.Text" bundle="${msg}" />
                         <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/agoda-logo.png" class="img-responsive">
                         </a>
                     </div>
-                </div>
+                </div> --%>
                 <%--<div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
                     
                     <!-- Carousel items -->
@@ -310,7 +310,7 @@
                 <!-- PLANS -->
                 <div class="plans-holder fwdiscover-container">
                 <!-- Hotel Promotion Start -->
-                	<% if (hotelVoucherCampaignId == 14) { %>
+                	<%-- <% if (hotelVoucherCampaignId == 14) { %>
                     <!-- Hotel 3-11 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -548,7 +548,7 @@
                         </div>
                     </div>
                     <!-- Hotel 3-15 Offer End -->
-                    <% } %>
+                    <% } %> --%>
                 <!-- Hotel Promotion End -->          
                 <!-- CNY PROMOTION START -->
                 <%--<%
@@ -597,7 +597,7 @@
                     <!-- end CNY PROMOTION -->
                 <%
                     } 
-                %>      
+                %> --%>      
                     <!-- first plan -->
                     <div class="fwdiscover-plan <%=disableOfferClass%>">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
@@ -812,11 +812,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end fifth plan -->--%>
+                    <!-- end fifth plan -->
                 </div>
                 <!-- end PLANS -->
                 <!-- Hotel Partner Start -->
-                <div class="hotel-partner-wrapper">
+                <%--<div class="hotel-partner-wrapper">
                     <div class="hotel-partner-title"><fmt:message key="Fanfare.Hotel.Sponsor.Title" bundle="${msg}" /></div>
                     <div class="hotel-partner-icon-wrapper">
 	                    <div class="col-1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="img-responsive" style="margin-top: 20px;"></div>
@@ -825,7 +825,7 @@
 	                    <div class="col-4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="img-responsive"></div>
 	                    <div class="col-5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="img-responsive"></div>
                     </div>
-                </div>
+                </div> --%>
                 <!-- Hotel Partner End -->
                 <!-- fwdiscover footer -->
                 <div class="fwdiscover-footer">
@@ -1431,7 +1431,7 @@
                 <!-- Hotel promotion code modal End -->
                                 
 				<!-- Hotel Description Modal -->
-				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
+				<%-- <div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
 				    <div class="modal-dialog">
 				
 					    <!-- Modal content-->
@@ -1611,7 +1611,7 @@
 					    </div>
 				
 				    </div>
-				</div>                
+				</div> --%>                
                 <!-- Hotel Description Modal End -->
                 <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a> 
             </div>
