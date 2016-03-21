@@ -28,12 +28,12 @@ public class SaviePlanDetailsBean implements Serializable {
 	
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
-        if(this.insuredAmount == null || "".equals(this.insuredAmount)){
+        /*if(this.insuredAmount == null || "".equals(this.insuredAmount)){
         	list.add(ErrorMessageUtils.getMessage("insuredAmount", "validation.failure", language));
         }
-        /*else if(Integer.valueOf(this.insuredAmount)<30000 || Integer.valueOf(this.insuredAmount)>400000){
+        else if(Integer.valueOf(this.insuredAmount)<30000 || Integer.valueOf(this.insuredAmount)>400000){
         	list.add(ErrorMessageUtils.getMessage("insuredAmount", "validation.failure", language));
-        }*/
+        }
         if(ValidationUtils.isValidDate(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }
@@ -41,7 +41,7 @@ public class SaviePlanDetailsBean implements Serializable {
         	int age = DateApi.getAge(DateApi.formatDate(this.dob));
             logger.info(age+"");
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
-        }
+        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

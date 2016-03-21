@@ -28,7 +28,7 @@ public class LifePaymentBean implements Serializable {
 		this.bankName = this.bankCode !=null && !"".equals(this.bankCode)?this.bankCode.split("-")[1]:"";
 		
 		List<String> list = new ArrayList<String>();
-        if(ValidationUtils.isNullOrEmpty(this.bankCode)){
+        /*if(ValidationUtils.isNullOrEmpty(this.bankCode)){
         	list.add(ErrorMessageUtils.getMessage("bankCode", "validation.failure", language));
         }
         if(ValidationUtils.isNullOrEmpty(this.branchCode)){
@@ -42,7 +42,7 @@ public class LifePaymentBean implements Serializable {
         }
         if(ValidationUtils.isNullOrEmpty(this.paymentAmount)){
         	list.add(ErrorMessageUtils.getMessage("paymentAmount", "validation.failure", language));
-        }
+        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}
