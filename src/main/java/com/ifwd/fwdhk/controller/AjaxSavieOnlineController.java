@@ -390,7 +390,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifePayment.validate(language);
-			savieOnlineService.lifePaymentSaveforLater("2", lifePayment, request);
+			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
@@ -411,7 +411,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifeDeclaration.validate(language);
-			savieOnlineService.lifeDeclarationSaveforLater("2",lifeDeclaration, request);
+			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
@@ -559,11 +559,14 @@ public class AjaxSavieOnlineController extends BaseController{
 			savieOnlineService.getAccessCode(request);
 			savieOnlineService.upsertAppointment(model, request, response);
 			if("1".equals(request.getParameter("type"))){
-				savieOnlineService.lifePaymentSaveforLater("1", new LifePaymentBean(), request);
+				LifePaymentBean lifePayment = new LifePaymentBean();
+				lifePayment.setType("1");
+				savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
 			}
 			else if("3".equals(request.getParameter("type"))){
 				LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
-				savieOnlineService.lifeDeclarationSaveforLater("3", lifeDeclaration, request);
+				lifeDeclaration.setType("3");
+				savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
 			}
 		} catch (Exception e) {
 			logger.info(e.getMessage());

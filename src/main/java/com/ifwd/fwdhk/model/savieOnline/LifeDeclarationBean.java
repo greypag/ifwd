@@ -23,6 +23,7 @@ public class LifeDeclarationBean implements Serializable {
 	private Boolean hasReadAndAgreeApplication;
 	private Boolean chkboxDoNotSendMarketingInfo;
 	private Boolean chkboxDoNotProvidePersonalData;
+	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		List<String> list = new ArrayList<String>();
@@ -114,6 +115,14 @@ public class LifeDeclarationBean implements Serializable {
 
 	public void setIntentToLiveOutside(Boolean intentToLiveOutside) {
 		this.intentToLiveOutside = intentToLiveOutside;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 

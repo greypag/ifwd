@@ -53,6 +53,7 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String correspondenceAddress4;
 	private String correspondenceAddressDistrict;
 	private String correspondenceAddressDistrictName;
+	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		this.martialStatusName = !"".equals(this.martialStatus)?this.martialStatus.split("-")[1]:"";
@@ -516,6 +517,14 @@ public class LifePersonalDetailsBean implements Serializable {
 	public void setCorrespondenceAddressDistrictName(
 			String correspondenceAddressDistrictName) {
 		this.correspondenceAddressDistrictName = correspondenceAddressDistrictName;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }
