@@ -122,7 +122,7 @@ var languageP = "${language}";
                                        <div class="selectDiv">
 														<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpGender" id="tmpGender">
-                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
+                                             <option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if> disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
                                              <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
                                              <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
@@ -630,8 +630,12 @@ var languageP = "${language}";
                     $('.beneficiary-btn-back').removeClass('hidden');
                 }
                 
-                $('.save-exit-btn1, #keep-going-btn').click(function() {
+                $('.save-exit-btn1').click(function() {
 					$('#save-and-continue-modal').modal('hide');
+				});
+                
+                $('#keep-going-btn').click(function() {
+					$('#save-and-continue-batch5-modal').modal('hide');
 				});
 				
 				// application saved modal will show after clicking 'Save and exit' button 
@@ -766,11 +770,11 @@ var languageP = "${language}";
 			$("#et-personal-info-next, #btn-back").click(function(){
 				$('#soInsuredInfoForm').bootstrapValidator('validate');
 				if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
-					if ( $('#gender-errormsg').hasClass('has-error') ) {
+					/*if ( $('#gender-errormsg').hasClass('has-error') ) {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
 					} else {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:none;');
-					}
+					}*/
 					$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",

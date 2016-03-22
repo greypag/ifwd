@@ -892,9 +892,12 @@ var languageP = "${language}";
          %>
 	 }
 	 
-	 
 	 $('.save-exit-btn1').click(function() {
 			$('#save-and-continue-modal').modal('hide');
+		});
+     
+     $('#keep-going-btn').click(function() {
+			$('#save-and-continue-batch5-modal').modal('hide');
 		});
 		
 		//full fill type = 2

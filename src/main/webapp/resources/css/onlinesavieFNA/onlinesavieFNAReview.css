@@ -1,2 +1,365 @@
-#FNAReview h1{font-size:36px}#FNAReview h2{font-size:30px}#FNAReview h3{font-size:24px}#FNAReview h4,#FNAReview p{font-size:18px}#FNAReview h5{font-size:14px}#FNAReview h6{font-size:12px}#FNAReview .nopadding{padding:0 !important;margin:0 !important}#FNAReview .left{text-align:left}#FNAReview .right{text-align:right}#FNAReview .center{text-align:center}#FNAReview .breadcrumb-container{background-color:#EEE}#FNAReview .breadcrumb{margin-top:5px;margin-bottom:5px}#FNAReview .lead-in{padding:25px 0 15px}#FNAReview .lead-in p{font-weight:bold;font-size:18px}#FNAReview .lead-in span{font-weight:normal;font-size:14px}#FNAReview #personal_info .row{margin-top:20px;margin-bottom:20px}#FNAReview #personal_info .question.row{margin-top:0;margin-bottom:0}#FNAReview #personal_info .content{display:inline-block;width:70%;margin-left:5px;vertical-align:top}#FNAReview #personal_info .headline{display:inline-block;margin-left:5px;vertical-align:top;width:25%;color:#505759}#FNAReview #personal_info .displayMode{display:none}#FNAReview #personal_info .editMode{display:inline-block}#FNAReview #personal_info.display .displayMode{display:inline-block}#FNAReview #personal_info.display .editMode{display:none}#FNAReview #personal_info .styled-select{background-color:#FFF;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}#FNAReview #personal_info select{display:block;color:#505759;font-size:18px;font-weight:bold;padding-left:15px;padding-right:40px}#FNAReview #personal_info select option{background-color:#FFF !important}#FNAReview #personal_info select.disabled{display:none}#FNAReview #personal_info .select2-container{margin-bottom:10px;width:100% !important;background-color:#FFF}#FNAReview #personal_info .select2-container .select2-selection--single{padding:8px 22px;height:auto;border:none}#FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b{background:url("../../images/down-arrow.png") top center;width:20px;height:12px;border-color:transparent transparent transparent transparent;border-width:0px;margin-left:-22px;margin-top:4px}#FNAReview #personal_info .select2-container .select2-selection--single .select2-selection__rendered{padding-right:40px}#FNAReview #personal_info .occupation_others{margin:10px 0;padding:0 25px}#FNAReview #personal_info .occupation_others input[type="text"]{background-color:transparent;border:none;border-bottom:1px solid #666;width:220px;margin-right:5px;text-align:center;font-size:22px;font-weight:bold}#FNAReview .review-box{border:1px solid #CCC;min-height:100px;font-size:18px;font-weight:bold;margin-bottom:30px;background-color:#F0F0F0}#FNAReview .review-box .question{background-color:#505759;min-height:100px;color:#FFF;position:relative;display:block}#FNAReview .review-box .question .title,#FNAReview .review-box .question .num{padding-top:15px;padding-bottom:15px;position:relative;height:100px;display:table}#FNAReview .review-box .question .title p,#FNAReview .review-box .question .num p{display:table-cell;vertical-align:middle}#FNAReview .review-box .question .title{padding-right:100px}#FNAReview .review-box .question .title span{color:#CCC;font-size:18px;font-weight:normal}#FNAReview .review-box .option .row{margin:20px 0;display:block}#FNAReview .review-box .option label{font-size:18px;font-weight:bold;vertical-align:middle;width:100%}#FNAReview .review-box .option label span{color:#505759}#FNAReview .review-box .option .checkbox input[type="checkbox"]{visibility:hidden}#FNAReview .review-box .option .checkbox label{margin-left:-30px}#FNAReview .review-box .option .checkbox label::before{left:auto;right:-5px}#FNAReview .review-box .option .checkbox label::after{left:auto;right:-4px}#FNAReview .review-box .option input[type="text"]{background-color:transparent;border:none;border-bottom:1px solid #666;width:220px;margin-right:5px;text-align:center;font-size:22px;font-weight:bold}#FNAReview .review-box .option hr{width:85%;border:none;border-top:1px solid #CCC}#FNAReview .review-box.display{background-color:#FFF}#FNAReview .review-box.display .option .row{display:none}#FNAReview .review-box.display .option .row.selected{display:block}#FNAReview .review-box.display .option .checkbox label{cursor:default}#FNAReview .review-box.display .option .checkbox label::before{display:none}#FNAReview .review-box .error{color:#F00}#FNAReview .review-box .btn-action{text-align:right;margin:20px auto 30px;display:none}#FNAReview .review-box .btn-action .btn{width:150px;display:inline-block;margin:0px 10px;padding:8px 20px;font-size:22px}#FNAReview .review-box .btn_edit{display:block;font-weight:bold;font-size:22px;float:right;margin:20px;padding:8px 20px;width:150px}#FNAReview .review-box .btn_edit.selected{display:none}#FNAReview .fna-clear{margin-top:-20px;margin-bottom:30px;text-align:right}#FNAReview #btn_save{margin:0 auto 50px;padding:20px 20px !important}.fna-popup-cont{padding:20px}.fna-popup-cont h4{font-size:23px;font-weight:bold}#fnaPopupEnquiry .fna-popup-cont,#fnaPopupClear .fna-popup-cont{max-width:600px;margin:auto}#fnaPopupEnquiry .fna-popup-cont h4,#fnaPopupClear .fna-popup-cont h4{font-size:24px;font-weight:bold;color:#f68a1d;margin-bottom:20px}#fnaPopupEnquiry .fna-popup-cont p,#fnaPopupClear .fna-popup-cont p{font-size:20px;font-weight:bold;margin-bottom:20px}#fnaPopupEnquiry .fna-popup-cont .close,#fnaPopupClear .fna-popup-cont .close{position:absolute;top:10px;right:20px}#fnaPopupEnquiry .fna-popup-cont .btn-clear-gp,#fnaPopupClear .fna-popup-cont .btn-clear-gp{text-align:center;margin-top:20px}#fnaPopupEnquiry .fna-popup-cont .btn-clear-confirm,#fnaPopupEnquiry .fna-popup-cont .btn-clear-cancel,#fnaPopupClear .fna-popup-cont .btn-clear-confirm,#fnaPopupClear .fna-popup-cont .btn-clear-cancel{background-color:#fdb714;border-bottom:2px solid #787878;font-size:20px;color:#fff;padding:20px 0;text-align:center;font-weight:bold;border-radius:2px;display:inline-block;min-width:100px;margin:0 15px 20px}@media (min-width: 767px){#fnaPopupEnquiry .modal-dialog{width:750px}}@media screen and (max-width: 768px){p{font-size:18px}#FNAReview #personal_info span{font-weight:bold}#FNAReview #personal_info .headline{font-weight:normal}#FNAReview #personal_info select{height:40px;font-size:18px}#FNAReview .review-box{font-size:18px;margin:10px}#FNAReview .review-box div{padding:0 !important}#FNAReview .review-box .question div{padding:15px 0 !important}#FNAReview .review-box .question .num{text-align:center}#FNAReview .review-box .question .title span{font-size:14px}#FNAReview .review-box .option label{font-size:18px}#FNAReview .review-box .option label span{font-weight:normal}#FNAReview .review-box .option .checkbox label{margin-left:-5px}#FNAReview .review-box .option .checkbox label::before{right:-20px}#FNAReview .review-box .option .checkbox label::after{right:-20px}#FNAReview .review-box .option input[type="text"]{font-size:18px;width:180px}#FNAReview .review-box .btn-action .btn{width:180px;margin:0 5px;font-size:22px}#FNAReview .review-box .btn_edit{margin:10px 0}#FNAReview .fna-clear{text-align:center;margin-top:auto}#FNAReview #btn_save{font-size:22px}}@media screen and (max-width: 480px){p{font-size:14px}#FNAReview #personal_info .headline,#FNAReview #personal_info .content{width:90%}#FNAReview #personal_info span{display:block}#FNAReview #personal_info select{padding:0 40px 0 5px;height:26px;font-size:14px}#FNAReview #personal_info .select2-container .select2-selection--single{padding:0;height:26px;font-size:14px}#FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b{margin-left:-19px;margin-top:-6px}#FNAReview #personal_info .displayMode{display:none}#FNAReview #personal_info .editMode{display:block}#FNAReview #personal_info.display .displayMode{display:block}#FNAReview #personal_info.display .editMode{display:none}#FNAReview .review-box{font-size:14px;font-weight:normal}#FNAReview .review-box .title span{font-size:11px}#FNAReview .review-box .option label{font-size:14px}#FNAReview .review-box .option input[type="text"]{font-size:14px;width:150px}#FNAReview .review-box .btn-action .btn{width:130px;margin:0 2px;height:40px;line-height:40px;padding:0}#FNAReview .review-box .btn_edit{font-size:18px;width:80px;height:40px;line-height:40px;padding:0}#FNAReview #btn_save{font-size:14px}#fnaPopupClear .fna-popup-cont .btn-clear-confirm,#fnaPopupClear .fna-popup-cont .btn-clear-cancel{font-size:16px;min-width:80px;margin:0 5px 10px}}
+#FNAReview h1 {
+  font-size: 36px; }
+#FNAReview h2 {
+  font-size: 30px; }
+#FNAReview h3 {
+  font-size: 24px; }
+#FNAReview h4, #FNAReview p {
+  font-size: 18px; }
+#FNAReview h5 {
+  font-size: 14px; }
+#FNAReview h6 {
+  font-size: 12px; }
+#FNAReview .nopadding {
+  padding: 0 !important;
+  margin: 0 !important; }
+#FNAReview .left {
+  text-align: left; }
+#FNAReview .right {
+  text-align: right; }
+#FNAReview .center {
+  text-align: center; }
+#FNAReview .breadcrumb-container {
+  background-color: #EEE; }
+#FNAReview .breadcrumb {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+#FNAReview .lead-in {
+  padding: 25px 0 15px; }
+  #FNAReview .lead-in p {
+    font-weight: bold;
+    font-size: 18px; }
+  #FNAReview .lead-in span {
+    font-weight: normal;
+    font-size: 14px; }
+#FNAReview #personal_info .row {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+#FNAReview #personal_info .question.row {
+  margin-top: 0;
+  margin-bottom: 0; }
+#FNAReview #personal_info .content {
+  display: inline-block;
+  width: 70%;
+  margin-left: 5px;
+  vertical-align: top; }
+#FNAReview #personal_info .headline {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: top;
+  width: 25%;
+  color: #505759; }
+#FNAReview #personal_info .displayMode {
+  display: none; }
+#FNAReview #personal_info .editMode {
+  display: inline-block; }
+#FNAReview #personal_info.display .displayMode {
+  display: inline-block; }
+#FNAReview #personal_info.display .editMode {
+  display: none; }
+#FNAReview #personal_info .styled-select {
+  background-color: #FFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+#FNAReview #personal_info select {
+  display: block;
+  color: #505759;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-right: 40px; }
+  #FNAReview #personal_info select option {
+    background-color: #FFF !important; }
+  #FNAReview #personal_info select.disabled {
+    display: none; }
+#FNAReview #personal_info .select2-container {
+  margin-bottom: 10px;
+  width: 100% !important;
+  background-color: #FFF; }
+  #FNAReview #personal_info .select2-container .select2-selection--single {
+    padding: 8px 22px;
+    height: auto;
+    border: none; }
+#FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  background: url("../../images/down-arrow.png") top center;
+  width: 20px;
+  height: 12px;
+  border-color: transparent transparent transparent transparent;
+  border-width: 0px;
+  margin-left: -22px;
+  margin-top: 4px; }
+#FNAReview #personal_info .select2-container .select2-selection--single .select2-selection__rendered {
+  padding-right: 40px; }
+#FNAReview #personal_info .occupation_others {
+  margin: 10px 0;
+  padding: 0 25px; }
+  #FNAReview #personal_info .occupation_others input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #666;
+    width: 220px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold; }
+#FNAReview .review-box {
+  border: 1px solid #CCC;
+  min-height: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  background-color: #F0F0F0; }
+  #FNAReview .review-box .question {
+    background-color: #505759;
+    min-height: 100px;
+    color: #FFF;
+    position: relative;
+    display: block;
+    /*
+    .btn_edit{ 
+      position: absolute; right: 0; top: 0; background: #061d29; width: 100px; height: 100%; display: inline-block; 
+      text-align: center; color: #FFF; line-height: 100px; font-size: 22px;
+      &.selected{ color: #CCC; cursor: default;}
+    }
+    */ }
+    #FNAReview .review-box .question .title, #FNAReview .review-box .question .num {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      position: relative;
+      height: 100px;
+      display: table; }
+      #FNAReview .review-box .question .title p, #FNAReview .review-box .question .num p {
+        display: table-cell;
+        vertical-align: middle; }
+    #FNAReview .review-box .question .title {
+      padding-right: 100px; }
+    #FNAReview .review-box .question .title span {
+      color: #CCC;
+      font-size: 18px;
+      font-weight: normal; }
+  #FNAReview .review-box .option .row {
+    margin: 20px 0;
+    display: block; }
+  #FNAReview .review-box .option label {
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%; }
+  #FNAReview .review-box .option label span {
+    color: #505759; }
+  #FNAReview .review-box .option .checkbox input[type="checkbox"] {
+    visibility: hidden; }
+  #FNAReview .review-box .option .checkbox label {
+    margin-left: -30px; }
+  #FNAReview .review-box .option .checkbox label::before {
+    left: auto;
+    right: -5px; }
+  #FNAReview .review-box .option .checkbox label::after {
+    left: auto;
+    right: -4px; }
+  #FNAReview .review-box .option input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #666;
+    width: 220px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold; }
+  #FNAReview .review-box .option hr {
+    width: 85%;
+    border: none;
+    border-top: 1px solid #CCC; }
+  #FNAReview .review-box.display {
+    background-color: #FFF; }
+    #FNAReview .review-box.display .option .row {
+      display: none; }
+    #FNAReview .review-box.display .option .row.selected {
+      display: block; }
+    #FNAReview .review-box.display .option .checkbox label {
+      cursor: default; }
+    #FNAReview .review-box.display .option .checkbox label::before {
+      display: none; }
+  #FNAReview .review-box .error {
+    color: #F00; }
+  #FNAReview .review-box .btn-action {
+    text-align: right;
+    margin: 20px auto 30px;
+    display: none; }
+    #FNAReview .review-box .btn-action .btn {
+      width: 150px;
+      display: inline-block;
+      margin: 0px 10px;
+      padding: 8px 20px;
+      font-size: 22px; }
+  #FNAReview .review-box .btn_edit {
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+    float: right;
+    margin: 20px;
+    padding: 8px 20px;
+    width: 150px; }
+    #FNAReview .review-box .btn_edit.selected {
+      display: none; }
+#FNAReview .fna-clear {
+  margin-top: -20px;
+  margin-bottom: 30px;
+  text-align: right; }
+#FNAReview #btn_save {
+  margin: 0 auto 50px;
+  padding: 20px 20px !important; }
+
+.fna-popup-cont {
+  padding: 20px; }
+  .fna-popup-cont h4 {
+    font-size: 23px;
+    font-weight: bold; }
+
+#fnaPopupEnquiry .fna-popup-cont, #fnaPopupClear .fna-popup-cont, #fnaPopupConfirm .fna-popup-cont {
+  max-width: 600px;
+  margin: auto; }
+  #fnaPopupEnquiry .fna-popup-cont h4, #fnaPopupClear .fna-popup-cont h4, #fnaPopupConfirm .fna-popup-cont h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f68a1d;
+    margin-bottom: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont p, #fnaPopupClear .fna-popup-cont p, #fnaPopupConfirm .fna-popup-cont p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont .close, #fnaPopupClear .fna-popup-cont .close, #fnaPopupConfirm .fna-popup-cont .close {
+    position: absolute;
+    top: 10px;
+    right: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont .btn-clear-gp, #fnaPopupClear .fna-popup-cont .btn-clear-gp, #fnaPopupConfirm .fna-popup-cont .btn-clear-gp {
+    text-align: center;
+    margin-top: 20px; }
+  #fnaPopupEnquiry .fna-popup-cont .btn-clear-confirm, #fnaPopupEnquiry .fna-popup-cont .btn-clear-cancel, #fnaPopupEnquiry .fna-popup-cont .btn-yes, #fnaPopupEnquiry .fna-popup-cont .btn-no, #fnaPopupClear .fna-popup-cont .btn-clear-confirm, #fnaPopupClear .fna-popup-cont .btn-clear-cancel, #fnaPopupClear .fna-popup-cont .btn-yes, #fnaPopupClear .fna-popup-cont .btn-no, #fnaPopupConfirm .fna-popup-cont .btn-clear-confirm, #fnaPopupConfirm .fna-popup-cont .btn-clear-cancel, #fnaPopupConfirm .fna-popup-cont .btn-yes, #fnaPopupConfirm .fna-popup-cont .btn-no {
+    background-color: #fdb714;
+    border-bottom: 2px solid #787878;
+    font-size: 20px;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2px;
+    display: inline-block;
+    min-width: 100px;
+    margin: 0 15px 20px; }
+
+@media (min-width: 767px) {
+  #fnaPopupEnquiry .modal-dialog, #fnaPopupConfirm .modal-dialog {
+    width: 750px; } }
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 18px; }
+
+  #FNAReview #personal_info span {
+    font-weight: bold; }
+  #FNAReview #personal_info .headline {
+    font-weight: normal; }
+  #FNAReview #personal_info select {
+    height: 40px;
+    font-size: 18px; }
+  #FNAReview .review-box {
+    font-size: 18px;
+    margin: 10px; }
+    #FNAReview .review-box div {
+      padding: 0 !important; }
+    #FNAReview .review-box .question {
+      /*.btn_edit{display: none;}*/ }
+      #FNAReview .review-box .question div {
+        padding: 15px 0 !important; }
+      #FNAReview .review-box .question .num {
+        text-align: center; }
+      #FNAReview .review-box .question .title span {
+        font-size: 14px; }
+    #FNAReview .review-box .option label {
+      font-size: 18px; }
+      #FNAReview .review-box .option label span {
+        font-weight: normal; }
+    #FNAReview .review-box .option .checkbox label {
+      margin-left: -5px; }
+    #FNAReview .review-box .option .checkbox label::before {
+      right: -20px; }
+    #FNAReview .review-box .option .checkbox label::after {
+      right: -20px; }
+    #FNAReview .review-box .option input[type="text"] {
+      font-size: 18px;
+      width: 180px; }
+    #FNAReview .review-box .btn-action .btn {
+      width: 180px;
+      margin: 0 5px;
+      font-size: 22px; }
+    #FNAReview .review-box .btn_edit {
+      margin: 10px 0; }
+  #FNAReview .fna-clear {
+    text-align: center;
+    margin-top: auto; }
+  #FNAReview #btn_save {
+    font-size: 22px; } }
+@media screen and (max-width: 480px) {
+  p {
+    font-size: 14px; }
+
+  #FNAReview #personal_info .headline, #FNAReview #personal_info .content {
+    width: 90%; }
+  #FNAReview #personal_info span {
+    display: block; }
+  #FNAReview #personal_info select {
+    padding: 0 40px 0 5px;
+    height: 26px;
+    font-size: 14px; }
+  #FNAReview #personal_info .select2-container .select2-selection--single {
+    padding: 0;
+    height: 26px;
+    font-size: 14px; }
+  #FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-left: -19px;
+    margin-top: -6px; }
+  #FNAReview #personal_info .displayMode {
+    display: none; }
+  #FNAReview #personal_info .editMode {
+    display: block; }
+  #FNAReview #personal_info.display .displayMode {
+    display: block; }
+  #FNAReview #personal_info.display .editMode {
+    display: none; }
+  #FNAReview .review-box {
+    font-size: 14px;
+    font-weight: normal; }
+    #FNAReview .review-box .title span {
+      font-size: 11px; }
+    #FNAReview .review-box .option {
+      /*
+      .checkbox label::before { right: 10px;}
+      .checkbox label::after { right: 10px;}
+      */ }
+      #FNAReview .review-box .option label {
+        font-size: 14px; }
+      #FNAReview .review-box .option input[type="text"] {
+        font-size: 14px;
+        width: 150px; }
+    #FNAReview .review-box .btn-action .btn {
+      width: 130px;
+      margin: 0 2px;
+      height: 40px;
+      line-height: 40px;
+      padding: 0; }
+    #FNAReview .review-box .btn_edit {
+      font-size: 18px;
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      padding: 0; }
+  #FNAReview #btn_save {
+    font-size: 14px; }
+
+  #fnaPopupClear .fna-popup-cont .btn-clear-confirm, #fnaPopupClear .fna-popup-cont .btn-clear-cancel, #fnaPopupClear .fna-popup-cont .btn-yes, #fnaPopupClear .fna-popup-cont .btn-no, #fnaPopupConfirm .fna-popup-cont .btn-clear-confirm, #fnaPopupConfirm .fna-popup-cont .btn-clear-cancel, #fnaPopupConfirm .fna-popup-cont .btn-yes, #fnaPopupConfirm .fna-popup-cont .btn-no {
+    font-size: 16px;
+    min-width: 80px;
+    margin: 0 5px 10px; } }
+
 /*# sourceMappingURL=onlinesavieFNAReview.css.map */

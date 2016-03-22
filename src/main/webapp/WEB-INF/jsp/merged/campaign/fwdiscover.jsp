@@ -30,8 +30,8 @@
     } else {
         disableOfferClass = "";
         countDownDate = "2016-04-14 23:59:59";
-        countDownDD = "20";
-        countDownMM = "MAR";
+        countDownDD = "15";
+        countDownMM = "Apr";
         //isCNYOffer = false;
         //isCNYOffer = true;
     }
@@ -2077,7 +2077,7 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(<%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                        if(false && <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -2089,7 +2089,7 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(<%=hotelVoucherCampaignId<13%>){
+                        if(true || <%=hotelVoucherCampaignId<13%>){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
@@ -2097,7 +2097,7 @@
                         loginpopup(campaignId);
                     }else{
                         $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(<%=hotelVoucherCampaignId<=13%>){
+                        if(true || <%=hotelVoucherCampaignId<=13%>){
                             $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                         }
                     }
@@ -2193,7 +2193,7 @@
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
                     $('#offer-details-promotion-code-error-once').modal('show');
                 }else{
-                    if(<%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                    if(false && <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                         $('#offer-details-hotel-voucher').modal('show');
                         $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel${hotelVoucherCampaignId}" bundle="${msg}" />');                 	
                     }else{

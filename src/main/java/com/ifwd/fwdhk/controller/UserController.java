@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +39,7 @@ import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
+import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -58,6 +60,9 @@ public class UserController {
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
+	
+	@Autowired
+	private SavieOnlineService savieOnlineService;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody
@@ -69,8 +74,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest servletRequest) 
-	{	
+	public ModelAndView logout(HttpServletRequest servletRequest){
+		try {
+			savieOnlineService.deleteSaviePdf("pdfName", servletRequest);
+			savieOnlineService.deleteSaviePdf("fnaPdfName", servletRequest);
+			savieOnlineService.deleteSaviePdf("applicationFormPdf", servletRequest);
+		} catch (IOException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 
 		String homeURL = "/changeLang?selectLang=EN&action=/tc/";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);

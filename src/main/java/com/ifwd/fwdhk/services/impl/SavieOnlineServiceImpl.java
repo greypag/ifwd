@@ -4,7 +4,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -152,7 +151,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan0 = new net.sf.json.JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan0.accumulate("totalPremium", planDetails0Rate.get(i).getTotalPremium());
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
@@ -160,7 +159,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan2 = new net.sf.json.JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan2.accumulate("totalPremium", planDetails2Rate.get(i).getTotalPremium());
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
@@ -168,7 +167,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan3 = new net.sf.json.JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan3.accumulate("totalPremium", planDetails3Rate.get(i).getTotalPremium());
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
@@ -176,7 +175,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan4 = new net.sf.json.JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan4.accumulate("totalPremium", planDetails4Rate.get(i).getTotalPremium());
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
@@ -558,19 +557,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		
+		String showOnly1Product = (String) session.getAttribute("showOnly1Product");
+		String showILASsDescription = (String) session.getAttribute("showILASsDescription");
+		String showNoAvailableProduct = (String) session.getAttribute("showNoAvailableProduct");
+		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
-		/*String LifeInsuredName = "";
-		if(lifeBeneficaryInfo.getIsOwnEstate()){
-			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
-		                      lifePersonalDetails.getLastname()+" "+
-					          lifePersonalDetails.getChineseName();
-		}
-		else{
-			LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1() + "\r\n" +
-	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2() + "\r\n" +
-	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
-		}*/
 		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
@@ -629,7 +621,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
 			occupation = lifeEmploymentInfo.getOtherOccupation();
 		}
-		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
+		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
 		//attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
@@ -770,7 +762,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("USTreasurybills", "On"));
 			}
 			if("6".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4bother", "On"));
 				attributeList.add(new PdfAttribute("4bothers", savieFna.getQ4_b_others()));
 			}
 		}
@@ -840,7 +832,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("Investements", "On"));
 			}
 			if("4".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4gother", "On"));
 				attributeList.add(new PdfAttribute("4gothers", savieFna.getQ4_g_others()));
 			}
 		}
@@ -848,119 +840,81 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
 		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
-			/*for(String l :q1){
-				if("0".equals(l)){
-					attributeList.add(new PdfAttribute("Q1a1", "On"));
-				}
-				if("1".equals(l)){
-					attributeList.add(new PdfAttribute("Q1b1", "On"));
-				}
-				if("2".equals(l)){
-					attributeList.add(new PdfAttribute("Q1c1", "On"));
-				}
-				if("3".equals(l)){
-					attributeList.add(new PdfAttribute("Q1d1", "On"));
-				}
-				if("4".equals(l)){
-					attributeList.add(new PdfAttribute("Q1e1", "On"));
-				}
-				if("5".equals(l)){
-					attributeList.add(new PdfAttribute("Q1f1", "On"));
-					attributeList.add(new PdfAttribute("Q1others1", savieFna.getQ1_others()));
-				}
-			}
-			for(String m :q2){
-				if("0".equals(m)){
-					attributeList.add(new PdfAttribute("Q2a1", "On"));
-				}
-				if("1".equals(m)){
-					attributeList.add(new PdfAttribute("Q2b1", "On"));
-					
-				}
-				if("2".equals(m)){
-					attributeList.add(new PdfAttribute("Q2c1", "On"));
-				}
-				if("3".equals(m)){
-					attributeList.add(new PdfAttribute("Q2d1", "On"));
-				}
-				if("4".equals(m)){
-					attributeList.add(new PdfAttribute("Q2e1", "On"));
-					attributeList.add(new PdfAttribute("Q2others1", savieFna.getQ2_others()));
-				}
-			}
-			attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "SAVIE"));
-			attributeList.add(new PdfAttribute("Product(s)Selected1", "Yes"));*/
-			
 			
 			int i = 1;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
-				for(int b=0;b<products.size();b++){
-					q1 = ((String)products.get(b).get("q1")).split(",");
-					for(String j :q1){
-						if("0".equals(j)){
-							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
+				if(products != null && products.size() > 0){
+					for(int b=0;b<products.size();b++){
+						q1 = ((String)products.get(b).get("q1")).split(",");
+						for(String j :q1){
+							if("0".equals(j)){
+								attributeList.add(new PdfAttribute("Q1a"+i, "On"));
+							}
+							if("1".equals(j)){
+								attributeList.add(new PdfAttribute("Q1b"+i, "On"));
+							}
+							if("2".equals(j)){
+								attributeList.add(new PdfAttribute("Q1c"+i, "On"));
+							}
+							if("3".equals(j)){
+								attributeList.add(new PdfAttribute("Q1d"+i, "On"));
+							}
+							if("4".equals(j)){
+								attributeList.add(new PdfAttribute("Q1e"+i, "On"));
+							}
+							if("5".equals(j)){
+								attributeList.add(new PdfAttribute("Q1f"+i, "On"));
+								attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
+							}
 						}
-						if("1".equals(j)){
-							attributeList.add(new PdfAttribute("Q1b"+i, "On"));
+						q2 = ((String)products.get(b).get("q2")).split(",");
+						for(String k :q2){
+							if("0".equals(k)){
+								attributeList.add(new PdfAttribute("Q2a"+i, "On"));
+							}
+							if("1".equals(k)){
+								attributeList.add(new PdfAttribute("Q2b"+i, "On"));
+								
+							}
+							if("2".equals(k)){
+								attributeList.add(new PdfAttribute("Q2c"+i, "On"));
+							}
+							if("3".equals(k)){
+								attributeList.add(new PdfAttribute("Q2d"+i, "On"));
+							}
+							if("4".equals(k)){
+								attributeList.add(new PdfAttribute("Q2e"+i, "On"));
+								attributeList.add(new PdfAttribute("Q2others"+i, savieFna.getQ2_others()));
+							}
 						}
-						if("2".equals(j)){
-							attributeList.add(new PdfAttribute("Q1c"+i, "On"));
+						
+						String productName = "";
+						try {
+							productName = products.get(b).get("name").toString();
+						} catch (Exception e) {
+							e.printStackTrace();
 						}
-						if("3".equals(j)){
-							attributeList.add(new PdfAttribute("Q1d"+i, "On"));
+						attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
+						if(selectProductName!=null&&selectProductName.equals(productName)){
+							attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
 						}
-						if("4".equals(j)){
-							attributeList.add(new PdfAttribute("Q1e"+i, "On"));
-						}
-						if("5".equals(j)){
-							attributeList.add(new PdfAttribute("Q1f"+i, "On"));
-							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
-						}
+						i = i+1;
 					}
-					q2 = ((String)products.get(b).get("q2")).split(",");
-					for(String k :q2){
-						if("0".equals(k)){
-							attributeList.add(new PdfAttribute("Q2a"+i, "On"));
-						}
-						if("1".equals(k)){
-							attributeList.add(new PdfAttribute("Q2b"+i, "On"));
-							
-						}
-						if("2".equals(k)){
-							attributeList.add(new PdfAttribute("Q2c"+i, "On"));
-						}
-						if("3".equals(k)){
-							attributeList.add(new PdfAttribute("Q2d"+i, "On"));
-						}
-						if("4".equals(k)){
-							attributeList.add(new PdfAttribute("Q2e"+i, "On"));
-							attributeList.add(new PdfAttribute("Q2others"+i, savieFna.getQ2_others()));
-						}
-					}
-					
-					String productName = products.get(b).get("name").toString();
-					attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
-					if(selectProductName!=null&&selectProductName.equals(productName)){
-						attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
-					}
-					i = i+1;
 				}
 			}
 			
-			if(i < 2){
-				attributeList.add(new PdfAttribute("Nooption", "根據以上選項,本公司未能提供其他一筆過付款產品以作比較\r\nAccording to the above choices,"
-						+ "\r\nour company do not have other products\r\nproviding single premium options for comparison."));
-			}
-			else{
-				attributeList.add(new PdfAttribute("Nooption", ""));
-			}
+			attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
+														   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
+														   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
+			
 			logger.info("产品数："+i);
 		}
 		
-		
-		attributeList.add(new PdfAttribute("Date1", DateApi.formatString(new Date(), "dd/MM/yyyy")));
+		attributeList.add(new PdfAttribute("Date1", "DD-MM-YYYY"));
+		attributeList.add(new PdfAttribute("Date2", "DD-MM-YYYY"));
+		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd/MM/yyyy")));
 		
 		if("2".equals(type)){
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
@@ -1601,7 +1555,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public net.sf.json.JSONObject lifeBeneficaryInfoPutData(LifeBeneficaryInfoBean lifeBeneficaryInfo,net.sf.json.JSONObject parameters){
-		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"false");
+		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getIsOwnEstate():"false");
 		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
@@ -2536,6 +2490,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
 			template = "savie\\saveLater.html";
 		}
+		else if("payment".equals(action)) {
+			subject = "payment";
+			template = "savie\\payment.html";
+		}
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", email);
@@ -2640,5 +2598,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			 userName = (String) policy.get("userName");
 		}
 		return userName;
+	}
+	
+	public void deleteSaviePdf(String fileName,HttpServletRequest request)throws IOException{
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
+		File f = new File(pdfPath);
+		f.delete();
 	}
 }

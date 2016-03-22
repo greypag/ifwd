@@ -5,6 +5,10 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
+</script>
 <html lang="en">
 	<head>
 	<!-- <meta charset="utf-8"> -->
@@ -111,10 +115,9 @@
 				</div>
 			</div>
 			<div class="fna fwd-full-container">
-				<div class="fna-body fwd-container-limit clearfix">
-					<img class="img-responsive pull-right fna-img hidden-sm hidden-xs" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_desktop.png" />
-					<img class="img-responsive pull-right fna-img hidden-lg hidden-md" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_mobile.png" />
-					<div class="fna-box text-left">
+				<div class="fna-body fwd-container-limit center-block clearfix">
+					<img class="fna-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/FWD_FNA-workingfile6-bg-01.jpg" />
+					<div class="fna-box">
 						<h3><fmt:message key="label.fna" bundle="${msg}" /></h3>
 						<p><fmt:message key="fna.copy1" bundle="${msg}" /></p>
 					</div>
@@ -313,10 +316,10 @@
 			</div>								
 		</div>
 		<!-- Review FNA modal  -->
-		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
 			     	<h4 class="text-center welcome-msg"><fmt:message key="label.review.fna.title" bundle="${msg}" /> <span id="fullName">${userDetails.fullName }</span></h4>
 			     	<p class="text-center description-msg"><fmt:message key="label.review.fna.copy" bundle="${msg}" /></p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn"><fmt:message key="button.review.fna" bundle="${msg}" /></button></center>
@@ -324,10 +327,10 @@
 			 </div>
 		</div>
 		
-		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog">
+		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
-		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
 		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
 		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.appointment" bundle="${msg}" /></button></center>
@@ -522,24 +525,24 @@
 					$('#psa-btn1').on({
 					    'click': function () {
 					        var origsrc = $('#btn-collapse1').attr('src');
-					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
-					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        var src = context+'/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == context+'/resources/images/savie-2016/plus-slim.png') src = context+'/resources/images/savie-2016/minus-slim.png';
 					        $('#btn-collapse1').attr('src', src);
 					    }
 					});
 					$('#psa-btn2').on({
 					    'click': function () {
 					        var origsrc = $('#btn-collapse2').attr('src');
-					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
-					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        var src = context+'/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == context+'/resources/images/savie-2016/plus-slim.png') src = context+'/resources/images/savie-2016/minus-slim.png';
 					        $('#btn-collapse2').attr('src', src);
 					    }
 					});
 					$('#psa-btn3').on({
 					    'click': function () {
 					        var origsrc = $('#btn-collapse3').attr('src');
-					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
-					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        var src = context+'/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == context+'/resources/images/savie-2016/plus-slim.png') src = context+'/resources/images/savie-2016/minus-slim.png';
 					        $('#btn-collapse3').attr('src', src);
 					    }
 					});
