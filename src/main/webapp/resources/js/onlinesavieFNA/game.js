@@ -930,7 +930,7 @@ var fnaSavieGame = {
 									that.postData.occupation == "NoBD16" 
 								){
 									if(that.postData.occupation_others == null){
-										$(".step2 .frm-fna-occupation-others").parents(".fna-row").find(".fna-error-msg").text("(Please input)");
+										$(".step2 .frm-fna-occupation-others").parents(".fna-row").find(".fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 										result = false;
 									}
 								}
@@ -967,7 +967,7 @@ var fnaSavieGame = {
 				break;
 			case 5:
 				if(that.postData.q4_a == null && that.postData.q4_a_others == null){
-					$(".q4a .fna-error-msg").text("(Please select or enter specific amount)");
+					$(".q4a .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.specific.amount"));
 					result = false;
 				}
 				if(mobileSplit) break;
@@ -976,22 +976,22 @@ var fnaSavieGame = {
 					result = false;
 				}
 				if(that.postData.q4_b_amount == null){
-					$(".q4b .err_q4b2.fna-error-msg").text("(Please enter)");
+					$(".q4b .err_q4b2.fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				break;
 			case 6:
 				if(that.postData.q4_c == null){
-					$(".q4c .fna-error-msg").text("(Please enter)");
+					$(".q4c .fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));
 					result = false;
 				}
 				if(mobileSplit) break;
 				if(that.postData.q4_d_1 == null){
-					$(".q4d .err_q4d1.fna-error-msg").text("(Please enter)");	
+					$(".q4d .err_q4d1.fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));	
 					result = false;
 				}
 				if(that.postData.q4_d_2 == null){
-					$(".q4d .err_q4d2.fna-error-msg").text("(Please enter)");	
+					$(".q4d .err_q4d2.fna-error-msg").text(getBundle(getBundleLanguage, "error.select.empty"));	
 					result = false;
 				}
 				break;

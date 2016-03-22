@@ -390,8 +390,8 @@ var affiliate = "${affiliate}";
 									</div>
 									<ul class="fna-checkbox-gp no-line clearfix frm-fna-q4b" data-mirror-fld="frm-fna-q4b-mob" data-frm-fld="q4_b">
 										<li class="fna-checkbox-btn" data-val="0"><fmt:message key="fna.question.q4b.option1" bundle="${msg}" /></li>
-										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q4b.option2" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="2"><fmt:message key="fna.question.q4b.option3" bundle="${msg}" /></li>
+										<li class="fna-checkbox-btn" data-val="1"><fmt:message key="fna.question.q4b.option2" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="3"><fmt:message key="fna.question.q4b.option4" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="4"><fmt:message key="fna.question.q4b.option5" bundle="${msg}" /></li>
 										<li class="fna-checkbox-btn" data-val="5"><fmt:message key="fna.question.q4b.option6" bundle="${msg}" /></li>
