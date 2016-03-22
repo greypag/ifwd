@@ -1653,60 +1653,52 @@ body {
 /* line 220, ../sass/partials/savie/_homepage.scss */
 .fna-body .fna-box {
   position: absolute;
-  width: 80%;
+  width: 54%;
   top: 11%;
-  margin-left: 5%;
+  left: 6%;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   /* line 220, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box {
-    width: 36%;
+    /*width: 36%;*/
   }
 }
 @media screen and (min-width: 992px) {
   /* line 220, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box {
-    margin-left: 0;
+  	width: 60%;
+    left: 8%;
   }
 }
 /* line 233, ../sass/partials/savie/_homepage.scss */
 .fna-body .fna-box h3 {
   font-family: 'Calibri-Bold';
-  color: #ff8200;
-  margin: auto;
-  font-size: 24px;
-}
-@media screen and (min-width: 414px) {
-  /* line 233, ../sass/partials/savie/_homepage.scss */
-  .fna-body .fna-box h3 {
-    font-size: 30px;
-  }
+  /*color: #ff8200;*/
+  color: #fff;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 3%;
+  font-size: 4.6vw;
 }
 @media screen and (min-width: 992px) {
   /* line 233, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box h3 {
-    margin-top: 10px;
+    margin-bottom: 1%;
+    font-size: 4.3vw;
   }
 }
 /* line 247, ../sass/partials/savie/_homepage.scss */
 .fna-body .fna-box p {
   font-family: 'Calibri';
-  font-size: 14px;
-  line-height: 18px;
-  margin: 10px 0 0;
-}
-@media screen and (min-width: 414px) {
-  /* line 247, ../sass/partials/savie/_homepage.scss */
-  .fna-body .fna-box p {
-    font-size: inherit;
-    margin: 25px 0 0;
-    font-size: 14px;
-  }
+  font-size: 2.6vw;
+  line-height: 1.2;
+  margin: 0;
 }
 @media screen and (min-width: 992px) {
   /* line 247, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box p {
-    max-width: 292px;
+    font-size: 2.3vw;
   }
 }
 /* line 265, ../sass/partials/savie/_homepage.scss */
