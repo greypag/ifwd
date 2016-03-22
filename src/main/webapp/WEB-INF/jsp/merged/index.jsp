@@ -56,7 +56,7 @@
 			<div class="product-list">
 				<div class="content-container row fwd-container-limit">
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button id="psa-btn1" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img id="btn-collapse1" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-1">
 						  <div class="psa-content">
@@ -75,7 +75,7 @@
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button id="psa-btn2" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img id="btn-collapse2" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-2">
 						  <div class="psa-content">
@@ -90,7 +90,7 @@
 						</div>
 					</div>
 					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
-						<button class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
+						<button id="psa-btn3" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img id="btn-collapse3" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-3">
 						  <div class="psa-content">
@@ -408,7 +408,7 @@
 			          if(direction == 'right') {
 			        	  $(this).carousel('prev');			        	
 			          } else if(direction == 'left') {
-			        	  $(this).carousel('next'); 			        	  
+			        	  $(this).carousel('next');
 			          }
 			        },
 			        threshold:0,
@@ -466,36 +466,35 @@
 						$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
 						$('#navtabs-1').addClass('active');
 						$('#so-carousel').carousel({
-                            interval: false
-                        });
-	                
+                      interval: false
+                  });
+           
 						$('#so-carousel').addClass('carousel slide');
-                        $('#so-carousel').attr('data-ride', 'carousel');
-                        $('.fna-carousel .tab-content').addClass('carousel-inner');
-                        $('.fna-carousel .tab-content').attr('role', 'listbox');
-                        $('.fna-tab-content').addClass('item');
-                        
-                        $('#so-carousel').on('slid.bs.carousel', function() {
-                            if($('#navtabs-1').hasClass('active')) {
-                                $('.navtabs-li').removeClass('active');
-                                $('#nav-title-1').addClass('active');
-                            }
-                            if($('#navtabs-2').hasClass('active')) {
-                                $('.navtabs-li').removeClass('active');
-                                $('#nav-title-2').addClass('active');
-                            }
-                            if($('#navtabs-3').hasClass('active')) {
-                                $('.navtabs-li').removeClass('active');
-                                $('#nav-title-3').addClass('active');
-                            }
-                            if($('#navtabs-4').hasClass('active')) {
-                                $('.navtabs-li').removeClass('active');
-                                $('#nav-title-4').addClass('active');
-                            }
-                        });
-						
-                        $('.psa-link-content').hide();
-                        
+	               $('#so-carousel').attr('data-ride', 'carousel');
+	               $('.fna-carousel .tab-content').addClass('carousel-inner');
+	               $('.fna-carousel .tab-content').attr('role', 'listbox');
+	               $('.fna-tab-content').addClass('item');
+	               
+	               $('#so-carousel').on('slid.bs.carousel', function() {
+	                   if($('#navtabs-1').hasClass('active')) {
+	                       $('.navtabs-li').removeClass('active');
+	                       $('#nav-title-1').addClass('active');
+	                   }
+	                   if($('#navtabs-2').hasClass('active')) {
+	                       $('.navtabs-li').removeClass('active');
+	                       $('#nav-title-2').addClass('active');
+	                   }
+	                   if($('#navtabs-3').hasClass('active')) {
+	                       $('.navtabs-li').removeClass('active');
+	                       $('#nav-title-3').addClass('active');
+	                   }
+	                   if($('#navtabs-4').hasClass('active')) {
+	                       $('.navtabs-li').removeClass('active');
+	                       $('#nav-title-4').addClass('active');
+	                   }
+	               });
+	
+	               $('.psa-link-content').hide();
 					} else {
 						$('.psa-btn').attr('data-toggle', 'none');
 						$('.psa-collapse-content').removeClass('collapse');
@@ -505,21 +504,47 @@
 					}
 				});
 				 function getWidth() {
-	                if (self.innerWidth) {
-	                    return self.innerWidth;
-	                }
-	                else if (document.documentElement && document.documentElement.clientHeight){
-	                    return document.documentElement.clientWidth;
-	                }
-	                else if (document.body) {
-	                    return document.body.clientWidth;
-	                }
-	                return 0;
-	            }
-				
+                if (self.innerWidth) {
+                    return self.innerWidth;
+                }
+                else if (document.documentElement && document.documentElement.clientHeight){
+                    return document.documentElement.clientWidth;
+                }
+                else if (document.body) {
+                    return document.body.clientWidth;
+                }
+                return 0;
+             }
+
 				$('#see-all-product-btn').on('click', function () {
 					$('.psa-link-content').slideDown('fast');
 				});
+				
+					// plus / minus button
+					$('#psa-btn1').on({
+					    'click': function () {
+					        var origsrc = $('#btn-collapse1').attr('src');
+					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        $('#btn-collapse1').attr('src', src);
+					    }
+					});
+					$('#psa-btn2').on({
+					    'click': function () {
+					        var origsrc = $('#btn-collapse2').attr('src');
+					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        $('#btn-collapse2').attr('src', src);
+					    }
+					});
+					$('#psa-btn3').on({
+					    'click': function () {
+					        var origsrc = $('#btn-collapse3').attr('src');
+					        var src = '/fwdhk/resources/images/savie-2016/plus-slim.png';
+					        if (origsrc == '/fwdhk/resources/images/savie-2016/plus-slim.png') src = '/fwdhk/resources/images/savie-2016/minus-slim.png';
+					        $('#btn-collapse3').attr('src', src);
+					    }
+					});
             });
             
 		</script>
