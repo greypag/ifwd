@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,4 +58,5 @@ public interface SavieOnlineService {
 	public void clearPolicyApplication(HttpServletRequest request) throws ECOMMAPIException;
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
+	public void deleteSaviePdf(String fileName,HttpServletRequest request)throws IOException;
 }
