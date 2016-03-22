@@ -202,6 +202,8 @@ public class ECommController {
 		String code;
 		JSONObject responseJsonObj;
 		
+		int hotelVoucherCampaignId = -1;
+		/*
 	    java.util.Calendar cal = java.util.Calendar.getInstance();
 	    cal.setTime(java.util.Calendar.getInstance().getTime());
 
@@ -267,6 +269,7 @@ public class ECommController {
 	            indexs = new int[]{-1};
 	            break;
 	    }
+	    */
 	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampaignId);
 		
 		if(!StringUtils.isEmpty(choose) &&
@@ -296,31 +299,31 @@ public class ECommController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="31-05-2016";
+						date="30-06-2016";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="31-05-2016";
+						date="30-06-2016";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="31-05-2016";
+						date="30-06-2016";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="31-05-2016";
+						date="30-06-2016";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="31-05-2016";
+						date="30-06-2016";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;
