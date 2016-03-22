@@ -107,9 +107,9 @@ public class SavieOnlineController extends BaseController{
 		HttpSession httpSession = request.getSession();
 		String current = request.getServletPath();
 		if(current.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_RP)) {
-			httpSession.setAttribute("savieType", "SP");
-		}else {
 			httpSession.setAttribute("savieType", "RP");
+		}else {
+			httpSession.setAttribute("savieType", "SP");
 		}
 		Date date = new Date();
 		Calendar startDOB = new GregorianCalendar();

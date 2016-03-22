@@ -18,7 +18,9 @@ public class CompareUtil {
 	private static Gson g = new Gson();
 	private static String TO_100 = "To age 100";
 	private static String ONE_OFF ="One-Off";
-	private static String SAVIE = "SAVIE";
+	private static String KSTS = "KSTS";
+	private static String KSTR = "KSTR";
+	private static String UTLS  = "UTLS";
 	private static Comparator<String> sortProductList = new Comparator<String>() {
 		@Override
 		public int compare(String o1, String o2) {
@@ -248,9 +250,17 @@ public class CompareUtil {
 		Collections.sort(beans, new Comparator<Products>() {
 			@Override
 			public int compare(Products o1, Products o2) {
-				if(SAVIE.equals(o1.getProduct_code())) {
+				if(KSTS.equals(o1.getProduct_code())) {
 					return -1;
-				}else if (SAVIE.equals(o2.getProduct_code())) {
+				}else if (KSTS.equals(o2.getProduct_code())) {
+					return 1;
+				}if(KSTR.equals(o1.getProduct_code())) {
+					return -1;
+				}else if (KSTR.equals(o2.getProduct_code())) {
+					return 1;
+				}if(UTLS.equals(o1.getProduct_code())) {
+					return -1;
+				}else if (UTLS.equals(o2.getProduct_code())) {
 					return 1;
 				}else {
 					return 0;
@@ -275,12 +285,12 @@ public class CompareUtil {
 			@Override
 			public int compare(ProductList o1, ProductList o2) {
 				for(Products entity : o1.getProducts()) {
-					if(SAVIE.equals(entity.getProduct_code())){
+					if(KSTS.equals(entity.getProduct_code())){
 						return -1;
 					}
 				}
 				for(Products entity : o2.getProducts()) {
-					if(SAVIE.equals(entity.getProduct_code())){
+					if(KSTS.equals(entity.getProduct_code())){
 						return 1;
 					}
 				}

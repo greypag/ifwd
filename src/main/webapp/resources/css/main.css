@@ -10395,6 +10395,7 @@ ul.promotion-sub-tnc.bullets {
 	}
     .navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2.in{
         display:block !important;
+        overflow-y: scroll;
     }
     .col-sm-12.nav.navbar-nav{
         padding: 0;

@@ -4473,7 +4473,8 @@ a.eserv-link:hover {
   }
 }
 /* line 8, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca {
+#dialog-fatca-declaration #modal-content-fatca,
+#dialog-pics-declaration #modal-content-pics {
   padding-right: 25px;
   padding-left: 25px;
   padding-bottom: 13px;
@@ -4481,17 +4482,20 @@ a.eserv-link:hover {
 }
 @media screen and (min-width: 992px) {
   /* line 8, ../sass/partials/savie/_fatca-declaration.scss */
-  #dialog-fatca-declaration #modal-content-fatca {
+  #dialog-fatca-declaration #modal-content-fatca,
+  #dialog-pics-declaration #modal-content-pics {
     padding-left: 35px;
   }
 }
 /* line 17, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca #close-fatca {
+#dialog-fatca-declaration #modal-content-fatca #close-fatca,
+#dialog-pics-declaration #modal-content-pics #close-pics {
   margin-top: -13px;
   margin-right: -5px;
 }
 /* line 22, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-header > p {
+#dialog-fatca-declaration #modal-content-fatca .modal-header > p,
+#dialog-pics-declaration #modal-content-pics .modal-header > p {
   font-size: 18px;
   font-weight: bold;
   color: #ff8200;
@@ -4499,16 +4503,19 @@ a.eserv-link:hover {
 }
 @-moz-document url-prefix() {
   /* line 22, ../sass/partials/savie/_fatca-declaration.scss */
-  #dialog-fatca-declaration #modal-content-fatca .modal-header > p {
+  #dialog-fatca-declaration #modal-content-fatca .modal-header > p,
+  #dialog-pics-declaration #modal-content-pics .modal-header > p {
     font-size: 17px;
   }
 }
 /* line 32, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-body ol {
+#dialog-fatca-declaration #modal-content-fatca .modal-body ol,
+#dialog-pics-declaration #modal-content-pics .modal-body ol {
   padding-left: 17px;
 }
 /* line 34, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca .modal-body ol li {
+#dialog-fatca-declaration #modal-content-fatca .modal-body ol li,
+#dialog-pics-declaration #modal-content-pics .modal-body ol li {
   font-size: 14px;
   line-height: 17px;
   text-align: justify;
@@ -4519,7 +4526,8 @@ a.eserv-link:hover {
   padding-bottom: 0;
 }
 /* line 46, ../sass/partials/savie/_fatca-declaration.scss */
-#dialog-fatca-declaration #modal-content-fatca #modal-body-fatca {
+#dialog-fatca-declaration #modal-content-fatca #modal-body-fatca,
+#dialog-pics-declaration #modal-content-pics .modal-body-pics {
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -9193,6 +9201,9 @@ h3 .heading-title{
     padding-top: 15px;
   }
 }
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder {
+  position: relative;
+}
 @media (min-width: 992px) {
   /* line 156, ../sass/partials/savie/_eservices.scss */
   .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder {
@@ -9203,6 +9214,11 @@ h3 .heading-title{
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .promo-code-input {
   height: 40px;
   font-size: 14px;
+  cursor: text;
+}
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .boxMain {
+  top: 37px;
+  bottom: initial;
 }
 /* line 165, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder {
@@ -9219,17 +9235,13 @@ h3 .heading-title{
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li {
   margin-left: 0;
 }
-/* line 174, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a {
-  padding: 9px;
-  color: #FFF;
-  border-radius: 0;
-}
 /* line 178, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a#copy-link-btn {
   background: #ff8200;
   text-align: center;
   padding: 9px;
+  color: #FFF;
+  border-radius: 0;
 }
 @media (min-width: 992px) {
   /* line 178, ../sass/partials/savie/_eservices.scss */
@@ -9238,31 +9250,9 @@ h3 .heading-title{
   }
 }
 /* line 188, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a {
-  width: 40px;
-  padding: 9px 14px;
-}
-/* line 192, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon {
-  background: #153a83;
-}
-/* line 194, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon .fa-facebook {
-  font-size: 20px;
-}
-/* line 198, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon {
-  background: #2d99d3;
-  padding: 9px 10px;
-}
-/* line 201, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon .fa-twitter {
-  font-size: 20px;
-}
-/* line 205, ../sass/partials/savie/_eservices.scss */
-.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#gplus-icon {
-  background: #be1c3b;
-  padding: 9px 12px;
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li .at-share-tbx-element * {
+  max-width: 40px !important;
+  max-height: 40px !important;
 }
 /* line 214, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {

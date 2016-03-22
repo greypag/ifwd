@@ -864,24 +864,15 @@ var languageP = "${language}";
 							 message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
 						  },
 						  regexp: {
-		                  regexp: /^[a-zA-Z0-9\-]*$/,
-		                  message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />'
-		               },
-						  callback: {
-							 /* message: "Your HKID no. is invalid.",
-							 callback: function(value, validator) {
-								//return isValidHKID(value);
-							 } */
-							 callback: function(value, validator) {
-								if(!isValidHKID(value)) {
-									return {
-										valid: false,
-										message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
-									}
-								}
-								return true;
-							  }
-						  }
+		                  	regexp: /^[a-zA-Z0-9\-]*$/,
+		                  	message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />'
+		               	  },
+		                  callback: {
+		                      message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+		                      callback: function(value, validator) {
+		                         return isValidHKID(value);
+		                      }
+		                  }
 					   }
 					},
 					'tmpMaritalStatus': {
