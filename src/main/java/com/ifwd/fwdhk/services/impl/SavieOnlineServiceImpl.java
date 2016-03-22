@@ -557,19 +557,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		
+		String showOnly1Product = (String) session.getAttribute("showOnly1Product");
+		String showILASsDescription = (String) session.getAttribute("showILASsDescription");
+		String showNoAvailableProduct = (String) session.getAttribute("showNoAvailableProduct");
+		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
-		/*String LifeInsuredName = "";
-		if(lifeBeneficaryInfo.getIsOwnEstate()){
-			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
-		                      lifePersonalDetails.getLastname()+" "+
-					          lifePersonalDetails.getChineseName();
-		}
-		else{
-			LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1() + "\r\n" +
-	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2() + "\r\n" +
-	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
-		}*/
 		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
@@ -628,7 +621,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
 			occupation = lifeEmploymentInfo.getOtherOccupation();
 		}
-		attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
+		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
 		//attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
@@ -769,7 +762,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("USTreasurybills", "On"));
 			}
 			if("6".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4bother", "On"));
 				attributeList.add(new PdfAttribute("4bothers", savieFna.getQ4_b_others()));
 			}
 		}
@@ -839,7 +832,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("Investements", "On"));
 			}
 			if("4".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4gother", "On"));
 				attributeList.add(new PdfAttribute("4gothers", savieFna.getQ4_g_others()));
 			}
 		}
@@ -847,49 +840,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
 		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
-			/*for(String l :q1){
-				if("0".equals(l)){
-					attributeList.add(new PdfAttribute("Q1a1", "On"));
-				}
-				if("1".equals(l)){
-					attributeList.add(new PdfAttribute("Q1b1", "On"));
-				}
-				if("2".equals(l)){
-					attributeList.add(new PdfAttribute("Q1c1", "On"));
-				}
-				if("3".equals(l)){
-					attributeList.add(new PdfAttribute("Q1d1", "On"));
-				}
-				if("4".equals(l)){
-					attributeList.add(new PdfAttribute("Q1e1", "On"));
-				}
-				if("5".equals(l)){
-					attributeList.add(new PdfAttribute("Q1f1", "On"));
-					attributeList.add(new PdfAttribute("Q1others1", savieFna.getQ1_others()));
-				}
-			}
-			for(String m :q2){
-				if("0".equals(m)){
-					attributeList.add(new PdfAttribute("Q2a1", "On"));
-				}
-				if("1".equals(m)){
-					attributeList.add(new PdfAttribute("Q2b1", "On"));
-					
-				}
-				if("2".equals(m)){
-					attributeList.add(new PdfAttribute("Q2c1", "On"));
-				}
-				if("3".equals(m)){
-					attributeList.add(new PdfAttribute("Q2d1", "On"));
-				}
-				if("4".equals(m)){
-					attributeList.add(new PdfAttribute("Q2e1", "On"));
-					attributeList.add(new PdfAttribute("Q2others1", savieFna.getQ2_others()));
-				}
-			}
-			attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "SAVIE"));
-			attributeList.add(new PdfAttribute("Product(s)Selected1", "Yes"));*/
-			
 			
 			int i = 1;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
@@ -955,18 +905,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				}
 			}
 			
-			if(i <= 2){
-				attributeList.add(new PdfAttribute("Nooption", "根據以上選項,本公司未能提供其他一筆過付款產品以作比較\r\nAccording to the above choices,"
-						+ "\r\nour company do not have other products\r\nproviding single premium options for comparison."));
-			}
-			else{
-				attributeList.add(new PdfAttribute("Nooption", ""));
-			}
+			attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
+														   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
+														   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
+			
 			logger.info("产品数："+i);
 		}
 		
-		
-		attributeList.add(new PdfAttribute("Date1", DateApi.formatString(new Date(), "dd/MM/yyyy")));
+		attributeList.add(new PdfAttribute("Date1", "DD-MM-YYYY"));
+		attributeList.add(new PdfAttribute("Date2", "DD-MM-YYYY"));
+		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd/MM/yyyy")));
 		
 		if("2".equals(type)){
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
