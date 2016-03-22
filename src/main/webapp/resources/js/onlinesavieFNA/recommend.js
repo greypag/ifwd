@@ -689,7 +689,7 @@ var FNArecommendation = {
 		if(data.product_list.length==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
-		if(data.fulfilled=='Y'){
+		if(data.fulfilled=='N'){
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");
