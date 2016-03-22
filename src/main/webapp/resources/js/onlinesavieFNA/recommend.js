@@ -694,7 +694,7 @@ var FNArecommendation = {
 		if(data.product_list.length==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
-		if(data.fulfilled=='Y'){
+		if(data.fulfilled=='N'){
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");
@@ -741,7 +741,8 @@ var FNArecommendation = {
 
 			$(".noAvailableProduct").show();
 			$(".noAvailableProduct").text(cont);
-
+			
+			sendContSession("showNoAvailableProduct",cont);
 		}else{
 			$(".noAvailableProduct").hide();
 		}
@@ -767,7 +768,8 @@ var FNArecommendation = {
 			$(".onlyOneProduct").show();
 			$(".onlyOneProduct").text(cont);
 			$(".hasManyProduct").hide();
-
+			
+			sendContSession("showOnly1Product",cont);
 		}else{
 			$(".onlyOneProduct").hide();
 			$(".hasManyProduct").show();
@@ -777,6 +779,8 @@ var FNArecommendation = {
 	showILASsDescription:function(display){
 		if(display){
 			$(".desc-ilas").show();
+			
+			sendContSession("showILASsDescription",$(".desc-ilas").text());
 		}else{
 			$(".desc-ilas").hide();
 		}
@@ -842,4 +846,19 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
+}
+
+function sendContSession(key,value){
+	$.ajax({     
+	    url:contextPath+'/ajax/savings-insurance/sendContSession',
+	    type:'get',
+	    data:{    
+	    	"key" : key,
+	    	"value" : value
+   		},
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    }  
+	});
 }

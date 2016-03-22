@@ -671,19 +671,23 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			savieOnlineService.clearPolicyApplication(request);
-			HttpSession session = request.getSession();
-			session.removeAttribute("lifePersonalDetails");
-			session.removeAttribute("lifeEmploymentInfo");
-			session.removeAttribute("lifeBeneficaryInfo");
-			session.removeAttribute("lifePayment");
-			session.removeAttribute("lifeDeclaration");
-			logger.info("remove savie online session");
 			jsonObject.put("success", "success");
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/sendContSession"})
+	public void sendContSession(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		request.getSession().setAttribute(request.getParameter("key"), request.getParameter("value"));
+		logger.info(request.getParameter("key")+":"+request.getParameter("value"));
 		ajaxReturn(response, jsonObject);
 	}
 }
