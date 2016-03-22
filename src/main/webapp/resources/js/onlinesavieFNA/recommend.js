@@ -576,8 +576,16 @@ var FNArecommendation = {
 							//prod.find(".fna-btn-call-details").css("display","block");
 						}
 						
-						if(prod_data.product_code=='SAVIE'){
+						if(prod_data.product_code=='KSTS'){
 							prod.find(".fna-btn-sel-product").css("display","block");
+						}else if(prod_data.product_code=='KSTR') {
+							prod.find(".fna-btn-sel-product").css("display","block");
+							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/savings-insurance/plan-details-rp");
+							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
+						}else if(prod_data.product_code=='UTLS') {
+							prod.find(".fna-btn-sel-product").css("display","block");
+							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/term-life-insurance");
+							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
 						}else{
 							prod.find(".fna-btn-call-details").css("display","block");
 						}
