@@ -235,11 +235,12 @@ var language = "${language}";
 								</div> --%>
 							</div>
 						</div>
-						<div class="form-group payment-policy-wrapper">
+						<div class="form-group payment-policy-wrapper" id="has-err">
 							<input type="checkbox" id="payment_confirm_authorize" name="payment_confirm_authorize">
 							<label for="payment_confirm_authorize"></label>
 							<p class="policy-text"><fmt:message key="decleration.policy.owner" bundle="${msg}" /></p>
 						</div>
+						<span id="chkPolicyErMsg" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
 					</div>
 				</form>	
 				<!-- merge with pay later -->
@@ -666,8 +667,11 @@ var language = "${language}";
 		});
 		
 		$('#payment-save-and-con').on('click', function (e) {
+			var isChecked = true;
+			isChecked &= validateChkbox('payment_confirm_authorize', 'chkPolicyErMsg');
+			
 			$('#paymentForm').bootstrapValidator('validate');
-            if($('#paymentForm').data('bootstrapValidator').isValid()) {
+            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked) {
 				$('#save-and-continue-batch5-modal').modal('show');
             }
             else {
@@ -923,8 +927,11 @@ var language = "${language}";
 			}
 			else{
 				$('#paymentForm').bootstrapValidator('validate');
-	            if($('#paymentForm').data('bootstrapValidator').isValid()) {
-	            	$("#errorMsg").html("");
+				var isChecked = true;
+				isChecked &= validateChkbox('payment_confirm_authorize', 'chkPolicyErMsg');
+				
+            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked) {
+            	$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",
 						  async:false, 
@@ -943,11 +950,25 @@ var language = "${language}";
 								  }
 							  }
 						  }
-				     });
-	            }
+				   });
+            }
 			}
 		}
-	 
+	
+	 function validateChkbox(chkboxId, errMsgId) {
+		if(!$('#' + chkboxId).is(':checked')) {
+			$('#' + errMsgId).removeClass('hidden');
+			$('#has-err').attr('style', 'margin-bottom:0;');
+			$('#chkPolicyErMsg').attr('style', 'margin-bottom:35px;');
+			return false;
+		} else {
+			$('#' + errMsgId).addClass('hidden');
+			$('#has-err').attr('style', 'margin-bottom:35px;');
+			$('#chkPolicyErMsg').attr('style', 'margin-bottom:0;');
+			return true;
+		}
+	}
+	
 	function togglePreferred(id) {
 		$(".form-group .preferred-date .date").hide();
 		$("#"+ id).show();
