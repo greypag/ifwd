@@ -2468,12 +2468,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String language = (String) request.getSession().getAttribute("language");
 		
+		String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+		if (request.getServerPort() != 80 && request.getServerPort() != 443)
+		{
+			serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		}
+		
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", userDetails.getEmailAddress());
 		parameters.put("subject", "Your Savie application is incomplete | 您的Savie自助息申請尚未完成");
 		JSONObject model = new JSONObject();
 		   model.put("name", userDetails.getFullName());
-		   model.put("resumeLink", language+"/savings-insurance/"+request.getParameter("key"));
+		   model.put("resumeLink", serverUrl + "/"+language+"/savings-insurance/"+request.getParameter("key"));
 		parameters.put("model", model);
 		parameters.put("template", "savie\\saveLater.html");
 		logger.info(parameters.toString());
