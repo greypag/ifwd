@@ -507,6 +507,9 @@ a:hover {
 .savie-online-container .error-msg {
   font-size: 14px;
 }
+#chkPolicyErMsg {
+	font-size: 12px;
+}
 /* line 158, ../sass/partials/savie/_common.scss */
 .savie-online-container .has-error .help-block {
   margin-bottom: 0;

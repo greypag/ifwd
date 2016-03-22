@@ -1394,6 +1394,30 @@ $(function() {
     	}
     }
 	$(document).ready(function() {
+		if (isMobile){
+            if(window.orientation == 0 || window.orientation == 180) // Portrait
+            {
+                 //alert("Portrait");
+              $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.7);
+            }
+            else // Landscape
+            {               
+                $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
+                //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));
+            }			
+			$(window).on("orientationchange",function(){
+                if(window.orientation == 0 || window.orientation == 180) // Portrait
+                {
+                    // alert("Portrait");
+                  $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.7);
+                }
+                else // Landscape
+                {
+                    $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
+                    //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));                    
+                }				
+			});
+		}
         $('.livechat_button').on("click",function(){
         	console.log("hehe");
             $('#livechat-compact-container').show();
