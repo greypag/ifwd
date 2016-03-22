@@ -388,6 +388,7 @@ var FNArecommendation = {
 	loadProductRecommend:function(morePage){
 		var that = this;
 		if(morePage != undefined) that.fnaPopupData = [];
+		that.parseUserData(that.fnaData,true);
 		var url = morePage ? morePage : that.api_product_recommend; 
 		AjaxManager.fire(url,that.fnaData,function(res){
 			that.fnaResultData = res;
@@ -416,8 +417,8 @@ var FNArecommendation = {
 		isAmendOverlayerShown = flag;
 	},
 
-	parseUserData:function(data){
-		console.log(data);
+	parseUserData:function(data,reparse){
+		//console.log(data);
 		var that = this;
 		var selection = ["q1","q2","q3","q4_a","q4_e"];
 
@@ -451,23 +452,27 @@ var FNArecommendation = {
 		/*$(".fna-sel-grid input[type='checkbox']:checked").each(function(){
 			$(this).parent().show();
 		});*/
+		if(!reparse){
+			$(".fna-sel-grid").each(function(){
 
-		$(".fna-sel-grid").each(function(){
+				/*$(this).find("input[type='checkbox']").each(function(){
+					if($(this).prop("checked")){
+						$(this).parent().show();
+					}else{
+						$(this).parent().hide();
+					}
+				});	*/
 
-			/*$(this).find("input[type='checkbox']").each(function(){
-				if($(this).prop("checked")){
-					$(this).parent().show();
-				}else{
-					$(this).parent().hide();
+				if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
+					$(this).find(".fna-btn-sel-expand").trigger("click");
 				}
-			});	*/
+			});
 
-			if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
-				$(this).find(".fna-btn-sel-expand").trigger("click");
-			}
-		});
-
-		$(".txt_fna_name").text(data.name);
+			$(".txt_fna_name").text(data.name);
+		}
+		
+		
+		
 	},
 	parseProductRecommend:function(data,more){
 		var that = this;
@@ -571,8 +576,16 @@ var FNArecommendation = {
 							//prod.find(".fna-btn-call-details").css("display","block");
 						}
 						
-						if(prod_data.product_code=='SAVIE'){
+						if(prod_data.product_code=='KSTS'){
 							prod.find(".fna-btn-sel-product").css("display","block");
+						}else if(prod_data.product_code=='KSTR') {
+							prod.find(".fna-btn-sel-product").css("display","block");
+							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/savings-insurance/plan-details-rp");
+							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
+						}else if(prod_data.product_code=='UTLS') {
+							prod.find(".fna-btn-sel-product").css("display","block");
+							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/term-life-insurance");
+							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
 						}else{
 							prod.find(".fna-btn-call-details").css("display","block");
 						}
@@ -736,7 +749,8 @@ var FNArecommendation = {
 
 			$(".noAvailableProduct").show();
 			$(".noAvailableProduct").text(cont);
-
+			
+			sendContSession("showNoAvailableProduct",cont);
 		}else{
 			$(".noAvailableProduct").hide();
 		}
@@ -762,7 +776,8 @@ var FNArecommendation = {
 			$(".onlyOneProduct").show();
 			$(".onlyOneProduct").text(cont);
 			$(".hasManyProduct").hide();
-
+			
+			sendContSession("showOnly1Product",cont);
 		}else{
 			$(".onlyOneProduct").hide();
 			$(".hasManyProduct").show();
@@ -772,6 +787,8 @@ var FNArecommendation = {
 	showILASsDescription:function(display){
 		if(display){
 			$(".desc-ilas").show();
+			
+			sendContSession("showILASsDescription",$(".desc-ilas").text());
 		}else{
 			$(".desc-ilas").hide();
 		}
@@ -837,4 +854,19 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
+}
+
+function sendContSession(key,value){
+	$.ajax({     
+	    url:contextPath+'/ajax/savings-insurance/sendContSession',
+	    type:'get',
+	    data:{    
+	    	"key" : key,
+	    	"value" : value
+   		},
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    }  
+	});
 }

@@ -981,7 +981,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		    },     
 		    success:function(data){
 		    	if(data != null && data.errorMsg == null){
-		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/personal-details';
+		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/sales-illustration';
 		    	}
 		    }  
 		});

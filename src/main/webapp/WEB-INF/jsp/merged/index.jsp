@@ -114,12 +114,10 @@
 				<div class="fna-body fwd-container-limit clearfix">
 					<img class="img-responsive pull-right fna-img hidden-sm hidden-xs" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_desktop.png" />
 					<img class="img-responsive pull-right fna-img hidden-lg hidden-md" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_mobile.png" />
-					<!--<div class="fna-box text-left">
-						<h3>Financial Needs Analysis</h3>
-						<div class="fna-box-hr"></div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
-						<button class="btn savie-common-btn get-btn">Get Started</button>
-					</div>-->
+					<div class="fna-box text-left">
+						<h3><fmt:message key="label.fna" bundle="${msg}" /></h3>
+						<p><fmt:message key="fna.copy1" bundle="${msg}" /></p>
+					</div>
 					<button id="btn-fna-cta" class="text-bold btn common-yellow-btn get-btn"><fmt:message key="button.getstart" bundle="${msg}" /></button>
 				</div>
 				<div class="fna-icons-body text-center clearfix">
@@ -135,7 +133,7 @@
 								<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></a>
 							</li>
 							<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-4">
-								<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></a>
+								<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></a>
 							</li>
 						</ul>
 						<div class="fna-carousel" id="so-carousel">
@@ -172,7 +170,7 @@
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-4.png" />
 										</div>
-										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></h3>
+										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.eservice.app.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.eservice.app" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy3" bundle="${msg}" /></p>
 									</div>
 								</div>
