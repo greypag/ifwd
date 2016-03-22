@@ -92,7 +92,13 @@ var Review = {
 		$(".btn_edit").click(that.editClicked);
 		$(".btn_ok").click(that.okClicked);
 		$(".btn_cancel").click(that.cancelClicked);
-		$("#btn_save").click(that.submitFNA);
+		$("#btn_save_confirm").click(that.submitFNA);
+
+		$("#btn_save").click(function(){
+			$('#fnaPopupConfirm').modal({
+			   keyboard: false
+			});
+		});
 
 		$("#status").change(function(){
 			var status = $(this).val();
@@ -575,7 +581,7 @@ var Review = {
 
 			amount = $("#q4_b_amount").val();
 			amount = (amount + '').replace(/,/g,"");
-			if(amount == "" || amount == 0){
+			if(amount == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale['data'].q4_b_amount);
 				$("#q4_b_amount").focus();
 				isError = true;
@@ -837,4 +843,8 @@ function clearFna() {
 
 function hideFnaPopupClear() {
 	$(".fna-popup-clear").modal("hide");
+}
+
+function hideFNAPopupConfirm(){
+	$("#fnaPopupConfirm").modal("hide");	
 }
