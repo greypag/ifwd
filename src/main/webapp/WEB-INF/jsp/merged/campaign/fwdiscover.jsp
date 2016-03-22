@@ -247,12 +247,6 @@
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
                                     </span>
                                 </div>
-                            </div>
-                            <!--/row-->
-                        </div>  
-
-                        <div class="item">
-                            <div class="row">
                                 <div class="col-xs-4">
                                     <a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
@@ -262,7 +256,13 @@
                                     <span class="text-center">
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
                                     </span>
-                                </div>                          
+                                </div>                                
+                            </div>
+                            <!--/row-->
+                        </div>  
+
+                        <div class="item">
+                            <div class="row">                          
                                 <div class="col-xs-4">
                                     <a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
@@ -1669,7 +1669,44 @@
         $(window).load(function() {
             $('body').css("display","block");
         });
-        $(document).ready(function() { 
+        $(document).ready(function() {
+        	if(isMobile){
+	            $(window).on("orientationchange",function(){            	
+	                if(window.orientation == 0 || window.orientation == 180) // Portrait
+	                {	                	
+                        if(getWidth()<992) {
+                            $('#myCarousel-fwdiscover').addClass('carousel slide');
+                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                            $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
+                        
+
+                            //$('#myCarousel-footer').removeClass('carousel slide');
+                            //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
+                        } 
+	                }
+	                else // Landscape
+	                {
+	                    if(getWidth()>991) {
+	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
+	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
+	                    
+
+	                        //$('#myCarousel-footer').removeClass('carousel slide');
+	                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
+	                    } 	                	
+	                    //carouselImgHeight();                   
+	                }               
+	            });
+        	}else{
+                $('#myCarousel-fwdiscover').removeClass('carousel slide');
+                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+                $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');        		
+        	}       	
+        	
             var carouselSlideIndex = 0;
             if(<%=hotelVoucherCampaignId%>==15) carouselSlideIndex = 1;
             if(<%=hotelVoucherCampaignId%>==16) carouselSlideIndex = 2;
@@ -2145,8 +2182,8 @@
         $(window).load(function () {
             $('#offer-announce').modal('show');
             if(msieversion() < 1) {
-                carouselImgHeight();
-            }
+                //carouselImgHeight();
+            }           
             $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
             if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
                 $('.modal').modal('hide');
@@ -2169,16 +2206,6 @@
             }
         });
         
-        if(getWidth()>991) {
-            $('#myCarousel-fwdiscover').removeClass('carousel slide');
-            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-            $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-        
-
-            $('#myCarousel-footer').removeClass('carousel slide');
-            $('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
-        }
 
         function carouselImgHeight() {
             if(getWidth()<992) {
