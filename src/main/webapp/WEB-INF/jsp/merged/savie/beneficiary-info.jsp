@@ -591,7 +591,7 @@ var languageP = "${language}";
 		var language = "en";
 		$(document).ready(function() {
 			var isOwnEstate = '${lifeBeneficaryInfo.isOwnEstate}';
-			if(isOwnEstate == 'false'){
+			if(isOwnEstate == 'false' || '${lifeBeneficaryInfo.beneficaryFirstName1}' != ''){
 				$("#name-others-id").click();
 				$('#beneficiary-contents').removeClass('hidden');
 				$('.add-on-beneficiary').removeClass('hidden');
