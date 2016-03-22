@@ -4,7 +4,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -896,60 +895,67 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
 				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
-				for(int b=0;b<products.size();b++){
-					q1 = ((String)products.get(b).get("q1")).split(",");
-					for(String j :q1){
-						if("0".equals(j)){
-							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
+				if(products != null && products.size() > 0){
+					for(int b=0;b<products.size();b++){
+						q1 = ((String)products.get(b).get("q1")).split(",");
+						for(String j :q1){
+							if("0".equals(j)){
+								attributeList.add(new PdfAttribute("Q1a"+i, "On"));
+							}
+							if("1".equals(j)){
+								attributeList.add(new PdfAttribute("Q1b"+i, "On"));
+							}
+							if("2".equals(j)){
+								attributeList.add(new PdfAttribute("Q1c"+i, "On"));
+							}
+							if("3".equals(j)){
+								attributeList.add(new PdfAttribute("Q1d"+i, "On"));
+							}
+							if("4".equals(j)){
+								attributeList.add(new PdfAttribute("Q1e"+i, "On"));
+							}
+							if("5".equals(j)){
+								attributeList.add(new PdfAttribute("Q1f"+i, "On"));
+								attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
+							}
 						}
-						if("1".equals(j)){
-							attributeList.add(new PdfAttribute("Q1b"+i, "On"));
+						q2 = ((String)products.get(b).get("q2")).split(",");
+						for(String k :q2){
+							if("0".equals(k)){
+								attributeList.add(new PdfAttribute("Q2a"+i, "On"));
+							}
+							if("1".equals(k)){
+								attributeList.add(new PdfAttribute("Q2b"+i, "On"));
+								
+							}
+							if("2".equals(k)){
+								attributeList.add(new PdfAttribute("Q2c"+i, "On"));
+							}
+							if("3".equals(k)){
+								attributeList.add(new PdfAttribute("Q2d"+i, "On"));
+							}
+							if("4".equals(k)){
+								attributeList.add(new PdfAttribute("Q2e"+i, "On"));
+								attributeList.add(new PdfAttribute("Q2others"+i, savieFna.getQ2_others()));
+							}
 						}
-						if("2".equals(j)){
-							attributeList.add(new PdfAttribute("Q1c"+i, "On"));
+						
+						String productName = "";
+						try {
+							productName = products.get(b).get("name").toString();
+						} catch (Exception e) {
+							e.printStackTrace();
 						}
-						if("3".equals(j)){
-							attributeList.add(new PdfAttribute("Q1d"+i, "On"));
+						attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
+						if(selectProductName!=null&&selectProductName.equals(productName)){
+							attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
 						}
-						if("4".equals(j)){
-							attributeList.add(new PdfAttribute("Q1e"+i, "On"));
-						}
-						if("5".equals(j)){
-							attributeList.add(new PdfAttribute("Q1f"+i, "On"));
-							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
-						}
+						i = i+1;
 					}
-					q2 = ((String)products.get(b).get("q2")).split(",");
-					for(String k :q2){
-						if("0".equals(k)){
-							attributeList.add(new PdfAttribute("Q2a"+i, "On"));
-						}
-						if("1".equals(k)){
-							attributeList.add(new PdfAttribute("Q2b"+i, "On"));
-							
-						}
-						if("2".equals(k)){
-							attributeList.add(new PdfAttribute("Q2c"+i, "On"));
-						}
-						if("3".equals(k)){
-							attributeList.add(new PdfAttribute("Q2d"+i, "On"));
-						}
-						if("4".equals(k)){
-							attributeList.add(new PdfAttribute("Q2e"+i, "On"));
-							attributeList.add(new PdfAttribute("Q2others"+i, savieFna.getQ2_others()));
-						}
-					}
-					
-					String productName = products.get(b).get("name").toString();
-					attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
-					if(selectProductName!=null&&selectProductName.equals(productName)){
-						attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
-					}
-					i = i+1;
 				}
 			}
 			
-			if(i < 2){
+			if(i <= 2){
 				attributeList.add(new PdfAttribute("Nooption", "根據以上選項,本公司未能提供其他一筆過付款產品以作比較\r\nAccording to the above choices,"
 						+ "\r\nour company do not have other products\r\nproviding single premium options for comparison."));
 			}
