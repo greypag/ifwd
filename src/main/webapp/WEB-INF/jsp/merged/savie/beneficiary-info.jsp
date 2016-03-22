@@ -237,7 +237,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
-											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[0]"></span>
 									 </div>
@@ -377,7 +377,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[1]" name="beneficaryWeight2" value="${lifeBeneficaryInfo.beneficaryWeight2 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
-											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[1]"></span>
 									 </div>
@@ -517,7 +517,7 @@ var languageP = "${language}";
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryEntitlement[2]" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input"  />
-											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[2]"></span>
 									 </div>
