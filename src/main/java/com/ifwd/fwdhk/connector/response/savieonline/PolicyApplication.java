@@ -35,8 +35,11 @@ public class PolicyApplication{
 	private String permanentAddress3;
 	private String permanentAddress4;
 	private String permanentDistrict;
+	private String addressDiffToPermanent;
+	private String addressDiffToResidential;
 	private String employmentStatus;
 	private String occupation;
+	private String otherOccupation;
 	private String educationLevel;
 	private String natureOfBusiness;
 	private String monthlyPersonalIncome;
@@ -50,9 +53,11 @@ public class PolicyApplication{
 	private String insuredHkId;
 	private String insuredPassport;
 	private String insuredRelationship;
+	private Boolean isOwnEstate;
 	private String beneficiaryFirstName1;
 	private String beneficiaryLastName1;
 	private String beneficiaryChineseName1;
+	private String beneficiaryHkidPassport1;
 	private String beneficiaryHkId1;
 	private String beneficiaryPassport1;
 	private String beneficiaryGender1;
@@ -61,6 +66,7 @@ public class PolicyApplication{
 	private String beneficiaryFirstName2;
 	private String beneficiaryLastName2;
 	private String beneficiaryChineseName2;
+	private String beneficiaryHkidPassport2;
 	private String beneficiaryHkId2;
 	private String beneficiaryPassport2;
 	private String beneficiaryGender2;
@@ -69,6 +75,7 @@ public class PolicyApplication{
 	private String beneficiaryFirstName3;
 	private String beneficiaryLastName3;
 	private String beneficiaryChineseName3;
+	private String beneficiaryHkidPassport3;
 	private String beneficiaryHkId3;
 	private String beneficiaryPassport3;
 	private String beneficiaryGender3;
@@ -668,4 +675,48 @@ public class PolicyApplication{
 	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
+	public String getAddressDiffToPermanent() {
+		return addressDiffToPermanent;
+	}
+	public void setAddressDiffToPermanent(String addressDiffToPermanent) {
+		this.addressDiffToPermanent = addressDiffToPermanent;
+	}
+	public String getAddressDiffToResidential() {
+		return addressDiffToResidential;
+	}
+	public void setAddressDiffToResidential(String addressDiffToResidential) {
+		this.addressDiffToResidential = addressDiffToResidential;
+	}
+	public String getOtherOccupation() {
+		return otherOccupation;
+	}
+	public void setOtherOccupation(String otherOccupation) {
+		this.otherOccupation = otherOccupation;
+	}
+	public Boolean getIsOwnEstate() {
+		return isOwnEstate;
+	}
+	public void setIsOwnEstate(Boolean isOwnEstate) {
+		this.isOwnEstate = isOwnEstate;
+	}
+	public String getBeneficiaryHkidPassport1() {
+		return beneficiaryHkidPassport1;
+	}
+	public void setBeneficiaryHkidPassport1(String beneficiaryHkidPassport1) {
+		this.beneficiaryHkidPassport1 = beneficiaryHkidPassport1;
+	}
+	public String getBeneficiaryHkidPassport2() {
+		return beneficiaryHkidPassport2;
+	}
+	public void setBeneficiaryHkidPassport2(String beneficiaryHkidPassport2) {
+		this.beneficiaryHkidPassport2 = beneficiaryHkidPassport2;
+	}
+	public String getBeneficiaryHkidPassport3() {
+		return beneficiaryHkidPassport3;
+	}
+	public void setBeneficiaryHkidPassport3(String beneficiaryHkidPassport3) {
+		this.beneficiaryHkidPassport3 = beneficiaryHkidPassport3;
+	}
+	
+	
 }

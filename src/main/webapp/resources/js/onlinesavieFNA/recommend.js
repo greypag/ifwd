@@ -576,8 +576,12 @@ var FNArecommendation = {
 							//prod.find(".fna-btn-call-details").css("display","block");
 						}
 						
-						if(prod_data.product_code=='SAVIE'){
-							prod.find(".fna-btn-sel-product").css("display","block");
+						if(prod_data.product_code=='KSTS'){
+							prod.find(".KSTS").css("display","block");
+						}else if(prod_data.product_code=='KSTR') {
+							prod.find(".KSTR").css("display","block");
+						}else if(prod_data.product_code=='UTLS') {
+							prod.find(".UTLS").css("display","block");
 						}else{
 							prod.find(".fna-btn-call-details").css("display","block");
 						}
@@ -694,7 +698,7 @@ var FNArecommendation = {
 		if(data.product_list.length==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
-		if(data.fulfilled=='Y'){
+		if(data.fulfilled=='N'){
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");
@@ -741,7 +745,8 @@ var FNArecommendation = {
 
 			$(".noAvailableProduct").show();
 			$(".noAvailableProduct").text(cont);
-
+			
+			sendContSession("showNoAvailableProduct",cont);
 		}else{
 			$(".noAvailableProduct").hide();
 		}
@@ -767,7 +772,8 @@ var FNArecommendation = {
 			$(".onlyOneProduct").show();
 			$(".onlyOneProduct").text(cont);
 			$(".hasManyProduct").hide();
-
+			
+			sendContSession("showOnly1Product",cont);
 		}else{
 			$(".onlyOneProduct").hide();
 			$(".hasManyProduct").show();
@@ -777,6 +783,8 @@ var FNArecommendation = {
 	showILASsDescription:function(display){
 		if(display){
 			$(".desc-ilas").show();
+			
+			sendContSession("showILASsDescription",$(".desc-ilas").text());
 		}else{
 			$(".desc-ilas").hide();
 		}
@@ -842,4 +850,19 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
+}
+
+function sendContSession(key,value){
+	$.ajax({     
+	    url:contextPath+'/ajax/savings-insurance/sendContSession',
+	    type:'get',
+	    data:{    
+	    	"key" : key,
+	    	"value" : value
+   		},
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    }  
+	});
 }

@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.common.document.PDFGeneration;
-import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -69,7 +67,7 @@ public class SavieOnlineController extends BaseController{
 		if(affiliate == null){
 			affiliate = "";
 		}
-		httpSession.setAttribute("savieType", "RP");
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -90,7 +88,7 @@ public class SavieOnlineController extends BaseController{
 		if(affiliate == null){
 			affiliate = "";
 		}
-		httpSession.setAttribute("savieType", "SP");
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -106,35 +104,37 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-rp", "/{lang}/savings-insurance/plan-details-sp"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
-		String savieType = (String)request.getSession().getAttribute("savieType");
-		if(!StringUtils.isBlank(savieType)) {
-			Date date = new Date();
-			Calendar startDOB = new GregorianCalendar();
-			startDOB.setTime(date); 
-			startDOB.add(startDOB.YEAR, -70);
-			startDOB.add(startDOB.DATE, 1);
-			model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
-			
-			Calendar defaultDOB = new GregorianCalendar();
-			Date date1 = new Date();
-			String type = request.getParameter("type");
-			if("2".equals(type)){
-				model.addAttribute("type", type);
-				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
-				date1 = DateApi.formatDate(savieFna.getDob());
-				defaultDOB.setTime(date1);
-			}else if("3".equals(type)){
-				model.addAttribute("type", type);
-				request.getSession().setAttribute("savieType", "SP");
-			}else {
-				defaultDOB.setTime(date1); 
-				defaultDOB.add(defaultDOB.YEAR, -18);
-			}
-			model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
+		HttpSession httpSession = request.getSession();
+		String current = request.getServletPath();
+		if(current.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_RP)) {
+			httpSession.setAttribute("savieType", "RP");
 		}else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			httpSession.setAttribute("savieType", "SP");
 		}
+		Date date = new Date();
+		Calendar startDOB = new GregorianCalendar();
+		startDOB.setTime(date); 
+		startDOB.add(startDOB.YEAR, -70);
+		startDOB.add(startDOB.DATE, 1);
+		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
+		
+		Calendar defaultDOB = new GregorianCalendar();
+		Date date1 = new Date();
+		String type = request.getParameter("type");
+		if("2".equals(type)){
+			model.addAttribute("type", type);
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			date1 = DateApi.formatDate(savieFna.getDob());
+			defaultDOB.setTime(date1);
+		}else if("3".equals(type)){
+			model.addAttribute("type", type);
+			request.getSession().setAttribute("savieType", "SP");
+		}else {
+			defaultDOB.setTime(date1); 
+			defaultDOB.add(defaultDOB.YEAR, -18);
+		}
+		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 

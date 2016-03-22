@@ -1523,6 +1523,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("permanentAddress3", lifePersonalDetails.getPermanetAddress3()!=null?lifePersonalDetails.getPermanetAddress3():"");
 		parameters.accumulate("permanentAddress4", lifePersonalDetails.getPermanetAddress4()!=null?lifePersonalDetails.getPermanetAddress4():"");
 		parameters.accumulate("permanentDistrict", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict():"");
+		parameters.accumulate("addressDiffToPermanent", lifePersonalDetails.getDiffToPermanent()!=null?lifePersonalDetails.getDiffToPermanent():"");
+		parameters.accumulate("addressDiffToResidential", lifePersonalDetails.getDiffToResidential()!=null?lifePersonalDetails.getDiffToResidential():"");
 		return parameters;
 	}
 	
@@ -1557,6 +1559,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject lifeEmploymentInfoPutData(LifeEmploymentInfoBean lifeEmploymentInfo,net.sf.json.JSONObject parameters){
 		parameters.accumulate("employmentStatus", lifeEmploymentInfo.getEmploymentStatus()!=null?lifeEmploymentInfo.getEmploymentStatus():"");
 		parameters.accumulate("occupation", lifeEmploymentInfo.getOccupation()!=null?lifeEmploymentInfo.getOccupation():"");
+		parameters.accumulate("otherOccupation", lifeEmploymentInfo.getOccupationName()!=null?lifeEmploymentInfo.getOccupationName():"");
 		parameters.accumulate("educationLevel", lifeEmploymentInfo.getEducation()!=null?lifeEmploymentInfo.getEducation():"");
 		parameters.accumulate("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness()!=null?lifeEmploymentInfo.getNatureOfBusiness():"");
 		parameters.accumulate("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()!=null?lifeEmploymentInfo.getMonthlyPersonalIncome():"");
@@ -1598,9 +1601,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public net.sf.json.JSONObject lifeBeneficaryInfoPutData(LifeBeneficaryInfoBean lifeBeneficaryInfo,net.sf.json.JSONObject parameters){
+		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"false");
 		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
+		parameters.accumulate("beneficiaryHkidPassport1", lifeBeneficaryInfo.getBeneficiaryHkidPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport1():"");
 		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1():"");
 		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1():"");
 		parameters.accumulate("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()!=null?lifeBeneficaryInfo.getBeneficaryGender1():"");
@@ -1609,6 +1614,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryFirstName2", lifeBeneficaryInfo.getBeneficaryFirstName2()!=null?lifeBeneficaryInfo.getBeneficaryFirstName2():"");
 		parameters.accumulate("beneficiaryLastName2", lifeBeneficaryInfo.getBeneficaryLastName2()!=null?lifeBeneficaryInfo.getBeneficaryLastName2():"");
 		parameters.accumulate("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()!=null?lifeBeneficaryInfo.getBeneficaryChineseName2():"");
+		parameters.accumulate("beneficiaryHkidPassport2", lifeBeneficaryInfo.getBeneficiaryHkidPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport2():"");
 		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2():"");
 		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2():"");
 		parameters.accumulate("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()!=null?lifeBeneficaryInfo.getBeneficaryGender2():"");
@@ -1617,6 +1623,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryFirstName3", lifeBeneficaryInfo.getBeneficaryFirstName3()!=null?lifeBeneficaryInfo.getBeneficaryFirstName3():"");
 		parameters.accumulate("beneficiaryLastName3", lifeBeneficaryInfo.getBeneficaryLastName3()!=null?lifeBeneficaryInfo.getBeneficaryLastName3():"");
 		parameters.accumulate("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()!=null?lifeBeneficaryInfo.getBeneficaryChineseName3():"");
+		parameters.accumulate("beneficiaryHkidPassport3", lifeBeneficaryInfo.getBeneficiaryHkidPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport3():"");
 		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3():"");
 		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3():"");
 		parameters.accumulate("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()!=null?lifeBeneficaryInfo.getBeneficaryGender3():"");
@@ -1854,6 +1861,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePersonalDetails.setPermanetAddress4(policyApplication.getPermanentAddress4()!=null?policyApplication.getPermanentAddress4():"");
 			lifePersonalDetails.setPermanetAddressDistrict(policyApplication.getPermanentDistrict()!=null?policyApplication.getPermanentDistrict():"");
 			lifePersonalDetails.setPermanetAddressDistrictName(!"".equals(lifePersonalDetails.getPermanetAddressDistrict())?lifePersonalDetails.getPermanetAddressDistrict().split("-")[1]:"");
+			lifePersonalDetails.setDiffToPermanent(policyApplication.getAddressDiffToPermanent()!=null?policyApplication.getAddressDiffToPermanent():"");
+			lifePersonalDetails.setDiffToResidential(policyApplication.getAddressDiffToResidential()!=null?policyApplication.getAddressDiffToResidential():"");
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 			
 			LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
@@ -1864,6 +1873,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeEmploymentInfo.setEmploymentStatusName(!"".equals(lifeEmploymentInfo.getEmploymentStatus())?lifeEmploymentInfo.getEmploymentStatus().split("-")[1]:"");
 			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
 			lifeEmploymentInfo.setOccupationName(!"".equals(lifeEmploymentInfo.getOccupation())?lifeEmploymentInfo.getOccupation().split("-")[1]:"");
+			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
 			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
 			lifeEmploymentInfo.setEducationName(!"".equals(lifeEmploymentInfo.getEducation())?lifeEmploymentInfo.getEducation().split("-")[1]:"");
 			lifeEmploymentInfo.setNatureOfBusiness(policyApplication.getNatureOfBusiness()!=null?policyApplication.getNatureOfBusiness():"");
@@ -1881,9 +1891,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(lifeBeneficaryInfo==null){
 				lifeBeneficaryInfo = new LifeBeneficaryInfoBean();
 			}
+			lifeBeneficaryInfo.setIsOwnEstate(policyApplication.getIsOwnEstate()!=null?policyApplication.getIsOwnEstate():false);
 			lifeBeneficaryInfo.setBeneficaryFirstName1(policyApplication.getBeneficiaryFirstName1()!=null?policyApplication.getBeneficiaryFirstName1():"");
 			lifeBeneficaryInfo.setBeneficaryLastName1(policyApplication.getBeneficiaryLastName1()!=null?policyApplication.getBeneficiaryLastName1():"");
 			lifeBeneficaryInfo.setBeneficaryChineseName1(policyApplication.getBeneficiaryChineseName1()!=null?policyApplication.getBeneficiaryChineseName1():"");
+			lifeBeneficaryInfo.setBeneficiaryHkidPassport1(policyApplication.getBeneficiaryHkidPassport1()!=null?policyApplication.getBeneficiaryHkidPassport1():"");
 			lifeBeneficaryInfo.setBeneficaryID1(policyApplication.getBeneficiaryHkId1()!=null?policyApplication.getBeneficiaryHkId1():"");
 			lifeBeneficaryInfo.setBeneficiaryPassport1(policyApplication.getBeneficiaryPassport1()!=null?policyApplication.getBeneficiaryPassport1():"");
 			lifeBeneficaryInfo.setBeneficaryGender1(policyApplication.getBeneficiaryGender1()!=null?policyApplication.getBeneficiaryGender1():"");
@@ -1893,6 +1905,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeBeneficaryInfo.setBeneficaryFirstName2(policyApplication.getBeneficiaryFirstName2()!=null?policyApplication.getBeneficiaryFirstName2():"");
 			lifeBeneficaryInfo.setBeneficaryLastName2(policyApplication.getBeneficiaryLastName2()!=null?policyApplication.getBeneficiaryLastName2():"");
 			lifeBeneficaryInfo.setBeneficaryChineseName2(policyApplication.getBeneficiaryChineseName2()!=null?policyApplication.getBeneficiaryChineseName2():"");
+			lifeBeneficaryInfo.setBeneficiaryHkidPassport2(policyApplication.getBeneficiaryHkidPassport2()!=null?policyApplication.getBeneficiaryHkidPassport2():"");
 			lifeBeneficaryInfo.setBeneficaryID2(policyApplication.getBeneficiaryHkId2()!=null?policyApplication.getBeneficiaryHkId2():"");
 			lifeBeneficaryInfo.setBeneficiaryPassport2(policyApplication.getBeneficiaryPassport2()!=null?policyApplication.getBeneficiaryPassport2():"");
 			lifeBeneficaryInfo.setBeneficaryGender2(policyApplication.getBeneficiaryGender2()!=null?policyApplication.getBeneficiaryGender2():"");
@@ -1902,6 +1915,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeBeneficaryInfo.setBeneficaryFirstName3(policyApplication.getBeneficiaryFirstName3()!=null?policyApplication.getBeneficiaryFirstName3():"");
 			lifeBeneficaryInfo.setBeneficaryLastName3(policyApplication.getBeneficiaryLastName3()!=null?policyApplication.getBeneficiaryLastName3():"");
 			lifeBeneficaryInfo.setBeneficaryChineseName3(policyApplication.getBeneficiaryChineseName3()!=null?policyApplication.getBeneficiaryChineseName3():"");
+			lifeBeneficaryInfo.setBeneficiaryHkidPassport3(policyApplication.getBeneficiaryHkidPassport3()!=null?policyApplication.getBeneficiaryHkidPassport3():"");
 			lifeBeneficaryInfo.setBeneficaryID3(policyApplication.getBeneficiaryHkId3()!=null?policyApplication.getBeneficiaryHkId3():"");
 			lifeBeneficaryInfo.setBeneficiaryPassport3(policyApplication.getBeneficiaryPassport3()!=null?policyApplication.getBeneficiaryPassport3():"");
 			lifeBeneficaryInfo.setBeneficaryGender3(policyApplication.getBeneficiaryGender3()!=null?policyApplication.getBeneficiaryGender3():"");
@@ -2554,6 +2568,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		BaseResponse apiReturn = null;
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		apiReturn = connector.clearPolicyApplication(parameters, header);
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("lifePersonalDetails");
+		session.removeAttribute("lifeEmploymentInfo");
+		session.removeAttribute("lifeBeneficaryInfo");
+		session.removeAttribute("lifePayment");
+		session.removeAttribute("lifeDeclaration");
+		logger.info("remove savie online session");
+		
 		if(apiReturn==null){
 			logger.info("api error");
 			throw new ECOMMAPIException("api error");
