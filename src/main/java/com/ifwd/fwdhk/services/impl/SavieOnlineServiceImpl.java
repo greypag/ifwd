@@ -151,7 +151,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan0 = new net.sf.json.JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan0.accumulate("totalPremium", planDetails0Rate.get(i).getTotalPremium());
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
@@ -159,7 +159,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan2 = new net.sf.json.JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan2.accumulate("totalPremium", planDetails2Rate.get(i).getTotalPremium());
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
@@ -167,7 +167,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan3 = new net.sf.json.JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan3.accumulate("totalPremium", planDetails3Rate.get(i).getTotalPremium());
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
@@ -175,7 +175,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan4 = new net.sf.json.JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan4.accumulate("totalPremium", planDetails4Rate.get(i).getTotalPremium());
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
