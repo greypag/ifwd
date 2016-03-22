@@ -170,7 +170,7 @@ var FNArecommendation = {
 			//if($(this).parents(".fna-sel-grid").data("originalVal") = )
 		});
 
-		$(".fna-btn-sel-product").click(function(e){
+		$(".KSTS").click(function(e){
 			//e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
@@ -577,15 +577,11 @@ var FNArecommendation = {
 						}
 						
 						if(prod_data.product_code=='KSTS'){
-							prod.find(".fna-btn-sel-product").css("display","block");
+							prod.find(".KSTS").css("display","block");
 						}else if(prod_data.product_code=='KSTR') {
-							prod.find(".fna-btn-sel-product").css("display","block");
-							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/savings-insurance/plan-details-rp");
-							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
+							prod.find(".KSTR").css("display","block");
 						}else if(prod_data.product_code=='UTLS') {
-							prod.find(".fna-btn-sel-product").css("display","block");
-							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/term-life-insurance");
-							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png">' + getBundle(getBundleLanguage, "fna.button.applynow"));
+							prod.find(".UTLS").css("display","block");
 						}else{
 							prod.find(".fna-btn-call-details").css("display","block");
 						}
