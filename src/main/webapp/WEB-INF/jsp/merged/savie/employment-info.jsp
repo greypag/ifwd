@@ -501,8 +501,12 @@ var languageP = "${language}";
 					$('#back-summary-btn').removeClass('hidden');
 				}
 				
-				$('.save-exit-btn1, #keep-going-btn').click(function() {
+				$('.save-exit-btn1').click(function() {
 					$('#save-and-continue-modal').modal('hide');
+				});
+                
+                $('#keep-going-btn').click(function() {
+					$('#save-and-continue-batch5-modal').modal('hide');
 				});
 				
 				// application saved modal will show after clicking 'Save and exit' button 
