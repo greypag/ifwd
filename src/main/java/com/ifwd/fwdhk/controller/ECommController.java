@@ -197,7 +197,7 @@ public class ECommController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
-		int[] indexs = {5, 6, 7, 8, 9, 13};
+		int[] indexs = {5, 6, 7, 8, 9};
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
