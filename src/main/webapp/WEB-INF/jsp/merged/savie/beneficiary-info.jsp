@@ -591,7 +591,7 @@ var languageP = "${language}";
 		var language = "en";
 		$(document).ready(function() {
 			var isOwnEstate = '${lifeBeneficaryInfo.isOwnEstate}';
-			if(isOwnEstate == 'false'){
+			if(isOwnEstate == 'false' || '${lifeBeneficaryInfo.beneficaryFirstName1}' != ''){
 				$("#name-others-id").click();
 				$('#beneficiary-contents').removeClass('hidden');
 				$('.add-on-beneficiary').removeClass('hidden');
@@ -663,7 +663,7 @@ var languageP = "${language}";
 						  else{
 							  $('#save-and-continue-modal').modal('hide');
 							  $('#application-saved-modal').modal('show');
-							  sendEmailForSaveLater("beneficiary-info");
+							  sendEmailForSaveLater("plan-details-sp?type=3");
 						  }
 					  }
 			     });
@@ -687,7 +687,7 @@ var languageP = "${language}";
 						  else{
 							  $('#save-and-continue-batch5-modal').modal('hide');
 							  $('#application-saved-modal').modal('show');
-							  sendEmailForSaveLater("payment");
+							  sendEmailForSaveLater("plan-details-sp?type=3");
 						  }
 					  }
 			     });

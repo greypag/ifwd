@@ -818,7 +818,7 @@
 					  else{
 						  $('#save-and-continue-batch5-modal').modal('hide');
 						  $('#application-saved-modal').modal('show');
-						  sendEmailForSaveLater("declaration");
+						  sendEmailForSaveLater("plan-details-sp?type=3");
 					  }
 				  }
 		    });
