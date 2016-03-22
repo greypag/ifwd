@@ -388,6 +388,7 @@ var FNArecommendation = {
 	loadProductRecommend:function(morePage){
 		var that = this;
 		if(morePage != undefined) that.fnaPopupData = [];
+		that.parseUserData(that.fnaData,true);
 		var url = morePage ? morePage : that.api_product_recommend; 
 		AjaxManager.fire(url,that.fnaData,function(res){
 			that.fnaResultData = res;
@@ -416,8 +417,8 @@ var FNArecommendation = {
 		isAmendOverlayerShown = flag;
 	},
 
-	parseUserData:function(data){
-		console.log(data);
+	parseUserData:function(data,reparse){
+		//console.log(data);
 		var that = this;
 		var selection = ["q1","q2","q3","q4_a","q4_e"];
 
@@ -451,23 +452,27 @@ var FNArecommendation = {
 		/*$(".fna-sel-grid input[type='checkbox']:checked").each(function(){
 			$(this).parent().show();
 		});*/
+		if(!reparse){
+			$(".fna-sel-grid").each(function(){
 
-		$(".fna-sel-grid").each(function(){
+				/*$(this).find("input[type='checkbox']").each(function(){
+					if($(this).prop("checked")){
+						$(this).parent().show();
+					}else{
+						$(this).parent().hide();
+					}
+				});	*/
 
-			/*$(this).find("input[type='checkbox']").each(function(){
-				if($(this).prop("checked")){
-					$(this).parent().show();
-				}else{
-					$(this).parent().hide();
+				if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
+					$(this).find(".fna-btn-sel-expand").trigger("click");
 				}
-			});	*/
+			});
 
-			if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
-				$(this).find(".fna-btn-sel-expand").trigger("click");
-			}
-		});
-
-		$(".txt_fna_name").text(data.name);
+			$(".txt_fna_name").text(data.name);
+		}
+		
+		
+		
 	},
 	parseProductRecommend:function(data,more){
 		var that = this;
@@ -689,7 +694,7 @@ var FNArecommendation = {
 		if(data.product_list.length==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
-		if(data.fulfilled=='N'){
+		if(data.fulfilled=='Y'){
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");

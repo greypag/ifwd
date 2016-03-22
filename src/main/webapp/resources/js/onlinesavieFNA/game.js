@@ -59,7 +59,8 @@ var fnaSavieGame = {
 		/**/
 
 
-		$(".fna-btn-step1-start").click(function(){
+		$(".fna-btn-step1-start").click(function(e){
+			e.preventDefault();
 			var validate = that.validator(that.currentStep);
 			if(!$(this).hasClass("disabled") || that.debug){
 				that.unRegisterStep();
@@ -84,7 +85,11 @@ var fnaSavieGame = {
 						e.preventDefault();
 					}
 
-				}
+				};
+				
+				$(window).bind("onbeforeunload",function(){
+					return "Some inputs or changes may not have been saved yet";
+				})
 
 			}else{
 				//Validate
@@ -92,7 +97,8 @@ var fnaSavieGame = {
 			}
 		});
 
-		$(".fna-btn-step2-next").click(function(){
+		$(".fna-btn-step2-next").click(function(e){
+			e.preventDefault();
 			var validate = that.validator(that.currentStep);
 			if(!$(this).hasClass("disabled") || that.debug){
 				that.unRegisterStep();
@@ -106,7 +112,8 @@ var fnaSavieGame = {
 			}
 		});
 
-		$(".fna-btn-step-next").click(function(){
+		$(".fna-btn-step-next").click(function(e){
+			e.preventDefault();
 			//Validate Current Step
 			if(that.currentStep < 8 || that.currentStep > 3){
 				var validate = that.validator(that.currentStep);
@@ -120,8 +127,8 @@ var fnaSavieGame = {
 			}
 		});
 
-		$(".fna-btn-step-back").click(function(){
-
+		$(".fna-btn-step-back").click(function(e){
+			e.preventDefault();
 			//Validate Current Step
 			if(that.currentStep > 3){
 
@@ -140,11 +147,20 @@ var fnaSavieGame = {
 			}
 			$("html, body").stop().animate({scrollTop:0});
 		});
+		
+		$(".fna-btn-step-finish").each(function(){
+			if(getBundleLanguage == "en"){
+				var txt = $(this).html();
+				txt = txt.replace("to Product","to<br class='visible-xs'>Product");
+				$(this).html(txt);
+			}
+		});
 
-		$(".fna-btn-step-finish").click(function(){
-
+		$(".fna-btn-step-finish").click(function(e){
+			e.preventDefault();
 			var validate = that.validator(that.currentStep);
 			if(!$(this).hasClass("disabled") && validate){
+				//$(window).unbind("onbeforeunload");
 				window.onbeforeunload = null;
 				that.submitForm();	
 				$(".game-fna .step-flow-wrapper").fadeOut(500,function(){
@@ -157,8 +173,8 @@ var fnaSavieGame = {
 
 		/*Mobile Buttons*/
 
-		$(".fna-btn-step-back-inside").click(function(){
-
+		$(".fna-btn-step-back-inside").click(function(e){
+			e.preventDefault();
 			$("html, body").stop().animate({scrollTop:0});
 			var p = $(this).parents(".mob-view");
 			p.addClass("mob-hide");
@@ -308,10 +324,9 @@ var fnaSavieGame = {
 
 		});
 
-		/*$(".game-fna").find("input[type=text]").blur(function(){
-			$(this).
+		$(".game-fna").find("input[type=text]").blur(function(){
+			$(this).trigger("keyup");
 		});
-*/
 	},
 
 	initSpecificEvts:function(){
