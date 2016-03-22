@@ -2651,4 +2651,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		return userName;
 	}
+	
+	public void deleteSaviePdf(String fileName,HttpServletRequest request)throws IOException{
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
+		File f = new File(pdfPath);
+		f.delete();
+	}
 }
