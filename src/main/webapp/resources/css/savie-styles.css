@@ -549,7 +549,7 @@ a:hover {
 }
 /* line 195, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .gray-dropdown {
-  padding-left: 10px !important;
+  padding-left: 10px;
 }
 /* line 199, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown {
@@ -562,9 +562,9 @@ a:hover {
   margin-bottom: 0;
   width: 100% !important;
   border: none;
-  font-size: 14px;
+  font-size: 18px;
   color: #000000;
-  height: 40px;
+  height: 44px;
   padding: 3px 14px !important;
   cursor: pointer;
 }
@@ -864,6 +864,8 @@ a:hover {
   font-family: 'Calibri-bold';
   padding-top: 4px;
 }
+
+
 /* line 472, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc span {
   color: #9ba5a7;
@@ -1229,15 +1231,15 @@ h6 {
 }
 /* line 764, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #plan-dob-datepicker {
-  height: 40px;
-  font-size: 14px;
+  height: 44px;
+  font-size: 18px;
   color: #000000;
   padding: 6px 15px !important;
 }
 /* line 772, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
-}
+}#plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a
 @media (min-width: 992px) {
   /* line 776, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
@@ -1330,7 +1332,7 @@ h6 {
 /* line 848, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .custom-made-label {
   color: #000000;
-  font-size: 12px;
+  font-size: 14px;
   font-family: calibri-bold;
   top: -2px;
   padding-left: 18px;
@@ -4142,7 +4144,7 @@ a.eserv-link:hover {
   /* line 82, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #or-mobile {
     position: absolute;
-    left: 47.5%;
+    left: 49%;
     top: 43%;
     z-index: 6;
   }
@@ -4181,7 +4183,7 @@ a.eserv-link:hover {
 }
 
 #step-online .step{
-  height: 191px;
+  height: 263px;
 }
 
 /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
@@ -4199,7 +4201,7 @@ a.eserv-link:hover {
 @media (min-width: 992px) {
   /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
-    margin-top: 8px;
+    margin-top: 60px;
   }
 }
 @media (max-width: 992px) {
@@ -4818,7 +4820,7 @@ a.eserv-link:hover {
 
 /* line 2, ../sass/partials/savie/_applicant-info.scss */
 #savie-online h4.so-h4 {
-  font-size: 18px;
+  font-size: 24px;
   padding-bottom: 20px;
   text-align: left;
   color: #ff8200;
@@ -4863,7 +4865,7 @@ a.eserv-link:hover {
 }
 /* line 52, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .selectDiv.is-not-active .gray-dropdown {
-  padding-left: 10px !important;
+  padding-left: 10px ;
 }
 /* line 55, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .selectDiv.is-not-active .gray-dropdown.ie-select {
@@ -5205,9 +5207,9 @@ a.eserv-link:hover {
 }
 /* line 114, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info-label {
-  font-size: 11px;
+  font-size: 14px;
   font-family: 'Calibri-bold';
-  margin: 0;
+  margin: 2px;
 }
 /* line 119, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info-label.permanent-top {
@@ -5217,8 +5219,8 @@ a.eserv-link:hover {
 /* line 124, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info {
   display: block;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 18px;
+  line-height: 24px;
   border: 0;
   background: transparent;
   width: 100%;
@@ -5359,7 +5361,7 @@ a.eserv-link:hover {
 /* line 6, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .panel-title {
   color: #ff8200;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
 }
 /* line 12, ../sass/partials/savie/_payment.scss */
@@ -5393,7 +5395,7 @@ a.eserv-link:hover {
   #payment-page .payment-content-wrapper .info-wrapper .bank-info-label,
   #payment-page .payment-content-wrapper .select-wrapper .bank-info-label {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: bold;
   }
 }
@@ -5414,12 +5416,12 @@ a.eserv-link:hover {
 }
 /* line 56, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .info-wrapper .info-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
 }
 /* line 61, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .info-wrapper .info-value {
-  font-size: 14px;
+  font-size: 18px;
   margin-top: -8px;
 }
 /* line 66, ../sass/partials/savie/_payment.scss */
@@ -5495,14 +5497,14 @@ a.eserv-link:hover {
 }
 
 p .payment-policy-wrapper{
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* line 137, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .payment-policy-wrapper {
   display: table;
   margin-top: 7px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 /* line 142, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .payment-policy-wrapper input[type=checkbox] {
@@ -5623,10 +5625,10 @@ p .payment-policy-wrapper{
 /* line 248, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .form-control.gray-dropdown {
   font-family: 'Calibri';
-  font-size: 14px;
+  font-size: 18px;
   width: 100%;
   margin-bottom: 0;
-  padding-left: 10px !important;
+  padding-left: 10px;
   padding-bottom: 0 !important;
   padding-top: 12px !important;
   height: 45px;
@@ -5638,7 +5640,7 @@ p .payment-policy-wrapper{
 }
 /* line 265, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .bank-info-select-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
   position: absolute;
   z-index: 1;
@@ -5692,14 +5694,14 @@ p .payment-policy-wrapper{
   background-color: #f5f5f5;
   border-bottom: none;
   color: #333;
-  font-size: 14px;
+  font-size: 18px;
   height: 45px !important;
   padding-left: 15px !important;
   padding-top: 13px !important;
 }
 /* line 335, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield.is-focused .mdl-textfield__label, #payment-page .so-mdl-textfield.is-dirty .mdl-textfield__label {
-  font-size: 11px;
+  font-size: 14px;
   padding-top: 2px;
 }
 /* line 341, ../sass/partials/savie/_payment.scss */
@@ -5713,13 +5715,13 @@ p .payment-policy-wrapper{
 }
 /* line 352, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv.is-not-active .cstm-dropdown-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
   padding-top: 1px;
 }
 /* line 358, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv.is-not-active .gray-dropdown {
-  padding-top: 12px !important;
+  padding-top: 12px;
 }
 /* line 363, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv .gray-dropdown {
@@ -5894,7 +5896,7 @@ p .payment-policy-wrapper{
 }
 /* line 122, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-button-group .desc {
-  font-size: 14px;
+  font-size: 18px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
@@ -6490,14 +6492,14 @@ h4.so-h4 {
 
 /* line 8, ../sass/partials/savie/_upload-document.scss */
 h5.so-h5 {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* line 12, ../sass/partials/savie/_upload-document.scss */
 h6.so-h6 {
   color: #9ba5a7;
   font-family: 'Calibri';
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* line 18, ../sass/partials/savie/_upload-document.scss */
@@ -6632,7 +6634,7 @@ h6.so-h6 {
 }
 /* line 138, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page span.checkbox-text {
-  font-size: 14px;
+  font-size: 18px;
   color: #373a36;
   font-family: 'Calibri-Bold';
   padding-top: 8px;
@@ -7320,7 +7322,7 @@ h6.so-h6 {
 }
 /* line 30, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .title {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: #ff8200;
   margin-bottom: 15px;
@@ -7583,14 +7585,14 @@ h6.so-h6 {
 }
 /* line 9, ../sass/partials/savie/_signature-box.scss */
 .signature-box .modal-dialog .modal-content p {
-  font-size: 14px;
+  font-size: 18px;
   color: #474a46;
 }
 /* line 14, ../sass/partials/savie/_signature-box.scss */
 .signature-box .modal-dialog .modal-content .modal-title {
   color: #373a36;
   font-family: 'Calibri-bold';
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   margin-bottom: 0;
 }
@@ -8304,6 +8306,7 @@ form#table-info #id-policy, form#table-info #id-application {
   font-weight: normal;
   padding: 0;
   margin-top: -5px;
+  margin-left: 18px;
 }
 /* line 132, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre .viewmap-link {
@@ -8630,7 +8633,7 @@ form#table-info #id-policy, form#table-info #id-application {
 
 
 #info-addproof{
-  font-size: 24px;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 992px) {
@@ -8898,7 +8901,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 303, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a {
   padding: 5px;
-  font-size: 13px;
+  font-size: 16px;
   color: #373a36;
   border: 0;
   background: transparent;
@@ -8907,7 +8910,7 @@ form#table-info #id-policy, form#table-info #id-application {
   /* line 303, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a {
     padding: 10px;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 /* line 315, ../sass/partials/savie/_plan-details-table.scss */
@@ -9400,5 +9403,10 @@ h3 .heading-title{
 .one-off-premium  .amount-selected  .pull-left, 
 .one-off-premium  .amount-selected  .pull-right{
   font-size: 18px;
+}
+
+#pd-sf-nav-tabs .pd-sf-tab .bold{
+	font-size:18px;
+	
 }
 

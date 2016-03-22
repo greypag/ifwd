@@ -13,7 +13,7 @@
   zoom: 1;
   overflow: hidden;
 }
-
+.savie-regular-landing .usp .usp-item .item-desc p
 /* line 16, ../sass/partials/savie/_media.scss */
 .media-body {
   width: 10000px;
@@ -1709,7 +1709,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 }
 /* line 423, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .usp .usp-item .item-desc p {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 17px;
   margin-top: 4px;
   padding-right: 10px;
@@ -4236,7 +4236,7 @@ header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li a {
 }
 /* line 220, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é������é»���ä½���', 'STXihei', 'å�Žæ������ç´°é»���', Arial, Helvetica, sans-serif;
 }
 /* line 225, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
@@ -4333,7 +4333,7 @@ header .navbar-fixed-top .buttons-and-chat .btn-eServices-my-account:hover, head
 header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: #000;
-  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é������é»���ä½���', 'STXihei', 'å�Žæ������ç´°é»���', Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;

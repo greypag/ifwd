@@ -155,6 +155,7 @@ var languageP = "${language}";
 						<h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
 						<div class="col-xs-12 col-md-6" id="left-side-form">
 							<div class="selectDiv">
+							<p class="bank-info-select-label">Location</p>
 							   <span class="icon-chevron-thin-down orange-caret"></span>
 							   <select name="centre" id="centre" class="form-control gray-dropdown">
 								   <option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>
@@ -176,7 +177,7 @@ var languageP = "${language}";
 						   </div>
 						   <div id="date" class="selectDiv preferred-date gray-text-bg">
 								<!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
-								
+								<p class="bank-info-select-label">Date</p>
 								<%
 								Map results = (Map)request.getAttribute("datesMap");
 								Map defaultDate = (Map)request.getAttribute("defaultDate");
@@ -202,6 +203,7 @@ var languageP = "${language}";
 							</div>
 							<div id="time" class="selectDiv timeslot gray-text-bg">
 								<!-- <input type="text" name="preferred-time" id="preferred-time" value="Time" class="time preferred-time" autocomplete="off"> -->
+								<p class="bank-info-select-label">Time</p>
 								<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
                                     <option value=""></option>
                                 </select>

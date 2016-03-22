@@ -393,10 +393,10 @@ var home_url = "<%=request.getContextPath()%>";
 		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
 		       				<div class="col-xs-6 col-md-6 col-lg-6 text-center">
 		       					<div class="desktop-center clearfix">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
-		        					<div class="partner-desc">
-		        						<fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" />
-		        					</div>
+									<img class="img-responsive"src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
+<!-- 		        					<div class="partner-desc"> -->
+<%-- 		        						<fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" /> --%>
+<!-- 		        					</div> -->
 		       					</div>
 		       				</div>
 		       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
