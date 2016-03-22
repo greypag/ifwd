@@ -96,9 +96,13 @@ var FNArecommendation = {
 		$(".fna-btn-mob-cancel, .fna-btn-mob-close").click(function(){
 			$(".fna-col-recommend").removeClass("fna-hide").addClass("fna-show");
 			$(".fna-col-selection").removeClass("fna-show").addClass("fna-hide");
+			that.parseUserData(that.fnaOriginalData);
 		});
 
 		$(".fna-btn-analyse, .fna-btn-mob-analyse").click(function(){
+			//return if nothing selected
+			if($(this).hasClass("disabled")) return;
+
 			$(".fna-product-gp-wrapper").empty();
 			$("html, body").stop().animate({scrollTop:0});
 			//affact in Mobile only
@@ -185,6 +189,8 @@ var FNArecommendation = {
       			return $(this).val();
     		}).get().join(",");
 
+    		$(this).parents(".fna-sel-grid").data("isEmpty",vals == "");
+    			
 			var isDifferent = q.originalVal != vals;
 
 			if(isDifferent){
@@ -197,16 +203,32 @@ var FNArecommendation = {
 				return $(this).data("isDifferent");
 			});
 
+			var anyEmpty =  $(".fna-sel-grid").filter(function(){
+				return $(this).data("isEmpty");
+			});
+
+			var ttlEmpty = anyEmpty.length > 0;
+
 			var ttlAmended = filter.length > 0;
 			that.showHideAmendOverlayer(isDifferent || ttlAmended);
 			
 			if(isDifferent || ttlAmended){
-				
-				$(".fna-sel-floating-panel").animate({"top":$(this).position().top},250);
 				$(".fna-sel-floating-panel").fadeIn();
+				$(".fna-sel-floating-panel").animate({"top":$(this).position().top},250);
 			}else{
 				$(".fna-sel-floating-panel").fadeOut();
 			}
+
+			if(ttlEmpty){
+				$(".fna-btn-analyse, .fna-btn-mob-analyse").addClass("disabled");
+			}else{
+				$(".fna-btn-analyse, .fna-btn-mob-analyse").removeClass("disabled");
+			}
+    		
+
+    		
+
+			
 		});
 
 		$(".q4_b_amount input").keyup(function(){
@@ -487,178 +509,179 @@ var FNArecommendation = {
 		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
 		gpOthersWrapper.append($(".template .fna-other-product-header").clone());
 
+		if(data.product_list){
 
+			for(var i = 0; i < data.product_list.length; i++){
+				var gp_data = data.product_list[i];
+				var gp = $(".fna-recommend .template .fna-product-gp").clone(true,true);
+				if(that.sortFld > -1) gp.addClass("sort" + that.sortFld);
+				gp.find(".fna-product-gp-name").text(gp_data.group);
+				gp.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
 
-		for(var i = 0; i < data.product_list.length; i++){
-			var gp_data = data.product_list[i];
-			var gp = $(".fna-recommend .template .fna-product-gp").clone(true,true);
-			if(that.sortFld > -1) gp.addClass("sort" + that.sortFld);
-			gp.find(".fna-product-gp-name").text(gp_data.group);
-			gp.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
-
-			var prodWrapper = gp.find(".fna-product-wrapper");
-			
-			//Product in Type
-			
-			//ILAS Handling
-			if(gp_data.groupCode == "ILAS"){
-				var prod = $(".fna-recommend .template .fna-other-product").clone();
-				prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
-				prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
+				var prodWrapper = gp.find(".fna-product-wrapper");
 				
-				prodWrapper.append(prod);
-			}
-
-			if(gp_data.products){
-
-				var animateList = [];
-				for(var j = 0; j < gp_data.products.length; j++){
-					pNum++;
-					var prod_data = gp_data.products[j];
-
+				//Product in Type
+				
+				//ILAS Handling
+				if(gp_data.groupCode == "ILAS"){
+					var prod = $(".fna-recommend .template .fna-other-product").clone();
+					prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
+					prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
 					
-						var product_header = $(".fna-recommend .template .fna-product-lv-header").clone();
-
-						
-						var prod = $(".fna-recommend .template .fna-product").clone(true,true);
-
-						prod.data("productCode",prod_data.product_code);
-
-						if(prod_data.type){
-							// var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
-
-							prod.find(".fna-product-type-name").text(prod_data.type);
-							prod.find(".fna-product-type-tooltips").attr("data-original-title",prod_data.type_desc);
-						}
-
-						prod.find(".sort-header").before(product_header);
-
-						prod.find(".product-mobile-display").text(prod_data.name);
-						prod.find(".fna-product-name").text(prod_data.name);
-						prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));
-						prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
-						prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
-						prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);
-
-						var key_feature_ul = $("<ul/>");
-
-						$(prod_data.features).each(function(key,val){
-							var li = $("<li/>");
-							li.text(val);
-							key_feature_ul.append(li);
-						});
-						//Show More Button if larger than 3
-						if(key_feature_ul.find("li").length > 3){
-							key_feature_ul.find("li:gt(2)").hide();
-							prod.find(".fna-btn-feature-more").addClass("show");
-						}
-						prod.find(".fna-product-feature-cont").prepend(key_feature_ul);					
-
-						var objective_ul = $("<ul/>");
-						$(prod_data.objectives).each(function(key,val){
-							var icon = $(".fna-recommend .template .fna-ico-tick").clone();
-							var li = $("<li/>");
-							li.text(val);
-
-							li.prepend(icon);
-
-							objective_ul.append(li);
-							
-						})
-						prod.find(".fna-product-obj-cont").append(objective_ul);
-
-						if(prod_data.product_url){
-							prod.find(".fna-btn-details").attr("href",prod_data.product_url)
-							//prod.find(".fna-btn-sel-product").css("display","block");
-							
-						}else{
-							prod.find(".fna-btn-details").hide();
-							//prod.find(".fna-btn-call-details").css("display","block");
-						}
-						
-						if(prod_data.product_code=='KSTS'){
-							prod.find(".KSTS").css("display","block");
-						}else if(prod_data.product_code=='KSTR') {
-							prod.find(".KSTR").css("display","block");
-						}else if(prod_data.product_code=='UTLS') {
-							prod.find(".UTLS").css("display","block");
-						}else{
-							prod.find(".fna-btn-call-details").css("display","block");
-						}
-
-						if(prod_data.brochure_url){
-							prod.find(".fna-btn-download").attr("href",prod_data.brochure_url)
-						}else{
-							prod.find(".fna-btn-download").hide();
-						}
-
-						var popupObj = {
-							key_exclusions:prod_data.key_exclusions,
-							key_product_risks:prod_data.key_product_risks
-						};
-						
-						that.fnaPopupData.push(popupObj);
-
-						if(prod_data.key_exclusions == ""){
-							prod.find(".fna-link-key-exclusions").addClass("hide");
-						}else{
-							prod.find(".fna-link-key-exclusions").data("key",that.fnaPopupData.length - 1);
-						}
-						if(prod_data.key_product_risks == ""){
-							prod.find(".fna-link-key-risk").addClass("hide");
-						}else{
-							prod.find(".fna-link-key-risk").data("key",that.fnaPopupData.length - 1);
-						}
-						if(prod.find(".fna-link-key-exclusions").hasClass("hide") && prod.find(".fna-link-key-risk").hasClass("hide")){
-							prod.find(".fna-product-link-keys").hide();
-						}
-					
-					
-
-					
-					
-					//prodWrapper.append(product_header);
-					//prodWrapper.append(product_type);
 					prodWrapper.append(prod);
+				}
 
-					if(prod_data.show){
+				if(gp_data.products){
 
-						animateList.push(prod);
+					var animateList = [];
+					for(var j = 0; j < gp_data.products.length; j++){
+						pNum++;
+						var prod_data = gp_data.products[j];
+
+						
+							var product_header = $(".fna-recommend .template .fna-product-lv-header").clone();
+
+							
+							var prod = $(".fna-recommend .template .fna-product").clone(true,true);
+
+							prod.data("productCode",prod_data.product_code);
+
+							if(prod_data.type){
+								// var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
+
+								prod.find(".fna-product-type-name").text(prod_data.type);
+								prod.find(".fna-product-type-tooltips").attr("data-original-title",prod_data.type_desc);
+							}
+
+							prod.find(".sort-header").before(product_header);
+
+							prod.find(".product-mobile-display").text(prod_data.name);
+							prod.find(".fna-product-name").text(prod_data.name);
+							prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));
+							prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
+							prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
+							prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);
+
+							var key_feature_ul = $("<ul/>");
+
+							$(prod_data.features).each(function(key,val){
+								var li = $("<li/>");
+								li.text(val);
+								key_feature_ul.append(li);
+							});
+							//Show More Button if larger than 3
+							if(key_feature_ul.find("li").length > 3){
+								key_feature_ul.find("li:gt(2)").hide();
+								prod.find(".fna-btn-feature-more").addClass("show");
+							}
+							prod.find(".fna-product-feature-cont").prepend(key_feature_ul);					
+
+							var objective_ul = $("<ul/>");
+							$(prod_data.objectives).each(function(key,val){
+								var icon = $(".fna-recommend .template .fna-ico-tick").clone();
+								var li = $("<li/>");
+								li.text(val);
+
+								li.prepend(icon);
+
+								objective_ul.append(li);
+								
+							})
+							prod.find(".fna-product-obj-cont").append(objective_ul);
+
+							if(prod_data.product_url){
+								prod.find(".fna-btn-details").attr("href",prod_data.product_url)
+								//prod.find(".fna-btn-sel-product").css("display","block");
+								
+							}else{
+								prod.find(".fna-btn-details").hide();
+								//prod.find(".fna-btn-call-details").css("display","block");
+							}
+							
+							if(prod_data.product_code=='KSTS'){
+								prod.find(".KSTS").css("display","block");
+							}else if(prod_data.product_code=='KSTR') {
+								prod.find(".KSTR").css("display","block");
+							}else if(prod_data.product_code=='UTLS') {
+								prod.find(".UTLS").css("display","block");
+							}else{
+								prod.find(".fna-btn-call-details").css("display","block");
+							}
+
+							if(prod_data.brochure_url){
+								prod.find(".fna-btn-download").attr("href",prod_data.brochure_url)
+							}else{
+								prod.find(".fna-btn-download").hide();
+							}
+
+							var popupObj = {
+								key_exclusions:prod_data.key_exclusions,
+								key_product_risks:prod_data.key_product_risks
+							};
+							
+							that.fnaPopupData.push(popupObj);
+
+							if(prod_data.key_exclusions == ""){
+								prod.find(".fna-link-key-exclusions").addClass("hide");
+							}else{
+								prod.find(".fna-link-key-exclusions").data("key",that.fnaPopupData.length - 1);
+							}
+							if(prod_data.key_product_risks == ""){
+								prod.find(".fna-link-key-risk").addClass("hide");
+							}else{
+								prod.find(".fna-link-key-risk").data("key",that.fnaPopupData.length - 1);
+							}
+							if(prod.find(".fna-link-key-exclusions").hasClass("hide") && prod.find(".fna-link-key-risk").hasClass("hide")){
+								prod.find(".fna-product-link-keys").hide();
+							}
+						
+						
+
+						
+						
+						//prodWrapper.append(product_header);
+						//prodWrapper.append(product_type);
+						prodWrapper.append(prod);
+
+						if(prod_data.show){
+
+							animateList.push(prod);
+						}
 					}
 				}
-			}
 
-			if(gp_data.other_types){
-				for(var j = 0; j < gp_data.other_types.length; j++){
-					var other_data = gp_data.other_types[j];
+				if(gp_data.other_types){
+					for(var j = 0; j < gp_data.other_types.length; j++){
+						var other_data = gp_data.other_types[j];
 
-					var other_product = $(".fna-recommend .template .fna-other-product").clone();
-					other_product.find(".fna-product-type-name").text(other_data.type);
-					other_product.find(".desc").html(other_data.type + " " + other_data.description);
+						var other_product = $(".fna-recommend .template .fna-other-product").clone();
+						other_product.find(".fna-product-type-name").text(other_data.type);
+						other_product.find(".desc").html(other_data.type + " " + other_data.description);
 
-					//prodWrapper.append(product_type);
-					gpOthersWrapper.append(other_product);
+						//prodWrapper.append(product_type);
+						gpOthersWrapper.append(other_product);
+					}
 				}
-			}
-			
-			gpWrapper.append(gp);
-
-			
-				if(i < 2) $(gp).find(".fna-btn-expand-gp").trigger("click");
-
-				if(animateList.length > 0){
-					$(animateList).each(function(){
-						var that = this;
-						setTimeout(function(){
-							that.find(".fna-btn-show-detail").trigger("click");
-						},750)
-						
-					})
-				}
+				
+				gpWrapper.append(gp);
 
 				
-			
+					if(i < 2) $(gp).find(".fna-btn-expand-gp").trigger("click");
 
+					if(animateList.length > 0){
+						$(animateList).each(function(){
+							var that = this;
+							setTimeout(function(){
+								that.find(".fna-btn-show-detail").trigger("click");
+							},750)
+							
+						})
+					}
+
+					
+				
+
+			}
 		}
 		
 		if(data.next_page == null || data.next_page == ""){
