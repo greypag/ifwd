@@ -1601,7 +1601,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public net.sf.json.JSONObject lifeBeneficaryInfoPutData(LifeBeneficaryInfoBean lifeBeneficaryInfo,net.sf.json.JSONObject parameters){
-		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"false");
+		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getIsOwnEstate():"false");
 		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
