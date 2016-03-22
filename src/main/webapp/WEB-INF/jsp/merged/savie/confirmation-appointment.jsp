@@ -145,9 +145,13 @@ var language = "${language}";
 				<hr>
 				<a href="javascript:window.print()" class="visible-md visible-lg print-doc-link">
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
-					<span><fmt:message key="label.print.this.document" bundle="${msg}" /></span>
+					<span><fmt:message key="label.printthisdocument" bundle="${msg}" /></span>
 				</a>
-				<center><button type="button" class="text-bold btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button></center>
+				<center>
+					<a href="<fmt:message key="link.back.to.home" bundle="${msg}" />">
+						<button type="button" class="text-bold btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+					</a>
+				</center>
 			</div>
 		</div>
 	</div>
@@ -157,7 +161,4 @@ var language = "${language}";
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
-	$('.savie-common-btn').click(function() {
-		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-	});
 </script>

@@ -156,7 +156,11 @@ var language = "${language}";
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
 					<span><fmt:message key="label.print.document" bundle="${msg}" /></span>
 				</a>
-				<center><button type="button" class="text-bold btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
+				<center>
+					<a href="<fmt:message key="link.back.to.home" bundle="${msg}" />">
+						<button type="button" class="text-bold btn btn-home savie-common-btn btn-home-pay-later"><fmt:message key="button.backtohome" bundle="${msg}" /></button>
+					</a>
+				</center>
 			</div>
 		</div>
 	</div>
@@ -166,7 +170,4 @@ var language = "${language}";
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
-	$('.savie-common-btn').click(function() {
-		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-	});
 </script>

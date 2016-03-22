@@ -613,7 +613,7 @@ var language = "${language}";
 					  else{
 						  $('#save-and-continue-modal').modal('hide');
 						  $('#application-saved-modal').modal('show');
-						  sendEmailForSaveLater("payment");
+						  sendEmailForSaveLater("plan-details-sp?type=3");
 					  }
 				  }
 		     });
@@ -634,7 +634,7 @@ var language = "${language}";
 					  else{
 						  $('#save-and-continue-batch5-modal').modal('hide');
 						  $('#application-saved-modal').modal('show');
-						  sendEmailForSaveLater("application-summary");
+						  sendEmailForSaveLater("plan-details-sp?type=3");
 					  }
 				  }
 		     });

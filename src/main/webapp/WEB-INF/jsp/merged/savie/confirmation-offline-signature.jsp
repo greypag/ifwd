@@ -127,7 +127,7 @@ var languageP = "${language}";
 				</div>
 				<hr>
 				<div class="requirements-panel">
-					<p class="requirements-panel-title visible-xs visible-sm">Please bring the following for your appointment at our service centre:</p>
+					<p class="requirements-panel-title visible-xs visible-sm"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" /></p>
 					<p class="text-bold requirements-panel-title hidden-xs hidden-sm"><fmt:message key="info.savie.confirmation.signoff.procedure" bundle="${msg}" /></p>
 					<div class="row requirements-list">
 						<div class="col-xs-12 col-md-6">
@@ -150,7 +150,9 @@ var languageP = "${language}";
 					<span>Print this document</span>
 				</a>-->
 				<center>
-					<button type="button" class="text-bold btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+					<a href="<fmt:message key="link.back.to.home" bundle="${msg}" />">
+						<button type="button" class="text-bold btn btn-home savie-common-btn"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+					</a>
 				</center>
 			</div>
 		</div>
@@ -161,7 +163,4 @@ var languageP = "${language}";
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
-	$('.savie-common-btn').click(function() {
-		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
-	});
 </script>
