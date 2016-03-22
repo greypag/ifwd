@@ -111,10 +111,9 @@
 				</div>
 			</div>
 			<div class="fna fwd-full-container">
-				<div class="fna-body fwd-container-limit clearfix">
-					<img class="img-responsive pull-right fna-img hidden-sm hidden-xs" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_desktop.png" />
-					<img class="img-responsive pull-right fna-img hidden-lg hidden-md" src="<%=request.getContextPath()%>/resources/images/savie-2016/FNA_mobile.png" />
-					<div class="fna-box text-left">
+				<div class="fna-body fwd-container-limit center-block clearfix">
+					<img class="fna-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/FWD_FNA-workingfile6-bg-01.jpg" />
+					<div class="fna-box">
 						<h3><fmt:message key="label.fna" bundle="${msg}" /></h3>
 						<p><fmt:message key="fna.copy1" bundle="${msg}" /></p>
 					</div>
