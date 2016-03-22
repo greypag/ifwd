@@ -468,6 +468,7 @@ var languageP = "${language}";
 					$('#amountOfLiquidAssetsDiv').removeClass('hidden');
 					$('#natureOfBusinessDiv').addClass('hidden');
 					$('#occupationDiv').addClass('hidden');
+					$('#otherOccupationDiv').addClass('hidden');
 					$('#employerNameDiv').addClass('hidden');
 					$('#monthlyPersonalIncomeDiv').addClass('hidden');
 				}
