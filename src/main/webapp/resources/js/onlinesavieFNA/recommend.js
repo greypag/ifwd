@@ -578,8 +578,6 @@ var FNArecommendation = {
 						
 						if(prod_data.product_code=='KSTS'){
 							prod.find(".fna-btn-sel-product").css("display","block");
-							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/savings-insurance/${nextPageFlow}?type=2");
-							prod.find(".fna-btn-sel-product").html('<img src="' + contextPath + '/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" />'); 
 						}else if(prod_data.product_code=='KSTR') {
 							prod.find(".fna-btn-sel-product").css("display","block");
 							prod.find(".fna-btn-sel-product").attr("href",contextPath + "/" + lang + "/savings-insurance/plan-details-rp");
