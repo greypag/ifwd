@@ -170,7 +170,7 @@ var FNArecommendation = {
 			//if($(this).parents(".fna-sel-grid").data("originalVal") = )
 		});
 
-		$(".KSTS").click(function(e){
+		$(".fna-btn-sel-product").click(function(e){
 			//e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
