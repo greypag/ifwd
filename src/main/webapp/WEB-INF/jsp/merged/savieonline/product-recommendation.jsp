@@ -178,7 +178,7 @@ var fnaq4e = '${savieFna.q4_e }';
 						
 						<!-- <div class="row hidden-sm hidden-xs">
 							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
-								<a href="javascript:void(0);" class="fna-btn-analyse">Analyse Again<i class="fa fa-caret-right"></i></a>
+								<a href="javascript:void(0);" class="fna-btn-analyse"><fmt:message key="fna.button.analyse" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 								
 							</div>
 						</div> -->
@@ -332,8 +332,9 @@ var fnaq4e = '${savieFna.q4_e }';
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-print">
 								<div class="fna-product-cfa-mobile">
-									<a href="javascript:void(0);" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
-
+									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product KSTS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
+									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" class="fna-btn-sel-product KSTR"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.makeappointment" bundle="${msg}" /></a>
+									<a href="<%=request.getContextPath()%>/${language}/term-life-insurance" class="fna-btn-sel-product UTLS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
 									<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png"><fmt:message key="fna.button.callfordetails" bundle="${msg}" /></a>
 								</div>
 							</div>
