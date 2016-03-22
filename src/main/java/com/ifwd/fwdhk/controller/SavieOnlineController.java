@@ -399,12 +399,12 @@ public class SavieOnlineController extends BaseController{
 					codeO = "AOS1";
 				}
 				else if("1".equals(savieFna.getQ4_a())){
-					code = "mpi2,mpi3";
-					codeO = "AOS2,AOS3";
+					code = "mpi1,mpi2,mpi3";
+					codeO = "AOS1,AOS2,AOS3";
 				}
 				else if("2".equals(savieFna.getQ4_a())){
-					code = "mpi4,mpi5,mpi6,mpi7";
-					codeO = "AOS4,AOS5,AOS6,AOS7";
+					code = "mpi3,mpi4,mpi5,mpi6,mpi7";
+					codeO = "AOS3,AOS4,AOS5,AOS6,AOS7";
 				}
 				else if("3".equals(savieFna.getQ4_a())){
 					code = "mpi7,mpi8";
