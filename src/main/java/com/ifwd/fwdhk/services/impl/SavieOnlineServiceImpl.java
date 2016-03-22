@@ -2536,6 +2536,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
 			template = "savie\\saveLater.html";
 		}
+		else if("payment".equals(action)) {
+			subject = "payment";
+			template = "savie\\payment.html";
+		}
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("to", email);
