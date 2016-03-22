@@ -711,7 +711,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		attributeList.add(new PdfAttribute("group_3a", group_3a));
 		
-		if("1".equals(savieFna.getQ4())){
+		if("0".equals(savieFna.getQ4())){
 			attributeList.add(new PdfAttribute("group_4", "Yes"));
 		}
 		else{
