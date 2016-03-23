@@ -719,6 +719,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		if(dummy) {
 			// show online-offline-fna modal
 			$('#offline-online-modal').modal('show');
+
 		} 
 
 		var dummy = false;
@@ -863,6 +864,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		        }
 			}else {
 				$('#offline-online-modal').modal('show');
+
 			}
 		}
 	});
@@ -1056,7 +1058,8 @@ var affordabilityPremium = ${affordabilityPremium};
 		console.log('browser: false');
 		//$('.rate-btn').attr('style', 'width:60px;');
 	} */
-	
+
+
 	
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>

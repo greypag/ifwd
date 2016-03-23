@@ -567,6 +567,7 @@ a:hover {
   height: 44px;
   padding: 3px 16px !important;
   cursor: pointer;
+  margin-top: 10px;
 }
 .employment-info-page .selectDiv .gray-dropdown {
 	padding: 3px 14px !important;
@@ -627,7 +628,7 @@ a:hover {
 /* line 265, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .cstm-textfield-label,
 .selectDiv.is-not-active .cstm-dropdown-label {
-  font-size: 12px;
+  font-size: 14px;
   top: 1px;
   color: #373a36;
   padding-left: 15px;
@@ -862,7 +863,7 @@ a:hover {
 }
 /* line 466, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc {
-  font-size: 16px;
+  font-size: 14px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
@@ -1239,7 +1240,7 @@ h6 {
   font-size: 18px;
   color: #000000;
   padding: 6px 15px !important;
-  maring-top: 6px;
+  margin-top: 10px;
 }
 /* line 772, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
@@ -1351,7 +1352,7 @@ h6 {
   color: #000000;
   font-size: 14px;
   font-family: calibri-bold;
-  top: -2px;
+  top: 4px;
   padding-left: 18px;
 }
 
@@ -4286,7 +4287,10 @@ a.eserv-link:hover {
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
   font-size: 16px;
   padding: 5px 30px;
-  margin-top: 8px;
+/*   margin-top: 8px; */
+/*   position: absolute; */
+  left: 20%;
+  bottom: 10px;
 }
 @media (max-width: 375px) {
   /* line 151, ../sass/partials/savie/_online-offline-fna.scss */
@@ -4901,11 +4905,12 @@ a.eserv-link:hover {
 /* line 26, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .form-control.gray-dropdown {
   color: #9ba5a7;
-  font-size: 14px;
+  font-size: 18px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
+  margin-top: 6px;
 }
 /* line 36, ../sass/partials/savie/_applicant-info.scss */
 #savie-online select::-ms-expand {
@@ -4913,9 +4918,10 @@ a.eserv-link:hover {
 }
 /* line 40, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .form-control.gray-textbox {
-  font-size: 14px;
+  font-size: 18px;
   color: #000;
   padding: 12px 15px 0 15px;
+  margin-top: 6px;
 }
 /* line 52, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .selectDiv.is-not-active .gray-dropdown {
@@ -5215,6 +5221,7 @@ a.eserv-link:hover {
 /* line 64, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .application-summ .mdl-textfield__label {
   font-family: 'Calibri-Bold';
+  font-size: 14px;
 }
 /* line 68, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .application-summ .so-mdl-textfield {
@@ -5230,8 +5237,9 @@ a.eserv-link:hover {
 }
 /* line 81, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input {
-  font-size: 14px;
+  font-size: 18px;
   border-bottom: 0;
+  margin-top: 6px;
 }
 /* line 85, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input.ch {
@@ -5759,6 +5767,11 @@ p .payment-policy-wrapper{
   font-size: 14px;
   padding-top: 2px;
 }
+
+.form-group application-summ label .mdl-textfield__label{
+	font-size: 14px;
+} 
+
 /* line 341, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield .mdl-textfield__label {
   padding-left: 15px;
@@ -5950,7 +5963,8 @@ p .payment-policy-wrapper{
   margin-top: 8px;
 }
 /* line 122, ../sass/partials/savie/_beneficiary-info-name-others.scss */
-#beneficiary-name-others-page .radio-group .radio-button-group .desc {
+#beneficiary-name-others-page 
+ {
   font-size: 18px;
   color: #373a36;
   font-family: 'Calibri-bold';
@@ -6346,6 +6360,7 @@ p .payment-policy-wrapper{
 /* line 22, ../sass/partials/savie/_employment-info.scss */
 .employment-info-page .so-mdl-textfield label {
   padding-left: 15px;
+  font-size: 14px;
 }
 /* line 26, ../sass/partials/savie/_employment-info.scss */
 .employment-info-page .has-error .gray-textbox {
@@ -9513,3 +9528,7 @@ h3 .heading-title{
 .pdf-image-zoom .glyphicon {
 	line-height: 34px;
 }
+
+ #soInsuredInfoForm .mdl-textfield label .mdl-textfield__label{
+ 	font-size: 14px;
+ }
