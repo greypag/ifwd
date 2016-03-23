@@ -536,7 +536,7 @@ var fnaq4e = '${savieFna.q4_e }';
 								</div>
 								
 								<p class="remark"><fmt:message key="popup.callus.info.not.direct.marketing" bundle="${msg}" /></p>
-								<input type="button" onclick="goCustomerServices()" class="bdr-curve btn btn-primary fna-btn-submit" value="<fmt:message key="button.submit" bundle="${msg}" />">
+								<input type="button" class="bdr-curve btn btn-primary fna-btn-submit" value="<fmt:message key="button.submit" bundle="${msg}" />">
 							</div>
 						</div>
 					</div>
