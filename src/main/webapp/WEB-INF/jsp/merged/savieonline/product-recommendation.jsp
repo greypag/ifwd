@@ -58,28 +58,6 @@ var fnaq4e = '${savieFna.q4_e }';
 									<a href="javascript:void(0);" class="fna-btn-mob-close"><i class="fa fa-times"></i></a>
 								</div>
 							</h4>
-							<div class="fna-sel-grid q2">
-								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key="fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
-
-								<div class="checkbox-gp">
-									<div class="checkbox">
-										<input type="checkbox" id="q2_c1" name="q2" value="0" disabled>
-										<label for="q2_c1"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q2_c2" name="q2" value="1" disabled>
-										<label for="q2_c2"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q2_c3" name="q2" value="2" disabled>
-										<label for="q2_c3"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></label>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" id="q2_c4" name="q2" value="3" disabled>
-										<label for="q2_c4"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></label>
-									</div>
-								</div>
-							</div>
 							<div class="fna-sel-grid q1">
 								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_01.png"><fmt:message key="fna.label.objectives" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
 								<div class="checkbox-gp">
@@ -102,6 +80,28 @@ var fnaq4e = '${savieFna.q4_e }';
 									<div class="checkbox">
 										<input type="checkbox" id="q1_c5" name="q1" value="4" disabled>
 										<label for="q1_c5"><fmt:message key="fna.question.q1.option5" bundle="${msg}" /></label>
+									</div>
+								</div>
+							</div>
+							<div class="fna-sel-grid q2">
+								<h5 class="clearfix"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/selection_icon_02.png"><fmt:message key="fna.label.insurance.products" bundle="${msg}" /><a href="javascript:void(0);" class="glyphicon glyphicon-plus btn-plus fna-btn-sel-expand"></a> </h5>
+
+								<div class="checkbox-gp">
+									<div class="checkbox">
+										<input type="checkbox" id="q2_c1" name="q2" value="0" disabled>
+										<label for="q2_c1"><fmt:message key="fna.question.q2.option1" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option1remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option1example" bundle="${msg}" /></span></label>
+									</div>
+									<div class="checkbox">
+										<input type="checkbox" id="q2_c2" name="q2" value="1" disabled>
+										<label for="q2_c2"><fmt:message key="fna.question.q2.option2" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option2remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option2example" bundle="${msg}" /></span></label>
+									</div>
+									<div class="checkbox">
+										<input type="checkbox" id="q2_c3" name="q2" value="2" disabled>
+										<label for="q2_c3"><fmt:message key="fna.question.q2.option3" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option3remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option3example" bundle="${msg}" /></span></label>
+									</div>
+									<div class="checkbox">
+										<input type="checkbox" id="q2_c4" name="q2" value="3" disabled>
+										<label for="q2_c4"><fmt:message key="fna.question.q2.option4" bundle="${msg}" /><br><span>-<fmt:message key="fna.question.q2.option4remark" bundle="${msg}" /><br><fmt:message key="fna.question.q2.option4example" bundle="${msg}" /></span></label>
 									</div>
 								</div>
 							</div>

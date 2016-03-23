@@ -391,7 +391,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				pdfTemplateName = "SavieProposalTemplateEngA.pdf";
 			}
 			
-			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+pdfTemplateName;
+			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+pdfTemplateName;
 			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 			logger.info("file path:"+pdfTemplatePath);
 			logger.info("data:"+attributeList);
@@ -443,7 +443,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress2())?lifePersonalDetails.getResidentialAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress3())?lifePersonalDetails.getResidentialAddress3() : "");
-	    if(residentialAddress.indexOf(",") == residentialAddress.length() - 1){
+	    if(",".equals(residentialAddress.substring(residentialAddress.length() - 1))){
 	    	residentialAddress = residentialAddress.substring(0, residentialAddress.length()-1);
 	    }
 	    
@@ -453,7 +453,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String permanetAddress = (StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress1())?lifePersonalDetails.getPermanetAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress2())?lifePersonalDetails.getPermanetAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress3())?lifePersonalDetails.getPermanetAddress3() : "");
-	    if(permanetAddress.indexOf(",") == permanetAddress.length() - 1){
+	    if(",".equals(permanetAddress.substring(permanetAddress.length() - 1))){
 	    	permanetAddress = permanetAddress.substring(0, permanetAddress.length()-1);
 	    }
 	    
@@ -463,7 +463,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String correspondenceAddress = (StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress1())?lifePersonalDetails.getCorrespondenceAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress2())?lifePersonalDetails.getCorrespondenceAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress3())?lifePersonalDetails.getCorrespondenceAddress3() : "");
-	    if(correspondenceAddress.indexOf(",") == correspondenceAddress.length() - 1){
+	    if(",".equals(correspondenceAddress.substring(correspondenceAddress.length() - 1))){
 	    	correspondenceAddress = correspondenceAddress.substring(0, correspondenceAddress.length()-1);
 	    }
 	    
@@ -566,7 +566,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
 		}
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieOnlineApplicationForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"SavieOnlineApplicationForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
@@ -924,7 +924,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		attributeList.add(new PdfAttribute("Date1", "Date (DD-MM-YYYY)"));
 		attributeList.add(new PdfAttribute("Date2", "日期 (日-月-年)"));
-		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd/MM/yyyy")));
+		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd-MM-yyyy")));
 		
 		if("2".equals(type)){
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
@@ -933,7 +933,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        path = path.replace("/", "\\");
 			attributeList.add(new PdfAttribute("SignatureofApplicant", path,"imagepath"));
 		}
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
@@ -1155,14 +1155,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", request.getParameter("name"));
+		jsonObject.put("name", request.getParameter("fullName"));
 		jsonObject.put("email", request.getParameter("email"));
-		jsonObject.put("mobile", request.getParameter("mobile"));
-		jsonObject.put("preferredDay", request.getParameter("preferredDay").split("-")[0]);
-		jsonObject.put("preferredTimeSlot", request.getParameter("preferredTimeSlot").split("-")[0]);
-		jsonObject.put("enquiryType", request.getParameter("enquiryType").split("-")[0]);
-		jsonObject.put("channel", "fna-recommendation");
-		jsonObject.put("product", "savie-sp");
+		jsonObject.put("mobile", request.getParameter("telephone"));
+		jsonObject.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
+		jsonObject.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
+		jsonObject.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
+		jsonObject.put("channel", request.getParameter("channel"));
+		jsonObject.put("product", request.getParameter("productCode"));
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		if(responseJsonObj==null){
@@ -1176,14 +1176,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			List<OptionItemDesc> etCsContactPreferredDayEN = InitApplicationMessage.etCsContactPreferredDayEN;
 			String contactWeekdayEn = null;
 			for(int i=0;i<etCsContactPreferredDayEN.size();i++){
-				if(etCsContactPreferredDayEN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+				if(etCsContactPreferredDayEN.get(i).getItemCode().equals(request.getParameter("preferred_date").split("-")[0])){
 					contactWeekdayEn = etCsContactPreferredDayEN.get(i).getItemDesc();
 				}
 			}
 			List<OptionItemDesc> etCsContactPreferredDayCN = InitApplicationMessage.etCsContactPreferredDayCN;
 			String contactWeekdayCh = null;
 			for(int i=0;i<etCsContactPreferredDayCN.size();i++){
-				if(etCsContactPreferredDayCN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+				if(etCsContactPreferredDayCN.get(i).getItemCode().equals(request.getParameter("preferred_date").split("-")[0])){
 					contactWeekdayCh = etCsContactPreferredDayCN.get(i).getItemDesc();
 				}
 			}
@@ -1191,14 +1191,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			List<OptionItemDesc> etCsContactPreferredTimeSlotEN = InitApplicationMessage.etCsContactPreferredTimeSlotEN;
 			String contactTimeEn = null;
 			for(int i=0;i<etCsContactPreferredTimeSlotEN.size();i++){
-				if(etCsContactPreferredTimeSlotEN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+				if(etCsContactPreferredTimeSlotEN.get(i).getItemCode().equals(request.getParameter("preferred_time").split("-")[0])){
 					contactTimeEn = etCsContactPreferredTimeSlotEN.get(i).getItemDesc();
 				}
 			}
 			List<OptionItemDesc> etCsContactPreferredTimeSlotCN = InitApplicationMessage.etCsContactPreferredTimeSlotCN;
 			String contactTimeCh = null;
 			for(int i=0;i<etCsContactPreferredTimeSlotCN.size();i++){
-				if(etCsContactPreferredTimeSlotCN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+				if(etCsContactPreferredTimeSlotCN.get(i).getItemCode().equals(request.getParameter("preferred_time").split("-")[0])){
 					contactTimeCh = etCsContactPreferredTimeSlotCN.get(i).getItemDesc();
 				}
 			}
@@ -1208,8 +1208,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("to", request.getParameter("email"));
 			parameters.put("subject", "FWD will contact you shortly | 富衛將會聯繫您");
 			JSONObject model = new JSONObject();
-			   model.put("name", request.getParameter("name"));
-			   model.put("contactPhoneNo", request.getParameter("mobile"));
+			   model.put("name", request.getParameter("fullName"));
+			   model.put("contactPhoneNo", request.getParameter("telephone"));
 			   model.put("contactWeekdayEn", contactWeekdayEn);
 			   model.put("contactTimeEn", contactTimeEn);
 			   model.put("contactWeekdayCh", contactWeekdayCh);
@@ -1903,6 +1903,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
 			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
+			
+			LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+			if(lifeDeclaration==null){
+				lifeDeclaration = new LifeDeclarationBean();
+			}
+			lifeDeclaration.setHasReadAndAcceptFATC(policyApplication.getDeclaration1()!=null?policyApplication.getDeclaration1():false);
+			lifeDeclaration.setHasReadAndAcceptFATC2(policyApplication.getDeclaration2()!=null?policyApplication.getDeclaration2():false);
+			lifeDeclaration.setHasReadAndAcceptPICS(policyApplication.getDeclaration3()!=null?policyApplication.getDeclaration3():false);
+			lifeDeclaration.setHaveReplaced(policyApplication.getDeclaration4()!=null?policyApplication.getDeclaration4():false);
+			lifeDeclaration.setIntentToReplaced(policyApplication.getDeclaration5()!=null?policyApplication.getDeclaration5():false);
+			lifeDeclaration.setHasReadAndAcceptCancellation(policyApplication.getDeclaration6()!=null?policyApplication.getDeclaration6():false);
+			lifeDeclaration.setIntentToLiveOutside(policyApplication.getDeclaration7()!=null?policyApplication.getDeclaration7():false);
+			lifeDeclaration.setHasReadAndAgreeApplication(policyApplication.getDeclaration8()!=null?policyApplication.getDeclaration8():false);
+			lifeDeclaration.setChkboxDoNotSendMarketingInfo(policyApplication.getDeclaration9()!=null?policyApplication.getDeclaration9():false);
+			lifeDeclaration.setChkboxDoNotProvidePersonalData(policyApplication.getDeclaration10()!=null?policyApplication.getDeclaration10():false);
+			request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
+			
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			if(lifePolicy==null){
+				lifePolicy = new CreateEliteTermPolicyResponse();
+			}
+			lifePolicy.setPolicyNo(policyApplication.getPolicyNo()!=null?policyApplication.getPolicyNo():"");
+			request.getSession().setAttribute("lifePolicy", lifePolicy);
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());
@@ -2613,9 +2636,34 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return userName;
 	}
 	
-	public void deleteSaviePdf(String fileName,HttpServletRequest request)throws IOException{
-		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
-		File f = new File(pdfPath);
-		f.delete();
+	public void deleteSaviePdf(HttpServletRequest request){
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf";
+	    File file = new File(pdfPath);
+	    if(!file.exists()){
+	    	logger.info("file not exist");
+	    }
+	    else if(!file.isDirectory()){
+	    	logger.info("file error");
+	    }
+	    else{
+	    	String[] tempList = file.list();
+	    	File temp = null;
+	    	if(tempList!=null){
+	    		for(int i=0;i<tempList.length;i++){
+	    			if(pdfPath.endsWith(File.separator)){
+			            temp = new File(pdfPath+tempList[i]);
+			        }
+			        else{
+			            temp = new File(pdfPath+File.separator+tempList[i]);
+			        }
+			        if(temp.isFile()){
+			            temp.delete();
+			        }
+			        if(temp.isDirectory()){
+			        	//文件夹里面是模板，不删除。
+			        }
+			    }
+	    	}
+	    }
 	}
 }

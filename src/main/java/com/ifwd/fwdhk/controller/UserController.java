@@ -75,14 +75,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/userLogout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest servletRequest){
-		try {
-			savieOnlineService.deleteSaviePdf("pdfName", servletRequest);
-			savieOnlineService.deleteSaviePdf("fnaPdfName", servletRequest);
-			savieOnlineService.deleteSaviePdf("applicationFormPdf", servletRequest);
-		} catch (IOException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
+		savieOnlineService.deleteSaviePdf(servletRequest);
 
 		String homeURL = "/changeLang?selectLang=EN&action=/tc/";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);

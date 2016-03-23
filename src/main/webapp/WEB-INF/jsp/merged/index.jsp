@@ -203,7 +203,7 @@ var languageP = "${language}";
 				</div>
 			</div>
 			<!-- Products Gallery -->
-			<div class="container-products hidden-sm hidden-xs">
+			<div class="container-products fwd-container-limit center-block hidden-sm hidden-xs">
 				<div class="li-container hidden">
 					<ul>
 						<li><a href="#">All</a></li>
@@ -517,8 +517,8 @@ var languageP = "${language}";
                 return 0;
              }
 
-				$('#see-all-product-btn').on('click', function () {
-					$('.psa-link-content').slideDown('fast');
+				$('#see-all-product-btn').on('click', function() {
+					$('.psa-link-content').slideToggle("slow");
 				});
 				
 					// plus / minus button
