@@ -4,7 +4,7 @@ var FNArecommendation = {
 	api_show : contextPath+'/ajax/savings-insurance/show',
 	api_update : contextPath+'/ajax/savings-insurance/update',
 	api_product_recommend : contextPath+'/ajax/savings-insurance/product-recommend',
-	api_enquiry : contextPath+'/ajax/savings-insurance/enquiry',
+	api_enquiry : contextPath+'/ajax/savings-insurance/contactCs',
 	fnaOriginalData : null,
 	fnaData : null,
 	fnaResultData : null,
@@ -346,9 +346,9 @@ var FNArecommendation = {
 					'customer_name' : $("#FNAinputCustomerName").val(),
 					'email' : $("#FNAinputEmail").val(),
 					'telephone' : $("#FNAinputMobileNo").val(),
-					'preferred_date' : parseInt($("#preferred_date").val(),10),
-					'preferred_time' : parseInt($("#preferred_time").val(),10),
-					'enquiry_type' : parseInt($("#enquiry_type").val(),10)
+					'preferred_date' : $("#preferred_date").val(),
+					'preferred_time' : $("#preferred_time").val(),
+					'enquiry_type' : $("#enquiry_type").val()
 
 				};
 				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){

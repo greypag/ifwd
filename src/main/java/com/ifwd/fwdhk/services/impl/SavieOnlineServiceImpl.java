@@ -1155,14 +1155,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", request.getParameter("name"));
+		jsonObject.put("name", request.getParameter("fullName"));
 		jsonObject.put("email", request.getParameter("email"));
-		jsonObject.put("mobile", request.getParameter("mobile"));
-		jsonObject.put("preferredDay", request.getParameter("preferredDay").split("-")[0]);
-		jsonObject.put("preferredTimeSlot", request.getParameter("preferredTimeSlot").split("-")[0]);
-		jsonObject.put("enquiryType", request.getParameter("enquiryType").split("-")[0]);
-		jsonObject.put("channel", "fna-recommendation");
-		jsonObject.put("product", "savie-sp");
+		jsonObject.put("mobile", request.getParameter("telephone"));
+		jsonObject.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
+		jsonObject.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
+		jsonObject.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
+		jsonObject.put("channel", request.getParameter("channel"));
+		jsonObject.put("product", request.getParameter("productCode"));
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		if(responseJsonObj==null){
@@ -1176,14 +1176,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			List<OptionItemDesc> etCsContactPreferredDayEN = InitApplicationMessage.etCsContactPreferredDayEN;
 			String contactWeekdayEn = null;
 			for(int i=0;i<etCsContactPreferredDayEN.size();i++){
-				if(etCsContactPreferredDayEN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+				if(etCsContactPreferredDayEN.get(i).getItemCode().equals(request.getParameter("preferred_date").split("-")[0])){
 					contactWeekdayEn = etCsContactPreferredDayEN.get(i).getItemDesc();
 				}
 			}
 			List<OptionItemDesc> etCsContactPreferredDayCN = InitApplicationMessage.etCsContactPreferredDayCN;
 			String contactWeekdayCh = null;
 			for(int i=0;i<etCsContactPreferredDayCN.size();i++){
-				if(etCsContactPreferredDayCN.get(i).getItemCode().equals(request.getParameter("preferredDay").split("-")[0])){
+				if(etCsContactPreferredDayCN.get(i).getItemCode().equals(request.getParameter("preferred_date").split("-")[0])){
 					contactWeekdayCh = etCsContactPreferredDayCN.get(i).getItemDesc();
 				}
 			}
@@ -1191,14 +1191,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			List<OptionItemDesc> etCsContactPreferredTimeSlotEN = InitApplicationMessage.etCsContactPreferredTimeSlotEN;
 			String contactTimeEn = null;
 			for(int i=0;i<etCsContactPreferredTimeSlotEN.size();i++){
-				if(etCsContactPreferredTimeSlotEN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+				if(etCsContactPreferredTimeSlotEN.get(i).getItemCode().equals(request.getParameter("preferred_time").split("-")[0])){
 					contactTimeEn = etCsContactPreferredTimeSlotEN.get(i).getItemDesc();
 				}
 			}
 			List<OptionItemDesc> etCsContactPreferredTimeSlotCN = InitApplicationMessage.etCsContactPreferredTimeSlotCN;
 			String contactTimeCh = null;
 			for(int i=0;i<etCsContactPreferredTimeSlotCN.size();i++){
-				if(etCsContactPreferredTimeSlotCN.get(i).getItemCode().equals(request.getParameter("preferredTimeSlot").split("-")[0])){
+				if(etCsContactPreferredTimeSlotCN.get(i).getItemCode().equals(request.getParameter("preferred_time").split("-")[0])){
 					contactTimeCh = etCsContactPreferredTimeSlotCN.get(i).getItemDesc();
 				}
 			}
@@ -1208,8 +1208,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("to", request.getParameter("email"));
 			parameters.put("subject", "FWD will contact you shortly | 富衛將會聯繫您");
 			JSONObject model = new JSONObject();
-			   model.put("name", request.getParameter("name"));
-			   model.put("contactPhoneNo", request.getParameter("mobile"));
+			   model.put("name", request.getParameter("fullName"));
+			   model.put("contactPhoneNo", request.getParameter("telephone"));
 			   model.put("contactWeekdayEn", contactWeekdayEn);
 			   model.put("contactTimeEn", contactTimeEn);
 			   model.put("contactWeekdayCh", contactWeekdayCh);
