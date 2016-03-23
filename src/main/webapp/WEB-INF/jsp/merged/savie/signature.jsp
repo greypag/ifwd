@@ -921,6 +921,27 @@ var languageP = "${language}";
 		    });
 		});
 		
+		//full fill type = 2
+		$('#save-exit-btn').click(function() {
+			$("#errorMsg").html("");
+			$.ajax({
+				  type : "POST",
+				  async:false, 
+				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/signatureSaveforLater",
+				  success : function(data) {
+					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  $('#save-and-continue-batch5-modal').modal('hide');
+						  show_stack_bar_top(data.errorMsg);
+					  }
+					  else{
+						  $('#save-and-continue-batch5-modal').modal('hide');
+						  $('#application-saved-modal').modal('show');
+						  sendEmailForSaveLater("plan-details-sp?type=3");
+					  }
+				  }
+		    });
+		});
+		
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});

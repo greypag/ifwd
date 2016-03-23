@@ -1465,10 +1465,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", "");
+		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
 		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", "");
+		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE-SP");
 		logger.info(parameters.toString());
