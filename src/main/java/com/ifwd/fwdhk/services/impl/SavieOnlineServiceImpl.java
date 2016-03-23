@@ -443,7 +443,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress2())?lifePersonalDetails.getResidentialAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress3())?lifePersonalDetails.getResidentialAddress3() : "");
-	    if(residentialAddress.indexOf(",") == residentialAddress.length() - 1){
+	    if(",".equals(residentialAddress.substring(residentialAddress.length() - 1))){
 	    	residentialAddress = residentialAddress.substring(0, residentialAddress.length()-1);
 	    }
 	    
@@ -453,7 +453,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String permanetAddress = (StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress1())?lifePersonalDetails.getPermanetAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress2())?lifePersonalDetails.getPermanetAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress3())?lifePersonalDetails.getPermanetAddress3() : "");
-	    if(permanetAddress.indexOf(",") == permanetAddress.length() - 1){
+	    if(",".equals(permanetAddress.substring(permanetAddress.length() - 1))){
 	    	permanetAddress = permanetAddress.substring(0, permanetAddress.length()-1);
 	    }
 	    
@@ -463,7 +463,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    String correspondenceAddress = (StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress1())?lifePersonalDetails.getCorrespondenceAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress2())?lifePersonalDetails.getCorrespondenceAddress2()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress3())?lifePersonalDetails.getCorrespondenceAddress3() : "");
-	    if(correspondenceAddress.indexOf(",") == correspondenceAddress.length() - 1){
+	    if(",".equals(correspondenceAddress.substring(correspondenceAddress.length() - 1))){
 	    	correspondenceAddress = correspondenceAddress.substring(0, correspondenceAddress.length()-1);
 	    }
 	    
@@ -924,7 +924,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		attributeList.add(new PdfAttribute("Date1", "Date (DD-MM-YYYY)"));
 		attributeList.add(new PdfAttribute("Date2", "日期 (日-月-年)"));
-		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd/MM/yyyy")));
+		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd-MM-yyyy")));
 		
 		if("2".equals(type)){
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
@@ -1399,10 +1399,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", "");
+		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
 		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", "");
+		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE-SP");
 		logger.info(parameters.toString());
@@ -1902,6 +1903,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
 			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
+			
+			LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+			if(lifeDeclaration==null){
+				lifeDeclaration = new LifeDeclarationBean();
+			}
+			lifeDeclaration.setHasReadAndAcceptFATC(policyApplication.getDeclaration1()!=null?policyApplication.getDeclaration1():false);
+			lifeDeclaration.setHasReadAndAcceptFATC2(policyApplication.getDeclaration2()!=null?policyApplication.getDeclaration2():false);
+			lifeDeclaration.setHasReadAndAcceptPICS(policyApplication.getDeclaration3()!=null?policyApplication.getDeclaration3():false);
+			lifeDeclaration.setHaveReplaced(policyApplication.getDeclaration4()!=null?policyApplication.getDeclaration4():false);
+			lifeDeclaration.setIntentToReplaced(policyApplication.getDeclaration5()!=null?policyApplication.getDeclaration5():false);
+			lifeDeclaration.setHasReadAndAcceptCancellation(policyApplication.getDeclaration6()!=null?policyApplication.getDeclaration6():false);
+			lifeDeclaration.setIntentToLiveOutside(policyApplication.getDeclaration7()!=null?policyApplication.getDeclaration7():false);
+			lifeDeclaration.setHasReadAndAgreeApplication(policyApplication.getDeclaration8()!=null?policyApplication.getDeclaration8():false);
+			lifeDeclaration.setChkboxDoNotSendMarketingInfo(policyApplication.getDeclaration9()!=null?policyApplication.getDeclaration9():false);
+			lifeDeclaration.setChkboxDoNotProvidePersonalData(policyApplication.getDeclaration10()!=null?policyApplication.getDeclaration10():false);
+			request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
+			
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			if(lifePolicy==null){
+				lifePolicy = new CreateEliteTermPolicyResponse();
+			}
+			lifePolicy.setPolicyNo(policyApplication.getPolicyNo()!=null?policyApplication.getPolicyNo():"");
+			request.getSession().setAttribute("lifePolicy", lifePolicy);
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());

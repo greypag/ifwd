@@ -89,16 +89,16 @@ public class PolicyApplication{
 	private String accountNo;
 	private String accountHolderName;
 	private String lang;
-	private String declaration1;
-	private String declaration2;
-	private String declaration3;
-	private String declaration4;
-	private String declaration5;
-	private String declaration6;
-	private String declaration7;
-	private String declaration8;
-	private String declaration9;
-	private String declaration10;
+	private Boolean declaration1;
+	private Boolean declaration2;
+	private Boolean declaration3;
+	private Boolean declaration4;
+	private Boolean declaration5;
+	private Boolean declaration6;
+	private Boolean declaration7;
+	private Boolean declaration8;
+	private Boolean declaration9;
+	private Boolean declaration10;
 	private String resumeViewPage;
 	private String createDateTime;
 	private String createBy;
@@ -586,64 +586,65 @@ public class PolicyApplication{
 	public void setLang(String lang) {
 		this.lang = lang;
 	}
-	public String getDeclaration1() {
+	
+	public Boolean getDeclaration1() {
 		return declaration1;
 	}
-	public void setDeclaration1(String declaration1) {
+	public void setDeclaration1(Boolean declaration1) {
 		this.declaration1 = declaration1;
 	}
-	public String getDeclaration2() {
+	public Boolean getDeclaration2() {
 		return declaration2;
 	}
-	public void setDeclaration2(String declaration2) {
+	public void setDeclaration2(Boolean declaration2) {
 		this.declaration2 = declaration2;
 	}
-	public String getDeclaration3() {
+	public Boolean getDeclaration3() {
 		return declaration3;
 	}
-	public void setDeclaration3(String declaration3) {
+	public void setDeclaration3(Boolean declaration3) {
 		this.declaration3 = declaration3;
 	}
-	public String getDeclaration4() {
+	public Boolean getDeclaration4() {
 		return declaration4;
 	}
-	public void setDeclaration4(String declaration4) {
+	public void setDeclaration4(Boolean declaration4) {
 		this.declaration4 = declaration4;
 	}
-	public String getDeclaration5() {
+	public Boolean getDeclaration5() {
 		return declaration5;
 	}
-	public void setDeclaration5(String declaration5) {
+	public void setDeclaration5(Boolean declaration5) {
 		this.declaration5 = declaration5;
 	}
-	public String getDeclaration6() {
+	public Boolean getDeclaration6() {
 		return declaration6;
 	}
-	public void setDeclaration6(String declaration6) {
+	public void setDeclaration6(Boolean declaration6) {
 		this.declaration6 = declaration6;
 	}
-	public String getDeclaration7() {
+	public Boolean getDeclaration7() {
 		return declaration7;
 	}
-	public void setDeclaration7(String declaration7) {
+	public void setDeclaration7(Boolean declaration7) {
 		this.declaration7 = declaration7;
 	}
-	public String getDeclaration8() {
+	public Boolean getDeclaration8() {
 		return declaration8;
 	}
-	public void setDeclaration8(String declaration8) {
+	public void setDeclaration8(Boolean declaration8) {
 		this.declaration8 = declaration8;
 	}
-	public String getDeclaration9() {
+	public Boolean getDeclaration9() {
 		return declaration9;
 	}
-	public void setDeclaration9(String declaration9) {
+	public void setDeclaration9(Boolean declaration9) {
 		this.declaration9 = declaration9;
 	}
-	public String getDeclaration10() {
+	public Boolean getDeclaration10() {
 		return declaration10;
 	}
-	public void setDeclaration10(String declaration10) {
+	public void setDeclaration10(Boolean declaration10) {
 		this.declaration10 = declaration10;
 	}
 	public String getResumeViewPage() {
