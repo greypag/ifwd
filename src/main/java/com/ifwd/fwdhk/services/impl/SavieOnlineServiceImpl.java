@@ -1405,7 +1405,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
+		parameters.put("creditCaredNo", "");
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
