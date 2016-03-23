@@ -15,7 +15,7 @@ public class Products {
 	private List<String> contribution_period;
 	private String min_issue_age;
 	private String max_issue_age;
-	private Integer protection_period;
+	private String protection_period;
 	private String key_product_risks;
 	private String key_exclusions;
 	private String brochure_url;
@@ -94,11 +94,13 @@ public class Products {
 		this.max_issue_age = max_issue_age;
 	}
 
-	public Integer getProtection_period() {
+	
+
+	public String getProtection_period() {
 		return protection_period;
 	}
 
-	public void setProtection_period(Integer protection_period) {
+	public void setProtection_period(String protection_period) {
 		this.protection_period = protection_period;
 	}
 
