@@ -708,13 +708,13 @@ var FNArecommendation = {
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
 
 		//Show Only 1 product description
-		if(data.product_list.length == 1){
+		if(pNum == 1){
 			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
 		}
-		if(data.product_list.length>0 && data.hasILAS=='Y'){
+		if(pNum>0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescription(true);
 		}
-		if(data.product_list.length==0 && data.hasILAS=='Y'){
+		if(pNum==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
 		if(data.fulfilled=='N'){
