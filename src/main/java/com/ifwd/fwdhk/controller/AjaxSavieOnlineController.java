@@ -492,11 +492,12 @@ public class AjaxSavieOnlineController extends BaseController{
 			if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null&&apiResponse.getPolicyApplication().getResumeViewPage()!=null){
 				jsonObject.put("nextPage", apiResponse.getPolicyApplication().getResumeViewPage());
 				savieOnlineService.getFna(request);
+				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+				savieOnlineService.getProductrRecommend(savieFna, request);
 				SaviePlanDetailsBean saviePlanDetails = new SaviePlanDetailsBean();
 				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString());
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 				saviePlanDetails.setPaymentType("SP");
-				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				saviePlanDetails.setDob(savieFna.getDob());
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);

@@ -843,7 +843,7 @@ var affordabilityPremium = ${affordabilityPremium};
 	$("#btn-proceed").on('click', function(){
 		apply=false;
 		if('2'=='${type }'){
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+			proceedLogin('<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
 		}else {
 			//$('#offline-online-modal').modal('show');
 			if($("#type-of-payment").val() == 'regular-payment') {
@@ -867,7 +867,7 @@ var affordabilityPremium = ${affordabilityPremium};
 	
 	$("#online-application-btn").on('click', function(){
 		$('#offline-online-modal').modal('hide');
-		proceedLogin();
+		proceedLogin(null);
 	});
 	
 	$("#offline-application-btn").on('click', function(){
@@ -885,9 +885,9 @@ var affordabilityPremium = ${affordabilityPremium};
         }
 	});
 
-	function proceedLogin(){
+	function proceedLogin(url){
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-			saviePlanDetailsGoNext();
+			saviePlanDetailsGoNext(url);
 		}else{
 			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
@@ -900,7 +900,7 @@ var affordabilityPremium = ${affordabilityPremium};
 	
 	var apply=false;//判断是否点击proceed
 	var nextPage;
-	function saviePlanDetailsGoNext(){
+	function saviePlanDetailsGoNext(url){
 		if(apply){
 			//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 			$('#thankYouModal').modal('show');
@@ -934,22 +934,26 @@ var affordabilityPremium = ${affordabilityPremium};
 				    		    		nextPage = data.nextPage;
 				    		    	}
 				    		    	else{
-				    		    		$.ajax({     
-							    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-							    		    type:'get',     
-							    		    error:function(){       
-							    		    },     
-							    		    success:function(data){
-							    		    	$('#loginpopup').modal('hide');
-							    		    	if(data != null && data.errMsgs == null && data.name !=null){
-							    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-							    		    		$('#review-fna-modal').modal('show');
-							    		    	}
-							    		    	else{
-							    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-							    		    	}
-							    		    }  
-							    		});
+					    		    	if (url != null){
+					    		    		window.location = url;
+					    		    	} else {
+					    		    		$.ajax({     
+								    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+								    		    type:'get',     
+								    		    error:function(){       
+								    		    },     
+								    		    success:function(data){
+								    		    	$('#loginpopup').modal('hide');
+								    		    	if(data != null && data.errMsgs == null && data.name !=null){
+								    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+								    		    		$('#review-fna-modal').modal('show');
+								    		    	}
+								    		    	else{
+								    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+								    		    	}
+								    		    }  
+								    		});
+					    		    	}
 				    		    	}
 				    		    }  
 				    		});

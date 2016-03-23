@@ -151,7 +151,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan0 = new net.sf.json.JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", planDetails0Rate.get(i).getTotalPremium());
+						plan0.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
@@ -159,7 +159,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan2 = new net.sf.json.JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", planDetails2Rate.get(i).getTotalPremium());
+						plan2.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
@@ -167,7 +167,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan3 = new net.sf.json.JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", planDetails3Rate.get(i).getTotalPremium());
+						plan3.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
@@ -175,7 +175,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan4 = new net.sf.json.JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", planDetails4Rate.get(i).getTotalPremium());
+						plan4.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
@@ -439,11 +439,35 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
 	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
 	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
-	    attributeList.add(new PdfAttribute("applicationResAddress", lifePersonalDetails.getResidentialAddress1()+","+lifePersonalDetails.getResidentialAddress2()+","+lifePersonalDetails.getResidentialAddress3()));
+	    
+	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress2())?lifePersonalDetails.getResidentialAddress2()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress3())?lifePersonalDetails.getResidentialAddress3() : "");
+	    if(residentialAddress.indexOf(",") == residentialAddress.length() - 1){
+	    	residentialAddress = residentialAddress.substring(0, residentialAddress.length()-1);
+	    }
+	    
+	    attributeList.add(new PdfAttribute("applicationResAddress", residentialAddress));
 	    attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictName()));
-	    attributeList.add(new PdfAttribute("applicationPerAddress", lifePersonalDetails.getPermanetAddress1()+","+lifePersonalDetails.getPermanetAddress2()+","+lifePersonalDetails.getPermanetAddress3()));
+	    
+	    String permanetAddress = (StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress1())?lifePersonalDetails.getPermanetAddress1()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress2())?lifePersonalDetails.getPermanetAddress2()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress3())?lifePersonalDetails.getPermanetAddress3() : "");
+	    if(permanetAddress.indexOf(",") == permanetAddress.length() - 1){
+	    	permanetAddress = permanetAddress.substring(0, permanetAddress.length()-1);
+	    }
+	    
+	    attributeList.add(new PdfAttribute("applicationPerAddress", permanetAddress));
 	    attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictName()));
-	    attributeList.add(new PdfAttribute("applicationCorrAddress", lifePersonalDetails.getCorrespondenceAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
+	    
+	    String correspondenceAddress = (StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress1())?lifePersonalDetails.getCorrespondenceAddress1()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress2())?lifePersonalDetails.getCorrespondenceAddress2()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress3())?lifePersonalDetails.getCorrespondenceAddress3() : "");
+	    if(correspondenceAddress.indexOf(",") == correspondenceAddress.length() - 1){
+	    	correspondenceAddress = correspondenceAddress.substring(0, correspondenceAddress.length()-1);
+	    }
+	    
+	    attributeList.add(new PdfAttribute("applicationCorrAddress", correspondenceAddress));
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
 	    
 	    attributeList.add(new PdfAttribute("EducationlevelKey", "Education Level 教育水平"));
@@ -561,6 +585,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String showILASsDescription = (String) session.getAttribute("showILASsDescription");
 		String showNoAvailableProduct = (String) session.getAttribute("showNoAvailableProduct");
 		
+		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
 		attributeList.add(new PdfAttribute("LifeInsuredName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
@@ -602,20 +627,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			group_2 = ">=7";
 		}
 		attributeList.add(new PdfAttribute("group_2", group_2));
-		
-		/*String occupation = "";
-		List<OptionItemDesc> optionItemDescENList = InitApplicationMessage.occupationEN;
-		for(OptionItemDesc optionItemDescEN : optionItemDescENList){
-			if(optionItemDescEN.getItemCode().equals(savieFna.getOccupation())){
-				occupation = optionItemDescEN.getItemDesc();
-			}
-		}*/
-		/*List<OptionItemDesc> optionItemDescCNList = InitApplicationMessage.occupationCN;
-		for(OptionItemDesc optionItemDescCN : optionItemDescCNList){
-			if(optionItemDescCN.getItemCode().equals(savieFna.getOccupation())){
-				occupation = occupation + "\r\n" + optionItemDescCN.getItemDesc();
-			}
-		}*/
 		
 		String occupation = lifeEmploymentInfo.getOccupationName();
 		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
@@ -840,7 +851,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
 		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
-			
 			int i = 1;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
 				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
@@ -904,16 +914,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 				}
 			}
-			
-			attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
-														   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
-														   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
-			
 			logger.info("产品数："+i);
 		}
 		
-		attributeList.add(new PdfAttribute("Date1", "DD-MM-YYYY"));
-		attributeList.add(new PdfAttribute("Date2", "DD-MM-YYYY"));
+		attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
+				   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
+				   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
+
+		
+		attributeList.add(new PdfAttribute("Date1", "Date (DD-MM-YYYY)"));
+		attributeList.add(new PdfAttribute("Date2", "日期 (日-月-年)"));
 		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd/MM/yyyy")));
 		
 		if("2".equals(type)){
@@ -1389,10 +1399,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", "");
+		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
 		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", "");
+		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE-SP");
 		logger.info(parameters.toString());
@@ -1555,7 +1566,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public net.sf.json.JSONObject lifeBeneficaryInfoPutData(LifeBeneficaryInfoBean lifeBeneficaryInfo,net.sf.json.JSONObject parameters){
-		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getIsOwnEstate():"false");
+		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"false");
 		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
@@ -1624,6 +1635,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
 		parameters.accumulate("branchName", lifePayment.getBranchCode()+"-"+lifePayment.getBranchName());
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
+		parameters.accumulate("accountHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		return parameters;
 	}
 	
@@ -1889,6 +1901,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setBranchName(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[1]:"");
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
+			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());

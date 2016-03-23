@@ -87,6 +87,7 @@ public class PolicyApplication{
 	private String bankName;	
 	private String branchName;
 	private String accountNo;
+	private String accountHolderName;
 	private String lang;
 	private String declaration1;
 	private String declaration2;
@@ -716,6 +717,12 @@ public class PolicyApplication{
 	}
 	public void setBeneficiaryHkidPassport3(String beneficiaryHkidPassport3) {
 		this.beneficiaryHkidPassport3 = beneficiaryHkidPassport3;
+	}
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
 	}
 	
 	

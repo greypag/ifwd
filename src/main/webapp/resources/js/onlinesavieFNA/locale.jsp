@@ -162,7 +162,7 @@ var FNAQuestion ={
 		  "title": "<fmt:message key="fna.question.q4a" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.multiple" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 5,
-		    "title": "<fmt:message key="fna.question.q4a.amount" bundle="${msg}" /> <br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> {0} <fmt:message key="fna.question.q4a.month" bundle="${msg}" />",
+		    "title": "<fmt:message key="fna.question.q4a.amount" bundle="${msg}" /> <br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> {0} <fmt:message key="fna.question.q4a.month" bundle="${msg}" /> <br><br><fmt:message key="fna.question.q4a.range" bundle="${msg}" />",
 		    "caption": "",
 		    "other": "q4_a_others"
 		  }, {
@@ -195,12 +195,12 @@ var FNAQuestion ={
 		    "title": "<fmt:message key="fna.question.q4b.option1" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
-		    "id": 1,
-		    "title": "<fmt:message key="fna.question.q4b.option2" bundle="${msg}" />",
-		    "caption": ""
-		  }, {
 		    "id": 2,
 		    "title": "<fmt:message key="fna.question.q4b.option3" bundle="${msg}" />",
+		    "caption": ""
+		  }, {
+		    "id": 1,
+		    "title": "<fmt:message key="fna.question.q4b.option2" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 3,
@@ -221,7 +221,7 @@ var FNAQuestion ={
 		    "popup": true
 		  }, {
 		    "id": 7,
-		    "title": "<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> HK$ {0}",
+		    "title": "<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> {0} <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />",
 		    "caption": " <fmt:message key="fna.question.q4b.note" bundle="${msg}" />",
 		    "other": "q4_b_amount"
 		  }]
@@ -290,27 +290,27 @@ var FNAQuestion ={
 		  "title": "<fmt:message key="fna.question.q4f" bundle="${msg}" /> <span><fmt:message key="fna.question.choose.one" bundle="${msg}" /></span>",
 		  "option": [{
 		    "id": 0,
-		    "title": "&lt;10%",
+		    "title": "<fmt:message key="fna.question.q4f.option1" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 1,
-		    "title": "10% - 20%",
+		    "title": "<fmt:message key="fna.question.q4f.option2" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 2,
-		    "title": "21% - 30%",
+		    "title": "<fmt:message key="fna.question.q4f.option3" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 3,
-		    "title": "31% - 40%",
+		    "title": "<fmt:message key="fna.question.q4f.option4" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 4,
-		    "title": "41% - 50%",
+		    "title": "<fmt:message key="fna.question.q4f.option5" bundle="${msg}" />",
 		    "caption": ""
 		  }, {
 		    "id": 5,
-		    "title": "&gt;50%",
+		    "title": "<fmt:message key="fna.question.q4f.option6" bundle="${msg}" />",
 		    "caption": ""
 		  }]
 		}, {
