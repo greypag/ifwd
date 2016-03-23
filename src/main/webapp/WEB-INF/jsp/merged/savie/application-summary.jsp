@@ -457,7 +457,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[0]" name="beneficiaryEntitlement[0]" value="${lifeBeneficaryInfo.beneficaryWeight1 }%" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+												<label class="mdl-textfield__label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
 				               </div>
@@ -516,7 +516,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[1]" name="beneficiaryEntitlement[1]" value="${lifeBeneficaryInfo.beneficaryWeight2 }%" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+												<label class="mdl-textfield__label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
 				               </div>
@@ -575,7 +575,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[2]" name="beneficiaryEntitlement[2]" value="${lifeBeneficaryInfo.beneficaryWeight3 }%" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /> (%)</label>
+												<label class="mdl-textfield__label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
 				               </div>

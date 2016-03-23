@@ -568,6 +568,9 @@ a:hover {
   padding: 3px 16px !important;
   cursor: pointer;
 }
+.employment-info-page .selectDiv .gray-dropdown {
+	padding: 3px 14px !important;
+}
 /* line 219, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown.ie-select {
   padding-left: 13px !important;
