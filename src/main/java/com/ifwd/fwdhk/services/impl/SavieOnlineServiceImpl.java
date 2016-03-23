@@ -1212,7 +1212,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("to", request.getParameter("email"));
 			parameters.put("subject", "FWD will contact you shortly | 富衛將會聯繫您");
 			JSONObject model = new JSONObject();
-			   model.put("name", request.getParameter("fullName"));
+			   model.put("name", request.getParameter("customer_name"));
 			   model.put("contactPhoneNo", request.getParameter("telephone"));
 			   model.put("contactWeekdayEn", contactWeekdayEn);
 			   model.put("contactTimeEn", contactTimeEn);
