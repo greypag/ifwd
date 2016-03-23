@@ -1155,14 +1155,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", request.getParameter("fullName"));
+		jsonObject.put("product", request.getParameter("product_code"));
+		jsonObject.put("channel", "productRecommendation");
+		jsonObject.put("name", request.getParameter("customer_name"));
 		jsonObject.put("email", request.getParameter("email"));
 		jsonObject.put("mobile", request.getParameter("telephone"));
 		jsonObject.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
 		jsonObject.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
 		jsonObject.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
-		jsonObject.put("channel", request.getParameter("channel"));
-		jsonObject.put("product", request.getParameter("productCode"));
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		if(responseJsonObj==null){

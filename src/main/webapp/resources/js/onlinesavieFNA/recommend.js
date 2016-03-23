@@ -62,9 +62,7 @@ var FNArecommendation = {
 		$(".fna-btn-call-details").click(function(){
 
 			var productCode = $(this).parents(".fna-product").data("productCode");
-			
-			
-
+			$("#productCode").val(productCode)
 			$('#fnaPopupEnquiry').modal({
 			   keyboard: false
 			});
@@ -339,10 +337,8 @@ var FNArecommendation = {
 		$(".fna-btn-submit").click(function(){
 			
 			if(that.validateCallForm()){
-
 				var enquiryObj = {
 					'product_code' : $("#productCode").val(),
-					'channel' : $("#channel").val(),
 					'customer_name' : $("#FNAinputCustomerName").val(),
 					'email' : $("#FNAinputEmail").val(),
 					'telephone' : $("#FNAinputMobileNo").val(),
@@ -873,41 +869,6 @@ $.fn.scrollTo = function( target, options, callback ){
       if (typeof callback == 'function') { callback.call(this); }
     });
   });
-}
-
-function goCustomerServices(){
-	var name = $('#FNAinputCustomerName').val();
-	var email = $('#FNAinputEmail').val();
-	var mobile = $('#FNAinputMobileNo').val();
-	var preferredDay = $('#preferred_date').val();
-	var preferredTimeSlot = $('#preferred_time').val();
-	var enquiryType = $('#enquiry_type').val();
-	
-	if(name ==null || name =="" || email ==null || email =="" || mobile ==null || mobile =="" || preferredDay ==null || preferredDay =="" || preferredTimeSlot ==null || preferredTimeSlot =="" || enquiryType ==null || enquiryType ==""){
-		console.log("data error");
-	}
-	else{
-		$.ajax({
-		    url:contextPath+'/ajax/savings-insurance/contactCs',     
-		    type:'get',
-		    data:{    
-    	    	"name" : name,
-    	    	"email" : email,
-    	    	"mobile" : mobile,
-    	    	"preferredDay" : preferredDay,
-    	    	"preferredTimeSlot" : preferredTimeSlot,
-    	    	"enquiryType" : enquiryType
-       		},
-		    success:function(data){
-		    	if(data != null && data.errorMsg == null){
-		    		$('#fnaPopupEnquiry').modal('hide');
-		    		$('#back-landing-modal').modal('show');
-		    	}
-		    },
-       		error:function(){       
-		    }
-		});
-	}
 }
 
 function sendContSession(key,value){
