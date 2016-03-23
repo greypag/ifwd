@@ -1292,6 +1292,18 @@ h6 {
   background-image: url("../images/savie-2016/handle.png") !important;
   background-repeat: no-repeat;
   background-position: 0px !important;
+  margin-left: -5px;
+}
+.fwd-savie-wrapper .slider.slider-horizontal .slider-track {
+	left: 5px;
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .slider.slider-horizontal .slider-track {
+		left: 0;
+	}
+}
+.plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-horizontal {
+	width: 98%;
 }
 @media (min-width: 992px) {
   /* line 818, ../sass/partials/savie/_common.scss */
@@ -4190,6 +4202,29 @@ a.eserv-link:hover {
 /* line 114, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder {
   position: relative;
+}
+#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder .or-word {
+	position: absolute;
+    top: 40%;
+    left: 45%;
+}
+@media (min-width: 992px) {
+	#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder .or-word {
+		left: 47.5%;
+		top: 43%;
+	}
+}
+#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder .or-word #or-mobile {
+	background: #474a46;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 66%;
+    width: 30px;
+    height: 28px;
+}
+#offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder .or-word #or-mobile span {
+	display: inline-block;
+    margin-top: 3px;
 }
 @media (min-width: 992px) {
   /* line 117, ../sass/partials/savie/_online-offline-fna.scss */
