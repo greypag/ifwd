@@ -565,18 +565,20 @@ var FNArecommendation = {
 							}
 							
 							prod.find(".sort-header.withdata .con_prd").html(cpArr.join(", "));
+							/*prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));*/
+							
 							prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
 							prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
 							
 							var ppArr=prod_data.protection_period.split(",");
-							for(var j = 0; j < ppArr.length; j++){
-								if(ppArr[j].indexOf("A") > 0){
-									ppArr[j] = ppArr[j].replace("A", "")
+							for(var k = 0; k < ppArr.length; k++){
+								if(ppArr[k].indexOf("A") > 0){
+									ppArr[k] = ppArr[k].replace("A", "")
 									+ getBundle(getBundleLanguage, "fna.product.year");
 								}
 							}
-							
 							prod.find(".sort-header.withdata .prd_age").text(ppArr.join(", "));
+							/*prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);*/
 
 							var key_feature_ul = $("<ul/>");
 
