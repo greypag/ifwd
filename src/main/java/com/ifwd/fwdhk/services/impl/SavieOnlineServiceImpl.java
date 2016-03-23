@@ -1700,6 +1700,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
 		parameters.accumulate("branchName", lifePayment.getBranchCode()+"-"+lifePayment.getBranchName());
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
+		parameters.accumulate("accountHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		return parameters;
 	}
 	
@@ -1965,6 +1966,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setBranchName(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[1]:"");
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
+			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
