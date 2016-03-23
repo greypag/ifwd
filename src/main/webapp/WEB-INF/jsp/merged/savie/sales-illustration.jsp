@@ -15,7 +15,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-      <script src="<%=request.getContextPath()%>/resources/js/savie-2016/jquery.gdocsviewer.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -151,9 +150,12 @@
 					  <div class="modal-dialog">
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-							<div id="pdf">
-								<iframe class="embed" src="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf"  frameborder="0"></iframe>
-								<!--<a class="embed" id="pdf-modal-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf" /></a>-->
+							<div id="pdf-image" class="pdf-image-container">
+								<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
+								<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
+								<div class="pdf-image-scroll">
+									<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/template/SavieProposalTemplate_${language}.jpg" />
+								</div>
 							</div>
 							<div class="text-center">
 								<button class="text-bold btn savie-common-btn" data-dismiss="modal" id="close-btn"><fmt:message key="button.close" bundle="${msg}" /></button>
@@ -179,21 +181,12 @@
 		</div>
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
-
-			window.onload = function (){
-				var pdfFile = $('#pdf-object').attr('data');
-				var success = new PDFObject({ url: pdfFile }).embed();
-			};
-			
 			$("#accept-btn").click(function(){
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			});
 			$(document).ready(function() {
-				//$('#pdf-modal-view').gdocsViewer();
-				//$('#pdf-view').gdocsViewer();
+				pdfImageInit('#pdf-image');
 			});
-		
-
         </script> 
 	</body>
 </html>	

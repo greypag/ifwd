@@ -1677,3 +1677,45 @@ function sendEmailForSaveLater(key) {
 	    }
 	});
 }
+
+function checkPdfScroll(container) {
+	return container.scrollTop() + container.innerHeight() - window.scrollBarWidth >= container.prop('scrollHeight');
+}
+
+function pdfImageInit(selector) {
+	var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body');
+	var widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+	$outer.remove();
+	window.scrollBarWidth = 100 - widthWithScroll;
+	window.pdfImageWidthPercentDefault = 75;
+	window.pdfImageWidthPercentMin = 50; 
+	window.pdfImageWidthPercentMax = 200;
+	window.pdfImageWidthPercentStep = 25;
+
+	var pdfImageWidthPercent = $(selector).find('.pdf-image').data('width') ? $(selector).find('.pdf-image').data('width') : window.pdfImageWidthPercentDefault;
+	$(selector).find('.pdf-image').css('width', pdfImageWidthPercent + '%');
+
+	$(selector).on('click', '.zoom-in', function() {
+		var pdfImage = $(this).closest('.pdf-image-container').find('.pdf-image');
+		var pdfImageWidthPercent = pdfImage.data('width') + window.pdfImageWidthPercentStep;
+		if (pdfImageWidthPercent > 150)
+			pdfImageWidthPercent += pdfImageWidthPercentStep;
+		if (pdfImageWidthPercent > pdfImageWidthPercentMax)
+			pdfImageWidthPercent = pdfImageWidthPercentMax;
+		pdfImage.data('width', pdfImageWidthPercent);
+		pdfImage.css('width', pdfImageWidthPercent + '%');
+		$(this).siblings('.pdf-image-scroll').trigger('scroll');
+	});
+
+	$(selector).on('click', '.zoom-out', function() {
+		var pdfImage = $(this).closest('.pdf-image-container').find('.pdf-image');
+		var pdfImageWidthPercent = pdfImage.data('width') - window.pdfImageWidthPercentStep;
+		if (pdfImageWidthPercent > 150)
+			pdfImageWidthPercent -= pdfImageWidthPercentStep;
+		if (pdfImageWidthPercent < pdfImageWidthPercentMin)
+			pdfImageWidthPercent = pdfImageWidthPercentMin;
+		pdfImage.data('width', pdfImageWidthPercent);
+		pdfImage.css('width', pdfImageWidthPercent + '%');
+		$(this).siblings('.pdf-image-scroll').trigger('scroll');
+	});
+}
