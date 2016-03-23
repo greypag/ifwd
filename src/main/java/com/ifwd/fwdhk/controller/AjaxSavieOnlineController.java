@@ -151,10 +151,6 @@ public class AjaxSavieOnlineController extends BaseController{
 							}
 						}
 					}
-					
-					JSONObject model = new JSONObject();
-					//models.put("centerAddCh", centerAddCh);
-					savieOnlineService.sendEmails(request, "payment", model);
 				} 
 				catch (ECOMMAPIException e) {
 					logger.info(e.getMessage());
