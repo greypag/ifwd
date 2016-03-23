@@ -92,13 +92,13 @@ var Review = {
 		$(".btn_edit").click(that.editClicked);
 		$(".btn_ok").click(that.okClicked);
 		$(".btn_cancel").click(that.cancelClicked);
-		$("#btn_save_confirm").click(that.submitFNA);
+		$("#btn_save").click(that.submitFNA);
 
-		$("#btn_save").click(function(){
-			$('#fnaPopupConfirm').modal({
-			   keyboard: false
-			});
-		});
+		//$("#btn_save").click(function(){
+		//	$('#fnaPopupConfirm').modal({
+		//	   keyboard: false
+		//	});
+		//});
 
 		$("#status").change(function(){
 			var status = $(this).val();

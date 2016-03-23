@@ -220,13 +220,14 @@ var affiliate = "${affiliate}";
 						<a class="close" aria-label="Close" data-dismiss="modal">
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
-						<h4>Attention</h4>
-						<div class="cont"><p>Please note that any changes made to the FNA may affect the result of the product recommendation.As such, your current ongoing Savie application will be rendered void. Do you wish to edit?</p>
-							<p>Select "yes" to void the current application;</p>
-							<p>Select "no" to keep the current FNA.</p>
+						<h4><fmt:message key="popup.fna.attention.title" bundle="${msg}" /></h4>
+						<div class="cont">
+							<p><fmt:message key="popup.fna.attention.desc1" bundle="${msg}" /></p>
+							<p><fmt:message key="popup.fna.attention.desc2" bundle="${msg}" /></p>
+							<p><fmt:message key="popup.fna.attention.desc3" bundle="${msg}" /></p>
 						</div>
 						<div class="btn-clear-gp">
-						<a href="javascript:void(0);" class="btn-yes" id="btn_save_confirm">Yes</a><a href="javascript:void(0);" onclick="hideFNAPopupConfirm();" class="btn-no">No</a>
+						<a href="javascript:void(0);" class="btn-yes" id="btn_save_confirm"><fmt:message key="popup.fna.attention.button1" bundle="${msg}" /></a><a href="javascript:void(0);" onclick="hidefna.();" class="btn-no"><fmt:message key="popup.fna.attention.button2" bundle="${msg}" /></a>
 						</div>
 					</div>
 				</div>
