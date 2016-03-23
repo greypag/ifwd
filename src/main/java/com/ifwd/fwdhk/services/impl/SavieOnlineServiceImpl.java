@@ -391,7 +391,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				pdfTemplateName = "SavieProposalTemplateEngA.pdf";
 			}
 			
-			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+pdfTemplateName;
+			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+pdfTemplateName;
 			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 			logger.info("file path:"+pdfTemplatePath);
 			logger.info("data:"+attributeList);
@@ -566,7 +566,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
 		}
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieOnlineApplicationForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"SavieOnlineApplicationForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
@@ -933,7 +933,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        path = path.replace("/", "\\");
 			attributeList.add(new PdfAttribute("SignatureofApplicant", path,"imagepath"));
 		}
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
@@ -2636,9 +2636,34 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return userName;
 	}
 	
-	public void deleteSaviePdf(String fileName,HttpServletRequest request)throws IOException{
-		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+request.getSession().getAttribute(fileName);
-		File f = new File(pdfPath);
-		f.delete();
+	public void deleteSaviePdf(HttpServletRequest request){
+		String pdfPath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf";
+	    File file = new File(pdfPath);
+	    if(!file.exists()){
+	    	logger.info("file not exist");
+	    }
+	    else if(!file.isDirectory()){
+	    	logger.info("file error");
+	    }
+	    else{
+	    	String[] tempList = file.list();
+	    	File temp = null;
+	    	if(tempList!=null){
+	    		for(int i=0;i<tempList.length;i++){
+	    			if(pdfPath.endsWith(File.separator)){
+			            temp = new File(pdfPath+tempList[i]);
+			        }
+			        else{
+			            temp = new File(pdfPath+File.separator+tempList[i]);
+			        }
+			        if(temp.isFile()){
+			            temp.delete();
+			        }
+			        if(temp.isDirectory()){
+			        	//文件夹里面是模板，不删除。
+			        }
+			    }
+	    	}
+	    }
 	}
 }
