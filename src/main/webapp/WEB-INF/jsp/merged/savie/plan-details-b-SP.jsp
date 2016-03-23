@@ -547,7 +547,9 @@ var affordabilityPremium = ${affordabilityPremium};
 			    					</div>
 			    				</div>
 			    				<div class="or-word">
-			    					<div id="or-mobile"><fmt:message key="label.icon.or" bundle="${msg}" /></div>
+			    					<div id="or-mobile">
+			    						<span><fmt:message key="label.icon.or" bundle="${msg}" /></span>
+			    					</div>
 			    				</div>
 			    				<div class="col-md-6 col-xs-12" id="step-offline">
 			    					<div class="step">
