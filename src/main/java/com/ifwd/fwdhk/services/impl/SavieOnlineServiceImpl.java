@@ -926,13 +926,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Date2", "日期 (日-月-年)"));
 		attributeList.add(new PdfAttribute("Date3", DateApi.formatString(new Date(), "dd-MM-yyyy")));
 		
-		if("2".equals(type)){
+		/*if("2".equals(type)){
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
 	        String path = uploadDir + "/JSignature.png";
 	        path = path.replace("/", "\\");
 			attributeList.add(new PdfAttribute("SignatureofApplicant", path,"imagepath"));
-		}
+		}*/
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
