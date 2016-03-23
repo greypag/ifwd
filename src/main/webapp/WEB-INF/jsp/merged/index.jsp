@@ -517,8 +517,8 @@ var languageP = "${language}";
                 return 0;
              }
 
-				$('#see-all-product-btn').on('click', function () {
-					$('.psa-link-content').slideDown('fast');
+				$('#see-all-product-btn').on('click', function() {
+					$('.psa-link-content').slideToggle("slow");
 				});
 				
 					// plus / minus button

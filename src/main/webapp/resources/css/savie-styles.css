@@ -2084,6 +2084,9 @@ a.eserv-link:hover {
   padding: 25px;
   width: 100%;
 }
+.psa-divider .psa-btn:focus {
+	outline: 0;
+}
 /* line 589, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-btn:hover, .psa-divider .psa-btn:focus, .psa-divider .psa-btn:active {
   color: #ffffff;
