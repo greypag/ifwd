@@ -359,7 +359,22 @@ var languageP = "${language}";
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-                		getStarted();
+                        $.ajax({     
+                            url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+                            type:'get',     
+                            error:function(){       
+                            },     
+                            success:function(data){
+                                $('#loginpopup').modal('hide');
+                                if(data != null && data.errMsgs == null && data.name !=null){
+                                    $('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+                                    $('#review-fna-modal').modal('show');
+                                }
+                                else{
+                                    window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+                                }
+                            }  
+                        });
             		}else{
             			$('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
@@ -369,24 +384,6 @@ var languageP = "${language}";
             			$('#loginpopup').modal('show');			
             		}
                 });
-            	
-            	<%-- var nextPage;
-            	function saviePlanDetailsGoNext(){
-                    $.ajax({     
-                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-                        type:'get',     
-                        error:function(){       
-                        },     
-                        success:function(data){
-                            if(data != null && data.errMsgs == null && data.name !=null){
-                                window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
-                            }
-                            else{
-                                window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
-                            }
-                        }  
-                    });
-          		} --%>
             	
             	$("#make-appointment-btn").on('click', function(){
             		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
