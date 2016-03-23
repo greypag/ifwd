@@ -82,7 +82,7 @@ var languageP = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="declaration-content-wrapper">
 				<form id="declarationForm">
-					<p class="title"><fmt:message key="label.declaration.authorization" bundle="${msg}" /></p>
+					<p class="title"><fmt:message key="label.declaration.authorization.headline" bundle="${msg}" /></p>
 					
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.dda.title" bundle="${msg}" /></b></p>
@@ -98,6 +98,7 @@ var languageP = "${language}";
 								<fmt:message key="declaration.dda.content" bundle="${msg}" />
 							</ol>
 						</nav>
+						<p><fmt:message key="declaration.dda.note" bundle="${msg}" /></p>
 					</div>
 					
 					<div class="cstm-panel">

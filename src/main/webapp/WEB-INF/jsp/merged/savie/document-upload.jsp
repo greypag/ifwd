@@ -229,7 +229,7 @@ var languageP = "${language}";
 													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
 												<div class="mob-desk or">
-													<span class="OR">or</span>
+													<span class="OR"><fmt:message key="label.icon.or" bundle="${msg}" /></span>
 												</div>
 												<div class="mob-desk">
 													<label for="passportFileToUpload" class="orange-select-file">

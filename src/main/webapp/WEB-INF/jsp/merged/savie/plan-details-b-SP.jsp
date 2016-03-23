@@ -90,7 +90,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.payment.mode.savie.plancalculator" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa fa-info-circle info-tooltip"></i></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa fa-info-circle info-tooltip"></i></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">							
@@ -99,7 +99,8 @@ var affordabilityPremium = ${affordabilityPremium};
 									   <option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
 									   <option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
-									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">									
+									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="label.savie.plan.details.paymentmode" bundle="${msg}" /></label>							
 								</div>
 							</div>
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
@@ -120,7 +121,7 @@ var affordabilityPremium = ${affordabilityPremium};
 			                           <option value="10000">10,000</option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.savie.amount" bundle="${msg}" /></label>
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-amount"><fmt:message key="label.savie.amount" bundle="${msg}" /></label>
 								</div>
 							</div>
 							<div class="col-xs-12" id="amount-slide-holder">
@@ -157,7 +158,7 @@ var affordabilityPremium = ${affordabilityPremium};
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
 									<input type="text" name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.dob" bundle="${msg}" /></label> 
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="label.dob" bundle="${msg}" /></label> 
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
 									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }" type="text" name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
@@ -170,7 +171,7 @@ var affordabilityPremium = ${affordabilityPremium};
 									   <option value=""></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="correspondenceAddress3"><fmt:message key="label.payment.year" bundle="${msg}" /></label> 
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="total-payment-years"><fmt:message key="label.payment.year" bundle="${msg}" /></label> 
 								</div>
 							</div>								
 						</div>
@@ -178,7 +179,7 @@ var affordabilityPremium = ${affordabilityPremium};
 					<div class="col-xs-12 col-md-2 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" />
-				           	<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="correspondenceAddress3"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
+				           	<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
 			           	</div>
 					</div>
 					<div class="col-xs-12 col-md-2 plan-calculate">
@@ -446,7 +447,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									<fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" />
+									<fmt:message key="product.details.savie.product.details.keyproduct.risk" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -461,7 +462,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									<fmt:message key="product.details.savie.group1.section2.title" bundle="${msg}" />
+									<fmt:message key="product.details.savie.keyrisk.exclusion" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -480,7 +481,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" />
+									<fmt:message key="product.details.savie.glossary" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>

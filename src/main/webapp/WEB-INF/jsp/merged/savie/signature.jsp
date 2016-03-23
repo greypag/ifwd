@@ -130,7 +130,7 @@ var languageP = "${language}";
 					  </tr>
 					  <tr>
 						<td class="numbers">3</td>
-						<td class="adjust-body-content"><fmt:message key="label.savie.review.policy" bundle="${msg}" /></td>
+						<td class="adjust-body-content"><fmt:message key="label.savie.review.application" bundle="${msg}" /></td>
 						<td id="signature-status-3" class="savie-status">
 							<p class="table-desc-p pending"><fmt:message key="label.pending.review" bundle="${msg}" /></p>
 							<button class="btn savie-common-btn btn-table-savie hidden" data-toggle="modal" data-target="#policy-signature-modal"><fmt:message key="button.review.now" bundle="${msg}" /></button>
@@ -291,7 +291,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.salesillustration" bundle="${msg}" /></h4>
+		<h4 class="text-center"><fmt:message key="label.salesillustration" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
@@ -316,7 +316,7 @@ var languageP = "${language}";
   <div class="modal-dialog">
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-		<h4 class="text-center visible-xs visible-sm"><fmt:message key="label.savie.review.policy" bundle="${msg}" /></h4>
+		<h4 class="text-center"><fmt:message key="label.savie.review.application" bundle="${msg}" /></h4>
 		<div class="pdf">
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
