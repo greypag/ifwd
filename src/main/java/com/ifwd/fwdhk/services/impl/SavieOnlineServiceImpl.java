@@ -769,7 +769,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("USTreasurybills", "On"));
 			}
 			if("6".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4bother", "On"));
 				attributeList.add(new PdfAttribute("4bothers", savieFna.getQ4_b_others()));
 			}
 		}
@@ -839,7 +839,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("Investements", "On"));
 			}
 			if("4".equals(i)){
-				attributeList.add(new PdfAttribute("other", "On"));
+				attributeList.add(new PdfAttribute("4gother", "On"));
 				attributeList.add(new PdfAttribute("4gothers", savieFna.getQ4_g_others()));
 			}
 		}
