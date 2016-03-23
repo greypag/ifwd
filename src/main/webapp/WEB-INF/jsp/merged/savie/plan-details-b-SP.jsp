@@ -586,7 +586,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
 		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
-		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.appointment" bundle="${msg}" /></button></center>
+		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
 		    </div>
 		  </div>
 		</div>

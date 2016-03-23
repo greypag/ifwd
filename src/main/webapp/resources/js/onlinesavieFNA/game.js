@@ -78,7 +78,7 @@ var fnaSavieGame = {
 				    if (!e)
 						e = window.event;
 					e.cancelBubble = true;
-					e.returnValue = 'Some inputs or changes may not have been saved yet';
+					e.returnValue = getBundle(getBundleLanguage, "warning.unsave.change");
 
 					if (e.stopPropagation) {
 						e.stopPropagation();
@@ -88,7 +88,7 @@ var fnaSavieGame = {
 				};
 				
 				$(window).bind("onbeforeunload",function(){
-					return "Some inputs or changes may not have been saved yet";
+					return getBundle(getBundleLanguage, "warning.unsave.change");
 				})
 
 			}else{
