@@ -179,6 +179,12 @@ var languageP = "${language}";
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
+									  	<div  id="yes-radio-popup-intent" >
+										  
+									<!-- 	     	<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p> -->
+										     	<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
+										  
+										</div>									  
 								   </div>
 								</div>
 							</div>
@@ -378,11 +384,15 @@ var languageP = "${language}";
 	var $radio_no_elem;
 	
 	$(document).ready(function() {
-		$(".radio-yes").click(function(){
+		$("#haveReplacedYes").click(function(){
 			// these variables will be used when closing yes-radio-popup
-			$radio_yes_elem = $(this); 
-			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
+// 			$radio_yes_elem = $(this); 
+// 			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
 			$('#yes-radio-popup').css("display","block");
+		});
+		
+		$("#intentToReplacedYes").click(function(){
+			$('#yes-radio-popup-intent').css("display","block");
 		});
 		
 // 		$('.close').click(function() {
@@ -469,7 +479,14 @@ var languageP = "${language}";
         $('#keep-going-btn').click(function() {
 			$('#save-and-continue-batch5-modal').modal('hide');
 		});
+		$('#haveReplacedNo').click(function(){
+			$('#yes-radio-popup').css("display","none");
+		});
 		
+		$('#intentToReplacedNo').click(function(){
+			$('#yes-radio-popup-intent').css("display","none");
+		});
+        
 		// application saved modal will show after clicking 'Save and exit' button 
 		// no full fill type = 1
 		$('.save-exit-btn2').click(function() {
@@ -537,5 +554,6 @@ var languageP = "${language}";
 		});
 		
 		$('#yes-radio-popup').css("display","none");
+		$('#yes-radio-popup-intent').css("display","none");
 	});
 </script>

@@ -1634,7 +1634,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 }
 /* line 378, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode .availability-notice {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 19px;
   max-width: 316px;
   margin: 28px auto 0;
@@ -1907,7 +1907,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 564, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .partners h4 {
-  font-size: 24px;
+  font-size: 38px;
   margin-bottom: 30px;
   color: #ff8200;
 }
@@ -1948,21 +1948,21 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   }
 }
 /* line 594, ../sass/partials/savie/_landing-page.scss */
-.savie-regular-landing .partners .partners-holder img {
-  width: 80%;
-  max-width: 130px;
-}
+/* .savie-regular-landing .partners .partners-holder img { */
+/*   width: 80%; */
+/*   max-width: 130px; */
+/* } */
 @media (min-width: 992px) {
   /* line 594, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .partners .partners-holder img {
     float: left;
-    max-width: 110px;
+/*     max-width: 110px; */
   }
 
-  .savie-regular-landing .partners-holder .partner-desc{
-    margin-left: 110px;
-    text-align: left;
-  }
+/*   .savie-regular-landing .partners-holder .partner-desc{ */
+/*     margin-left: 110px; */
+/*     text-align: left; */
+/*   } */
 }
 /* line 602, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .partners .partners-holder a {
@@ -2176,6 +2176,9 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
   height: 36px;
   margin-top: 22px;
+    -ms-transform: scale(2,2); /* IE 9 */
+    -webkit-transform: scale(2,2); /* Safari */
+    transform: scale(2,2);
 }
 @media (min-width: 992px) {
   /* line 770, ../sass/partials/savie/_landing-page.scss */

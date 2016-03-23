@@ -66,7 +66,7 @@ var languageP = "${language}";
 						  <div class="psa-content">
 							<p class="description"><fmt:message key="custom.index.protect.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
-								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
+								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
 									<li><a href="<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
@@ -85,7 +85,7 @@ var languageP = "${language}";
 						  <div class="psa-content">
 							<p class="description"><fmt:message key="custom.index.save.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
-								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
+								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
 									<li><a href="<fmt:message key="link.category.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
@@ -100,7 +100,7 @@ var languageP = "${language}";
 						  <div class="psa-content">
 							<p class="description save"><fmt:message key="custom.index.enjoy.copy1" bundle="${msg}" /></p>
 							<div class="psa-link-content">
-								<img class="psa-arrow" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
+								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
 									<li><a href="<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
@@ -301,16 +301,25 @@ var languageP = "${language}";
 				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
-					  <div class="col-xs-3">&nbsp;</div>
-					  <div id="bp-agoda" class="col-xs-6 text-center">
+					  <div class="col-xs-2">&nbsp;</div>
+					  <div id="bp-agoda" class="col-xs-4 text-center">
 						 <div class="desktop-center clearfix">
-							<img class="img-responsive"src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
+							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
 <!-- 							</p> -->
 						</div>
+						
 					  </div>
-					  <div class="col-xs-3">&nbsp;</div>
+					  <div id="bp-club" class="col-xs-4 text-center">
+						 <div class="desktop-center clearfix">
+							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
+<%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
+<%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
+<!-- 							</p> -->
+						</div>
+					  </div>					  
+					  <div class="col-xs-2">&nbsp;</div>
 				   </div>
 				</div>
 			</div>								
@@ -414,7 +423,7 @@ var languageP = "${language}";
 			      });
 						
 				if(getWidth() < 992) {
-					console.log(getWidth());
+					//console.log(getWidth());
 					$('.psa-btn').attr('data-toggle', 'collapse');
 					$('.psa-collapse-content').addClass('collapse');
 					$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
@@ -448,7 +457,7 @@ var languageP = "${language}";
                              $('#nav-title-4').addClass('active');
                          }
                      });
-                     $('.psa-link-content').hide();
+                     //$('.psa-link-content').hide();
 				} else {
 					$('.psa-btn').attr('data-toggle', 'none');
 					$('.psa-collapse-content').removeClass('collapse');
@@ -492,7 +501,7 @@ var languageP = "${language}";
 	                   }
 	               });
 	
-	               $('.psa-link-content').hide();
+	               $('.psa-link-content').show();
 					} else {
 						$('.psa-btn').attr('data-toggle', 'none');
 						$('.psa-collapse-content').removeClass('collapse');

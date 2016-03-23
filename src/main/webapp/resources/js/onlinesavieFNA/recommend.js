@@ -553,10 +553,32 @@ var FNArecommendation = {
 
 							prod.find(".product-mobile-display").text(prod_data.name);
 							prod.find(".fna-product-name").text(prod_data.name);
-							prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));
+							
+							var cpArr=prod_data.contribution_period;
+							for(var j = 0; j < cpArr.length; j++){
+								if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "en"){
+									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "");
+								}else if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "zh") {
+									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "")
+									+ getBundle(getBundleLanguage, "fna.product.age.stern");
+								}
+							}
+							
+							prod.find(".sort-header.withdata .con_prd").html(cpArr.join(", "));
+							/*prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));*/
+							
 							prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
 							prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
-							prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);
+							
+							var ppArr=prod_data.protection_period.split(",");
+							for(var k = 0; k < ppArr.length; k++){
+								if(ppArr[k].indexOf("A") > 0){
+									ppArr[k] = ppArr[k].replace("A", "")
+									+ getBundle(getBundleLanguage, "fna.product.year");
+								}
+							}
+							prod.find(".sort-header.withdata .prd_age").text(ppArr.join(", "));
+							/*prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);*/
 
 							var key_feature_ul = $("<ul/>");
 
@@ -708,13 +730,13 @@ var FNArecommendation = {
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
 
 		//Show Only 1 product description
-		if(data.product_list.length == 1){
+		if(pNum == 1){
 			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
 		}
-		if(data.product_list.length>0 && data.hasILAS=='Y'){
+		if(pNum>0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescription(true);
 		}
-		if(data.product_list.length==0 && data.hasILAS=='Y'){
+		if(pNum==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
 		}
 		if(data.fulfilled=='N'){
