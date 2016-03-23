@@ -151,33 +151,37 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						
 						plan0 = new net.sf.json.JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan0.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						plan0.accumulate("accidentalDeathBenefit", formartNumber(planDetails0Rate.get(i).getAccidentalDeathBenefit()));
 						plan0.accumulate("rate","zero");
 						plansList.add(plan0);
 						
 						plan2 = new net.sf.json.JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan2.accumulate("totalPremium", formartNumber(planDetails2Rate.get(i).getTotalPremium()));
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+						plan2.accumulate("accidentalDeathBenefit", formartNumber(planDetails2Rate.get(i).getAccidentalDeathBenefit()));
 						plan2.accumulate("rate","two");
 						plansList.add(plan2);
 						
 						plan3 = new net.sf.json.JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan3.accumulate("totalPremium", formartNumber(planDetails3Rate.get(i).getTotalPremium()));
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+						plan3.accumulate("accidentalDeathBenefit", formartNumber(planDetails3Rate.get(i).getAccidentalDeathBenefit()));
 						plan3.accumulate("rate","three");
 						plansList.add(plan3);
 						
 						plan4 = new net.sf.json.JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", saviePlanDetails.getInsuredAmount());
+						plan4.accumulate("totalPremium", formartNumber(planDetails4Rate.get(i).getTotalPremium()));
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+						plan4.accumulate("accidentalDeathBenefit", formartNumber(planDetails4Rate.get(i).getAccidentalDeathBenefit()));
 						plan4.accumulate("rate","four");
 						plansList.add(plan4);
 						

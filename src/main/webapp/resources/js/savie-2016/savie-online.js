@@ -1054,8 +1054,6 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 				jsonTableData = $.parseJSON(JSON.stringify(data));
 				$total_years = json.salesIllustration.yearPlans.length;
 				var totalYears=0;
-				var guaranteedSurrenderBenefit=0;
-				var guaranteedSurrenderBenefit2Max=0;
 				if(paymentMode == 'RP') {
 				    
 					var paymentYears = $('#total-payment-years').val();
@@ -1068,10 +1066,6 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 							}
 							for(var j = 0; j < 4; j++){
 								//rate 0
-								guaranteedSurrenderBenefit2Max = guaranteedSurrenderBenefit = fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
-								if(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit > 400000) {
-									guaranteedSurrenderBenefit2Max = fmoney(400000);
-								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
@@ -1079,32 +1073,32 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#policy-year-0-0').html(i+1);
 										$('#premium-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 									if ((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) {
 										$('#policy-year-0-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.76"));
 										$('#premium-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if ((issueAge < 60) && i == (64 - issueAge)) {
 										$('#policy-year-0-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.66"));
 										$('#premium-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
@@ -1113,11 +1107,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1129,32 +1123,32 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#policy-year-2-0').html(i+1);
 										$('#premium-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 									if ((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) {
 										$('#policy-year-2-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.76"));
 										$('#premium-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if ((issueAge < 60) && i == (64 - issueAge)) {
 										$('#policy-year-2-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.66"));
 										$('#premium-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
@@ -1163,11 +1157,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1179,32 +1173,32 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#policy-year-3-0').html(i+1);
 										$('#premium-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ fmoney(guaranteedSurrenderBenefit2Max)
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 									if ((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) {
 										$('#policy-year-3-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.76"));
 										$('#premium-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ fmoney(guaranteedSurrenderBenefit2Max)
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if ((issueAge < 60) && i == (64 - issueAge)) {
 										$('#policy-year-3-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.66"));
 										$('#premium-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ fmoney(guaranteedSurrenderBenefit2Max)
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
@@ -1213,11 +1207,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1229,32 +1223,32 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#policy-year-4-0').html(i+1);
 										$('#premium-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 									if ((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) {
 										$('#policy-year-4-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.76"));
 										$('#premium-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if ((issueAge < 60) && i == (64 - issueAge)) {
 										$('#policy-year-4-1').html(getBundle(getBundleLanguage, "savie.planDetails.Age.66"));
 										$('#premium-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}else if (70 <= issueAge) {
 										alert('stick with the current display of Age 100');
@@ -1263,11 +1257,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if(json.salesIllustration.yearPlans[i].year == 100) {
 										$('#premium-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1282,11 +1276,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#credit-rate-change-'+rowCtr).html(json.salesIllustration.inputTable[0].guaranteeRate.split(",")[i]*100);
 										$('#premium-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-'+rowCtr).html(guaranteedSurrenderBenefit);
+										$('#surrender-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-'+rowCtr).html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ fmoney(guaranteedSurrenderBenefit2Max)
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1299,11 +1293,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#credit-rate-change-'+rowCtr).html(json.salesIllustration.inputTable[0].guaranteeRate.split(",")[i]*100);
 										$('#premium-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-'+rowCtr).html(guaranteedSurrenderBenefit);
+										$('#surrender-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-'+rowCtr).html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ fmoney(guaranteedSurrenderBenefit2Max)
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1330,20 +1324,16 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 								}else {
 									totalYears = 3;
 								}
-								guaranteedSurrenderBenefit2Max = guaranteedSurrenderBenefit = fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit);
-								if(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit > 400000) {
-									guaranteedSurrenderBenefit2Max = fmoney(400000);
-								}
 								//rate 0
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 									if (i == 4) {
 										$('#premium-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1352,22 +1342,22 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 9) {
 										$('#premium-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero" && json.salesIllustration.yearPlans[i].year == 100){
 										$('#premium-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-0-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-0-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-0-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 								}
 								//rate 2
@@ -1375,11 +1365,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 4) {
 										$('#premium-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1387,22 +1377,22 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 9) {
 										$('#premium-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "two" && json.salesIllustration.yearPlans[i].year == 100){
 										$('#premium-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-2-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-2-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-2-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 								}
 								//rate 3
@@ -1410,11 +1400,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 4) {
 										$('#premium-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1424,22 +1414,22 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#policy-year-3-1').html("10");
 										$('#premium-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three" && json.salesIllustration.yearPlans[i].year == 100){
 										$('#premium-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-3-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-3-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-3-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 								}
 								//rate 4
@@ -1447,11 +1437,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 4) {
 										$('#premium-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-0').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-0').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1459,22 +1449,22 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 9) {
 										$('#premium-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-1').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-1').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-1').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "four" && json.salesIllustration.yearPlans[i].year == 100){
 										$('#premium-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-change-4-2').html(guaranteedSurrenderBenefit);
+										$('#surrender-change-4-2').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-change-4-2').html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 								}
 								
@@ -1489,11 +1479,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#credit-rate-change-'+rowCtr).html(json.salesIllustration.inputTable[0].guaranteeRate.split(",")[i]*100);
 										$('#premium-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-'+rowCtr).html(guaranteedSurrenderBenefit);
+										$('#surrender-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-'+rowCtr).html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}
@@ -1506,11 +1496,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 										$('#credit-rate-change-'+rowCtr).html(json.salesIllustration.inputTable[0].guaranteeRate.split(",")[i]*100);//3.3%
 										$('#premium-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
-										$('#surrender-'+rowCtr).html(guaranteedSurrenderBenefit);
+										$('#surrender-'+rowCtr).html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										$('#death-'+rowCtr).html('<span data-toggle="tooltip" data-html="true" data-placement="right" title="" class=" default-pointer" data-original-title="Death Benefit (HK$) / Accidental Death Benefit (HK$)">'
 												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedDeathBenefit)
 												+ ' / '
-												+ guaranteedSurrenderBenefit2Max
+												+ fmoney(json.salesIllustration.yearPlans[i].plans[j].accidentalDeathBenefit)
 												+ '</span>');
 									}
 								}

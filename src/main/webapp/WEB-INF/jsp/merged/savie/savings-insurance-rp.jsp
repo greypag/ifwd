@@ -376,8 +376,8 @@
        			<h4 class="text-center"><fmt:message key="partner.offer.exclusive" bundle="${msg}" /></h4>
        			<div class="gray-divide" id="bar-exclusive"></div>
        			<div class="row partners-holder">
-       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
-       				<div class="col-xs-6 col-md-6 col-lg-6 text-center">
+       				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
+       				<div class="col-xs-4 col-md-4 col-lg-4 text-center">
        					<div class="desktop-center clearfix">
 							<img class="img-responsive"src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
 <!--         					<div class="partner-desc"> -->
@@ -385,7 +385,13 @@
 <!--         					</div> -->
        					</div>
        				</div>
-       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">&nbsp;</div>
+    		       			<div class="col-xs-4 col-md-4 col-lg-4 text-center">
+		       					<div class="desktop-center clearfix">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
+									
+		       					</div>
+		       				</div>	   				
+       				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
        			</div>
        		</div>
        		<div class="fna-icons-body text-center clearfix">
