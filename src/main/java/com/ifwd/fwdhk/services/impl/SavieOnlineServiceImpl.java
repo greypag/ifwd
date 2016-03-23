@@ -1904,6 +1904,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 			
+			LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+			if(lifeDeclaration==null){
+				lifeDeclaration = new LifeDeclarationBean();
+			}
+			lifeDeclaration.setHasReadAndAcceptFATC(policyApplication.getDeclaration1()!=null?policyApplication.getDeclaration1():false);
+			lifeDeclaration.setHasReadAndAcceptFATC2(policyApplication.getDeclaration2()!=null?policyApplication.getDeclaration2():false);
+			lifeDeclaration.setHasReadAndAcceptPICS(policyApplication.getDeclaration3()!=null?policyApplication.getDeclaration3():false);
+			lifeDeclaration.setHaveReplaced(policyApplication.getDeclaration4()!=null?policyApplication.getDeclaration4():false);
+			lifeDeclaration.setIntentToReplaced(policyApplication.getDeclaration5()!=null?policyApplication.getDeclaration5():false);
+			lifeDeclaration.setHasReadAndAcceptCancellation(policyApplication.getDeclaration6()!=null?policyApplication.getDeclaration6():false);
+			lifeDeclaration.setIntentToLiveOutside(policyApplication.getDeclaration7()!=null?policyApplication.getDeclaration7():false);
+			lifeDeclaration.setHasReadAndAgreeApplication(policyApplication.getDeclaration8()!=null?policyApplication.getDeclaration8():false);
+			lifeDeclaration.setChkboxDoNotSendMarketingInfo(policyApplication.getDeclaration9()!=null?policyApplication.getDeclaration9():false);
+			lifeDeclaration.setChkboxDoNotProvidePersonalData(policyApplication.getDeclaration10()!=null?policyApplication.getDeclaration10():false);
+			request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
+			
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			if(lifePolicy==null){
+				lifePolicy = new CreateEliteTermPolicyResponse();
+			}
+			lifePolicy.setPolicyNo(policyApplication.getPolicyNo()!=null?policyApplication.getPolicyNo():"");
+			request.getSession().setAttribute("lifePolicy", lifePolicy);
+			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());
 		}
