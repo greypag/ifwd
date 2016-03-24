@@ -11092,6 +11092,15 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     font-size: 25px;
     color: #f6871e;
 }     
+
+@media ( max-width : 991px) {
+	#fb-dialog-share{
+		display: none;
+	}
+}
+
+
+
 /*navbar revamp 1603*/
 .mob-topbar{
 	display:none;
