@@ -41,9 +41,9 @@ branchCode:
 		</c:forEach>
 	</c:if>
 </select><br/>
-accountNumber:<input type="text" id="accountNumber" name="accountNumber" value="${lifePayment.accountNumber }"/><br/>
-accountHolderName:<input type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }"/><br/>
-paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="${lifePayment.paymentAmount }"/><br/>
+accountNumber:<input type="text" autocomplete="off" id="accountNumber" name="accountNumber" value="${lifePayment.accountNumber }"/><br/>
+accountHolderName:<input type="text" autocomplete="off" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }"/><br/>
+paymentAmount:<input type="text" autocomplete="off" id="paymentAmount" name="paymentAmount" value="${lifePayment.paymentAmount }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/>
 <input type="button" id="saveLater" value="saveLater"/>
 </form>

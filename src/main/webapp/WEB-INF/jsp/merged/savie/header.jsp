@@ -204,7 +204,7 @@
 										<form class="padding-div">
 											<div class="form-group">
 												<label>Username</label>
-												<input class="form-control input-orange" id="username" type="text" placeholder="Username">
+												<input class="form-control input-orange" id="username" type="text" autocomplete="off" placeholder="Username">
 												<a title="Forgot Username | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotUserName">Forgot username?</a>
 											</div>
 											<div class="form-group">
@@ -264,7 +264,7 @@
 											<a title="Forgot Username | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotUserName">Forgot username?</a>
 										</div>
 									</div>
-									<input class="form-control input-orange" id="username" type="text" placeholder="Username">
+									<input class="form-control input-orange" id="username" type="text" autocomplete="off" placeholder="Username">
 								</div>
 								<div class="form-group">
 									<div class="clearfix">

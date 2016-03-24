@@ -32,7 +32,7 @@
 							<p class="right-header">Log in to FWD</p>
 							<div>
 								<form id="login-overlay-form" action="">
-									<input type="text" class="form-control" placeholder="Username" id="username" name="username">
+									<input type="text" autocomplete="off" class="form-control" placeholder="Username" id="username" name="username">
 									<input type="password" class="form-control" placeholder="Password" id="password" name="password">
 									<div class="btn-wrapper">
 										<button type="submit" class="btn btn-orange savie-common-btn">Login</button>

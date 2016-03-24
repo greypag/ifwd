@@ -37,13 +37,13 @@
 					<div class="left-desktop text-box form-group">
 						<input class="form-control gray-textbox" autocomplete="off"
 							id="firstname"
-							name="firstname" type="text"
+							name="firstname" type="text" autocomplete="off"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />"
 							value="${userDetails.firstName }" readonly="readonly">
 						<span class="error-msg" id="savieApplicantBeanFirstNameMsg"></span>
 						<input class="form-control gray-textbox" autocomplete="off"
 							id="lastname"
-							name="lastname" type="text"
+							name="lastname" type="text" autocomplete="off"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />"
 							value="${userDetails.lastName }" readonly="readonly">
 						<span class="error-msg" id="savieApplicantBeanlastNameMsg"></span>
@@ -62,7 +62,7 @@
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox" autocomplete="off"
 							id=""
-							name="chineseName" type="text"
+							name="chineseName" type="text" autocomplete="off"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />"
 							value="${lifePersonalDetails.chineseName }"> <span class="error-msg"
 							id="savieApplicantBeanchineseNameMsg"></span>
@@ -77,7 +77,7 @@
 					</div>
 					<div class="left-desktop text-box et-date-info clearfix">
 						<div class="clearfix">
-							<input type="text"
+							<input type="text" autocomplete="off"
 								class="form-control gray-textbox pull-left et-80-width"
 								name="dob" id="dob"
 								placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />"
@@ -105,7 +105,7 @@
 					</div>
 					<div class="left-desktop text-box et-date-info clearfix">
 						    <input type="hidden" name="gender" id="gender" value="${savieFna.gender }" /> 
-							<input type="text" id="gender" class="form-control gray-textbox pull-left et-80-width"
+							<input type="text" autocomplete="off" id="gender" class="form-control gray-textbox pull-left et-80-width"
 							       placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />"
 							       value="${savieFna.gender }" />
 						<div class="et-app-edit-wrapper">
@@ -129,7 +129,7 @@
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox capitalize"
 							autocomplete="off" id="hkid"
-							name="hkid" type="text" value="${lifePersonalDetails.hkid }"
+							name="hkid" type="text" autocomplete="off" value="${lifePersonalDetails.hkid }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
 						<span class="error-msg" id="hkidMessage"></span>
 					</div>
@@ -234,7 +234,7 @@
 								key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
 					</div>
 					<div class="left-desktop text-box clearfix">
-						<input type="text" class="form-control gray-textbox"
+						<input type="text" autocomplete="off" class="form-control gray-textbox"
 							name="mobileNumber"
 							id="mobileNumber"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />"
@@ -252,7 +252,7 @@
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox" autocomplete="off"
 							id="emailAddress"
-							name="emailAddress" type="text"
+							name="emailAddress" type="text" autocomplete="off"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />"
 							value="${userDetails.emailAddress }" readonly> <span
 							class="error-msg" id="emailMessage"></span>
@@ -270,19 +270,19 @@
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox permanent-address"
 							autocomplete="off" id="permanetAddress1" maxlength="29"
-							name="permanetAddress1" type="text" value="${lifePersonalDetails.permanetAddress1 }"
+							name="permanetAddress1" type="text" autocomplete="off" value="${lifePersonalDetails.permanetAddress1 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage1"></span>
 						<input
 							class="form-control gray-textbox permanent-address optional-field"
 							autocomplete="off" id="permanetAddress2" maxlength="29"
-							name="permanetAddress2" type="text" value="${lifePersonalDetails.permanetAddress2 }"
+							name="permanetAddress2" type="text" autocomplete="off" value="${lifePersonalDetails.permanetAddress2 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage2"></span>
 						<input
 							class="form-control gray-textbox permanent-address optional-field"
 							autocomplete="off" id="permanetAddress3" maxlength="19"
-							name="permanetAddress3" type="text" value="${lifePersonalDetails.permanetAddress3 }"
+							name="permanetAddress3" type="text" autocomplete="off" value="${lifePersonalDetails.permanetAddress3 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 						<span class="error-msg" id="permanentAddressMessage3"></span>
 						<div class="selectDiv et-district-wrapper">
@@ -349,21 +349,21 @@
 							class="form-control gray-textbox residential residential-address"
 							autocomplete="off"
 							id="residentialAddress1"
-							name="residentialAddress1" type="text" value="${lifePersonalDetails.residentialAddress1 }"
+							name="residentialAddress1" type="text" autocomplete="off" value="${lifePersonalDetails.residentialAddress1 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 						<span class="error-msg" id="residentialAddressMessage1"></span>
 						<input
 							class="form-control gray-textbox residential residential-address optional-field"
 							autocomplete="off"
 							id="residentialAddress2"
-							name="residentialAddress2" type="text" value="${lifePersonalDetails.residentialAddress2 }"
+							name="residentialAddress2" type="text" autocomplete="off" value="${lifePersonalDetails.residentialAddress2 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 						<span class="error-msg" id="residentialAddressMessage2"></span>
 						<input
 							class="form-control gray-textbox residential residential-address optional-field"
 							autocomplete="off"
 							id="residentialAddress3"
-							name="residentialAddress3" type="text" value="${lifePersonalDetails.residentialAddress3 }"
+							name="residentialAddress3" type="text" autocomplete="off" value="${lifePersonalDetails.residentialAddress3 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 						<span class="error-msg" id="residentialAddressMessage3"></span>
 						<div class="selectDiv et-district-wrapper">
@@ -429,19 +429,19 @@
 							class="form-control gray-textbox  correspondence-address"
 							autocomplete="off"
 							id="correspondenceAddress1"
-							name="correspondenceAddress1" type="text" value="${lifePersonalDetails.correspondenceAddress1 }"
+							name="correspondenceAddress1" type="text" autocomplete="off" value="${lifePersonalDetails.correspondenceAddress1 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 						<span class="error-msg" id="corrAddressMessage1"></span> <input
 							class="form-control gray-textbox correspondence-address optional-field"
 							autocomplete="off"
 							id="correspondenceAddress2"
-							name="correspondenceAddress2" type="text" value="${lifePersonalDetails.correspondenceAddress2 }"
+							name="correspondenceAddress2" type="text" autocomplete="off" value="${lifePersonalDetails.correspondenceAddress2 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 						<span class="error-msg" id="corrAddressMessage2"></span> <input
 							class="form-control gray-textbox correspondence-address optional-field"
 							autocomplete="off"
 							id="correspondenceAddress3"
-							name="correspondenceAddress3" type="text" value="${lifePersonalDetails.correspondenceAddress3 }"
+							name="correspondenceAddress3" type="text" autocomplete="off" value="${lifePersonalDetails.correspondenceAddress3 }"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 						<span class="error-msg" id="corrAddressMessage3"></small> </span>
 						<div class="selectDiv et-district-wrapper">

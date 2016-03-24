@@ -176,7 +176,7 @@ var languageP = "${language}";
 								
 						   </div>
 						   <div id="date" class="selectDiv preferred-date gray-text-bg">
-								<!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
+								<!-- <input type="text" autocomplete="off" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
 								<p class="bank-info-select-label">Date</p>
 								<%
 								Map results = (Map)request.getAttribute("datesMap");
@@ -189,12 +189,12 @@ var languageP = "${language}";
 									while(i.hasNext()){
 										entry=(Map.Entry<String, List>)i.next();
 								%>
-								<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" style="display:none;" >
+								<input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" style="display:none;" >
 								<%
 									}
 								}else {
 								%>
-								<input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
+								<input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
 								<%
 								}
 								%>
@@ -202,7 +202,7 @@ var languageP = "${language}";
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div id="time" class="selectDiv timeslot gray-text-bg">
-								<!-- <input type="text" name="preferred-time" id="preferred-time" value="Time" class="time preferred-time" autocomplete="off"> -->
+								<!-- <input type="text" autocomplete="off" name="preferred-time" id="preferred-time" value="Time" class="time preferred-time" autocomplete="off"> -->
 								<p class="bank-info-select-label">Time</p>
 								<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
                                     <option value=""></option>

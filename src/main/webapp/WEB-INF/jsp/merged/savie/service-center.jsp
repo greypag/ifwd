@@ -52,7 +52,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.servicecenter.preferreddate" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
+												<input type="text" autocomplete="off" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
 											</div>
 										</div>
 									</div>
@@ -61,7 +61,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret"></span>
-												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
+												<!-- <input type="text" autocomplete="off" name="preferred-time" id="preferred-time" value=""> -->
 												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
 											        <option value=""></option>
 												</select>

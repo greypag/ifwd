@@ -94,8 +94,8 @@
 											<label for="give-last-name" class="application-page-input-text"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name">
-											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name">
+											<input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" autocomplete="off" placeholder="Given Name">
+											<input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" autocomplete="off" placeholder="Last Name">
 										</div>
 									</div>
 									
@@ -104,7 +104,7 @@
 											<label for="savieApplicantBean.chineseName" class="application-page-input-text"><fmt:message key="savie.application.chinese.name" bundle="${msg}" /> <span class="optional"><fmt:message key="savie.application.optional" bundle="${msg}" /></span></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese">
+											<input class="form-control gray-textbox" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" autocomplete="off" placeholder="Name in Chinese">
 										</div>
 									</div>
 									<div class="clearfix form-group has-error">
@@ -112,7 +112,7 @@
 											<label for="savieApplicantBean.hkId" class="application-page-input-text"><fmt:message key="savie.application.HKID" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="X123456(7)" pattern="^([A-Z0-9])*$" >
+											<input class="form-control gray-textbox" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" autocomplete="off" placeholder="X123456(7)" pattern="^([A-Z0-9])*$" >
 											<span class="error-msg" id="hkidMessage"></span>
 										</div>
 									</div>
@@ -255,7 +255,7 @@
 													<input class="form-control gray-textbox" id="mobile-first" type="number" placeholder="852" onchange="getMobileFinalValue()" maxlength="3" oninput="maxLengthCheck(this)"  max="999" min ="1"/>
 												</div>
 												<div class="pull-left suffix">
-													<input class="form-control gray-textbox" id="mobile-second" type="text" placeholder="12345678" onchange="getMobileFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
+													<input class="form-control gray-textbox" id="mobile-second" type="text" autocomplete="off" placeholder="12345678" onchange="getMobileFinalValue()" maxlength="8" oninput="maxLengthCheck(this)"  max="99999999" min ="1"/>
 												</div>
 												<input id="savieApplicantBean.mobileNo" name="savieApplicantBean.mobileNo" value="" type="hidden" />
 												<span class="error-msg" id="mobilePrefixMessage"></span>
@@ -282,10 +282,10 @@
 											<label for="inputdefault" class="application-page-input-text"><fmt:message key="savie.application.Residential.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="Line 1">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" autocomplete="off" placeholder="Line 1">
 											<span class="error-msg" id="resLine1Message"></span>
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="Line 2">
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="Line 3">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" autocomplete="off" placeholder="Line 2">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" autocomplete="off" placeholder="Line 3">
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
@@ -310,10 +310,10 @@
 											<label for="inputdefault" class="application-page-input-text"><fmt:message key="savie.application.Correspondence.address" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="Line 1">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" autocomplete="off" placeholder="Line 1">
 											<span class="error-msg" id="resLine1Message"></span>
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="Line 2">
-											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="Line 3">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" autocomplete="off" placeholder="Line 2">
+											<input class="form-control gray-textbox residential" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" autocomplete="off" placeholder="Line 3">
 											
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
@@ -500,16 +500,16 @@
 									<h3 class="mobile-desc hidden-md hidden-lg"><fmt:message key="savie.application.Beneficiary" bundle="${msg}" /> <span><fmt:message key="savie.application.Person1" bundle="${msg}" /></span></h3>
 									<div class="form-group has-error beneficiary-info-row">
 										<label for="savieBeneficiaryBeans[0].firstName"><fmt:message key="savie.application.english.name" bundle="${msg}" /></label>
-										<input type="text" id="savieBeneficiaryBean[0].fullName" hidden>
-										<input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBeans[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
+										<input type="text" autocomplete="off" id="savieBeneficiaryBean[0].fullName" hidden>
+										<input type="text" autocomplete="off" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBeans[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
 										<span class="error-msg" id="beneficiaryFnameMessage[0]"></span>
-										<input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBeans[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
+										<input type="text" autocomplete="off" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBeans[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
 										<span class="error-msg" id="beneficiaryLnameMessage[0]"></span>
 										<span class="dup-error-msg hidden" id="duplicate-english-name[0]"><fmt:message key="savie.application.Duplicate.English.Name" bundle="${msg}" /></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<label for="savieBeneficiaryBean[0].chineseName"><fmt:message key="savie.application.chinese.name" bundle="${msg}" /> <span class="optional"><fmt:message key="savie.application.optional" bundle="${msg}" /></span></label>
-										<input type="text" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBeans[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
+										<input type="text" autocomplete="off" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBeans[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
 										<span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
 										<span class="dup-error-msg hidden" id="duplicate-chinese-name[0]"><fmt:message key="savie.application.Duplicate.Chinese.Name" bundle="${msg}" /></span>
 									</div>
@@ -520,7 +520,7 @@
 											<option>Lorem ipsum</option>
 											<option>Lorem ipsum</option>
 										</select>-->
-										<!--<input type="text" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No" value="">-->
+										<!--<input type="text" autocomplete="off" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No" value="">-->
 										<div class="clearfix">
 											<div class="pull-left select">
 												<div class="selectDiv">
@@ -532,8 +532,8 @@
 												</div>
 											</div>
 											<div class="pull-left input">
-												<input class="form-control gray-textbox" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" value="">
-												<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBeans[0].passportNo" value="">
+												<input class="form-control gray-textbox" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBeans[0].hkId" value="">
+												<input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBeans[0].passportNo" value="">
 											</div>
 										</div>
 										<span class="error-msg" id="bnfPassportMessage[0]"></span>
@@ -684,7 +684,7 @@
 											<label for="saviePaymentBean.accountNo"><fmt:message key="savie.application.Account.no" bundle="${msg}" /></label>
 										</div>
 										<div class="padding-none col-xs-12 col-md-8">
-											<input id="saviePaymentBean.accountNo" name="saviePaymentBean.accountNo" class="form-control gray-textbox" type="text" placeholder="Account no" />
+											<input id="saviePaymentBean.accountNo" name="saviePaymentBean.accountNo" class="form-control gray-textbox" type="text" autocomplete="off" placeholder="Account no" />
 										</div>
 									</div>               
 									<div class="form-group paddingbottom clearfix">

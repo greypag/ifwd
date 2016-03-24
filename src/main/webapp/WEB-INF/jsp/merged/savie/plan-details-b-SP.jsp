@@ -131,7 +131,7 @@ var affordabilityPremium = ${affordabilityPremium};
 				                   		<fmt:formatNumber value="${slider_value}" type="number"/>
 				                   		</span></span></h3>
 				                   </div>
-				                    <input type="text" class="span2 amount-slider" name="amount" 
+				                    <input  class="span2 amount-slider" name="amount" 
 				                    value="${slider_value}" 
 				                    data-slider-min="${slider_min}" 
 				                    data-slider-max="${slider_max}" 
@@ -156,12 +156,12 @@ var affordabilityPremium = ${affordabilityPremium};
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-									<input type="text" name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+									<input  name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="label.dob" bundle="${msg}" /></label> 
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
-									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }" type="text" name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
+									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }"  name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>
 								</div> --%>
 							</div>
@@ -178,7 +178,7 @@ var affordabilityPremium = ${affordabilityPremium};
 					</div>
 					<div class="col-xs-12 col-md-2 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
-				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" />
+				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
 				           	<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
 			           	</div>
 					</div>

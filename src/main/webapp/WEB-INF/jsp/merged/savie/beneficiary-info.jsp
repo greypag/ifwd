@@ -125,23 +125,23 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[0]" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryLastName[0]" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[0]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[0]" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryFirstName[0]" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
-										<input type="text" autocomplete="off" id="beneficiaryFullName[0]" hidden />
+										<input type="text" autocomplete="off" autocomplete="off" id="beneficiaryFullName[0]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupNameErMsg[0]">Duplicate english name</span>
 									</div>
 									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
@@ -165,11 +165,11 @@ var languageP = "${language}";
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-0">
-											<input type="text" id="beneficiaryHkid[0]" name="beneficaryID1" value="${lifeBeneficaryInfo.beneficaryID1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryHkid[0]" name="beneficaryID1" value="${lifeBeneficaryInfo.beneficaryID1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-0">
-											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[0]"></span>
@@ -236,7 +236,7 @@ var languageP = "${language}";
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[0]"></span>
@@ -265,23 +265,23 @@ var languageP = "${language}";
 								<form id="beneficiary-info-form[1]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[1]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[1]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[1]" name="beneficaryFirstName2" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryFirstName[1]" name="beneficaryFirstName2" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[1]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
-										<input type="text" autocomplete="off" id="beneficiaryFullName[1]" hidden />
+										<input type="text" autocomplete="off" autocomplete="off" id="beneficiaryFullName[1]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[1]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupNameErMsg[1]">Duplicate english name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[1]"></span>
@@ -305,11 +305,11 @@ var languageP = "${language}";
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-1">
-											<input type="text" id="beneficiaryHkid[1]" name="beneficaryID2" value="${lifeBeneficaryInfo.beneficaryID2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryHkid[1]" name="beneficaryID2" value="${lifeBeneficaryInfo.beneficaryID2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-1">
-											<input type="text" id="beneficiaryPassport[1]" name="beneficiaryPassport2" value="${lifeBeneficaryInfo.beneficiaryPassport2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryPassport[1]" name="beneficiaryPassport2" value="${lifeBeneficaryInfo.beneficiaryPassport2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[1]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[1]"></span>
@@ -376,7 +376,7 @@ var languageP = "${language}";
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[1]" name="beneficaryWeight2" value="${lifeBeneficaryInfo.beneficaryWeight2 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryEntitlement[1]" name="beneficaryWeight2" value="${lifeBeneficaryInfo.beneficaryWeight2 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[1]"></span>
@@ -405,23 +405,23 @@ var languageP = "${language}";
 								<form id="beneficiary-info-form[2]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[2]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[2]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[2]" name="beneficaryFirstName3" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" autocomplete="off" id="beneficiaryFirstName[2]" name="beneficaryFirstName3" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[2]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 										</div>
-										<input type="text" autocomplete="off" id="beneficiaryFullName[2]" hidden />
+										<input type="text" autocomplete="off" autocomplete="off" id="beneficiaryFullName[2]" hidden />
 										<span class="error-msg" id="beneficiaryFirstErMsg[2]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupNameErMsg[2]">Duplicate english name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[2]"></span>
@@ -445,11 +445,11 @@ var languageP = "${language}";
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-2">
-											<input type="text" id="beneficiaryHkid[2]" name="beneficaryID3" value="${lifeBeneficaryInfo.beneficaryID3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryHkid[2]" name="beneficaryID3" value="${lifeBeneficaryInfo.beneficaryID3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-2">
-											<input type="text" id="beneficiaryPassport[2]" name="beneficiaryPassport3" value="${lifeBeneficaryInfo.beneficiaryPassport3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryPassport[2]" name="beneficiaryPassport3" value="${lifeBeneficaryInfo.beneficiaryPassport3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[2]"><fmt:message key="placeholder.hkid.passport.no" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidErMsg[2]"></span>
@@ -516,7 +516,7 @@ var languageP = "${language}";
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[2]" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input"  />
+											<input type="text" autocomplete="off" id="beneficiaryEntitlement[2]" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input"  />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[2]"></span>

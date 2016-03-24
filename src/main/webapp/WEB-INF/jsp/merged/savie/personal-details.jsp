@@ -100,19 +100,19 @@ var languageP = "${language}";
                               <div class="col-sm-12 col-md-6 left">
 								<div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" autocomplete="off" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="firstName"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="firstNameErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" value="${userDetails.lastName }" autocomplete="off" readonly="readonly" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="lastNameErMsg"></span>
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -134,7 +134,7 @@ var languageP = "${language}";
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkid" type="text" value="${lifePersonalDetails.hkid }" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkid" type="text" autocomplete="off" value="${lifePersonalDetails.hkid }" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="hkId"><fmt:message key="placeholder.hkid" bundle="${msg}" /></label>
                                     </div>
 									<span class="error-msg" id="hkidErMsg"></span>
@@ -219,7 +219,7 @@ var languageP = "${language}";
                                     <div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label"><fmt:message key="placeholder.dob" bundle="${msg}" /></label>
-											<input type="text" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
+											<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
@@ -231,7 +231,7 @@ var languageP = "${language}";
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" autocomplete="off" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo"><fmt:message key="placeholder.residential.number" bundle="${msg}" /></label>
                                           </div>
                                        </div>
@@ -242,7 +242,7 @@ var languageP = "${language}";
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" autocomplete="off" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo"><fmt:message key="placeholder.mobileno" bundle="${msg}" /></label>
                                           </div>
                                        </div>
@@ -325,17 +325,17 @@ var languageP = "${language}";
                                  <div class="clearfix form-group has-error">
 									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" maxlength="29"/>
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" autocomplete="off" maxlength="29"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" maxlength="29"/>
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" autocomplete="off" maxlength="29"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" maxlength="19"/>
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" autocomplete="off" maxlength="19"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
                                     </div>
                                     <span class="error-msg" id="permanentAdd3ErMsg"></span>
@@ -393,17 +393,17 @@ var languageP = "${language}";
                                  </div>
                                  <div class="clearfix form-group has-error hidden" id="diffToPermanentShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" maxlength="29" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" maxlength="29" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" maxlength="19" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" autocomplete="off" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
                                     </div>
                                     <span class="error-msg" id="residentialAdd3ErMsg"></span>
@@ -461,17 +461,17 @@ var languageP = "${language}";
                                  </div>
 								 <div class="clearfix form-group has-error hidden" id="diffToResidentialShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" maxlength="29" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" maxlength="29" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" maxlength="19" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" autocomplete="off" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
                                     </div>
                                     <span class="error-msg" id="correspondenceAdd3ErMsg"></span>

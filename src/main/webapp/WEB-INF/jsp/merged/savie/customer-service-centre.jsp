@@ -109,12 +109,12 @@ var language = "${language}";
 						  while(i.hasNext()){
 							  entry=(Map.Entry<String, List>)i.next();
 					  %>
-					  <input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
+					  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
 					  <%
 						  }
 					  }else {
 					  %>
-					  <input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
+					  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
 					  <%
 					  }
 					  %>

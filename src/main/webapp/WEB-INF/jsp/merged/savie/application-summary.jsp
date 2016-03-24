@@ -92,13 +92,13 @@
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="planName" name="planName" value="SAVIE" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="SAVIE" readonly="readonly" />
 								<label class="mdl-textfield__label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="savingAmount" name="savingAmount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -121,19 +121,19 @@
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="lastName" name="lastName" value="${lifePersonalDetails.lastname }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="lastName" name="lastName" value="${lifePersonalDetails.lastname }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="firstName" name="firstName" value="${lifePersonalDetails.firstname }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="firstName" name="firstName" value="${lifePersonalDetails.firstname }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="firstName"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="chineseName" name="chineseName" value="${lifePersonalDetails.chineseName }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" autocomplete="off" id="chineseName" name="chineseName" value="${lifePersonalDetails.chineseName }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="chineseName"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -149,7 +149,7 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="hkId" name="hkId" value="${lifePersonalDetails.hkid }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="hkId" name="hkId" value="${lifePersonalDetails.hkid }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="hkId"><fmt:message key="placeholder.hkid" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -175,7 +175,7 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="so-calendar-dob" name="so-calendar-dob" value="${lifePersonalDetails.dob }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="so-calendar-dob" name="so-calendar-dob" value="${lifePersonalDetails.dob }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="so-calendar-dob"><fmt:message key="placeholder.dob" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -183,13 +183,13 @@
                <div class="desktop-right">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialNo" name="residentialNo" value="${lifePersonalDetails.residentialTelNo }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="residentialNo" name="residentialNo" value="${lifePersonalDetails.residentialTelNo }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="residentialNo">Residential telephone no.</label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="telephoneNo" name="telephoneNo" value="${lifePersonalDetails.mobileNumber }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="telephoneNo" name="telephoneNo" value="${lifePersonalDetails.mobileNumber }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="telephoneNo"><fmt:message key="placeholder.mobile.no" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -205,26 +205,26 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="emailAddress" name="emailAddress" value="${lifePersonalDetails.emailAddress }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="emailAddress" name="emailAddress" value="${lifePersonalDetails.emailAddress }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="emailAddress"><fmt:message key="placeholder.email" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<span class="warning-note">Permanent address (No P.O box address allowed)</span>
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress1" name="permanentAddress1" value="${lifePersonalDetails.permanetAddress1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="permanentAddress1" name="permanentAddress1" value="${lifePersonalDetails.permanetAddress1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress2" name="permanentAddress2" value="${lifePersonalDetails.permanetAddress2 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="permanentAddress2" name="permanentAddress2" value="${lifePersonalDetails.permanetAddress2 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress3" name="permanentAddress3" value="${lifePersonalDetails.permanetAddress3 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="permanentAddress3" name="permanentAddress3" value="${lifePersonalDetails.permanetAddress3 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -240,19 +240,19 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" maxlength="29"/>
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" maxlength="29"/>
 								<label class="mdl-textfield__label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" maxlength="29"/>
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" maxlength="29"/>
 								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" maxlength="19"/>
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" maxlength="19"/>
 								<label class="mdl-textfield__label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -268,19 +268,19 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -331,7 +331,7 @@
 						</div>
                   <div id="otherOccupationDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
 							</div>
 						</div>
@@ -339,7 +339,7 @@
                <div class="desktop-right">
                   <div id="employerNameDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="currentEmployer">Current employer's name</label>
 							</div>
 						</div>
@@ -393,7 +393,7 @@
 		             <div class="desktop-left">
 			            <div class="form-group application-summ">
 						   <div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="isOwnEstate" name="isOwnEstate" value="<fmt:message key="option.own.estate" bundle="${msg}" />" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="isOwnEstate" name="isOwnEstate" value="<fmt:message key="option.own.estate" bundle="${msg}" />" readonly="readonly" />
 								<label class="mdl-textfield__label" for="isOwnEstate"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></label>
 						   </div>
 						</div>
@@ -410,25 +410,25 @@
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[0]" name="beneficiaryLastName[0]" value="${lifeBeneficaryInfo.beneficaryLastName1 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryLastName[0]" name="beneficiaryLastName[0]" value="${lifeBeneficaryInfo.beneficaryLastName1 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryLastName[0]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[0]" name="beneficiaryFirstName[0]" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryFirstName[0]" name="beneficiaryFirstName[0]" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryFirstName[0]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" autocomplete="off" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[0]" name="beneficiaryHkid[0]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport1:lifeBeneficaryInfo.beneficaryID1 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[0]" name="beneficiaryHkid[0]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport1:lifeBeneficaryInfo.beneficaryID1 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryHkid[0]">${lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? "Passport":"HKID" }</label>
 											</div>
 										</div>
@@ -456,7 +456,7 @@
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[0]" name="beneficiaryEntitlement[0]" value="${lifeBeneficaryInfo.beneficaryWeight1 }%" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryEntitlement[0]" name="beneficiaryEntitlement[0]" value="${lifeBeneficaryInfo.beneficaryWeight1 }%" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryEntitlement[0]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
@@ -469,25 +469,25 @@
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[1]" name="beneficiaryLastName[1]" value="${lifeBeneficaryInfo.beneficaryLastName2 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryLastName[1]" name="beneficiaryLastName[1]" value="${lifeBeneficaryInfo.beneficaryLastName2 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryLastName[1]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[1]" name="beneficiaryFirstName[1]" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryFirstName[1]" name="beneficiaryFirstName[1]" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryFirstName[1]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[1]" name="beneficiaryChineseName[1]" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" autocomplete="off" id="beneficiaryChineseName[1]" name="beneficiaryChineseName[1]" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[1]" name="beneficiaryHkid[1]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport2:lifeBeneficaryInfo.beneficaryID2 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[1]" name="beneficiaryHkid[1]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport2:lifeBeneficaryInfo.beneficaryID2 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryHkid[1]">${lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? "Passport":"HKID" }</label>
 											</div>
 										</div>
@@ -515,7 +515,7 @@
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[1]" name="beneficiaryEntitlement[1]" value="${lifeBeneficaryInfo.beneficaryWeight2 }%" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryEntitlement[1]" name="beneficiaryEntitlement[1]" value="${lifeBeneficaryInfo.beneficaryWeight2 }%" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryEntitlement[1]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
@@ -528,25 +528,25 @@
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[2]" name="beneficiaryLastName[2]" value="${lifeBeneficaryInfo.beneficaryLastName3 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryLastName[2]" name="beneficiaryLastName[2]" value="${lifeBeneficaryInfo.beneficaryLastName3 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryLastName[2]"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[2]" name="beneficiaryFirstName[2]" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryFirstName[2]" name="beneficiaryFirstName[2]" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryFirstName[2]"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[2]" name="beneficiaryChineseName[2]" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" autocomplete="off" id="beneficiaryChineseName[2]" name="beneficiaryChineseName[2]" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 											</div>
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[2]" name="beneficiaryHkid[2]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport3:lifeBeneficaryInfo.beneficaryID3 }" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[2]" name="beneficiaryHkid[2]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport3:lifeBeneficaryInfo.beneficaryID3 }" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryHkid[2]">${lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? "Passport":"HKID" }</label>
 											</div>
 										</div>
@@ -574,7 +574,7 @@
 										</div>
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[2]" name="beneficiaryEntitlement[2]" value="${lifeBeneficaryInfo.beneficaryWeight3 }%" readonly="readonly" />
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryEntitlement[2]" name="beneficiaryEntitlement[2]" value="${lifeBeneficaryInfo.beneficaryWeight3 }%" readonly="readonly" />
 												<label class="mdl-textfield__label" for="beneficiaryEntitlement[2]"><fmt:message key="placeholder.entitlement" bundle="${msg}" /></label>
 											</div>
 										</div>
@@ -588,7 +588,7 @@
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="amount" name="amount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="amount" name="amount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="amount"><fmt:message key="placeholder.amount1" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -604,7 +604,7 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
 							</div>
 						</div>
@@ -622,7 +622,7 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountNo" name="accountNo" value="${lifePayment.accountNumber }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="accountNo" name="accountNo" value="${lifePayment.accountNumber }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="accountNo"><fmt:message key="placeholder.account.no" bundle="${msg}" /></label>
 							</div>
 						</div>

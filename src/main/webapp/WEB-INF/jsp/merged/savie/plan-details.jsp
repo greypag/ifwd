@@ -89,7 +89,7 @@ var context = "${pageContext.request.contextPath}";
 							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="saviee.planoption.q1.currency" bundle="${msg}" /></label>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" autocomplete="off" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<div id="left" class="pull-left">
 								<p><fmt:message key="saviee.planoption.q1.min" bundle="${msg}" /></p>
@@ -115,7 +115,7 @@ var context = "${pageContext.request.contextPath}";
 								hidden-xs hidden-sm
 								 -->
 								<div class="input-group input-append date" id="datePicker">
-									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="" readonly />
+									<input type="text" autocomplete="off" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth"><fmt:message key="savie.planDetails.birth.above" bundle="${msg}" /></span>
@@ -134,7 +134,7 @@ var context = "${pageContext.request.contextPath}";
 						<h2><fmt:message key="saviee.planoption.promocode" bundle="${msg}" /><!--
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="tooltips.savie.promo_code" bundle="${msg}" />"></button>-->
 						</h2>
-						<input value="${savingPromocode }" name="promocode" type="text" placeholder="<fmt:message key="saviee.planoption.promocode.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
+						<input value="${savingPromocode }" name="promocode" type="text" autocomplete="off" placeholder="<fmt:message key="saviee.planoption.promocode.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">

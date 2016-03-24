@@ -11,14 +11,14 @@
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
 <form id="lifeEmploymentInfoForm" action="">
-employmentStatus:<input type="text" id="employmentStatus" name="employmentStatus" value="${lifeEmploymentInfo.employmentStatus }"/><br/>
-natureOfBusiness:<input type="text" id="natureOfBusiness" name="natureOfBusiness" value="${lifeEmploymentInfo.natureOfBusiness }"/><br/>
-occupation:<input type="text" id="occupation" name="occupation" value="${lifeEmploymentInfo.occupation }"/><br/>
-employerName:<input type="text" id="employerName" name="employerName" value="${lifeEmploymentInfo.employerName }"/><br/>
-monthlyPersonalIncome:<input type="text" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${lifeEmploymentInfo.monthlyPersonalIncome }"/><br/>
-education:<input type="text" id="education" name="education" value="${lifeEmploymentInfo.education }"/><br/>
-amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }"/><br/>
-amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${lifeEmploymentInfo.amountOfLiquidAssets }"/><br/>
+employmentStatus:<input type="text" autocomplete="off" id="employmentStatus" name="employmentStatus" value="${lifeEmploymentInfo.employmentStatus }"/><br/>
+natureOfBusiness:<input type="text" autocomplete="off" id="natureOfBusiness" name="natureOfBusiness" value="${lifeEmploymentInfo.natureOfBusiness }"/><br/>
+occupation:<input type="text" autocomplete="off" id="occupation" name="occupation" value="${lifeEmploymentInfo.occupation }"/><br/>
+employerName:<input type="text" autocomplete="off" id="employerName" name="employerName" value="${lifeEmploymentInfo.employerName }"/><br/>
+monthlyPersonalIncome:<input type="text" autocomplete="off" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${lifeEmploymentInfo.monthlyPersonalIncome }"/><br/>
+education:<input type="text" autocomplete="off" id="education" name="education" value="${lifeEmploymentInfo.education }"/><br/>
+amountOfOtherSourceOfIncome:<input type="text" autocomplete="off" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }"/><br/>
+amountOfLiquidAssets:<input type="text" autocomplete="off" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${lifeEmploymentInfo.amountOfLiquidAssets }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/>
 <input type="button" id="saveLater" value="saveLater"/>
 

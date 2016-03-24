@@ -166,7 +166,7 @@
 					<div class="inputDiv">
 						<div class="textfield">
 							<form>
-							<input type="text" name="emailAddress" id="emailAddress">
+							<input type="text" autocomplete="off" name="emailAddress" id="emailAddress">
 							</form>
 						</div><div id="emailBtn" onclick="javascript:fwd.sendEmail();"><div>Email Me</div></div>
 					</div>

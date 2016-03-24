@@ -153,7 +153,7 @@ var affiliate = "${affiliate}";
 				<span class="displayMode occupation content">&nbsp;</span>
 				<span class="editMode content">
 					<select id="occupation" name="occupation" class=""></select>
-					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="" maxlength="100"/></p>
+					<p class="occupation_others">Please specify: <input type="text" autocomplete="off" id="occupation_others" name="occupation_others" value="" maxlength="100"/></p>
 				</span>
 			</div>
 		</div>

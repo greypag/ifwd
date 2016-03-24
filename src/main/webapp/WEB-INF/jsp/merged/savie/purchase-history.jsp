@@ -1062,7 +1062,7 @@
 											<p>Refer a friend to earn discounts and rewards now!</p>
 											<div class="row" id="input-social-holder">
 												<div class="col-xs-12 col-md-7" id="promo-input-holder">
-													<input type="text" class="form-control gray-textbox promo-code-input" name="promo-code-link" value="https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V"  readonly/>
+													<input type="text" autocomplete="off" class="form-control gray-textbox promo-code-input" name="promo-code-link" value="https://uat-ecom.i.fwd.com.hk/en/home?promo=V3B68V"  readonly/>
 												</div>
 												<div class="col-xs-12 col-md-5" id="social-btns-holder">
 													<ul class="nav nav-pills">

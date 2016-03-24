@@ -13,9 +13,9 @@
 <div id="errorMsg" style="color: red;"></div>
 <div id="apiData" style="color: black;"></div>
 <form id="saviePlanDetailsForm" action="">
-insuredAmount:<input type="text" id="insuredAmount" name="insuredAmount"/><br/>
-dob:<input type="text" id="dob" name="dob"/><br/>
-promoCode:<input type="text" id="promoCode" name="promoCode"/><br/>
+insuredAmount:<input type="text" autocomplete="off" id="insuredAmount" name="insuredAmount"/><br/>
+dob:<input type="text" autocomplete="off" id="dob" name="dob"/><br/>
+promoCode:<input type="text" autocomplete="off" id="promoCode" name="promoCode"/><br/>
 <input type="button" id="calculate" value="Calculate"/>
 
 <span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
