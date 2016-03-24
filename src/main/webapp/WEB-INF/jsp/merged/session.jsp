@@ -64,7 +64,7 @@
    var sessionTimer = <%=creationTime%>;
    <% if (session.getAttribute("userDetails") != null) {%>  
    function sessionPopup(nextTimer){
-	   if(typeof Date === "undefined"){
+	   if(typeof nextTimer === "undefined"){
 		   nextTimer = new Date(sessionTimer).getTime();
 	   }
        if((nextTimer - new Date().getTime())/1000 <= 480){
@@ -74,7 +74,7 @@
    }
    $(function() {
        //$('#session-alert').modal('show');
-       sessionPopup();
+       //sessionPopup();
        var sessionModalShow = setInterval(function(){sessionPopup();}, 24000);	   
 	   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {       
 	       if(event.elapsed){
