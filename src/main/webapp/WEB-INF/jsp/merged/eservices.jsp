@@ -109,10 +109,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>	
 								</div>											
-								<!--TRAVEL -->	
+								<!-- -->	
 								<div class="travel-container">
 									<div class="category-holder">
-										<h4 class="category-title">Saving insurance</h4>
+										<h4 class="category-title"><fmt:message key="label.SavingInsurance" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -164,10 +164,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>
 								</div>									
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container hidden">
 									<div class="category-holder">
-										<h4 class="category-title">Household</h4>
+										<h4 class="category-title"><fmt:message key="label.Household" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -219,10 +219,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>
 								</div>
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container hidden">
 									<div class="category-holder">
-										<h4 class="category-title">Travel</h4>
+										<h4 class="category-title"><fmt:message key="label.Travel" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -333,7 +333,7 @@ var languageP = "${language}";
 								<!--TRAVEL -->	
 								<div class="travel-container">
 									<div class="category-holder">
-										<h4 class="category-title">Saving insurance</h4>
+										<h4 class="category-title"><fmt:message key="label.SavingInsurance" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -385,10 +385,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>
 								</div>									
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container">
 									<div class="category-holder">
-										<h4 class="category-title">Household</h4>
+										<h4 class="category-title"><fmt:message key="label.Household" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -440,10 +440,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>
 								</div>
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container">
 									<div class="category-holder">
-										<h4 class="category-title">Travel</h4>
+										<h4 class="category-title"><fmt:message key="label.Travel" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -554,7 +554,7 @@ var languageP = "${language}";
 								<!--TRAVEL -->
 								<div class="travel-container">	
 									<div class="category-holder">
-										<h4 class="category-title">Saving insurance</h4>
+										<h4 class="category-title"><fmt:message key="label.SavingInsurance" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -606,10 +606,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>
 								</div>									
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container">
 									<div class="category-holder">
-										<h4 class="category-title">Household</h4>
+										<h4 class="category-title"><fmt:message key="label.Household" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
@@ -661,10 +661,10 @@ var languageP = "${language}";
 									    </c:choose>
 									</div>		
 								</div>
-								<!--SAVING INSURANCE -->
+								<!-- -->
 								<div class="saving-insurance-container">
 									<div class="category-holder">
-										<h4 class="category-title">Travel</h4>
+										<h4 class="category-title"><fmt:message key="label.Travel" bundle="${msg}" /></h4>
 										<div class="row category-head">
 											<div class="col-xs-6 col-md-2">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
