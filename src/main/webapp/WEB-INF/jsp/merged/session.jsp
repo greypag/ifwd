@@ -63,12 +63,19 @@
    console.log(<%=session.getMaxInactiveInterval() %>);
    var sessionTimer = <%=creationTime%>;
    <% if (session.getAttribute("userDetails") != null) {%>  
-   function sessionPopup(){
-       if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 600){
+   function sessionPopup(nextTimer){
+	   if(typeof Date === "undefined"){
+		   nextTimer = new Date(sessionTimer).getTime();
+	   }
+       if((nextTimer - new Date().getTime())/1000 <= 480){
+    	   console.log("Session Expire in Next:" + nextTimer);
            $('#session-alert').modal('show');
-      }            
+       }	   
    }
    $(function() {
+       $('#session-alert').modal('show');
+       sessionPopup();
+       var sessionModalShow = setInterval(function(){sessionPopup();}, 24000);	   
 	   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {       
 	       if(event.elapsed){
 	           $('#session-extend').prop('disabled', true);
@@ -87,13 +94,12 @@
 	                 $("#session-alert-counter").html('Your session is extended.');
                      var nextExpire = new Date();
                      nextExpire.setMinutes(nextExpire.getMinutes() + 28);
-                     $('#session-alert-counter').countdown(nextExpire);	                 
+                     $('#session-alert-counter').countdown(nextExpire);
+                     clearInterval(sessionModalShow);
+                     sessionModalShow = setInterval(function(){sessionPopup(nextExpire);}, 24000);                   
 	             }       
 	        });
 	  });  	   
-	   //$('#session-alert').modal('show');
-	   sessionPopup();
-       setInterval(sessionPopup, 300000);
    });   
    <% } %>
 </script>
