@@ -334,6 +334,10 @@ public class UserController {
 								entity.setPlanName(entity.getPlanCode());
 							}
 							
+							if("Z".equalsIgnoreCase(entity.getStatus())){
+								entity.setStatus(WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request)));
+							}
+							
 							if("ET".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
