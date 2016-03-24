@@ -89,7 +89,9 @@ body.chin .text-bold {
     float: none;
   }
 }
-
+#business-partners-container img{
+	transform: sacale(0.5,0.5);
+}
 /* line 13, ../sass/partials/savie/_header.scss */
 .savie-online-container .container-fluid.browse-holder {
   margin-top: 0;
@@ -667,9 +669,21 @@ a:hover {
   }
 }
 
+@media screen and (max-width:992px){
+#index-logo{
+		width:556px ;
+	}
+}
+
+@media screen (min-width: 922px){
 /* line 302, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
+}
+}
+
+.fwd-container, .fwd-container-limit {
+  max-width: 798px !important;
 }
 
 /* line 305, ../sass/partials/savie/_common.scss */
@@ -686,13 +700,7 @@ a:hover {
   padding-left: 0;
   padding-right: 0 !important;
 }
-@media (min-width: 992px) {
-  /* line 310, ../sass/partials/savie/_common.scss */
-  .fwd-savie-wrapper .breadcrumbs {
-    background: #f3f4f5;
-    margin: 0;
-  }
-}
+
 /* line 320, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb {
   display: block;
@@ -1648,7 +1656,7 @@ body {
 /* line 193, ../sass/partials/savie/_homepage.scss */
 .fna-body {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   padding: 0 !important;
   width: 100%;
   height: 200px;
@@ -2001,9 +2009,24 @@ body {
   background-color: #dddfe1;
 }
 /* line 491, ../sass/partials/savie/_homepage.scss */
+
+@media screen and (min-width: 922px) {
 #business-partners-container img {
 	transform: scale(2,2);
+	}
+	
+#index-logo{
+		display:block;
+	}
+#index-logo-mobile{
+		display:none;
+	}		
 }
+
+#index-logo-mobile{
+	display:block;
+}
+
 /* line 496, ../sass/partials/savie/_homepage.scss */
 #business-partners-container a {
   color: #ff8200;
@@ -4927,7 +4950,7 @@ a.eserv-link:hover {
   font-size: 18px;
   color: #000;
   padding: 12px 15px 0 15px;
-  margin-top: 6px;
+  margin-top: 3px;
 }
 /* line 52, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .selectDiv.is-not-active .gray-dropdown {
@@ -9538,7 +9561,13 @@ h3 .heading-title{
 .pdf-image-zoom .glyphicon {
 	line-height: 34px;
 }
-
- #soInsuredInfoForm .mdl-textfield label .mdl-textfield__label{
- 	font-size: 14px;
+ 
+ #currentEmployer{
+ 	height:44px;
  }
+ 
+#personal-info-label{
+ 	padding-top: 5px;
+ 	font-size:14px;
+ }
+ 

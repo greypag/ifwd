@@ -988,7 +988,7 @@ var languageP = "${language}";
 			pdfImageInit('#pdf-image-3');
 			$('.pdf-image-scroll').scroll(function() {
 				if (checkPdfScroll($(this))) {
-					alert('bottom reached!!!');
+					console.log('bottom reached!!!');
 				}
 			});	
 		});
