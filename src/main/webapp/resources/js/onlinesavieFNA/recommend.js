@@ -559,8 +559,8 @@ var FNArecommendation = {
 							
 							var cpArr=prod_data.contribution_period;
 							for(var k = 0; k < cpArr.length; k++){
-								if(cpArr[j].indexOf("Y") > 0){
-									cpArr[j] = cpArr[j].replace("Y", " ")
+								if(cpArr[k].indexOf("Y") > 0){
+									cpArr[k] = cpArr[k].replace("Y", " ")
 									+ getBundle(getBundleLanguage, "fna.product.year");
 								}
 							}

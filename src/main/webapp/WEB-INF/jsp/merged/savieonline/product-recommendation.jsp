@@ -247,7 +247,7 @@ var fnaq4e = '${savieFna.q4_e }';
 						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span><fmt:message key="fna.link.moreproduct" bundle="${msg}" /> <i class="fa fa-caret-down"></i></span></a>
 
 						<div class="noAvailableProduct"></div>
-
+						<div class="only1KSTSProduct"></div>
 
 						<div class="text-right">
 							<a href="javascript:void(0);" class="fna-btn-clear"><fmt:message key="fna.link.clearandleave" bundle="${msg}" /> <i class="fa fa-caret-right"></i></a>
@@ -391,6 +391,7 @@ var fnaq4e = '${savieFna.q4_e }';
 			<p class="txt_ilas"><fmt:message key="fna.text.ilas.desc" bundle="${msg}" /></p>
 
 			<p class="txt_ilas_only1"><fmt:message key="fna.text.ilas.desc.only1" bundle="${msg}" /></p>
+			<p class="txt_ksts_only1">Based on your FNA results, there is no other insurance product with less than 1 year payment term which can fit your needs.</p>
 
 		</div>
 		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-keys" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

@@ -474,44 +474,53 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", correspondenceAddress));
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
 	    
-	    attributeList.add(new PdfAttribute("EducationlevelKey", "Education Level 教育水平"));
-	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducationName()));
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "Employment Status 就業狀況"));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusName()));
-	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "Current Employer's Name 現時僱主"));
-	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getEmployerName()));
-	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "Nature Of Business 行業"));
-	    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAsset", lifeEmploymentInfo.getNatureOfBusinessName()));
-	    attributeList.add(new PdfAttribute("occupationKey", "Occupation 職業"));
+	    attributeList.add(new PdfAttribute("currentEmployNameKey", "16.Current Employer's Name 現時僱主名稱"));
+	    attributeList.add(new PdfAttribute("currentEmployName", lifeEmploymentInfo.getEmployerName()));
+	    attributeList.add(new PdfAttribute("natureOfBusinessKey", "17.Nature Of Business 行業"));
+	    attributeList.add(new PdfAttribute("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusinessName()));
+	    attributeList.add(new PdfAttribute("occupationKey", "18.Occupation 職業"));
 	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationName()));
-	    attributeList.add(new PdfAttribute("personalIncomeKey", "Monthly Personal Income(applicable to full-time and part-time job) 個人每月收入（港幣）（全職及兼職適用）"));
+	    attributeList.add(new PdfAttribute("personalIncomeKey1", "19.Monthly Personal Income"));
+	    attributeList.add(new PdfAttribute("personalIncomeKey2", "(applicable to full-time and part-time job)"));
+	    attributeList.add(new PdfAttribute("personalIncomeKey3", "個人每月收入（港幣）（全職及兼職適用）"));
 	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeName()));
+	    attributeList.add(new PdfAttribute("otherIncomeKey", "20.Amount of other source of income 其他收入來源"));
+	    attributeList.add(new PdfAttribute("otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
+	    attributeList.add(new PdfAttribute("liquidAssetsKey1", "21.The cumulative amount"));
+	    attributeList.add(new PdfAttribute("liquidAssetsKey2", "of your current liquid assets"));
+	    attributeList.add(new PdfAttribute("liquidAssetsKey3", "閣下現實累積的流動資產總值"));
+	    attributeList.add(new PdfAttribute("liquidAssets", lifeEmploymentInfo.getAmountOfLiquidAssets()));
 	    
 	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    
-	    attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
-	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
-	    attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
-	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?
-	    														lifeBeneficaryInfo.getBeneficaryID1():lifeBeneficaryInfo.getBeneficiaryPassport1()));
-	    attributeList.add(new PdfAttribute("relationship1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation1())?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:""));
-	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
-	    
-	    attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()));
-	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
-	    attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
-	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?
-	    														lifeBeneficaryInfo.getBeneficaryID2():lifeBeneficaryInfo.getBeneficiaryPassport2()));
-	    attributeList.add(new PdfAttribute("relationship2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation2())?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:""));
-	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
-	    
-	    attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3()));
-	    attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
-	    attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
-	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?
-	    														lifeBeneficaryInfo.getBeneficaryID3():lifeBeneficaryInfo.getBeneficiaryPassport3()));
-	    attributeList.add(new PdfAttribute("relationship3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation3())?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:""));
-	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
+	    if(!lifeBeneficaryInfo.getIsOwnEstate()){
+	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1():lifeBeneficaryInfo.getBeneficiaryPassport1()));
+	    	    attributeList.add(new PdfAttribute("relationship1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation1())?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:""));
+	    	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
+	    	}
+	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2():lifeBeneficaryInfo.getBeneficiaryPassport2()));
+	    	    attributeList.add(new PdfAttribute("relationship2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation2())?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:""));
+	    	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
+	    	}
+	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3()));
+	    		attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
+	    		attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3():lifeBeneficaryInfo.getBeneficiaryPassport3()));
+	    	    attributeList.add(new PdfAttribute("relationship3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation3())?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:""));
+	       	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
+	    	}
+	    }
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
 	    

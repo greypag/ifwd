@@ -72,7 +72,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -96,7 +96,7 @@ var languageP = "${language}";
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
@@ -152,7 +152,7 @@ var languageP = "${language}";
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<p class="info-data"><a href="#">Claim form</a></p>
+															<p class="info-data"><a href="#"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -317,7 +317,7 @@ var languageP = "${language}";
 															<p class="info-data"><a href="#">${list.status}</a></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
-															<h4 class="visible-xs visible-sm info-head">fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
+															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 															<p class="info-data">${list.amount}</p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
