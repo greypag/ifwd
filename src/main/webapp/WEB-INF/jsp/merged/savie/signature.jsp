@@ -272,8 +272,8 @@ var languageP = "${language}";
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
 			<c:choose>
-		        <c:when test="${fnaPdfName != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaPdfName }"  frameborder="0"></iframe>
+		        <c:when test="${fnaFormJpgName != null}">
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaFormJpgName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
@@ -297,8 +297,8 @@ var languageP = "${language}";
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
 			<c:choose>
-		        <c:when test="${pdfName != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }"  frameborder="0"></iframe>
+		        <c:when test="${salesIllustrationJpgName != null}">
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
@@ -322,8 +322,8 @@ var languageP = "${language}";
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
 			<c:choose>
-		        <c:when test="${applicationFormPdf != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormPdf }"  frameborder="0"></iframe>
+		        <c:when test="${applicationFormJpgName != null}">
+					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormJpgName }"  frameborder="0"></iframe>
 		        </c:when>
 		        <c:otherwise>
 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>

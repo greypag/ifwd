@@ -593,6 +593,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		request.getSession().setAttribute("applicationFormPdf", name);
 		logger.info("applicationFormPdf create successfully");
+		
+		String applicationFormJpgName = name.split("\\.")[0]+".jpg";
+		logger.info("applicationFormJpgName:"+applicationFormJpgName);
+		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
+		request.getSession().setAttribute("applicationFormJpgName", applicationFormJpgName);
+		logger.info("applicationFormPdf to Jpg successfully");
 	}
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
@@ -960,6 +966,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		request.getSession().setAttribute("fnaPdfName", name);
 		logger.info("fnaFormPdf create successfully");
+		
+		String fnaFormJpgName = name.split("\\.")[0]+".jpg";
+		logger.info("fnaFormJpgName:"+fnaFormJpgName);
+		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
+		request.getSession().setAttribute("fnaFormJpgName", fnaFormJpgName);
+		logger.info("fnaFormPdf to Jpg successfully");
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
