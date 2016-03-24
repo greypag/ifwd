@@ -1355,7 +1355,8 @@
                             <p class="title"></p>
 
                             <div class="promo-code-holder">
-                                <p class="text-center congrats"><fmt:message key="Fanfare.HotelOffer.Success.Title" bundle="${msg}" /></p>
+                                <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
+                                <p class="code">FWD987654321</p>
                                 <p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
                             </div>
 
