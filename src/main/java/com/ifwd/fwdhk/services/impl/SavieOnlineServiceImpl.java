@@ -65,6 +65,7 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -404,6 +405,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 			request.getSession().setAttribute("pdfName", name);
 			logger.info("pdf create successfully");
+			
+			String salesIllustrationJpgName = name.split("\\.")[0]+".jpg";
+			logger.info("salesIllustrationJpgName:"+salesIllustrationJpgName);
+			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
+			request.getSession().setAttribute("salesIllustrationJpgName", salesIllustrationJpgName);
+			logger.info("salesIllustrationPdf to Jpg successfully");
 		}
 		else{
 			throw new Exception("errorMsg: api data error");

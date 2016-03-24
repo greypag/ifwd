@@ -168,7 +168,7 @@
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 	        		<div id="pdf">
-	        			<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${pdfName}"  frameborder="0"></iframe>
+	        			<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName}"  frameborder="0"></iframe>
 	        			<!--<a class="embed" id="pdf-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}" /></a>-->
 	        		</div>
 	        		<div class="text-center">
