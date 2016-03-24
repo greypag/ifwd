@@ -198,7 +198,7 @@ var fnaq4e = '${savieFna.q4_e }';
 										
 									</div>
 									<div class="noProducts">
-										<p><fmt:message key="fna.label.result.description" bundle="${msg}" /></p>
+										<p><fmt:message key="fna.label.noproduct" bundle="${msg}" /></p>
 									</div>
 									<a href="<%=request.getContextPath()%>/${language}/FNA/review" class="fna-btn-review"><fmt:message key="fna.button.back2review" bundle="${msg}" />&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>

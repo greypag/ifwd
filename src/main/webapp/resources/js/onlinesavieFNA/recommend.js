@@ -113,6 +113,21 @@ var FNArecommendation = {
 			that.sortFld = -1;
 			that.sortAsc = true;
 
+			// Set latest fna selection
+			var fnaq1_refresh = [];
+			for( var i=0; i<5; i++ ){
+				if( $("#q1_c" + (i+1)).prop("checked")) {
+					fnaq1_refresh.push(i);
+				}
+			}
+			fnaq1 = fnaq1_refresh.join(',');
+
+			for( var i=0; i<6; i++ ){
+				if( $('#q4e_c' + (i+1)).prop("checked")) {
+					fnaq4e = i;
+				}
+			}
+
 			$(".fna-col-recommend > .sort-header > div, .fna-col-recommend > .sort-header .fa").removeClass("selected");
 
 			that.saveAndLoad();
@@ -814,17 +829,18 @@ var FNArecommendation = {
 		//some logic in here...
 		if(display){
 
-			var cont = $(".template .txt_noAvailableProduct").text();
+			//var cont = $(".template .txt_noAvailableProduct").text();
+			var cont = getBundle(getBundleLanguage,"fna.text.noavailableproduct");
 			var sep = $(".template .txt_sep").text() + " ";
 			var products_str = "";
 			var obj_str = "";
 
-			var arr_p = products.split(",");
+			var arr_p = $.unique(products.split(","));
 			var arr_p_str = [];
 			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
 			products_str = arr_p_str.join(sep);
 
-			var arr_o = products.split(",");
+			var arr_o = $.unique(products.split(","));
 			var arr_o_str = [];
 			$(arr_o).each(function(k,v){arr_o_str.push($(".template .txt_obj_" + v).text())});
 			obj_str = arr_o_str.join(sep);
@@ -846,11 +862,12 @@ var FNArecommendation = {
 	showOnly1Product:function(display,products,year){
 		if(display){
 
-			var cont = $(".template .txt_onlyOneProduct").text();
+			//var cont = $(".template .txt_onlyOneProduct").text();
+			var cont = getBundle(getBundleLanguage,"fna.text.only1product");
 			var sep = $(".template .txt_sep").text() + " ";
 			var products_str = "";
 
-			var arr_p = products.split(",");
+			var arr_p = $.unique(products.split(","));
 			var arr_p_str = [];
 			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
 			products_str = arr_p_str.join(sep);
