@@ -217,6 +217,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/fwd-Validator.jar</systemPath>
          </dependency>
+         <dependency>
+            <groupId>jPDFImages</groupId>
+            <artifactId>jPDFImages</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jPDFImages.jar</systemPath>
+         </dependency>
 <dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
