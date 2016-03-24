@@ -5,7 +5,7 @@ AjaxManager = {
     url:null,
     postData:null,
     callback:null,
-    timeout:5000,
+    timeout:30000,
 
     fire:function(url, postData, successCallBack, _timeout, _method) {
 

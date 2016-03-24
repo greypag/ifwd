@@ -515,7 +515,7 @@ var FNArecommendation = {
 
 		//Product Others
 		var gpOthers = $(".fna-recommend .template .fna-product-gp").clone(true,true);
-		gpOthers.find(".fna-product-gp-name").text("Unaffordable");
+		gpOthers.find(".fna-product-gp-name").text();
 		gpOthers.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
 		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
 		gpOthersWrapper.append($(".template .fna-other-product-header").clone());
@@ -537,9 +537,12 @@ var FNArecommendation = {
 				if(gp_data.groupCode == "ILAS"){
 					var prod = $(".fna-recommend .template .fna-other-product").clone();
 					prod.empty();
-					prod.append($('.txt_ilas_obj').html());
+					
+					prod.append($("<div/>").html($('.txt_ilas_obj').html()).addClass("desc-ilas-obj"));
 					prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
 					prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
+					
+					
 					
 					prodWrapper.append(prod);
 				}
@@ -782,12 +785,19 @@ var FNArecommendation = {
 
 		//Show Only 1 product description
 		if(pNum == 1){
-			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(true,FNArecommendation.fnaData.q2,fnaq4e);
 		}
 		else{
-			FNArecommendation.showOnly1Product(false,data.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(false,FNArecommendation.fnaData.q2,fnaq4e);
 		}
 		
+		if ( data.hasILAS=='Y' ){
+			FNArecommendation.showILASsObjective(true);
+		}
+		else{
+			FNArecommendation.showILASsObjective(false);	
+		}
+
 		if(pNum>0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescription(true);
 		}
@@ -801,28 +811,34 @@ var FNArecommendation = {
 		else{
 			FNArecommendation.showILASsDescriptionOnly1(false);
 		}
-		if(data.fulfilled=='N'){
-			var rq1="";
-			var fq1= fnaq1.split(",");
-			var pq1= data.q1.split(",");
-			for (i=0;i<fq1.length ;i++ ){
-		    	var r = true;
-		    	for (j=0;j<pq1.length ;j++ ){
-			    	if(fq1[i]==pq1[j]){
-			    		r = false;
-			    		break;
+		
+		if(!only1KSTS){
+			if(data.fulfilled=='N'){
+				var rq1="";
+				var fq1= fnaq1.split(",");
+				var pq1= $.unique(data.q1.split(","));
+				var unmatched_q1=[];
+				for (var i=0;i<fq1.length ;i++ ){
+			    	var r = true;
+			    	for (j=0;j<pq1.length ;j++ ){
+				    	if(fq1[i]==pq1[j]){
+				    		r = false;
+				    		break;
+				    	}
+				    }
+			    	if(r){
+			    		unmatched_q1.push(fq1[i]);
 			    	}
 			    }
-		    	if(r){
-		    		rq1 = rq1+fq1[i]+",";
-		    	}
-		    }
-		    if(rq1!=null && rq1!=''){
-		    	FNArecommendation.showNoAvailableProduct(true,data.q2,rq1.substring(0,rq1.length-1),fnaq4e);
-		    }
-		}
-		else{
-			FNArecommendation.showNoAvailableProduct(false,data.q2,null,fnaq4e);
+			    rq1=unmatched_q1.join(",");
+
+			    if(rq1!=null && rq1!=''){
+			    	FNArecommendation.showNoAvailableProduct(true,FNArecommendation.fnaData.q2,rq1,fnaq4e);
+			    }
+			}
+			else{
+				FNArecommendation.showNoAvailableProduct(false,FNArecommendation.fnaData.q2,null,fnaq4e);
+			}
 		}
 	},
 
@@ -841,7 +857,7 @@ var FNArecommendation = {
 			$(arr_p).each(function(k,v){arr_p_str.push($(".template .txt_q2_" + v).text())});
 			products_str = arr_p_str.join(sep);
 
-			var arr_o = $.unique(products.split(","));
+			var arr_o = $.unique(objectives.split(","));
 			var arr_o_str = [];
 			$(arr_o).each(function(k,v){arr_o_str.push($(".template .txt_obj_" + v).text())});
 			obj_str = arr_o_str.join(sep);
@@ -888,10 +904,17 @@ var FNArecommendation = {
 		}
 	},
 
+	showILASsObjective:function(display){
+		if(display){
+			$(".desc-ilas-obj").show();
+		}else{
+			$(".desc-ilas-obj").hide();
+		}
+	},
+
 	showILASsDescription:function(display){
 		if(display){
 			$(".desc-ilas").show();
-			
 			sendContSession("showILASsDescription",$(".desc-ilas").text());
 		}else{
 			$(".desc-ilas").hide();

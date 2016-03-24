@@ -458,7 +458,7 @@ var fnaq4e = '${savieFna.q4_e }';
 							
 							<h4><fmt:message key="label.customer.service" bundle="${msg}" /></h4>
 							<div class="cont">
-								<p><fmt:message key="popup.callus.info.please.call.part1" bundle="${msg}" /> <span><fmt:message key="label.hotelineno" bundle="${msg}" /></span> <fmt:message key="popup.callus.info.please.call.part2" bundle="${msg}" /></p>
+								<p><fmt:message key="popup.callus.info.please.call.part1" bundle="${msg}" /></p>
 								<input type="hidden" id="productCode" value="SAVIE-SP"><input type="hidden" id="channel" value="SAVIE">
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
