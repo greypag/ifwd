@@ -559,11 +559,9 @@ var FNArecommendation = {
 							
 							var cpArr=prod_data.contribution_period;
 							for(var k = 0; k < cpArr.length; k++){
-								if(cpArr[k].indexOf("Y") > 0 && getBundleLanguage == "en"){
-									cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[k].replace("Y", "");
-								}else if(cpArr[k].indexOf("Y") > 0 && getBundleLanguage == "zh") {
-									cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[k].replace("Y", "")
-									+ getBundle(getBundleLanguage, "fna.product.age.stern");
+								if(cpArr[j].indexOf("Y") > 0){
+									cpArr[j] = cpArr[j].replace("Y", " ")
+									+ getBundle(getBundleLanguage, "fna.product.year");
 								}
 							}
 							
@@ -575,9 +573,11 @@ var FNArecommendation = {
 							if(prod_data.protection_period){
 								var ppArr=String(prod_data.protection_period).split(",");
 								for(var k = 0; k < ppArr.length; k++){
-									if(ppArr[k].indexOf("A") > 0){
-										ppArr[k] = ppArr[k].replace("A", "")
-										+ getBundle(getBundleLanguage, "fna.product.year");
+									if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "en"){
+										ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ");
+									}else if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "zh") {
+										ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ")
+										+ getBundle(getBundleLanguage, "fna.product.age.stern");
 									}
 								}
 							}
