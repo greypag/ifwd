@@ -305,12 +305,12 @@ public class UserController {
 							if(!StringUtils.isEmpty(entity.getCommencementDate())) {
 								entity.setCommencementDateDesc(DateApi.formatTime2(entity.getCommencementDate()));
 							}else {
-								entity.setCommencementDateDesc("Not complete");
+								entity.setCommencementDateDesc(WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request)));
 						    }
 							if(!StringUtils.isEmpty(entity.getExpiryDate())) {
 								entity.setExpiryDateDesc(DateApi.formatTime2(entity.getExpiryDate()));
 							}else {
-								entity.setExpiryDateDesc("Not complete");
+								entity.setExpiryDateDesc(WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request)));
 							}
 							
 							if("ET".equals(entity.getPlanCode())) {
@@ -322,10 +322,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
 										pending_life.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
 										active_life.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
 										past_life.add(entity);
 									}
 								}
@@ -338,10 +341,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
 										pending_saving.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
 										active_saving.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
 										past_saving.add(entity);
 									}
 								}
@@ -354,10 +360,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
 										pending_house.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
 										active_house.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
 										past_house.add(entity);
 									}
 								}
@@ -370,10 +379,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
 										pending_travel.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
 										active_travel.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
 										past_travel.add(entity);
 									}
 								}
