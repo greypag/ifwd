@@ -73,7 +73,7 @@
        }	   
    }
    $(function() {
-       $('#session-alert').modal('show');
+       //$('#session-alert').modal('show');
        sessionPopup();
        var sessionModalShow = setInterval(function(){sessionPopup();}, 24000);	   
 	   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {       
