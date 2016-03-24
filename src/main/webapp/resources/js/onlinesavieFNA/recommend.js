@@ -789,16 +789,16 @@ var FNArecommendation = {
 			var rq1="";
 			var fq1= fnaq1.split(",");
 			var pq1= data.q1.split(",");
-		    for (i=0;i<pq1.length ;i++ ){
+			for (i=0;i<fq1.length ;i++ ){
 		    	var r = true;
-		    	for (j=0;j<fq1.length ;j++ ){
-			    	if(fq1[j]==pq1[i]){
+		    	for (j=0;j<pq1.length ;j++ ){
+			    	if(fq1[i]==pq1[j]){
 			    		r = false;
 			    		break;
 			    	}
 			    }
 		    	if(r){
-		    		rq1 = rq1+pq1[i]+",";
+		    		rq1 = rq1+fq1[i]+",";
 		    	}
 		    }
 		    if(rq1!=null && rq1!=''){
