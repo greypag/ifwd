@@ -391,7 +391,7 @@ var Review = {
 				$("#q4_a_others").val("");
 				$("#q4_a_r"+fnaData.q4_a).addClass("selected");
 				$("#q4_a_c"+fnaData.q4_a).prop('checked', true);
-				if(fnaData.q4_a_others != null && fnaData.q4_a_others.replace(" ", "")!=""){
+				if(fnaData.q4_a_others != null && String(fnaData.q4_a_others).replace(" ", "")!=""){
 					$("#q4_a_others").val(formatNum(fnaData.q4_a_others));
 					$(".row.rq4_a").removeClass("selected");
 					$("#q4_a").find("input[type='checkbox']").prop("checked", false);
@@ -594,9 +594,9 @@ var Review = {
 		}
 
 		if(qid == "q4_c"){
-			answer = $("#q4_c_others").val();
+			answer = $.trim($("#q4_c_others").val());
 			answer = (answer + '').replace(/,/g,"");
-			if(!FormValidate.isNumber(answer)){
+			if(!FormValidate.isNumber(answer) || answer == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_c_others").focus();
 				isError = true;
@@ -605,9 +605,9 @@ var Review = {
 		}
 
 		if(qid == "q4_d_1"){
-			answer = $("#q4_d_1_others").val();
+			answer = $.trim($("#q4_d_1_others").val());
 			answer = (answer + '').replace(/,/g,"");
-			if(!FormValidate.isNumber(answer)){
+			if(!FormValidate.isNumber(answer) || answer == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_d_1_others").focus();
 				isError = true;
@@ -616,9 +616,9 @@ var Review = {
 		}
 
 		if(qid == "q4_d_2"){
-			answer = $("#q4_d_2_others").val();
+			answer = $.trim($("#q4_d_2_others").val());
 			answer = (answer + '').replace(/,/g,"");
-			if(!FormValidate.isNumber(answer)){
+			if(!FormValidate.isNumber(answer) || answer == ""){
 				$("#"+qid+ " .error").text(ReviewPageLocale['data'].number);
 				$("#q4_d_2_others").focus();
 				isError = true;
@@ -637,7 +637,7 @@ var Review = {
 		}
 		*/
 
-		if((answer == null || answer == "") && !isNullable){
+		if((answer === null || answer === "") && !isNullable){
 			$("#"+qid+ " .error").text(ReviewPageLocale['data'][qid+"_empty"]);
 			isError = true;
 		}

@@ -521,6 +521,7 @@ var FNArecommendation = {
 				//ILAS Handling
 				if(gp_data.groupCode == "ILAS"){
 					var prod = $(".fna-recommend .template .fna-other-product").clone();
+					prod.empty();
 					prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
 					prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
 					
@@ -530,8 +531,10 @@ var FNArecommendation = {
 				if(gp_data.products){
 
 					var animateList = [];
+
 					for(var j = 0; j < gp_data.products.length; j++){
 						pNum++;
+						console.log("j",j);
 						var prod_data = gp_data.products[j];
 
 						
@@ -555,30 +558,32 @@ var FNArecommendation = {
 							prod.find(".fna-product-name").text(prod_data.name);
 							
 							var cpArr=prod_data.contribution_period;
-							for(var j = 0; j < cpArr.length; j++){
-								if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "en"){
-									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "");
-								}else if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "zh") {
-									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "")
+							for(var k = 0; k < cpArr.length; k++){
+								if(cpArr[k].indexOf("Y") > 0 && getBundleLanguage == "en"){
+									cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[k].replace("Y", "");
+								}else if(cpArr[k].indexOf("Y") > 0 && getBundleLanguage == "zh") {
+									cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[k].replace("Y", "")
 									+ getBundle(getBundleLanguage, "fna.product.age.stern");
 								}
 							}
 							
 							prod.find(".sort-header.withdata .con_prd").html(cpArr.join(", "));
-							/*prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));*/
-							
 							prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
 							prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
 							
-							var ppArr=prod_data.protection_period.split(",");
-							for(var k = 0; k < ppArr.length; k++){
-								if(ppArr[k].indexOf("A") > 0){
-									ppArr[k] = ppArr[k].replace("A", "")
-									+ getBundle(getBundleLanguage, "fna.product.year");
+							
+							if(prod_data.protection_period){
+								var ppArr=String(prod_data.protection_period).split(",");
+								for(var k = 0; k < ppArr.length; k++){
+									if(ppArr[k].indexOf("A") > 0){
+										ppArr[k] = ppArr[k].replace("A", "")
+										+ getBundle(getBundleLanguage, "fna.product.year");
+									}
 								}
 							}
+							
+							
 							prod.find(".sort-header.withdata .prd_age").text(ppArr.join(", "));
-							/*prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);*/
 
 							var key_feature_ul = $("<ul/>");
 
@@ -653,7 +658,7 @@ var FNArecommendation = {
 								prod.find(".fna-product-link-keys").hide();
 							}
 						
-						
+						console.log(prod);
 
 						
 						
@@ -672,12 +677,24 @@ var FNArecommendation = {
 					for(var j = 0; j < gp_data.other_types.length; j++){
 						var other_data = gp_data.other_types[j];
 
-						var other_product = $(".fna-recommend .template .fna-other-product").clone();
-						other_product.find(".fna-product-type-name").text(other_data.type);
-						other_product.find(".desc").html(other_data.type + " " + other_data.description);
+						//Check existed before
+						var exist = false;
 
-						//prodWrapper.append(product_type);
-						gpOthersWrapper.append(other_product);
+						gpOthersWrapper.find(".fna-other-product").each(function(){
+							if($(this).data("otherType") == other_data.type){
+								exist = true;
+							}
+						});
+
+						if(!exist){
+							var other_product = $(".fna-recommend .template .fna-other-product").clone();
+							other_product.find(".fna-product-type-name").text(other_data.type);
+							other_product.find(".desc").html(other_data.type + " " + other_data.description);
+							other_product.data('otherType',other_data.type);
+
+							//prodWrapper.append(product_type);
+							gpOthersWrapper.append(other_product);
+						}
 					}
 				}
 				
@@ -721,10 +738,28 @@ var FNArecommendation = {
 			$(".haveProducts, .fna-sorting").hide();
 		}
 
-		if(gpOthersWrapper.find(".fna-other-product").length > 0){
-			gpWrapper.append(gpOthers);
+		var only1KSTS = (pNum == 1 && prodWrapper.find(".fna-product").first().data("productCode") == "KSTS");
+
+		if(only1KSTS){
+			only1KSTS = false;
+			gpOthersWrapper.find(".fna-other-product").each(function(){
+				if($(this).data("otherType") == "Universal Life" || $(this).data("otherType") == "萬用壽險"){
+					only1KSTS = true;
+				}
+			});
 		}
 		
+		
+		if( (gpOthersWrapper.find(".fna-other-product").length > 0 && pNum < 2 )){
+			if(!only1KSTS) gpWrapper.append(gpOthers);
+		}
+		
+		if(only1KSTS){
+			$(".only1KSTSProduct").text($(".template .txt_ksts_only1").text());
+			$(".only1KSTSProduct").show();
+		}else{
+			$(".only1KSTSProduct").hide();
+		}
 
 		//$('.fna-col-recommend .tool-tip').tooltip('destroy');
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();

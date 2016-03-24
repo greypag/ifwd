@@ -1,2 +1,1555 @@
-.datepicker table tr td.day:hover,.datepicker table tr td.day.focused{background:#fff}.banner-onlinesavie{background:url(../../images/onlinesavieFNA/bg-start.jpg) center no-repeat;height:310px;overflow:auto}.banner-onlinesavie .cont{width:970px;margin:auto;position:relative;padding:0 50px 0 63px;margin-top:88px}.banner-onlinesavie .cont h2{color:#fff;font-size:60px}.banner-onlinesavie .cont img{position:absolute;right:0;top:0}.game-fna{font-family:Calibri,"Microsoft JhengHei", sans-serif !important;margin:auto}.game-fna input[type="text"]{border:none;font-family:Calibri, sans-serif !important}.game-fna input[type="text"]:focus{outline-width:0}.game-fna h4{font-size:16px;font-weight:bold}.game-fna h4 span{font-size:12px}.game-fna .cont{width:970px;margin:auto;font-weight:bold;position:relative;font-size:14px;color:#58595b}.game-fna .step1{background:url(../../images/onlinesavieFNA/bg-step1.jpg) center no-repeat;height:595px}.game-fna .step1 .cont h2{padding-top:100px;text-align:center;color:#fff;font-size:46px}.game-fna .step1 .cont .img-family{margin-top:15px;margin-left:24px}.game-fna .step1 .cont .fna-input-bar{margin:35px 0 0 240px;width:730px}.game-fna .step1 .cont .fna-input-bar>div{float:left}.game-fna .step1 .cont .fna-input-bar .frm-fna-name{background-color:#e6e7e8;font-weight:bold;font-size:22px;height:40px;color:#808285;vertical-align:top;width:300px;padding:0 10px}.game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper{float:right;margin-left:-50px}.game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper .fna-radio-gp .fna-radio-btn{height:40px;line-height:40px;min-width:100px}.game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper .fna-radio-gp .fna-radio-btn span{padding:0 30px}.game-fna .step1 .cont .fna-input-bar .frm-fna-name{float:left}.game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start{float:right;margin-left:30px;vertical-align:top}.game-fna .step2{background:url(../../images/onlinesavieFNA/bg-step2.jpg) repeat-x;height:595px;display:none}.game-fna .step2 .cont .img-wrapper{position:absolute;top:45px;left:0;width:393px;height:450px;overflow:hidden}.game-fna .step2 .cont .img-wrapper .self{position:absolute;width:210px;height:314px;left:97px;top:97px}.game-fna .step2 .cont .img-wrapper .self.d2{left:188px;top:105px}.game-fna .step2 .cont .img-wrapper .self.d3{top:0px}.game-fna .step2 .cont .img-wrapper .dependents{position:absolute;width:393px;height:408px;left:0px;top:30px;z-index:99}.game-fna .step2 .cont h3{font-size:25px;font-weight:bold;color:#58595b;margin-left:10px;position:absolute;top:0;left:0}.game-fna .step2 .cont .fna-row{margin-bottom:5px}.game-fna .step2 .cont .lbl{color:#58595b;font-size:15px;margin:0 0 0 10px}.game-fna .step2 .cont .step2-input-gp{margin:0 0 0 470px;width:416px}.game-fna .step2 .cont .select2{width:100% !important}.game-fna .step2 .cont .select2 .select2-selection--single{background-color:inherit;border:none;height:33px}.game-fna .step2 .cont .select2 .select2-selection__arrow{visibility:hidden}.game-fna .step2 .cont .select2 .select2-selection__rendered{font-size:14px;font-weight:bold;padding-left:22px;color:#fff;line-height:33px}.game-fna .step2 .cont .frm-fna-occupation-others,.game-fna .step2 .cont .frm-fna-dob{background-color:#a7a9ac;width:210px;height:36px;line-height:36px;padding:0 20px;font-size:20px;color:#fff;font-weight:bold;position:relative}.game-fna .step2 .cont .frm-fna-occupation-others .datepicker,.game-fna .step2 .cont .frm-fna-dob .datepicker{font-size:22px}.game-fna .step2 .cont .frm-fna-occupation-others .input-group-addon,.game-fna .step2 .cont .frm-fna-dob .input-group-addon{opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:1}.game-fna .step2 .cont .frm-fna-dob::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:14px 9px 0 9px;border-color:#fbb040 transparent transparent transparent;position:absolute;right:15px;top:0;bottom:0;margin:auto}.game-fna .step2 .cont .frm-fna-occupation-others{width:417px;border:none}.game-fna .step2 .cont .fna-error-msg{margin-left:5px}.game-fna .step2 .cont .fna-radio-gp{width:417px}.game-fna .step2 .cont .fna-radio-gp .fna-radio-btn{height:36px;width:25%;min-width:100px;vertical-align:middle}.game-fna .step2 .cont .fna-radio-gp .fna-radio-btn span{text-align:center;line-height:36px;display:inline-block;vertical-align:middle}.game-fna .step2 .cont .styled-select{background:#a7a9ac;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;position:relative}.game-fna .step2 .cont .styled-select select{font-size:14px;line-height:36px;font-weight:bold;color:#fff;outline:0;width:115%;position:relative;z-index:1;padding-left:20px}.game-fna .step2 .cont .styled-select select option{background:#a7a9ac}.game-fna .step2 .cont .styled-select::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:14px 9px 0 9px;border-color:#fbb040 transparent transparent transparent;position:absolute;right:15px;top:0;bottom:0;margin:auto}.game-fna .step2 .cont .fna-btn-step2-next{position:absolute;top:515px;left:808px}.game-fna .step-flow-wrapper{background:url(../../images/onlinesavieFNA/bg-step.jpg) repeat-x;height:595px;display:none}.game-fna .step-flow-wrapper .step-flow{width:970px;height:595px;margin:auto;overflow:hidden;position:relative}.game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-next{position:absolute;top:535px;right:80px}.game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-back{position:absolute;top:535px;left:80px}.game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-finish{position:absolute;top:535px;right:80px;display:none}.game-fna .step-flow-wrapper .step-flow .step-flow-slider{width:5820px;height:487px}.game-fna .step-flow-wrapper .step-flow .step-flow-slider>div{float:left;width:970px;height:487px}.game-fna .step3{background:url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat}.game-fna .step3 .cont .q1{width:394px;position:absolute;top:46px;left:50px}.game-fna .step3 .cont .q1 .fna-error-box{margin:-14px 0 0 90px;display:block}.game-fna .step3 .cont .q1 .q-head{position:relative;height:72px}.game-fna .step3 .cont .q1 .q-head:after{content:'';z-index:0;width:33px;height:36px;bottom:0;right:0;background-color:#d9d3bd;display:block;position:absolute}.game-fna .step3 .cont .q1 .q-head:before{content:'1';z-index:0;display:block;width:66px;height:36px;position:absolute;bottom:0;left:0;background-color:#d9d3bd;font-size:38px;line-height:38px;padding-left:15px;color:#fff}.game-fna .step3 .cont .q1 .q-head h4{background-color:#b0ab99;z-index:1;color:#fff;height:42px;width:353px;position:relative;margin:0 0 0 37px;padding:6px 10px;font-size:16px}.game-fna .step3 .cont .q1 .q-head h4 span{font-size:12px;float:right}.game-fna .step3 .cont .q1 .q-head h4:before{content:'';width:0;height:0;border-style:solid;border-width:0 29px 29px 0;border-color:transparent #8e8b7f transparent transparent;position:absolute;bottom:-29px;left:0}.game-fna .step3 .cont .q1 .q-head h4:after{content:'';width:0;height:0;border-style:solid;border-width:29px 29px 0 0;border-color:#8e8b7f transparent transparent transparent;position:absolute;bottom:-29px;right:0}.game-fna .step3 .cont .q1 .fna-checkbox-gp{margin:0 0 0 30px}.game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-cb-others{min-height:initial !important;line-height:15px}.game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-checkbox-btn{font-size:16px}.game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-checkbox-btn span{font-size:12px}.game-fna .step3 .cont .q1 hr{width:290px;background-color:#8e8b7f;height:8px;border:none;margin-left:70px}.game-fna .step3 .cont .q2{background-color:#e6e7e8;padding-bottom:20px;position:absolute;top:25px;left:587px;width:340px}.game-fna .step3 .cont .q2 .q-head{position:relative;padding:5px 20px 0}.game-fna .step3 .cont .q2 .q-head:before{content:'2';z-index:0;display:block;width:40px;height:44px;position:absolute;top:0;left:-40px;font-size:38px;line-height:44px;padding-left:10px;color:#58595b;background-color:#e6e7e8}.game-fna .step3 .cont .q2 .q-head h4{font-size:16px}.game-fna .step3 .cont .q2 .fna-error-box{padding-left:40px}.game-fna .step3 .cont .q2 .fna-checkbox-gp{margin:0 0 0 -20px}.game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn{min-height:51px;font-size:16px}.game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn span{font-size:12px}.game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn.fna-cb-others{min-height:initial !important;line-height:15px}.game-fna .step3 .cont .img1-wrapper{position:absolute;top:390px;left:67px}.game-fna .step3 .cont .img2-wrapper{position:absolute;top:355px;left:280px}.game-fna .step3 .cont .img3-wrapper{position:absolute;top:177px;left:423px;width:156px;height:357px}.game-fna .step3 .cont .img3-wrapper .body{position:absolute;left:0;top:0;width:156px;height:357px;background:url(../../images/onlinesavieFNA/img_woman_young.png)}.game-fna .step3 .cont .step-indicator1{position:absolute;top:220px;left:250px;display:none}.game-fna .step3 .cont .step-indicator2{position:absolute;top:40px;left:710px;display:none}.game-fna .step4 .cont h4{position:relative}.game-fna .step4 .cont h4 span{font-size:10px}.game-fna .step4 .cont h4:before{content:'3';z-index:0;display:block;width:40px;height:44px;position:absolute;top:0;bottom:0;margin:auto;left:-40px;font-size:38px;line-height:44px;padding-left:10px;color:#58595b}.game-fna .step4 .cont .fna-radio-gp .fna-radio-btn{min-width:84px;height:40px}.game-fna .step4 .cont .fna-radio-gp .fna-radio-btn span{font-size:14px;line-height:40px}.game-fna .step4 .cont .fna-radio-gp .fna-radio-btn:last-child{min-width:95px}.game-fna .step4 .cont .q3{position:absolute;top:147px;left:180px}.game-fna .step4 .cont .q3 .fna-radio-gp .fna-radio-btn:last-child{min-width:95px}.game-fna .step4 .cont .q4{position:absolute;top:278px;left:180px;z-index:1}.game-fna .step4 .cont .q4 h4::before{content:'4'}.game-fna .step4 .cont .img1-wrapper{position:absolute;top:36px;left:719px;width:165px;height:110px}.game-fna .step4 .cont .img1-wrapper .body{position:absolute;left:0;top:5px}.game-fna .step4 .cont .img2-wrapper{position:absolute;top:300px;left:8px}.game-fna .step4 .cont .step-indicator1{position:absolute;top:40px;left:0}.game-fna .step4 .cont .step-indicator2{position:absolute;top:130px;left:437px;display:none}.game-fna .step5{background:url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat}.game-fna .step5 .cont h4{color:#58595b;position:relative}.game-fna .step5 .cont h4:before{content:'4a';z-index:0;display:block;width:60px;height:44px;position:absolute;top:0;margin:auto;left:-60px;font-size:38px;line-height:44px;padding-left:10px;color:#58595b}.game-fna .step5 .cont .sep{height:1px;border-bottom:1px solid #a7a9ac;margin:0 0 10px}.game-fna .step5 .cont .q4a{width:320px;position:absolute;top:106px;left:112px}.game-fna .step5 .cont .q4a p{line-height:14px;margin-bottom:15px}.game-fna .step5 .cont .q4a p input{border:1px solid #58595b;font-size:12.84px}.game-fna .step5 .cont .q4a ul{padding-left:0}.game-fna .step5 .cont .q4a ul li{list-style:none;background-color:#a7a9ac;font-size:12px;height:30px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;color:#fff;float:left;margin:0 10px 17px 0;width:150px;text-align:center;line-height:30px}.game-fna .step5 .cont .q4a ul li.selected,.game-fna .step5 .cont .q4a ul li:hover{background-color:#fdb03e}.game-fna .step5 .cont .q4b{width:365px;position:absolute;top:110px;left:554px}.game-fna .step5 .cont .q4b h4:before{content:'4b'}.game-fna .step5 .cont .q4b .fna-checkbox-gp{padding:0;margin-bottom:-10px}.game-fna .step5 .cont .q4b .fna-checkbox-gp .fna-checkbox-btn{float:left;width:50%}.game-fna .step5 .cont .q4b .fna-checkbox-gp .fna-checkbox-btn:last-child{width:100%}.game-fna .step5 .cont .q4b>input{border:1px solid #58595b;line-height:14px}.game-fna .step5 .cont .q4b .note{margin-top:5px;font-size:12px;line-height:12px}.game-fna .step5 .cont .img1-wrapper{position:absolute;top:367px;left:229px;width:418px;height:180px}.game-fna .step5 .cont .img1-wrapper .body{position:absolute;left:90px}.game-fna .step5 .cont .img1-wrapper .shadow{position:absolute;left:90px;bottom:10px}.game-fna .step5 .cont .img1-wrapper .smoke{position:absolute;top:80px;left:0;width:88px;height:90px;background:url(../../images/onlinesavieFNA/car_smoke_sprite.png);display:none}.game-fna .step5 .cont .step-indicator1{position:absolute;top:130px;left:0}.game-fna .step5 .cont .step-indicator2{position:absolute;top:130px;left:421px;display:none}.game-fna .step5 .cont .step-indicator3{position:absolute;top:240px;left:701px;display:none}.game-fna .step6{background:url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat}.game-fna .step6 .cont h4{position:relative}.game-fna .step6 .cont h4 .q-num{position:absolute;top:-44px;left:0;font-size:38px;line-height:44px}.game-fna .step6 .cont h4 .q-sub-num{position:absolute;left:0;top:0;font-size:inherit}.game-fna .step6 .cont .q4c{background:url(../../images/onlinesavieFNA/bg-step6-q4c.jpg) bottom left no-repeat #e6e7e8;width:360px;min-height:320px;padding:80px 44px 0;position:absolute;top:97px;left:85px}.game-fna .step6 .cont .q4c input{background-color:#fff;line-height:14px}.game-fna .step6 .cont .q4d{background-color:#e6e7e8;width:360px;min-height:320px;position:absolute;top:97px;left:510px;padding:65px 30px 0 44px}.game-fna .step6 .cont .q4d h4,.game-fna .step6 .cont .q4d p{padding-left:15px}.game-fna .step6 .cont .q4d input{width:80px;margin-left:5px;line-height:14px}.game-fna .step6 .cont .q4d .fna-error-box{padding-left:15px}.game-fna .step6 .cont .img1-wrapper{position:absolute;top:330px;left:440px;width:76px;height:180px}.game-fna .step6 .cont .img1-wrapper .body{position:absolute;left:0;top:7px}.game-fna .step6 .cont .img1-wrapper .shadow{position:absolute;left:0;top:7px}.game-fna .step6 .cont .step-indicator1{position:absolute;top:240px;left:0}.game-fna .step6 .cont .step-indicator2{position:absolute;top:230px;left:426px;display:none}.game-fna .step6 .cont .step-indicator3{position:absolute;top:380px;left:770px;display:none}.game-fna .step7{background:url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat}.game-fna .step7 h4{position:relative}.game-fna .step7 h4 .q-num{position:absolute;top:0;bottom:0;margin:auto;left:-44px;font-size:38px;line-height:44px;height:50px}.game-fna .step7 .cont{padding-top:100px}.game-fna .step7 .cont .inner-cont{width:700px;margin-left:160px}.game-fna .step7 .cont .q4e{margin-bottom:40px}.game-fna .step7 .cont .q4e .fna-radio-gp{margin-left:50px}.game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn{margin-top:15px;min-width:84px;height:30px}.game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn span{font-size:14px;line-height:30px}.game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn:last-child{min-width:104px}.game-fna .step7 .cont .q4f{position:relative}.game-fna .step7 .cont .q4f .img1-wrapper{margin-left:350px}.game-fna .step7 .cont .q4f .answer-wrapper{margin:30px auto;height:200px;width:400px;position:relative}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn{position:absolute;top:0;left:0}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.rgt{padding-left:0;padding-right:20px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.rgt:before{right:0;left:auto}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a0{left:0;top:-2px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a5{left:0;top:37px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a1{left:300px;top:-6px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a2{left:300px;top:27px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a3{left:300px;top:133px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a4{left:300px;top:160px}.game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn span{font-size:14px}.game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper,.game-fna .step7 .cont .q4f .answer-wrapper .chart-line{position:absolute;top:0;left:60px}.game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper{background:url(../../images/onlinesavieFNA/image_chart_01.png) top left no-repeat;width:236px;height:193px}.game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper img{display:none;position:absolute;top:0;left:0}.game-fna .step7 .cont .step-indicator1{position:absolute;top:107px;left:0}.game-fna .step7 .cont .step-indicator2{position:absolute;top:340px;left:656px;display:none}.game-fna .step7 .cont .fna-error-box{text-align:center;margin-left:-50px}.game-fna .step8{background:url(../../images/onlinesavieFNA/bg-step8.jpg) center top no-repeat}.game-fna .step8 .cont{padding:125px 0 0 102px}.game-fna .step8 .cont .q4g h4{margin:0 0 20px 44px;position:relative}.game-fna .step8 .cont .q4g h4 .q-num{position:absolute;top:0;bottom:0;margin:auto;left:-44px;font-size:38px;line-height:44px;height:50px}.game-fna .step8 .cont .q4g .fna-checkbox-gp{width:330px;padding:20px 0 30px 15px;background-color:#e6e7e8}.game-fna .step8 .cont .q4g .fna-checkbox-gp .fna-checkbox-btn{min-height:20px}.game-fna .step8 .cont .q4g .fna-checkbox-gp input{background-color:#e6e7e8}.game-fna .step8 .cont .img1-wrapper{position:absolute;top:84px;left:635px;width:251px;height:296px}.game-fna .step8 .cont .img1-wrapper .body{position:absolute;width:250px;height:295px;left:0;top:0;background:url(../../images/onlinesavieFNA/image_old_family.png)}.game-fna .step8 .cont .step-indicator1{position:absolute;top:142px;left:20px}.game-fna .last-loading{background:url(../../images/onlinesavieFNA/main_bg.jpg) center top no-repeat;height:595px;position:relative;display:none}.game-fna .last-loading .last-loading-cont{position:absolute;left:0;right:0;margin:auto;top:160px;max-width:535px;padding:0 10px}.game-fna .last-loading .last-loading-cont .family{position:absolute;top:-110px;left:0;right:0;margin:auto}.game-fna .last-loading .last-loading-cont p{margin-top:80px;font-size:24px;font-weight:bold;text-align:center}.game-fna .last-loading .last-loading-cont .bubble-gp{text-align:center}.game-fna .round-box{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}.game-fna .fna-radio-gp{font-size:0}.game-fna .fna-radio-gp .fna-radio-btn{position:relative;background-color:#a7a9ac;display:inline-block;color:#fff;border-left:1px solid #939598;cursor:pointer;min-width:50px;text-align:center}.game-fna .fna-radio-gp .fna-radio-btn span{font-size:14px}.game-fna .fna-radio-gp .fna-radio-btn.selected,.game-fna .fna-radio-gp .fna-radio-btn:hover{background-color:#fbb040}.game-fna .fna-radio-gp .fna-radio-btn:first-child{border:none;-webkit-border-top-left-radius:5px;-moz-border-radius-topleft:5px;border-top-left-radius:5px;-webkit-border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-left-radius:5px}.game-fna .fna-radio-gp .fna-radio-btn:last-child{-webkit-border-top-right-radius:5px;-moz-border-radius-topright:5px;border-top-right-radius:5px;-webkit-border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;border-bottom-right-radius:5px}.game-fna .fna-checkbox-gp,.game-fna .fna-radio-gp-cb{color:#58595b;position:relative}.game-fna .fna-checkbox-gp.no-line:before,.game-fna .fna-radio-gp-cb.no-line:before{content:none}.game-fna .fna-checkbox-gp:before,.game-fna .fna-radio-gp-cb:before{content:'';position:absolute;height:95%;width:1px;border:1px solid #d1d3d4;margin:auto 0 auto 5px;top:0;bottom:0}.game-fna .fna-checkbox-gp .fna-checkbox-btn,.game-fna .fna-checkbox-gp .fna-radio-btn,.game-fna .fna-radio-gp-cb .fna-checkbox-btn,.game-fna .fna-radio-gp-cb .fna-radio-btn{list-style:none;position:relative;line-height:15px;font-size:14px;padding-left:20px;min-height:36px;-webkit-user-select:none;-moz-user-select:none;-khtml-user-select:none;-ms-user-select:none;cursor:default}.game-fna .fna-checkbox-gp .fna-checkbox-btn span,.game-fna .fna-checkbox-gp .fna-radio-btn span,.game-fna .fna-radio-gp-cb .fna-checkbox-btn span,.game-fna .fna-radio-gp-cb .fna-radio-btn span{font-size:11px;line-height:11px}.game-fna .fna-checkbox-gp .fna-checkbox-btn:before,.game-fna .fna-checkbox-gp .fna-radio-btn:before,.game-fna .fna-radio-gp-cb .fna-checkbox-btn:before,.game-fna .fna-radio-gp-cb .fna-radio-btn:before{content:'';border:1px solid #b0ab99;background-color:#fff;width:11px;height:11px;display:block;position:absolute;top:2px;left:0}.game-fna .fna-checkbox-gp .fna-checkbox-btn:hover:before,.game-fna .fna-checkbox-gp .fna-radio-btn:hover:before,.game-fna .fna-radio-gp-cb .fna-checkbox-btn:hover:before,.game-fna .fna-radio-gp-cb .fna-radio-btn:hover:before{border:1px solid #fbb040}.game-fna .fna-checkbox-gp .fna-checkbox-btn.selected:before,.game-fna .fna-checkbox-gp .fna-radio-btn.selected:before,.game-fna .fna-radio-gp-cb .fna-checkbox-btn.selected:before,.game-fna .fna-radio-gp-cb .fna-radio-btn.selected:before{background-color:#fbb040;border:1px solid #6d6e71}.game-fna .fna-checkbox-gp .fna-checkbox-btn input,.game-fna .fna-checkbox-gp .fna-radio-btn input,.game-fna .fna-radio-gp-cb .fna-checkbox-btn input,.game-fna .fna-radio-gp-cb .fna-radio-btn input{border-bottom:1px solid #58595b;margin-top:-2px;padding:0 5px}.game-fna .fna-btn{padding:0 30px;font-size:22px;line-height:40px;height:40px;color:#fff;display:inline-block;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;position:relative;z-index:2}.game-fna .fna-btn::before{height:100%;background-color:#f7941e;z-index:-1;position:absolute;left:0;right:0;bottom:-2px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;content:'';border-bottom:5px solid #cd962b}@media screen\0{.game-fna .step2 .cont .styled-select select{height:36px}.game-fna .step3 .cont .q1 .fna-checkbox-gp{margin:0 0 0 30px}.game-fna .step3 .cont .q2{top:25px}.game-fna .step8 .cont .q4g h4 .q-num{left:-54px}.game-fna .last-loading .last-loading-cont{width:100%}}@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){.game-fna .step2 .cont .styled-select select{height:36px}.game-fna .step3 .cont .q1 .fna-checkbox-gp{margin:0 0 0 30px}.game-fna .step3 .cont .q2{top:25px}.game-fna .step8 .cont .q4g h4 .q-num{left:-54px}.game-fna .last-loading .last-loading-cont{width:100%}}@-moz-document url-prefix(){.game-fna .step2 .cont .styled-select select{height:36px}.game-fna .step3 .cont .q1 .fna-checkbox-gp{margin:0 0 0 30px}.game-fna .step3 .cont .q2{top:25px}}.fna-btn-basic{background-color:#f7941e;color:#fff;display:inline-block;font-size:22px;font-weight:bold;position:relative;line-height:1.5em;height:39px;padding:0 20px;vertical-align:middle;border-bottom:3px solid #cd962b}.fna-btn-basic:hover{color:#666}.fna-btn-arrow::before{content:'';position:absolute;top:3px;right:-18px;width:0;height:0;border-left:18px solid #cd962b;border-bottom:18px solid transparent;border-top:18px solid transparent;clear:both;z-index:1}.fna-btn-arrow::after{content:'';position:absolute;top:0;right:-18px;width:0;height:0;border-left:18px solid #f7941e;border-bottom:18px solid transparent;border-top:18px solid transparent;clear:both;z-index:2}.fna-btn-arrow.disabled{background-color:#a7a9ac;cursor:default;color:#eee;border-bottom:3px solid #666}.fna-btn-arrow.disabled::before{border-left:18px solid #666}.fna-btn-arrow.disabled::after{border-left:18px solid #a7a9ac}.fna-btn-arrow.reverse-color:not(.disabled){background-color:#fff;color:#f7941e}.fna-btn-arrow.reverse-color:not(.disabled)::after{border-left:18px solid #fff}.fna-btn-arrow.reverse-color:not(.disabled):hover{color:#666}.fna-btn-barrow::before{content:'';position:absolute;top:3px;left:-18px;width:0;height:0;border-right:18px solid #cd962b;border-bottom:18px solid transparent;border-top:18px solid transparent;clear:both;z-index:1}.fna-btn-barrow::after{content:'';position:absolute;top:0;left:-18px;width:0;height:0;border-right:18px solid #f7941e;border-bottom:18px solid transparent;border-top:18px solid transparent;clear:both;z-index:2}.fna-btn-barrow:hover:not(.disabled){color:#666}.fna-btn-barrow.disabled{background-color:#a7a9ac;cursor:default;color:#eee}.fna-btn-barrow.disabled::after{border-right:18px solid #a7a9ac}.fna-btn-barrow.reverse-color:not(.disabled){background-color:#fff;color:#f7941e}.fna-btn-barrow.reverse-color:not(.disabled)::after{border-right:18px solid #fff}.fna-btn-barrow.reverse-color:not(.disabled):hover{color:#666}.select2-dropdown,.select2-search__field{background-color:#a7a9ac;font-size:14px;color:#fff}.select2-search__field{border:1px solid #fff}.select2-container--default .select2-results__option[aria-selected=true]{background-color:#5897fb}.select2-results__option{padding:0 6px;font-family:Calibri, sans-serif !important}@media (max-width: 991px){.game-fna-wrapper{width:100%;margin:auto;padding-top:12px}.game-fna-wrapper .game-fna select,.game-fna-wrapper .game-fna textarea,.game-fna-wrapper .game-fna input[type="text"],.game-fna-wrapper .game-fna input[type="password"],.game-fna-wrapper .game-fna input[type="datetime"],.game-fna-wrapper .game-fna input[type="datetime-local"],.game-fna-wrapper .game-fna input[type="date"],.game-fna-wrapper .game-fna input[type="month"],.game-fna-wrapper .game-fna input[type="time"],.game-fna-wrapper .game-fna input[type="week"],.game-fna-wrapper .game-fna input[type="number"],.game-fna-wrapper .game-fna input[type="email"],.game-fna-wrapper .game-fna input[type="url"],.game-fna-wrapper .game-fna input[type="search"],.game-fna-wrapper .game-fna input[type="tel"],.game-fna-wrapper .game-fna input[type="color"]{font-size:16px !important}.game-fna-wrapper .game-fna .cont{padding:10% 5%;width:100%}.game-fna-wrapper .game-fna .cont .fna-btn-step-back,.game-fna-wrapper .game-fna .cont .fna-btn-step-back-inside{float:left;font-size:18px;line-height:2em}.game-fna-wrapper .game-fna .cont .fna-btn-step-next,.game-fna-wrapper .game-fna .cont .fna-btn-step-next-inside,.game-fna-wrapper .game-fna .cont .fna-btn-step-finish{float:right;font-size:18px;line-height:2em}.game-fna-wrapper .game-fna .cont .fna-btn-step-finish{font-size:13px;line-height:13px;padding:5px 20px}.game-fna-wrapper .game-fna .cont .mob-hide{display:none}.game-fna-wrapper .game-fna .cont h4{font-size:16px}.game-fna-wrapper .game-fna .step1{background:none;height:auto}.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper{padding-top:10%}.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper,.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper{width:50%;float:left}.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper .male,.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper .male{width:50%;float:right;margin-right:5%}.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper .female,.game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper .female{width:50%;float:left;margin-left:5%}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar{margin:auto;margin:4% auto 7%;text-align:center;width:auto}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar>div{float:none}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper{display:block;float:none;margin:0 auto 25px}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp{display:block}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn{display:inline-block;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;float:none;width:25%;margin:0 10px}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn span{font-size:16px;padding:0}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn:last-child{margin-left:0;border-left:0}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar label{width:100%;text-align:left;margin-bottom:15px;font-size:24px;font-weight:bold}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .frm-fna-name{float:none;width:100%;margin-bottom:15px}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start{float:none;margin:auto;font-size:18px}.game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start:hover{color:666}.game-fna-wrapper .game-fna .step2{background:none;height:auto}.game-fna-wrapper .game-fna .step2 .cont .step2-input-gp{margin:auto;width:100%}.game-fna-wrapper .game-fna .step2 .cont .step2-input-gp .fna-radio-gp{width:100%}.game-fna-wrapper .game-fna .step2 .cont .step2-input-gp .fna-radio-gp .fna-radio-btn{min-width:initial}.game-fna-wrapper .game-fna .step2 .cont .lbl{font-size:16px}.game-fna-wrapper .game-fna .step2 .cont .fna-btn-step2-next{position:relative;top:auto;left:auto;float:right;font-size:18px;line-height:2em}.game-fna-wrapper .game-fna .step2 .cont h3{display:block;text-align:center;position:static}.game-fna-wrapper .game-fna .step2 .cont .img-martix-mob{width:70%;display:block;margin:auto}.game-fna-wrapper .game-fna .step2 .cont .frm-fna-occupation-others{width:100%}.game-fna-wrapper .game-fna .step2 .cont .select2 .select2-selection__rendered{font-size:16px}.game-fna-wrapper .game-fna .step-flow-wrapper{background:none;height:auto}.game-fna-wrapper .game-fna .step-flow-wrapper .step-flow{width:100%;height:auto}.game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider{width:100% !important;height:auto;overflow:hidden;margin-left:0 !important}.game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider>div{width:auto;height:auto;float:none;display:none}.game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider>div.activeState{display:block}.game-fna-wrapper .game-fna .step3{background:none}.game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp{margin:0;margin-top:15px;padding-left:0}.game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp::before{content:none}.game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp .fna-checkbox-btn.fna-cb-others{min-height:36px !important}.game-fna-wrapper .game-fna .step3 .cont .q1{position:static;width:auto}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head::before{top:-29px}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4{height:auto;width:auto}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4::before{top:-29px;bottom:auto;border-color:transparent transparent #8e8b7f transparent}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4::after{content:none}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4 span{float:none;display:block}.game-fna-wrapper .game-fna .step3 .cont .q1 .q-head::after{content:none}.game-fna-wrapper .game-fna .step3 .cont .q1 .fna-error-box{margin:0}.game-fna-wrapper .game-fna .step3 .cont .q1 hr{display:none}.game-fna-wrapper .game-fna .step3 .cont .q1 .img-mob-wrapper img{width:30%;display:block;margin:auto}.game-fna-wrapper .game-fna .step3 .cont .q1 .mob-btn-gp{margin-top:-35px}.game-fna-wrapper .game-fna .step3 .cont .q2{position:static;width:100%;background-color:inherit}.game-fna-wrapper .game-fna .step3 .cont .q2 .q-head{padding:0}.game-fna-wrapper .game-fna .step3 .cont .q2 .q-head::before{position:static;padding-left:0;background-color:inherit}.game-fna-wrapper .game-fna .step3 .cont .q2 .img-mob-wrapper img{width:40%;display:block;margin:auto}.game-fna-wrapper .game-fna .step3 .cont .q2 .mob-btn-gp{margin-top:-35px}.game-fna-wrapper .game-fna .step4 .cont .q3{position:static}.game-fna-wrapper .game-fna .step4 .cont .q3 h4::before{position:static;text-align:left;width:100%;padding-left:0}.game-fna-wrapper .game-fna .step4 .cont .q4{position:static}.game-fna-wrapper .game-fna .step4 .cont .q4 h4::before{position:static;text-align:left;width:100%;padding-left:0}.game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn{width:48%;margin-left:2%;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;margin-bottom:10px}.game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn span{font-size:16px}.game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn:nth-child(odd){margin-left:0}.game-fna-wrapper .game-fna .step4 .cont .img-mob-wrapper img{width:40%;display:block;margin:auto}.game-fna-wrapper .game-fna .step4 .cont .mob-btn-gp{margin-top:-35px}.game-fna-wrapper .game-fna .step5{background:none}.game-fna-wrapper .game-fna .step5 .cont .q4a{width:auto;position:static}.game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn{width:48%;margin:0;margin-left:2%;margin-bottom:10px;min-width:84px;height:40px;line-height:40px;font-size:14px}.game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn:nth-child(odd){margin-left:0}.game-fna-wrapper .game-fna .step5 .cont .q4a .img-mob-wrapper img{width:46%;display:block;margin:auto}.game-fna-wrapper .game-fna .step5 .cont .q4a .mob-btn-gp{margin-top:-35px}.game-fna-wrapper .game-fna .step5 .cont .q4b{width:auto;position:static}.game-fna-wrapper .game-fna .step5 .cont .q4b .note{font-size:14px;line-height:14px;padding-bottom:5%}.game-fna-wrapper .game-fna .step5 .cont .q4b .img-mob-wrapper{margin-bottom:-44px}.game-fna-wrapper .game-fna .step5 .cont .q4b .img-mob-wrapper img{width:46%;float:right}.game-fna-wrapper .game-fna .step5 .cont h4::before{position:static;width:100%;padding-left:0;text-align:left}.game-fna-wrapper .game-fna .step6{background:none}.game-fna-wrapper .game-fna .step6 .cont .q4c{background:none;position:static;width:auto;padding:0;min-height:initial}.game-fna-wrapper .game-fna .step6 .cont .q4c br:not(.mob-ignore){display:none}.game-fna-wrapper .game-fna .step6 .cont .q4c h4 .q-num{position:static;display:block;text-align:left}.game-fna-wrapper .game-fna .step6 .cont .q4c .img-mob-wrapper{padding-top:15%}.game-fna-wrapper .game-fna .step6 .cont .q4c .img-mob-wrapper img{width:50%;display:block;margin:auto}.game-fna-wrapper .game-fna .step6 .cont .q4c .mob-btn-gp{padding-top:10%}.game-fna-wrapper .game-fna .step6 .cont .q4d{background:none;position:static;width:auto;padding:0;padding-top:44px}.game-fna-wrapper .game-fna .step6 .cont .q4d br{display:none}.game-fna-wrapper .game-fna .step6 .cont .q4d .mob-btn-gp{padding-top:15%}.game-fna-wrapper .game-fna .step6 .cont input[type="text"]{border:1px solid #58595b;width:33%}.game-fna-wrapper .game-fna .step7{background:none}.game-fna-wrapper .game-fna .step7 .cont .inner-cont{margin-left:0;width:auto}.game-fna-wrapper .game-fna .step7 .cont h4 .q-num{position:static;text-align:left;display:block}.game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp{margin-left:0}.game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn{width:48%;margin-left:2%;margin-bottom:10px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;float:none;height:40px;font-size:14px;line-height:40px}.game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn::nth-child(odd){margin-left:0}.game-fna-wrapper .game-fna .step7 .cont .q4e .img-mob-wrapper{padding-top:5%}.game-fna-wrapper .game-fna .step7 .cont .q4e .img-mob-wrapper img{width:25%;display:block;margin:auto}.game-fna-wrapper .game-fna .step7 .cont .q4e .mob-btn-gp{margin-top:-35px}.game-fna-wrapper .game-fna .step7 .cont .q4f .fna-radio-gp-cb .fna-radio-btn span{margin:14px 0px 0 -46px;display:block;font-size:12px}.game-fna-wrapper .game-fna .step7 .cont .q4f .fna-radio-gp-cb .fna-radio-btn.rgt span{margin:0;margin-top:2px}.game-fna-wrapper .game-fna .step7 .cont .fna-error-box{margin:0}.game-fna-wrapper .game-fna .step8{background:none}.game-fna-wrapper .game-fna .step8 .cont .q4g h4{margin:0}.game-fna-wrapper .game-fna .step8 .cont .q4g h4 .q-num{position:static;text-align:left;display:block}.game-fna-wrapper .game-fna .step8 .cont .q4g h4 br{display:none}.game-fna-wrapper .game-fna .step8 .cont .q4g .fna-checkbox-gp{width:auto;background:none}.game-fna-wrapper .game-fna .step8 .cont .q4g .fna-checkbox-gp .fna-checkbox-btn{min-height:31px}.game-fna-wrapper .game-fna .step8 .cont .img-mob-wrapper{padding-top:5%}.game-fna-wrapper .game-fna .step8 .cont .img-mob-wrapper img{width:50%;display:block;margin:auto}.game-fna-wrapper .game-fna .step8 .cont .mob-btn-gp{padding-top:5%}.game-fna-wrapper .game-fna .fna-checkbox-gp .fna-checkbox-btn{padding-left:40px}.game-fna-wrapper .game-fna .fna-checkbox-gp .fna-checkbox-btn::before{width:25px;height:25px}.game-fna-wrapper .game-fna .fna-radio-gp .fna-radio-btn span{font-size:16px}.select2-results>.select2-results__options{-webkit-overflow-scrolling:touch}}@media (max-width: 991px) and (min-width: 768px){.game-fna-wrapper{width:80%}.game-fna-wrapper .game-fna .step1 .gender-img-wrapper{padding-top:14%}}@media (max-width: 480px){.game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn{font-size:12px}.game-fna-wrapper .game-fna .step7{background:url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper{margin-left:-10px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn{z-index:1}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a0{left:0;top:-2px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a5{left:0;top:37px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a1{left:272px;top:-6px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a2{left:272px;top:27px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a3{left:272px;top:133px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a4{left:272px;top:160px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn span{font-size:14px}.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper,.game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .chart-line{position:absolute;top:0;left:45px}}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.clearfix{*zoom:1}#fnaPopupContact h4{font-size:24px;font-weight:bold;color:#f68a1d;margin-bottom:20px}#fnaPopupContact p{font-size:20px;font-weight:bold;margin-bottom:20px}.spinner{margin:50px auto 0;text-align:center}.spinner>div{width:18px;height:18px;background-color:#eee;margin:0 5px;border-radius:100%;display:inline-block;-webkit-animation:sk-bouncedelay 1.4s infinite ease-in-out both;animation:sk-bouncedelay 1.4s infinite ease-in-out both}.spinner .bounce1{-webkit-animation-delay:-0.32s;animation-delay:-0.32s}.spinner .bounce2{-webkit-animation-delay:-0.16s;animation-delay:-0.16s}@-webkit-keyframes sk-bouncedelay{0%, 80%, 100%{background-color:#000}40%{background-color:#eee}}@keyframes sk-bouncedelay{0%, 80%, 100%{background-color:#000}40%{background-color:#eee}}
+.datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
+  background: #fff; }
+
+.banner-onlinesavie {
+  background: url(../../images/onlinesavieFNA/bg-start.jpg) center no-repeat;
+  height: 310px;
+  overflow: auto; }
+  .banner-onlinesavie .cont {
+    width: 970px;
+    margin: auto;
+    position: relative;
+    padding: 0 50px 0 63px;
+    margin-top: 88px; }
+    .banner-onlinesavie .cont h2 {
+      color: #fff;
+      font-size: 60px; }
+    .banner-onlinesavie .cont img {
+      position: absolute;
+      right: 0;
+      top: 0; }
+
+.game-fna {
+  font-family: Calibri,"Microsoft JhengHei", sans-serif !important;
+  margin: auto;
+  /* Common Components */ }
+  .game-fna input[type="text"] {
+    border: none;
+    font-family: Calibri, sans-serif !important; }
+    .game-fna input[type="text"]:focus {
+      outline-width: 0; }
+  .game-fna h4 {
+    font-size: 16px;
+    font-weight: bold; }
+    .game-fna h4 span {
+      font-size: 12px; }
+  .game-fna .cont {
+    width: 970px;
+    margin: auto;
+    font-weight: bold;
+    position: relative;
+    font-size: 14px;
+    color: #58595b; }
+  .game-fna .step1 {
+    background: url(../../images/onlinesavieFNA/bg-step1.jpg) center no-repeat;
+    height: 595px; }
+    .game-fna .step1 .cont h2 {
+      padding-top: 100px;
+      text-align: center;
+      color: #fff;
+      font-size: 46px; }
+    .game-fna .step1 .cont .img-family {
+      margin-top: 15px;
+      margin-left: 24px; }
+    .game-fna .step1 .cont .fna-input-bar {
+      margin: 35px 0 0 240px;
+      width: 730px; }
+      .game-fna .step1 .cont .fna-input-bar > div {
+        float: left; }
+      .game-fna .step1 .cont .fna-input-bar .frm-fna-name {
+        background-color: #e6e7e8;
+        font-weight: bold;
+        font-size: 22px;
+        height: 40px;
+        color: #808285;
+        vertical-align: top;
+        width: 300px;
+        padding: 0 10px; }
+      .game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper {
+        float: right;
+        margin-left: -50px; }
+        .game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper .fna-radio-gp .fna-radio-btn {
+          height: 40px;
+          line-height: 40px;
+          min-width: 100px; }
+          .game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper .fna-radio-gp .fna-radio-btn span {
+            padding: 0 30px; }
+      .game-fna .step1 .cont .fna-input-bar .frm-fna-name {
+        float: left; }
+      .game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start {
+        float: right;
+        margin-left: 30px;
+        vertical-align: top; }
+  .game-fna .step2 {
+    background: url(../../images/onlinesavieFNA/bg-step2.jpg) repeat-x;
+    height: 595px;
+    display: none; }
+    .game-fna .step2 .cont .img-wrapper {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      width: 393px;
+      height: 450px;
+      overflow: hidden; }
+      .game-fna .step2 .cont .img-wrapper .self {
+        position: absolute;
+        width: 210px;
+        height: 314px;
+        left: 97px;
+        top: 97px; }
+        .game-fna .step2 .cont .img-wrapper .self.d2 {
+          left: 188px;
+          top: 105px; }
+        .game-fna .step2 .cont .img-wrapper .self.d3 {
+          top: 0px; }
+      .game-fna .step2 .cont .img-wrapper .dependents {
+        position: absolute;
+        width: 393px;
+        height: 408px;
+        left: 0px;
+        top: 30px;
+        z-index: 99; }
+    .game-fna .step2 .cont h3 {
+      font-size: 25px;
+      font-weight: bold;
+      color: #58595b;
+      margin-left: 10px;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .game-fna .step2 .cont .fna-row {
+      margin-bottom: 5px; }
+    .game-fna .step2 .cont .lbl {
+      color: #58595b;
+      font-size: 15px;
+      margin: 0 0 0 10px; }
+    .game-fna .step2 .cont .step2-input-gp {
+      margin: 0 0 0 470px;
+      width: 416px; }
+    .game-fna .step2 .cont .select2 {
+      width: 100% !important; }
+      .game-fna .step2 .cont .select2 .select2-selection--single {
+        background-color: inherit;
+        border: none;
+        height: 33px; }
+      .game-fna .step2 .cont .select2 .select2-selection__arrow {
+        visibility: hidden; }
+      .game-fna .step2 .cont .select2 .select2-selection__rendered {
+        font-size: 14px;
+        font-weight: bold;
+        padding-left: 22px;
+        color: #fff;
+        line-height: 33px; }
+    .game-fna .step2 .cont .frm-fna-occupation-others, .game-fna .step2 .cont .frm-fna-dob {
+      background-color: #a7a9ac;
+      width: 210px;
+      height: 36px;
+      line-height: 36px;
+      padding: 0 20px;
+      font-size: 20px;
+      color: #fff;
+      font-weight: bold;
+      position: relative; }
+      .game-fna .step2 .cont .frm-fna-occupation-others .datepicker, .game-fna .step2 .cont .frm-fna-dob .datepicker {
+        font-size: 22px; }
+      .game-fna .step2 .cont .frm-fna-occupation-others .input-group-addon, .game-fna .step2 .cont .frm-fna-dob .input-group-addon {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1; }
+    .game-fna .step2 .cont .frm-fna-dob::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 14px 9px 0 9px;
+      border-color: #fbb040 transparent transparent transparent;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      bottom: 0;
+      margin: auto; }
+    .game-fna .step2 .cont .frm-fna-occupation-others {
+      width: 417px;
+      border: none; }
+    .game-fna .step2 .cont .fna-error-msg {
+      margin-left: 5px; }
+    .game-fna .step2 .cont .fna-radio-gp {
+      width: 417px; }
+      .game-fna .step2 .cont .fna-radio-gp .fna-radio-btn {
+        height: 36px;
+        width: 25%;
+        min-width: 100px;
+        vertical-align: middle; }
+        .game-fna .step2 .cont .fna-radio-gp .fna-radio-btn span {
+          text-align: center;
+          line-height: 36px;
+          display: inline-block;
+          vertical-align: middle; }
+    .game-fna .step2 .cont .styled-select {
+      background: #a7a9ac;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      position: relative; }
+      .game-fna .step2 .cont .styled-select select {
+        font-size: 14px;
+        line-height: 36px;
+        font-weight: bold;
+        color: #fff;
+        outline: 0;
+        width: 115%;
+        position: relative;
+        z-index: 1;
+        padding-left: 20px; }
+        .game-fna .step2 .cont .styled-select select option {
+          background: #a7a9ac; }
+      .game-fna .step2 .cont .styled-select::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 9px 0 9px;
+        border-color: #fbb040 transparent transparent transparent;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        bottom: 0;
+        margin: auto; }
+    .game-fna .step2 .cont .fna-btn-step2-next {
+      position: absolute;
+      top: 515px;
+      left: 808px; }
+  .game-fna .step-flow-wrapper {
+    background: url(../../images/onlinesavieFNA/bg-step.jpg) repeat-x;
+    height: 595px;
+    display: none; }
+    .game-fna .step-flow-wrapper .step-flow {
+      width: 970px;
+      height: 595px;
+      margin: auto;
+      overflow: hidden;
+      position: relative; }
+      .game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-next {
+        position: absolute;
+        top: 535px;
+        right: 80px; }
+      .game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-back {
+        position: absolute;
+        top: 535px;
+        left: 80px; }
+      .game-fna .step-flow-wrapper .step-flow .hidden-sm.hidden-xs .fna-btn-step-finish {
+        position: absolute;
+        top: 535px;
+        right: 80px;
+        display: none; }
+      .game-fna .step-flow-wrapper .step-flow .step-flow-slider {
+        width: 5820px;
+        height: 487px; }
+        .game-fna .step-flow-wrapper .step-flow .step-flow-slider > div {
+          float: left;
+          width: 970px;
+          height: 487px; }
+  .game-fna .step3 {
+    background: url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat; }
+    .game-fna .step3 .cont .q1 {
+      width: 394px;
+      position: absolute;
+      top: 46px;
+      left: 50px; }
+      .game-fna .step3 .cont .q1 .fna-error-box {
+        margin: -14px 0 0 90px;
+        display: block; }
+      .game-fna .step3 .cont .q1 .q-head {
+        position: relative;
+        height: 72px; }
+        .game-fna .step3 .cont .q1 .q-head:after {
+          content: '';
+          z-index: 0;
+          width: 33px;
+          height: 36px;
+          bottom: 0;
+          right: 0;
+          background-color: #d9d3bd;
+          display: block;
+          position: absolute; }
+        .game-fna .step3 .cont .q1 .q-head:before {
+          content: '1';
+          z-index: 0;
+          display: block;
+          width: 66px;
+          height: 36px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: #d9d3bd;
+          font-size: 38px;
+          line-height: 38px;
+          padding-left: 15px;
+          color: #fff; }
+        .game-fna .step3 .cont .q1 .q-head h4 {
+          background-color: #b0ab99;
+          z-index: 1;
+          color: #fff;
+          height: 42px;
+          width: 353px;
+          position: relative;
+          margin: 0 0 0 37px;
+          padding: 6px 10px;
+          font-size: 16px; }
+          .game-fna .step3 .cont .q1 .q-head h4 span {
+            font-size: 12px;
+            float: right; }
+          .game-fna .step3 .cont .q1 .q-head h4:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 29px 29px 0;
+            border-color: transparent #8e8b7f transparent transparent;
+            position: absolute;
+            bottom: -29px;
+            left: 0; }
+          .game-fna .step3 .cont .q1 .q-head h4:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 29px 29px 0 0;
+            border-color: #8e8b7f transparent transparent transparent;
+            position: absolute;
+            bottom: -29px;
+            right: 0; }
+      .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+        margin: 0 0 0 30px; }
+        .game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-cb-others {
+          min-height: initial !important;
+          line-height: 15px; }
+        .game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-checkbox-btn {
+          font-size: 16px; }
+          .game-fna .step3 .cont .q1 .fna-checkbox-gp .fna-checkbox-btn span {
+            font-size: 12px; }
+      .game-fna .step3 .cont .q1 hr {
+        width: 290px;
+        background-color: #8e8b7f;
+        height: 8px;
+        border: none;
+        margin-left: 70px; }
+    .game-fna .step3 .cont .q2 {
+      background-color: #e6e7e8;
+      padding-bottom: 20px;
+      position: absolute;
+      top: 25px;
+      left: 587px;
+      width: 340px;
+      /* height:269px; */ }
+      .game-fna .step3 .cont .q2 .q-head {
+        position: relative;
+        padding: 5px 20px 0; }
+        .game-fna .step3 .cont .q2 .q-head:before {
+          content: '2';
+          z-index: 0;
+          display: block;
+          width: 40px;
+          height: 44px;
+          position: absolute;
+          top: 0;
+          left: -40px;
+          font-size: 38px;
+          line-height: 44px;
+          padding-left: 10px;
+          color: #58595b;
+          background-color: #e6e7e8; }
+        .game-fna .step3 .cont .q2 .q-head h4 {
+          font-size: 16px; }
+      .game-fna .step3 .cont .q2 .fna-error-box {
+        padding-left: 40px; }
+      .game-fna .step3 .cont .q2 .fna-checkbox-gp {
+        margin: 0 0 0 -20px; }
+        .game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn {
+          min-height: 51px;
+          font-size: 16px; }
+          .game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn span {
+            font-size: 12px; }
+          .game-fna .step3 .cont .q2 .fna-checkbox-gp .fna-checkbox-btn.fna-cb-others {
+            min-height: initial !important;
+            line-height: 15px; }
+    .game-fna .step3 .cont .img1-wrapper {
+      position: absolute;
+      top: 390px;
+      left: 67px; }
+    .game-fna .step3 .cont .img2-wrapper {
+      position: absolute;
+      top: 355px;
+      left: 280px; }
+    .game-fna .step3 .cont .img3-wrapper {
+      position: absolute;
+      top: 177px;
+      left: 423px;
+      width: 156px;
+      height: 357px; }
+      .game-fna .step3 .cont .img3-wrapper .body {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 156px;
+        height: 357px;
+        background: url(../../images/onlinesavieFNA/img_woman_young.png); }
+    .game-fna .step3 .cont .step-indicator1 {
+      position: absolute;
+      top: 220px;
+      left: 250px;
+      display: none; }
+    .game-fna .step3 .cont .step-indicator2 {
+      position: absolute;
+      top: 40px;
+      left: 710px;
+      display: none; }
+  .game-fna .step4 {
+    /* background:url(../../images/onlinesavieFNA/bg-step4.jpg) center top no-repeat; */ }
+    .game-fna .step4 .cont h4 {
+      position: relative; }
+      .game-fna .step4 .cont h4 span {
+        font-size: 10px; }
+      .game-fna .step4 .cont h4:before {
+        content: '3';
+        z-index: 0;
+        display: block;
+        width: 40px;
+        height: 44px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: -40px;
+        font-size: 38px;
+        line-height: 44px;
+        padding-left: 10px;
+        color: #58595b; }
+    .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn {
+      min-width: 84px;
+      height: 40px; }
+      .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn span {
+        font-size: 14px;
+        line-height: 40px; }
+      .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn:last-child {
+        min-width: 95px; }
+    .game-fna .step4 .cont .q3 {
+      position: absolute;
+      top: 147px;
+      left: 180px; }
+      .game-fna .step4 .cont .q3 .fna-radio-gp .fna-radio-btn:last-child {
+        min-width: 95px; }
+    .game-fna .step4 .cont .q4 {
+      position: absolute;
+      top: 278px;
+      left: 180px;
+      z-index: 1; }
+      .game-fna .step4 .cont .q4 h4::before {
+        content: '4'; }
+    .game-fna .step4 .cont .img1-wrapper {
+      position: absolute;
+      top: 36px;
+      left: 719px;
+      width: 165px;
+      height: 110px; }
+      .game-fna .step4 .cont .img1-wrapper .body {
+        position: absolute;
+        left: 0;
+        top: 5px; }
+    .game-fna .step4 .cont .img2-wrapper {
+      position: absolute;
+      top: 300px;
+      left: 8px; }
+    .game-fna .step4 .cont .step-indicator1 {
+      position: absolute;
+      top: 40px;
+      left: 0; }
+    .game-fna .step4 .cont .step-indicator2 {
+      position: absolute;
+      top: 130px;
+      left: 437px;
+      display: none; }
+  .game-fna .step5 {
+    background: url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat; }
+    .game-fna .step5 .cont h4 {
+      color: #58595b;
+      position: relative; }
+      .game-fna .step5 .cont h4:before {
+        content: '4a';
+        z-index: 0;
+        display: block;
+        width: 60px;
+        height: 44px;
+        position: absolute;
+        top: 0;
+        margin: auto;
+        left: -60px;
+        font-size: 38px;
+        line-height: 44px;
+        padding-left: 10px;
+        color: #58595b; }
+    .game-fna .step5 .cont .sep {
+      height: 1px;
+      border-bottom: 1px solid #a7a9ac;
+      margin: 0 0 10px; }
+    .game-fna .step5 .cont .q4a {
+      width: 320px;
+      position: absolute;
+      top: 106px;
+      left: 112px; }
+      .game-fna .step5 .cont .q4a p {
+        line-height: 14px;
+        margin-bottom: 15px; }
+        .game-fna .step5 .cont .q4a p input {
+          border: 1px solid #58595b;
+          font-size: 12.84px; }
+      .game-fna .step5 .cont .q4a ul {
+        padding-left: 0; }
+        .game-fna .step5 .cont .q4a ul li {
+          list-style: none;
+          background-color: #a7a9ac;
+          font-size: 12px;
+          height: 30px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          color: #fff;
+          float: left;
+          margin: 0 10px 17px 0;
+          width: 150px;
+          text-align: center;
+          line-height: 30px; }
+          .game-fna .step5 .cont .q4a ul li.selected, .game-fna .step5 .cont .q4a ul li:hover {
+            background-color: #fdb03e; }
+    .game-fna .step5 .cont .q4b {
+      width: 365px;
+      position: absolute;
+      top: 110px;
+      left: 554px; }
+      .game-fna .step5 .cont .q4b h4:before {
+        content: '4b'; }
+      .game-fna .step5 .cont .q4b .fna-checkbox-gp {
+        padding: 0;
+        margin-bottom: -10px; }
+        .game-fna .step5 .cont .q4b .fna-checkbox-gp .fna-checkbox-btn {
+          float: left;
+          width: 50%; }
+          .game-fna .step5 .cont .q4b .fna-checkbox-gp .fna-checkbox-btn:last-child {
+            width: 100%; }
+      .game-fna .step5 .cont .q4b > input {
+        border: 1px solid #58595b;
+        line-height: 14px; }
+      .game-fna .step5 .cont .q4b .note {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 12px; }
+    .game-fna .step5 .cont .img1-wrapper {
+      position: absolute;
+      top: 367px;
+      left: 229px;
+      width: 418px;
+      height: 180px; }
+      .game-fna .step5 .cont .img1-wrapper .body {
+        position: absolute;
+        left: 90px; }
+      .game-fna .step5 .cont .img1-wrapper .shadow {
+        position: absolute;
+        left: 90px;
+        bottom: 10px; }
+      .game-fna .step5 .cont .img1-wrapper .smoke {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 88px;
+        height: 90px;
+        background: url(../../images/onlinesavieFNA/car_smoke_sprite.png);
+        display: none; }
+    .game-fna .step5 .cont .step-indicator1 {
+      position: absolute;
+      top: 130px;
+      left: 0; }
+    .game-fna .step5 .cont .step-indicator2 {
+      position: absolute;
+      top: 130px;
+      left: 421px;
+      display: none; }
+    .game-fna .step5 .cont .step-indicator3 {
+      position: absolute;
+      top: 240px;
+      left: 701px;
+      display: none; }
+  .game-fna .step6 {
+    background: url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat; }
+    .game-fna .step6 .cont h4 {
+      position: relative; }
+      .game-fna .step6 .cont h4 .q-num {
+        position: absolute;
+        top: -44px;
+        left: 0;
+        font-size: 38px;
+        line-height: 44px; }
+      .game-fna .step6 .cont h4 .q-sub-num {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: inherit; }
+    .game-fna .step6 .cont .q4c {
+      background: url(../../images/onlinesavieFNA/bg-step6-q4c.jpg) bottom left no-repeat #e6e7e8;
+      width: 360px;
+      min-height: 320px;
+      padding: 80px 44px 0;
+      position: absolute;
+      top: 97px;
+      left: 85px; }
+      .game-fna .step6 .cont .q4c input {
+        background-color: #fff;
+        line-height: 14px; }
+    .game-fna .step6 .cont .q4d {
+      background-color: #e6e7e8;
+      width: 360px;
+      min-height: 320px;
+      position: absolute;
+      top: 97px;
+      left: 510px;
+      padding: 65px 30px 0 44px; }
+      .game-fna .step6 .cont .q4d h4, .game-fna .step6 .cont .q4d p {
+        padding-left: 15px; }
+      .game-fna .step6 .cont .q4d input {
+        width: 80px;
+        margin-left: 5px;
+        line-height: 14px; }
+      .game-fna .step6 .cont .q4d .fna-error-box {
+        padding-left: 15px; }
+    .game-fna .step6 .cont .img1-wrapper {
+      position: absolute;
+      top: 330px;
+      left: 440px;
+      width: 76px;
+      height: 180px; }
+      .game-fna .step6 .cont .img1-wrapper .body {
+        position: absolute;
+        left: 0;
+        top: 7px; }
+      .game-fna .step6 .cont .img1-wrapper .shadow {
+        position: absolute;
+        left: 0;
+        top: 7px; }
+    .game-fna .step6 .cont .step-indicator1 {
+      position: absolute;
+      top: 240px;
+      left: 0; }
+    .game-fna .step6 .cont .step-indicator2 {
+      position: absolute;
+      top: 230px;
+      left: 426px;
+      display: none; }
+    .game-fna .step6 .cont .step-indicator3 {
+      position: absolute;
+      top: 380px;
+      left: 770px;
+      display: none; }
+  .game-fna .step7 {
+    background: url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat; }
+    .game-fna .step7 h4 {
+      position: relative; }
+      .game-fna .step7 h4 .q-num {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: -44px;
+        font-size: 38px;
+        line-height: 44px;
+        height: 50px; }
+    .game-fna .step7 .cont {
+      padding-top: 100px; }
+      .game-fna .step7 .cont .inner-cont {
+        width: 700px;
+        margin-left: 160px; }
+      .game-fna .step7 .cont .q4e {
+        margin-bottom: 20px; }
+        .game-fna .step7 .cont .q4e .fna-radio-gp {
+          margin-left: 50px; }
+          .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn {
+            margin-top: 10px;
+            min-width: 84px;
+            height: 30px; }
+            .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn span {
+              font-size: 14px;
+              line-height: 30px; }
+            .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn:last-child {
+              min-width: 104px; }
+      .game-fna .step7 .cont .q4f {
+        position: relative; }
+        .game-fna .step7 .cont .q4f .img1-wrapper {
+          margin-left: 350px; }
+        .game-fna .step7 .cont .q4f .answer-wrapper {
+          margin: 10px auto;
+          height: 200px;
+          width: 400px;
+          position: relative; }
+          .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn {
+            position: absolute;
+            top: 0;
+            left: 0; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.rgt {
+              padding-left: 0;
+              padding-right: 20px; }
+              .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.rgt:before {
+                right: 0;
+                left: auto; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a0 {
+              left: 0;
+              top: -2px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a5 {
+              left: 0;
+              top: 37px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a1 {
+              left: 300px;
+              top: -6px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a2 {
+              left: 300px;
+              top: 27px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a3 {
+              left: 300px;
+              top: 133px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a4 {
+              left: 300px;
+              top: 160px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn span {
+              font-size: 14px; }
+          .game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper, .game-fna .step7 .cont .q4f .answer-wrapper .chart-line {
+            position: absolute;
+            top: 0;
+            left: 60px; }
+          .game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper {
+            background: url(../../images/onlinesavieFNA/image_chart_01.png) top left no-repeat;
+            width: 236px;
+            height: 193px; }
+            .game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper img {
+              display: none;
+              position: absolute;
+              top: 0;
+              left: 0; }
+      .game-fna .step7 .cont .step-indicator1 {
+        position: absolute;
+        top: 107px;
+        left: 0; }
+      .game-fna .step7 .cont .step-indicator2 {
+        position: absolute;
+        top: 340px;
+        left: 656px;
+        display: none; }
+      .game-fna .step7 .cont .fna-error-box {
+        text-align: center;
+        margin-left: -50px; }
+  .game-fna .step8 {
+    background: url(../../images/onlinesavieFNA/bg-step8.jpg) center top no-repeat; }
+    .game-fna .step8 .cont {
+      padding: 125px 0 0 102px; }
+      .game-fna .step8 .cont .q4g h4 {
+        margin: 0 0 20px 44px;
+        position: relative; }
+        .game-fna .step8 .cont .q4g h4 .q-num {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          left: -44px;
+          font-size: 38px;
+          line-height: 44px;
+          height: 50px; }
+      .game-fna .step8 .cont .q4g .fna-checkbox-gp {
+        width: 330px;
+        padding: 20px 0 30px 15px;
+        background-color: #e6e7e8; }
+        .game-fna .step8 .cont .q4g .fna-checkbox-gp .fna-checkbox-btn {
+          min-height: 20px; }
+        .game-fna .step8 .cont .q4g .fna-checkbox-gp input {
+          background-color: #e6e7e8; }
+      .game-fna .step8 .cont .img1-wrapper {
+        position: absolute;
+        top: 84px;
+        left: 635px;
+        width: 251px;
+        height: 296px; }
+        .game-fna .step8 .cont .img1-wrapper .body {
+          position: absolute;
+          width: 250px;
+          height: 295px;
+          left: 0;
+          top: 0;
+          background: url(../../images/onlinesavieFNA/image_old_family.png); }
+      .game-fna .step8 .cont .step-indicator1 {
+        position: absolute;
+        top: 142px;
+        left: 20px; }
+  .game-fna .last-loading {
+    background: url(../../images/onlinesavieFNA/main_bg.jpg) center top no-repeat;
+    height: 595px;
+    position: relative;
+    display: none; }
+    .game-fna .last-loading .last-loading-cont {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 160px;
+      max-width: 535px;
+      padding: 0 10px; }
+      .game-fna .last-loading .last-loading-cont .family {
+        position: absolute;
+        top: -110px;
+        left: 0;
+        right: 0;
+        margin: auto; }
+      .game-fna .last-loading .last-loading-cont p {
+        margin-top: 80px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center; }
+      .game-fna .last-loading .last-loading-cont .bubble-gp {
+        text-align: center; }
+  .game-fna .round-box {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+  .game-fna .fna-radio-gp {
+    font-size: 0; }
+    .game-fna .fna-radio-gp .fna-radio-btn {
+      position: relative;
+      background-color: #a7a9ac;
+      display: inline-block;
+      color: #fff;
+      border-left: 1px solid #939598;
+      cursor: pointer;
+      min-width: 50px;
+      text-align: center; }
+      .game-fna .fna-radio-gp .fna-radio-btn span {
+        font-size: 14px; }
+      .game-fna .fna-radio-gp .fna-radio-btn.selected, .game-fna .fna-radio-gp .fna-radio-btn:hover {
+        background-color: #fbb040; }
+      .game-fna .fna-radio-gp .fna-radio-btn:first-child {
+        border: none;
+        -webkit-border-top-left-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        border-top-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        border-bottom-left-radius: 5px; }
+      .game-fna .fna-radio-gp .fna-radio-btn:last-child {
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-bottom-right-radius: 5px; }
+  .game-fna .fna-checkbox-gp, .game-fna .fna-radio-gp-cb {
+    color: #58595b;
+    position: relative; }
+    .game-fna .fna-checkbox-gp.no-line:before, .game-fna .fna-radio-gp-cb.no-line:before {
+      content: none; }
+    .game-fna .fna-checkbox-gp:before, .game-fna .fna-radio-gp-cb:before {
+      content: '';
+      position: absolute;
+      height: 95%;
+      width: 1px;
+      border: 1px solid #d1d3d4;
+      margin: auto 0 auto 5px;
+      top: 0;
+      bottom: 0; }
+    .game-fna .fna-checkbox-gp .fna-checkbox-btn, .game-fna .fna-checkbox-gp .fna-radio-btn, .game-fna .fna-radio-gp-cb .fna-checkbox-btn, .game-fna .fna-radio-gp-cb .fna-radio-btn {
+      list-style: none;
+      position: relative;
+      line-height: 15px;
+      font-size: 14px;
+      padding-left: 20px;
+      min-height: 36px;
+      -webkit-user-select: none;
+      /* webkit (safari, chrome) browsers */
+      -moz-user-select: none;
+      /* mozilla browsers */
+      -khtml-user-select: none;
+      /* webkit (konqueror) browsers */
+      -ms-user-select: none;
+      /* IE10+ */
+      cursor: default;
+      			/* &:last-child{
+      				min-height: initial !important;
+      				line-height: 9px;
+      			}
+       */ }
+      .game-fna .fna-checkbox-gp .fna-checkbox-btn span, .game-fna .fna-checkbox-gp .fna-radio-btn span, .game-fna .fna-radio-gp-cb .fna-checkbox-btn span, .game-fna .fna-radio-gp-cb .fna-radio-btn span {
+        font-size: 12px;
+        line-height: 11px; }
+      .game-fna .fna-checkbox-gp .fna-checkbox-btn:before, .game-fna .fna-checkbox-gp .fna-radio-btn:before, .game-fna .fna-radio-gp-cb .fna-checkbox-btn:before, .game-fna .fna-radio-gp-cb .fna-radio-btn:before {
+        content: '';
+        border: 1px solid #b0ab99;
+        background-color: #fff;
+        width: 11px;
+        height: 11px;
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 0; }
+      .game-fna .fna-checkbox-gp .fna-checkbox-btn:hover:before, .game-fna .fna-checkbox-gp .fna-radio-btn:hover:before, .game-fna .fna-radio-gp-cb .fna-checkbox-btn:hover:before, .game-fna .fna-radio-gp-cb .fna-radio-btn:hover:before {
+        border: 1px solid #fbb040; }
+      .game-fna .fna-checkbox-gp .fna-checkbox-btn.selected:before, .game-fna .fna-checkbox-gp .fna-radio-btn.selected:before, .game-fna .fna-radio-gp-cb .fna-checkbox-btn.selected:before, .game-fna .fna-radio-gp-cb .fna-radio-btn.selected:before {
+        background-color: #fbb040;
+        border: 1px solid #6d6e71; }
+      .game-fna .fna-checkbox-gp .fna-checkbox-btn input, .game-fna .fna-checkbox-gp .fna-radio-btn input, .game-fna .fna-radio-gp-cb .fna-checkbox-btn input, .game-fna .fna-radio-gp-cb .fna-radio-btn input {
+        border-bottom: 1px solid #58595b;
+        margin-top: -2px;
+        padding: 0 5px; }
+  .game-fna .fna-btn {
+    padding: 0 30px;
+    font-size: 22px;
+    line-height: 40px;
+    height: 40px;
+    color: #fff;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2; }
+    .game-fna .fna-btn::before {
+      /* background-color:#cd962b; */
+      height: 100%;
+      background-color: #f7941e;
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      content: '';
+      border-bottom: 5px solid #cd962b; }
+
+/* CSS Browser Fix */
+@media screen\0 {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; }
+  .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+    margin: 0 0 0 30px; }
+  .game-fna .step3 .cont .q2 {
+    top: 25px; }
+  .game-fna .step8 .cont .q4g h4 .q-num {
+    left: -54px; }
+  .game-fna .last-loading .last-loading-cont {
+    width: 100%; } }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; }
+  .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+    margin: 0 0 0 30px; }
+  .game-fna .step3 .cont .q2 {
+    top: 25px; }
+  .game-fna .step8 .cont .q4g h4 .q-num {
+    left: -54px; }
+  .game-fna .last-loading .last-loading-cont {
+    width: 100%; } }
+@-moz-document url-prefix() {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; }
+  .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+    margin: 0 0 0 30px; }
+  .game-fna .step3 .cont .q2 {
+    top: 25px; } }
+.fna-btn-basic {
+  background-color: #f7941e;
+  color: #fff;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+  line-height: 1.5em;
+  height: 39px;
+  padding: 0 20px;
+  vertical-align: middle;
+  border-bottom: 3px solid #cd962b; }
+  .fna-btn-basic:hover {
+    color: #666; }
+
+.fna-btn-arrow::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: -18px;
+  width: 0;
+  height: 0;
+  border-left: 18px solid #cd962b;
+  border-bottom: 18px solid transparent;
+  border-top: 18px solid transparent;
+  clear: both;
+  z-index: 1; }
+.fna-btn-arrow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -18px;
+  width: 0;
+  height: 0;
+  border-left: 18px solid #f7941e;
+  border-bottom: 18px solid transparent;
+  border-top: 18px solid transparent;
+  clear: both;
+  z-index: 2; }
+.fna-btn-arrow.disabled {
+  background-color: #a7a9ac;
+  cursor: default;
+  color: #eee;
+  border-bottom: 3px solid #666; }
+  .fna-btn-arrow.disabled::before {
+    border-left: 18px solid #666; }
+  .fna-btn-arrow.disabled::after {
+    border-left: 18px solid #a7a9ac; }
+.fna-btn-arrow.reverse-color:not(.disabled) {
+  background-color: #fff;
+  color: #f7941e; }
+  .fna-btn-arrow.reverse-color:not(.disabled)::after {
+    border-left: 18px solid #fff; }
+  .fna-btn-arrow.reverse-color:not(.disabled):hover {
+    color: #666; }
+
+.fna-btn-barrow::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -18px;
+  width: 0;
+  height: 0;
+  border-right: 18px solid #cd962b;
+  border-bottom: 18px solid transparent;
+  border-top: 18px solid transparent;
+  clear: both;
+  z-index: 1; }
+.fna-btn-barrow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -18px;
+  width: 0;
+  height: 0;
+  border-right: 18px solid #f7941e;
+  border-bottom: 18px solid transparent;
+  border-top: 18px solid transparent;
+  clear: both;
+  z-index: 2; }
+.fna-btn-barrow:hover:not(.disabled) {
+  color: #666; }
+.fna-btn-barrow.disabled {
+  background-color: #a7a9ac;
+  cursor: default;
+  color: #eee; }
+  .fna-btn-barrow.disabled::after {
+    border-right: 18px solid #a7a9ac; }
+.fna-btn-barrow.reverse-color:not(.disabled) {
+  background-color: #fff;
+  color: #f7941e; }
+  .fna-btn-barrow.reverse-color:not(.disabled)::after {
+    border-right: 18px solid #fff; }
+  .fna-btn-barrow.reverse-color:not(.disabled):hover {
+    color: #666; }
+
+/* select 2 overrider */
+.select2-dropdown, .select2-search__field {
+  background-color: #a7a9ac;
+  font-size: 14px;
+  color: #fff; }
+
+.select2-search__field {
+  border: 1px solid #fff; }
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #5897fb; }
+
+.select2-results__option {
+  padding: 0 6px;
+  font-family: Calibri, sans-serif !important; }
+
+#fnaPopupContact h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f68a1d;
+  margin-bottom: 20px; }
+#fnaPopupContact p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px; }
+
+@-moz-document url-prefix() {
+  .game-fna .step7 .cont .q4e h4 .q-num {
+    top: -16px; }
+  .game-fna .step7 .cont .inner-cont {
+    width: 730px; }
+  .game-fna .step8 .cont .q4g h4 .q-num {
+    top: -16px; } }
+@media (max-width: 991px) {
+  .game-fna-wrapper {
+    width: 100%;
+    margin: auto;
+    padding-top: 12px; }
+    .game-fna-wrapper .game-fna select, .game-fna-wrapper .game-fna textarea, .game-fna-wrapper .game-fna input[type="text"], .game-fna-wrapper .game-fna input[type="password"], .game-fna-wrapper .game-fna input[type="datetime"], .game-fna-wrapper .game-fna input[type="datetime-local"], .game-fna-wrapper .game-fna input[type="date"], .game-fna-wrapper .game-fna input[type="month"], .game-fna-wrapper .game-fna input[type="time"], .game-fna-wrapper .game-fna input[type="week"], .game-fna-wrapper .game-fna input[type="number"], .game-fna-wrapper .game-fna input[type="email"], .game-fna-wrapper .game-fna input[type="url"], .game-fna-wrapper .game-fna input[type="search"], .game-fna-wrapper .game-fna input[type="tel"], .game-fna-wrapper .game-fna input[type="color"] {
+      font-size: 16px !important; }
+    .game-fna-wrapper .game-fna .cont {
+      padding: 10% 5%;
+      width: 100%; }
+      .game-fna-wrapper .game-fna .cont .fna-btn-step-back, .game-fna-wrapper .game-fna .cont .fna-btn-step-back-inside {
+        float: left;
+        font-size: 18px;
+        line-height: 2em; }
+      .game-fna-wrapper .game-fna .cont .fna-btn-step-next, .game-fna-wrapper .game-fna .cont .fna-btn-step-next-inside, .game-fna-wrapper .game-fna .cont .fna-btn-step-finish {
+        float: right;
+        font-size: 18px;
+        line-height: 2em; }
+      .game-fna-wrapper .game-fna .cont .fna-btn-step-finish {
+        font-size: 13px;
+        line-height: 13px;
+        padding: 5px 20px; }
+      .game-fna-wrapper .game-fna .cont .mob-hide {
+        display: none; }
+      .game-fna-wrapper .game-fna .cont h4 {
+        font-size: 16px; }
+    .game-fna-wrapper .game-fna .step1 {
+      background: none;
+      height: auto; }
+      .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper {
+        padding-top: 10%; }
+        .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper, .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper {
+          width: 50%;
+          float: left; }
+          .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper .male, .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper .male {
+            width: 50%;
+            float: right;
+            margin-right: 5%; }
+          .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .male-wrapper .female, .game-fna-wrapper .game-fna .step1 .cont .gender-img-wrapper .female-wrapper .female {
+            width: 50%;
+            float: left;
+            margin-left: 5%; }
+      .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar {
+        margin: auto;
+        margin: 4% auto 7%;
+        text-align: center;
+        width: auto; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar > div {
+          float: none; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp-wrapper {
+          display: block;
+          float: none;
+          margin: 0 auto 25px; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp {
+          display: block; }
+          .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn {
+            display: inline-block;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            float: none;
+            width: 25%;
+            margin: 0 10px; }
+            .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn span {
+              font-size: 16px;
+              padding: 0; }
+            .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-radio-gp .fna-radio-btn:last-child {
+              margin-left: 0;
+              border-left: 0; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar label {
+          width: 100%;
+          text-align: left;
+          margin-bottom: 15px;
+          font-size: 24px;
+          font-weight: bold; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .frm-fna-name {
+          float: none;
+          width: 100%;
+          margin-bottom: 15px; }
+        .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start {
+          float: none;
+          margin: auto;
+          font-size: 18px; }
+          .game-fna-wrapper .game-fna .step1 .cont .fna-input-bar .fna-btn-step1-start:hover {
+            color: 666; }
+    .game-fna-wrapper .game-fna .step2 {
+      background: none;
+      height: auto; }
+      .game-fna-wrapper .game-fna .step2 .cont .step2-input-gp {
+        margin: auto;
+        width: 100%; }
+        .game-fna-wrapper .game-fna .step2 .cont .step2-input-gp .fna-radio-gp {
+          width: 100%; }
+          .game-fna-wrapper .game-fna .step2 .cont .step2-input-gp .fna-radio-gp .fna-radio-btn {
+            min-width: initial; }
+      .game-fna-wrapper .game-fna .step2 .cont .lbl {
+        font-size: 16px; }
+      .game-fna-wrapper .game-fna .step2 .cont .fna-btn-step2-next {
+        position: relative;
+        top: auto;
+        left: auto;
+        float: right;
+        font-size: 18px;
+        line-height: 2em; }
+      .game-fna-wrapper .game-fna .step2 .cont h3 {
+        display: block;
+        text-align: center;
+        position: static; }
+      .game-fna-wrapper .game-fna .step2 .cont .img-martix-mob {
+        width: 70%;
+        display: block;
+        margin: auto; }
+      .game-fna-wrapper .game-fna .step2 .cont .frm-fna-occupation-others {
+        width: 100%; }
+      .game-fna-wrapper .game-fna .step2 .cont .select2 .select2-selection__rendered {
+        font-size: 16px; }
+    .game-fna-wrapper .game-fna .step-flow-wrapper {
+      background: none;
+      height: auto; }
+      .game-fna-wrapper .game-fna .step-flow-wrapper .step-flow {
+        width: 100%;
+        height: auto; }
+        .game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider {
+          width: 100% !important;
+          height: auto;
+          overflow: hidden;
+          margin-left: 0 !important; }
+          .game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider > div {
+            width: auto;
+            height: auto;
+            float: none;
+            display: none; }
+            .game-fna-wrapper .game-fna .step-flow-wrapper .step-flow .step-flow-slider > div.activeState {
+              display: block; }
+    .game-fna-wrapper .game-fna .step3 {
+      background: none; }
+      .game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp {
+        margin: 0;
+        margin-top: 15px;
+        padding-left: 0; }
+        .game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp::before {
+          content: none; }
+        .game-fna-wrapper .game-fna .step3 .cont .fna-checkbox-gp .fna-checkbox-btn.fna-cb-others {
+          min-height: 36px !important; }
+      .game-fna-wrapper .game-fna .step3 .cont .q1 {
+        position: static;
+        width: auto; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head::before {
+          top: -29px; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4 {
+          height: auto;
+          width: auto; }
+          .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4::before {
+            top: -29px;
+            bottom: auto;
+            border-color: transparent transparent #8e8b7f transparent; }
+          .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4::after {
+            content: none; }
+          .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head h4 span {
+            float: none;
+            display: block; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .q-head::after {
+          content: none; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .fna-error-box {
+          margin: 0; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 hr {
+          display: none; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .img-mob-wrapper img {
+          width: 30%;
+          display: block;
+          margin: auto; }
+        .game-fna-wrapper .game-fna .step3 .cont .q1 .mob-btn-gp {
+          margin-top: -35px; }
+      .game-fna-wrapper .game-fna .step3 .cont .q2 {
+        position: static;
+        width: 100%;
+        background-color: inherit; }
+        .game-fna-wrapper .game-fna .step3 .cont .q2 .q-head {
+          padding: 0; }
+          .game-fna-wrapper .game-fna .step3 .cont .q2 .q-head::before {
+            position: static;
+            padding-left: 0;
+            background-color: inherit; }
+        .game-fna-wrapper .game-fna .step3 .cont .q2 .img-mob-wrapper img {
+          width: 40%;
+          display: block;
+          margin: auto; }
+        .game-fna-wrapper .game-fna .step3 .cont .q2 .mob-btn-gp {
+          margin-top: -35px; }
+    .game-fna-wrapper .game-fna .step4 .cont .q3 {
+      position: static; }
+      .game-fna-wrapper .game-fna .step4 .cont .q3 h4::before {
+        position: static;
+        text-align: left;
+        width: 100%;
+        padding-left: 0; }
+    .game-fna-wrapper .game-fna .step4 .cont .q4 {
+      position: static; }
+      .game-fna-wrapper .game-fna .step4 .cont .q4 h4::before {
+        position: static;
+        text-align: left;
+        width: 100%;
+        padding-left: 0; }
+    .game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn {
+      width: 48%;
+      margin-left: 2%;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      margin-bottom: 10px; }
+      .game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn span {
+        font-size: 16px; }
+      .game-fna-wrapper .game-fna .step4 .cont .fna-radio-gp .fna-radio-btn:nth-child(odd) {
+        margin-left: 0; }
+    .game-fna-wrapper .game-fna .step4 .cont .img-mob-wrapper img {
+      width: 40%;
+      display: block;
+      margin: auto; }
+    .game-fna-wrapper .game-fna .step4 .cont .mob-btn-gp {
+      margin-top: -35px; }
+    .game-fna-wrapper .game-fna .step5 {
+      background: none; }
+      .game-fna-wrapper .game-fna .step5 .cont .q4a {
+        width: auto;
+        position: static; }
+        .game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn {
+          width: 48%;
+          margin: 0;
+          margin-left: 2%;
+          margin-bottom: 10px;
+          min-width: 84px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 14px; }
+          .game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn:nth-child(odd) {
+            margin-left: 0; }
+        .game-fna-wrapper .game-fna .step5 .cont .q4a .img-mob-wrapper img {
+          width: 46%;
+          display: block;
+          margin: auto; }
+        .game-fna-wrapper .game-fna .step5 .cont .q4a .mob-btn-gp {
+          margin-top: -35px; }
+      .game-fna-wrapper .game-fna .step5 .cont .q4b {
+        width: auto;
+        position: static; }
+        .game-fna-wrapper .game-fna .step5 .cont .q4b .note {
+          font-size: 14px;
+          line-height: 14px;
+          padding-bottom: 5%; }
+        .game-fna-wrapper .game-fna .step5 .cont .q4b .img-mob-wrapper {
+          margin-bottom: -44px; }
+          .game-fna-wrapper .game-fna .step5 .cont .q4b .img-mob-wrapper img {
+            width: 46%;
+            float: right; }
+      .game-fna-wrapper .game-fna .step5 .cont h4::before {
+        position: static;
+        width: 100%;
+        padding-left: 0;
+        text-align: left; }
+    .game-fna-wrapper .game-fna .step6 {
+      background: none; }
+      .game-fna-wrapper .game-fna .step6 .cont .q4c {
+        background: none;
+        position: static;
+        width: auto;
+        padding: 0;
+        min-height: initial; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4c br:not(.mob-ignore) {
+          display: none; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4c h4 .q-num {
+          position: static;
+          display: block;
+          text-align: left; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4c .img-mob-wrapper {
+          padding-top: 15%; }
+          .game-fna-wrapper .game-fna .step6 .cont .q4c .img-mob-wrapper img {
+            width: 50%;
+            display: block;
+            margin: auto; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4c .mob-btn-gp {
+          padding-top: 10%; }
+      .game-fna-wrapper .game-fna .step6 .cont .q4d {
+        background: none;
+        position: static;
+        width: auto;
+        padding: 0;
+        padding-top: 44px; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4d br {
+          display: none; }
+        .game-fna-wrapper .game-fna .step6 .cont .q4d .mob-btn-gp {
+          padding-top: 15%; }
+      .game-fna-wrapper .game-fna .step6 .cont input[type="text"] {
+        border: 1px solid #58595b;
+        width: 33%; }
+    .game-fna-wrapper .game-fna .step7 {
+      background: none; }
+      .game-fna-wrapper .game-fna .step7 .cont .inner-cont {
+        margin-left: 0;
+        width: auto; }
+      .game-fna-wrapper .game-fna .step7 .cont h4 .q-num {
+        position: static;
+        text-align: left;
+        display: block; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp {
+        margin-left: 0; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn {
+          width: 48%;
+          margin-left: 2%;
+          margin-top: 0;
+          margin-bottom: 10px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          float: none;
+          height: 40px;
+          font-size: 14px;
+          line-height: 40px; }
+          .game-fna-wrapper .game-fna .step7 .cont .q4e .fna-radio-gp .fna-radio-btn::nth-child(odd) {
+            margin-left: 0; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4e .img-mob-wrapper {
+        padding-top: 5%; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4e .img-mob-wrapper img {
+          width: 25%;
+          display: block;
+          margin: auto; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4e .mob-btn-gp {
+        margin-top: -35px; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4f .fna-radio-gp-cb .fna-radio-btn span {
+        margin: 14px 0px 0 -46px;
+        display: block;
+        font-size: 12px; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4f .fna-radio-gp-cb .fna-radio-btn.rgt span {
+        margin: 0;
+        margin-top: 2px; }
+      .game-fna-wrapper .game-fna .step7 .cont .fna-error-box {
+        margin: 0; }
+    .game-fna-wrapper .game-fna .step8 {
+      background: none; }
+      .game-fna-wrapper .game-fna .step8 .cont .q4g h4 {
+        margin: 0; }
+        .game-fna-wrapper .game-fna .step8 .cont .q4g h4 .q-num {
+          position: static;
+          text-align: left;
+          display: block; }
+        .game-fna-wrapper .game-fna .step8 .cont .q4g h4 br {
+          display: none; }
+      .game-fna-wrapper .game-fna .step8 .cont .q4g .fna-checkbox-gp {
+        width: auto;
+        background: none; }
+        .game-fna-wrapper .game-fna .step8 .cont .q4g .fna-checkbox-gp .fna-checkbox-btn {
+          min-height: 31px; }
+      .game-fna-wrapper .game-fna .step8 .cont .img-mob-wrapper {
+        padding-top: 5%; }
+        .game-fna-wrapper .game-fna .step8 .cont .img-mob-wrapper img {
+          width: 50%;
+          display: block;
+          margin: auto; }
+      .game-fna-wrapper .game-fna .step8 .cont .mob-btn-gp {
+        padding-top: 5%; }
+    .game-fna-wrapper .game-fna .fna-checkbox-gp .fna-checkbox-btn {
+      padding-left: 40px; }
+      .game-fna-wrapper .game-fna .fna-checkbox-gp .fna-checkbox-btn::before {
+        width: 25px;
+        height: 25px; }
+    .game-fna-wrapper .game-fna .fna-radio-gp .fna-radio-btn span {
+      font-size: 16px; }
+
+  .select2-results > .select2-results__options {
+    -webkit-overflow-scrolling: touch; } }
+@media (max-width: 991px) and (min-width: 768px) {
+  .game-fna-wrapper {
+    width: 80%; }
+    .game-fna-wrapper .game-fna .step1 .gender-img-wrapper {
+      padding-top: 14%; }
+
+  #fnaPopupContact h4 {
+    font-size: 18px; }
+  #fnaPopupContact p {
+    font-size: 14px; } }
+@media (max-width: 480px) {
+  .game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn {
+    font-size: 12px; }
+  .game-fna-wrapper .game-fna .step7 {
+    background: url(../../images/onlinesavieFNA/bg-step3.jpg) center top no-repeat; }
+    .game-fna-wrapper .game-fna .step7 .cont .q4e .img-mob-wrapper img {
+      width: 20%; }
+    .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper {
+      margin-left: -10px; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn {
+        z-index: 1; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a0 {
+          left: 0;
+          top: -2px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a5 {
+          left: 0;
+          top: 37px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a1 {
+          left: 272px;
+          top: -6px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a2 {
+          left: 272px;
+          top: 27px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a3 {
+          left: 272px;
+          top: 133px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn.a4 {
+          left: 272px;
+          top: 160px; }
+        .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .fna-radio-gp-cb .fna-radio-btn span {
+          font-size: 14px; }
+      .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .chart-wrapper, .game-fna-wrapper .game-fna .step7 .cont .q4f .answer-wrapper .chart-line {
+        position: absolute;
+        top: 0;
+        left: 45px; } }
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+.spinner {
+  margin: 50px auto 0;
+  text-align: center; }
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #eee;
+  margin: 0 5px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    background-color: #000; }
+  40% {
+    background-color: #eee; } }
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    background-color: #000; }
+  40% {
+    background-color: #eee; } }
+
 /*# sourceMappingURL=onlinesavieFNAGame.css.map */
