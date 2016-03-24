@@ -556,11 +556,9 @@ var FNArecommendation = {
 							
 							var cpArr=prod_data.contribution_period;
 							for(var j = 0; j < cpArr.length; j++){
-								if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "en"){
-									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "");
-								}else if(cpArr[j].indexOf("Y") > 0 && getBundleLanguage == "zh") {
-									cpArr[j] = getBundle(getBundleLanguage, "fna.product.age.head") + cpArr[j].replace("Y", "")
-									+ getBundle(getBundleLanguage, "fna.product.age.stern");
+								if(cpArr[j].indexOf("Y") > 0){
+									cpArr[j] = cpArr[j].replace("Y", " ")
+									+ getBundle(getBundleLanguage, "fna.product.year");
 								}
 							}
 							
@@ -572,10 +570,13 @@ var FNArecommendation = {
 							
 							var ppArr=prod_data.protection_period.split(",");
 							for(var k = 0; k < ppArr.length; k++){
-								if(ppArr[k].indexOf("A") > 0){
-									ppArr[k] = ppArr[k].replace("A", "")
-									+ getBundle(getBundleLanguage, "fna.product.year");
+								if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "en"){
+									ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ");
+								}else if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "zh") {
+									ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ")
+									+ getBundle(getBundleLanguage, "fna.product.age.stern");
 								}
+								
 							}
 							prod.find(".sort-header.withdata .prd_age").text(ppArr.join(", "));
 							/*prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);*/
