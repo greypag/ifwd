@@ -252,6 +252,18 @@
 @media (min-width: 767px) {
   #fnaPopupEnquiry .modal-dialog, #fnaPopupConfirm .modal-dialog {
     width: 750px; } }
+@media (max-width: 991px) and (min-width: 768px) {
+  #FNAReview .review-box .option label {
+    width: 95% !important; }
+
+  #fnaPopupClear .fna-popup-cont h4, #fnaPopupConfirm .fna-popup-cont h4, #fnaPopupEnquiry .fna-popup-cont h4 {
+    font-size: 18px; }
+  #fnaPopupClear .fna-popup-cont .btn-clear-confirm, #fnaPopupClear .fna-popup-cont .btn-clear-cancel, #fnaPopupClear .fna-popup-cont .btn-yes, #fnaPopupClear .fna-popup-cont .btn-no, #fnaPopupConfirm .fna-popup-cont .btn-clear-confirm, #fnaPopupConfirm .fna-popup-cont .btn-clear-cancel, #fnaPopupConfirm .fna-popup-cont .btn-yes, #fnaPopupConfirm .fna-popup-cont .btn-no, #fnaPopupEnquiry .fna-popup-cont .btn-clear-confirm, #fnaPopupEnquiry .fna-popup-cont .btn-clear-cancel, #fnaPopupEnquiry .fna-popup-cont .btn-yes, #fnaPopupEnquiry .fna-popup-cont .btn-no {
+    font-size: 14px;
+    min-width: 80px;
+    margin: 0 5px 10px; }
+  #fnaPopupClear .fna-popup-cont p, #fnaPopupConfirm .fna-popup-cont p, #fnaPopupEnquiry .fna-popup-cont p {
+    font-size: 14px; } }
 @media screen and (max-width: 768px) {
   p {
     font-size: 18px; }
@@ -277,7 +289,8 @@
       #FNAReview .review-box .question .title span {
         font-size: 14px; }
     #FNAReview .review-box .option label {
-      font-size: 18px; }
+      font-size: 18px;
+      width: 100%; }
       #FNAReview .review-box .option label span {
         font-weight: normal; }
     #FNAReview .review-box .option .checkbox label {

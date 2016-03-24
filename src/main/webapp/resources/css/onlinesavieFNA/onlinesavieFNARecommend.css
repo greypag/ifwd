@@ -256,19 +256,19 @@
     background-color: #15232d;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    			/* .fna-product-wrapper {
-    				padding-bottom:20px;
+          /* .fna-product-wrapper {
+            padding-bottom:20px;
     
-    				> .sort-header{
-    					color:#808081;
-    					margin:0 15px;
+            > .sort-header{
+              color:#808081;
+              margin:0 15px;
     
-    					> div {
-    						text-align: left;
-    						padding:10px;
-    					}
-    				}
-    			} */ }
+              > div {
+                text-align: left;
+                padding:10px;
+              }
+            }
+          } */ }
     .fna-recommend .fna-col-recommend .fna-product-gp.sort0 .fna-product .sort-header .con_prd {
       background-color: #e8e8e8; }
     .fna-recommend .fna-col-recommend .fna-product-gp.sort1 .fna-product .sort-header .min_age {
@@ -385,11 +385,11 @@
         position: relative;
         font-size: 14px;
         /* i{
-        	position: absolute;
-        	left:0;
-        	right:0;
-        	margin:auto;
-        	top:95%;
+          position: absolute;
+          left:0;
+          right:0;
+          margin:auto;
+          top:95%;
         } */ }
         .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .fna-btn-show-detail span {
           background-color: #fff;
@@ -496,7 +496,7 @@
       margin: auto;
       left: 0;
       height: 1px; }
-  .fna-recommend .fna-col-recommend .noAvailableProduct, .fna-recommend .fna-col-recommend .noProducts {
+  .fna-recommend .fna-col-recommend .noAvailableProduct, .fna-recommend .fna-col-recommend .noProducts, .fna-recommend .fna-col-recommend .only1KSTSProduct {
     display: none; }
   .fna-recommend .fna-col-recommend .fna-btn-clear {
     margin: 10px 0;
@@ -599,9 +599,6 @@
     padding: 50px 10px;
     color: #fff; }
 
-@media (min-width: 767px) {
-  #fnaPopupEnquiry .modal-dialog {
-    width: 505px; } }
 @media (max-width: 991px) {
   .fna-recommend .fna-mobile-header {
     padding: 0 15px !important; }
@@ -656,6 +653,14 @@
       background-color: #20363d; }
   .fna-recommend .fna-col-recommend {
     margin-top: 15px; } }
+@media (max-width: 991px) and (min-width: 768px) {
+  #fnaPopupEnquiry .modal-dialog {
+    width: 505px; }
+
+  #fnaPopupEnquiry .fna-popup-cont h4, #fnaPopupClear .fna-popup-cont h4 {
+    font-size: 18px; }
+  #fnaPopupEnquiry .fna-popup-cont p, #fnaPopupClear .fna-popup-cont p {
+    font-size: 14px; } }
 @media (max-width: 767px) {
   margin-top: 12px;
   #fnaPopupEnquiry .modal-dialog {
@@ -665,9 +670,9 @@
     font-size: 18px;
     line-height: 1em;
     /* .sort-header{
-    	.con_prd, .max_age, .min_age{width: 25%;}
-    	.prd_age{width:25%;}
-    	font-size:12px;
+      .con_prd, .max_age, .min_age{width: 25%;}
+      .prd_age{width:25%;}
+      font-size:12px;
     } */ }
     .fna-recommend .fna-txt-result .head {
       font-size: 21px;
@@ -789,7 +794,7 @@
             width: 100%; }
             .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .fna-product-cont .fna-product-cfa-mobile a img {
               display: inline !important; }
-      .fna-recommend .fna-col-recommend .noAvailableProduct {
+      .fna-recommend .fna-col-recommend .noAvailableProduct, .fna-recommend .fna-col-recommend .only1KSTSProduct {
         padding: 15px; }
 
   #loading-overlay-save .loading-dialog .loading-modal {
