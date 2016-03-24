@@ -4104,6 +4104,9 @@ a.eserv-link:hover {
   #offline-online-modal .modal-dialog .modal-content #steps-holder .step {
     padding: 10px;
   }
+  #offline-online-modal .modal-dialog .modal-content #steps-holder #step-offline .step{
+    height: 263px;
+  } 
 }
 /* line 48, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder .step#step-2 {
@@ -4303,6 +4306,9 @@ a.eserv-link:hover {
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 25px;
   }
+  body.chin #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
+    margin-top: 42px;
+  }  
 }
 
 /* line 3, ../sass/partials/savie/_footer.scss */
