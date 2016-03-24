@@ -1872,6 +1872,11 @@
                 $('#myCarousel-fwdiscover .carousel-inner').css('width', '70%');
                 $('#myCarousel-fwdiscover .carousel-inner .desktop-img-align').css('width', '16.6%');
             }
+
+            if( window.location.href.indexOf("mar29=") > -1 ){
+                $('.paused-plan').removeClass('paused-plan');
+            }
+
         });
         
         if(getWidth() > 991) {
