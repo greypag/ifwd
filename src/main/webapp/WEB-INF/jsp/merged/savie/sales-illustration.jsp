@@ -154,7 +154,7 @@
 								<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
 								<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 								<div class="pdf-image-scroll">
-									<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/template/SavieProposalTemplate_${language}.jpg" />
+									<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/images/template/SavieProposalTemplate_${language}.jpg" />
 								</div>
 							</div>
 							<div class="text-center">
@@ -165,18 +165,32 @@
 					</div>					
 	       		</div>
 	       	</div>	 
-	        <div class="container-fluid fwd-full-container">
-	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
-	        		<div id="pdf">
-	        			<iframe id="pdf-view" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName}"  frameborder="0"></iframe>
+
+<!-- 	        <div class="container-fluid fwd-full-container"> -->
+<!-- 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder"> -->
+<!-- 	        		<div id="pdf"> -->
+<!-- 	        			<iframe id="pdf-view" frameborder="0"></iframe> -->
+		<div style="width:100%;max-width:960px;margin:40px auto;">
+			<div id="pdf-image-frame" class="pdf-image-container" >
+				<div class="pdf-image-zoom zoom-in" >
+				<span class="glyphicon glyphicon-plus"></span>
+				</div>
+				<div class="pdf-image-zoom zoom-out">
+				<span class="glyphicon glyphicon-minus"></span>
+				</div>
+				<div class="pdf-image-scroll">
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName}" />
+				</div>
+			</div>
+		</div>
 	        			<!--<a class="embed" id="pdf-view" href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/resources/pdf/${pdfName}" /></a>-->
-	        		</div>
+<!-- 	        		</div> -->
 	        		<div class="text-center">
 	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
 	        			<button type="" class="text-bold btn savie-common-btn" id="accept-btn"><fmt:message key="button.accept" bundle="${msg}" /></button>
 	        		</div>
-	        	</div>
-	        </div>
+<!-- 	        	</div> -->
+<!-- 	        </div> -->
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
@@ -186,6 +200,7 @@
 			});
 			$(document).ready(function() {
 				pdfImageInit('#pdf-image');
+ 				pdfImageInit('#pdf-image-frame');
 			});
         </script> 
 	</body>

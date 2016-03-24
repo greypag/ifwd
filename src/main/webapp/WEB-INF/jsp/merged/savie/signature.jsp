@@ -267,18 +267,29 @@ var languageP = "${language}";
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
 		<h4 class="text-center"><fmt:message key="label.fna" bundle="${msg}" /></h4>
-		<div class="pdf">
+
+<!-- 		<div class="pdf"> -->
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
-			<c:choose>
-		        <c:when test="${fnaFormJpgName != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaFormJpgName }"  frameborder="0"></iframe>
-		        </c:when>
-		        <c:otherwise>
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
-				</c:otherwise>
-		    </c:choose>
+<%-- 			<c:choose> --%>
+<%-- 		        <c:when test="${fnaFormJpgName != null}"> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${fnaFormJpgName }"  frameborder="0"></iframe> --%>
+<%-- 		        </c:when> --%>
+<%-- 		        <c:otherwise> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe> --%>
+<%-- 				</c:otherwise> --%>
+<%-- 		    </c:choose> --%>
+
+		<div style="width:100%;max-width:960px;margin:40px auto;">
+			<div id="pdf-image-1" class="pdf-image-container">
+				<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
+				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
+				
+				<div class="pdf-image-scroll">
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${fnaFormJpgName }" />
+				</div>
+			</div>
 		</div>
 		<div class="text-center">
 			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">8</span>)</button>
@@ -292,19 +303,30 @@ var languageP = "${language}";
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
 		<h4 class="text-center"><fmt:message key="label.salesillustration" bundle="${msg}" /></h4>
-		<div class="pdf">
+
+<!-- 		<div class="pdf"> -->
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
-			<c:choose>
-		        <c:when test="${salesIllustrationJpgName != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName }"  frameborder="0"></iframe>
-		        </c:when>
-		        <c:otherwise>
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
-				</c:otherwise>
-		    </c:choose>
+<%-- 			<c:choose> --%>
+<%-- 		        <c:when test="${salesIllustrationJpgName != null}"> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName }"  frameborder="0"></iframe> --%>
+<%-- 		        </c:when> --%>
+<%-- 		        <c:otherwise> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe> --%>
+<%-- 				</c:otherwise> --%>
+<%-- 		    </c:choose> --%>
+
+<!-- 		<div style="width:100%;max-width:960px;margin:40px auto;"> -->
+			<div id="pdf-image-2" class="pdf-image-container">
+				<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
+				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
+				<div class="pdf-image-scroll">
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName }" />
+				</div>
+<!-- 			</div> -->
 		</div>
+<!-- 		</div> -->
 		<div class="text-center">
 			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-2"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-2">8</span>)</button>
 		</div>	
@@ -317,18 +339,30 @@ var languageP = "${language}";
 	<div class="modal-content">
 		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
 		<h4 class="text-center"><fmt:message key="label.savie.review.application" bundle="${msg}" /></h4>
-		<div class="pdf">
+<!-- 		<div class="pdf"> -->
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 			</object>-->
-			<c:choose>
-		        <c:when test="${applicationFormJpgName != null}">
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormJpgName }"  frameborder="0"></iframe>
-		        </c:when>
-		        <c:otherwise>
-					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe>
-				</c:otherwise>
-		    </c:choose>
+
+<%-- 			<c:choose> --%>
+<%-- 		        <c:when test="${applicationFormJpgName != null}"> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/${applicationFormJpgName }"  frameborder="0"></iframe> --%>
+<%-- 		        </c:when> --%>
+<%-- 		        <c:otherwise> --%>
+<%-- 					<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplate_${language}.pdf&embedded=true"  frameborder="0"></iframe> --%>
+<%-- 				</c:otherwise> --%>
+<%-- 		    </c:choose> --%>
+
+		<div style="width:100%;max-width:960px;margin:40px auto;">
+			<div id="pdf-image-3" class="pdf-image-container">
+				<button><div class="pdf-image-zoom zoom-in">+
+<!-- 					<span class="glyphicon glyphicon-plus"></span> -->
+				</div></button>
+				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
+				<div class="pdf-image-scroll">
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${applicationFormJpgName }" />
+				</div>
+			</div>
 		</div>
 		<div class="text-center">
 			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-3"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-3">8</span>)</button>
@@ -947,4 +981,16 @@ var languageP = "${language}";
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});
+		
+		$(document).ready(function() {
+			pdfImageInit('#pdf-image-1');
+			pdfImageInit('#pdf-image-2');
+			pdfImageInit('#pdf-image-3');
+			$('.pdf-image-scroll').scroll(function() {
+				if (checkPdfScroll($(this))) {
+					alert('bottom reached!!!');
+				}
+			});	
+		});
+		
 </script>
