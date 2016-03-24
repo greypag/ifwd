@@ -768,11 +768,22 @@ var FNArecommendation = {
 		if(pNum == 1){
 			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
 		}
+		else{
+			FNArecommendation.showOnly1Product(false,data.q2,fnaq4e);
+		}
+		
 		if(pNum>0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescription(true);
 		}
+		else{
+			FNArecommendation.showILASsDescription(false);
+		}
+		
 		if(pNum==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
+		}
+		else{
+			FNArecommendation.showILASsDescriptionOnly1(false);
 		}
 		if(data.fulfilled=='N'){
 			var rq1="";
@@ -793,6 +804,9 @@ var FNArecommendation = {
 		    if(rq1!=null && rq1!=''){
 		    	FNArecommendation.showNoAvailableProduct(true,data.q2,rq1.substring(0,rq1.length-1),fnaq4e);
 		    }
+		}
+		else{
+			FNArecommendation.showNoAvailableProduct(false,data.q2,null,fnaq4e);
 		}
 	},
 

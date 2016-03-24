@@ -486,7 +486,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("personalIncomeKey2", "(applicable to full-time and part-time job)"));
 	    attributeList.add(new PdfAttribute("personalIncomeKey3", "個人每月收入（港幣）（全職及兼職適用）"));
 	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeName()));
-	    attributeList.add(new PdfAttribute("otherIncomeKey", "20.Amount of other source of income 其他收入來源"));
+	    attributeList.add(new PdfAttribute("otherIncomeKey1", "20.Amount of other source of income"));
+	    attributeList.add(new PdfAttribute("otherIncomeKey2", "其他收入來源"));
 	    attributeList.add(new PdfAttribute("otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
 	    attributeList.add(new PdfAttribute("liquidAssetsKey1", "21.The cumulative amount"));
 	    attributeList.add(new PdfAttribute("liquidAssetsKey2", "of your current liquid assets"));
