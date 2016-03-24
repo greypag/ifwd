@@ -537,6 +537,7 @@ var FNArecommendation = {
 				if(gp_data.groupCode == "ILAS"){
 					var prod = $(".fna-recommend .template .fna-other-product").clone();
 					prod.empty();
+					prod.append($('.txt_ilas_obj').html());
 					prod.append($("<p/>").text($(".template .txt_ilas").text()).addClass("desc-ilas"));
 					prod.append($("<p/>").text($(".template .txt_ilas_only1").text()).addClass("desc-ilas-only1"));
 					

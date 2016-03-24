@@ -389,9 +389,26 @@ var fnaq4e = '${savieFna.q4_e }';
 			<p class="txt_sep"><fmt:message key="fna.text.separater" bundle="${msg}" /></p>
 
 			<p class="txt_ilas"><fmt:message key="fna.text.ilas.desc" bundle="${msg}" /></p>
+			<div class="txt_ilas_obj" style="display:none;">
+				<div class="fna-product-obj">
+					<h4 style="font-size: 16px; font-weight: bold; margin-bottom: 5px;"><fmt:message key="fna.label.objectives" bundle="${msg}" /></h4>
+					<div class="fna-product-obj-cont">
+						<ul style="padding:0;">
+							<li style="position: relative; list-style: none;">
+								<i class="fa fa-check" style="margin-right: 5px;"></i>
+								<fmt:message key="fna.text.ilas.objective1" bundle="${msg}" />
+							</li>
+							<li style="position: relative; list-style: none;">
+								<i class="fa fa-check" style="margin-right: 5px;"></i>
+								<fmt:message key="fna.text.ilas.objective2" bundle="${msg}" />
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
 			<p class="txt_ilas_only1"><fmt:message key="fna.text.ilas.desc.only1" bundle="${msg}" /></p>
-			<p class="txt_ksts_only1">Based on your FNA results, there is no other insurance product with less than 1 year payment term which can fit your needs.</p>
+			<p class="txt_ksts_only1"><fmt:message key="fna.text.noavailableproduct.1year" bundle="${msg}" /></p>
 
 		</div>
 		<div class="modal modal-vcenter fade bs-example-modal-lg fna-popup-keys" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
