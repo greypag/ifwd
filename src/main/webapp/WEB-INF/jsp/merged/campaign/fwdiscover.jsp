@@ -1671,14 +1671,16 @@
         });
         $(document).ready(function() {
         	if(isMobile){
-	            $(window).on("orientationchange",function(){            	
-	                if(window.orientation == 0 || window.orientation == 180) // Portrait
-	                {	                	
-                        if(getWidth()<992) {
+	            $(window).on("load resize",function(){     
+	                if(window.innerHeight > window.innerWidth) // Portrait
+	                {
+	                	//console.log("Portrait: " + getWidth());
+	                	//console.log("InnerWidth:" + window.innerWidth);
+	                	if(getWidth()<992) {
                             $('#myCarousel-fwdiscover').addClass('carousel slide');
+                            $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
                             $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
                             $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-                            $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
                         
 
                             //$('#myCarousel-footer').removeClass('carousel slide');
@@ -1687,6 +1689,8 @@
 	                }
 	                else // Landscape
 	                {
+	                	//console.log("Landscape: " + getWidth());
+	                	//console.log("InnerWidth:" + window.innerWidth);
 	                    if(getWidth()>991) {
 	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
 	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
