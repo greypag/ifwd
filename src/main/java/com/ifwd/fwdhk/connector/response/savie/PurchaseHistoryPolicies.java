@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.connector.response.savie;
 
 public class PurchaseHistoryPolicies{
 	private String planCode;
+	private String planName;
 	private String submissionDate;
 	private String policyNumber;
 	private String policyNumberBase64;
@@ -20,6 +21,12 @@ public class PurchaseHistoryPolicies{
 	private String claimFormUrl;
 	private String documentUploaded;
 	
+	public String getPlanName() {
+		return planName;
+	}
+	public void setPlanName(String planName) {
+		this.planName = planName;
+	}
 	public String getCommencementDateDesc() {
 		return commencementDateDesc;
 	}

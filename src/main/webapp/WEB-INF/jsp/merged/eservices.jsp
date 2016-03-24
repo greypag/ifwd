@@ -71,7 +71,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
@@ -81,7 +81,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -126,7 +126,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
@@ -136,7 +136,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -181,8 +181,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -191,7 +191,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -236,8 +236,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -246,7 +246,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -292,7 +292,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>				
@@ -302,7 +302,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -347,7 +347,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
@@ -357,7 +357,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -402,8 +402,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -412,7 +412,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -457,8 +457,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
 										<c:choose>
@@ -467,7 +467,7 @@ var languageP = "${language}";
 									           		<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -513,7 +513,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>
@@ -523,7 +523,7 @@ var languageP = "${language}";
 									            	<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -568,7 +568,7 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
@@ -578,7 +578,7 @@ var languageP = "${language}";
 									            	<div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -623,8 +623,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -633,7 +633,7 @@ var languageP = "${language}";
 									                <div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
@@ -678,8 +678,8 @@ var languageP = "${language}";
 											<div class="col-xs-6 col-md-3 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
-											<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-												<h4 class="hidden-xs hidden-sm info-head acc-val"><fmt:message key="label.account.value" bundle="${msg}" /> (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+											<div class="col-xs-6 col-md-2 visible-md visible-lg">
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
 											</div>
 										</div>				
 										<c:choose>
@@ -688,7 +688,7 @@ var languageP = "${language}";
 									                <div class="row category-info-row <c:if test='${status.count%2 != "0"}'>row-gray</c:if>">
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.plan.name" bundle="${msg}" /></h4>
-															<p class="info-data plan-name">${list.planCode}</p>
+															<p class="info-data plan-name">${list.planName}</p>
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>

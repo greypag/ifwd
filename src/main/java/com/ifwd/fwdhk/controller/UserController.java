@@ -312,6 +312,27 @@ public class UserController {
 							}else {
 								entity.setExpiryDateDesc(WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request)));
 							}
+							if("ET".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type1", UserRestURIConstants.getLanaguage(request)));
+							}else if("FlightCare".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type2", UserRestURIConstants.getLanaguage(request)));
+							}else if("TravelCare".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type3", UserRestURIConstants.getLanaguage(request)));
+							}else if("AnnualTravelCare".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type4", UserRestURIConstants.getLanaguage(request)));
+							}else if("OverseasStudyCare".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type5", UserRestURIConstants.getLanaguage(request)));
+							}else if("WorkingHolidayCare".equalsIgnoreCase(entity.getPlanCode()) || "WorkingHoliday".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type6", UserRestURIConstants.getLanaguage(request)));
+							}else if("EasyHomeCare".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request)));
+							}else if("SAVIE".equalsIgnoreCase(entity.getPlanCode())) {
+								//entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(entity.getPlanCode());
+							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
+								//entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(entity.getPlanCode());
+							}
 							
 							if("ET".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
