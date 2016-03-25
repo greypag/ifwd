@@ -2455,24 +2455,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}
 		
-        String emailDate = null;
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            Date d = sdf.parse(preferredDate);
-            sdf.applyPattern("dd MMM yyyy");
-            emailDate = sdf.format(d);
-        } catch (java.text.ParseException pe){
-        }
-		
 		JSONObject models = new JSONObject();
 		models.put("name", session.getAttribute("username"));
 		models.put("accessCode", session.getAttribute("accessCode"));
-		models.put("dateEn", emailDate);
+		models.put("dateEn", preferredDate);
 		models.put("timeSlotEn", preferredTime);
 		models.put("centerEn", centerEn);
 		models.put("centerAddEn", centerAddEn);
 		
-		models.put("dateCh", emailDate);
+		models.put("dateCh", preferredDate);
 		models.put("timeSlotCh", preferredTime);
 		models.put("centerCh", centerCh);
 		models.put("centerAddCh", centerAddCh);
