@@ -590,7 +590,7 @@ var FNArecommendation = {
 								}
 							}
 							
-							prod.find(".sort-header.withdata .con_prd").html(cpArr.join(", "));
+							prod.find(".sort-header.withdata .con_prd").html(cpArr.join("/ "));
 							prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
 							prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
 							
@@ -613,7 +613,7 @@ var FNArecommendation = {
 							}
 							
 							
-							prod.find(".sort-header.withdata .prd_age").text(ppArr.join(", "));
+							prod.find(".sort-header.withdata .prd_age").text(ppArr.join("/ "));
 
 							var key_feature_ul = $("<ul/>");
 
