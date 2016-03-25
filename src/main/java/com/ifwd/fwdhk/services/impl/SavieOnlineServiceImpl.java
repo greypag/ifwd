@@ -2145,6 +2145,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		session.removeAttribute("lifePayment");
 		session.removeAttribute("lifeDeclaration");
 		session.removeAttribute("lifePolicy");
+		session.removeAttribute("type");
 		logger.info("remove savie online session");
 	}
 /**

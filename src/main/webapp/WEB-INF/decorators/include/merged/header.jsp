@@ -455,7 +455,7 @@ function getStarted(){
 
 
 								<div class="dropdown-menu drop-width">
-									<form name="loginform" id="loginform">
+									<form name="loginform" id="loginform" method="post">
 										<div class="login-form">
 											<div
 												style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
@@ -532,7 +532,7 @@ function getStarted(){
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a>
 								<div class="dropdown-menu drop-width">
-									<form name="loginform" id="loginform">
+									<form name="loginform" id="loginform" method="post">
 										<div class="login-form">
 											<div
 												style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
@@ -1278,7 +1278,7 @@ function getStarted(){
         onclick="$('#fwd-login-mob').trigger('click');$('body').removeClass('modal-open');"></div>-->
 
     <div id="myDropdownMob" class="modal-dialog">
-        <form name="loginform" id="loginform2">
+        <form name="loginform" id="loginform2" method="post">
             <div class="login-form" style="position: absolute;">
                 <div id="login-err-msg"
                     class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"

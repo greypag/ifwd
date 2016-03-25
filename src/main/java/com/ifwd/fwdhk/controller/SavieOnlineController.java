@@ -125,7 +125,7 @@ public class SavieOnlineController extends BaseController{
 		Date date1 = new Date();
 		String type = request.getParameter("type");
 		if("2".equals(type)){
-			model.addAttribute("type", type);
+			request.getSession().setAttribute("type", type);
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			date1 = DateApi.formatDate(savieFna.getDob());
 			defaultDOB.setTime(date1);

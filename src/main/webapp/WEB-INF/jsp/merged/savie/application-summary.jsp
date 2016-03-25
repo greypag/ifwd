@@ -710,6 +710,7 @@
 			$('#occupationDiv').addClass('hidden');
 			$('#employerNameDiv').addClass('hidden');
 			$('#monthlyPersonalIncomeDiv').addClass('hidden');
+			$('#otherOccupationDiv').addClass('hidden');
 		 }
 		 else{
 			$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
