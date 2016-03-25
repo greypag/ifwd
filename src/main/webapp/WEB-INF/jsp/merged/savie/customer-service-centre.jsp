@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <%@page import="java.util.*"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
@@ -83,7 +84,9 @@ var language = "${language}";
                          <c:choose>
 					         <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 					             <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-                                     <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+						             <enhance:out escapeXml="false">
+	                                     <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+		                             </enhance:out>
                                  </c:forEach>
 					         </c:when>
 					         <c:otherwise>

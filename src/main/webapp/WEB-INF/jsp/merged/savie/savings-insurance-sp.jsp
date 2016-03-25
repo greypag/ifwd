@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
@@ -649,7 +650,9 @@ var home_url = "<%=request.getContextPath()%>";
 									id="amountToSave">
 									<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>
 									<c:forEach var="savieAns" items="${savieAns}" varStatus="theCount">
-										<option value="${savieAns.itemCode }" class="options">${savieAns.itemDesc }</option>
+										<enhance:out escapeXml="false">
+										    <option value="${savieAns.itemCode }" class="options">${savieAns.itemDesc }</option>
+										</enhance:out>
 									</c:forEach>
 								</select>
 							</div>

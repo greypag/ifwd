@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -42,7 +43,9 @@ var language = "${language}";
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select name="centre" id="centre" class="form-control gray-dropdown">
 											        <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-											            <option value="${list.serviceCentreCode }">${list.serviceCentreName }</option>
+											            <enhance:out escapeXml="false">
+											                <option value="${list.serviceCentreCode }">${list.serviceCentreName }</option>
+											            </enhance:out>
 											        </c:forEach>
 												</select>
 											</div>
