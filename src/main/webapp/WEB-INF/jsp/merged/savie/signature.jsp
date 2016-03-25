@@ -5,6 +5,7 @@
 <%@page import="java.util.*"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -162,7 +163,9 @@ var languageP = "${language}";
 								   <c:choose>
 								       <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 								           <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-                                               <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+                                               <enhance:out escapeXml="false">
+                                                   <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+                                               </enhance:out>
                                            </c:forEach>
 								       </c:when>
 								       <c:otherwise>

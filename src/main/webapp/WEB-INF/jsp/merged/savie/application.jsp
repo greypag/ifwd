@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%!
@@ -164,12 +165,16 @@
 												<select class="form-control gray-dropdown" name="maritalStatus"  id="savieApplicantBean.maritalStatus">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${maritalStatusesEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${maritalStatusesCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 												</select>
@@ -191,12 +196,16 @@
 												<select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${placeOfBirthEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${placeOfBirthCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 												</select>
@@ -215,12 +224,16 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${nationalityEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${nationalityCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>	
 												</select>
@@ -291,12 +304,16 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      <enhance:out escapeXml="false">
+													          <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													      </enhance:out>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${savieDistrictCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       <enhance:out escapeXml="false">
+													           <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       </enhance:out>
 													   </c:forEach>
 													</c:if>	
 												</select>
@@ -320,12 +337,16 @@
 												<select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
 													<c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       <enhance:out escapeXml="false">
+													           <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       </enhance:out>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 													   <c:forEach var="list" items="${savieDistrictCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       <enhance:out escapeXml="false">
+													           <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													       </enhance:out>
 													   </c:forEach>
 													</c:if>		
 												</select>
@@ -377,12 +398,16 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
 										<c:if test="${language == 'en'}">
 										   <c:forEach var="list" items="${employmentStatusEN}">
-										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										       <enhance:out escapeXml="false">
+										           <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										       </enhance:out>
 										   </c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 										   <c:forEach var="list" items="${employmentStatusCN}">
-										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										       <enhance:out escapeXml="false">
+										           <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										       </enhance:out>
 										   </c:forEach>
 										</c:if>	
 									</select>
@@ -396,12 +421,16 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBeanOccupation" name="savieEmploymentBean.occupation" data-style="application-select">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${occupationEN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    <enhance:out escapeXml="false">
+											        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    </enhance:out>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${occupationCN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    <enhance:out escapeXml="false">
+											        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    </enhance:out>
 											</c:forEach>
 										</c:if>	
 									</select>
@@ -417,12 +446,16 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${natureOfBusinessEN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    <enhance:out escapeXml="false">
+											        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    </enhance:out>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${natureOfBusinessCN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											     <enhance:out escapeXml="false">
+											         <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											     </enhance:out>
 											</c:forEach>
 										</c:if>
 									</select>
@@ -436,12 +469,16 @@
 									<select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    <enhance:out escapeXml="false">
+											        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    </enhance:out>
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    <enhance:out escapeXml="false">
+											        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											    </enhance:out>
 											</c:forEach>
 										</c:if>
 									</select>
@@ -572,12 +609,16 @@
 											<select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBeans[0].relationship" data-style="application-select">
 												<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													    <enhance:out escapeXml="false">
+													        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													    </enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													    <enhance:out escapeXml="false">
+													        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													    </enhance:out>
 													</c:forEach>
 												</c:if>
 											</select>

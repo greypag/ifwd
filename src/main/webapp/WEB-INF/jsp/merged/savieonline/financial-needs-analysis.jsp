@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -120,13 +121,17 @@ var affiliate = "${affiliate}";
 										<c:set var="level_id" value="0" scope="page" />
 										<c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${etEducationLevelEN}">
-												<option value="${level_id}">${list.itemDesc }</option>
+												<enhance:out escapeXml="false">
+												    <option value="${level_id}">${list.itemDesc }</option>
+												</enhance:out>
 												<c:set var="level_id" value="${level_id + 1}" scope="page" />
 											</c:forEach>
 										</c:if>
 										<c:if test="${language == 'tc'}">
 											<c:forEach var="list" items="${etEducationLevelCN}">
-												<option value="${level_id}">${list.itemDesc }</option>
+												<enhance:out escapeXml="false">
+												    <option value="${level_id}">${list.itemDesc }</option>
+												</enhance:out>
 												<c:set var="level_id" value="${level_id + 1}" scope="page" />
 											</c:forEach>
 										</c:if>

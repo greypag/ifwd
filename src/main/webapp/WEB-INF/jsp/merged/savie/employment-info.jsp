@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -102,12 +103,16 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${employmentStatusCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 											</select>
@@ -134,12 +139,16 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${natureOfBusinessCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>				                     
 											</select>
@@ -166,12 +175,16 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${occupationCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>	
 											</select>
@@ -206,13 +219,17 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etAmountOtherSourceCN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>	
 											</select>
@@ -251,13 +268,17 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
 													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														<enhance:out escapeXml="false">
+														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</enhance:out>
 													</c:forEach>
 												</c:if>	
 											</select>

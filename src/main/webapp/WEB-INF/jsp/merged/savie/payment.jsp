@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <%@page import="java.util.*"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
 <%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
@@ -171,13 +172,17 @@ var language = "${language}";
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${bankCodeEN}">
 												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<enhance:out escapeXml="false">
+													    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</enhance:out>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${bankCodeCN}">
 												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<enhance:out escapeXml="false">
+													    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</enhance:out>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -199,12 +204,16 @@ var language = "${language}";
 											<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${branchCodeEN}">
-													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<enhance:out escapeXml="false">
+													    <option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</enhance:out>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${branchCodeCN}">
-													<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<enhance:out escapeXml="false">
+													    <option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</enhance:out>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -263,8 +272,10 @@ var language = "${language}";
 												<c:choose>
 											        <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 											            <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-	                                                           <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-	                                                       </c:forEach>
+	                                                        <enhance:out escapeXml="false">
+	                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+	                                                        </enhance:out>
+	                                                    </c:forEach>
 											        </c:when>
 											        <c:otherwise>
 													    <option value="" ></option>
