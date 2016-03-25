@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.context.annotation.Bean;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -297,6 +298,18 @@ public class CompareUtil {
 				return 0;
 			}
 		});
+		ProductList productList;
+		for(int i = 0; i < beans.size(); i++) {
+			productList = beans.get(i);
+			for(int j = 0; j < productList.getProducts().size(); j++){
+				if(i==0 && j<2) {
+					productList.getProducts().get(j).setShow(true);
+				}else {
+					productList.getProducts().get(j).setShow(false);
+				}
+			}
+			
+		}
 		return g.toJson(beans);
 	}
 

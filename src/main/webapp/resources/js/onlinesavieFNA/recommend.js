@@ -575,12 +575,18 @@ var FNArecommendation = {
 
 							prod.find(".product-mobile-display").text(prod_data.name);
 							prod.find(".fna-product-name").text(prod_data.name);
-							
 							var cpArr=prod_data.contribution_period;
 							for(var k = 0; k < cpArr.length; k++){
 								if(cpArr[k].indexOf("Y") > 0){
 									cpArr[k] = cpArr[k].replace("Y", " ")
 									+ getBundle(getBundleLanguage, "fna.product.year");
+								}else if(cpArr[k].indexOf("A") > 0){
+									if(cpArr[k].indexOf("A") > 0 && getBundleLanguage == "en"){
+										cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + cpArr[k].replace("A", " ");
+									}else if(cpArr[k].indexOf("A") > 0 && getBundleLanguage == "zh") {
+										cpArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + cpArr[k].replace("A", " ")
+										+ getBundle(getBundleLanguage, "fna.product.age.stern");
+									}
 								}
 							}
 							
@@ -592,11 +598,16 @@ var FNArecommendation = {
 							if(prod_data.protection_period){
 								var ppArr=String(prod_data.protection_period).split(",");
 								for(var k = 0; k < ppArr.length; k++){
-									if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "en"){
-										ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ");
-									}else if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "zh") {
-										ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ")
-										+ getBundle(getBundleLanguage, "fna.product.age.stern");
+									if(ppArr[k].indexOf("Y") > 0){
+										ppArr[k] = ppArr[k].replace("Y", " ")
+										+ getBundle(getBundleLanguage, "fna.product.year");
+									}else{
+										if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "en"){
+											ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ");
+										}else if(ppArr[k].indexOf("A") > 0 && getBundleLanguage == "zh") {
+											ppArr[k] = getBundle(getBundleLanguage, "fna.product.age.head") + " " + ppArr[k].replace("A", " ")
+											+ getBundle(getBundleLanguage, "fna.product.age.stern");
+										}
 									}
 								}
 							}
