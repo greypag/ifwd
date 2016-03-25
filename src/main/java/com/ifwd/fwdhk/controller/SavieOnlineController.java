@@ -1,6 +1,9 @@
 package com.ifwd.fwdhk.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -836,6 +840,36 @@ public class SavieOnlineController extends BaseController{
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 						+ "/savings-insurance/plan-details");
 			}
+		}
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/imageView/{jpgName}"})
+	public void imageView(@PathVariable("jpgName") String jpgName,HttpServletRequest request,HttpServletResponse response) throws IOException {
+		String userName = (String)request.getSession().getAttribute("username");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		if(userName == null){
+		} 
+		else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+		}
+		else if(userDetails == null){
+		}
+		else{
+			if(StringUtils.isEmpty(jpgName)) {
+		    	jpgName = "";
+		    }
+		    File file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+jpgName+".jpg");
+	        if(!(file.exists() && file.canRead())){
+	            file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/logo.jpg");
+	        }
+	        FileInputStream inputStream = new FileInputStream(file);
+	        byte[] data = new byte[(int)file.length()];
+	        int length = inputStream.read(data);
+	        inputStream.close();
+	        response.setContentType("image/jpg");
+	        OutputStream stream = response.getOutputStream();
+	        stream.write(data);
+	        stream.flush();
+	        stream.close();
 		}
 	}
 }

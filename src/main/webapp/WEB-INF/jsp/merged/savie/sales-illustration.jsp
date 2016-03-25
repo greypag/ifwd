@@ -179,7 +179,7 @@
 				<span class="glyphicon glyphicon-minus"></span>
 				</div>
 				<div class="pdf-image-scroll">
-					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName}" />
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${salesIllustrationJpgName}" />
 				</div>
 			</div>
 		</div>

@@ -287,7 +287,7 @@ var languageP = "${language}";
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				
 				<div class="pdf-image-scroll">
-					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${fnaFormJpgName }" />
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${fnaFormJpgName}" />
 				</div>
 			</div>
 		</div>
@@ -322,7 +322,7 @@ var languageP = "${language}";
 				<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				<div class="pdf-image-scroll">
-					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${salesIllustrationJpgName }" />
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${salesIllustrationJpgName}" />
 				</div>
 <!-- 			</div> -->
 		</div>
@@ -360,7 +360,7 @@ var languageP = "${language}";
 				</div></button>
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				<div class="pdf-image-scroll">
-					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/${applicationFormJpgName }" />
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${applicationFormJpgName}" />
 				</div>
 			</div>
 		</div>
