@@ -48,7 +48,7 @@
                 </div>
                 <%}%>
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
-			<form name="loginform" id="loginform-pop">
+			<form name="loginform" id="loginform-pop" method="post">
 				<div class="login-form">
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
