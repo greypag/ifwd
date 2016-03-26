@@ -1542,13 +1542,17 @@ body {
 }
 /* line 94, ../sass/partials/savie/_homepage.scss */
 .hero-banner .banner-text p {
-  font-family: 'Calibri-Bold';
   margin: 0;
   font-size: 36px;
   color: #fff;
   line-height: 35px;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.6);
 }
+
+.chin .hero-banner .banner-text p {
+  line-height: 45px;
+}
+
 @media screen\0 {
 	.hero-banner .banner-text p {
 		text-shadow: 1px 2px 10px rgba(0, 0, 0, 0.6);
@@ -1559,6 +1563,10 @@ body {
   .hero-banner .banner-text p {
     line-height: 60px;
     font-size: 72px;
+  }
+
+  .chin .hero-banner .banner-text p {
+    line-height: 80px;
   }
 }
 /* line 108, ../sass/partials/savie/_homepage.scss */
