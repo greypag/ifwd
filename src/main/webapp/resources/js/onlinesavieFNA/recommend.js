@@ -957,10 +957,20 @@ var FNArecommendation = {
 		var name = $.trim($("#FNAinputCustomerName").val());
 		var email = $.trim($("#FNAinputEmail").val());
 		var mobileno = $.trim($("#FNAinputMobileNo").val());
+
+		//Reset error message
+		$("#errFNAinputCustomerName").text('');
+		$("#errFNAinputEmail").text('');
+		$("#errFNAinputMobileNo").text('');
+
 		if(name == ""){
 			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
 			result = false;
+		}else if(!name_eng_pattern.test(name)){
+			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
+			result = false;
 		}
+
 		if(email == ""){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.empty"));
 			result = false;
@@ -971,10 +981,10 @@ var FNArecommendation = {
 		}
 
 		if(mobileno == ""){
-			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.tel.empty"));
+			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.empty"));
 			result = false;
 		}else if(!mobile_pattern.test(mobileno)){
-			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.tel.invalid"));
+			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.invalid"));
 			result = false;
 		}
 
