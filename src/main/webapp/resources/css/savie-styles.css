@@ -90,7 +90,7 @@ body.chin .text-bold {
   }
 }
 #business-partners-container img{
-	transform: sacale(0.5,0.5);
+	margin-bottom: 15px;
 }
 /* line 13, ../sass/partials/savie/_header.scss */
 .savie-online-container .container-fluid.browse-holder {
@@ -2006,9 +2006,6 @@ body {
 /* line 491, ../sass/partials/savie/_homepage.scss */
 
 @media screen and (min-width: 922px) {
-#business-partners-container img {
-	transform: scale(2,2);
-	}
 	
 #index-logo{
 		display:block;
@@ -2054,6 +2051,7 @@ body {
   #business-partners-container img {
     float: left;
     max-width: 110px;
+    transform: scale(2,2);
   }
   /* line 527, ../sass/partials/savie/_homepage.scss */
   #business-partners-container p {
@@ -2255,7 +2253,7 @@ a.eserv-link:hover {
 /* line 707, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item .img-container {
   width: 550px;
-  height: 313px;
+  //height: 313px;
 }
 /* line 712, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item .caption {

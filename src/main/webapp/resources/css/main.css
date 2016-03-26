@@ -2819,6 +2819,12 @@ ul.social_icons li a i {
 	box-sizing: border-box;
 }
 
+.portfolio-item .show-sentence{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 .portfolio-item {
 	margin: 0;
 	padding: 0;
@@ -11283,6 +11289,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 }
 #header .top-bar .lang-btn-grp>li>a.chi{
 	padding-left:10px;
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
 #header .top-bar .callus .hotline{
 	color: #f68b1f;

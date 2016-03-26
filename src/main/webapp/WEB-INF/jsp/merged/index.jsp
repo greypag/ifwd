@@ -302,7 +302,7 @@ var languageP = "${language}";
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
 					  <div class="col-xs-2">&nbsp;</div>
-					  <div id="bp-agoda" class="col-xs-4 text-center">
+					  <div id="bp-agoda" class="col-xs-12 col-md-4 text-center">
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
@@ -311,7 +311,7 @@ var languageP = "${language}";
 						</div>
 						
 					  </div>
-					  <div id="bp-club" class="col-xs-4 text-center">
+					  <div id="bp-club" class="col-xs-12 col-md-4 text-center">
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
 <%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
