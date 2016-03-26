@@ -8,9 +8,14 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
-	
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var language = "${language}";
+var affiliate = "${affiliate}";
+var home_url = "<%=request.getContextPath()%>";
+</script>
+
 <script type="application/ld+json">
 {
   "@context":"http://schema.org/",
@@ -30,7 +35,7 @@
   }
 }
 </script>
-	
+
 	<div class="fwd-savie-wrapper ">
 		<div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
 				<div class="breadcrumb-container">
