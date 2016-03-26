@@ -759,13 +759,21 @@ var FNArecommendation = {
 			$(".txt_pnum").text(pNum);
 			//Hide No Product description
 			$(".noProducts").hide();
+			$(".onlyIlas").hide();
 			//Show Recommendation Anchor and Sorting dropdown
 			$(".haveProducts, .fna-sorting").show();
 		}else{
-			//Show No Product description
-			$(".noProducts").show();
+			if( data.hasILAS=='Y' ){
+				//Display custom message for only ilas case
+				$(".onlyIlas").show();
+				$(".haveProducts, .noProducts").hide();
+			} else {
+				//Show No Product description
+				$(".noProducts").show();
+				$(".haveProducts, .onlyIlas").hide();
+			}
 			//Hide Recommendation Anchor and Sorting dropdown
-			$(".haveProducts, .fna-sorting").hide();
+			$(".fna-sorting").hide();
 		}
 
 		var only1KSTS = (pNum == 1 && prodWrapper.find(".fna-product").first().data("productCode") == "KSTS");
@@ -823,33 +831,36 @@ var FNArecommendation = {
 			FNArecommendation.showILASsDescriptionOnly1(false);
 		}
 		
-		if(!only1KSTS){
-			if(data.fulfilled=='N'){
-				var rq1="";
-				var fq1= fnaq1.split(",");
-				var pq1= $.unique(data.q1.split(","));
-				var unmatched_q1=[];
-				for (var i=0;i<fq1.length ;i++ ){
-			    	var r = true;
-			    	for (j=0;j<pq1.length ;j++ ){
-				    	if(fq1[i]==pq1[j]){
-				    		r = false;
-				    		break;
-				    	}
-				    }
-			    	if(r){
-			    		unmatched_q1.push(fq1[i]);
+		var bShowNoAvailable;
+		bShowNoAvailable = data.fulfilled=='N'; //if some objectives not fulfilled
+		//bShowNoAvailable = bShowNoAvailable && pNum>0; // if products list > 0
+		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
+
+		if(bShowNoAvailable){
+			var rq1="";
+			var fq1= fnaq1.split(",");
+			var pq1= $.unique(data.q1.split(","));
+			var unmatched_q1=[];
+			for (var i=0;i<fq1.length ;i++ ){
+		    	var r = true;
+		    	for (j=0;j<pq1.length ;j++ ){
+			    	if(fq1[i]==pq1[j]){
+			    		r = false;
+			    		break;
 			    	}
 			    }
-			    rq1=unmatched_q1.join(",");
+		    	if(r){
+		    		unmatched_q1.push(fq1[i]);
+		    	}
+		    }
+		    rq1=unmatched_q1.join(",");
 
-			    if(rq1!=null && rq1!=''){
-			    	FNArecommendation.showNoAvailableProduct(true,FNArecommendation.fnaData.q2,rq1,fnaq4e);
-			    }
-			}
-			else{
-				FNArecommendation.showNoAvailableProduct(false,FNArecommendation.fnaData.q2,null,fnaq4e);
-			}
+		    if(rq1!=null && rq1!=''){
+		    	FNArecommendation.showNoAvailableProduct(true,FNArecommendation.fnaData.q2,rq1,fnaq4e);
+		    }
+		}
+		else{
+			FNArecommendation.showNoAvailableProduct(false,FNArecommendation.fnaData.q2,null,fnaq4e);
 		}
 	},
 
