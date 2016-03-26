@@ -535,7 +535,7 @@ var FNArecommendation = {
 				
 				//ILAS Handling
 				if(gp_data.groupCode == "ILAS"){
-					var prod = $(".fna-recommend .template .fna-other-product").clone();
+					var prod = $(".fna-recommend .template .fna-other-product").clone().addClass("desc-ilas-container").css("display","none");
 					prod.empty();
 					
 					prod.append($("<div/>").html($('.txt_ilas_obj').html()).addClass("desc-ilas-obj"));
@@ -809,16 +809,12 @@ var FNArecommendation = {
 		else{
 			FNArecommendation.showOnly1Product(false,FNArecommendation.fnaData.q2,fnaq4e);
 		}
-		
-		if ( data.hasILAS=='Y' ){
-			FNArecommendation.showILASsObjective(true);
-		}
-		else{
-			FNArecommendation.showILASsObjective(false);	
-		}
+
+		var bShowILASsContainer = false;
 
 		if(pNum>0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescription(true);
+			bShowILASsContainer = bShowILASsContainer || true;
 		}
 		else{
 			FNArecommendation.showILASsDescription(false);
@@ -826,9 +822,17 @@ var FNArecommendation = {
 		
 		if(pNum==0 && data.hasILAS=='Y'){
 			FNArecommendation.showILASsDescriptionOnly1(true);
+			bShowILASsContainer = bShowILASsContainer || true;
 		}
 		else{
 			FNArecommendation.showILASsDescriptionOnly1(false);
+		}
+
+		if(bShowILASsContainer){
+			FNArecommendation.showILASsContainer(true);
+		}
+		else{
+			FNArecommendation.showILASsContainer(false);	
 		}
 		
 		var bShowNoAvailable;
@@ -926,10 +930,12 @@ var FNArecommendation = {
 		}
 	},
 
-	showILASsObjective:function(display){
+	showILASsContainer:function(display){
 		if(display){
+			$('.desc-ilas-container').show();
 			$(".desc-ilas-obj").show();
 		}else{
+			$('.desc-ilas-container').hide();
 			$(".desc-ilas-obj").hide();
 		}
 	},
