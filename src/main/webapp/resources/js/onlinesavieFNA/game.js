@@ -151,7 +151,7 @@ var fnaSavieGame = {
 		$(".fna-btn-step-finish").each(function(){
 			if(getBundleLanguage == "en"){
 				var txt = $(this).html();
-				txt = txt.replace("to Product","to<br class='visible-xs'>Product");
+				txt = txt.replace("to Product","to <br class='visible-xs'>Product");
 				$(this).html(txt);
 			}
 		});

@@ -1,6 +1,14 @@
 .datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
   background: #fff; }
 
+.datepicker table tr td, .datepicker table tr th{
+  border-radius: 0;
+}
+
+.datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover{
+  background: #071D2B;
+}
+
 .banner-onlinesavie {
   background: url(../../images/onlinesavieFNA/bg-start.jpg) center no-repeat;
   height: 310px;
