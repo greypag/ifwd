@@ -173,7 +173,7 @@ var fnaq4e = '${savieFna.q4_e }';
 							</div>
 
 							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
-								<a href="javascript:void(0);" class="fna-btn-mob-analyse">Analyse Again<i class="fa fa-caret-right"></i></a>
+								<a href="javascript:void(0);" class="fna-btn-mob-analyse"><fmt:message key="fna.button.analyse" bundle="${msg}" /><i class="fa fa-caret-right"></i></a>
 							</div>					
 						</div>
 						
