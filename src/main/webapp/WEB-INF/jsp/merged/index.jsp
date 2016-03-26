@@ -118,7 +118,7 @@ var languageP = "${language}";
 				<div class="fna-body fwd-container-limit center-block clearfix">
 					<img class="fna-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/FWD_FNA-workingfile6-bg-01.jpg" />
 					<div class="fna-box">
-						<h3><fmt:message key="label.fna" bundle="${msg}" /></h3>
+						<h3 class="text-bold"><fmt:message key="label.fna" bundle="${msg}" /></h3>
 						<p><fmt:message key="fna.copy1" bundle="${msg}" /></p>
 					</div>
 					<button id="btn-fna-cta" class="text-bold btn common-yellow-btn get-btn"><fmt:message key="button.getstart" bundle="${msg}" /></button>

@@ -123,7 +123,6 @@ body {
 /* line 38, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li a {
   font-size: 14px;
-  font-family: 'Calibri';
   color: #9ba5a7;
 }
 /* line 44, ../sass/partials/savie/_common.scss */
@@ -1208,7 +1207,6 @@ body {
 }
 /* line 87, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .page-banner .img-banner-text .savie-product a {
-  font-family: 'Calibri-bold';
   font-size: 14px;
 }
 .savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a {
@@ -2055,11 +2053,11 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   background: transparent;
   color: #ffffff;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
   padding: 8px;
   line-height: 18px;
   border: none;
 }
+
 @media screen and (min-width: 330px) {
   /* line 662, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li .navtabs-title {
@@ -2201,7 +2199,6 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 787, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content p {
-  font-family: 'Calibri';
   font-size: 14px;
   max-width: 245px;
   margin: 0 auto;
@@ -5308,8 +5305,14 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	.fwd-savie-wrapper .breadcrumb.breadcrumbs-product-details {
 	    font-size: 18px;
 	    padding-left: 15px;
-	    font-family: 'Calibri-Bold';
+	    font-family: 'Calibri-Bold', Calibri, sans-serif !important;
 	}
+
+  .chin .fwd-savie-wrapper .breadcrumb.breadcrumbs-product-details {
+      font-size: 18px;
+      padding-left: 15px;
+      font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+  }
 	
 	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
 		margin-top: -19px;

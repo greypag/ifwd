@@ -1715,7 +1715,6 @@ body {
 }
 /* line 233, ../sass/partials/savie/_homepage.scss */
 .fna-body .fna-box h3 {
-  font-family: 'Calibri-Bold';
   /*color: #ff8200;*/
   color: #fff;
   line-height: 1;
@@ -1744,7 +1743,6 @@ body {
 }
 /* line 247, ../sass/partials/savie/_homepage.scss */
 .fna-body .fna-box p {
-  font-family: 'Calibri';
   font-size: 16px;
   line-height: 20px;
   margin: 0;
@@ -1832,7 +1830,6 @@ body {
   background: transparent;
   color: #ffffff;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
   padding: 8px;
   line-height: 18px;
 }
@@ -1919,7 +1916,6 @@ body {
 }
 /* line 403, ../sass/partials/savie/_homepage.scss */
 .fna-icons-body .fna-tab-content .so-fna-content p {
-  font-family: 'Calibri';
   font-size: 16px;
 }
 @media screen and (min-width: 992px) {
@@ -1954,7 +1950,6 @@ body {
 }
 /* line 437, ../sass/partials/savie/_homepage.scss */
 .read-blog p {
-  font-family: 'Calibri';
   font-size: 18px;
   color: #062033;
 }
