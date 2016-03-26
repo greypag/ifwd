@@ -104,6 +104,7 @@ var languageP = "${language}";
 								<ul class="psa-ul">
 									<li><a href="<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
