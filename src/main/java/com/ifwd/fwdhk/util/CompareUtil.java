@@ -288,11 +288,15 @@ public class CompareUtil {
 				for(Products entity : o1.getProducts()) {
 					if(KSTS.equals(entity.getProduct_code())){
 						return -1;
+					}else if(KSTR.equals(entity.getProduct_code())){
+						return -1;
 					}
 				}
 				for(Products entity : o2.getProducts()) {
 					if(KSTS.equals(entity.getProduct_code())){
 						return 1;
+					}else if(KSTR.equals(entity.getProduct_code())){
+						return -1;
 					}
 				}
 				return 0;
