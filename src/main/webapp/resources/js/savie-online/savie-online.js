@@ -140,7 +140,9 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		else{
 			$.ajax({
 		    	url:contextPath+'/ajax/savings-insurance/uploadSignature',     
-		    	type:'post',     
+		    	type:'post',    
+		    	cache:false, 
+			    async:false, 
 		    	data:{ "image" : datapair[1] },     
 		    	success:function(data){
 		    	    if(data==null || data == ''){
@@ -283,13 +285,15 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 	$('#updoc-complete-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
+				cache:false, 
+			    async:false, 
 		        url:contextPath+'/ajax/savings-insurance/getEliteTermSendImageFlage',
 		        data: {
 					"passportFlage":passportFlage,
 					"uploadLaterFlage":uploadLaterFlage
 				},
 		        success:function(data){
-					if(data.errMsgs == null){
+					if(data.errMsgs[0] == null || data.errMsgs[0] == ''){
 						window.onbeforeunload=null;
 						window.location.href= contextPath+'/'+language+'/savings-insurance/confirmation';
 					}

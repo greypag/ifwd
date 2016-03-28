@@ -385,6 +385,10 @@ a {
   text-decoration: none;
   color: #ff8200;
 }
+a.viewmap-link {
+  text-decoration: none;
+  color: #ff8200;
+}
 /* line 32, ../sass/partials/savie/_common.scss */
 a:hover {
   text-decoration: underline;

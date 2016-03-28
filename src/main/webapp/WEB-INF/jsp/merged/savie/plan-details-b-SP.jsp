@@ -916,7 +916,9 @@ var affordabilityPremium = ${affordabilityPremium};
 			}else {
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-				    type:'get', 
+				    type:'get',
+				    cache:false, 
+				    async:false, 
 				    data:{    
 		    	    	"planCode" : "SAVIE-SP"
 		       		}, 
@@ -930,7 +932,9 @@ var affordabilityPremium = ${affordabilityPremium};
 				    	}else{
 				    		$.ajax({     
 				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
-				    		    type:'get',     
+				    		    type:'get',
+							    cache:false, 
+							    async:false,    
 				    		    error:function(){       
 				    		    },     
 				    		    success:function(data){
@@ -945,7 +949,9 @@ var affordabilityPremium = ${affordabilityPremium};
 					    		    	} else {
 					    		    		$.ajax({     
 								    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-								    		    type:'get',     
+								    		    type:'get',
+											    cache:false, 
+											    async:false,     
 								    		    error:function(){       
 								    		    },     
 								    		    success:function(data){
@@ -986,7 +992,9 @@ var affordabilityPremium = ${affordabilityPremium};
 	$("#start-over-btn").on('click', function(){
 		$.ajax({    
 			url:'${pageContext.request.contextPath}/ajax/savings-insurance/clearPolicyApplication',   
-		    type:'get',     
+			type:'get',
+		    cache:false, 
+		    async:false, 
 		    error:function(){       
 		    },     
 		    success:function(data){

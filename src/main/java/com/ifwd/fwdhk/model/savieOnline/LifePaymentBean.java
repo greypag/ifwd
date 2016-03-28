@@ -6,7 +6,12 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 public class LifePaymentBean implements Serializable {
@@ -16,16 +21,46 @@ public class LifePaymentBean implements Serializable {
 	private Boolean payment;
 	private String paymentMethod;
 	private String bankCode;
-	private String bankName;
+	private String bankEnName;
+	private String bankCnName;
 	private String branchCode;
-	private String branchName;
+	private String branchEnName;
+	private String branchCnName;
 	private String accountNumber;
 	private String accountHolderName;
 	private String paymentAmount;
 	private String type;
 	
-	public void validate(String language) throws ValidateExceptions {
-		this.bankName = this.bankCode !=null && !"".equals(this.bankCode)?this.bankCode.split("-")[1]:"";
+	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
+		if(!"".equals(this.bankCode)){
+			for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
+				if(this.bankCode.equals(item.getItemCode())){
+					this.bankEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.bankCodeCN){
+				if(this.bankCode.equals(item.getItemCode())){
+					this.bankCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		
+		if(!"".equals(this.branchCode)){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "EN", "1")){
+				if(this.branchCode.equals(item.getItemCode())){
+					this.branchEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "CH", "1")){
+				if(this.branchCode.equals(item.getItemCode())){
+					this.branchCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
 		
 		List<String> list = new ArrayList<String>();
         /*if(ValidationUtils.isNullOrEmpty(this.bankCode)){
@@ -112,26 +147,54 @@ public class LifePaymentBean implements Serializable {
 
 
 
-	public String getBankName() {
-		return bankName;
+	
+
+
+
+	public String getBankEnName() {
+		return bankEnName;
 	}
 
 
 
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
+	public void setBankEnName(String bankEnName) {
+		this.bankEnName = bankEnName;
 	}
 
 
 
-	public String getBranchName() {
-		return branchName;
+	public String getBankCnName() {
+		return bankCnName;
 	}
 
 
 
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
+	public void setBankCnName(String bankCnName) {
+		this.bankCnName = bankCnName;
+	}
+
+
+
+	public String getBranchEnName() {
+		return branchEnName;
+	}
+
+
+
+	public void setBranchEnName(String branchEnName) {
+		this.branchEnName = branchEnName;
+	}
+
+
+
+	public String getBranchCnName() {
+		return branchCnName;
+	}
+
+
+
+	public void setBranchCnName(String branchCnName) {
+		this.branchCnName = branchCnName;
 	}
 
 
