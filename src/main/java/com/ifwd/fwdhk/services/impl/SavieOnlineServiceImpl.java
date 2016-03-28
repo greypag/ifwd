@@ -427,8 +427,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		String lang = UserRestURIConstants.getLanaguage(request);
 		
-		String bankName = lifePayment.getBankCnName();
-		String branchName = lifePayment.getBranchCnName();
+		String bankName = "";
+		String branchName = "";
+		if("tc".equals(lang)){
+			bankName = lifePayment.getBankCnName();
+			branchName = lifePayment.getBranchCnName();
+		}else{
+			bankName = lifePayment.getBankEnName();
+			branchName = lifePayment.getBranchEnName();
+		}
 		
 		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -553,7 +560,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	}
 	    }
 	    
-	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankCnName()+"-"+lifePayment.getBranchCnName()));
+	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
