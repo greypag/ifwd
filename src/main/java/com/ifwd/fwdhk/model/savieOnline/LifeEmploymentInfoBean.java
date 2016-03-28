@@ -6,41 +6,146 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
 public class LifeEmploymentInfoBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(LifeEmploymentInfoBean.class);
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
+	private CommonUtils commonUtils;
 
 	private String employmentStatus;
-	private String employmentStatusName;
+	private String employmentStatusEnName;
+	private String employmentStatusCnName;
 	private String natureOfBusiness;
-	private String natureOfBusinessName;
+	private String natureOfBusinessEnName;
+	private String natureOfBusinessCnName;
 	private String occupation;
-	private String occupationName;
+	private String occupationEnName;
+	private String occupationCnName;
 	private String otherOccupation;
 	private String employerName;
 	private String monthlyPersonalIncome;
-	private String monthlyPersonalIncomeName;
+	private String monthlyPersonalIncomeEnName;
+	private String monthlyPersonalIncomeCnName;
 	private String education;
-	private String educationName;
+	private String educationEnName;
+	private String educationCnName;
 	private String amountOfOtherSourceOfIncome;
-	private String amountOfOtherSourceOfIncomeName;
+	private String amountOfOtherSourceOfIncomeEnName;
+	private String amountOfOtherSourceOfIncomeCnName;
 	private String amountOfLiquidAssets;
-	private String amountOfLiquidAssetsName;
+	private String amountOfLiquidAssetsEnName;
+	private String amountOfLiquidAssetsCnName;
 	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.employmentStatusName = !"".equals(this.employmentStatus)?this.employmentStatus.split("-")[1]:"";
-		this.natureOfBusinessName = !"".equals(this.natureOfBusiness)?this.natureOfBusiness.split("-")[1]:"";
-		this.occupationName = !"".equals(this.occupation)?this.occupation.split("-")[1]:"";
-		this.monthlyPersonalIncomeName = !"".equals(this.monthlyPersonalIncome)?this.monthlyPersonalIncome.split("-")[1]:"";
-		this.educationName = !"".equals(this.education)?this.education.split("-")[1]:"";
-		this.amountOfOtherSourceOfIncomeName = !"".equals(this.amountOfOtherSourceOfIncome)?this.amountOfOtherSourceOfIncome.split("-")[1]:"";
-		this.amountOfLiquidAssetsName = !"".equals(this.amountOfLiquidAssets)?this.amountOfLiquidAssets.split("-")[1]:"";
+		if(!"".equals(this.employmentStatus)){
+			for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
+				if(this.employmentStatus.equals(item.getItemCode())){
+					this.employmentStatusEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.employmentStatusCN){
+				if(this.employmentStatus.equals(item.getItemCode())){
+					this.employmentStatusCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.natureOfBusiness)){
+			for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessEN){
+				if(this.natureOfBusiness.equals(item.getItemCode())){
+					this.natureOfBusinessEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessCN){
+				if(this.natureOfBusiness.equals(item.getItemCode())){
+					this.natureOfBusinessCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.occupation)){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "EN", "1")){
+				if(this.occupation.equals(item.getItemCode())){
+					this.occupationEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "CH", "1")){
+				if(this.occupation.equals(item.getItemCode())){
+					this.occupationCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.monthlyPersonalIncome)){
+			for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeEN){
+				if(this.monthlyPersonalIncome.equals(item.getItemCode())){
+					this.monthlyPersonalIncomeEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeCN){
+				if(this.monthlyPersonalIncome.equals(item.getItemCode())){
+					this.monthlyPersonalIncomeCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.education)){
+			for(OptionItemDesc item:InitApplicationMessage.etEducationLevelEN){
+				if(this.education.equals(item.getItemCode())){
+					this.educationEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etEducationLevelCN){
+				if(this.education.equals(item.getItemCode())){
+					this.educationCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.amountOfOtherSourceOfIncome)){
+			for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceEN){
+				if(this.amountOfOtherSourceOfIncome.equals(item.getItemCode())){
+					this.amountOfOtherSourceOfIncomeEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceCN){
+				if(this.amountOfOtherSourceOfIncome.equals(item.getItemCode())){
+					this.amountOfOtherSourceOfIncomeCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.amountOfLiquidAssets)){
+			for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetEN){
+				if(this.amountOfLiquidAssets.equals(item.getItemCode())){
+					this.amountOfLiquidAssetsEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetCN){
+				if(this.amountOfLiquidAssets.equals(item.getItemCode())){
+					this.amountOfLiquidAssetsCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
 		
 		List<String> list = new ArrayList<String>();
         /*if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
@@ -142,61 +247,52 @@ public class LifeEmploymentInfoBean implements Serializable {
 		this.amountOfLiquidAssets = amountOfLiquidAssets;
 	}
 
-	public String getEmploymentStatusName() {
-		return employmentStatusName;
+	public String getEmploymentStatusEnName() {
+		return employmentStatusEnName;
 	}
 
-	public void setEmploymentStatusName(String employmentStatusName) {
-		this.employmentStatusName = employmentStatusName;
+	public void setEmploymentStatusEnName(String employmentStatusEnName) {
+		this.employmentStatusEnName = employmentStatusEnName;
 	}
 
-	public String getNatureOfBusinessName() {
-		return natureOfBusinessName;
+	public String getEmploymentStatusCnName() {
+		return employmentStatusCnName;
 	}
 
-	public void setNatureOfBusinessName(String natureOfBusinessName) {
-		this.natureOfBusinessName = natureOfBusinessName;
+	public void setEmploymentStatusCnName(String employmentStatusCnName) {
+		this.employmentStatusCnName = employmentStatusCnName;
 	}
 
-	public String getOccupationName() {
-		return occupationName;
+	public String getNatureOfBusinessEnName() {
+		return natureOfBusinessEnName;
 	}
 
-	public void setOccupationName(String occupationName) {
-		this.occupationName = occupationName;
+	public void setNatureOfBusinessEnName(String natureOfBusinessEnName) {
+		this.natureOfBusinessEnName = natureOfBusinessEnName;
 	}
 
-	public String getMonthlyPersonalIncomeName() {
-		return monthlyPersonalIncomeName;
+	public String getNatureOfBusinessCnName() {
+		return natureOfBusinessCnName;
 	}
 
-	public void setMonthlyPersonalIncomeName(String monthlyPersonalIncomeName) {
-		this.monthlyPersonalIncomeName = monthlyPersonalIncomeName;
+	public void setNatureOfBusinessCnName(String natureOfBusinessCnName) {
+		this.natureOfBusinessCnName = natureOfBusinessCnName;
 	}
 
-	public String getEducationName() {
-		return educationName;
+	public String getOccupationEnName() {
+		return occupationEnName;
 	}
 
-	public void setEducationName(String educationName) {
-		this.educationName = educationName;
+	public void setOccupationEnName(String occupationEnName) {
+		this.occupationEnName = occupationEnName;
 	}
 
-	public String getAmountOfOtherSourceOfIncomeName() {
-		return amountOfOtherSourceOfIncomeName;
+	public String getOccupationCnName() {
+		return occupationCnName;
 	}
 
-	public void setAmountOfOtherSourceOfIncomeName(
-			String amountOfOtherSourceOfIncomeName) {
-		this.amountOfOtherSourceOfIncomeName = amountOfOtherSourceOfIncomeName;
-	}
-
-	public String getAmountOfLiquidAssetsName() {
-		return amountOfLiquidAssetsName;
-	}
-
-	public void setAmountOfLiquidAssetsName(String amountOfLiquidAssetsName) {
-		this.amountOfLiquidAssetsName = amountOfLiquidAssetsName;
+	public void setOccupationCnName(String occupationCnName) {
+		this.occupationCnName = occupationCnName;
 	}
 
 	public String getOtherOccupation() {
@@ -207,6 +303,72 @@ public class LifeEmploymentInfoBean implements Serializable {
 		this.otherOccupation = otherOccupation;
 	}
 
+	public String getMonthlyPersonalIncomeEnName() {
+		return monthlyPersonalIncomeEnName;
+	}
+
+	public void setMonthlyPersonalIncomeEnName(String monthlyPersonalIncomeEnName) {
+		this.monthlyPersonalIncomeEnName = monthlyPersonalIncomeEnName;
+	}
+
+	public String getMonthlyPersonalIncomeCnName() {
+		return monthlyPersonalIncomeCnName;
+	}
+
+	public void setMonthlyPersonalIncomeCnName(String monthlyPersonalIncomeCnName) {
+		this.monthlyPersonalIncomeCnName = monthlyPersonalIncomeCnName;
+	}
+
+	public String getEducationEnName() {
+		return educationEnName;
+	}
+
+	public void setEducationEnName(String educationEnName) {
+		this.educationEnName = educationEnName;
+	}
+
+	public String getEducationCnName() {
+		return educationCnName;
+	}
+
+	public void setEducationCnName(String educationCnName) {
+		this.educationCnName = educationCnName;
+	}
+
+	public String getAmountOfOtherSourceOfIncomeEnName() {
+		return amountOfOtherSourceOfIncomeEnName;
+	}
+
+	public void setAmountOfOtherSourceOfIncomeEnName(
+			String amountOfOtherSourceOfIncomeEnName) {
+		this.amountOfOtherSourceOfIncomeEnName = amountOfOtherSourceOfIncomeEnName;
+	}
+
+	public String getAmountOfOtherSourceOfIncomeCnName() {
+		return amountOfOtherSourceOfIncomeCnName;
+	}
+
+	public void setAmountOfOtherSourceOfIncomeCnName(
+			String amountOfOtherSourceOfIncomeCnName) {
+		this.amountOfOtherSourceOfIncomeCnName = amountOfOtherSourceOfIncomeCnName;
+	}
+
+	public String getAmountOfLiquidAssetsEnName() {
+		return amountOfLiquidAssetsEnName;
+	}
+
+	public void setAmountOfLiquidAssetsEnName(String amountOfLiquidAssetsEnName) {
+		this.amountOfLiquidAssetsEnName = amountOfLiquidAssetsEnName;
+	}
+
+	public String getAmountOfLiquidAssetsCnName() {
+		return amountOfLiquidAssetsCnName;
+	}
+
+	public void setAmountOfLiquidAssetsCnName(String amountOfLiquidAssetsCnName) {
+		this.amountOfLiquidAssetsCnName = amountOfLiquidAssetsCnName;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -214,5 +376,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	
 	
 }

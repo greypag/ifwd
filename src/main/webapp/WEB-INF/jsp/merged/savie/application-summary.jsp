@@ -304,7 +304,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.employment.status" bundle="${msg}" /></label>
 								<select name="tmpEmploymentStatus" id="tmpEmploymentStatus" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.employment.status" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.employmentStatusName }">${lifeEmploymentInfo.employmentStatusName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.employmentStatusEnName:lifeEmploymentInfo.employmentStatusCnName}">${language == 'en' ? lifeEmploymentInfo.employmentStatusEnName:lifeEmploymentInfo.employmentStatusCnName}</option>
 								</select>
 								<input type="hidden" id="employmentStatus" name="employmentStatus" />
 							</div>
@@ -314,7 +314,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
 								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.natureOfBusinessName }">${lifeEmploymentInfo.natureOfBusinessName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}">${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}</option>
 								</select>
 								<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" />
 							</div>
@@ -324,7 +324,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
 								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.occupationName }">${lifeEmploymentInfo.occupationName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}">${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}</option>
 								</select>
 								<input type="hidden" id="occupation" name="occupation" />
 							</div>
@@ -348,7 +348,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
 								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.monthlyPersonalIncomeName }">${lifeEmploymentInfo.monthlyPersonalIncomeName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}">${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}</option>
 								</select>
 								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
 							</div>
@@ -358,7 +358,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
 								<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
 									<option value="">Education level</option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.educationName }">${lifeEmploymentInfo.educationName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.educationEnName:lifeEmploymentInfo.educationCnName}">${language == 'en' ? lifeEmploymentInfo.educationEnName:lifeEmploymentInfo.educationCnName}</option>
 								</select>
 								<input type="hidden" id="education" name="education" />
 							</div>
@@ -369,7 +369,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></label>
 								<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.amountOfOtherSourceOfIncomeEnName:lifeEmploymentInfo.amountOfOtherSourceOfIncomeCnName}">${language == 'en' ? lifeEmploymentInfo.amountOfOtherSourceOfIncomeEnName:lifeEmploymentInfo.amountOfOtherSourceOfIncomeCnName}</option>
 								</select>
 								<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" />
 							</div>
@@ -380,7 +380,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></label>
 								<select name="tmpLiquidAssetsAmount" id="tmpLiquidAssetsAmount" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifeEmploymentInfo.amountOfLiquidAssets }">${lifeEmploymentInfo.amountOfLiquidAssetsName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.amountOfLiquidAssetsEnName:lifeEmploymentInfo.amountOfLiquidAssetsCnName}">${language == 'en' ? lifeEmploymentInfo.amountOfLiquidAssetsEnName:lifeEmploymentInfo.amountOfLiquidAssetsCnName}</option>
 								</select>
 								<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" />
 							</div>
