@@ -483,6 +483,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
+	    /*attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
 	    attributeList.add(new PdfAttribute("currentEmployNameKey", "16.Current Employer's Name 現時僱主名稱"));
 	    attributeList.add(new PdfAttribute("currentEmployName", lifeEmploymentInfo.getEmployerName()));
 	    attributeList.add(new PdfAttribute("natureOfBusinessKey", "17.Nature Of Business 行業"));
@@ -499,7 +500,31 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("liquidAssetsKey1", "21.The cumulative amount"));
 	    attributeList.add(new PdfAttribute("liquidAssetsKey2", "of your current liquid assets"));
 	    attributeList.add(new PdfAttribute("liquidAssetsKey3", "閣下現實累積的流動資產總值"));
-	    attributeList.add(new PdfAttribute("liquidAssets", lifeEmploymentInfo.getAmountOfLiquidAssets()));
+	    attributeList.add(new PdfAttribute("liquidAssets", lifeEmploymentInfo.getAmountOfLiquidAssets()));*/
+
+	    
+	    String status = lifeEmploymentInfo.getEmploymentStatus();
+	    status = status.split("-")[0];
+	    if("ES1".equals(status)||"ES2".equals(status)||"ES3".equals(status)){
+	    	attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey1", "16.Current Employer's Name 現時僱主名稱"));
+		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getEmployerName()));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey2", "17.Nature Of Business 行業"));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getNatureOfBusinessCnName()));
+		    attributeList.add(new PdfAttribute("occupationKey", "18.Occupation 職業"));
+		    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationCnName()));
+		    attributeList.add(new PdfAttribute("personalIncomeKey1", "19.Monthly Personal Income"));
+		    attributeList.add(new PdfAttribute("personalIncomeKey2", "(applicable to full-time and part-time job)"));
+		    attributeList.add(new PdfAttribute("personalIncomeKey3", "個人每月收入（港幣）（全職及兼職適用）"));
+		    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeCnName()));
+	    }else{
+		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey1", "16.Amount of other source of income"));
+		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey2", "其他收入來源"));
+		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey1", "17.The cumulative amount"));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey2", "of your current liquid assets"));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey3", "閣下現實累積的流動資產總值"));
+		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getAmountOfLiquidAssets()));
+	    }
 	    
 	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    
