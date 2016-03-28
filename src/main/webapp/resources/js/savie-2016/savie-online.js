@@ -1473,7 +1473,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if (i == 0 || i == 1 || i == 2) {
 										var rowCtr = i+1;
 										if(i == 2) {
-											$("#3rd_policy_year").html("HK$"+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
+											$("#3rd_policy_year").html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
 										}
 										
 										$('#credit-rate-change-'+rowCtr).html(json.salesIllustration.inputTable[0].guaranteeRate.split(",")[i]*100);
