@@ -2122,6 +2122,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
+		apiReturn.setErrMsg(null);
 		FileInputStream is = null;
 		BaseResponse br = null;
 		try {

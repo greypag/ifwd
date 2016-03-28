@@ -293,7 +293,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 					"uploadLaterFlage":uploadLaterFlage
 				},
 		        success:function(data){
-					if(data.errMsgs == null){
+					if(data.errMsgs[0] == null || data.errMsgs[0] == ''){
 						window.onbeforeunload=null;
 						window.location.href= contextPath+'/'+language+'/savings-insurance/confirmation';
 					}
