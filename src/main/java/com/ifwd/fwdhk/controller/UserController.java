@@ -327,11 +327,9 @@ public class UserController {
 							}else if("EasyHomeCare".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request)));
 							}else if("SAVIE".equalsIgnoreCase(entity.getPlanCode())) {
-								//entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request)));
-								entity.setPlanName(entity.getPlanCode());
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request)));
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
-								//entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request)));
-								entity.setPlanName(entity.getPlanCode());
+								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request)));
 							}
 							
 							if("Z".equalsIgnoreCase(entity.getStatus())){
