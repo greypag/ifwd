@@ -615,7 +615,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></label>
 								<select name="tmpBankName" id="tmpBankName" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePayment.bankName }">${lifePayment.bankName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePayment.bankEnName:lifePayment.bankCnName}">${language == 'en' ? lifePayment.bankEnName:lifePayment.bankCnName}</option>
 								</select>
 								<input type="hidden" id="bankName" name="bankName" />
 							</div>
@@ -631,7 +631,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
 								<select name="tmpBranchName" id="tmpBranchName" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePayment.branchName }">${lifePayment.branchName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePayment.branchEnName:lifePayment.branchCnName}">${language == 'en' ? lifePayment.branchEnName:lifePayment.branchCnName}</option>
 								</select>
 								<input type="hidden" id="branchName" name="branchName" />
 							</div>

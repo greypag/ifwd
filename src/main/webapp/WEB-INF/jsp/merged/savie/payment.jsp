@@ -171,17 +171,15 @@ var language = "${language}";
 											<option selected disabled value=""><fmt:message key="placeholder.bank.name" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${bankCodeEN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 													<enhance:out escapeXml="false">
-													    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <option value="${list.itemCode }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</enhance:out>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${bankCodeCN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 													<enhance:out escapeXml="false">
-													    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <option value="${list.itemCode }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</enhance:out>
 												</c:forEach>
 											</c:if>

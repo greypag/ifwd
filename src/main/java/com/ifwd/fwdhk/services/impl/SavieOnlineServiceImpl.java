@@ -425,9 +425,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
+		String lang = UserRestURIConstants.getLanaguage(request);
 		
-		String bankName = lifePayment.getBankName();
-		String branchName = lifePayment.getBranchName();
+		String bankName = "";
+		String branchName = "";
+		if("tc".equals(lang)){
+			bankName = lifePayment.getBankCnName();
+			branchName = lifePayment.getBranchCnName();
+		}else{
+			bankName = lifePayment.getBankEnName();
+			branchName = lifePayment.getBranchEnName();
+		}
 		
 		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -482,48 +490,45 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
 	    
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
-	    /*attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
-	    attributeList.add(new PdfAttribute("currentEmployNameKey", "16.Current Employer's Name 現時僱主名稱"));
-	    attributeList.add(new PdfAttribute("currentEmployName", lifeEmploymentInfo.getEmployerName()));
-	    attributeList.add(new PdfAttribute("natureOfBusinessKey", "17.Nature Of Business 行業"));
-	    attributeList.add(new PdfAttribute("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusinessCnName()));
-	    attributeList.add(new PdfAttribute("occupationKey", "18.Occupation 職業"));
-	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationCnName()));
-	    attributeList.add(new PdfAttribute("personalIncomeKey1", "19.Monthly Personal Income"));
-	    attributeList.add(new PdfAttribute("personalIncomeKey2", "(applicable to full-time and part-time job)"));
-	    attributeList.add(new PdfAttribute("personalIncomeKey3", "個人每月收入（港幣）（全職及兼職適用）"));
-	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeCnName()));
-	    attributeList.add(new PdfAttribute("otherIncomeKey1", "20.Amount of other source of income"));
-	    attributeList.add(new PdfAttribute("otherIncomeKey2", "其他收入來源"));
-	    attributeList.add(new PdfAttribute("otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
-	    attributeList.add(new PdfAttribute("liquidAssetsKey1", "21.The cumulative amount"));
-	    attributeList.add(new PdfAttribute("liquidAssetsKey2", "of your current liquid assets"));
-	    attributeList.add(new PdfAttribute("liquidAssetsKey3", "閣下現實累積的流動資產總值"));
-	    attributeList.add(new PdfAttribute("liquidAssets", lifeEmploymentInfo.getAmountOfLiquidAssets()));*/
-
+	    if("tc".equals(lang)){
+	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
+	    }else{
+	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusEnName()));
+	    }
 	    
 	    String status = lifeEmploymentInfo.getEmploymentStatus();
 	    status = status.split("-")[0];
 	    if("ES1".equals(status)||"ES2".equals(status)||"ES3".equals(status)){
 	    	attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey1", "16.Current Employer's Name 現時僱主名稱"));
-		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getEmployerName()));
 		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey2", "17.Nature Of Business 行業"));
-		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getNatureOfBusinessCnName()));
 		    attributeList.add(new PdfAttribute("occupationKey", "18.Occupation 職業"));
-		    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationCnName()));
 		    attributeList.add(new PdfAttribute("personalIncomeKey1", "19.Monthly Personal Income"));
 		    attributeList.add(new PdfAttribute("personalIncomeKey2", "(applicable to full-time and part-time job)"));
 		    attributeList.add(new PdfAttribute("personalIncomeKey3", "個人每月收入（港幣）（全職及兼職適用）"));
-		    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeCnName()));
+		    
+		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getEmployerName()));
+		    if("tc".equals(lang)){
+		    	attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getNatureOfBusinessCnName()));
+		    	attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationCnName()));
+		    	attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeCnName()));
+		    }else{
+		    	attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getNatureOfBusinessEnName()));
+		    	attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupationEnName()));
+		    	attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncomeEnName()));
+		    }
 	    }else{
 		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey1", "16.Amount of other source of income"));
 		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeKey2", "其他收入來源"));
-		    attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
 		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey1", "17.The cumulative amount"));
 		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey2", "of your current liquid assets"));
 		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsKey3", "閣下現實累積的流動資產總值"));
-		    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getAmountOfLiquidAssets()));
+		    if("tc".equals(lang)){
+		    	attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getAmountOfOtherSourceOfIncomeCnName()));
+		    	attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getAmountOfLiquidAssetsCnName()));
+		    }else{
+		    	attributeList.add(new PdfAttribute("currentEmployName/otherIncomeValue", lifeEmploymentInfo.getAmountOfOtherSourceOfIncomeEnName()));
+		    	attributeList.add(new PdfAttribute("natureOfBusiness/liquidAssetsValue", lifeEmploymentInfo.getAmountOfLiquidAssetsEnName()));
+		    }
 	    }
 	    
 	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
@@ -555,7 +560,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	}
 	    }
 	    
-	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
@@ -1624,7 +1629,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public net.sf.json.JSONObject lifeBeneficaryInfoPutData(LifeBeneficaryInfoBean lifeBeneficaryInfo,net.sf.json.JSONObject parameters){
-		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"false");
+		parameters.accumulate("isOwnEstate", lifeBeneficaryInfo.getIsOwnEstate()!=null?lifeBeneficaryInfo.getIsOwnEstate():"false");
 		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
@@ -1691,7 +1696,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject lifePaymentPutData(LifePaymentBean lifePayment,net.sf.json.JSONObject parameters){
 		parameters.accumulate("paymentMethod", lifePayment.getPaymentMethod()!=null?lifePayment.getPaymentMethod():"");
 		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
-		parameters.accumulate("branchName", lifePayment.getBranchCode()+"-"+lifePayment.getBranchName());
+		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
 		parameters.accumulate("accountHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		return parameters;
@@ -1893,22 +1898,113 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(lifeEmploymentInfo==null){
 				lifeEmploymentInfo = new LifeEmploymentInfoBean();
 			}
-			/*lifeEmploymentInfo.setEmploymentStatus(policyApplication.getEmploymentStatus()!=null?policyApplication.getEmploymentStatus():"");
-			lifeEmploymentInfo.setEmploymentStatusName(!"".equals(lifeEmploymentInfo.getEmploymentStatus())?lifeEmploymentInfo.getEmploymentStatus().split("-")[1]:"");
-			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
-			lifeEmploymentInfo.setOccupationName(!"".equals(lifeEmploymentInfo.getOccupation())?lifeEmploymentInfo.getOccupation().split("-")[1]:"");
-			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
-			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
-			lifeEmploymentInfo.setEducationName(!"".equals(lifeEmploymentInfo.getEducation())?lifeEmploymentInfo.getEducation().split("-")[1]:"");
+			lifeEmploymentInfo.setEmploymentStatus(policyApplication.getEmploymentStatus()!=null?policyApplication.getEmploymentStatus():"");
+			if(!"".equals(lifeEmploymentInfo.getEmploymentStatus())){
+				for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
+					if(lifeEmploymentInfo.getEmploymentStatus().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEmploymentStatusEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.employmentStatusCN){
+					if(lifeEmploymentInfo.getEmploymentStatus().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEmploymentStatusCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setNatureOfBusiness(policyApplication.getNatureOfBusiness()!=null?policyApplication.getNatureOfBusiness():"");
-			lifeEmploymentInfo.setNatureOfBusinessName(!"".equals(lifeEmploymentInfo.getNatureOfBusiness())?lifeEmploymentInfo.getNatureOfBusiness().split("-")[1]:"");
+			if(!"".equals(lifeEmploymentInfo.getNatureOfBusiness())){
+				for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessEN){
+					if(lifeEmploymentInfo.getNatureOfBusiness().equals(item.getItemCode())){
+						lifeEmploymentInfo.setNatureOfBusinessEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessCN){
+					if(lifeEmploymentInfo.getNatureOfBusiness().equals(item.getItemCode())){
+						lifeEmploymentInfo.setNatureOfBusinessCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
+			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
+			if(!"".equals(lifeEmploymentInfo.getOccupation())){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "EN", "1")){
+					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setOccupationEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "CH", "1")){
+					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setOccupationCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setMonthlyPersonalIncome(policyApplication.getMonthlyPersonalIncome()!=null?policyApplication.getMonthlyPersonalIncome():"");
-			lifeEmploymentInfo.setMonthlyPersonalIncomeName(!"".equals(lifeEmploymentInfo.getMonthlyPersonalIncome())?lifeEmploymentInfo.getMonthlyPersonalIncome().split("-")[1]:"");
-			lifeEmploymentInfo.setAmountOfLiquidAssets(policyApplication.getLiquidAssest()!=null?policyApplication.getLiquidAssest():"");
-			lifeEmploymentInfo.setAmountOfLiquidAssetsName(!"".equals(lifeEmploymentInfo.getAmountOfLiquidAssets())?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[1]:"");
+			if(!"".equals(lifeEmploymentInfo.getMonthlyPersonalIncome())){
+				for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeEN){
+					if(lifeEmploymentInfo.getMonthlyPersonalIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setMonthlyPersonalIncomeEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeCN){
+					if(lifeEmploymentInfo.getMonthlyPersonalIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setMonthlyPersonalIncomeCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
+			if(!"".equals(lifeEmploymentInfo.getEducation())){
+				for(OptionItemDesc item:InitApplicationMessage.etEducationLevelEN){
+					if(lifeEmploymentInfo.getEducation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEducationEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etEducationLevelCN){
+					if(lifeEmploymentInfo.getEducation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEducationCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setAmountOfOtherSourceOfIncome(policyApplication.getAmountOtherSource()!=null?policyApplication.getAmountOtherSource():"");
-			lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeName(!"".equals(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome())?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[1]:"");
-			lifeEmploymentInfo.setEmployerName(policyApplication.getEmployerName()!=null?policyApplication.getEmployerName():"");*/
+			if(!"".equals(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome())){
+				for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceEN){
+					if(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceCN){
+					if(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setAmountOfLiquidAssets(policyApplication.getLiquidAssest()!=null?policyApplication.getLiquidAssest():"");
+			if(!"".equals(lifeEmploymentInfo.getAmountOfLiquidAssets())){
+				for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetEN){
+					if(lifeEmploymentInfo.getAmountOfLiquidAssets().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfLiquidAssetsEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetCN){
+					if(lifeEmploymentInfo.getAmountOfLiquidAssets().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfLiquidAssetsCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setEmployerName(policyApplication.getEmployerName()!=null?policyApplication.getEmployerName():"");
 			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 			
 			LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
@@ -1954,9 +2050,35 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			lifePayment.setPaymentMethod(policyApplication.getPaymentMethod()!=null?policyApplication.getPaymentMethod():"");
 			lifePayment.setBankCode(policyApplication.getBankName()!=null?policyApplication.getBankName():"");
-			lifePayment.setBankName(lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())?lifePayment.getBankCode().split("-")[1]:"");
-			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[0]:"");
-			lifePayment.setBranchName(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[1]:"");
+			if(!"".equals(lifePayment.getBankCode())){
+				for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
+					if(lifePayment.getBankCode().equals(item.getItemCode())){
+						lifePayment.setBankEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.bankCodeCN){
+					if(lifePayment.getBankCode().equals(item.getItemCode())){
+						lifePayment.setBankCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
+			if(!"".equals(lifePayment.getBranchCode())){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "EN", "1")){
+					if(lifePayment.getBranchCode().equals(item.getItemCode())){
+						lifePayment.setBranchEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "CH", "1")){
+					if(lifePayment.getBranchCode().equals(item.getItemCode())){
+						lifePayment.setBranchCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
 			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
@@ -2000,6 +2122,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
+		apiReturn.setErrMsg(null);
 		FileInputStream is = null;
 		BaseResponse br = null;
 		try {

@@ -71,9 +71,9 @@ var language = "${language}";
              <div class="step-line"></div>
           </div>
        </div>
-       <div class="container-fluid fwd-container make-an-appointment headerStick">
+       <div class="container-fluid fwd-container make-an-appointment headerStick" id="payment-page">
          <div class="row" id="appointment-form-holder">
-             <form action="" id="paymentForm" method="post">
+             <form action="" id="paymentForm" method="post" class="clearfix">
                <div class="col-xs-12 col-md-6" id="left-side-form">
                    <h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
 					<p class="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
@@ -101,12 +101,11 @@ var language = "${language}";
 						   </div>
 						</div>
 					</div>
-                   <div class="centre-info visible-xs visible-sm" id="centre-info">
-                      
-                   </div>
-				   <div class="form-group customer-formgroup">
+		                   <div class="centre-info visible-xs visible-sm" id="centre-info">
+		                      
+		                   </div>
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="customer-select-label"><fmt:message key="Placeholder.date" bundle="${msg}" /></p>
+							<p class="customer-select-label"><fmt:message key="Placeholder.date" bundle="${msg}" /></p>  
 						   <div id="date" class="selectDiv preferred-date gray-text-bg">
 							  <!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
 							  <%
