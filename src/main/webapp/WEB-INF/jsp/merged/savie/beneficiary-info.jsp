@@ -120,8 +120,7 @@ var languageP = "${language}";
 								<div id="beneficiary-contents" class="col-md-4 col-lg-4 col-sm-12 col-xs-12 hidden">
 									<div class="clearfix add-on-header default-head-h5" id="beneficiary-header[0]">
 										<div class="pull-left">
-											<h5 class="beneficiary-h5 hidden-lg hidden-md">Beneficiary <span class="beneficiary-span">(Person 1)</span>
-											</h5>
+											<h5 class="beneficiary-h5 hidden-lg hidden-md"><fmt:message key="label.option.bene1" bundle="${msg}" /></h5>
 										</div>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -260,11 +259,10 @@ var languageP = "${language}";
 								</div>
 								<div class="clearfix add-on-header hidden" id="beneficiary-header[1]">
 									<div class="pull-left">
-										<h5 class="beneficiary-h5 hidden-lg hidden-md">Beneficiary <span class="beneficiary-span">(Person 2)</span>
-										</h5>
+										<h5 class="beneficiary-h5 hidden-lg hidden-md"><fmt:message key="label.option.bene2" bundle="${msg}" /></h5>
 									</div>
 									<div class="pull-right">
-										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[1]"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button>
+										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[1]"><i class="fa fa-minus-circle"></i><fmt:message key="remove.beneficiary" bundle="${msg}" /></button>
 									</div>
 								</div>
 								<form id="beneficiary-info-form[1]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
@@ -404,11 +402,10 @@ var languageP = "${language}";
 								</div>
 								<div class="clearfix add-on-header hidden" id="beneficiary-header[2]">
 									<div class="pull-left">
-										<h5 class="beneficiary-h5 hidden-lg hidden-md">Beneficiary <span class="beneficiary-span">(Person 3)</span>
-										</h5>
+										<h5 class="beneficiary-h5 hidden-lg hidden-md"><fmt:message key="label.option.bene3" bundle="${msg}" /></h5>
 									</div>
 									<div class="pull-right">
-										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[2]"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button>
+										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[2]"><i class="fa fa-minus-circle"></i><fmt:message key="remove.beneficiary" bundle="${msg}" /></button>
 									</div>
 								</div>
 								<form id="beneficiary-info-form[2]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">

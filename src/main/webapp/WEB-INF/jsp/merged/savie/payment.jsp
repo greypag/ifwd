@@ -131,7 +131,7 @@ var language = "${language}";
 									</p>
 								</div>
 								<div class="info-wrapper">
-									<p class="info-label"><fmt:message key="placeholder.name" bundle="${msg}" /></p>
+									<p class="info-label"><fmt:message key="placeholder.account.name" bundle="${msg}" /></p>
 									<p class="info-value">
 									   ${userDetails.fullName }
 									   <input type="hidden" name="accountHolderName" value="${userDetails.fullName }">

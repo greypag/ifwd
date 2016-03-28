@@ -184,7 +184,7 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="residentialNo" name="residentialNo" value="${lifePersonalDetails.residentialTelNo }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="residentialNo">Residential telephone no.</label>
+								<label class="mdl-textfield__label" for="residentialNo"><fmt:message key="placeholder.residential.no" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
@@ -210,7 +210,7 @@
 							</div>
 						</div>
                   <div class="form-group application-summ">
-							<span class="warning-note">Permanent address (No P.O box address allowed)</span>
+							<span class="warning-note"><fmt:message key="placeholder.permanent.warning" bundle="${msg}" /></span>
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="permanentAddress1" name="permanentAddress1" value="${lifePersonalDetails.permanetAddress1 }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
@@ -340,7 +340,7 @@
                   <div id="employerNameDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="currentEmployer">Current employer's name</label>
+								<label class="mdl-textfield__label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div id="monthlyPersonalIncomeDiv" class="form-group application-summ">
@@ -355,9 +355,9 @@
 						</div>
                   <div class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
-								<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.education.level" bundle="${msg}" /></label>
 								<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
-									<option value="">Education level</option>
+									<option value=""><fmt:message key="placeholder.education-level" bundle="${msg}" /></option>
 									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.educationEnName:lifeEmploymentInfo.educationCnName}">${language == 'en' ? lifeEmploymentInfo.educationEnName:lifeEmploymentInfo.educationCnName}</option>
 								</select>
 								<input type="hidden" id="education" name="education" />
@@ -605,7 +605,7 @@
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
+								<label class="mdl-textfield__label" for="accountHolderName"><fmt:message key="placeholder.account.name" bundle="${msg}" /></label>
 							</div>
 						</div>
                </div>

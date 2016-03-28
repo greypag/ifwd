@@ -124,8 +124,8 @@ var languageP = "${language}";
 														<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpGender" id="tmpGender">
                                              <option value="" <c:if test="${savieFna.gender != '0'&&savieFna.gender != '1'}">selected="selected"</c:if> disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-                                             <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
-                                             <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
+                                             <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>><fmt:message key="label.male" bundle="${msg}" /></option>
+                                             <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>><fmt:message key="label.female" bundle="${msg}" /></option>
                                           </select>
                                           <input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}" />
                                        	<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -332,7 +332,7 @@ var languageP = "${language}";
 									<span class="error-msg" id="emailErMsg"></span>
                                  </div>
                                  <div class="clearfix form-group has-error">
-									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
+									<span class="warning-note"><fmt:message key="placeholder.permanent.warning" bundle="${msg}" /></span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" autocomplete="off" maxlength="29"/>
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
@@ -350,9 +350,9 @@ var languageP = "${language}";
                                     <span class="error-msg" id="permanentAdd3ErMsg"></span>
 												<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
-										 				<label class="mdl-textfield__label cstm-dropdown-label">District</label>
+										 				<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpPermanentDistrict" id="tmpPermanentDistrict">
-                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${savieDistrictEN}">
 												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
@@ -422,7 +422,7 @@ var languageP = "${language}";
                                     <span class="error-msg" id="residentialAdd3ErMsg"></span>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
-										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
+										 <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpResidentialDistrict" id="tmpResidentialDistrict">
                                              <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
@@ -494,7 +494,7 @@ var languageP = "${language}";
                                     <span class="error-msg" id="correspondenceAdd3ErMsg"></span>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>                                          
+										  <label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict">
                                              <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">

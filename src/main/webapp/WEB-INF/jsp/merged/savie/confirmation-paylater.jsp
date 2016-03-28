@@ -79,7 +79,7 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div id="appointment-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="info.savie.confirmation.success.title" bundle="${msg}" /></p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="policy-number-label">Policy no. </span>
 						<span class="policy-number">${accessCode }</span>
