@@ -497,7 +497,8 @@
       left: 0;
       height: 1px; }
   .fna-recommend .fna-col-recommend .noAvailableProduct, .fna-recommend .fna-col-recommend .noProducts, .fna-recommend .fna-col-recommend .only1KSTSProduct {
-    display: none; }
+    display: none;
+    margin-bottom: 15px; }
   .fna-recommend .fna-col-recommend .fna-btn-clear {
     margin: 10px 0;
     display: inline-block; }
@@ -795,7 +796,8 @@
             .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .fna-product-cont .fna-product-cfa-mobile a img {
               display: inline !important; }
       .fna-recommend .fna-col-recommend .noAvailableProduct, .fna-recommend .fna-col-recommend .only1KSTSProduct {
-        padding: 15px; }
+        padding: 15px;
+        margin: 0; }
 
   #loading-overlay-save .loading-dialog .loading-modal {
     width: 90% !important;
