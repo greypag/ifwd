@@ -748,6 +748,9 @@ var FNArecommendation = {
 
 			}
 		}
+
+		// Expand Unfordable section for all conditions
+		gpOthers.find(".fna-btn-expand-gp").trigger("click");
 		
 		if(data.next_page == null || data.next_page == ""){
 			$(".fna-btn-load-products-more").hide();

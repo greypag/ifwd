@@ -381,8 +381,8 @@ var fnaq4e = '${savieFna.q4_e }';
 			<p class="txt_q4e_1"><fmt:message key="fna.question.q4e.option2" bundle="${msg}" /></p>
 			<p class="txt_q4e_2"><fmt:message key="fna.question.q4e.option3" bundle="${msg}" /></p>
 			<p class="txt_q4e_3"><fmt:message key="fna.question.q4e.option4" bundle="${msg}" /></p>
-			<p class="txt_q4e_5"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></p>
-			<p class="txt_q4e_6"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></p>
+			<p class="txt_q4e_4"><fmt:message key="fna.question.q4e.option5" bundle="${msg}" /></p>
+			<p class="txt_q4e_5"><fmt:message key="fna.question.q4e.option6" bundle="${msg}" /></p>
 
 			<p class="txt_obj_0"><fmt:message key="fna.text.objectives.array0" bundle="${msg}" /></p>
 			<p class="txt_obj_1"><fmt:message key="fna.text.objectives.array1" bundle="${msg}" /></p>
