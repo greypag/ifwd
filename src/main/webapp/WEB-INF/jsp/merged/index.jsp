@@ -69,7 +69,7 @@ var languageP = "${language}";
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
 									<li><a href="<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="navbar.category1.group2.item1" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
@@ -116,7 +116,7 @@ var languageP = "${language}";
 				</div>
 			</div>
 			<div class="fna fwd-full-container">
-				<div class="fna-body fwd-container-limit center-block clearfix">
+				<div class="fna-body center-block clearfix">
 					<img class="fna-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/FWD_FNA-workingfile6-bg-01.jpg" />
 					<div class="fna-box">
 						<h3 class="text-bold"><fmt:message key="label.fna" bundle="${msg}" /></h3>

@@ -71,65 +71,80 @@ var language = "${language}";
              <div class="step-line"></div>
           </div>
        </div>
-       <div class="container-fluid fwd-container make-an-appointment headerStick">
+       <div class="container-fluid fwd-container make-an-appointment headerStick" id="payment-page">
          <div class="row" id="appointment-form-holder">
-             <form action="" id="paymentForm" method="post">
+             <form action="" id="paymentForm" method="post" class="clearfix">
                <div class="col-xs-12 col-md-6" id="left-side-form">
                    <h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
 					<p class="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
 					<p class="confirm-call"><fmt:message key="label.appointment.booking" bundle="${msg}" /></p>
-                   <div class="selectDiv centreDiv gray-text-bg">
-                      <select name="centre" id="centre" class="form-control gray-dropdown">
-                        <option value="" disabled selected><fmt:message key="Placeholder.centre" bundle="${msg}" /></option>
-                         <c:choose>
-					         <c:when test="${serviceCentre.serviceCentres.size() > 0}">
-					             <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-						             <enhance:out escapeXml="false">
-	                                     <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-		                             </enhance:out>
-                                 </c:forEach>
-					         </c:when>
-					         <c:otherwise>
-							     <option value="" ></option>
-							 </c:otherwise>
-					     </c:choose>
-                      </select>
-                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                   </div>
-                   <div class="centre-info visible-xs visible-sm" id="centre-info">
-                      
-                   </div>
-                   <div id="date" class="selectDiv preferred-date gray-text-bg">
-                      <!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
-                      <%
-					  Map results = (Map)request.getAttribute("datesMap");
-                      Map defaultDate = (Map)request.getAttribute("defaultDate");
-					  Map.Entry<String, List> entry; 
-					  Iterator i;
-					  Boolean result = results.size() > 0; 
-					  if(result) {
-						  i = results.entrySet().iterator();
-						  while(i.hasNext()){
-							  entry=(Map.Entry<String, List>)i.next();
-					  %>
-					  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
-					  <%
-						  }
-					  }else {
-					  %>
-					  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
-					  <%
-					  }
-					  %>
-					  <input type="hidden" name="preferred-date" id="preferred-date" value="${perferredDate }">
-                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                   </div>
-                    <div class="selectDiv timeslot gray-text-bg">
-                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-                          <option value=""></option>
-                      </select>
-                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                   </div>
+					<div class="">
+						<div class="payment-select-wrapper">
+							<p class="bank-info-select-label"><fmt:message key="Placeholder.centre" bundle="${msg}" /></p>
+		                   <div class="selectDiv centreDiv gray-text-bg">
+		                      <select name="centre" id="centre" class="form-control gray-dropdown">
+		                        <option value="" disabled selected><fmt:message key="Placeholder.centre" bundle="${msg}" /></option>
+		                         <c:choose>
+							         <c:when test="${serviceCentre.serviceCentres.size() > 0}">
+							             <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+								             <enhance:out escapeXml="false">
+			                                     <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+				                             </enhance:out>
+		                                 </c:forEach>
+							         </c:when>
+							         <c:otherwise>
+									     <option value="" ></option>
+									 </c:otherwise>
+							     </c:choose>
+		                      </select>
+		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+		                   </div>
+		                   <div class="centre-info visible-xs visible-sm" id="centre-info">
+		                      
+		                   </div>
+		               </div>
+		           </div>  
+		           <div class="">
+						<div class="payment-select-wrapper so-mdl-textfield">
+							<p class="bank-info-select-label"><fmt:message key="Placeholder.date" bundle="${msg}" /></p>  
+		                   <div id="date" class="selectDiv preferred-date gray-text-bg">
+		                      <!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
+		                      <%
+							  Map results = (Map)request.getAttribute("datesMap");
+		                      Map defaultDate = (Map)request.getAttribute("defaultDate");
+							  Map.Entry<String, List> entry; 
+							  Iterator i;
+							  Boolean result = results.size() > 0; 
+							  if(result) {
+								  i = results.entrySet().iterator();
+								  while(i.hasNext()){
+									  entry=(Map.Entry<String, List>)i.next();
+							  %>
+							  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="<%=defaultDate.get(entry.getKey()) %>" readonly="readonly" style="display:none;" >
+							  <%
+								  }
+							  }else {
+							  %>
+							  <input type="text" autocomplete="off" class="date preferred-date form-control gray-dropdown" id="full-date" value="" readonly="readonly">
+							  <%
+							  }
+							  %>
+							  <input type="hidden" name="preferred-date" id="preferred-date" value="${perferredDate }">
+		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+		                   </div>
+		                </div>
+		            </div>
+		            <div class="">
+						<div class="payment-select-wrapper so-mdl-textfield">
+							<p class="bank-info-select-label"><fmt:message key="Placeholder.time" bundle="${msg}" /></p>
+		                    <div class="selectDiv timeslot gray-text-bg">
+		                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
+		                          <option value=""></option>
+		                      </select>
+		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+		                   </div>
+		                </div>
+		           </div>        
                 </div>
                 <div class="col-xs-12 col-md-6" id="right-side-form">
                    <div class="centre-info visible-md visible-lg" id="centre-info">

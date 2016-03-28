@@ -90,7 +90,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
-					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa fa-info-circle info-tooltip"></i></h3>
+					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
 							<div class="col-xs-12">							
@@ -474,6 +474,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						   </div>
 						</div>
 					</div>
+					<p><fmt:message key="label.savie.plan.detail.note.productrisk" bundle="${msg}" /></p>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="pd-sf-faq-and-glossary-pane">
 					<div class="panel-group" id="pd-sf-faq-and-glossary-group" role="tablist" aria-multiselectable="true">
@@ -481,7 +482,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<fmt:message key="product.details.savie.glossary" bundle="${msg}" />
+									<fmt:message key="product.details.savie.group2" bundle="${msg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
