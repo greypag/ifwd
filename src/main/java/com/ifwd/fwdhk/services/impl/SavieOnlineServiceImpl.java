@@ -1893,22 +1893,113 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(lifeEmploymentInfo==null){
 				lifeEmploymentInfo = new LifeEmploymentInfoBean();
 			}
-			/*lifeEmploymentInfo.setEmploymentStatus(policyApplication.getEmploymentStatus()!=null?policyApplication.getEmploymentStatus():"");
-			lifeEmploymentInfo.setEmploymentStatusName(!"".equals(lifeEmploymentInfo.getEmploymentStatus())?lifeEmploymentInfo.getEmploymentStatus().split("-")[1]:"");
-			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
-			lifeEmploymentInfo.setOccupationName(!"".equals(lifeEmploymentInfo.getOccupation())?lifeEmploymentInfo.getOccupation().split("-")[1]:"");
-			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
-			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
-			lifeEmploymentInfo.setEducationName(!"".equals(lifeEmploymentInfo.getEducation())?lifeEmploymentInfo.getEducation().split("-")[1]:"");
+			lifeEmploymentInfo.setEmploymentStatus(policyApplication.getEmploymentStatus()!=null?policyApplication.getEmploymentStatus():"");
+			if(!"".equals(lifeEmploymentInfo.getEmploymentStatus())){
+				for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
+					if(lifeEmploymentInfo.getEmploymentStatus().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEmploymentStatusEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.employmentStatusCN){
+					if(lifeEmploymentInfo.getEmploymentStatus().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEmploymentStatusCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setNatureOfBusiness(policyApplication.getNatureOfBusiness()!=null?policyApplication.getNatureOfBusiness():"");
-			lifeEmploymentInfo.setNatureOfBusinessName(!"".equals(lifeEmploymentInfo.getNatureOfBusiness())?lifeEmploymentInfo.getNatureOfBusiness().split("-")[1]:"");
+			if(!"".equals(lifeEmploymentInfo.getNatureOfBusiness())){
+				for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessEN){
+					if(lifeEmploymentInfo.getNatureOfBusiness().equals(item.getItemCode())){
+						lifeEmploymentInfo.setNatureOfBusinessEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessCN){
+					if(lifeEmploymentInfo.getNatureOfBusiness().equals(item.getItemCode())){
+						lifeEmploymentInfo.setNatureOfBusinessCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
+			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
+			if(!"".equals(lifeEmploymentInfo.getOccupation())){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "EN", "1")){
+					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setOccupationEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "CH", "1")){
+					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setOccupationCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setMonthlyPersonalIncome(policyApplication.getMonthlyPersonalIncome()!=null?policyApplication.getMonthlyPersonalIncome():"");
-			lifeEmploymentInfo.setMonthlyPersonalIncomeName(!"".equals(lifeEmploymentInfo.getMonthlyPersonalIncome())?lifeEmploymentInfo.getMonthlyPersonalIncome().split("-")[1]:"");
-			lifeEmploymentInfo.setAmountOfLiquidAssets(policyApplication.getLiquidAssest()!=null?policyApplication.getLiquidAssest():"");
-			lifeEmploymentInfo.setAmountOfLiquidAssetsName(!"".equals(lifeEmploymentInfo.getAmountOfLiquidAssets())?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[1]:"");
+			if(!"".equals(lifeEmploymentInfo.getMonthlyPersonalIncome())){
+				for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeEN){
+					if(lifeEmploymentInfo.getMonthlyPersonalIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setMonthlyPersonalIncomeEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeCN){
+					if(lifeEmploymentInfo.getMonthlyPersonalIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setMonthlyPersonalIncomeCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
+			if(!"".equals(lifeEmploymentInfo.getEducation())){
+				for(OptionItemDesc item:InitApplicationMessage.etEducationLevelEN){
+					if(lifeEmploymentInfo.getEducation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEducationEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etEducationLevelCN){
+					if(lifeEmploymentInfo.getEducation().equals(item.getItemCode())){
+						lifeEmploymentInfo.setEducationCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeEmploymentInfo.setAmountOfOtherSourceOfIncome(policyApplication.getAmountOtherSource()!=null?policyApplication.getAmountOtherSource():"");
-			lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeName(!"".equals(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome())?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[1]:"");
-			lifeEmploymentInfo.setEmployerName(policyApplication.getEmployerName()!=null?policyApplication.getEmployerName():"");*/
+			if(!"".equals(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome())){
+				for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceEN){
+					if(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceCN){
+					if(lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfOtherSourceOfIncomeCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setAmountOfLiquidAssets(policyApplication.getLiquidAssest()!=null?policyApplication.getLiquidAssest():"");
+			if(!"".equals(lifeEmploymentInfo.getAmountOfLiquidAssets())){
+				for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetEN){
+					if(lifeEmploymentInfo.getAmountOfLiquidAssets().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfLiquidAssetsEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetCN){
+					if(lifeEmploymentInfo.getAmountOfLiquidAssets().equals(item.getItemCode())){
+						lifeEmploymentInfo.setAmountOfLiquidAssetsCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifeEmploymentInfo.setEmployerName(policyApplication.getEmployerName()!=null?policyApplication.getEmployerName():"");
 			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 			
 			LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
