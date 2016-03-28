@@ -18,9 +18,6 @@ import com.ifwd.utils.ValidationUtils;
 public class LifeEmploymentInfoBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(LifeEmploymentInfoBean.class);
 	private static final long serialVersionUID = 1L;
-	
-	@Autowired
-	private CommonUtils commonUtils;
 
 	private String employmentStatus;
 	private String employmentStatusEnName;
@@ -47,7 +44,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String amountOfLiquidAssetsCnName;
 	private String type;
 	
-	public void validate(String language) throws ValidateExceptions {
+	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
 		if(!"".equals(this.employmentStatus)){
 			for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
 				if(this.employmentStatus.equals(item.getItemCode())){

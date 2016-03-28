@@ -17,9 +17,6 @@ import com.ifwd.utils.ValidationUtils;
 public class LifePaymentBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(LifePaymentBean.class);
 	private static final long serialVersionUID = 1L;
-	
-	@Autowired
-	private CommonUtils commonUtils;
 
 	private Boolean payment;
 	private String paymentMethod;
@@ -34,7 +31,7 @@ public class LifePaymentBean implements Serializable {
 	private String paymentAmount;
 	private String type;
 	
-	public void validate(String language) throws ValidateExceptions {
+	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
 		if(!"".equals(this.bankCode)){
 			for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
 				if(this.bankCode.equals(item.getItemCode())){

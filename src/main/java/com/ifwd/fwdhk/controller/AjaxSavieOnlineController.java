@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
@@ -49,6 +50,9 @@ public class AjaxSavieOnlineController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieOnlineService savieOnlineService;
+	
+	@Autowired
+	private CommonUtils commonUtils;
 	
 	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
@@ -104,7 +108,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifeEmploymentInfo.validate(language);
+			lifeEmploymentInfo.validate(commonUtils, language);
 			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 		}
 		catch (ValidateExceptions e) {
@@ -140,7 +144,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifePayment.validate(language);
+			lifePayment.validate(commonUtils, language);
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
 		catch (ValidateExceptions e) {
@@ -332,7 +336,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifeEmploymentInfo.validate(language);
+			lifeEmploymentInfo.validate(commonUtils, language);
 			savieOnlineService.lifeEmploymentInfoSaveforLater(lifeEmploymentInfo, request);
 		}
 		catch (ValidateExceptions e) {
@@ -374,7 +378,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			lifePayment.validate(language);
+			lifePayment.validate(commonUtils, language);
 			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
 		}
 		catch (ValidateExceptions e) {
