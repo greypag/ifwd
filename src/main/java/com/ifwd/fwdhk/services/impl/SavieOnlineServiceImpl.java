@@ -426,8 +426,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
-		String bankName = lifePayment.getBankName();
-		String branchName = lifePayment.getBranchName();
+		String bankName = lifePayment.getBankCnName();
+		String branchName = lifePayment.getBranchCnName();
 		
 		/*String Url = UserRestURIConstants.GET_BANK_INFO+"?bankName="+java.net.URLEncoder.encode(bankName)+"&branchName="+java.net.URLEncoder.encode(branchName);
 		final Map<String,String> header = headerUtil.getHeader(request);
@@ -555,7 +555,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	}
 	    }
 	    
-	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankCnName()+"-"+lifePayment.getBranchCnName()));
 	    
 	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
 	    
@@ -1691,7 +1691,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject lifePaymentPutData(LifePaymentBean lifePayment,net.sf.json.JSONObject parameters){
 		parameters.accumulate("paymentMethod", lifePayment.getPaymentMethod()!=null?lifePayment.getPaymentMethod():"");
 		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
-		parameters.accumulate("branchName", lifePayment.getBranchCode()+"-"+lifePayment.getBranchName());
+		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
 		parameters.accumulate("accountHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		return parameters;
@@ -2045,9 +2045,35 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			lifePayment.setPaymentMethod(policyApplication.getPaymentMethod()!=null?policyApplication.getPaymentMethod():"");
 			lifePayment.setBankCode(policyApplication.getBankName()!=null?policyApplication.getBankName():"");
-			lifePayment.setBankName(lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())?lifePayment.getBankCode().split("-")[1]:"");
-			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[0]:"");
-			lifePayment.setBranchName(policyApplication.getBranchName()!=null?policyApplication.getBranchName().split("-")[1]:"");
+			if(!"".equals(lifePayment.getBankCode())){
+				for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
+					if(lifePayment.getBankCode().equals(item.getItemCode())){
+						lifePayment.setBankEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.bankCodeCN){
+					if(lifePayment.getBankCode().equals(item.getItemCode())){
+						lifePayment.setBankCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
+			if(!"".equals(lifePayment.getBranchCode())){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "EN", "1")){
+					if(lifePayment.getBranchCode().equals(item.getItemCode())){
+						lifePayment.setBranchEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "CH", "1")){
+					if(lifePayment.getBranchCode().equals(item.getItemCode())){
+						lifePayment.setBranchCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			lifePayment.setPaymentAmount(policyApplication.getAmount());
 			lifePayment.setAccountHolderName(policyApplication.getAccountHolderName()!=null?policyApplication.getAccountHolderName():"");
