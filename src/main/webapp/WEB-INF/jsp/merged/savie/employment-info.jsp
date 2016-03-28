@@ -104,14 +104,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${employmentStatusCN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
@@ -119,12 +119,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
-														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${employmentStatusCN}">
-														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="employmentStatus" name="employmentStatus" value="${employmentStatusCode }">
@@ -140,14 +140,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${natureOfBusinessCN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>				                     
@@ -155,12 +155,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
-														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${natureOfBusinessCN}">
-														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" value="${natureOfBusinessCode }">
@@ -176,14 +176,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${occupationCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -191,12 +191,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
-														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${occupationCN}">
-														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="occupation" name="occupation" value="${occupationCode }">
@@ -218,17 +218,15 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
-													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etAmountOtherSourceCN}">
-													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -236,14 +234,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etAmountOtherSourceEN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etAmountOtherSourceCN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == code}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if>
 												</c:forEach>
 											</c:if>
 											<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${amountOfOtherSourceOfIncomeCode }">
@@ -267,17 +263,15 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -285,14 +279,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if>
 												</c:forEach>
 											</c:if>
 											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${monthlyPersonalIncomeCode }">
@@ -307,7 +299,7 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.education.level" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" 
+														<option value="${list.itemCode }" 
 														    <c:choose>  
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
@@ -320,7 +312,7 @@ var languageP = "${language}";
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etEducationLevelCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" 
+														<option value="${list.itemCode }" 
 														    <c:choose>  
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
@@ -336,10 +328,10 @@ var languageP = "${language}";
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
 														    <c:choose>  
-															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 													</c:forEach>
@@ -347,10 +339,10 @@ var languageP = "${language}";
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etEducationLevelCN}">
 														    <c:choose>  
-															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
-															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 													</c:forEach>
@@ -367,7 +359,7 @@ var languageP = "${language}";
 											   <option value="" disabled selected><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" 
+														<option value="${list.itemCode }" 
 														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
 														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
 														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
@@ -377,7 +369,7 @@ var languageP = "${language}";
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" 
+														<option value="${list.itemCode }" 
 														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
 														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
 														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
@@ -389,18 +381,18 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>	
 											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
