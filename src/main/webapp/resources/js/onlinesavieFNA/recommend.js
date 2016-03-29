@@ -787,7 +787,7 @@ var FNArecommendation = {
 			//Show Recommendation Anchor and Sorting dropdown
 			$(".haveProducts, .fna-sorting").show();
 		}else{
-			if( data.hasILAS=='Y' ){
+			if( data.hasILAS=='Y' || (data.hasILAS!='Y' && bUnaffordableIlas)){
 				//Display custom message for only ilas case
 				$(".onlyIlas").show();
 				$(".haveProducts, .noProducts").hide();
@@ -836,7 +836,7 @@ var FNArecommendation = {
 
 		var bShowILASsContainer = false;
 
-		if(pNum>0 && (data.hasILAS=='Y' || bUnaffordableIlas)){
+		if((pNum>0 && data.hasILAS=='Y') || (data.hasILAS!='Y' && bUnaffordableIlas)){
 			FNArecommendation.showILASsDescription(true);
 			bShowILASsContainer = bShowILASsContainer || true;
 		}
@@ -863,11 +863,14 @@ var FNArecommendation = {
 		bShowNoAvailable = data.fulfilled=='N'; //if some objectives not fulfilled
 		//bShowNoAvailable = bShowNoAvailable && pNum>0; // if products list > 0
 		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
+		bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
 
 		if(bShowNoAvailable){
 			
-			var rq1="";
-			var rq2="";
+			var rq1a="";
+			var rq1b="";
+			var rq2a="";
+			var rq2b="";
 			var fq1= FNArecommendation.fnaData.q1.split(",");
 			var fq2= FNArecommendation.fnaData.q2.split(",");
 
@@ -875,11 +878,11 @@ var FNArecommendation = {
 			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
 			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
 			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_type); // filter out selected products in un affordable section
-			rq1=unmatched_q1.join(",");
-			rq2=affordable_q2.join(",");
+			rq1a=unmatched_q1.join(",");
+			rq2a=affordable_q2.join(",");
 
-		    if( (rq1!=null && rq1!='') && (rq2!=null && rq2!='') ){
-		    	FNArecommendation.showNoAvailableProduct(true,rq2,rq1,fnaq4e,1);
+		    if( (rq1a!=null && rq1a!='') && (rq2a!=null && rq2a!='') ){
+		    	FNArecommendation.showNoAvailableProduct(true,rq2a,rq1a,fnaq4e,1);
 		    } else {
 		    	FNArecommendation.showNoAvailableProduct(false,null,null,null,1);
 		    }
@@ -888,11 +891,13 @@ var FNArecommendation = {
 		    var pq2= (data.q2=="")?[]:$.unique(data.q2.split(","));
 			var unmatched_q2=FNArecommendation.getArrDiff(fq2, pq2);
 			unmatched_q2=FNArecommendation.getArrDiff(unmatched_q2, unaffordable_type); // filter out matched products in unaffordable section
-			rq1=FNArecommendation.fnaData.q1;
-			rq2=unmatched_q2.join(",");
+			rq1b=FNArecommendation.fnaData.q1;
+			rq2b=unmatched_q2.join(",");
 
-		    if(rq2!=null && rq2!=''){
-		    	FNArecommendation.showNoAvailableProduct(true,rq2,rq1,fnaq4e,2);
+		    if(rq2b!=null && rq2b!=''){
+		    	if (rq1a!=rq1b || rq2a!=rq2b){
+		    		FNArecommendation.showNoAvailableProduct(true,rq2b,rq1b,fnaq4e,2);
+		    	}
 		    } else {
 		    	FNArecommendation.showNoAvailableProduct(false,null,null,null,2);
 		    }
