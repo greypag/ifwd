@@ -158,7 +158,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
 								<select name="tmpPlaceOfBirth" id="tmpPlaceOfBirth" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.placeOfBirthName }">${lifePersonalDetails.placeOfBirthName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.placeOfBirthEnName:lifePersonalDetails.placeOfBirthCnName}">${language == 'en' ? lifePersonalDetails.placeOfBirthEnName:lifePersonalDetails.placeOfBirthCnName}</option>
 								</select>
 								<input type="hidden" id="placeOfBirth" name="placeOfBirth" />
 							</div>
@@ -168,7 +168,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nationality" bundle="${msg}" /></label>
 								<select name="tmpNationality" id="tmpNationality" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.nationality" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.nationaltyName }">${lifePersonalDetails.nationaltyName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.nationaltyEnName:lifePersonalDetails.nationaltyCnName}">${language == 'en' ? lifePersonalDetails.nationaltyEnName:lifePersonalDetails.nationaltyCnName}</option>
 								</select>
 								<input type="hidden" id="nationalty" name="nationalty" />
 							</div>
@@ -198,7 +198,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></label>
 								<select name="tmpMaritalStatus" id="tmpMaritalStatus" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.martial.status" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.martialStatusName }">${lifePersonalDetails.martialStatusName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.martialStatusEnName:lifePersonalDetails.martialStatusCnName}">${language == 'en' ? lifePersonalDetails.martialStatusEnName:lifePersonalDetails.martialStatusCnName}</option>
 								</select>
 								<input type="hidden" id="martialStatus" name="martialStatus" />
 							</div>
@@ -233,7 +233,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpPermanentDistrict" id="tmpPermanentDistrict" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.permanetAddressDistrictName }">${lifePersonalDetails.permanetAddressDistrictName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.permanetAddressDistrictEnName:lifePersonalDetails.permanetAddressDistrictCnName}">${language == 'en' ? lifePersonalDetails.permanetAddressDistrictEnName:lifePersonalDetails.permanetAddressDistrictCnName}</option>
 								</select>
 								<input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
 							</div>
@@ -261,7 +261,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpResidentialDistrict" id="tmpResidentialDistrict" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.residentialAddressDistrictName }">${lifePersonalDetails.residentialAddressDistrictName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.residentialAddressDistrictEnName:lifePersonalDetails.residentialAddressDistrictCnName}">${language == 'en' ? lifePersonalDetails.residentialAddressDistrictEnName:lifePersonalDetails.residentialAddressDistrictCnName}</option>
 								</select>
 								<input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
 							</div>
@@ -289,7 +289,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.address.district" bundle="${msg}" /></label>
 								<select name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.address.district" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.correspondenceAddressDistrictName }">${lifePersonalDetails.correspondenceAddressDistrictName }</option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifePersonalDetails.correspondenceAddressDistrictEnName:lifePersonalDetails.correspondenceAddressDistrictCnName}">${language == 'en' ? lifePersonalDetails.correspondenceAddressDistrictEnName:lifePersonalDetails.correspondenceAddressDistrictCnName}</option>
 								</select>
 								<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
 							</div>

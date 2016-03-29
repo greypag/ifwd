@@ -452,9 +452,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
 	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
-	    attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusName()));
-	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthName()));
-	    attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyName()));
+	    attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusCnName()));
+	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthCname()));
+	    attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyCnName()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
 	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
 	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
@@ -467,7 +467,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    attributeList.add(new PdfAttribute("applicationResAddress", residentialAddress));
-	    attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictName()));
+	    attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictCnName()));
 	    
 	    String permanetAddress = (StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress1())?lifePersonalDetails.getPermanetAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress2())?lifePersonalDetails.getPermanetAddress2()+"," : "")
@@ -477,7 +477,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    attributeList.add(new PdfAttribute("applicationPerAddress", permanetAddress));
-	    attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictName()));
+	    attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictCnName()));
 	    
 	    String correspondenceAddress = (StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress1())?lifePersonalDetails.getCorrespondenceAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress2())?lifePersonalDetails.getCorrespondenceAddress2()+"," : "")
@@ -487,7 +487,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", correspondenceAddress));
-	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictName()));
+	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictCnName()));
 	    
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    if("tc".equals(lang)){
@@ -1866,11 +1866,53 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePersonalDetails.setHkid(policyApplication.getApplicantHkId()!=null?policyApplication.getApplicantHkId():"");
 			lifePersonalDetails.setPassport(policyApplication.getApplicantPassport()!=null?policyApplication.getApplicantPassport():"");
 			lifePersonalDetails.setMartialStatus(policyApplication.getApplicantMaritalStatus()!=null?policyApplication.getApplicantMaritalStatus():"");
-			lifePersonalDetails.setMartialStatusName(!"".equals(lifePersonalDetails.getMartialStatus())?lifePersonalDetails.getMartialStatus().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getMartialStatus())){
+				for(OptionItemDesc item:InitApplicationMessage.maritalStatusesEN){
+					if(lifePersonalDetails.getMartialStatus().equals(item.getItemCode())){
+						lifePersonalDetails.setMartialStatusEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.maritalStatusesCN){
+					if(lifePersonalDetails.getMartialStatus().equals(item.getItemCode())){
+						lifePersonalDetails.setMartialStatusCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePersonalDetails.setPlaceOfBirth(policyApplication.getApplicantPlaceOfBirth()!=null?policyApplication.getApplicantPlaceOfBirth():"");
-			lifePersonalDetails.setPlaceOfBirthName(!"".equals(lifePersonalDetails.getPlaceOfBirth())?lifePersonalDetails.getPlaceOfBirth().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getPlaceOfBirth())){
+				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
+					if(lifePersonalDetails.getPlaceOfBirth().equals(item.getItemCode())){
+						lifePersonalDetails.setPlaceOfBirthEname(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthCN){
+					if(lifePersonalDetails.getPlaceOfBirth().equals(item.getItemCode())){
+						lifePersonalDetails.setPlaceOfBirthCname(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePersonalDetails.setNationalty(policyApplication.getApplicantNationality()!=null?policyApplication.getApplicantNationality():"");
-			lifePersonalDetails.setNationaltyName(!"".equals(lifePersonalDetails.getNationalty())?lifePersonalDetails.getNationalty().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getNationalty())){
+				for(OptionItemDesc item:InitApplicationMessage.nationalityEN){
+					if(lifePersonalDetails.getNationalty().equals(item.getItemCode())){
+						lifePersonalDetails.setNationaltyEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.nationalityCN){
+					if(lifePersonalDetails.getNationalty().equals(item.getItemCode())){
+						lifePersonalDetails.setNationaltyCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			
+			
+			
 			lifePersonalDetails.setResidentialTelNoCountryCode(policyApplication.getApplicantResidentialTelNoCountryCode()!=null?policyApplication.getApplicantResidentialTelNoCountryCode():"");
 			lifePersonalDetails.setResidentialTelNo(policyApplication.getApplicantResidentialTelNo()!=null?policyApplication.getApplicantResidentialTelNo():"");
 			lifePersonalDetails.setMobileNoCountryCode(policyApplication.getApplicantMobileNoCountryCode()!=null?policyApplication.getApplicantMobileNoCountryCode():"");
@@ -1881,19 +1923,58 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifePersonalDetails.setResidentialAddress3(policyApplication.getResidentialAddress3()!=null?policyApplication.getResidentialAddress3():"");
 			lifePersonalDetails.setResidentialAddress4(policyApplication.getResidentialAddress4()!=null?policyApplication.getResidentialAddress4():"");
 			lifePersonalDetails.setResidentialAddressDistrict(policyApplication.getResidentialDistrict()!=null?policyApplication.getResidentialDistrict():"");
-			lifePersonalDetails.setResidentialAddressDistrictName(!"".equals(lifePersonalDetails.getResidentialAddressDistrict())?lifePersonalDetails.getResidentialAddressDistrict().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getResidentialAddressDistrict())){
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+					if(lifePersonalDetails.getResidentialAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setResidentialAddressDistrictEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+					if(lifePersonalDetails.getResidentialAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setResidentialAddressDistrictCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePersonalDetails.setCorrespondenceAddress1(policyApplication.getCorrespondenceAddress1()!=null?policyApplication.getCorrespondenceAddress1():"");
 			lifePersonalDetails.setCorrespondenceAddress2(policyApplication.getCorrespondenceAddress2()!=null?policyApplication.getCorrespondenceAddress2():"");
 			lifePersonalDetails.setCorrespondenceAddress3(policyApplication.getCorrespondenceAddress3()!=null?policyApplication.getCorrespondenceAddress3():"");
 			lifePersonalDetails.setCorrespondenceAddress4(policyApplication.getCorrespondenceAddress4()!=null?policyApplication.getCorrespondenceAddress4():"");
 			lifePersonalDetails.setCorrespondenceAddressDistrict(policyApplication.getCorrespondenceDistrict()!=null?policyApplication.getCorrespondenceDistrict():"");
-			lifePersonalDetails.setCorrespondenceAddressDistrictName(!"".equals(lifePersonalDetails.getCorrespondenceAddressDistrict())?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getCorrespondenceAddressDistrict())){
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+					if(lifePersonalDetails.getCorrespondenceAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setCorrespondenceAddressDistrictEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+					if(lifePersonalDetails.getCorrespondenceAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setCorrespondenceAddressDistrictCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePersonalDetails.setPermanetAddress1(policyApplication.getPermanentAddress1()!=null?policyApplication.getPermanentAddress1():"");
 			lifePersonalDetails.setPermanetAddress2(policyApplication.getPermanentAddress2()!=null?policyApplication.getPermanentAddress2():"");
 			lifePersonalDetails.setPermanetAddress3(policyApplication.getPermanentAddress3()!=null?policyApplication.getPermanentAddress3():"");
 			lifePersonalDetails.setPermanetAddress4(policyApplication.getPermanentAddress4()!=null?policyApplication.getPermanentAddress4():"");
 			lifePersonalDetails.setPermanetAddressDistrict(policyApplication.getPermanentDistrict()!=null?policyApplication.getPermanentDistrict():"");
-			lifePersonalDetails.setPermanetAddressDistrictName(!"".equals(lifePersonalDetails.getPermanetAddressDistrict())?lifePersonalDetails.getPermanetAddressDistrict().split("-")[1]:"");
+			if(!"".equals(lifePersonalDetails.getPermanetAddressDistrict())){
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+					if(lifePersonalDetails.getPermanetAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setPermanetAddressDistrictEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+					if(lifePersonalDetails.getPermanetAddressDistrict().equals(item.getItemCode())){
+						lifePersonalDetails.setPermanetAddressDistrictCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifePersonalDetails.setDiffToPermanent(policyApplication.getAddressDiffToPermanent()!=null?policyApplication.getAddressDiffToPermanent():"");
 			lifePersonalDetails.setDiffToResidential(policyApplication.getAddressDiffToResidential()!=null?policyApplication.getAddressDiffToResidential():"");
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
