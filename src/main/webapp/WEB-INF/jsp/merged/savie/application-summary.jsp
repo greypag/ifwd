@@ -597,7 +597,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></label>
 								<select name="tmpPaymentMethod" id="tmpPaymentMethod" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
+									<option disabled="disabled" selected="selected" value="${language=='en'?lifePayment.paymentMethod:'自動轉賬' }">${language=='en'?lifePayment.paymentMethod:'自動轉賬' }</option>
 								</select>
 								<input type="hidden" id="paymentMethod" name="paymentMethod" />
 							</div>
