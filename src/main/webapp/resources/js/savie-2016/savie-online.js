@@ -1307,10 +1307,10 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 				
 				}else {
 					/* Reset Policy Year Label */
-					$('#policy-year-0-0').html("5"+(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-2-0').html("5"+(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-3-0').html("5"+(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-4-0').html("5"+(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+					$('#policy-year-0-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+					$('#policy-year-2-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+					$('#policy-year-3-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+					$('#policy-year-4-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
 					$('#policy-year-0-1').html("10");
 					$('#policy-year-2-1').html("10");
 					$('#policy-year-3-1').html("10");
