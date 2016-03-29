@@ -1073,7 +1073,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										if(paymentYears > 4 && paymentYears == (i + 1)){
+										if(paymentYears >= 4 && paymentYears == (i + 1)){
 											$('#policy-year-0-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
 										}else{
 											$('#policy-year-0-0').html(i+1);
@@ -1127,7 +1127,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										if(paymentYears > 4 && paymentYears == (i + 1)){
+										if(paymentYears >= 4 && paymentYears == (i + 1)){
 											$('#policy-year-2-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
 										}else{
 											$('#policy-year-2-0').html(i+1);
@@ -1181,7 +1181,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-											if(paymentYears > 4 && paymentYears == (i + 1)){
+											if(paymentYears >= 4 && paymentYears == (i + 1)){
 												$('#policy-year-3-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
 											}else{
 												$('#policy-year-3-0').html(i+1);
@@ -1235,7 +1235,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										if(paymentYears > 4 && paymentYears == (i + 1)){
+										if(paymentYears >= 4 && paymentYears == (i + 1)){
 											$('#policy-year-4-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
 										}else{
 											$('#policy-year-4-0').html(i+1);
