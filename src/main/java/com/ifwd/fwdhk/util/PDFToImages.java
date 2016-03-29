@@ -5,12 +5,14 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.qoppa.pdfImages.PDFImages;
 
 public class PDFToImages {
 	
 	public static void  saveAsJpg(String path,String pdf,String outImage)throws Exception{
 	    PDFImages pdfDoc = new PDFImages (path+pdf, null);
+	    PDFImages.setKey(UserRestURIConstants.getConfigs("pdfImagesKey"));
 		File[] files = new File[pdfDoc.getPageCount()];
 	    for (int count = 0; count < pdfDoc.getPageCount(); ++count){
 	    	String name = path + count + ".jpg";

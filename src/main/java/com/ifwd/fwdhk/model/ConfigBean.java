@@ -28,6 +28,8 @@ public class ConfigBean {
 	private String innerMailTo;
 	@Value("#{configProperties['Url_SZWS']}")
 	private String Url_SZWS;
+	@Value("#{configProperties['pdfImagesKey']}")
+	private String pdfImagesKey;
 
 	public String getUrl_SZWS() {
 		return Url_SZWS;
@@ -115,6 +117,14 @@ public class ConfigBean {
 
 	public void setSavieMailFrom(String savieMailFrom) {
 		this.savieMailFrom = savieMailFrom;
+	}
+	
+	public String getPdfImagesKey() {
+		return pdfImagesKey;
+	}
+	
+	public void setPdfImagesKey(String pdfImagesKey) {
+		this.pdfImagesKey = pdfImagesKey;
 	}
 
 }
