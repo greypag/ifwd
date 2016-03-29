@@ -75,7 +75,7 @@
    $(function() {
        //$('#session-alert').modal('show');
        //sessionPopup();
-       var sessionModalShow = setInterval(function(){sessionPopup();}, 24000);	   
+       var sessionModalShow = setInterval(function(){sessionPopup();}, 240000);	   
 	   $("#session-alert-counter").countdown(new Date(sessionTimer - 2*60*1000),{elapse: true}).on('update.countdown', function(event) {       
 	       if(event.elapsed){
 	           $('#session-extend').prop('disabled', true);
@@ -96,7 +96,7 @@
                      nextExpire.setMinutes(nextExpire.getMinutes() + 28);
                      $('#session-alert-counter').countdown(nextExpire);
                      clearInterval(sessionModalShow);
-                     sessionModalShow = setInterval(function(){sessionPopup(nextExpire);}, 24000);                   
+                     sessionModalShow = setInterval(function(){sessionPopup(nextExpire);}, 240000);                   
 	             }       
 	        });
 	  });  	   

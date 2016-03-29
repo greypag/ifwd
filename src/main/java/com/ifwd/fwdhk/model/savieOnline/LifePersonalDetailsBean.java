@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
@@ -23,53 +25,107 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String hkid;
 	private String passport;
 	private String martialStatus;
-	private String martialStatusName;
+	private String martialStatusEnName;
+	private String martialStatusCnName;
 	private String residentialTelNoCountryCode;
 	private String residentialTelNo;
 	private String mobileNoCountryCode;
 	private String mobileNumber;
 	private String emailAddress;
 	private String placeOfBirth;
-	private String placeOfBirthName;
+	private String placeOfBirthEnName;
+	private String placeOfBirthCnName;
 	private String nationalty;
-	private String nationaltyName;
+	private String nationaltyEnName;
+	private String nationaltyCnName;
 	private String permanetAddress1;
 	private String permanetAddress2;
 	private String permanetAddress3;
 	private String permanetAddress4;
 	private String permanetAddressDistrict;
-	private String permanetAddressDistrictName;
+	private String permanetAddressDistrictEnName;
+	private String permanetAddressDistrictCnName;
 	private String diffToPermanent;
 	private String residentialAddress1;
 	private String residentialAddress2;
 	private String residentialAddress3;
 	private String residentialAddress4;
 	private String residentialAddressDistrict;
-	private String residentialAddressDistrictName;
+	private String residentialAddressDistrictEnName;
+	private String residentialAddressDistrictCnName;
 	private String diffToResidential;
 	private String correspondenceAddress1;
 	private String correspondenceAddress2;
 	private String correspondenceAddress3;
 	private String correspondenceAddress4;
 	private String correspondenceAddressDistrict;
-	private String correspondenceAddressDistrictName;
+	private String correspondenceAddressDistrictEnName;
+	private String correspondenceAddressDistrictCnName;
 	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.martialStatusName = !"".equals(this.martialStatus)?this.martialStatus.split("-")[1]:"";
-		this.placeOfBirthName = !"".equals(this.placeOfBirth)?this.placeOfBirth.split("-")[1]:"";
-		this.nationaltyName = !"".equals(this.nationalty)?this.nationalty.split("-")[1]:"";
-		this.permanetAddressDistrictName = !"".equals(this.permanetAddressDistrict)?this.permanetAddressDistrict.split("-")[1]:"";
+		if(!"".equals(this.martialStatus)){
+			for(OptionItemDesc item:InitApplicationMessage.maritalStatusesEN){
+				if(this.martialStatus.equals(item.getItemCode())){
+					this.martialStatusEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.maritalStatusesCN){
+				if(this.martialStatus.equals(item.getItemCode())){
+					this.martialStatusCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.placeOfBirth)){
+			for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
+				if(this.placeOfBirth.equals(item.getItemCode())){
+					this.placeOfBirthEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.placeOfBirthCN){
+				if(this.placeOfBirth.equals(item.getItemCode())){
+					this.placeOfBirthCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.nationalty)){
+			for(OptionItemDesc item:InitApplicationMessage.nationalityEN){
+				if(this.nationalty.equals(item.getItemCode())){
+					this.nationaltyEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.nationalityCN){
+				if(this.nationalty.equals(item.getItemCode())){
+					this.nationaltyCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.permanetAddressDistrict)){
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+				if(this.permanetAddressDistrict.equals(item.getItemCode())){
+					this.permanetAddressDistrictEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+				if(this.permanetAddressDistrict.equals(item.getItemCode())){
+					this.permanetAddressDistrictCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
 		if(!"None".equals(this.diffToPermanent)){
 			this.residentialAddress1 = this.permanetAddress1;
 			this.residentialAddress2 = this.permanetAddress2;
 			this.residentialAddress3 = this.permanetAddress3;
 			this.residentialAddress4 = this.permanetAddress4;
 			this.residentialAddressDistrict = this.permanetAddressDistrict;
-			this.residentialAddressDistrictName = this.permanetAddressDistrictName;
-		}
-		else{
-			this.residentialAddressDistrictName = !"".equals(this.residentialAddressDistrict)?this.residentialAddressDistrict.split("-")[1]:"";
 		}
 		if(!"None".equals(this.diffToResidential)){
 			this.correspondenceAddress1 = this.residentialAddress1;
@@ -77,10 +133,34 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.correspondenceAddress3 = this.residentialAddress3;
 			this.correspondenceAddress4 = this.residentialAddress4;
 			this.correspondenceAddressDistrict = this.residentialAddressDistrict;
-			this.correspondenceAddressDistrictName = this.residentialAddressDistrictName;
 		}
-		else{
-			this.correspondenceAddressDistrictName = !"".equals(this.correspondenceAddressDistrict)?this.correspondenceAddressDistrict.split("-")[1]:"";
+		if(!"".equals(this.residentialAddressDistrict)){
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+				if(this.residentialAddressDistrict.equals(item.getItemCode())){
+					this.residentialAddressDistrictEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+				if(this.residentialAddressDistrict.equals(item.getItemCode())){
+					this.residentialAddressDistrictCnName = item.getItemDesc();
+					break;
+				}
+			}
+		}
+		if(!"".equals(this.correspondenceAddressDistrict)){
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+				if(this.correspondenceAddressDistrict.equals(item.getItemCode())){
+					this.correspondenceAddressDistrictEnName = item.getItemDesc();
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+				if(this.correspondenceAddressDistrict.equals(item.getItemCode())){
+					this.correspondenceAddressDistrictCnName = item.getItemDesc();
+					break;
+				}
+			}
 		}
 		
 		List<String> list = new ArrayList<String>();
@@ -469,54 +549,110 @@ public class LifePersonalDetailsBean implements Serializable {
 		this.diffToResidential = diffToResidential;
 	}
 
-	public String getMartialStatusName() {
-		return martialStatusName;
+	
+
+	public String getMartialStatusEnName() {
+		return martialStatusEnName;
 	}
 
-	public void setMartialStatusName(String martialStatusName) {
-		this.martialStatusName = martialStatusName;
+	public void setMartialStatusEnName(String martialStatusEnName) {
+		this.martialStatusEnName = martialStatusEnName;
 	}
 
-	public String getPlaceOfBirthName() {
-		return placeOfBirthName;
+	public String getMartialStatusCnName() {
+		return martialStatusCnName;
 	}
 
-	public void setPlaceOfBirthName(String placeOfBirthName) {
-		this.placeOfBirthName = placeOfBirthName;
+	public void setMartialStatusCnName(String martialStatusCnName) {
+		this.martialStatusCnName = martialStatusCnName;
 	}
 
-	public String getNationaltyName() {
-		return nationaltyName;
+	
+
+	public String getPlaceOfBirthEnName() {
+		return placeOfBirthEnName;
 	}
 
-	public void setNationaltyName(String nationaltyName) {
-		this.nationaltyName = nationaltyName;
+	public void setPlaceOfBirthEnName(String placeOfBirthEnName) {
+		this.placeOfBirthEnName = placeOfBirthEnName;
 	}
 
-	public String getPermanetAddressDistrictName() {
-		return permanetAddressDistrictName;
+	public String getPlaceOfBirthCnName() {
+		return placeOfBirthCnName;
 	}
 
-	public void setPermanetAddressDistrictName(String permanetAddressDistrictName) {
-		this.permanetAddressDistrictName = permanetAddressDistrictName;
+	public void setPlaceOfBirthCnName(String placeOfBirthCnName) {
+		this.placeOfBirthCnName = placeOfBirthCnName;
 	}
 
-	public String getResidentialAddressDistrictName() {
-		return residentialAddressDistrictName;
+	public String getNationaltyEnName() {
+		return nationaltyEnName;
 	}
 
-	public void setResidentialAddressDistrictName(
-			String residentialAddressDistrictName) {
-		this.residentialAddressDistrictName = residentialAddressDistrictName;
+	public void setNationaltyEnName(String nationaltyEnName) {
+		this.nationaltyEnName = nationaltyEnName;
 	}
 
-	public String getCorrespondenceAddressDistrictName() {
-		return correspondenceAddressDistrictName;
+	public String getNationaltyCnName() {
+		return nationaltyCnName;
 	}
 
-	public void setCorrespondenceAddressDistrictName(
-			String correspondenceAddressDistrictName) {
-		this.correspondenceAddressDistrictName = correspondenceAddressDistrictName;
+	public void setNationaltyCnName(String nationaltyCnName) {
+		this.nationaltyCnName = nationaltyCnName;
+	}
+
+	public String getPermanetAddressDistrictEnName() {
+		return permanetAddressDistrictEnName;
+	}
+
+	public void setPermanetAddressDistrictEnName(
+			String permanetAddressDistrictEnName) {
+		this.permanetAddressDistrictEnName = permanetAddressDistrictEnName;
+	}
+
+	public String getPermanetAddressDistrictCnName() {
+		return permanetAddressDistrictCnName;
+	}
+
+	public void setPermanetAddressDistrictCnName(
+			String permanetAddressDistrictCnName) {
+		this.permanetAddressDistrictCnName = permanetAddressDistrictCnName;
+	}
+
+	public String getResidentialAddressDistrictEnName() {
+		return residentialAddressDistrictEnName;
+	}
+
+	public void setResidentialAddressDistrictEnName(
+			String residentialAddressDistrictEnName) {
+		this.residentialAddressDistrictEnName = residentialAddressDistrictEnName;
+	}
+
+	public String getResidentialAddressDistrictCnName() {
+		return residentialAddressDistrictCnName;
+	}
+
+	public void setResidentialAddressDistrictCnName(
+			String residentialAddressDistrictCnName) {
+		this.residentialAddressDistrictCnName = residentialAddressDistrictCnName;
+	}
+
+	public String getCorrespondenceAddressDistrictEnName() {
+		return correspondenceAddressDistrictEnName;
+	}
+
+	public void setCorrespondenceAddressDistrictEnName(
+			String correspondenceAddressDistrictEnName) {
+		this.correspondenceAddressDistrictEnName = correspondenceAddressDistrictEnName;
+	}
+
+	public String getCorrespondenceAddressDistrictCnName() {
+		return correspondenceAddressDistrictCnName;
+	}
+
+	public void setCorrespondenceAddressDistrictCnName(
+			String correspondenceAddressDistrictCnName) {
+		this.correspondenceAddressDistrictCnName = correspondenceAddressDistrictCnName;
 	}
 
 	public String getType() {
