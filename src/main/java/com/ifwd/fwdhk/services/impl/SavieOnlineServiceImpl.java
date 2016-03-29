@@ -1112,7 +1112,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.compareArrAsc(sort, "getMax_issue_age", true);
 						break;
 					case "3":
-						sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
+						sort = CompareUtil.compareArrAsc(sort, "getProtection_period", true);
 						break;
 					case "4":
 						sort = CompareUtil.comparePeriodDesc(sort);
@@ -1124,7 +1124,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						sort = CompareUtil.compareArrDesc(sort, "getMax_issue_age", true);
 						break;
 					case "7":
-						sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
+						sort = CompareUtil.compareArrDesc(sort, "getProtection_period", true);
 						break;
 					default :
 						sort = CompareUtil.compareCodeDesc(sort);

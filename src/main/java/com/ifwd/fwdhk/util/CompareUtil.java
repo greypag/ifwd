@@ -17,12 +17,14 @@ import com.ifwd.fwdhk.model.savieOnline.Products;
 public class CompareUtil {
 
 	private static Gson g = new Gson();
-	private static String TO_100 = "To age 100";
-	private static String ONE_OFF ="One-Off";
+	private static String TO_100 = "100A";
+	private static String ONE_OFF ="1Y";
 	private static String KSTS = "KSTS";
 	private static String KSTR = "KSTR";
 	private static String UTLS  = "UTLS";
 	private static Comparator<String> sortProductList = new Comparator<String>() {
+		String str1;
+		String str2;
 		@Override
 		public int compare(String o1, String o2) {
 			if (TO_100.equalsIgnoreCase(o1)) {
@@ -34,7 +36,9 @@ public class CompareUtil {
 			} else if (ONE_OFF.equalsIgnoreCase(o2)){
 				return -1;
 			} else {
-				return Integer.valueOf(o2) - Integer.valueOf(o1);
+				str1 = o1.replace("Y", "").replace("A", "");
+				str2 = o1.replace("Y", "").replace("A", "");
+				return Integer.valueOf(str1) - Integer.valueOf(str2);
 			}
 		}
 	};
@@ -49,6 +53,8 @@ public class CompareUtil {
 				new TypeToken<LinkedList<Products>>() {
 				}.getType());
 		Collections.sort(beans, new Comparator<Products>() {
+			String str1;
+			String str2;
 			@Override
 			public int compare(Products o1, Products o2) {
 				List<String> periods1 = o1.getContribution_period();
@@ -67,8 +73,10 @@ public class CompareUtil {
 				} else if (ONE_OFF.equalsIgnoreCase(periods2.get(0))){
 					return 1;
 				} else {
-					return Integer.valueOf(periods1.get(0))
-							- Integer.valueOf(periods2.get(0));
+					str1 = periods1.get(0).replace("Y", "").replace("A", "");
+					str2 = periods2.get(0).replace("Y", "").replace("A", "");
+					return Integer.valueOf(str1)
+							- Integer.valueOf(str2);
 				}
 			}
 		});
@@ -85,6 +93,8 @@ public class CompareUtil {
 				new TypeToken<LinkedList<Products>>() {
 				}.getType());
 		Collections.sort(beans, new Comparator<Products>() {
+			String str1;
+			String str2;
 			@Override
 			public int compare(Products o1, Products o2) {
 				List<String> periods1 = o1.getContribution_period();
@@ -103,8 +113,10 @@ public class CompareUtil {
 				} else if (ONE_OFF.equalsIgnoreCase(periods2.get(0))){
 					return -1;
 				} else {
-					return Integer.valueOf(periods2.get(0))
-							- Integer.valueOf(periods1.get(0));
+					str1 = periods1.get(0).replace("Y", "").replace("A", "");
+					str2 = periods2.get(0).replace("Y", "").replace("A", "");
+					return Integer.valueOf(str2)
+							- Integer.valueOf(str1);
 				}
 			}
 		});
