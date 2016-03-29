@@ -764,7 +764,7 @@ var languageP = "${language}";
                });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function(){
 				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
+				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && totalBeneficiaryEntitlement() !="Exceed"){
 					$("#errorMsg").html("");
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
