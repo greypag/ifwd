@@ -293,7 +293,7 @@ var languageP = "${language}";
 					</div>	
 				</div>
 			</div>
-			<div class="container-information hidden-sm hidden-xs">
+			<div class="container-information fwd-container-limit center-block hidden-sm hidden-xs">
 				<p><fmt:message key="p.information.text" bundle="${msg}" /></p>
 			</div>
 			<!-- Business Partners -->

@@ -580,6 +580,9 @@ var languageP = "${language}";
 			var getpath = "<%=request.getContextPath()%>";
 			
 			$(document).ready(function() {
+
+				$('.is-dirty').addClass('is-not-active');
+
 				setSelectReadonly('tmpGender', true);
 				setInputReadonly('so-calendar-dob', true);
 				//setInputReadonly('residentialNo', true);

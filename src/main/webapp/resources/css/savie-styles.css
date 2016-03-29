@@ -1260,6 +1260,7 @@ h6 {
 /* line 772, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
+  height: 54px;
 }#plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a
 @media (min-width: 992px) {
   /* line 776, ../sass/partials/savie/_common.scss */
@@ -2325,7 +2326,9 @@ a.eserv-link:hover {
 
 /* line 768, ../sass/partials/savie/_homepage.scss */
 .container-information {
-  margin: 30px 10%;
+  /*margin: 30px 10%;*/
+  margin-left: 30px;
+  margin-bottom: 30px;
   line-height: 15px;
 }
 /* line 772, ../sass/partials/savie/_homepage.scss */
@@ -7527,7 +7530,8 @@ h6.so-h6 {
 }
 /* line 120, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-gray p {
-  color: #b2b9bb;
+	/* color: #b2b9bb; */
+	color: #808080;
 }
 /* line 123, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav {
@@ -9568,7 +9572,7 @@ h3 .heading-title{
 }
  
  #currentEmployer{
- 	height:44px;
+ 	height: 54px !important;
  }
  
 #personal-info-label{

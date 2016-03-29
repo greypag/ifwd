@@ -32,6 +32,7 @@ import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
+import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
@@ -132,11 +133,27 @@ public class SavieOnlineController extends BaseController{
 			request.getSession().setAttribute("type", type);
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			date1 = DateApi.formatDate(savieFna.getDob());
+			
+			model.addAttribute("sliderMin", "30000");
+			if (Integer.parseInt(savieFna.getQ4_b_amount())>400000){
+				model.addAttribute("sliderMax", "400000");
+				model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
+			} else {
+				model.addAttribute("sliderMax", savieFna.getQ4_b_amount());
+				if (Integer.parseInt(savieFna.getQ4_b_amount())>Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
+					model.addAttribute("sliderValue", savieFna.getQ4_b_amount());
+				} else {
+					model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
+				}
+			}
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
 		}else {
+			model.addAttribute("sliderMin", "30000");
+			model.addAttribute("sliderMax", "400000");
+			model.addAttribute("sliderValue", "100000");
 			defaultDOB.setTime(date1); 
 			defaultDOB.add(defaultDOB.YEAR, -18);
 		}
