@@ -33,8 +33,8 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String mobileNumber;
 	private String emailAddress;
 	private String placeOfBirth;
-	private String placeOfBirthEname;
-	private String placeOfBirthCname;
+	private String placeOfBirthEnName;
+	private String placeOfBirthCnName;
 	private String nationalty;
 	private String nationaltyEnName;
 	private String nationaltyCnName;
@@ -81,13 +81,13 @@ public class LifePersonalDetailsBean implements Serializable {
 		if(!"".equals(this.placeOfBirth)){
 			for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
 				if(this.placeOfBirth.equals(item.getItemCode())){
-					this.placeOfBirthEname = item.getItemDesc();
+					this.placeOfBirthEnName = item.getItemDesc();
 					break;
 				}
 			}
 			for(OptionItemDesc item:InitApplicationMessage.placeOfBirthCN){
 				if(this.placeOfBirth.equals(item.getItemCode())){
-					this.placeOfBirthCname = item.getItemDesc();
+					this.placeOfBirthCnName = item.getItemDesc();
 					break;
 				}
 			}
@@ -567,20 +567,22 @@ public class LifePersonalDetailsBean implements Serializable {
 		this.martialStatusCnName = martialStatusCnName;
 	}
 
-	public String getPlaceOfBirthEname() {
-		return placeOfBirthEname;
+	
+
+	public String getPlaceOfBirthEnName() {
+		return placeOfBirthEnName;
 	}
 
-	public void setPlaceOfBirthEname(String placeOfBirthEname) {
-		this.placeOfBirthEname = placeOfBirthEname;
+	public void setPlaceOfBirthEnName(String placeOfBirthEnName) {
+		this.placeOfBirthEnName = placeOfBirthEnName;
 	}
 
-	public String getPlaceOfBirthCname() {
-		return placeOfBirthCname;
+	public String getPlaceOfBirthCnName() {
+		return placeOfBirthCnName;
 	}
 
-	public void setPlaceOfBirthCname(String placeOfBirthCname) {
-		this.placeOfBirthCname = placeOfBirthCname;
+	public void setPlaceOfBirthCnName(String placeOfBirthCnName) {
+		this.placeOfBirthCnName = placeOfBirthCnName;
 	}
 
 	public String getNationaltyEnName() {

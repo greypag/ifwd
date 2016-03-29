@@ -453,7 +453,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusCnName()));
-	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthCname()));
+	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthCnName()));
 	    attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyCnName()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
 	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
@@ -1884,13 +1884,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(!"".equals(lifePersonalDetails.getPlaceOfBirth())){
 				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
 					if(lifePersonalDetails.getPlaceOfBirth().equals(item.getItemCode())){
-						lifePersonalDetails.setPlaceOfBirthEname(item.getItemDesc());
+						lifePersonalDetails.setPlaceOfBirthEnName(item.getItemDesc());
 						break;
 					}
 				}
 				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthCN){
 					if(lifePersonalDetails.getPlaceOfBirth().equals(item.getItemCode())){
-						lifePersonalDetails.setPlaceOfBirthCname(item.getItemDesc());
+						lifePersonalDetails.setPlaceOfBirthCnName(item.getItemDesc());
 						break;
 					}
 				}
