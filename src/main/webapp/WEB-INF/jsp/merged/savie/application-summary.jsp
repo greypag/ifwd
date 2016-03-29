@@ -92,7 +92,7 @@
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="SAVIE" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${language == 'en' ? 'SAVIE':'自助息' }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -142,7 +142,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 								<select name="tmpGender" id="tmpGender" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePersonalDetails.gender }">${lifePersonalDetails.gender }</option>
+									<option disabled="disabled" selected="selected" value="${language=='en'?lifePersonalDetails.gender:lifePersonalDetails.gender=='MALE'?'男':'女' }">${language=='en'?lifePersonalDetails.gender:lifePersonalDetails.gender=='MALE'?'男':'女' }</option>
 								</select>
 								<input type="hidden" id="gender" name="gender" />
 							</div>

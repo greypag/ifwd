@@ -112,7 +112,7 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.later" bundle="${msg}" />
-								   <span><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+								   <span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
 								</div>
 							 </div>
 						  </div>
@@ -200,7 +200,7 @@ var languageP = "${language}";
 										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
 									</div>
 								</div>
-								<div class="col-xs-12 col-md-4 so-upload" id="passport-section">
+								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="display:none;">
 									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom"><fmt:message key="label.passport.copy.des" bundle="${msg}" /></h6>
 									<form action="" id="passport-upload-form" method="POST" class="upload-form">

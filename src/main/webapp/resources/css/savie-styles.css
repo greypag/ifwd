@@ -6881,7 +6881,7 @@ h6.so-h6 {
   /* line 268, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .clearfix.desktop-align.left {
     float: left;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 }
 /* line 275, ../sass/partials/savie/_upload-document.scss */
@@ -9595,3 +9595,8 @@ h3 .heading-title{
 	margin-top: 1px;
 	margin-left: -3px
 }
+
+#the-club-logo{
+	padding-top: 10%;
+}
+
