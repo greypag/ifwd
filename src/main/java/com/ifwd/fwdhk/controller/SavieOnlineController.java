@@ -140,7 +140,8 @@ public class SavieOnlineController extends BaseController{
 				model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
 			} else {
 				model.addAttribute("sliderMax", savieFna.getQ4_b_amount());
-				if (Integer.parseInt(savieFna.getQ4_b_amount())>Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
+				if (request.getSession().getAttribute("saviePlanDetails")==null 
+						|| Integer.parseInt(savieFna.getQ4_b_amount())>Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
 					model.addAttribute("sliderValue", savieFna.getQ4_b_amount());
 				} else {
 					model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
