@@ -305,7 +305,7 @@ var FNArecommendation = {
 			    },     
 			    success:function(data){
 			    	if(data != null && data.errMsgs == null){
-			    		window.location = contextPath + "/" + language + "/FNA/financial-needs-analysis";
+			    		window.location = contextPath + "/" + language;
 			    	}
 			    }  
 			});

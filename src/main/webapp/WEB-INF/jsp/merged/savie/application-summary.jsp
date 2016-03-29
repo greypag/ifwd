@@ -429,7 +429,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[0]" name="beneficiaryHkid[0]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport1:lifeBeneficaryInfo.beneficaryID1 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryHkid[0]">${lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? "Passport":"HKID" }</label>
+												<label class="mdl-textfield__label" for="beneficiaryHkid[0]">${language=='en'?lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? "Passport":"HKID":lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? "護照號碼":"香港身份證" }</label>
 											</div>
 										</div>
 				               </div>
@@ -449,7 +449,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender1 }">${lifeBeneficaryInfo.beneficaryGender1 }</option>
+													<option disabled="disabled" selected="selected" value="${language=='en'?lifeBeneficaryInfo.beneficaryGender1:lifeBeneficaryInfo.beneficaryGender1=='male'?'男':'女' }">${language=='en'?lifeBeneficaryInfo.beneficaryGender1:lifeBeneficaryInfo.beneficaryGender1=='male'?'男':'女' }</option>
 												</select>
 												<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" />
 											</div>
@@ -488,7 +488,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[1]" name="beneficiaryHkid[1]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport2:lifeBeneficaryInfo.beneficaryID2 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryHkid[1]">${lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? "Passport":"HKID" }</label>
+												<label class="mdl-textfield__label" for="beneficiaryHkid[1]">${language=='en'?lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? "Passport":"HKID":lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? "護照號碼":"香港身份證" }</label>
 											</div>
 										</div>
 				               </div>
@@ -508,7 +508,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[1]" id="tmpBeneficiaryGender[1]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender2 }">${lifeBeneficaryInfo.beneficaryGender2 }</option>
+													<option disabled="disabled" selected="selected" value="${language=='en'?lifeBeneficaryInfo.beneficaryGender2:lifeBeneficaryInfo.beneficaryGender2=='male'?'男':'女' }">${language=='en'?lifeBeneficaryInfo.beneficaryGender2:lifeBeneficaryInfo.beneficaryGender2=='male'?'男':'女' }</option>
 												</select>
 												<input type="hidden" id="beneficiaryGender[1]" name="beneficiaryGender[1]" />
 											</div>
@@ -547,7 +547,7 @@
 				                  <div class="form-group application-summ">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="beneficiaryHkid[2]" name="beneficiaryHkid[2]" value="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' ? lifeBeneficaryInfo.beneficiaryPassport3:lifeBeneficaryInfo.beneficaryID3 }" readonly="readonly" />
-												<label class="mdl-textfield__label" for="beneficiaryHkid[2]">${lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? "Passport":"HKID" }</label>
+												<label class="mdl-textfield__label" for="beneficiaryHkid[2]">${language=='en'?lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? "Passport":"HKID":lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? "護照號碼":"香港身份證" }</label>
 											</div>
 										</div>
 				               </div>
@@ -567,7 +567,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryGender[2]" id="tmpBeneficiaryGender[2]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryGender3 }">${lifeBeneficaryInfo.beneficaryGender3 }</option>
+													<option disabled="disabled" selected="selected" value="${language=='en'?lifeBeneficaryInfo.beneficaryGender3:lifeBeneficaryInfo.beneficaryGender3=='male'?'男':'女' }">${language=='en'?lifeBeneficaryInfo.beneficaryGender3:lifeBeneficaryInfo.beneficaryGender3=='male'?'男':'女' }</option>
 												</select>
 												<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" />
 											</div>
@@ -597,7 +597,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></label>
 								<select name="tmpPaymentMethod" id="tmpPaymentMethod" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
+									<option disabled="disabled" selected="selected" value="${language=='en'?lifePayment.paymentMethod:'自動轉賬' }">${language=='en'?lifePayment.paymentMethod:'自動轉賬' }</option>
 								</select>
 								<input type="hidden" id="paymentMethod" name="paymentMethod" />
 							</div>
