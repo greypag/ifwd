@@ -5826,7 +5826,10 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 .fwd-savie-wrapper .o2o-landing #savings-carousel {
 	background-color: #e9edf0;
 }
-
+.fwd-savie-wrapper .o2o-landing #savings-carousel .carousel-inner,
+.fwd-savie-wrapper .o2o-landing #savings-carousel .carousel-inner .item{
+	overflow: hidden;
+}
 /* Customer Center Modal Styles */
 /* line 587, ../sass/partials/_o2o-landing.scss */
 #customerCenter {

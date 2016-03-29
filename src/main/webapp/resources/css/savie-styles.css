@@ -3610,11 +3610,14 @@ a.eserv-link:hover {
   border-right: 1px solid #d4d5d4;
   border-bottom: 0;
 }
+#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li.last {
+  border-right: 0;
+}
 @media screen and (max-width: 992px) {
   /* line 116, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
     float: left;
-    width: 33%;
+    width: 33.3%;
   }
 }
 /* line 123, ../sass/partials/savie/_purchase-history.scss */
@@ -3708,6 +3711,7 @@ a.eserv-link:hover {
 /* line 187, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .fa-info-circle {
   cursor: pointer;
+  display: none;
 }
 /* line 190, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .tooltip {
@@ -9345,7 +9349,8 @@ h3 .heading-title{
 }
 /* line 160, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .promo-code-input {
-  height: 40px;
+  height: auto;
+  line-height: 26px;
   font-size: 14px;
   cursor: text;
 }
@@ -9568,10 +9573,35 @@ h3 .heading-title{
 }
  
  #currentEmployer{
- 	height:44px;
+ 	height:54px;
  }
  
 #personal-info-label{
  	padding-top: 5px;
  	font-size:14px;
  }
+
+.customer-formgroup {
+	margin-bottom: 10px;
+}
+
+.customer-formgroup .preferred-date input[type="text"] {
+	font-size: 18px;
+}
+
+
+
+.customer-select-label {
+	font-size: 14px;
+	font-weight: bold;
+	position: absolute;
+	z-index: 1;
+	left: 18px;
+	margin-top: 1px;
+	margin-left: -3px
+}
+
+#the-club-logo{
+	padding-top: 10%;
+}
+

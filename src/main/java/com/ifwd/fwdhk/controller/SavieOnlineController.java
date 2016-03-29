@@ -853,23 +853,28 @@ public class SavieOnlineController extends BaseController{
 		}
 		else if(userDetails == null){
 		}
+		else if(StringUtils.isEmpty(jpgName)){
+		}
 		else{
-			if(StringUtils.isEmpty(jpgName)) {
-		    	jpgName = "";
-		    }
-		    File file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+jpgName+".jpg");
-	        if(!(file.exists() && file.canRead())){
-	            file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/logo.jpg");
-	        }
-	        FileInputStream inputStream = new FileInputStream(file);
-	        byte[] data = new byte[(int)file.length()];
-	        int length = inputStream.read(data);
-	        inputStream.close();
-	        response.setContentType("image/jpg");
-	        OutputStream stream = response.getOutputStream();
-	        stream.write(data);
-	        stream.flush();
-	        stream.close();
+			if(jpgName.split("-").length!=2){
+			}
+			else if(!userName.equals(jpgName.split("-")[1])){
+			}
+			else{
+				File file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+jpgName.split("-")[0]+".jpg");
+		        if(!(file.exists() && file.canRead())){
+		            file = new File(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/logo.jpg");
+		        }
+		        FileInputStream inputStream = new FileInputStream(file);
+		        byte[] data = new byte[(int)file.length()];
+		        int length = inputStream.read(data);
+		        inputStream.close();
+		        response.setContentType("image/jpg");
+		        OutputStream stream = response.getOutputStream();
+		        stream.write(data);
+		        stream.flush();
+		        stream.close();
+			}
 		}
 	}
 }
