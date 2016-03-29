@@ -6881,7 +6881,7 @@ h6.so-h6 {
   /* line 268, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .clearfix.desktop-align.left {
     float: left;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 }
 /* line 275, ../sass/partials/savie/_upload-document.scss */
@@ -9575,23 +9575,3 @@ h3 .heading-title{
  	padding-top: 5px;
  	font-size:14px;
  }
-
-.customer-formgroup {
-	margin-bottom: 10px;
-}
-
-.customer-formgroup .preferred-date input[type="text"] {
-	font-size: 18px;
-}
-
-
-
-.customer-select-label {
-	font-size: 14px;
-	font-weight: bold;
-	position: absolute;
-	z-index: 1;
-	left: 18px;
-	margin-top: 1px;
-	margin-left: -3px
-}
