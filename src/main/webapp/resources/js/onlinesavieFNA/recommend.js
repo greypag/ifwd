@@ -529,7 +529,9 @@ var FNArecommendation = {
 		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
 		gpOthersWrapper.append($(".template .fna-other-product-header").clone());
 
-		var unaffordable_type = []; //product types that fall into unaffordable section
+		var unaffordable_group = []; //product groups that fall into unaffordable section
+		var affordable_type = []; //prodcut types affordable
+		var unaffordable_type = {}; //prodcut types unaffordable
 		var bUnaffordableIlas = false; // if ilas is not affordable, show custom msg
 
 		if(data.product_list){
@@ -700,9 +702,7 @@ var FNArecommendation = {
 								prod.find(".fna-product-link-keys").hide();
 							}
 						
-						console.log(prod);
-
-						
+						//console.log(prod);
 						
 						//prodWrapper.append(product_header);
 						//prodWrapper.append(product_type);
@@ -711,6 +711,11 @@ var FNArecommendation = {
 						if(prod_data.show){
 
 							animateList.push(prod);
+						}
+
+						//Maintain a list of affordable product types across different product group
+						if( affordable_type.indexOf(prod_data.type) == -1 ){
+							affordable_type.push(prod_data.type);
 						}
 					}
 				}
@@ -725,27 +730,14 @@ var FNArecommendation = {
 
 						var other_data = gp_data.other_types[j];
 
-						//Check existed before
-						var exist = false;
 
-						gpOthersWrapper.find(".fna-other-product").each(function(){
-							if($(this).data("otherType") == other_data.type){
-								exist = true;
-							}
-						});
-
-						if(!exist){
-							var other_product = $(".fna-recommend .template .fna-other-product").clone();
-							other_product.find(".fna-product-type-name").text(other_data.type);
-							other_product.find(".desc").html(other_data.type + " " + other_data.description);
-							other_product.data('otherType',other_data.type);
-
-							//prodWrapper.append(product_type);
-							gpOthersWrapper.append(other_product);
+						//Maintain a list of affordable product types across different product group
+						if( ! (other_data.type in unaffordable_type) ){
+							unaffordable_type[other_data.type] = other_data.description;
 						}
 					}
 					if( gp_data.other_types.length > 0 ){
-						unaffordable_type.push(i.toString()); // i denotes product list number
+						unaffordable_group.push(i.toString()); // i denotes product list number
 					}
 				}
 				
@@ -763,10 +755,20 @@ var FNArecommendation = {
 							
 						})
 					}
+			}
+		}
 
-					
-				
+		// Render the unaffordable products section
+		for( var uKey in unaffordable_type ){
+			// Check if unaffordable product type is appeared in affordable section before
+			if( affordable_type.indexOf(uKey) == -1 ){
+				var other_product = $(".fna-recommend .template .fna-other-product").clone();
+				other_product.find(".fna-product-type-name").text(uKey);
+				other_product.find(".desc").html(uKey + " " + unaffordable_type[uKey]);
+				other_product.data('otherType',uKey);
 
+				//prodWrapper.append(product_type);
+				gpOthersWrapper.append(other_product);
 			}
 		}
 
@@ -877,7 +879,7 @@ var FNArecommendation = {
 			/* Check if there are unmatched objectives Q1*/
 			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
 			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
-			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_type); // filter out selected products in un affordable section
+			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
 			rq1a=unmatched_q1.join(",");
 			rq2a=affordable_q2.join(",");
 
@@ -890,7 +892,7 @@ var FNArecommendation = {
 		    /* Check if there are unmatched objectives Q2*/
 		    var pq2= (data.q2=="")?[]:$.unique(data.q2.split(","));
 			var unmatched_q2=FNArecommendation.getArrDiff(fq2, pq2);
-			unmatched_q2=FNArecommendation.getArrDiff(unmatched_q2, unaffordable_type); // filter out matched products in unaffordable section
+			unmatched_q2=FNArecommendation.getArrDiff(unmatched_q2, unaffordable_group); // filter out matched products in unaffordable section
 			rq1b=FNArecommendation.fnaData.q1;
 			rq2b=unmatched_q2.join(",");
 
