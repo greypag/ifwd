@@ -530,6 +530,7 @@ var FNArecommendation = {
 		gpOthersWrapper.append($(".template .fna-other-product-header").clone());
 
 		var unaffordable_type = []; //product types that fall into unaffordable section
+		var bUnaffordableIlas = false; // if ilas is not affordable, show custom msg
 
 		if(data.product_list){
 
@@ -716,6 +717,12 @@ var FNArecommendation = {
 
 				if(gp_data.other_types){
 					for(var j = 0; j < gp_data.other_types.length; j++){
+						
+						if( gp_data.groupCode == "ILAS" ){
+							bUnaffordableIlas = true;
+							break;
+						}
+
 						var other_data = gp_data.other_types[j];
 
 						//Check existed before
@@ -829,7 +836,7 @@ var FNArecommendation = {
 
 		var bShowILASsContainer = false;
 
-		if(pNum>0 && data.hasILAS=='Y'){
+		if(pNum>0 && (data.hasILAS=='Y' || bUnaffordableIlas)){
 			FNArecommendation.showILASsDescription(true);
 			bShowILASsContainer = bShowILASsContainer || true;
 		}
