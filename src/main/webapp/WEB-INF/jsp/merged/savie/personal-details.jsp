@@ -100,7 +100,7 @@ var languageP = "${language}";
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
 								<div class="clearfix form-group has-error">
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" autocomplete="off" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="firstName"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 									</div>
@@ -581,7 +581,7 @@ var languageP = "${language}";
 			
 			$(document).ready(function() {
 
-				$('#soInsuredInfoForm input').addClass('is-not-active');
+				//$('#soInsuredInfoForm input').addClass('is-not-active');
 
 				setSelectReadonly('tmpGender', true);
 				setInputReadonly('so-calendar-dob', true);
