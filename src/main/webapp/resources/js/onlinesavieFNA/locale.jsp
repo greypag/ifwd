@@ -241,7 +241,7 @@ var FNAQuestion ={
 		  "title": "<fmt:message key="fna.question.q4di" bundle="${msg}" /> ",
 		  "option": [{
 		    "id": 0,
-		    "title": "<fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="fna.question.q4di.hkd" bundle="${msg}" /> {0}",
+		    "title": "<fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> {0} <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />",
 		    "caption": "",
 		    "other":"q4_d_1_others"
 		  }]
@@ -251,7 +251,7 @@ var FNAQuestion ={
 		  "title": "<fmt:message key="fna.question.q4dii" bundle="${msg}" /> ",
 		  "option": [{
 		    "id": 0,
-		    "title": "<fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="fna.question.q4dii.hkd" bundle="${msg}" /> {0}",
+		    "title": "<fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> {0} <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />",
 		    "caption": "",
 		    "other":"q4_d_2_others"
 		  }]
