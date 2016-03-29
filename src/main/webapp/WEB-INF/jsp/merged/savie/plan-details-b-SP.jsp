@@ -13,6 +13,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var affordabilityMin = ${slider_min};
 var affordabilityPremium = ${affordabilityPremium};
 </script>
 
@@ -127,9 +128,10 @@ var affordabilityPremium = ${affordabilityPremium};
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
 				                   <div>				               
-				                   		<h3 class="amount-selected"><span class="pull-left"><fmt:message key="label.savie.amount" bundle="${msg}" /></span><span class="pull-right">HKD <span class="pull-right" id="range">
-				                   		<fmt:formatNumber value="${slider_value}" type="number"/>
-				                   		</span></span></h3>
+				                   		<h3 class="amount-selected">
+				                   			<span class="pull-left"><fmt:message key="label.savie.amount.sp" bundle="${msg}" /></span>
+				                   			<span class="pull-right"><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if><span id="range"><fmt:formatNumber value="${slider_value}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></span>
+				                   		</h3>
 				                   </div>
 				                    <input  class="span2 amount-slider" name="amount" 
 				                    value="${slider_value}" 
@@ -141,10 +143,11 @@ var affordabilityPremium = ${affordabilityPremium};
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
 											<p><fmt:message key="label.min" bundle="${msg}" /></p>
+											<p><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /> </c:if><span id="min-value"><fmt:formatNumber value="${slider_min}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></p>
 										</div>
 										<div class="pull-right text-center">
 											<p><fmt:message key="label.max" bundle="${msg}" /></p>
-											<p><fmt:formatNumber value="${sliderValue}" type="number"/></p>
+											<p><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /> </c:if><span id="max-value"><fmt:formatNumber value="${affordabilityPremium}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></p>
 										</div>
 									</div>
 								</div>
@@ -202,7 +205,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						<thead>
 							<tr>
 								<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-								<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="label.guaranteedcreditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 								<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 								<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 								<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
@@ -254,7 +257,7 @@ var affordabilityPremium = ${affordabilityPremium};
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate.br" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
@@ -295,7 +298,7 @@ var affordabilityPremium = ${affordabilityPremium};
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate.br" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
@@ -336,7 +339,7 @@ var affordabilityPremium = ${affordabilityPremium};
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate.br" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
@@ -377,7 +380,7 @@ var affordabilityPremium = ${affordabilityPremium};
 							<thead>
 								<tr>
 									<th class="first-head"><fmt:message key="product.details.savie.ratetable.col1" bundle="${msg}" /></th>
-									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="label.creditingrate.br" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col2" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable.col3" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable.col3" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
 									<th class="hidden-sm hidden-xs"><fmt:message key="product.details.savie.ratetable1.col4" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col4" bundle="${msg}" />" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
 									<th><fmt:message key="product.details.savie.ratetable1.col5" bundle="${msg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="tooltips.savie.ratetable1.col5" bundle="${msg}" />" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
@@ -474,7 +477,6 @@ var affordabilityPremium = ${affordabilityPremium};
 						   </div>
 						</div>
 					</div>
-					<p><fmt:message key="label.savie.plan.detail.note.productrisk" bundle="${msg}" /></p>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="pd-sf-faq-and-glossary-pane">
 					<div class="panel-group" id="pd-sf-faq-and-glossary-group" role="tablist" aria-multiselectable="true">
@@ -495,6 +497,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						</div>
 					</div>
 				</div>
+				<p><fmt:message key="label.savie.plan.detail.note.productrisk" bundle="${msg}" /></p>
 			</div>
 		</div>
 		<div class="next-btn text-center">
@@ -586,7 +589,7 @@ var affordabilityPremium = ${affordabilityPremium};
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
-		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1">${userDetails.fullName }</span></h4>
+		     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1" class="hidden">${userDetails.fullName }</span></h4>
 		     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
 		     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
 		    </div>

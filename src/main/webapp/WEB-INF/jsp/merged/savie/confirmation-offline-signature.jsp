@@ -121,7 +121,7 @@ var languageP = "${language}";
 					</div>
 					<div class="col-xs-12">
 						<div class="appointment-details-note">
-							<fmt:message key="info.visit.customer.service" bundle="${msg}" />
+							<p><fmt:message key="info.visit.customer.service" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>

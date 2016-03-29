@@ -268,7 +268,10 @@ var languageP = "${language}";
 <div class="modal fade common-welcome-modal signature-offline-modal" id="fna-signature-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
 	<div class="modal-content">
-		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+		<div class="modal-header">
+		 	<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+			<p><fmt:message key="note.savie.review" bundle="${msg}" /></p>
+		</div>
 		<h4 class="text-center"><fmt:message key="label.fna" bundle="${msg}" /></h4>
 
 <!-- 		<div class="pdf"> -->
@@ -304,7 +307,10 @@ var languageP = "${language}";
 <div class="modal fade common-welcome-modal signature-offline-modal" id="sales-signature-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
 	<div class="modal-content">
-		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+		<div class="modal-header">
+		 	<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+			<p><fmt:message key="note.savie.review" bundle="${msg}" /></p>
+		</div>
 		<h4 class="text-center"><fmt:message key="label.salesillustration" bundle="${msg}" /></h4>
 
 <!-- 		<div class="pdf"> -->
@@ -340,7 +346,10 @@ var languageP = "${language}";
 <div class="modal fade common-welcome-modal signature-offline-modal" id="policy-signature-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
 	<div class="modal-content">
-		<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+		<div class="modal-header">
+		 	<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+			<p><fmt:message key="note.savie.review" bundle="${msg}" /></p>
+		</div>
 		<h4 class="text-center"><fmt:message key="label.savie.review.application" bundle="${msg}" /></h4>
 <!-- 		<div class="pdf"> -->
 			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
