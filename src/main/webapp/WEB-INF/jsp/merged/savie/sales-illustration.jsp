@@ -106,10 +106,7 @@
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.premium.mode" bundle="${msg}" /></label>
   								<p class="data-info">
-									<c:choose>
-										<c:when test="${saviePlanDetails.paymentType == 'SP' }"><fmt:message key="savie.application.Single.premium" bundle="${msg}" /></c:when>
-										<c:otherwise>${saviePlanDetails.paymentType }</c:otherwise>
-									</c:choose>
+  								   ${language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款' }
   								</p>
   							</div>
   						</div>
@@ -139,7 +136,7 @@
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.gender" bundle="${msg}" /></label>
-  								<p class="data-info"><fmt:message key="${savieFna.gender=='0'?'savie.application.Male':'savie.application.Female' }" bundle="${msg}" /></p>
+  								<p class="data-info">${language=='en' ? savieFna.gender=='0'?'Male':'Female':savieFna.gender=='0'?'男':'女' }</p>
   							</div>
   						</div>       	
 		       		 </div>

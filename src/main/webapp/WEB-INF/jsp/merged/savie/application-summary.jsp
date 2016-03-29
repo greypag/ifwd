@@ -109,7 +109,7 @@
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }">${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }</option>
+									<option disabled="disabled" selected="selected" value="${language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款' }">${language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款' }</option>
 								</select>
 								<input type="hidden" id="premiumMode" name="premiumMode" />
 							</div>

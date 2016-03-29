@@ -409,7 +409,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String salesIllustrationJpgName = name.split("\\.")[0]+".jpg";
 			logger.info("salesIllustrationJpgName:"+salesIllustrationJpgName);
 			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
-			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]);
+			String userName = (String)request.getSession().getAttribute("username");
+			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]+"-"+userName);
 			logger.info("salesIllustrationPdf to Jpg successfully");
 		}
 		else{
@@ -444,7 +445,25 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
+	    
+	    if("tc".equals(lang)){
+	    	attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusCnName()));
+	    	attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthCnName()));
+	    	attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyCnName()));
+	    	attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictCnName()));
+	    	attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictCnName()));
+	    	attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictCnName()));
+	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
+	    }else{
+	    	attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusEnName()));
+	    	attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthEnName()));
+	    	attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyEnName()));
+	    	attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictEnName()));
+	    	attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictEnName()));
+	    	attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictEnName()));
+	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusEnName()));
+	    }
 	    
 	    attributeList.add(new PdfAttribute("applicationNo", lifePolicy.getPolicyNo()));
 	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
@@ -452,49 +471,36 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
 	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
-	    attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatusCnName()));
-	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirthCnName()));
-	    attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationaltyCnName()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
 	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
 	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
 	    
 	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress2())?lifePersonalDetails.getResidentialAddress2()+"," : "")
-	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress3())?lifePersonalDetails.getResidentialAddress3() : "");
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress3())?lifePersonalDetails.getResidentialAddress3()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress4())?lifePersonalDetails.getResidentialAddress4() : "");
 	    if(",".equals(residentialAddress.substring(residentialAddress.length() - 1))){
 	    	residentialAddress = residentialAddress.substring(0, residentialAddress.length()-1);
 	    }
-	    
 	    attributeList.add(new PdfAttribute("applicationResAddress", residentialAddress));
-	    attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrictCnName()));
 	    
 	    String permanetAddress = (StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress1())?lifePersonalDetails.getPermanetAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress2())?lifePersonalDetails.getPermanetAddress2()+"," : "")
-	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress3())?lifePersonalDetails.getPermanetAddress3() : "");
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress3())?lifePersonalDetails.getPermanetAddress3()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getPermanetAddress4())?lifePersonalDetails.getPermanetAddress4() : "");
 	    if(",".equals(permanetAddress.substring(permanetAddress.length() - 1))){
 	    	permanetAddress = permanetAddress.substring(0, permanetAddress.length()-1);
 	    }
-	    
 	    attributeList.add(new PdfAttribute("applicationPerAddress", permanetAddress));
-	    attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrictCnName()));
 	    
 	    String correspondenceAddress = (StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress1())?lifePersonalDetails.getCorrespondenceAddress1()+"," : "")
 	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress2())?lifePersonalDetails.getCorrespondenceAddress2()+"," : "")
-	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress3())?lifePersonalDetails.getCorrespondenceAddress3() : "");
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress3())?lifePersonalDetails.getCorrespondenceAddress3()+"," : "")
+	    		+(StringUtils.isNotBlank(lifePersonalDetails.getCorrespondenceAddress4())?lifePersonalDetails.getCorrespondenceAddress4() : "");
 	    if(",".equals(correspondenceAddress.substring(correspondenceAddress.length() - 1))){
 	    	correspondenceAddress = correspondenceAddress.substring(0, correspondenceAddress.length()-1);
 	    }
-	    
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", correspondenceAddress));
-	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrictCnName()));
-	    
-	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
-	    if("tc".equals(lang)){
-	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusCnName()));
-	    }else{
-	    	attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatusEnName()));
-	    }
 	    
 	    String status = lifeEmploymentInfo.getEmploymentStatus();
 	    status = status.split("-")[0];
@@ -627,7 +633,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String applicationFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("applicationFormJpgName:"+applicationFormJpgName);
 		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
-		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]);
+		String userName = (String)request.getSession().getAttribute("username");
+		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("applicationFormPdf to Jpg successfully");
 	}
 	
@@ -641,6 +648,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String showOnly1Product = (String) session.getAttribute("showOnly1Product");
 		String showILASsDescription = (String) session.getAttribute("showILASsDescription");
 		String showNoAvailableProduct = (String) session.getAttribute("showNoAvailableProduct");
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
 		
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
@@ -685,12 +694,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
-		String occupation = lifeEmploymentInfo.getOccupationCnName();
+		String occupation = "";
 		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
 			occupation = lifeEmploymentInfo.getOtherOccupation();
+		}else{
+			if("tc".equals(lang)){
+				occupation = lifeEmploymentInfo.getOccupationCnName();
+			}else{
+				occupation = lifeEmploymentInfo.getOccupationEnName();
+			}
 		}
 		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
-		//attributeList.add(new PdfAttribute("ApplicantOccupation", occupation));
 		
 		String group_3 = "";
 		if("0".equals(savieFna.getEducation())){
@@ -1000,7 +1014,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String fnaFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("fnaFormJpgName:"+fnaFormJpgName);
 		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
-		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]);
+		String userName = (String)request.getSession().getAttribute("username");
+		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("fnaFormPdf to Jpg successfully");
 	}
 	
