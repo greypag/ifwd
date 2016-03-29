@@ -581,7 +581,7 @@ var languageP = "${language}";
 			
 			$(document).ready(function() {
 
-				$('.is-dirty').addClass('is-not-active');
+				$('#soInsuredInfoForm input').addClass('is-not-active');
 
 				setSelectReadonly('tmpGender', true);
 				setInputReadonly('so-calendar-dob', true);
