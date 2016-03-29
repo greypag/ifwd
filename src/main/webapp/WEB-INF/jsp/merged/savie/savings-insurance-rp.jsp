@@ -384,7 +384,7 @@ var home_url = "<%=request.getContextPath()%>";
        				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
        				<div class="col-xs-4 col-md-4 col-lg-4 text-center">
        					<div class="desktop-center clearfix">
-							<img width="220" src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
+							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png" class="img-responsive">
 <!--         					<div class="partner-desc"> -->
 <%--         						<fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" /> --%>
 <!--         					</div> -->
@@ -392,7 +392,7 @@ var home_url = "<%=request.getContextPath()%>";
        				</div>
     		       			<div class="col-xs-4 col-md-4 col-lg-4 text-center">
 		       					<div class="desktop-center clearfix">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png" class="img-responsive" id="the-club-logo">
 									
 		       					</div>
 		       				</div>	   				

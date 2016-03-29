@@ -9575,3 +9575,28 @@ h3 .heading-title{
  	padding-top: 5px;
  	font-size:14px;
  }
+
+.customer-formgroup {
+	margin-bottom: 10px;
+}
+
+.customer-formgroup .preferred-date input[type="text"] {
+	font-size: 18px;
+}
+
+
+
+.customer-select-label {
+	font-size: 14px;
+	font-weight: bold;
+	position: absolute;
+	z-index: 1;
+	left: 18px;
+	margin-top: 1px;
+	margin-left: -3px
+}
+
+#the-club-logo{
+	padding-top: 10%;
+}
+
