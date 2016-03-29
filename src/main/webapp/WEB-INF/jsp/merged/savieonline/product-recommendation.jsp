@@ -20,6 +20,7 @@ function goLandingPage(){
 }
 
 var fnaq1 = '${savieFna.q1 }';
+var fnaq2 = '${savieFna.q2 }';
 var fnaq4e = '${savieFna.q4_e }';
 </script>
 
@@ -250,7 +251,8 @@ var fnaq4e = '${savieFna.q4_e }';
 						
 						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span><fmt:message key="fna.link.moreproduct" bundle="${msg}" /> <i class="fa fa-caret-down"></i></span></a>
 
-						<div class="noAvailableProduct"></div>
+						<div class="noAvailableProduct noAvailableProduct_type1"></div>
+						<div class="noAvailableProduct noAvailableProduct_type2"></div>
 						<div class="only1KSTSProduct"></div>
 
 						<div class="text-right">
@@ -371,7 +373,8 @@ var fnaq4e = '${savieFna.q4_e }';
 
 			<p class="txt_onlyOneProduct"><fmt:message key="fna.text.only1product" bundle="${msg}" /></p>
 
-			<p class="txt_noAvailableProduct"><fmt:message key="fna.text.noavailableproduct" bundle="${msg}" /></p>
+			<p class="txt_noAvailableProduct_type1"><fmt:message key="fna.text.noavailableproduct.type1" bundle="${msg}" /></p>
+			<p class="txt_noAvailableProduct_type2"><fmt:message key="fna.text.noavailableproduct.type2" bundle="${msg}" /></p>
 			<p class="txt_q2_0"><fmt:message key="fna.text.q2.array0" bundle="${msg}" /></p>
 			<p class="txt_q2_1"><fmt:message key="fna.text.q2.array1" bundle="${msg}" /></p>
 			<p class="txt_q2_2"><fmt:message key="fna.text.q2.array2" bundle="${msg}" /></p>

@@ -113,7 +113,7 @@ var FNArecommendation = {
 			that.sortFld = -1;
 			that.sortAsc = true;
 
-			// Set latest fna selection
+			// Set latest fna selection for Q1
 			var fnaq1_refresh = [];
 			for( var i=0; i<5; i++ ){
 				if( $("#q1_c" + (i+1)).prop("checked")) {
@@ -121,6 +121,15 @@ var FNArecommendation = {
 				}
 			}
 			fnaq1 = fnaq1_refresh.join(',');
+
+			// Set latest fna selection for Q2
+			var fnaq2_refresh = [];
+			for( var i=0; i<4; i++ ){
+				if( $("#q2_c" + (i+1)).prop("checked")) {
+					fnaq2_refresh.push(i);
+				}
+			}
+			fnaq2 = fnaq2_refresh.join(',');
 
 			for( var i=0; i<6; i++ ){
 				if( $('#q4e_c' + (i+1)).prop("checked")) {
@@ -520,6 +529,8 @@ var FNArecommendation = {
 		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
 		gpOthersWrapper.append($(".template .fna-other-product-header").clone());
 
+		var unaffordable_type = []; //product types that fall into unaffordable section
+
 		if(data.product_list){
 
 			for(var i = 0; i < data.product_list.length; i++){
@@ -726,6 +737,9 @@ var FNArecommendation = {
 							gpOthersWrapper.append(other_product);
 						}
 					}
+					if( gp_data.other_types.length > 0 ){
+						unaffordable_type.push(i.toString()); // i denotes product list number
+					}
 				}
 				
 				gpWrapper.append(gp);
@@ -844,39 +858,56 @@ var FNArecommendation = {
 		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
 
 		if(bShowNoAvailable){
+			
 			var rq1="";
-			var fq1= fnaq1.split(",");
-			var pq1= $.unique(data.q1.split(","));
-			var unmatched_q1=[];
-			for (var i=0;i<fq1.length ;i++ ){
-		    	var r = true;
-		    	for (j=0;j<pq1.length ;j++ ){
-			    	if(fq1[i]==pq1[j]){
-			    		r = false;
-			    		break;
-			    	}
-			    }
-		    	if(r){
-		    		unmatched_q1.push(fq1[i]);
-		    	}
-		    }
-		    rq1=unmatched_q1.join(",");
+			var rq2="";
+			var fq1= FNArecommendation.fnaData.q1.split(",");
+			var fq2= FNArecommendation.fnaData.q2.split(",");
 
-		    if(rq1!=null && rq1!=''){
-		    	FNArecommendation.showNoAvailableProduct(true,FNArecommendation.fnaData.q2,rq1,fnaq4e);
+			/* Check if there are unmatched objectives Q1*/
+			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
+			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
+			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_type); // filter out selected products in un affordable section
+			rq1=unmatched_q1.join(",");
+			rq2=affordable_q2.join(",");
+
+		    if( (rq1!=null && rq1!='') && (rq2!=null && rq2!='') ){
+		    	FNArecommendation.showNoAvailableProduct(true,rq2,rq1,fnaq4e,1);
+		    } else {
+		    	FNArecommendation.showNoAvailableProduct(false,null,null,null,1);
+		    }
+
+		    /* Check if there are unmatched objectives Q2*/
+		    var pq2= (data.q2=="")?[]:$.unique(data.q2.split(","));
+			var unmatched_q2=FNArecommendation.getArrDiff(fq2, pq2);
+			unmatched_q2=FNArecommendation.getArrDiff(unmatched_q2, unaffordable_type); // filter out matched products in unaffordable section
+			rq1=FNArecommendation.fnaData.q1;
+			rq2=unmatched_q2.join(",");
+
+		    if(rq2!=null && rq2!=''){
+		    	FNArecommendation.showNoAvailableProduct(true,rq2,rq1,fnaq4e,2);
+		    } else {
+		    	FNArecommendation.showNoAvailableProduct(false,null,null,null,2);
 		    }
 		}
 		else{
-			FNArecommendation.showNoAvailableProduct(false,FNArecommendation.fnaData.q2,null,fnaq4e);
+			FNArecommendation.showNoAvailableProduct(false,null,null,null,1);
+			FNArecommendation.showNoAvailableProduct(false,null,null,null,2);
 		}
 	},
 
-	showNoAvailableProduct:function(display,products,objectives,year){
+	getArrDiff:function(arr1,arr2){
+		return arr1.filter(function(val){
+			 return arr2.indexOf(val)==-1; 
+		});
+	},
+
+	showNoAvailableProduct:function(display,products,objectives,year,type){
 		//some logic in here...
 		if(display){
 
 			//var cont = $(".template .txt_noAvailableProduct").text();
-			var cont = getBundle(getBundleLanguage,"fna.text.noavailableproduct");
+			var cont = getBundle(getBundleLanguage,"fna.text.noavailableproduct.type" + type);
 			var sep = $(".template .txt_sep").text() + " ";
 			var products_str = "";
 			var obj_str = "";
@@ -895,12 +926,12 @@ var FNArecommendation = {
 
 			cont = cont.replace("{products}",products_str).replace("{objectives}",obj_str).replace("{year}",year_str);
 
-			$(".noAvailableProduct").show();
-			$(".noAvailableProduct").text(cont);
+			$(".noAvailableProduct_type" + type).show();
+			$(".noAvailableProduct_type" + type).text(cont);
 			
 			sendContSession("showNoAvailableProduct",cont);
 		}else{
-			$(".noAvailableProduct").hide();
+			$(".noAvailableProduct_type" + type).hide();
 		}
 		
 	},
