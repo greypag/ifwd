@@ -6,10 +6,10 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<c:set var="slider_min" value="30000"/>
-<c:set var="slider_max" value="400000" />
+<c:set var="slider_min" value="${sliderMin}"/>
+<c:set var="slider_max" value="${sliderMax}" />
 <c:set var="affordabilityPremium" value="${affordabilityPremium = affordabilityPremium != null && affordabilityPremium > slider_min && affordabilityPremium < slider_max ? affordabilityPremium : slider_max}" />
-<c:set var="slider_value" value="${saviePlanDetails.insuredAmount != null && saviePlanDetails.insuredAmount > slider_min ? affordabilityPremium != null ? saviePlanDetails.insuredAmount <= affordabilityPremium ? saviePlanDetails.insuredAmount : affordabilityPremium : saviePlanDetails.insuredAmount : '100000'}" />
+<c:set var="slider_value" value="${sliderValue}" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
@@ -144,7 +144,7 @@ var affordabilityPremium = ${affordabilityPremium};
 										</div>
 										<div class="pull-right text-center">
 											<p><fmt:message key="label.max" bundle="${msg}" /></p>
-											<p><fmt:formatNumber value="${affordabilityPremium}" type="number"/></p>
+											<p><fmt:formatNumber value="${sliderValue}" type="number"/></p>
 										</div>
 									</div>
 								</div>
