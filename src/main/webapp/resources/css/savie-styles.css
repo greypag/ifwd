@@ -422,6 +422,9 @@ a:hover {
     height: 52px;
   }
 }
+ .savie-online-container .container-fluid .application-page-header.et-header-browse .browse-container .row {
+   overflow: hidden;
+ }
 /* line 59, ../sass/partials/savie/_common.scss */
 .savie-online-container .container-fluid .application-page-header.et-header-browse .fa, .savie-online-container .container-fluid .application-page-header.et-header-browse .status {
   font-size: 14px;
@@ -8994,7 +8997,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 288, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab {
   min-width: 95px;
-  border: none;
+  border-right: 1px solid #e6e6e6;
 }
 @media screen and (min-width: 400px) {
   /* line 288, ../sass/partials/savie/_plan-details-table.scss */
@@ -9028,7 +9031,7 @@ form#table-info #id-policy, form#table-info #id-application {
 }
 /* line 320, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.pd-sf-tab-right {
-  border-left: 1px solid #e6e6e6;
+  border-right: none;
 }
 @media screen and (min-width: 992px) {
   /* line 320, ../sass/partials/savie/_plan-details-table.scss */
@@ -9600,5 +9603,9 @@ h3 .heading-title{
 
 #the-club-logo{
 	padding-top: 10%;
+}
+
+.fwd-savie-wrapper.savie-online-container.with-breadcrumbs-steps #plan-details-wrapper #plan-details-sample-and-faq #btn-proceed:hover{
+	color: #ff8200;
 }
 
