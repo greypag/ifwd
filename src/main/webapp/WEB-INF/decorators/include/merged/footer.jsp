@@ -59,7 +59,7 @@
 	    </div>
         <div class="social-link-wrapper">
            <div class="social-link">
-	           <a id="fb-dialog-share" href="javascript:void(0);" target="_blank"><i class="fa fa-share-alt"></i></a>
+	           <a id="fb-dialog-share" href="javascript:void(0);" onclick="return false;" target="_blank"><i class="fa fa-share-alt"></i></a>
 	           <a href="<fmt:message key="footer.facebook.link" bundle="${msg}" />" target="_blank"><i class="fa fa-facebook-official"></i></a>
 	           <a href="<fmt:message key="footer.youtube.link" bundle="${msg}" />" target="_blank"><i class="fa fa-youtube-play"></i></a>        
            </div>
