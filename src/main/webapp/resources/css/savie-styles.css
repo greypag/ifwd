@@ -9602,3 +9602,7 @@ h3 .heading-title{
 	padding-top: 10%;
 }
 
+.fwd-savie-wrapper.savie-online-container.with-breadcrumbs-steps #plan-details-wrapper #plan-details-sample-and-faq #btn-proceed:hover{
+	color: #ff8200;
+}
+
