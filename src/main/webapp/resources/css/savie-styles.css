@@ -7795,6 +7795,14 @@ h6.so-h6 {
   }
 }
 
+.signature-offline-modal .modal-header > p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff8200;
+  margin-top: 1px;
+  margin-bottom: 12px;
+  text-align: center;
+}
 /* line 2, ../sass/partials/savie/_fna-signature.scss */
 .signature-offline-modal .modal-dialog {
   max-width: 415px !important;
