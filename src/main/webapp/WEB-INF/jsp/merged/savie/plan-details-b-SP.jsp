@@ -245,7 +245,7 @@ var affordabilityPremium = ${affordabilityPremium};
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.guaranteed.basis" bundle="${msg}" />' class="rate-btn" id="rate-0" type="button"><fmt:message key="label.savie.crediting.rate1" bundle="${msg}" /></button>
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<fmt:message key="label.current.assumed.basis" bundle="${msg}" />' class="rate-btn active" id="rate-2" type="button"><fmt:message key="label.savie.crediting.rate2" bundle="${msg}" /></button>
 						<button class="rate-btn" id="rate-3" type="button"><fmt:message key="label.savie.crediting.rate3" bundle="${msg}" /></button>
-						<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate4" bundle="${msg}" /></button>
+						<!--<button class="rate-btn" id="rate-4" type="button"><fmt:message key="label.savie.crediting.rate4" bundle="${msg}" /></button>-->
 					</div>
 				</div>
 				<div class="table-content" id="after-3-years">
