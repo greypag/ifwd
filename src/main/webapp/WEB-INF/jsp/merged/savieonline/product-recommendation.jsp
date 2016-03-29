@@ -223,6 +223,7 @@ var fnaq4e = '${savieFna.q4_e }';
 										<a href="javascript:void(0)" class="fna-btn-filter"><fmt:message key="fna.label.fna.selection" bundle="${msg}" /></a>
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-8 col-xs-12 pad-none fna-sorting"> 
+										<!--
 										<span class="sort-txt"><fmt:message key="fna.label.productsort" bundle="${msg}" /></span>
 										<div class="styled-select text-right">
 											
@@ -239,6 +240,7 @@ var fnaq4e = '${savieFna.q4_e }';
 											
 											<i class="fa fa-caret-down"></i>
 										</div>
+										-->
 									</div>
 									
 								</div>

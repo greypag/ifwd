@@ -63,7 +63,7 @@ var affiliate = "${affiliate}";
 								</div>
 							</div>
 							<div class="hidden-lg hidden-md">
-								<label>Name</label>
+								<label><fmt:message key="label.name" bundle="${msg}" /></label>
 							</div>
 							<input type="text" autocomplete="off" name="frm-fna-name" value="${userDetails.fullName }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
 							</div>
