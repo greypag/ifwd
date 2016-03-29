@@ -787,7 +787,7 @@ var FNArecommendation = {
 			//Show Recommendation Anchor and Sorting dropdown
 			$(".haveProducts, .fna-sorting").show();
 		}else{
-			if( data.hasILAS=='Y' ){
+			if( data.hasILAS=='Y' || (data.hasILAS!='Y' && bUnaffordableIlas)){
 				//Display custom message for only ilas case
 				$(".onlyIlas").show();
 				$(".haveProducts, .noProducts").hide();
@@ -836,7 +836,7 @@ var FNArecommendation = {
 
 		var bShowILASsContainer = false;
 
-		if(pNum>0 && (data.hasILAS=='Y' || bUnaffordableIlas)){
+		if((pNum>0 && data.hasILAS=='Y') || (data.hasILAS!='Y' && bUnaffordableIlas)){
 			FNArecommendation.showILASsDescription(true);
 			bShowILASsContainer = bShowILASsContainer || true;
 		}
@@ -863,6 +863,7 @@ var FNArecommendation = {
 		bShowNoAvailable = data.fulfilled=='N'; //if some objectives not fulfilled
 		//bShowNoAvailable = bShowNoAvailable && pNum>0; // if products list > 0
 		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
+		bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
 
 		if(bShowNoAvailable){
 			
