@@ -1201,7 +1201,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				jobject.put("q4_d_1", jobject.get("q4_d_1")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_1").toString()):"");
 				jobject.put("q4_d_2", jobject.get("q4_d_2")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_2").toString()):"");
 				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
-			}
+			} else {
+				request.getSession().removeAttribute("savieFna");
+			}			
+		} else {
+			request.getSession().removeAttribute("savieFna");
 		}
 		return jobject;
 	}
