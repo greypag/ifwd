@@ -2802,7 +2802,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			subject = "FWD Savie Insurance Plan Appointment Acknowledgement | 自助息理財預約申請確認";
 			template = "savie\\signLater.html";
 		}else if("offlineApplication".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			subject = "Appointment Acknowledgement from FWD | 富衛預約申請確認";
 			template = "savie\\offlineApplication.html";
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
