@@ -9550,6 +9550,7 @@ h3 .heading-title{
 	box-shadow: 5px 5px 8px #333;
 	user-select: none;
 	display: none;
+	z-index: 4;
 }
 .pdf-image-container:hover .pdf-image-zoom {
 	display: block;
@@ -9558,15 +9559,11 @@ h3 .heading-title{
 	top: 20px;
 	right: 40px;
 	padding: 0 0 0 2px;
-	float: right;
-	z-index: 123456;
 }
 .pdf-image-zoom.zoom-out {
 	top: 78px;
 	right: 40px;
 	padding: 0 0 0 0;
-	float: right;
-	z-index: 123456;
 }
 .pdf-image-zoom .glyphicon {
 	line-height: 34px;

@@ -151,7 +151,7 @@
 								<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
 								<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 								<div class="pdf-image-scroll">
-									<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/images/template/SavieProposalTemplate_${language}.jpg" />
+									<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/resources/pdf/template/SavieProposalTemplate_${language}.jpg" />
 								</div>
 							</div>
 							<div class="text-center">
