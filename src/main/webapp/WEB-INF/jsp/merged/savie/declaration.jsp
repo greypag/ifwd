@@ -366,7 +366,10 @@ var languageP = "${language}";
 </div>
 	
 	<!--<div class="fwd-savie-wrapper">-->
-	
+<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+    <img style="width: 300px; height: 300px;"
+        src="<%=request.getContextPath()%>/resources/images/loading.gif">
+</div>	
 	<!-- FOOTER -->
 </div>
 		
@@ -430,12 +433,14 @@ var languageP = "${language}";
 			if(! isPassed) {
 				return false;
 			}else {
+		        $('#loadingDiv').toggle();
+		        $('body').addClass('modal-open');			
 				$.ajax({
 					  type : "POST",
 					  async:false, 
 					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclaration",
 					  data: $("#declarationForm").serialize(),
-					  success : function(data) {
+ 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  show_stack_bar_top(data.errorMsg);
 						  }
@@ -443,7 +448,9 @@ var languageP = "${language}";
 							  $.ajax({     
 								    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
 								    type:'get',     
-								    error:function(){       
+								    error:function(){
+                                        $('#loadingDiv').toggle();
+                                        $('body').removeClass('modal-open');								           
 								    },     
 								    success:function(data){
 								    	if(data != null && data.successMsg !=null){
