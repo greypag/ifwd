@@ -1073,7 +1073,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-0-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-0-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-0-0').html(i+1);
+										}
 										$('#premium-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1123,7 +1127,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-2-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-2-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-2-0').html(i+1);
+										}
 										$('#premium-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1227,7 +1235,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-4-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-4-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-4-0').html(i+1);
+										}
 										$('#premium-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
