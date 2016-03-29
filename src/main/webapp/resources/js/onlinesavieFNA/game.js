@@ -73,8 +73,8 @@ var fnaSavieGame = {
 
 					$(".dp-name").text($(".frm-fna-name").val());
 				});
-
-				window.onbeforeunload = function(e) {
+				//commented for avoid double confirm when session expired and redirect to landing
+				/*window.onbeforeunload = function(e) {
 				    if (!e)
 						e = window.event;
 					e.cancelBubble = true;
@@ -89,7 +89,7 @@ var fnaSavieGame = {
 				
 				$(window).bind("onbeforeunload",function(){
 					return getBundle(getBundleLanguage, "warning.unsave.change");
-				})
+				})*/
 
 			}else{
 				//Validate
