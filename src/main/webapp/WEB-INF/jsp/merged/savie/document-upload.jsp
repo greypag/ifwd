@@ -139,7 +139,7 @@ var languageP = "${language}";
 								   </div>
 								</div>
 							</div>
-							<div class="row upload-now-row">
+							<div class="row upload-now-row" id="hidden-ie9">
 								<div class="col-xs-12 col-md-4 so-upload upload-hkid">
 									<h5 class="so-h5"><fmt:message key="label.hkid" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom"><fmt:message key="label.upload.your.hkid" bundle="${msg}" /></h6>
@@ -159,7 +159,6 @@ var languageP = "${language}";
 											<div class="select-file-section" id="select-file-section">
 												<div class="mob hidden-md hidden-lg">
 													<label for="hkidFileToUploadCam" class="mobile-camera-pic-file">
-														<!-- <input type="file" id="hkidFileToUploadCam" /> -->
 														<span class="drag-cam">
 															<i class="fa fa-camera"></i>
 														</span>
@@ -168,6 +167,7 @@ var languageP = "${language}";
 												<div class="desk hidden-xs hidden-sm">
 													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
+												<!--  <![endif]-->
 												<div class="mob-desk or">
 													<span class="OR">or</span>
 												</div>
@@ -203,7 +203,7 @@ var languageP = "${language}";
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="display:none;">
 									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom"><fmt:message key="label.passport.copy.des" bundle="${msg}" /></h6>
-									<form action="" id="passport-upload-form" method="POST" class="upload-form">
+									<form action="upload-documents" id="passport-upload-form" method="POST" class="upload-form">
 										<div class="finish-upload hidden" id="finish-upload-passport">
 											<div class="center-align">
 												<span class="finish-upload-check"></span>
@@ -219,7 +219,6 @@ var languageP = "${language}";
 											<div class="select-file-section" id="select-file-section">
 												<div class="mob hidden-md hidden-lg">
 													<label for="passportFileToUpload" class="mobile-camera-pic-file">
-														<!-- <input type="file" id="fileToUpload-passport-cam" /> -->
 														<span class="drag-cam">
 															<i class="fa fa-camera"></i>
 														</span>
@@ -228,6 +227,7 @@ var languageP = "${language}";
 												<div class="desk hidden-xs hidden-sm">
 													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
+												<![endif]-->
 												<div class="mob-desk or">
 													<span class="OR"><fmt:message key="label.icon.or" bundle="${msg}" /></span>
 												</div>
@@ -276,7 +276,6 @@ var languageP = "${language}";
 											<div class="select-file-section" id="select-file-section-address">
 												<div class="mob hidden-md hidden-lg">
 													<label for="fileToUploadProofAdd" class="mobile-camera-pic-file">
-														<!-- <input type="file" id="fileToUpload-addr-cam" /> -->
 														<span class="drag-cam">
 															<i class="fa fa-camera"></i>
 														</span>
@@ -285,6 +284,7 @@ var languageP = "${language}";
 												<div class="text-bold desk hidden-xs hidden-sm">
 													<fmt:message key="label.upload.box.copy" bundle="${msg}" />
 												</div>
+												<!--  <![endif]-->
 												<div class="mob-desk or">
 													<span class="OR">or</span>
 												</div>
@@ -317,6 +317,11 @@ var languageP = "${language}";
 										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">100%</span></p>
 									</div>
 								</div>
+							</div>
+							<div class="iframe-holder hidden">
+								<iframe id="iframe-one" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-hkid" onLoad="isUploaded(this.id);" class="upload-ie-iframe"></iframe>
+								<iframe id="iframe-two" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-passport" onLoad="isUploaded(this.id);" class="upload-ie-iframe-second"></iframe>
+								<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
 							</div>
 							<div class="upload-note hidden-sm hidden-xs">
 								<p class="upload-p"><span class="orange">*</span> <fmt:message key="label.savie.upload.remark" bundle="${msg}" /></p>
@@ -455,6 +460,11 @@ var languageP = "${language}";
 				
 				// Check if hkid is valid
 				function isHkidValidity() {
+					/* For IE9, check the src result */
+					if(msieversion()>0 && msieversion()<10) {
+						return $('#iframe-one').attr('src').indexOf('uploadResult=true') > -1; 
+					}
+					
 					var isValid = true;
 					var $hkidFileDnD = $('#fileToUpload-hkid-dragAndDrop');
 					var $hkidFile = $('#hkidFileToUpload');
@@ -472,6 +482,11 @@ var languageP = "${language}";
 				
 				// Check if passport is valid
 				function isPassportValidity() {
+					/* For IE9, check the src result */
+					if(msieversion()>0 && msieversion()<10) {
+						return $('#iframe-two').attr('src').indexOf('uploadResult=true') > -1; 
+					}
+					
 					var isValid = true;
 					var $passportFileDnD = $('#fileToUpload-passport-dragAndDrop');
 					var $passportFile = $('#passportFileToUpload');
@@ -489,8 +504,12 @@ var languageP = "${language}";
 				
 				// Check if proof of address is valid
 				function isProfAddValidity() {
-					if ($('#residence-check').prop('checked')) {
+					if ($('#hkPermanentRes').prop('checked')) {
 						return true;
+					}
+					/* For IE9, check the src result */
+					if(msieversion()>0 && msieversion()<10) {
+						return $('#iframe-three').attr('src').indexOf('uploadResult=true') > -1; 
 					}
 					
 					var isValid = true;
@@ -517,7 +536,84 @@ var languageP = "${language}";
 					return false;
 				}
 			}
+			
+			//iframe
+			if(msieversion()>0 && msieversion()<10) {
+				$('#hidden-ie9').addClass('hide-element');
+				/* $('.upload-note').addClass('hidden'); */
+				uploadIe();
+				$('#hkPermanentRes').click(function(){
+					$('#passport-section').toggle();
+					if(msieversion() > 0) {
+               	if( $('#iframe-two').hasClass('hide-element') ) {
+                  $('#iframe-three').css('left', '68%');
+                  $('#iframe-two').removeClass('hide-element');
+               	} else {
+                  $('#iframe-three').css('left', '34%');
+                  $('#iframe-two').addClass('hide-element');
+               	}
+					}
+				});
+			} else {
+				$('#hidden-ie9').removeClass('hide-element');
+				/* $('.upload-note').removeClass('hidden'); */
+			}
+			//upload IE
+			function isUploaded(id) {
+				var status = document.getElementById(id).contentWindow.document.body.innerHTML;
+				var targetURL = document.getElementById(id).src.split(/[?#]/)[0]; //get raw url
+				var responseURL = document.getElementById(id).contentWindow.location.href;
+				// skip handling if iframe document <> server response
+				var bSkip = responseURL.indexOf(targetURL) > -1;
+				
+				if ( bSkip ) {
+					return false;
+				}
+				if(status == 'true') {
+					document.getElementById(id).src = targetURL+'?uploadResult=true';
+					//enable submit button
+					if( document.getElementById('iframe-et-upload-doc-submit-btn') ) {
+						document.getElementById('iframe-et-upload-doc-submit-btn') .removeAttribute('disabled');
+					}
+				} else {
+					document.getElementById(id).src = targetURL+'?uploadResult=false';
+					var lang = '${language}';
+					if(lang=='en') {
+						setTimeout(function() {
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.en')[0];
+
+							if( el_err ){
+								el_err.className = el_err.className.replace('hidden', '');
+							}
+
+						}, 1000);
+					} else {
+						setTimeout(function(){
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.ch')[0];
+
+							if( el_err ) {
+								el_err.className = el_err.className.replace('hidden', '');
+							}
+						}, 1000);
+					}
+				} //set 
+			}
+			function uploadIe() {
+				if(msieversion()>0 && msieversion()<10) {
+					$('.upload-buttons').addClass('hidden');
+					$('.iframe-holder').removeClass('hidden');
+					$('#et-upload-doc-submit-btn').addClass('hide-element');
+					$('#iframe-et-upload-doc-submit-btn').removeClass('hide-element');
+					if(getWidth() < 992) {
+						$('.upload-ie-iframe').removeAttr('style');
+						$('.upload-ie-iframe').css({'width': '103%', 'border': 'none', 'height': '1450px', 'margin-left': '-15px'});
+					} else {
+						$('.upload-ie-iframe').css({'width': '140%', 'border': 'none', 'height': '550px'});
+						$('.upload-ie-iframe-second').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'34%'});
+						$('.upload-ie-iframe-third').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'68%'});
+					}
+				}
+			}
 		</script>
-		
 	</body>
 </html>
