@@ -409,7 +409,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String salesIllustrationJpgName = name.split("\\.")[0]+".jpg";
 			logger.info("salesIllustrationJpgName:"+salesIllustrationJpgName);
 			PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, salesIllustrationJpgName);
-			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]);
+			String userName = (String)request.getSession().getAttribute("username");
+			request.getSession().setAttribute("salesIllustrationJpgName", name.split("\\.")[0]+"-"+userName);
 			logger.info("salesIllustrationPdf to Jpg successfully");
 		}
 		else{
@@ -627,7 +628,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String applicationFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("applicationFormJpgName:"+applicationFormJpgName);
 		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, applicationFormJpgName);
-		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]);
+		String userName = (String)request.getSession().getAttribute("username");
+		request.getSession().setAttribute("applicationFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("applicationFormPdf to Jpg successfully");
 	}
 	
@@ -1000,7 +1002,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String fnaFormJpgName = name.split("\\.")[0]+".jpg";
 		logger.info("fnaFormJpgName:"+fnaFormJpgName);
 		PDFToImages.saveAsJpg(request.getRealPath("/").replace("\\", "/")+"/resources/pdf/", name, fnaFormJpgName);
-		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]);
+		String userName = (String)request.getSession().getAttribute("username");
+		request.getSession().setAttribute("fnaFormJpgName", name.split("\\.")[0]+"-"+userName);
 		logger.info("fnaFormPdf to Jpg successfully");
 	}
 	
