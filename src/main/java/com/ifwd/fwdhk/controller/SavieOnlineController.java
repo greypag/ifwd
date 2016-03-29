@@ -151,6 +151,9 @@ public class SavieOnlineController extends BaseController{
 		}else if("3".equals(type)){
 			model.addAttribute("type", type);
 			request.getSession().setAttribute("savieType", "SP");
+			model.addAttribute("sliderMin", "30000");
+			model.addAttribute("sliderMax", "400000");
+			model.addAttribute("sliderValue", "100000");
 		}else {
 			model.addAttribute("sliderMin", "30000");
 			model.addAttribute("sliderMax", "400000");
@@ -637,11 +640,7 @@ public class SavieOnlineController extends BaseController{
 					savieOnlineService.getCustomerServiceCentre(model, request, session);
 					savieOnlineService.createApplicationFormPdf("1", request, session);
 					savieOnlineService.createFnaFormPdf("1", request, session);
-					
-					String pdfName = (String) request.getSession().getAttribute("pdfName");
-					if(pdfName==null || "".equals(pdfName)){
-						savieOnlineService.createSalesIllustrationPdf("1",request);
-					}
+					savieOnlineService.createSalesIllustrationPdf("1",request);
 				}else {
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 							+ "/savings-insurance");
