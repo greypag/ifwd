@@ -135,6 +135,8 @@ $(document).ready(function() {
 	// Deleting new form for additional beneficiary
 	$('#remove-beneficiary\\[1\\]').click(function () {
 		$('#beneficiaryFirstName\\[1\\]').val("");
+		$('#beneficiaryEntitlement\\[1\\]').val("");
+		$('#beneficiaryEntitlement\\[2\\]').val("");
 		$('#add-beneficiary-btn-2').find('#add-btn-img').attr('src', contextPath + '/resources/images/savie-2016/gray-plus.png');
 		$('#add-beneficiary-btn-2').addClass('disabled-beneficiary-add');
 		$('#beneficiary2').removeClass('hidden');
@@ -143,13 +145,14 @@ $(document).ready(function() {
 		$('#beneficiary1').removeClass('hidden');
 		$('#beneficiary-header\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
-		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);
+		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);	
 		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
 		$('#add-btn-img').attr('src', contextPath + '/resources/images/savie-2016/gray-plus.png');
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 	});
 	$('#remove-beneficiary\\[2\\]').click(function () {
 		$('#beneficiaryFirstName\\[2\\]').val("");
+		$('#beneficiaryEntitlement\\[2\\]').val("");
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[2\\]').addClass('hidden');
@@ -1070,7 +1073,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-0-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-0-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-0-0').html(i+1);
+										}
 										$('#premium-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-0-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1120,7 +1127,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-2-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-2-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-2-0').html(i+1);
+										}
 										$('#premium-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-2-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1170,7 +1181,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-3-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+											if(paymentYears > 4 && paymentYears == (i + 1)){
+												$('#policy-year-3-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+											}else{
+												$('#policy-year-3-0').html(i+1);
+											}										
 										$('#premium-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-3-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1220,7 +1235,11 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 									if((paymentYears <= 3 && i == 4)
 											|| paymentYears == 4 && i == 3
 											|| paymentYears > 4 && paymentYears == (i + 1)){
-										$('#policy-year-4-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+										if(paymentYears > 4 && paymentYears == (i + 1)){
+											$('#policy-year-4-0').html(i+1+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));											
+										}else{
+											$('#policy-year-4-0').html(i+1);
+										}
 										$('#premium-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-4-0').html(fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -1307,10 +1326,10 @@ function getSavieOnlinePlandetails(isSavedReturn) {
 				
 				}else {
 					/* Reset Policy Year Label */
-					$('#policy-year-0-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-2-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-3-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
-					$('#policy-year-4-0').html("5"+getBundle(getBundleLanguage, "savie.planDetails.EndAge.Title"));
+					$('#policy-year-0-0').html("5");
+					$('#policy-year-2-0').html("5");
+					$('#policy-year-3-0').html("5");
+					$('#policy-year-4-0').html("5");
 					$('#policy-year-0-1').html("10");
 					$('#policy-year-2-1').html("10");
 					$('#policy-year-3-1').html("10");

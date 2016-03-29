@@ -154,8 +154,8 @@ var languageP = "${language}";
 												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport1" id="beneficiaryHkidPassport[0]">
 													 <option value="" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
-													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'hkid' }">selected="selected"</c:if>>HKID</option>
-													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' }">selected="selected"</c:if>>Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'hkid' }">selected="selected"</c:if>><fmt:message key="flight.details.applicant.hkid" bundle="${msg}" /></option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' }">selected="selected"</c:if>><fmt:message key="home.details.applicant.passport" bundle="${msg}" /></option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -184,8 +184,8 @@ var languageP = "${language}";
 													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-1" id="tmpBeneficiaryGender-1">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
-														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>><fmt:message key="savie.application.Male" bundle="${msg}" /></option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>><fmt:message key="savie.application.Female" bundle="${msg}" /></option>
 													</select>
 													<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" value="${lifeBeneficaryInfo.beneficaryGender1 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -297,8 +297,8 @@ var languageP = "${language}";
 												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport2" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
-													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'hkid' }">selected="selected"</c:if>>HKID</option>
-													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' }">selected="selected"</c:if>>Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'hkid' }">selected="selected"</c:if>><fmt:message key="flight.details.applicant.hkid" bundle="${msg}" /></option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' }">selected="selected"</c:if>><fmt:message key="home.details.applicant.passport" bundle="${msg}" /></option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -327,8 +327,8 @@ var languageP = "${language}";
 													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-2" id="tmpBeneficiaryGender-2">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
-														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>><fmt:message key="savie.application.Male" bundle="${msg}" /></option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>><fmt:message key="savie.application.Female" bundle="${msg}" /></option>
 													</select>
 													<input type="hidden" id="beneficaryGender2" name="beneficaryGender2" value="${lifeBeneficaryInfo.beneficaryGender2 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -440,8 +440,8 @@ var languageP = "${language}";
 												  <label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></label>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport3" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.hkid.passport" bundle="${msg}" /></option>
-													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'hkid' }">selected="selected"</c:if>>HKID</option>
-													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' }">selected="selected"</c:if>>Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'hkid' }">selected="selected"</c:if>><fmt:message key="flight.details.applicant.hkid" bundle="${msg}" /></option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' }">selected="selected"</c:if>><fmt:message key="home.details.applicant.passport" bundle="${msg}" /></option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -470,8 +470,8 @@ var languageP = "${language}";
 													<label class="text-bold mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
 													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender-3" id="tmpBeneficiaryGender-3">
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.gender" bundle="${msg}" /></option>
-														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
-														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>><fmt:message key="savie.application.Male" bundle="${msg}" /></option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>><fmt:message key="savie.application.Female" bundle="${msg}" /></option>
 													</select>
 													<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" value="${lifeBeneficaryInfo.beneficaryGender3 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -763,8 +763,18 @@ var languageP = "${language}";
 				}
                });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function(){
+				var form1Valid = true;
+				var form2Valid = true;
 				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
+				if(isBeneficiary2Hidden()!="hidden"){
+					$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
+					var form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
+				}
+                if(isBeneficiary2Hidden()!="hidden"){
+                    $('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
+                    var form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
+                }
+				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed"){
 					$("#errorMsg").html("");
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+

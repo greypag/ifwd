@@ -320,14 +320,14 @@ var languageP = "${language}";
 <%-- 				</c:otherwise> --%>
 <%-- 		    </c:choose> --%>
 
-<!-- 		<div style="width:100%;max-width:960px;margin:40px auto;"> -->
+		<div style="width:100%;max-width:960px;margin:40px auto;">
 			<div id="pdf-image-2" class="pdf-image-container">
 				<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				<div class="pdf-image-scroll">
 					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${salesIllustrationJpgName}" />
 				</div>
-<!-- 			</div> -->
+			</div>
 		</div>
 <!-- 		</div> -->
 		<div class="text-center">
@@ -358,9 +358,7 @@ var languageP = "${language}";
 
 		<div style="width:100%;max-width:960px;margin:40px auto;">
 			<div id="pdf-image-3" class="pdf-image-container">
-				<button><div class="pdf-image-zoom zoom-in">+
-<!-- 					<span class="glyphicon glyphicon-plus"></span> -->
-				</div></button>
+				<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				<div class="pdf-image-scroll">
 					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${applicationFormJpgName}" />
@@ -662,7 +660,10 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
+				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
+				if ($('#review-btn-1').hasClass('bottom')) {
+					$('#review-btn-1').removeClass('disabled-gray-btn');
+				}
 			}
 			$('#timer-1').text(second);
 		}
@@ -676,7 +677,10 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
+				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
+				if ($('#review-btn-2').hasClass('bottom')) {
+					$('#review-btn-2').removeClass('disabled-gray-btn');
+				}
 			}
 			$('#timer-2').text(second);
 		}
@@ -690,7 +694,10 @@ var languageP = "${language}";
 		function updateSecond(second) {
 			if(second == 0) {
 				clearInterval(interval);
-				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').removeClass('disabled-gray-btn');
+				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
+				if ($('#review-btn-3').hasClass('bottom')) {
+					$('#review-btn-3').removeClass('disabled-gray-btn');
+				}
 			}
 			$('#timer-3').text(second);
 		}
@@ -989,11 +996,18 @@ var languageP = "${language}";
 			pdfImageInit('#pdf-image-1');
 			pdfImageInit('#pdf-image-2');
 			pdfImageInit('#pdf-image-3');
-			$('.pdf-image-scroll').scroll(function() {
-				if (checkPdfScroll($(this))) {
-					console.log('bottom reached!!!');
-				}
-			});	
+			$('#pdf-image-1 .pdf-image-scroll').scroll(function() {
+				$('#review-btn-1').toggleClass('bottom', checkPdfScroll($(this)));
+				$('#review-btn-1').toggleClass('disabled-gray-btn', !$('#review-btn-1').hasClass('bottom') || !$('#review-btn-1').hasClass('timeout'));
+			});
+			$('#pdf-image-2 .pdf-image-scroll').scroll(function() {
+				$('#review-btn-2').toggleClass('bottom', checkPdfScroll($(this)));
+				$('#review-btn-2').toggleClass('disabled-gray-btn', !$('#review-btn-2').hasClass('bottom') || !$('#review-btn-2').hasClass('timeout'));
+			});
+			$('#pdf-image-3 .pdf-image-scroll').scroll(function() {
+				$('#review-btn-3').toggleClass('bottom', checkPdfScroll($(this)));
+				$('#review-btn-3').toggleClass('disabled-gray-btn', !$('#review-btn-3').hasClass('bottom') || !$('#review-btn-3').hasClass('timeout'));
+			});
 		});
 		
 </script>

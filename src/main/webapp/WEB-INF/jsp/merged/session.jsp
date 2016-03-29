@@ -67,7 +67,7 @@
 	   if(typeof nextTimer === "undefined"){
 		   nextTimer = new Date(sessionTimer).getTime();
 	   }
-       if((nextTimer - new Date().getTime())/1000 <= 480){
+       if((nextTimer - new Date().getTime())/1000 <= 720){
     	   console.log("Session Expire in Next:" + nextTimer);
            $('#session-alert').modal('show');
        }	   
