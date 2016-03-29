@@ -153,12 +153,9 @@ var languageP = "${language}";
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
-									  	<div  id="yes-radio-popup" >
-										  
-									<!-- 	     	<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p> -->
-										     	<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
-										  
-										</div>
+									  	<!--div  id="yes-radio-popup" >
+											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
+										</div-->
 								   </div>
 								</div>
 							</div>
@@ -180,12 +177,9 @@ var languageP = "${language}";
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
-									  	<div  id="yes-radio-popup-intent" >
-										  
-									<!-- 	     	<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p> -->
-										     	<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
-										  
-										</div>									  
+									  	<!--div  id="yes-radio-popup-intent" >
+											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
+										</div-->									  
 								   </div>
 								</div>
 							</div>
@@ -279,15 +273,15 @@ var languageP = "${language}";
 	</div>
 	
 	<!-- Modal for yes radio button -->
-<!-- 	<div class="modal fade" id="yes-radio-popup" tabindex="-1" role="dialog"> -->
-<!-- 	  <div class="modal-dialog"> -->
-<!-- 	    <div class="modal-content"> -->
-<!-- 	    	<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal="yes-radio-modal"><span aria-hidden="true">×</span></button> -->
-<!--  	     	<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p>-->
-<%-- 	     	<p class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></p> --%>
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-<!-- 	</div> -->
+		<div class="modal fade" id="yes-radio-popup" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal="yes-radio-modal"><span aria-hidden="true">×</span></button>
+					<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p>
+					<p class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></p>
+				</div>
+			</div>
+		</div>
 	
 	<!-- Modal for Foreign Account Tax Compliance Act -->
 	<div class="modal fade modal-fatca-declaration" id="modal-fatca-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -387,13 +381,15 @@ var languageP = "${language}";
 	$(document).ready(function() {
 		$("#haveReplacedYes").click(function(){
 			// these variables will be used when closing yes-radio-popup
-// 			$radio_yes_elem = $(this); 
-// 			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
-			$('#yes-radio-popup').css("display","block");
+ 			$radio_yes_elem = $(this); 
+ 			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
+//			$('#yes-radio-popup').css("display","block");
 		});
 		
 		$("#intentToReplacedYes").click(function(){
-			$('#yes-radio-popup-intent').css("display","block");
+ 			$radio_yes_elem = $(this); 
+ 			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
+//			$('#yes-radio-popup-intent').css("display","block");
 		});
 		
 // 		$('.close').click(function() {
@@ -402,11 +398,11 @@ var languageP = "${language}";
 // 			}
 // 		});
 		
-// 		$('.modal').on('click', function() {
-// 			if($(this).attr("id") == "yes-radio-popup") {						
-// 				updateRadioStatus();
-// 			}
-// 		});
+		$('.modal').on('click', function() {
+			if($(this).attr("id") == "yes-radio-popup") {						
+				updateRadioStatus();
+			}
+		});
 		
 		
 		// set back checked to No radio button
@@ -480,13 +476,13 @@ var languageP = "${language}";
         $('#keep-going-btn').click(function() {
 			$('#save-and-continue-batch5-modal').modal('hide');
 		});
-		$('#haveReplacedNo').click(function(){
-			$('#yes-radio-popup').css("display","none");
-		});
+//		$('#haveReplacedNo').click(function(){
+//			$('#yes-radio-popup').css("display","none");
+//		});
 		
-		$('#intentToReplacedNo').click(function(){
-			$('#yes-radio-popup-intent').css("display","none");
-		});
+//		$('#intentToReplacedNo').click(function(){
+//			$('#yes-radio-popup-intent').css("display","none");
+//		});
         
 		// application saved modal will show after clicking 'Save and exit' button 
 		// no full fill type = 1
@@ -554,7 +550,7 @@ var languageP = "${language}";
 			$('#hasReadAndAcceptPICS').click();		
 		});
 		
-		$('#yes-radio-popup').css("display","none");
-		$('#yes-radio-popup-intent').css("display","none");
+//		$('#yes-radio-popup').css("display","none");
+//		$('#yes-radio-popup-intent').css("display","none");
 	});
 </script>
