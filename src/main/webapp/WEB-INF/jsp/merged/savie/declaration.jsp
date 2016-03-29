@@ -126,7 +126,6 @@ var languageP = "${language}";
 							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
 							<label for="hasReadAndAcceptPICS"></label>
 							<fmt:message key="declaration.pics.agree" bundle="${msg}" />
-							<!--<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>-->
 						</div>
 						<p id="chkPICSErMsg" class="err-msg hidden"><fmt:message key="error.pics.not.checked" bundle="${msg}" /></p>
 					</div>
@@ -151,7 +150,7 @@ var languageP = "${language}";
 											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
-										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 									  	<!--div  id="yes-radio-popup" >
 											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
@@ -175,7 +174,7 @@ var languageP = "${language}";
 											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
-										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 									  	<!--div  id="yes-radio-popup-intent" >
 											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
@@ -220,7 +219,7 @@ var languageP = "${language}";
 									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
-								 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
+								 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
 							  </div>
 						   </div>
 						</div>
@@ -392,11 +391,18 @@ var languageP = "${language}";
 //			$('#yes-radio-popup-intent').css("display","block");
 		});
 		
-// 		$('.close').click(function() {
-// 			if($(this).attr("data-modal") == "yes-radio-modal") {
-// 				updateRadioStatus();
-// 			}
-// 		});
+		$("#intentToLiveOutsideYes").click(function(){
+ 			$radio_yes_elem = $(this); 
+ 			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
+		});
+
+
+		
+		$('.close').click(function() {
+			if($(this).attr("data-modal") == "yes-radio-modal") {
+				updateRadioStatus();
+			}
+		});
 		
 		$('.modal').on('click', function() {
 			if($(this).attr("id") == "yes-radio-popup") {						
