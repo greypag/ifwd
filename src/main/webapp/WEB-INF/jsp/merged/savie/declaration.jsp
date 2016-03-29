@@ -147,10 +147,10 @@ var languageP = "${language}";
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
+											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
 											<label for="haveReplacedYes"></label>
 										 </div>
-										 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 									  	<!--div  id="yes-radio-popup" >
 											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
@@ -171,10 +171,10 @@ var languageP = "${language}";
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
+											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
 											<label for="intentToReplacedYes"></label>
 										 </div>
-										 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
+										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 									  </div>
 									  	<!--div  id="yes-radio-popup-intent" >
 											<span class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></span>
@@ -216,10 +216,10 @@ var languageP = "${language}";
 							  </div>
 							  <div class="clearfix below desktop-align">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
+									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
-								 <div class="text-bold pull-left desc" data-toggle="modal" data-target="#yes-radio-popup"><fmt:message key="option.yes" bundle="${msg}" /></div>
+								 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
 							  </div>
 						   </div>
 						</div>
@@ -276,7 +276,7 @@ var languageP = "${language}";
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal="yes-radio-modal"><span aria-hidden="true">×</span></button>
-					<p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p>
+					<!--p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p-->
 					<p class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></p>
 				</div>
 			</div>
