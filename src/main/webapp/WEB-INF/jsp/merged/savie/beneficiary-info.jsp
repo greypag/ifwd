@@ -807,7 +807,7 @@ var languageP = "${language}";
 								},
 								stringLength: {
 									max: 25,
-									message: "First Name must be no more than 25 characters."
+									message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
 								},
 							  regexp: {
 									 regexp: /^[a-zA-Z\s]+$/ ,
@@ -824,7 +824,7 @@ var languageP = "${language}";
 								  stringLength: {
 										   min: 1,
 										   max: 25,
-										   message: "Last Name must be no more than 25 characters."
+										   message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
 									   },
 								  regexp: {
 									 regexp: /^[a-zA-Z\s]+$/ ,
@@ -838,7 +838,7 @@ var languageP = "${language}";
 								  stringLength: {
 									   min: 1,
 									   max: 6,
-									   message: "Chinese Name must be no more than 6 characters."
+									   message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 									   },
 								  regexp: {
 									 regexp: /^[\s\u4e00-\u9eff]*$/,
@@ -855,7 +855,7 @@ var languageP = "${language}";
 								container: '#beneficiaryHkidPassportErMsg\\[2\\]',
 								validators: {
 									notEmpty: {
-										message: "Please select HKID or Passport no."
+										message: getBundle(getBundleLanguage, "form.beneficiary.hkidorpassport.empty")
 									}
 								}
 							},
@@ -865,7 +865,7 @@ var languageP = "${language}";
 									stringLength: {
 										min: 5,
 										max: 15,
-										message: "Passport no. must be no more than 15 characters."
+										message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
 									},
 									notEmpty: {
 										message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
@@ -891,7 +891,7 @@ var languageP = "${language}";
 									if(!isValidHKID(value)) {
 										return {
 											valid: false,
-											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+											message: getBundle(getBundleLanguage, "form.hkid.invalid")
 										}
 									}
 									return true;
@@ -922,12 +922,12 @@ var languageP = "${language}";
 										message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 									},
 									integer:{
-										message: "Beneficiary's entitlement must be a number."
+										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 									},
 									between:{
 										min: 0,
 										max: 100,
-										message: "Beneficiary's entitlement must be between 1 and 100."
+										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 									},
 									callback: {
 										message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
@@ -981,7 +981,7 @@ var languageP = "${language}";
 								},
 								stringLength: {
 									max: 25,
-									message: "First Name must be no more than 25 characters."
+									message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
 								},
 								regexp: {
 									regexp: /^[a-zA-Z\s]+$/ ,
@@ -997,7 +997,7 @@ var languageP = "${language}";
 								},
 								stringLength: {
 									max: 25,
-									message: "Last Name must be no more than 25 characters."
+									message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
 								},
 								regexp: {
 									regexp: /^[a-zA-Z\s]+$/ ,
@@ -1011,7 +1011,7 @@ var languageP = "${language}";
 								stringLength: {
 									min: 1,
 									max: 6,
-									message: "Chinese Name must be no more than 6 characters."
+									message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 								},
 								regexp: {
 									regexp: /^[\s\u4e00-\u9eff]*$/,
@@ -1028,7 +1028,7 @@ var languageP = "${language}";
 							container: '#beneficiaryHkidPassportErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
-									message: "Please select HKID or Passport no."
+									message: getBundle(getBundleLanguage, "form.beneficiary.hkidorpassport.empty")
 			                    }
 							}
 						},
@@ -1038,7 +1038,7 @@ var languageP = "${language}";
 								stringLength: {
 			                        min: 5,
 			                        max: 15,
-			                        message: "Passport no. must be no more than 15 characters."
+			                        message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
 			                    },
 								notEmpty: {
 									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
@@ -1064,7 +1064,7 @@ var languageP = "${language}";
 									if(!isValidHKID(value)) {
 										return {
 											valid: false,
-											message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+											message: getBundle(getBundleLanguage, "form.hkid.invalid")
 										}
 									}
 									return true;
@@ -1095,12 +1095,12 @@ var languageP = "${language}";
 									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 								},
 								integer:{
-									message: "Beneficiary's entitlement must be a number."
+									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 								},
 								between:{
 									min: 0,
 									max: 100,
-									message: "Beneficiary's entitlement must be between 1 and 100."
+									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 								},
 								callback: {
 									message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
@@ -1171,7 +1171,7 @@ var languageP = "${language}";
 			               },
 								stringLength: {
 	                        max: 25,
-	                        message: 'First Name must be no more than 25 characters.'
+	                        message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
 	                    	},
 								regexp: {
 									regexp: /^[a-zA-Z\s]+$/ ,
@@ -1187,7 +1187,7 @@ var languageP = "${language}";
 			                    },
 								stringLength: {
 			                        max: 25,
-			                        message: 'Last Name must be no more than 25 characters.'
+			                        message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
 			                    },
 								regexp: {
 									regexp: /^[a-zA-Z\s]+$/ ,
@@ -1201,7 +1201,7 @@ var languageP = "${language}";
 								stringLength: {
 			                        min: 1,
 			                        max: 6,
-			                        message: 'Chinese Name must be no more than 6 characters.'
+			                        message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 			                    },
 								regexp: {
 									regexp: /^[\s\u4e00-\u9eff]*$/,
@@ -1214,7 +1214,7 @@ var languageP = "${language}";
 							container: '#beneficiaryHkidPassportErMsg\\[0\\]',
 							validators: {
 								notEmpty: {
-									message: "Please select HKID or Passport no."
+									message: getBundle(getBundleLanguage, "form.beneficiary.hkidorpassport.empty")
 			                    }
 							}
 						},
@@ -1224,7 +1224,7 @@ var languageP = "${language}";
 								stringLength: {
 			                        min: 5,
 			                        max: 15,
-			                        message: "Passport no. must be no more than 15 characters."
+			                        message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
 			                    },
 								notEmpty: {
 									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
@@ -1250,7 +1250,7 @@ var languageP = "${language}";
 										if(!isValidHKID(value)) {
 											return {
 												valid: false,
-												message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+												message: getBundle(getBundleLanguage, "form.hkid.invalid")
 											}
 										}
 										return true;
@@ -1281,12 +1281,12 @@ var languageP = "${language}";
 									message: '<fmt:message key="error.bene.entitlement.empty" bundle="${msg}" />'
 								},
 								integer:{
-									message: "Beneficiary's entitlement must be a number."
+									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 				            },
 			               between:{
 			                	min: 0,
 			                	max: 100,
-		                     message: "Beneficiary's entitlement must be between 1 and 100."
+		                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 		                  },
 								callback: {
 									message: '<fmt:message key="error.bene.entitlement.total" bundle="${msg}" />',
