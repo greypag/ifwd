@@ -271,7 +271,7 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
+										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next disabled"><fmt:message key="button.next" bundle="${msg}" /></a>
 									</div>
 								</div>
