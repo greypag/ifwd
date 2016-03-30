@@ -140,7 +140,7 @@ var languageP = "${language}";
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false" checked="checked" class="radio-no">
+											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false"  class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
@@ -164,7 +164,7 @@ var languageP = "${language}";
 								   <div class="radio-button-group clearfix">
 									  <div class="clearfix desktop-align left">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false" checked="checked" class="radio-no">
+											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false"  class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
@@ -209,7 +209,7 @@ var languageP = "${language}";
 						   <div class="radio-button-group">
 							  <div class="clearfix desktop-align left">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false" checked="checked" class="radio-no">
+									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false"  class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
 								 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
@@ -417,7 +417,7 @@ var languageP = "${language}";
 		// set back checked to No radio button
 		function updateRadioStatus() {
 			$radio_yes_elem.prop("checked", false);
-			$radio_no_elem.prop("checked", true);
+			$radio_no_elem.prop("checked", false);
 		}
 		
 		$('.btn-proceed').click(function() {
