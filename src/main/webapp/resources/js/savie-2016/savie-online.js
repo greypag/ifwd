@@ -122,9 +122,10 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
 		$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
 		$('#add-btn-img').attr('src', contextPath + '/resources/images/savie-2016/orange-plus.png');
+		
 	});
 	$('#add-beneficiary-btn-2').click(function (e) {
-		e.preventDefault();
+		//e.preventDefault();
 		if($(this).hasClass('disabled-beneficiary-add') == false) {
 			$('#beneficiary2').addClass('hidden');
 			$('#beneficiary-header\\[2\\]').removeClass('hidden');
@@ -146,7 +147,7 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);	
-		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
+		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'callback');
 		$('#add-btn-img').attr('src', contextPath + '/resources/images/savie-2016/gray-plus.png');
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 	});
@@ -157,7 +158,8 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[2\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
-		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
+		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID', 'callback');
+		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'callback');
 	});
 
    var open = false;
@@ -302,35 +304,34 @@ $(document).ready(function() {
 	}).change();
 	
 	// Beneficiary Form
-	$('#beneficiary-next-btn').click(function(){
+	$("#beneficiary-next-btn, #back-summary-btn").click(function(){
 		var bootstrapValidator1 = $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator');
-		bootstrapValidator1.enableFieldValidators('beneficiaryPassport[0]',true, $(this).val() == 'Passport');
-		bootstrapValidator1.enableFieldValidators('beneficiaryHkid[0]',true, $(this).val() == 'hkid');
-		
+		bootstrapValidator1.enableFieldValidators('beneficiaryPassport1',true, $(this).val() == 'Passport');
+		bootstrapValidator1.enableFieldValidators('beneficiaryID1',true, $(this).val() == 'hkid');
 		$('#beneficiary-info-form\\[0\\]').submit();
 		
 		if(isBeneficiary2Hidden() != "hidden") {
 			var bootstrapValidator2 = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator');
-			bootstrapValidator2.enableFieldValidators('beneficiaryPassport[1]',true, $(this).val() == 'Passport');
-			bootstrapValidator2.enableFieldValidators('beneficiaryHkid[1]',true, $(this).val() == 'hkid');
+			bootstrapValidator2.enableFieldValidators('beneficiaryPassport2',true, $(this).val() == 'Passport');
+			bootstrapValidator2.enableFieldValidators('beneficiaryID2',true, $(this).val() == 'hkid');
 			$('#beneficiary-info-form\\[1\\]').submit();
 		}
 	
 		if(isBeneficiary3Hidden() != "hidden"){
 			var bootstrapValidator3 = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator');
-			bootstrapValidator3.enableFieldValidators('beneficiaryPassport[2]',true, $(this).val() == 'Passport');
-			bootstrapValidator3.enableFieldValidators('beneficiaryHkid[2]',true, $(this).val() == 'hkid');
+			bootstrapValidator3.enableFieldValidators('beneficiaryPassport3',true, $(this).val() == 'Passport');
+			bootstrapValidator3.enableFieldValidators('beneficiaryID3',true, $(this).val() == 'hkid');
 			$('#beneficiary-info-form\\[2\\]').submit();
 		}
 		
-		if((($('#beneficiary-info-form\\[1\\] div').hasClass('has-error')) && (isBeneficiary2Hidden()!="hidden"))	||
+		/*if((($('#beneficiary-info-form\\[1\\] div').hasClass('has-error')) && (isBeneficiary2Hidden()!="hidden"))	||
 			 (($('#beneficiary-info-form\\[0\\] div').hasClass('has-error'))) ||
 			 (($('#beneficiary-info-form\\[2\\] div').hasClass('has-error')) && (isBeneficiary3Hidden()!="hidden"))) {
 			//has error do nothing
 			console.log('Form has error');
 		} else {
 			console.log('Form 1 has no error');
-		}
+		}*/
 		// Duplicate checking
 		duplicateBeneficiary();
 		duplicateBeneficiaryPassport();
