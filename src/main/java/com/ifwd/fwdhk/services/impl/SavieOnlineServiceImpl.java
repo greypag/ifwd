@@ -1448,7 +1448,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 								beneficiarie1.put("hkId", "");
 								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
 							}
-							beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+							beneficiarie1.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"M":"F");
 							beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
 							beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
 						beneficiaries.add(beneficiarie1);
@@ -1465,7 +1465,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 								beneficiarie1.put("hkId", "");
 								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
 							}
-							beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+							beneficiarie2.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"M":"F");
 							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
 							beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
 						beneficiaries.add(beneficiarie2);
@@ -1482,7 +1482,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 								beneficiarie1.put("hkId", "");
 								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
 							}
-							beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+							beneficiarie3.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"M":"F");
 							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
 							beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
 						beneficiaries.add(beneficiarie3);
