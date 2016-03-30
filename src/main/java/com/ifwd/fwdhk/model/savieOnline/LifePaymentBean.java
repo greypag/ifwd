@@ -32,7 +32,7 @@ public class LifePaymentBean implements Serializable {
 	private String type;
 	
 	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
-		if(!"".equals(this.bankCode)){
+		if(this.bankCode!=null && !"".equals(this.bankCode)){
 			for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
 				if(this.bankCode.equals(item.getItemCode())){
 					this.bankEnName = item.getItemDesc();
@@ -47,7 +47,7 @@ public class LifePaymentBean implements Serializable {
 			}
 		}
 		
-		if(!"".equals(this.branchCode)){
+		if(this.branchCode!=null && !"".equals(this.branchCode)){
 			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "EN", "1")){
 				if(this.branchCode.equals(item.getItemCode())){
 					this.branchEnName = item.getItemDesc();

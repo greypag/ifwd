@@ -590,7 +590,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
     	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifePersonalDetails.getChineseName()));
     	    attributeList.add(new PdfAttribute("beneficiaryGender1", gender));
     	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifePersonalDetails.getHkid())?lifePersonalDetails.getHkid():lifePersonalDetails.getPassport()));
-    	    attributeList.add(new PdfAttribute("relationship1", ""));
+    	    if("tc".equals(lang)){
+    	    	attributeList.add(new PdfAttribute("relationship1", "個人遺產"));
+    	    }else{
+    	    	attributeList.add(new PdfAttribute("relationship1", "Own Estate"));
+    	    }
+    	    
     	    attributeList.add(new PdfAttribute("entitlement1", "100"));
 	    }
 	    
