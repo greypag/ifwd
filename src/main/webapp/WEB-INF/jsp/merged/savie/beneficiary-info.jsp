@@ -1316,15 +1316,15 @@ var languageP = "${language}";
 				if(msieversion()>0){
 					$( "#beneficiaryChineseName\\[0\\]" ).on('change keyup', function() {
 						//console.log(chinNameRegex.test($( "#beneficiaryChineseName\\[0\\]" ).val()));
-						if(chinNameRegex.text($( "#beneficiaryChineseName\\[0\\]" ).val()) && msieversion()>0){
+						if(chinNameRegex.test($( "#beneficiaryChineseName\\[0\\]" ).val()) && msieversion()>0){
 							$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('#beneficiaryChineseName\\[0\\]', 'VALID');
 						}
 					});
 					$( "#beneficiaryChineseName\\[1\\]" ).on('change keyup', function() {
 						//console.log(chinNameRegex.test($( "#beneficiaryChineseName\\[1\\]" ).val()));
-						//if(chinNameRegex.test($( "#beneficiaryChineseName\\[1\\]" ).val()) && msieversion()>0){
+						if(chinNameRegex.test($( "#beneficiaryChineseName\\[1\\]" ).val()) && msieversion()>0){
 							$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('#beneficiaryChineseName\\[1\\]', 'VALID');
-						//}
+						}
 					});
 					$( "#beneficiaryChineseName\\[2\\]" ).on('change keyup', function() {
 						//console.log(chinNameRegex.test($( "#beneficiaryChineseName\\[2\\]" ).val()));
