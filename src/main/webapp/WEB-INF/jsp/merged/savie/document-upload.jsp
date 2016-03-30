@@ -376,6 +376,15 @@ var languageP = "${language}";
 		     </div>
 		  </div>
 		</div>
+		<!-- Modal for IE9 ERROR  -->
+		<div class="modal fade common-welcome-modal modal-ie-error" id="review-fna-modal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		     	<h4 class="text-center welcome-msg"><fmt:message key="modal.ie.error.title" bundle="${msg}" /></h4>
+		     	<p class="text-center description-msg"><fmt:message key="modal.ie.error.msg" bundle="${msg}" /></p>		     
+		    </div>
+		  </div>
+		</div>
 		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
@@ -383,7 +392,9 @@ var languageP = "${language}";
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
-				
+				if(msieversion()>0 && msieversion()<10) {
+					$('.modal-ie-error').modal('show');
+				}
 				var errorMessageType = "${errorMessageType}";
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
             		if(errorMessageType == 'alreadyUploaded'){
