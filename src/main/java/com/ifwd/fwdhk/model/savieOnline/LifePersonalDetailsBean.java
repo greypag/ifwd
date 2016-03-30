@@ -64,7 +64,7 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
-		if(!"".equals(this.martialStatus)){
+		if(this.martialStatus!=null && !"".equals(this.martialStatus)){
 			for(OptionItemDesc item:InitApplicationMessage.maritalStatusesEN){
 				if(this.martialStatus.equals(item.getItemCode())){
 					this.martialStatusEnName = item.getItemDesc();
@@ -78,7 +78,7 @@ public class LifePersonalDetailsBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.placeOfBirth)){
+		if(this.placeOfBirth!=null && !"".equals(this.placeOfBirth)){
 			for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
 				if(this.placeOfBirth.equals(item.getItemCode())){
 					this.placeOfBirthEnName = item.getItemDesc();
@@ -92,7 +92,7 @@ public class LifePersonalDetailsBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.nationalty)){
+		if(this.nationalty!=null && !"".equals(this.nationalty)){
 			for(OptionItemDesc item:InitApplicationMessage.nationalityEN){
 				if(this.nationalty.equals(item.getItemCode())){
 					this.nationaltyEnName = item.getItemDesc();
@@ -106,7 +106,7 @@ public class LifePersonalDetailsBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.permanetAddressDistrict)){
+		if(this.permanetAddressDistrict!=null && !"".equals(this.permanetAddressDistrict)){
 			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
 				if(this.permanetAddressDistrict.equals(item.getItemCode())){
 					this.permanetAddressDistrictEnName = item.getItemDesc();
@@ -134,7 +134,7 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.correspondenceAddress4 = this.residentialAddress4;
 			this.correspondenceAddressDistrict = this.residentialAddressDistrict;
 		}
-		if(!"".equals(this.residentialAddressDistrict)){
+		if(this.residentialAddressDistrict!=null && !"".equals(this.residentialAddressDistrict)){
 			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
 				if(this.residentialAddressDistrict.equals(item.getItemCode())){
 					this.residentialAddressDistrictEnName = item.getItemDesc();
@@ -148,7 +148,7 @@ public class LifePersonalDetailsBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.correspondenceAddressDistrict)){
+		if(this.correspondenceAddressDistrict!=null && !"".equals(this.correspondenceAddressDistrict)){
 			for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
 				if(this.correspondenceAddressDistrict.equals(item.getItemCode())){
 					this.correspondenceAddressDistrictEnName = item.getItemDesc();

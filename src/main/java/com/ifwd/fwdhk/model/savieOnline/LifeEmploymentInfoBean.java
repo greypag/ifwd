@@ -45,7 +45,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String type;
 	
 	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
-		if(!"".equals(this.employmentStatus)){
+		if(this.employmentStatus!=null && !"".equals(this.employmentStatus)){
 			for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
 				if(this.employmentStatus.equals(item.getItemCode())){
 					this.employmentStatusEnName = item.getItemDesc();
@@ -59,7 +59,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.natureOfBusiness)){
+		if(this.natureOfBusiness!=null && !"".equals(this.natureOfBusiness)){
 			for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessEN){
 				if(this.natureOfBusiness.equals(item.getItemCode())){
 					this.natureOfBusinessEnName = item.getItemDesc();
@@ -73,7 +73,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.occupation)){
+		if(this.occupation!=null && !"".equals(this.occupation)){
 			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "EN", "1")){
 				if(this.occupation.equals(item.getItemCode())){
 					this.occupationEnName = item.getItemDesc();
@@ -87,7 +87,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.monthlyPersonalIncome)){
+		if(this.monthlyPersonalIncome!=null && !"".equals(this.monthlyPersonalIncome)){
 			for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeEN){
 				if(this.monthlyPersonalIncome.equals(item.getItemCode())){
 					this.monthlyPersonalIncomeEnName = item.getItemDesc();
@@ -101,7 +101,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.education)){
+		if(this.education!=null && !"".equals(this.education)){
 			for(OptionItemDesc item:InitApplicationMessage.etEducationLevelEN){
 				if(this.education.equals(item.getItemCode())){
 					this.educationEnName = item.getItemDesc();
@@ -115,7 +115,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.amountOfOtherSourceOfIncome)){
+		if(this.amountOfOtherSourceOfIncome!=null && !"".equals(this.amountOfOtherSourceOfIncome)){
 			for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceEN){
 				if(this.amountOfOtherSourceOfIncome.equals(item.getItemCode())){
 					this.amountOfOtherSourceOfIncomeEnName = item.getItemDesc();
@@ -129,7 +129,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 				}
 			}
 		}
-		if(!"".equals(this.amountOfLiquidAssets)){
+		if(this.amountOfLiquidAssets!=null && !"".equals(this.amountOfLiquidAssets)){
 			for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetEN){
 				if(this.amountOfLiquidAssets.equals(item.getItemCode())){
 					this.amountOfLiquidAssetsEnName = item.getItemDesc();
