@@ -135,18 +135,26 @@ public class SavieOnlineController extends BaseController{
 			date1 = DateApi.formatDate(savieFna.getDob());
 			
 			model.addAttribute("sliderMin", "30000");
+			String sliderValue = "100000";
 			if (Integer.parseInt(savieFna.getQ4_b_amount())>400000){
 				model.addAttribute("sliderMax", "400000");
-				model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
+				if (request.getSession().getAttribute("saviePlanDetails")!=null){
+					sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
+				}
 			} else {
 				model.addAttribute("sliderMax", savieFna.getQ4_b_amount());
-				if (request.getSession().getAttribute("saviePlanDetails")==null 
-						|| Integer.parseInt(savieFna.getQ4_b_amount())>Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
-					model.addAttribute("sliderValue", savieFna.getQ4_b_amount());
+				if (request.getSession().getAttribute("saviePlanDetails")!=null) {
+					if (Integer.parseInt(savieFna.getQ4_b_amount())<=Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
+						sliderValue = savieFna.getQ4_b_amount();
+					} else {
+						sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
+					}
 				} else {
-					model.addAttribute("sliderValue", ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount());
+					sliderValue = savieFna.getQ4_b_amount();
 				}
 			}
+			logger.info(sliderValue);
+			model.addAttribute("sliderValue", sliderValue);
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
 			model.addAttribute("type", type);

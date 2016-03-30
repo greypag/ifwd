@@ -8,13 +8,12 @@
 <fmt:setBundle basename="messages" var="msg" />
 <c:set var="slider_min" value="${sliderMin}"/>
 <c:set var="slider_max" value="${sliderMax}" />
-<c:set var="affordabilityPremium" value="${affordabilityPremium = affordabilityPremium != null && affordabilityPremium > slider_min && affordabilityPremium < slider_max ? affordabilityPremium : slider_max}" />
 <c:set var="slider_value" value="${sliderValue}" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
 var affordabilityMin = ${slider_min};
-var affordabilityPremium = ${affordabilityPremium};
+var affordabilityPremium = ${sliderMax};
 </script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
@@ -147,7 +146,7 @@ var affordabilityPremium = ${affordabilityPremium};
 										</div>
 										<div class="pull-right text-center">
 											<p><fmt:message key="label.max" bundle="${msg}" /></p>
-											<p><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /> </c:if><span id="max-value"><fmt:formatNumber value="${affordabilityPremium}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></p>
+											<p><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /> </c:if><span id="max-value"><fmt:formatNumber value="${slider_max}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></p>
 										</div>
 									</div>
 								</div>
