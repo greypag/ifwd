@@ -534,6 +534,7 @@ var FNArecommendation = {
 		var unaffordable_type = {}; //prodcut types unaffordable
 		var bUnaffordableIlas = false; // if ilas is not affordable, show custom msg
 		var bUnaffordableULife = false; // if ULife is not affordable
+		var bNoProducts = false;
 
 		if(data.product_list){
 
@@ -803,6 +804,7 @@ var FNArecommendation = {
 				//Show No Product description
 				$(".noProducts").show();
 				$(".haveProducts, .onlyIlas").hide();
+				bNoProducts = true;
 			}
 			//Hide Recommendation Anchor and Sorting dropdown
 			$(".fna-sorting").hide();
@@ -872,7 +874,8 @@ var FNArecommendation = {
 		bShowNoAvailable = data.fulfilled=='N'; //if some objectives not fulfilled
 		//bShowNoAvailable = bShowNoAvailable && pNum>0; // if products list > 0
 		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
-		bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
+		//bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
+		bShowNoAvailable = bShowNoAvailable && !bNoProducts;
 
 		if(bShowNoAvailable){
 			
