@@ -751,18 +751,19 @@ var languageP = "${language}";
 				}
                });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function(){
-				var form1Valid = true;
+ 				var form1Valid = true;
 				var form2Valid = true;
 				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 				if(isBeneficiary2Hidden()!="hidden"){
 					$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
-					var form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
+					form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
 				}
                 if(isBeneficiary2Hidden()!="hidden"){
                     $('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
-                    var form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
+                    form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
                 }
-				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed"){
+				//if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
+				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
 					$("#errorMsg").html("");
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
