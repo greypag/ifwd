@@ -825,14 +825,14 @@ var languageP = "${language}";
 										 </thead>
 										 <tbody>
 										 	<tr>
-										 		<td class="first-col"><a href="http://www.agoda.com/?cid=1648785&tag=217245">Agoda</a></td>
-										 		<td>8% off</td>
-										 		<td>One-off</td>
+										 		<td class="first-col"><fmt:message key="label.account.partner.row1.col1" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.partner.row1.col2" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.partner.row1.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col"><a href="https://www.theclub.com.hk/eng/">The Club</a></td>
-										 		<td>8% off</td>
-										 		<td>One-off</td>
+										 		<td class="first-col"><fmt:message key="label.account.partner.row2.col1" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.partner.row2.col2" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
 										 	</tr>												 	
 										 </tbody>
 									</table>
