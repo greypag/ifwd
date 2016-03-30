@@ -1458,12 +1458,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
 							beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
-								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
-								beneficiarie1.put("passport", "");
+								beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
+								beneficiarie2.put("passport", "");
 							}
 							else{
-								beneficiarie1.put("hkId", "");
-								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+								beneficiarie2.put("hkId", "");
+								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
 							}
 							beneficiarie2.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"M":"F");
 							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
@@ -1475,12 +1475,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
 							beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
-								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
-								beneficiarie1.put("passport", "");
+								beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
+								beneficiarie3.put("passport", "");
 							}
 							else{
-								beneficiarie1.put("hkId", "");
-								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+								beneficiarie3.put("hkId", "");
+								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
 							}
 							beneficiarie3.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"M":"F");
 							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
