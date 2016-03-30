@@ -712,8 +712,10 @@ var languageP = "${language}";
 								</div>
 							</div>
 						</div>
+						<c:if test='${fnaLastUpdate.length() > 0}'>
 						<h3 class="heading-title"><fmt:message key="label.fna" bundle="${msg}" /></h3>	
-						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> ${fnaLastUpdate }. <a class="bold text-bold" href="javascript:void(0);" onclick="goFna();" ><fmt:message key="button.review.fna" bundle="${msg}" /></a></p>	
+						<p id="complete-statement"><fmt:message key="label.complete.fna" bundle="${msg}" /> '${fnaLastUpdate }' <fmt:message key="label.complete.fna2" bundle="${msg}" /> <a class="bold text-bold" href="javascript:void(0);" onclick="goFna();" ><fmt:message key="button.review.fna" bundle="${msg}" /></a></p>
+						</c:if>	
 					</div>
 					<div id="promo-offers-tab-contents" class="hidden">
 						<ul class="nav nav-tabs nav-justified visible-xs visible-sm mobile-promo-navtab">
