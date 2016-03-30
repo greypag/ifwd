@@ -1311,7 +1311,7 @@ var languageP = "${language}";
 					e.preventDefault();
 				}).on('error.form.bv', function(e) {
 				});
-				var chinNameRegex = /^[\s\u4e00-\u9eff]*$/;
+/* 				var chinNameRegex = /^[\s\u4e00-\u9eff]*$/;
 				//added to fix bene chinese tpying problem in 9 and 11
 				if(msieversion()>0){
 					$( "#beneficiaryChineseName\\[0\\]" ).on('change keyup', function() {
@@ -1332,7 +1332,7 @@ var languageP = "${language}";
 							$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('#beneficiaryChineseName\\[2\\]', 'VALID');
 						}
 					});
-				}				
+				} */				
 				// end ie chinese typing issue
 				$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
 					if(totalBeneficiaryEntitlement()!="Exceed") {
