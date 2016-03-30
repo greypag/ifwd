@@ -55,9 +55,9 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
-		if(!this.isOwnEstate){
-			if(!"".equals(this.beneficaryFirstName1)){
-				if(!"".equals(this.beneficaryRelation1)){
+		if(this.isOwnEstate!=null && !this.isOwnEstate){
+			if(this.beneficaryFirstName1!=null && !"".equals(this.beneficaryFirstName1)){
+				if(this.beneficaryRelation1!=null && !"".equals(this.beneficaryRelation1)){
 					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 						if(this.beneficaryRelation1.equals(item.getItemCode())){
 							this.beneficaryRelationEnName1 = item.getItemDesc();
@@ -72,8 +72,8 @@ public class LifeBeneficaryInfoBean implements Serializable {
 					}
 				}
 			}
-			if(!"".equals(this.beneficaryFirstName2)){
-				if(!"".equals(this.beneficaryRelation2)){
+			if(this.beneficaryFirstName2!=null && !"".equals(this.beneficaryFirstName2)){
+				if(this.beneficaryRelation2!=null && !"".equals(this.beneficaryRelation2)){
 					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 						if(this.beneficaryRelation2.equals(item.getItemCode())){
 							this.beneficaryRelationEnName2 = item.getItemDesc();
@@ -88,8 +88,8 @@ public class LifeBeneficaryInfoBean implements Serializable {
 					}
 				}
 			}
-			if(!"".equals(this.beneficaryFirstName3)){
-				if(!"".equals(this.beneficaryRelation3)){
+			if(this.beneficaryFirstName3!=null && !"".equals(this.beneficaryFirstName3)){
+				if(this.beneficaryRelation3!=null && !"".equals(this.beneficaryRelation3)){
 					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 						if(this.beneficaryRelation3.equals(item.getItemCode())){
 							this.beneficaryRelationEnName3 = item.getItemDesc();

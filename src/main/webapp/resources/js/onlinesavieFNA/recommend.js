@@ -533,6 +533,8 @@ var FNArecommendation = {
 		var affordable_type = []; //prodcut types affordable
 		var unaffordable_type = {}; //prodcut types unaffordable
 		var bUnaffordableIlas = false; // if ilas is not affordable, show custom msg
+		var bUnaffordableULife = false; // if ULife is not affordable
+		var bNoProducts = false;
 
 		if(data.product_list){
 
@@ -735,6 +737,11 @@ var FNArecommendation = {
 						if( ! (other_data.type in unaffordable_type) ){
 							unaffordable_type[other_data.type] = other_data.description;
 						}
+
+						//Check if Universal Life exist in unaffordable section
+						if( other_data.type == "Universal Life" || other_data.type == "萬用壽險" ){
+							bUnaffordableULife = true;
+						}
 					}
 					if( gp_data.other_types.length > 0 ){
 						unaffordable_group.push(i.toString()); // i denotes product list number
@@ -797,21 +804,23 @@ var FNArecommendation = {
 				//Show No Product description
 				$(".noProducts").show();
 				$(".haveProducts, .onlyIlas").hide();
+				bNoProducts = true;
 			}
 			//Hide Recommendation Anchor and Sorting dropdown
 			$(".fna-sorting").hide();
 		}
 
 		var only1KSTS = (pNum == 1 && prodWrapper.find(".fna-product").first().data("productCode") == "KSTS");
-
-		if(only1KSTS){
-			only1KSTS = false;
-			gpOthersWrapper.find(".fna-other-product").each(function(){
-				if($(this).data("otherType") == "Universal Life" || $(this).data("otherType") == "萬用壽險"){
-					only1KSTS = true;
-				}
-			});
-		}
+		only1KSTS = only1KSTS && bUnaffordableULife;
+		
+		//if(only1KSTS){
+		//	only1KSTS = false;
+		//	gpOthersWrapper.find(".fna-other-product").each(function(){
+		//		if($(this).data("otherType") == "Universal Life" || $(this).data("otherType") == "萬用壽險"){
+		//			only1KSTS = true;
+		//		}
+		//	});
+		//}
 		
 		
 		if( (gpOthersWrapper.find(".fna-other-product").length > 0 && pNum < 2 )){
@@ -865,7 +874,8 @@ var FNArecommendation = {
 		bShowNoAvailable = data.fulfilled=='N'; //if some objectives not fulfilled
 		//bShowNoAvailable = bShowNoAvailable && pNum>0; // if products list > 0
 		bShowNoAvailable = bShowNoAvailable && !only1KSTS; // if not only one single premium
-		bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
+		//bShowNoAvailable = bShowNoAvailable && (pNum>0 && (data.hasILAS!='Y' || bUnaffordableIlas) ); // if no products available
+		bShowNoAvailable = bShowNoAvailable && !bNoProducts;
 
 		if(bShowNoAvailable){
 			

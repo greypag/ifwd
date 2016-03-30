@@ -200,7 +200,7 @@ var languageP = "${language}";
 										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
 									</div>
 								</div>
-								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="display:none;">
+								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="">
 									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom"><fmt:message key="label.passport.copy.des" bundle="${msg}" /></h6>
 									<form action="upload-documents" id="passport-upload-form" method="POST" class="upload-form">
@@ -376,6 +376,15 @@ var languageP = "${language}";
 		     </div>
 		  </div>
 		</div>
+		<!-- Modal for IE9 ERROR  -->
+		<div class="modal fade common-welcome-modal modal-ie-error" id="review-fna-modal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		     	<h4 class="text-center welcome-msg"><fmt:message key="modal.ie.error.title" bundle="${msg}" /></h4>
+		     	<p class="text-center description-msg"><fmt:message key="modal.ie.error.msg" bundle="${msg}" /></p>		     
+		    </div>
+		  </div>
+		</div>
 		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
@@ -383,7 +392,9 @@ var languageP = "${language}";
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
-				
+				if(msieversion()>0 && msieversion()<10) {
+					$('.modal-ie-error').modal('show');
+				}
 				var errorMessageType = "${errorMessageType}";
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
             		if(errorMessageType == 'alreadyUploaded'){

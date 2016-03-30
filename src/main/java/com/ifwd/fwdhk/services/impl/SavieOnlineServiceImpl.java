@@ -430,9 +430,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		String bankName = "";
 		String branchName = "";
+		String gender = lifePersonalDetails.getGender();
 		if("tc".equals(lang)){
 			bankName = lifePayment.getBankCnName();
 			branchName = lifePayment.getBranchCnName();
+			gender = gender.equalsIgnoreCase("male")?"男":"女";
 		}else{
 			bankName = lifePayment.getBankEnName();
 			branchName = lifePayment.getBranchEnName();
@@ -445,6 +447,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    attributeList.add(new PdfAttribute("CampaignCode", "KSS008"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    
 	    if("tc".equals(lang)){
@@ -466,10 +469,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    attributeList.add(new PdfAttribute("applicationNo", lifePolicy.getPolicyNo()));
-	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("applicationChineseName", lifePersonalDetails.getChineseName()));
 	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
-	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
+	    attributeList.add(new PdfAttribute("applicationSex", gender));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
 	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
@@ -541,29 +544,59 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    
 	    if(!lifeBeneficaryInfo.getIsOwnEstate()){
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
-	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryLastName1()+" "+lifeBeneficaryInfo.getBeneficaryFirstName1()));
 	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
-	    	    attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
+	    	    if("tc".equals(lang)){
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationCnName1()));
+	    	    }else{
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
+	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationEnName1()));
+	    	    }
+	    	    
 	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1():lifeBeneficaryInfo.getBeneficiaryPassport1()));
-	    	    attributeList.add(new PdfAttribute("relationship1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation1())?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:""));
 	    	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
-	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()));
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryLastName2()+" "+lifeBeneficaryInfo.getBeneficaryFirstName2()));
 	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
-	    	    attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
+	    	    if("tc".equals(lang)){
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationCnName2()));
+	    	    }else{
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
+	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationEnName2()));
+	    	    }
+	    	    
 	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2():lifeBeneficaryInfo.getBeneficiaryPassport2()));
-	    	    attributeList.add(new PdfAttribute("relationship2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation2())?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:""));
 	    	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
-	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3()));
+	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryLastName3()+" "+lifeBeneficaryInfo.getBeneficaryFirstName3()));
 	    		attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
-	    		attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
+	    		if("tc".equals(lang)){
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationCnName3()));
+	    	    }else{
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
+	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationEnName3()));
+	    	    }
+	    		
 	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3():lifeBeneficaryInfo.getBeneficiaryPassport3()));
-	    	    attributeList.add(new PdfAttribute("relationship3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryRelation3())?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:""));
 	       	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    	}
+	    }else{
+	    	attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
+    	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifePersonalDetails.getChineseName()));
+    	    attributeList.add(new PdfAttribute("beneficiaryGender1", gender));
+    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifePersonalDetails.getHkid())?lifePersonalDetails.getHkid():lifePersonalDetails.getPassport()));
+    	    if("tc".equals(lang)){
+    	    	attributeList.add(new PdfAttribute("relationship1", "個人遺產"));
+    	    }else{
+    	    	attributeList.add(new PdfAttribute("relationship1", "Own Estate"));
+    	    }
+    	    
+    	    attributeList.add(new PdfAttribute("entitlement1", "100"));
 	    }
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
@@ -601,8 +634,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    }
 	    
 	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
-	    attributeList.add(new PdfAttribute("ExpiryDate", format.format(new Date())));
-	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("ExpiryDate", "N/A"));
+	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
 	    
 	    if(lifeDeclaration.getChkboxDoNotSendMarketingInfo() != null && lifeDeclaration.getChkboxDoNotSendMarketingInfo()){
@@ -920,7 +953,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		
 		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
-		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
+		String selectProductCode = "KSTS";//session.getAttribute("selectProductName").toString();
 		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
 			int i = 1;
 			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
@@ -972,13 +1005,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						}
 						
 						String productName = "";
+						String productCode = "";
 						try {
 							productName = products.get(b).get("name").toString();
+							productCode = products.get(b).get("product_code").toString();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 						attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
-						if(selectProductName!=null&&selectProductName.equals(productName)){
+						if(selectProductCode!=null&&selectProductCode.equals(productCode)){
 							attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
 						}
 						i = i+1;

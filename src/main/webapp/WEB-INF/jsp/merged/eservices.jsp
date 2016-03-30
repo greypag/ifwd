@@ -66,7 +66,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -121,13 +121,13 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -176,7 +176,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -231,7 +231,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -287,7 +287,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -342,13 +342,13 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
 											</div>	
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -397,7 +397,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -452,7 +452,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -508,7 +508,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
@@ -552,10 +552,10 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
 											</div>
 										</div>
 										<c:choose>
@@ -596,7 +596,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.start.date" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
@@ -640,7 +640,7 @@ var languageP = "${language}";
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.policy.no." bundle="${msg}" /></h4>
 											</div>
 											<div class="col-xs-6 col-md-3">
-												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.cover.period" bundle="${msg}" /> <i class="fa fa-info-circle hidden" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
 											</div>
 											<div class="col-xs-6 col-md-2 visible-md visible-lg">
 												<h4 class="hidden-xs hidden-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" />(HK$)</h4>
@@ -738,16 +738,16 @@ var languageP = "${language}";
 										 </thead>
 										 <tbody>
 										 	<tr>
-										 		<td class="first-col">Travel Insurance (single trip)</td>
-										 		<td>25% off</td>
-										 		<td>Year-round</td>
+										 		<td class="first-col"><fmt:message key="label.account.promocode.row1.col1" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.promocode.row1.col2" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.promocode.row1.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col">Easy HomeCare Insurance</td>
-										 		<td>8% off</td>
-										 		<td>Year-round</td>
+										 		<td class="first-col"><fmt:message key="label.account.promocode.row2.col1" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.promocode.row2.col2" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.promocode.row2.col3" bundle="${msg}" /></td>
 										 	</tr>
-										 	<tr>
+										 	<!--tr>
 										 		<td class="first-col">Savie Insurance Plan</td>
 										 		<td>20% off</td>
 										 		<td>Year-round</td>
@@ -756,7 +756,7 @@ var languageP = "${language}";
 										 		<td class="first-col">Overseas StudyCare</td>
 										 		<td>8% off</td>
 										 		<td>Year-round</td>
-										 	</tr>
+										 	</tr-->
 										 </tbody>
 									</table>
 								</div>
@@ -792,11 +792,11 @@ var languageP = "${language}";
 										 </thead>
 										 <tbody>
 										 	<tr>
-										 		<td class="first-col">Travel Insurance (single trip)</td>
-										 		<td>30% off</td>
-										 		<td>One-off<sup>2</sup></td>
+										 		<td class="first-col"><fmt:message key="label.account.refferal.row1.col1" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.refferal.row1.col2" bundle="${msg}" /></td>
+										 		<td><fmt:message key="label.account.refferal.row1.col3" bundle="${msg}" /></td>
 										 	</tr>
-										 	<tr>
+										 	<!--tr>
 										 		<td class="first-col">Home Insurance</td>
 										 		<td>30% off</td>
 										 		<td>One-off<sup>2</sup></td>
@@ -805,11 +805,9 @@ var languageP = "${language}";
 										 		<td class="first-col">Savie Insurance Plan</td>
 										 		<td>30% off</td>
 										 		<td>One-off<sup>2</sup></td>
-										 	</tr>
+										 	</tr-->
 										 </tbody>
 									</table>
-									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
-									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
 								</div>
 							</div>	
 							<!--fwd partner code-->	
@@ -842,6 +840,8 @@ var languageP = "${language}";
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_theclub.png" id="the-club" />
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
 									</div>
+									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
+									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
 								</div>
 							</div>		
 						</div>		

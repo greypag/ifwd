@@ -8427,6 +8427,9 @@ form#table-info #id-policy, form#table-info #id-application {
   margin-top: -5px;
   margin-left: 18px;
 }
+#signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre .bank-info-select-label {
+  position: absolute;
+}
 /* line 132, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre .viewmap-link {
   font-size: 15px;
@@ -8434,6 +8437,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 139, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre .selectDiv .gray-dropdown {
   width: 100%;
+  padding-top: 16px !important;
 }
 /* line 143, ../sass/partials/savie/_signature-offline.scss */
 #signature-offline #fwd-container-signatureoffline .form-signatureoffline-info #choose-service-centre .orange-caret {
