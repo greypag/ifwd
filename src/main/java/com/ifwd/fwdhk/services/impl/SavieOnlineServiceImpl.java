@@ -9,8 +9,10 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -673,6 +675,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	@SuppressWarnings({ "deprecation", "unchecked" })
 	public void createFnaFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception {
+		String lang = UserRestURIConstants.getLanaguage(request);
+
+		Map<String, String> objectiveNames = new HashMap();
+		objectiveNames.put("0", WebServiceUtils.getMessage("fna.objective0.name", lang));
+		objectiveNames.put("1", WebServiceUtils.getMessage("fna.objective1.name", lang));
+		objectiveNames.put("2", WebServiceUtils.getMessage("fna.objective2.name", lang));
+		objectiveNames.put("3", WebServiceUtils.getMessage("fna.objective3.name", lang));
+		objectiveNames.put("4", WebServiceUtils.getMessage("fna.objective4.name", lang));		
+		
+		Map<String, String> groupNames = new HashMap();
+		groupNames.put("0", WebServiceUtils.getMessage("fna.group0.name", lang));
+		groupNames.put("1", WebServiceUtils.getMessage("fna.group1.name", lang));
+		groupNames.put("2", WebServiceUtils.getMessage("fna.group2.name", lang));
+		groupNames.put("3", WebServiceUtils.getMessage("fna.group3.name", lang));
+
+		Map<String, String> contributeNames = new HashMap();
+		contributeNames.put("0", WebServiceUtils.getMessage("fna.contribute0.name", lang));
+		contributeNames.put("1", WebServiceUtils.getMessage("fna.contribute1.name", lang));
+		contributeNames.put("2", WebServiceUtils.getMessage("fna.contribute2.name", lang));
+		contributeNames.put("3", WebServiceUtils.getMessage("fna.contribute3.name", lang));
+		contributeNames.put("4", WebServiceUtils.getMessage("fna.contribute4.name", lang));
+		contributeNames.put("5", WebServiceUtils.getMessage("fna.contribute5.name", lang));
+
 		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
@@ -681,9 +706,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String showOnly1Product = (String) session.getAttribute("showOnly1Product");
 		String showILASsDescription = (String) session.getAttribute("showILASsDescription");
 		String showNoAvailableProduct = (String) session.getAttribute("showNoAvailableProduct");
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
@@ -1023,10 +1045,116 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			logger.info("产品数："+i);
 		}
 		
+		/*
 		attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
-
+		*/
+		String fnaMsg = "";
+        String matchProductGroup = "";
+        List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
+        int productCount = 0;
+        int unaffortableCount = 0;
+        boolean hasUlife = false;
+        String objectives = savieFna.getQ1();
+        String productGroups = savieFna.getQ2();
+        for(int a=0;a<productRecommendation.getProduct_list().size();a++){
+            List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
+            List<MorphDynaBean> otherTypes = (List<MorphDynaBean>) productLists.get(a).get("other_types");
+            unaffortableCount += otherTypes.size();
+            if (!hasUlife){
+	            for (int b=0;b<otherTypes.size();b++){
+	            	if (otherTypes.get(b).get("type").equals("Universal Life")
+	            			|| otherTypes.get(b).get("type").equals("萬用壽險")){
+	            		hasUlife = true;
+	            		break;
+	            	}            		
+	            }
+            }
+            for (int b=0;b<products.size();b++){            	
+                String[] ans = products.get(b).get("q1").toString().split(",");
+                for (int c=0;c<ans.length;c++){
+                	objectives = objectives.replace(ans[c],"9");
+                }
+                productGroups = productGroups.replace(products.get(b).get("q2").toString(), "9");
+                matchProductGroup = products.get(b).get("q2").toString();
+            }
+            productCount += products.size();
+        }
+    
+        if (productCount==1) // case 1
+        {
+            fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
+        }
+        if (productRecommendation.getHasILAS().equals("Y")) {
+            fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
+        }
+        if (unaffortableCount>0 && productCount<=1){
+            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n";
+        }
+        if (productCount==1 && hasUlife && unaffortableCount==1){
+        	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
+        }
+        String case3aMsg = "";
+        String case3bMsg = "";
+        String[] obj = objectives.split(",");
+        String notMatchObj = "";
+        for (int a=0;a<obj.length;a++){
+        	if (!obj[a].equals("9"))
+        	{
+        		if (notMatchObj.length()>0){
+        			notMatchObj += ",";
+        		}
+        		notMatchObj += objectiveNames.get(obj[a]);
+        	}
+        }
+        if (notMatchObj.length()>0){
+        	String allGroupName = "";
+        	String[] allGroups = savieFna.getQ2().split(",");
+            for (int a=0;a<allGroups.length;a++){
+        		if (allGroupName.length()>0){
+        			allGroupName += ",";
+        		}
+        		allGroupName += groupNames.get(allGroups[a]);
+            }
+        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, notMatchObj, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
+        }
+        String[] group = productGroups.split(",");
+        String notMatchGrp = "";
+        for (int a=0;a<group.length;a++){
+        	if (!group[a].equals("9"))
+        	{
+        		if (notMatchGrp.length()>0){
+        			notMatchGrp += ",";
+        		}
+        		notMatchGrp += groupNames.get(group[a]);
+        	}
+        }
+        if (notMatchGrp.length()>0){
+        	String allObjName = "";
+        	String[] allObj = savieFna.getQ2().split(",");
+            for (int a=0;a<allObj.length;a++){
+        		if (allObjName.length()>0){
+        			allObjName += ",";
+        		}
+            	allObjName += objectiveNames.get(allObj[a]);
+            }
+        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, allObjName, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
+        }
+        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
+        	if (case3aMsg.equals(case3bMsg)){
+        		fnaMsg += case3aMsg + "\r\n";
+        	} else {
+        		if (case3aMsg.length() > 0){
+        			fnaMsg += case3aMsg + "\r\n";
+        		}
+        		if (case3bMsg.length() > 0){
+        			fnaMsg += case3bMsg + "\r\n";
+        		}
+        	}
+        }
+                
+        attributeList.add(new PdfAttribute("Noresult", fnaMsg));
 		
 		attributeList.add(new PdfAttribute("Date1", "Date (DD-MM-YYYY)"));
 		attributeList.add(new PdfAttribute("Date2", "日期 (日-月-年)"));
