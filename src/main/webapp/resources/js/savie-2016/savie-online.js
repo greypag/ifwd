@@ -70,7 +70,8 @@ $(document).ready(function() {
 	
 	// Convert inputted letters to uppercase
 	$('.form-uppercase input[type="text"]').keyup(function() {
-		this.value = this.value.toUpperCase();
+		//this.value = this.value.toUpperCase();
+		$(this).css('text-transform', 'uppercase');
 	});
 	
 	// Radio button upload document
