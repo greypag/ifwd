@@ -200,7 +200,7 @@ var languageP = "${language}";
 										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
 									</div>
 								</div>
-								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="display:none;">
+								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="">
 									<h5 class="so-h5"><fmt:message key="label.passport.copy" bundle="${msg}" /></h5>
 									<h6 class="so-h6 upload-bottom"><fmt:message key="label.passport.copy.des" bundle="${msg}" /></h6>
 									<form action="upload-documents" id="passport-upload-form" method="POST" class="upload-form">
