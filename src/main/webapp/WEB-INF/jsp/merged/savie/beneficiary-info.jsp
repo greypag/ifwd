@@ -203,17 +203,15 @@ var languageP = "${language}";
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
@@ -221,14 +219,12 @@ var languageP = "${language}";
 													
 													<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 													<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" value="${beneficaryRelationCode1 }" />
@@ -346,17 +342,15 @@ var languageP = "${language}";
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
@@ -364,14 +358,12 @@ var languageP = "${language}";
 													
 													<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 													<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" value="${beneficaryRelationCode2 }" />
@@ -489,17 +481,15 @@ var languageP = "${language}";
 														<option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
 																<enhance:out escapeXml="false">
-																    <option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+																    <option value="${list.itemCode }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 																</enhance:out>
 															</c:forEach>
 														</c:if>
@@ -507,14 +497,12 @@ var languageP = "${language}";
 													
 													<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }"/></c:if>
 															</c:forEach>
 														</c:if>
 													<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" value="${beneficaryRelationCode3 }" />

@@ -439,7 +439,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[0]" id="tmpBeneficiaryRelationship[0]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName1 }">${lifeBeneficaryInfo.beneficaryRelationName1 }</option>
+													<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName1:lifeBeneficaryInfo.beneficaryRelationCnName1 }">${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName1:lifeBeneficaryInfo.beneficaryRelationCnName1 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" />
 											</div>
@@ -498,7 +498,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[1]" id="tmpBeneficiaryRelationship[1]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName2 }">${lifeBeneficaryInfo.beneficaryRelationName2 }</option>
+													<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName2:lifeBeneficaryInfo.beneficaryRelationCnName2 }">${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName2:lifeBeneficaryInfo.beneficaryRelationCnName2 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" />
 											</div>
@@ -557,7 +557,7 @@
 												<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.relation" bundle="${msg}" /></label>
 												<select name="tmpBeneficiaryRelationship[2]" id="tmpBeneficiaryRelationship[2]" class="form-control gray-dropdown">
 													<option value=""><fmt:message key="placeholder.relation" bundle="${msg}" /></option>
-													<option disabled="disabled" selected="selected" value="${lifeBeneficaryInfo.beneficaryRelationName3 }">${lifeBeneficaryInfo.beneficaryRelationName3 }</option>
+													<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName3:lifeBeneficaryInfo.beneficaryRelationCnName3 }">${language == 'en' ? lifeBeneficaryInfo.beneficaryRelationEnName3:lifeBeneficaryInfo.beneficaryRelationCnName3 }</option>
 												</select>
 												<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" />
 											</div>

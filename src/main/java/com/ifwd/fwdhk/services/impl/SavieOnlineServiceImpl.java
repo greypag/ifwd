@@ -2120,7 +2120,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeBeneficaryInfo.setBeneficiaryPassport1(policyApplication.getBeneficiaryPassport1()!=null?policyApplication.getBeneficiaryPassport1():"");
 			lifeBeneficaryInfo.setBeneficaryGender1(policyApplication.getBeneficiaryGender1()!=null?policyApplication.getBeneficiaryGender1():"");
 			lifeBeneficaryInfo.setBeneficaryRelation1(policyApplication.getBeneficiaryRelationship1()!=null?policyApplication.getBeneficiaryRelationship1():"");
-			lifeBeneficaryInfo.setBeneficaryRelationName1(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation1())?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[1]:"");
+			if(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation1())){
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation1().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationEnName1(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation1().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationCnName1(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeBeneficaryInfo.setBeneficaryWeight1(policyApplication.getBeneficiaryEntitlement1()!=null?policyApplication.getBeneficiaryEntitlement1():"");
 			lifeBeneficaryInfo.setBeneficaryFirstName2(policyApplication.getBeneficiaryFirstName2()!=null?policyApplication.getBeneficiaryFirstName2():"");
 			lifeBeneficaryInfo.setBeneficaryLastName2(policyApplication.getBeneficiaryLastName2()!=null?policyApplication.getBeneficiaryLastName2():"");
@@ -2130,7 +2143,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeBeneficaryInfo.setBeneficiaryPassport2(policyApplication.getBeneficiaryPassport2()!=null?policyApplication.getBeneficiaryPassport2():"");
 			lifeBeneficaryInfo.setBeneficaryGender2(policyApplication.getBeneficiaryGender2()!=null?policyApplication.getBeneficiaryGender2():"");
 			lifeBeneficaryInfo.setBeneficaryRelation2(policyApplication.getBeneficiaryRelationship2()!=null?policyApplication.getBeneficiaryRelationship2():"");
-			lifeBeneficaryInfo.setBeneficaryRelationName2(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation2())?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[1]:"");
+			if(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation2())){
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation2().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationEnName2(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation2().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationCnName2(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeBeneficaryInfo.setBeneficaryWeight2(policyApplication.getBeneficiaryEntitlement2()!=null?policyApplication.getBeneficiaryEntitlement2():"");
 			lifeBeneficaryInfo.setBeneficaryFirstName3(policyApplication.getBeneficiaryFirstName3()!=null?policyApplication.getBeneficiaryFirstName3():"");
 			lifeBeneficaryInfo.setBeneficaryLastName3(policyApplication.getBeneficiaryLastName3()!=null?policyApplication.getBeneficiaryLastName3():"");
@@ -2140,7 +2166,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeBeneficaryInfo.setBeneficiaryPassport3(policyApplication.getBeneficiaryPassport3()!=null?policyApplication.getBeneficiaryPassport3():"");
 			lifeBeneficaryInfo.setBeneficaryGender3(policyApplication.getBeneficiaryGender3()!=null?policyApplication.getBeneficiaryGender3():"");
 			lifeBeneficaryInfo.setBeneficaryRelation3(policyApplication.getBeneficiaryRelationship3()!=null?policyApplication.getBeneficiaryRelationship3():"");
-			lifeBeneficaryInfo.setBeneficaryRelationName3(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation3())?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[1]:"");
+			if(!"".equals(lifeBeneficaryInfo.getBeneficaryRelation3())){
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation3().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationEnName3(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+					if(lifeBeneficaryInfo.getBeneficaryRelation3().equals(item.getItemCode())){
+						lifeBeneficaryInfo.setBeneficaryRelationCnName3(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			lifeBeneficaryInfo.setBeneficaryWeight3(policyApplication.getBeneficiaryEntitlement3()!=null?policyApplication.getBeneficiaryEntitlement3():"");
 			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
 			

@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.exception.ValidationExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
@@ -25,7 +27,8 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport1;
 	private String beneficaryGender1;
 	private String beneficaryRelation1;
-	private String beneficaryRelationName1;
+	private String beneficaryRelationEnName1;
+	private String beneficaryRelationCnName1;
 	private String beneficaryWeight1;
 	private String beneficaryFirstName2;
 	private String beneficaryLastName2;
@@ -35,7 +38,8 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport2;
 	private String beneficaryGender2;
 	private String beneficaryRelation2;
-	private String beneficaryRelationName2;
+	private String beneficaryRelationEnName2;
+	private String beneficaryRelationCnName2;
 	private String beneficaryWeight2;
 	private String beneficaryFirstName3;
 	private String beneficaryLastName3;
@@ -45,25 +49,64 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport3;
 	private String beneficaryGender3;
 	private String beneficaryRelation3;
-	private String beneficaryRelationName3;
+	private String beneficaryRelationEnName3;
+	private String beneficaryRelationCnName3;
 	private String beneficaryWeight3;
 	private String type;
 	
 	public void validate(String language) throws ValidateExceptions {
 		if(!this.isOwnEstate){
 			if(!"".equals(this.beneficaryFirstName1)){
-				this.beneficaryRelationName1 = !"".equals(this.beneficaryRelation1)?this.beneficaryRelation1.split("-")[1]:"";
+				if(!"".equals(this.beneficaryRelation1)){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(this.beneficaryRelation1.equals(item.getItemCode())){
+							this.beneficaryRelationEnName1 = item.getItemDesc();
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(this.beneficaryRelation1.equals(item.getItemCode())){
+							this.beneficaryRelationCnName1 = item.getItemDesc();
+							break;
+						}
+					}
+				}
 			}
 			if(!"".equals(this.beneficaryFirstName2)){
-				this.beneficaryRelationName2 = !"".equals(this.beneficaryRelation2)?this.beneficaryRelation2.split("-")[1]:"";
+				if(!"".equals(this.beneficaryRelation2)){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(this.beneficaryRelation2.equals(item.getItemCode())){
+							this.beneficaryRelationEnName2 = item.getItemDesc();
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(this.beneficaryRelation2.equals(item.getItemCode())){
+							this.beneficaryRelationCnName2 = item.getItemDesc();
+							break;
+						}
+					}
+				}
 			}
 			if(!"".equals(this.beneficaryFirstName3)){
-				this.beneficaryRelationName3 = !"".equals(this.beneficaryRelation3)?this.beneficaryRelation3.split("-")[1]:"";
+				if(!"".equals(this.beneficaryRelation3)){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(this.beneficaryRelation3.equals(item.getItemCode())){
+							this.beneficaryRelationEnName3 = item.getItemDesc();
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(this.beneficaryRelation3.equals(item.getItemCode())){
+							this.beneficaryRelationCnName3 = item.getItemDesc();
+							break;
+						}
+					}
+				}
 			}
 		}
 		
 		List<String> list = new ArrayList<String>();
-		logger.info("isOwnEstate:"+isOwnEstate);
 		/*if(!this.isOwnEstate){
 			if(ValidationUtils.isNullOrEmpty(this.beneficaryFirstName1)){
 	        	list.add(ErrorMessageUtils.getMessage("beneficaryFirstName1", "validation.failure", language));
@@ -292,28 +335,54 @@ public class LifeBeneficaryInfoBean implements Serializable {
 		this.beneficiaryPassport3 = beneficiaryPassport3;
 	}
 
-	public String getBeneficaryRelationName1() {
-		return beneficaryRelationName1;
+	
+
+	public String getBeneficaryRelationEnName1() {
+		return beneficaryRelationEnName1;
 	}
 
-	public void setBeneficaryRelationName1(String beneficaryRelationName1) {
-		this.beneficaryRelationName1 = beneficaryRelationName1;
+	public void setBeneficaryRelationEnName1(String beneficaryRelationEnName1) {
+		this.beneficaryRelationEnName1 = beneficaryRelationEnName1;
 	}
 
-	public String getBeneficaryRelationName2() {
-		return beneficaryRelationName2;
+	public String getBeneficaryRelationCnName1() {
+		return beneficaryRelationCnName1;
 	}
 
-	public void setBeneficaryRelationName2(String beneficaryRelationName2) {
-		this.beneficaryRelationName2 = beneficaryRelationName2;
+	public void setBeneficaryRelationCnName1(String beneficaryRelationCnName1) {
+		this.beneficaryRelationCnName1 = beneficaryRelationCnName1;
 	}
 
-	public String getBeneficaryRelationName3() {
-		return beneficaryRelationName3;
+	public String getBeneficaryRelationEnName2() {
+		return beneficaryRelationEnName2;
 	}
 
-	public void setBeneficaryRelationName3(String beneficaryRelationName3) {
-		this.beneficaryRelationName3 = beneficaryRelationName3;
+	public void setBeneficaryRelationEnName2(String beneficaryRelationEnName2) {
+		this.beneficaryRelationEnName2 = beneficaryRelationEnName2;
+	}
+
+	public String getBeneficaryRelationCnName2() {
+		return beneficaryRelationCnName2;
+	}
+
+	public void setBeneficaryRelationCnName2(String beneficaryRelationCnName2) {
+		this.beneficaryRelationCnName2 = beneficaryRelationCnName2;
+	}
+
+	public String getBeneficaryRelationEnName3() {
+		return beneficaryRelationEnName3;
+	}
+
+	public void setBeneficaryRelationEnName3(String beneficaryRelationEnName3) {
+		this.beneficaryRelationEnName3 = beneficaryRelationEnName3;
+	}
+
+	public String getBeneficaryRelationCnName3() {
+		return beneficaryRelationCnName3;
+	}
+
+	public void setBeneficaryRelationCnName3(String beneficaryRelationCnName3) {
+		this.beneficaryRelationCnName3 = beneficaryRelationCnName3;
 	}
 
 	public String getBeneficiaryHkidPassport1() {
