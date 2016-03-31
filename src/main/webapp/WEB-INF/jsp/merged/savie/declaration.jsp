@@ -312,7 +312,7 @@ var languageP = "${language}";
 				<ol>
 					<fmt:message key="info.savie.pics.copy" bundle="${msg}" />
 				</ol>
-				<fmt:message key="info.savie.pics.copy.final" bundle="${msg}" />
+				<div id="pics-copy-final"><fmt:message key="info.savie.pics.copy.final" bundle="${msg}" /></div>
 			 </div>
 		 </div>
 	  </div>
