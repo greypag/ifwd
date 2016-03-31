@@ -1116,7 +1116,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
             }
             fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
         }
-        if (productCount==1 && hasUlife && unaffortableCount==1){
+        if (productCount==1 && hasUlife && unaffortableCount==0){
         	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
         }
         String case3aMsg = "";
