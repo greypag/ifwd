@@ -1055,15 +1055,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
         int productCount = 0;
         int unaffortableCount = 0;
+        Map<String, String> unaffortableTypes = new HashMap();
+        Map<String, String> affortableTypes = new HashMap();
         boolean hasUlife = false;
         String objectives = savieFna.getQ1();
         String productGroups = savieFna.getQ2();
         for(int a=0;a<productRecommendation.getProduct_list().size();a++){
             List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
             List<MorphDynaBean> otherTypes = (List<MorphDynaBean>) productLists.get(a).get("other_types");
-            unaffortableCount += otherTypes.size();
             if (!hasUlife){
 	            for (int b=0;b<otherTypes.size();b++){
+	            	if (!unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
+	            		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
+	            	}
+	            		
 	            	if (otherTypes.get(b).get("type").equals("Universal Life")
 	            			|| otherTypes.get(b).get("type").equals("萬用壽險")){
 	            		hasUlife = true;
@@ -1076,12 +1081,21 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
                 for (int c=0;c<ans.length;c++){
                 	objectives = objectives.replace(ans[c],"9");
                 }
+            	if (!affortableTypes.containsKey(products.get(b).get("type"))){
+            		affortableTypes.put(products.get(b).get("type").toString(), products.get(b).get("type").toString());
+            	}
                 productGroups = productGroups.replace(products.get(b).get("q2").toString(), "9");
                 matchProductGroup = products.get(b).get("q2").toString();
             }
             productCount += products.size();
         }
     
+        for (Map.Entry<String, String> entry : affortableTypes.entrySet())
+        {
+            if (unaffortableTypes.containsKey(entry.getKey())){
+            	unaffortableTypes.remove(entry.getKey());
+            }
+        }
         if (productCount==1) // case 1
         {
             fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
@@ -1089,8 +1103,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         if (productRecommendation.getHasILAS().equals("Y")) {
             fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
         }
-        if (unaffortableCount>0 && productCount<=1){
-            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n";
+        if (unaffortableTypes.size()>0 && productCount<=1){
+        	String unaffortableTypesName = "";
+            for (Map.Entry<String, String> entry : unaffortableTypes.entrySet())
+            {
+            	if (unaffortableTypesName.length()>0){
+            		unaffortableTypesName += ",";
+            	}
+            	unaffortableTypesName += entry.getKey();
+            }
+            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
         }
         if (productCount==1 && hasUlife && unaffortableCount==1){
         	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
