@@ -297,7 +297,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 66){
+					if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
@@ -394,7 +394,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 				}
 				else if(issueAge < 67){
-					if(age == 66){
+					if(age == 65){
 						if("tc".equals(lang)){
 							showAge = "66歲";
 						}else{
