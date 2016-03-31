@@ -438,6 +438,7 @@ var languageP = "${language}";
 				});
 				
 				// Uploading file validation
+				var up = true;
 				$('#updoc-complete-btn').on('click', function(e) {
 					if($("input[name='upload']:checked").val()=="true"){
 						var $self = $(this);
@@ -445,11 +446,13 @@ var languageP = "${language}";
 							isValid = isPassportValidity($self);
 							isValid = isProfAddValidity($self);
 						
-						if (isValid) {
+						if (isValid && up) {
 							console.log('Proceed');
 							$self.removeAttr('disabled');
 							documentUpload();
-						} else {
+							up = false;
+						} 
+						else {
 							$self.attr('disabled', 'disabled');
 						}
 					}
