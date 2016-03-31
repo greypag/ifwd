@@ -796,7 +796,7 @@ var FNArecommendation = {
 			//Show Recommendation Anchor and Sorting dropdown
 			$(".haveProducts, .fna-sorting").show();
 		}else{
-			if( data.hasILAS=='Y' || (data.hasILAS!='Y' && bUnaffordableIlas)){
+			if( data.hasILAS=='Y' ){
 				//Display custom message for only ilas case
 				$(".onlyIlas").show();
 				$(".haveProducts, .noProducts").hide();
