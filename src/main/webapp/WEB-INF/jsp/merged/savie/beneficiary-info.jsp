@@ -876,7 +876,7 @@ var languageP = "${language}";
 								   }
 								}
 							},
-							'beneficiaryID3':{
+							'beneficaryID3':{
 							container: '#beneficiaryHkidErMsg\\[2\\]',
 							validators: {
 								notEmpty: {
@@ -887,16 +887,11 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
 			               },
 								callback: {
-				                  callback: function(value, validator) {
-									if(!isValidHKID(value)) {
-										return {
-											valid: false,
-											message: getBundle(getBundleLanguage, "form.hkid.invalid")
-										}
-									}
-									return true;
-				                  }
-				                }
+		                      message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+		                      callback: function(value, validator) {
+		                         return isValidHKID(value);
+		                      }
+				            }
 							}
 						},
 							'tmpBeneficiaryGender-3': {
@@ -1049,7 +1044,7 @@ var languageP = "${language}";
 			               }
 							}
 						},
-						'beneficiaryID2':{
+						'beneficaryID2':{
 							container: '#beneficiaryHkidErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
@@ -1060,16 +1055,11 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
 			               },
 								callback: {
-				                  callback: function(value, validator) {
-									if(!isValidHKID(value)) {
-										return {
-											valid: false,
-											message: getBundle(getBundleLanguage, "form.hkid.invalid")
-										}
-									}
-									return true;
-				                  }
-				                }
+									message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+		                     callback: function(value, validator) {
+		                         return isValidHKID(value);
+		                     }
+				            }
 							}
 						},
 						"tmpBeneficiaryGender-2": {
@@ -1246,7 +1236,11 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
 			               },
 								callback: {
-			                  callback: function(value, validator) {
+									message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+		                     callback: function(value, validator) {
+		                         return isValidHKID(value);
+		                     }
+			                  /* callback: function(value, validator) {
 										if(!isValidHKID(value)) {
 											return {
 												valid: false,
@@ -1254,7 +1248,7 @@ var languageP = "${language}";
 											}
 										}
 										return true;
-			                  }
+			                  } */
 				            }
 							}
 						},
