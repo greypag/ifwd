@@ -13,6 +13,10 @@
 <c:set var="uri" value="${req.requestURI}" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
+</script>
 <html lang="en">
 	<head>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
