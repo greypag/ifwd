@@ -15,7 +15,7 @@ public class PDFToImages {
 	    PDFImages.setKey(UserRestURIConstants.getConfigs("pdfImagesKey"));
 		File[] files = new File[pdfDoc.getPageCount()];
 	    for (int count = 0; count < pdfDoc.getPageCount(); ++count){
-	    	String name = path + count + ".jpg";
+	    	String name = path + pdf + count + ".jpg";
 	        pdfDoc.savePageAsJPEG(count,name , 150, 0.8f);
 	        files[count] = new File(name);
 	    }
