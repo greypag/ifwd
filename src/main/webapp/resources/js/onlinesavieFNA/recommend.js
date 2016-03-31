@@ -404,8 +404,8 @@ var FNArecommendation = {
 				that.fnaResultData = res;
 				that.parseProductRecommend(res);
 				that.setLoading(false);
-			},null,"GET");
-		},null,"GET");
+			},null,"POST");
+		},null,"POST");
 	},
 
 	saveAndLoad:function(){
@@ -424,7 +424,7 @@ var FNArecommendation = {
 			that.fnaResultData = res;
 			that.parseProductRecommend(res);
 			that.setLoading(false);
-		},null,"GET");
+		},null,"POST");
 	},
 
 	loadProductRecommend:function(morePage){
@@ -436,7 +436,7 @@ var FNArecommendation = {
 			that.fnaResultData = res;
 			that.parseProductRecommend(res, morePage != undefined);
 			that.setLoading(false);
-		},null,"GET");
+		},null,"POST");
 	},
 
 	setLoading:function(flag){
