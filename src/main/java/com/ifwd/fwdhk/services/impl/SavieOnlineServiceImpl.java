@@ -253,34 +253,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			
 			int issueAge = Integer.valueOf(planDetailData.getIssueAge());
+			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject( planDetailData );  
+			System.out.println(json);
 			for(int i=0;i<planDetailData.getPlanDetails0Rate().size();i++){
 				int policyYear = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getType().substring(1));
 				int age = Integer.valueOf(planDetailData.getPlanDetails0Rate().get(i).getAge());
-				if(policyYear < 5){
+				if(policyYear == 4){
 					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
-					if(policyYear < 4){
-						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
-					}else{
-						attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-						
-					}
-					
-					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
-					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
-					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+					attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
+					attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
 				}
 				
 				if(policyYear%5==0 && policyYear/5<7){
@@ -291,23 +276,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
 					attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
 							getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-					
-					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
-					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
-					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
-							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
-				
 				}
 				String showAge = "";
 				if(issueAge > 66){
 					if(policyYear == 100){
 						if("tc".equals(lang)){
-							showAge = "至100歲";
+							showAge = "100歲";
 						}else{
 							showAge = "Age 100";
 						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
 						attributeList.add(new PdfAttribute("EndofPolicyYear_66",showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
 						attributeList.add(new PdfAttribute("Accountvalue_66",NumberFormatUtils.formatNumber(
@@ -316,7 +294,97 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
 						attributeList.add(new PdfAttribute("DeathBenefit_66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-						
+					}
+				}
+				else if(issueAge < 67){
+					if(age == 66){
+						if("tc".equals(lang)){
+							showAge = "66歲";
+						}else{
+							showAge = "Age 66";
+						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_66",showAge));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_66",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_66",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_66",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					if(policyYear == 100){
+						if("tc".equals(lang)){
+							showAge = "100歲";
+						}else{
+							showAge = "Age 100";
+						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100",showAge));
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
+						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
+						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
+						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(
+								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
+					}
+					
+				}
+			}
+			
+			for(int i=0;i<planDetailData.getPlanDetails2Rate().size();i++){
+				int policyYear = Integer.valueOf(planDetailData.getPlanDetails2Rate().get(i).getType().substring(1));
+				int age = Integer.valueOf(planDetailData.getPlanDetails2Rate().get(i).getAge());
+				
+				
+				if(policyYear < 4){
+					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
+					attributeList.add(new PdfAttribute("Accountvalue_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+					attributeList.add(new PdfAttribute("DeathBenefit_"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+					
+					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+				}
+				
+				if(policyYear == 4){
+					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+				}
+				
+				if(policyYear%5==0 && policyYear/5<7){
+					attributeList.add(new PdfAttribute("TotalPermiumsPaid_"+policyYear,totalPremium));
+					attributeList.add(new PdfAttribute("Accountvalue_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
+					attributeList.add(new PdfAttribute("SurrenderBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedSurrenderBenefit()))));
+					attributeList.add(new PdfAttribute("DeathBenefit_a"+policyYear,NumberFormatUtils.formatNumber(
+							getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getGuranteedDeathBenefit()))));
+				
+				}
+				
+				String showAge = "";
+				if(issueAge > 66){
+					if(policyYear == 100){
+						if("tc".equals(lang)){
+							showAge = "100歲";
+						}else{
+							showAge = "Age 100";
+						}
+						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
+						attributeList.add(new PdfAttribute("EndofPolicyYear_66",showAge));
 						attributeList.add(new PdfAttribute("Accountvalue_a66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
 						attributeList.add(new PdfAttribute("SurrenderBenefit_a66",NumberFormatUtils.formatNumber(
@@ -328,19 +396,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				else if(issueAge < 67){
 					if(age == 66){
 						if("tc".equals(lang)){
-							showAge = "至66歲";
+							showAge = "66歲";
 						}else{
 							showAge = "Age 66";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_66",showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_66",totalPremium));
-						attributeList.add(new PdfAttribute("Accountvalue_66",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_66",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_66",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-						
+						attributeList.add(new PdfAttribute("EndofPolicyYear_66",showAge));
 						attributeList.add(new PdfAttribute("Accountvalue_a66",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
 						attributeList.add(new PdfAttribute("SurrenderBenefit_a66",NumberFormatUtils.formatNumber(
@@ -350,19 +411,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					}
 					if(policyYear == 100){
 						if("tc".equals(lang)){
-							showAge = "至100歲";
+							showAge = "100歲";
 						}else{
 							showAge = "Age 100";
 						}
-						attributeList.add(new PdfAttribute("EndofPolicyYear_100",showAge));
 						attributeList.add(new PdfAttribute("TotalPermiumsPaid_100",totalPremium));
-						attributeList.add(new PdfAttribute("Accountvalue_100",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getAccountEOP()))));
-						attributeList.add(new PdfAttribute("SurrenderBenefit_100",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedSurrenderBenefit()))));
-						attributeList.add(new PdfAttribute("DeathBenefit_100",NumberFormatUtils.formatNumber(
-								getIntAmount(planDetailData.getPlanDetails0Rate().get(i).getGuranteedDeathBenefit()))));
-						
+						attributeList.add(new PdfAttribute("EndofPolicyYear_100",showAge));
 						attributeList.add(new PdfAttribute("Accountvalue_a100",NumberFormatUtils.formatNumber(
 								getIntAmount(planDetailData.getPlanDetails2Rate().get(i).getAccountEOP()))));
 						attributeList.add(new PdfAttribute("SurrenderBenefit_a100",NumberFormatUtils.formatNumber(
@@ -375,8 +429,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				
 				
 			}
-			
-			
 			
 			attributeList.add(new PdfAttribute("EndofContractTerm","4 - "+(100-issueAge)));
 			attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)));
