@@ -144,7 +144,7 @@ public class SavieOnlineController extends BaseController{
 			} else {
 				model.addAttribute("sliderMax", savieFna.getQ4_b_amount().replace(",", ""));
 				if (request.getSession().getAttribute("saviePlanDetails")!=null) {
-					if (Integer.parseInt(savieFna.getQ4_b_amount())<=Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
+					if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))<=Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
 						sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 					} else {
 						sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
@@ -381,7 +381,7 @@ public class SavieOnlineController extends BaseController{
 			String codeO = null;
 			String liquidAssets = null;
 			if(savieFna!=null){
-				int liquidAssetsAmt = Integer.valueOf(savieFna.getQ4_b_amount());
+				int liquidAssetsAmt = Integer.valueOf(savieFna.getQ4_b_amount().replace(",", ""));
 				if(liquidAssetsAmt<=10000){
 					liquidAssets = "LA1";
 				}
