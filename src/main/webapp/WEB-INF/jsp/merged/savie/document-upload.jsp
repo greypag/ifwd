@@ -485,7 +485,7 @@ var languageP = "${language}";
 						removeFormFieldError('#so-hkid-file-message', '', true);
 					} else { // Process hkid file here
 						removeFormFieldError('#so-hkid-file-message', 'required-hkid');
-						addFormFieldError('#so-hkid-file-message', 'HKID is required.', 'required-hkid');
+						addFormFieldError('#so-hkid-file-message', getBundle(getBundleLanguage,'error.hkid.document.empty'), 'required-hkid');
 						isValid = false;
 					}
 					return isValid;
@@ -507,7 +507,7 @@ var languageP = "${language}";
 						removeFormFieldError('#so-passport-file-message', '', true);
 					} else { // Process passport file here
 						removeFormFieldError('#so-passport-file-message', 'required-hkid');
-						addFormFieldError('#so-passport-file-message', 'Passport is required.', 'required-hkid');
+						addFormFieldError('#so-passport-file-message', getBundle(getBundleLanguage,'error.passport.document.empty'), 'required-hkid');
 						isValid = false;
 					}
 					return isValid;
@@ -532,7 +532,7 @@ var languageP = "${language}";
 						removeFormFieldError('#so-address-file-message', '', true);
 					} else { // Process proof of address file here
 						removeFormFieldError('#so-address-file-message', 'required-hkid');
-						addFormFieldError('#so-address-file-message', 'Proof of address is required.', 'required-hkid');
+						addFormFieldError('#so-address-file-message', getBundle(getBundleLanguage,'error.address.proof.empty'), 'required-hkid');
 						isValid = false;
 					}
 					return isValid;
