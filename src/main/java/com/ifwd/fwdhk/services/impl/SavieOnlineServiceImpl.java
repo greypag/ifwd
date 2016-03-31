@@ -1063,19 +1063,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         for(int a=0;a<productRecommendation.getProduct_list().size();a++){
             List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
             List<MorphDynaBean> otherTypes = (List<MorphDynaBean>) productLists.get(a).get("other_types");
-            if (!hasUlife){
-	            for (int b=0;b<otherTypes.size();b++){
-	            	if (!unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
-	            		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
-	            	}
-	            		
+            for (int b=0;b<otherTypes.size();b++){
+            	if (!unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
+            		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
+            	}
+            		
+                if (!hasUlife){
 	            	if (otherTypes.get(b).get("type").equals("Universal Life")
 	            			|| otherTypes.get(b).get("type").equals("萬用壽險")){
 	            		hasUlife = true;
-	            		break;
-	            	}            		
-	            }
+	            	}
+                }
             }
+            
             for (int b=0;b<products.size();b++){            	
                 String[] ans = products.get(b).get("q1").toString().split(",");
                 for (int c=0;c<ans.length;c++){
