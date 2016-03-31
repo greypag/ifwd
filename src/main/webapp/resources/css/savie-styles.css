@@ -6581,6 +6581,11 @@ p .payment-policy-wrapper{
   margin-bottom: 30px;
   padding: 6px 55px;
 }
+
+#sales-illustration-page #accept-btn{
+  margin-bottom: 30px;
+}
+
 @media (min-width: 992px) {
   /* line 117, ../sass/partials/savie/_sales-illustration.scss */
   #sales-illustration-page #pdf-holder #accept-btn {
