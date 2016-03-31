@@ -1208,7 +1208,25 @@ var languageP = "${language}";
 			                    }
 							}
 						},
-						'beneficiaryPassport1':{
+						myClass: {
+			            selector: '#beneficiaryPassport\\[0\\]',
+			            container: '#beneficiaryPassErMsg\\[0\\]',
+							validators: {
+								stringLength: {
+			                        min: 5,
+			                        max: 15,
+			                        message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
+			                    },
+								notEmpty: {
+									message: '<fmt:message key="error.bene.passport.empty" bundle="${msg}" />'
+				               },
+			               regexp: {
+			                  regexp: /^[a-zA-Z0-9\-]*$/,
+			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
+			               }
+							}
+			         },
+						/* 'beneficiaryPassport1':{
 							container: '#beneficiaryPassErMsg\\[0\\]',
 							validators: {
 								stringLength: {
@@ -1224,7 +1242,7 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
 			               }
 							}
-						},
+						}, */
 						'beneficaryID1':{
 							container: '#beneficiaryHkidErMsg\\[0\\]',
 							validators: {
