@@ -1031,7 +1031,7 @@ var fnaSavieGame = {
 			}else if(res.status == 2){
 				//Session Timeout
 			}
-		},null,"GET");
+		},null,"POST");
 	}
 };
 
