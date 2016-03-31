@@ -339,7 +339,7 @@ var fnaSavieGame = {
 		
 		// 86 year ago date
 		var dob_start_date = new Date();
-		dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+		dob_start_date.setFullYear(dob_start_date.getFullYear()-66);
 		dob_start_date.setDate(dob_start_date.getDate()+1);
 
 		$('.frm-fna-dob').datepicker({
