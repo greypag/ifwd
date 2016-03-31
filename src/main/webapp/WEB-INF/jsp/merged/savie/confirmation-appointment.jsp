@@ -140,7 +140,7 @@ var language = "${language}";
 						</div>
 					</div>
 					
-					<p class="note"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p>
+					<!--p class="note"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p-->
 				</div>
 				<hr>
 				<a href="javascript:window.print()" class="visible-md visible-lg print-doc-link">

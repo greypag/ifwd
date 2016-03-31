@@ -497,6 +497,8 @@ var affordabilityPremium = ${sliderMax};
 					</div>
 				</div>
 				<p><fmt:message key="label.savie.plan.detail.note.productrisk" bundle="${msg}" /></p>
+				<br/>
+				<p><fmt:message key="label.savie.plan.detail.note.productrisk2" bundle="${msg}" /></p>
 			</div>
 		</div>
 		<div class="next-btn text-center">
