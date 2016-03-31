@@ -868,7 +868,7 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/imageView/{jpgName}"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/imageView/{jpgName:.+}"})
 	public void imageView(@PathVariable("jpgName") String jpgName,HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String userName = (String)request.getSession().getAttribute("username");
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
