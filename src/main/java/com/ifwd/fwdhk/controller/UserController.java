@@ -344,6 +344,12 @@ public class UserController {
 										past_life.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
+
+									// Change Elite Term Plan Name. Temp Solution. Please Update Database
+									if(entity.getPlanName().equals("定期壽險")){
+										entity.setPlanName("智理想定期保障計劃");
+									}
+
 									if("PENDING".equals(entity.getStatus())) {
 										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
 										pending_life.add(entity);

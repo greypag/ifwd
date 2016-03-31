@@ -771,7 +771,7 @@ var FNArecommendation = {
 			if( affordable_type.indexOf(uKey) == -1 ){
 				var other_product = $(".fna-recommend .template .fna-other-product").clone();
 				other_product.find(".fna-product-type-name").text(uKey);
-				other_product.find(".desc").html(uKey + " " + unaffordable_type[uKey]);
+				other_product.find(".desc").html(unaffordable_type[uKey]);
 				other_product.data('otherType',uKey);
 
 				//prodWrapper.append(product_type);
