@@ -136,21 +136,21 @@ public class SavieOnlineController extends BaseController{
 			
 			model.addAttribute("sliderMin", "30000");
 			String sliderValue = "100000";
-			if (Integer.parseInt(savieFna.getQ4_b_amount())>400000){
+			if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))>400000){
 				model.addAttribute("sliderMax", "400000");
 				if (request.getSession().getAttribute("saviePlanDetails")!=null){
 					sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
 				}
 			} else {
-				model.addAttribute("sliderMax", savieFna.getQ4_b_amount());
+				model.addAttribute("sliderMax", savieFna.getQ4_b_amount().replace(",", ""));
 				if (request.getSession().getAttribute("saviePlanDetails")!=null) {
 					if (Integer.parseInt(savieFna.getQ4_b_amount())<=Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
-						sliderValue = savieFna.getQ4_b_amount();
+						sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 					} else {
 						sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
 					}
 				} else {
-					sliderValue = savieFna.getQ4_b_amount();
+					sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 				}
 			}
 			logger.info(sliderValue);
