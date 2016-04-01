@@ -233,7 +233,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 			attributeList.add(new PdfAttribute("Nameofinsured", userDetails.getFullName()));
 			attributeList.add(new PdfAttribute("Age", planDetailData.getIssueAge()));
-			attributeList.add(new PdfAttribute("Gender", "0".equals(savieFna.getGender())?"M":"F"));
+			if("tc".equals(lang)){
+				attributeList.add(new PdfAttribute("Gender", "0".equals(savieFna.getGender())?"男":"女"));
+			}else{
+				attributeList.add(new PdfAttribute("Gender", "0".equals(savieFna.getGender())?"M":"F"));
+			}
 			
 			attributeList.add(new PdfAttribute("Premiumamount", totalPremium));
 			
