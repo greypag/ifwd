@@ -560,9 +560,9 @@ $(function () {
 	/*var dob_1900_date = new Date();
 	dob_1900_date.setFullYear(1900,0,1);*/
 	
-	//one day before 71 year old date
+	//one day before 69 year old date
 	var dob_70_99_date = new Date();
-	dob_70_99_date.setFullYear(dob_70_99_date.getFullYear()-71);
+	dob_70_99_date.setFullYear(dob_70_99_date.getFullYear()-69);
 	dob_70_99_date.setDate(dob_70_99_date.getDate() + 1);
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance

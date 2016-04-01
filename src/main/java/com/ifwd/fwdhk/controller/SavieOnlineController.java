@@ -19,11 +19,14 @@ import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -59,11 +62,21 @@ public class SavieOnlineController extends BaseController{
 		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}*/
-	
+
+	@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
+	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
+	{
+		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
+		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
+		return rv;
+	}	
+
+	/*
     @RequestMapping(value = {"/{lang}/savings-insurance/fna-test"})
     public ModelAndView getFnaTestPage(Model model, HttpServletRequest request, HttpSession httpSession) {
            return new ModelAndView(UserRestURIConstants.getSitePath(request) + "fna-test");
-    }	
+    }
+    */	
 
 	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
