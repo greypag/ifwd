@@ -603,10 +603,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryLastName1()+" "+lifeBeneficaryInfo.getBeneficaryFirstName1()));
 	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
 	    	    if("tc".equals(lang)){
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", "male".equalsIgnoreCase(lifeBeneficaryInfo.getBeneficaryGender1())?"男":"女"));
 	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationCnName1()));
 	    	    }else{
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1().toUpperCase()));
 	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationEnName1()));
 	    	    }
 	    	    
@@ -617,10 +617,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryLastName2()+" "+lifeBeneficaryInfo.getBeneficaryFirstName2()));
 	    	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
 	    	    if("tc".equals(lang)){
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", "male".equalsIgnoreCase(lifeBeneficaryInfo.getBeneficaryGender2())?"男":"女"));
 	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationCnName2()));
 	    	    }else{
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2().toUpperCase()));
 	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationEnName2()));
 	    	    }
 	    	    
@@ -631,10 +631,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    		attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryLastName3()+" "+lifeBeneficaryInfo.getBeneficaryFirstName3()));
 	    		attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
 	    		if("tc".equals(lang)){
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"男":"女"));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", "male".equalsIgnoreCase(lifeBeneficaryInfo.getBeneficaryGender3())?"男":"女"));
 	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationCnName3()));
 	    	    }else{
-	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
+	    	    	attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3().toUpperCase()));
 	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationEnName3()));
 	    	    }
 	    		
