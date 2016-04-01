@@ -718,10 +718,10 @@ var languageP = "${language}";
 		// Signature box configuration
 		var mobile_canvas_height = '254';
 		var dsktop_canvas_height = '274';
-		var dsktop_canvas_width = '532';
+		var dsktop_canvas_width = '500';
 		var $signatureFirstDiv = $('#signature-1');
 		var $tmpSignature;
-		var mobile_canvas_width = '412';
+		var mobile_canvas_width = '322';
 		var $signStatus1 = $('#signature-status-1');
 		var $signStatus2 = $('#signature-status-2');
 		var $signStatus3 = $('#signature-status-3');
