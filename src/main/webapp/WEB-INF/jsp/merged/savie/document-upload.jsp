@@ -96,7 +96,40 @@ var languageP = "${language}";
 					<div class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page document-upload">
 						<h4 class="so-h4"><fmt:message key="label.select.document.title" bundle="${msg}" /></h4>
 						<div class="radio-group clearfix">
-						  <div class="radio-button-group">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-1">
+											<div class="pull-left radio-holder">
+												<input type="radio" id="upload-now-radio" name="upload" value="true" checked=""> <label for="upload-now-radio"></label>
+											</div>
+										</div>
+										<div class="col-md-11">
+											<div class="text-bold pull-left desc">
+												Upload Now 
+												<span>The policy will be commenced, as soon as the documentation are verified.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-1">
+											<div class="pull-left radio-holder">
+												<input type="radio" id="upload-later-radio" name="upload" value="false"> <label for="upload-later-radio"></label>
+											</div>
+										</div>
+										<div class="col-md-11">
+											<div class="text-bold pull-left desc">
+												Upload later
+												<span class="uplater-span">You may upload the required documentation under profile of your eService account.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						  <!--div class="radio-button-group">
 							 <div class="clearfix desktop-align left">
 								<div class="pull-left radio-holder">
 								   <input type="radio" id="upload-now-radio" name="upload" value="true" checked /> <label for="upload-now-radio"></label>
@@ -115,7 +148,7 @@ var languageP = "${language}";
 								   <span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
 								</div>
 							 </div>
-						  </div>
+						  </div-->
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">

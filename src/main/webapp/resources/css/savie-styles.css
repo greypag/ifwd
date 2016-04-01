@@ -6910,10 +6910,19 @@ h6.so-h6 {
     max-width: none;
   }
 }
+#upload-document-page .radio-group .radio-holder label {
+	/*margin-left: 15px;*/
+}
+#upload-document-page .desc {
+	font-size: 14px;
+}
 /* line 282, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .desc span {
-  display: block;
-  padding-left: 0;
+	display: block;
+	color: #9ba5a7;
+	font-family: 'Calibri';
+	display: block;
+	line-height: 15px;
 }
 /* line 289, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .btn.savie-common-btn.upload-btn {
