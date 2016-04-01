@@ -873,7 +873,7 @@ var languageP = "${language}";
 						  },
 						  regexp: {
 		                  	regexp: /^[a-zA-Z0-9\-]*$/,
-		                  	message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />'
+		                  	message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 		               	  },
 		                  callback: {
 		                      message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',

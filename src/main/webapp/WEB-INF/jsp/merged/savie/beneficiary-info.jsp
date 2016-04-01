@@ -880,14 +880,14 @@ var languageP = "${language}";
 							container: '#beneficiaryHkidErMsg\\[2\\]',
 							validators: {
 								notEmpty: {
-									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+									message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
 								},
 								regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
-			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			                  message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 			               },
 								callback: {
-		                      message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+		                      message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                      callback: function(value, validator) {
 		                         return isValidHKID(value);
 		                      }
@@ -1048,14 +1048,14 @@ var languageP = "${language}";
 							container: '#beneficiaryHkidErMsg\\[1\\]',
 							validators: {
 								notEmpty: {
-									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+									message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
 								},
 								regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
-			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			                  message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 			               },
 								callback: {
-									message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
 		                         return isValidHKID(value);
 		                     }
@@ -1247,14 +1247,14 @@ var languageP = "${language}";
 							container: '#beneficiaryHkidErMsg\\[0\\]',
 							validators: {
 								notEmpty: {
-									message: '<fmt:message key="error.bene.hkid.empty" bundle="${msg}" />'
+									message: '<fmt:message key="error.hkid.empty" bundle="${msg}" />'
 								},
 								regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
-			                  message: '<fmt:message key="error.bene.hkid.invalid" bundle="${msg}" />'
+			                  message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 			               },
 								callback: {
-									message: '<fmt:message key="form.hkid.invalid" bundle="${msg}" />',
+									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
 		                         return isValidHKID(value);
 		                     }
