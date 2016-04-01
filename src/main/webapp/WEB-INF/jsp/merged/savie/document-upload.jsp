@@ -99,12 +99,12 @@ var languageP = "${language}";
 							<div class="row">
 								<div class="col-md-6">
 									<div class="row">
-										<div class="col-md-1">
+										<div class="col-xs-1">
 											<div class="pull-left radio-holder">
 												<input type="radio" id="upload-now-radio" name="upload" value="true" checked=""> <label for="upload-now-radio"></label>
 											</div>
 										</div>
-										<div class="col-md-11">
+										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.now" bundle="${msg}" />
 												<span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
@@ -114,12 +114,12 @@ var languageP = "${language}";
 								</div>
 								<div class="col-md-6">
 									<div class="row">
-										<div class="col-md-1">
+										<div class="col-xs-1">
 											<div class="pull-left radio-holder">
 												<input type="radio" id="upload-later-radio" name="upload" value="false"> <label for="upload-later-radio"></label>
 											</div>
 										</div>
-										<div class="col-md-11">
+										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.later" bundle="${msg}" />
 												<span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>

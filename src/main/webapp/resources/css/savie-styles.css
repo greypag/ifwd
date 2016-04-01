@@ -6910,8 +6910,8 @@ h6.so-h6 {
     max-width: none;
   }
 }
-#upload-document-page .radio-group .radio-holder label {
-	/*margin-left: 15px;*/
+#upload-document-page .radio-group .col-xs-1 {
+	padding-right: 0;
 }
 #upload-document-page .desc {
 	font-size: 14px;
