@@ -230,6 +230,38 @@ public class DateApi {
 	}
 	
 	/**
+	 * 用于savieOnline planDetails
+	 * @param birthDate
+	 * @return
+	 */
+	public static int getAge1(Date birthDate) {
+		if (birthDate == null)
+			throw new RuntimeException("出生日期不能为null");
+
+		int age = 0;
+		Date now = new Date();
+
+		SimpleDateFormat format_y = new SimpleDateFormat("yyyy");
+		SimpleDateFormat format_D = new SimpleDateFormat("dd");
+
+		String birth_year = format_y.format(birthDate);
+		String this_year = format_y.format(now);
+		String birth_day = format_D.format(birthDate);
+		String this_day = format_D.format(now);
+
+		age = Integer.parseInt(this_year) - Integer.parseInt(birth_year);
+
+		// 如果未到出生月份，则age - 1
+		if (this_day.compareTo(birth_day) < 0) {
+			age -= 1;
+		}
+		if (age < 0) {
+			age = 0;
+		}
+		return age;
+	}
+	
+	/**
 	 * 将time毫秒转换为日期格式为yyyy-MM-dd的字符串
 	 * @param time
 	 * @return String

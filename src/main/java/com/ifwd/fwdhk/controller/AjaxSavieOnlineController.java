@@ -680,4 +680,21 @@ public class AjaxSavieOnlineController extends BaseController{
 		logger.info(request.getParameter("key")+":"+request.getParameter("value"));
 		ajaxReturn(response, jsonObject);
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/sendEmailForDocumentUploadLater"})
+	public void sendEmailForDocumentUploadLater(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.sendEmailForDocumentUploadLater(request);
+			jsonObject.put("success", "sendEmailForDocumentUploadLater");
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 }

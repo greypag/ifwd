@@ -81,7 +81,7 @@ var language = "${language}";
 				<div class="row policy-number-panel">
 					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
-						<span class="policy-number-label">Policy no. </span>
+						<span class="policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></span>
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
@@ -90,7 +90,7 @@ var language = "${language}";
 						<p id="review-line">Please review the confirmation of your application as detailed here.</p>-->
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
-						<p class="policy-number-label"><fmt:message key="label.policyno" bundle="${msg}" /></p>
+						<p class="policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></p>
 						<p class="policy-number">${accessCode }</p>
 					</div>
 				</div>

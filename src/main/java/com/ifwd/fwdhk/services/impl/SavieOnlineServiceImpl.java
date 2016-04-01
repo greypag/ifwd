@@ -94,7 +94,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails, 
 			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
 		
-		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob())) + 1;
+		int issueAge = DateApi.getAge1(DateApi.formatDate(saviePlanDetails.getDob()));
 		int paymentTerm = 0;
 		if("SP".equals(saviePlanDetails.getPaymentType())) {
 			session.setAttribute("savieType", "SP");
@@ -446,7 +446,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
 		        String path = uploadDir + "/JSignature.png";
 		        path = path.replace("/", "\\");
-				attributeList.add(new PdfAttribute("Signature",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature1",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature2",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature3",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature4",path,"imagepath"));
 			}
 			
 			String pdfTemplateName = "";
@@ -3229,5 +3232,30 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			    }
 	    	}
 	    }
+	}
+	
+	public void sendEmailForDocumentUploadLater(HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject models = new JSONObject();
+		models.put("name", request.getSession().getAttribute("username"));
+		String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+		if (request.getServerPort() != 80 && request.getServerPort() != 443){
+			serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		}
+		String language = (String) request.getSession().getAttribute("language");
+		if(StringUtils.isEmpty(language)){
+			language = "tc";
+		}
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse)request.getSession().getAttribute("lifePolicy");
+		String url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+		models.put("uploadLink", url);
+		JSONObject responseJsonObj = this.sendEmails(request, "uploadDocument", models);
+		if(responseJsonObj==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		if(responseJsonObj.get("errMsgs") != null){
+			logger.info(responseJsonObj.get("errMsgs").toString());
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
 	}
 }
