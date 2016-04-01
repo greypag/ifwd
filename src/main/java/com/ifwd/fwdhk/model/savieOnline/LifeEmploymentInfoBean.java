@@ -74,13 +74,13 @@ public class LifeEmploymentInfoBean implements Serializable {
 			}
 		}
 		if(this.occupation!=null && !"".equals(this.occupation)){
-			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "EN", "1")){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "EN", "1", null)){
 				if(this.occupation.equals(item.getItemCode())){
 					this.occupationEnName = item.getItemDesc();
 					break;
 				}
 			}
-			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "CH", "1")){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.natureOfBusiness, "CH", "1", null)){
 				if(this.occupation.equals(item.getItemCode())){
 					this.occupationCnName = item.getItemDesc();
 					break;

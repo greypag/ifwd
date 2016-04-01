@@ -48,13 +48,13 @@ public class LifePaymentBean implements Serializable {
 		}
 		
 		if(this.branchCode!=null && !"".equals(this.branchCode)){
-			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "EN", "1")){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "EN", "1", null)){
 				if(this.branchCode.equals(item.getItemCode())){
 					this.branchEnName = item.getItemDesc();
 					break;
 				}
 			}
-			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "CH", "1")){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, this.bankCode, "CH", "1", null)){
 				if(this.branchCode.equals(item.getItemCode())){
 					this.branchCnName = item.getItemDesc();
 					break;

@@ -2277,13 +2277,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
 			lifeEmploymentInfo.setOtherOccupation(policyApplication.getOtherOccupation()!=null?policyApplication.getOtherOccupation():"");
 			if(!"".equals(lifeEmploymentInfo.getOccupation())){
-				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "EN", "1")){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "EN", "1", request)){
 					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
 						lifeEmploymentInfo.setOccupationEnName(item.getItemDesc());
 						break;
 					}
 				}
-				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "CH", "1")){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifeEmploymentInfo.getNatureOfBusiness(), "CH", "1", request)){
 					if(lifeEmploymentInfo.getOccupation().equals(item.getItemCode())){
 						lifeEmploymentInfo.setOccupationCnName(item.getItemDesc());
 						break;
@@ -2451,13 +2451,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
 			if(!"".equals(lifePayment.getBranchCode())){
-				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "EN", "1")){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "EN", "1", request)){
 					if(lifePayment.getBranchCode().equals(item.getItemCode())){
 						lifePayment.setBranchEnName(item.getItemDesc());
 						break;
 					}
 				}
-				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "CH", "1")){
+				for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, lifePayment.getBankCode(), "CH", "1", request)){
 					if(lifePayment.getBranchCode().equals(item.getItemCode())){
 						lifePayment.setBranchCnName(item.getItemDesc());
 						break;

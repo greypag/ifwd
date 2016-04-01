@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 
 
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -69,6 +74,10 @@ public class CommonUtils {
 	}
 
 	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type) {
+		return getOptionItemDescList(param, language, type, null);
+	}
+	
+	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type, HttpServletRequest request) {
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		
 		if(param.equals("occupation")) {
@@ -78,9 +87,22 @@ public class CommonUtils {
 					
 					HashMap<String, String> header = new HashMap<String, String>(
 							COMMON_HEADERS);
-					
-					header.put("userName", "*DIRECTGI");
-					header.put("token", getToken(type));
+
+					String username = null;
+					String token = null;
+					if (request != null) {
+						HttpSession session = request.getSession();
+						if(session != null && session.getAttribute("token") != null && session.getAttribute("username") != null) {
+							username = session.getAttribute("username").toString();
+							token = session.getAttribute("token").toString();
+						}							
+					}
+					if (username == null){
+						username = "*DIRECTGI";
+						token = getToken(type);
+					}
+					header.put("userName", username);
+					header.put("token", token);
 					header.put("language", WebServiceUtils.transformLanaguage(language));
 					
 					JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -134,8 +156,21 @@ public class CommonUtils {
 				HashMap<String, String> header = new HashMap<String, String>(
 						COMMON_HEADERS);
 				
-				header.put("userName", "*DIRECTGI");
-				header.put("token", getToken(type));
+				String username = null;
+				String token = null;
+				if (request != null) {
+					HttpSession session = request.getSession();
+					if(session != null && session.getAttribute("token") != null && session.getAttribute("username") != null) {
+						username = session.getAttribute("username").toString();
+						token = session.getAttribute("token").toString();
+					}							
+				}
+				if (username == null){
+					username = "*DIRECTGI";
+					token = getToken(type);
+				}
+				header.put("userName", username);
+				header.put("token", token);
 				header.put("language", WebServiceUtils.transformLanaguage(language));
 				
 				JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
