@@ -1152,6 +1152,7 @@ function getParameterByUrl(name){
         </div>
       </div>
     </div>
+    <div class="clearfix"></div>
     <!--/.row--> 
      <p><fmt:message key="travel.main.blog.disclaimer" bundle="${msg}" /></p>
     
