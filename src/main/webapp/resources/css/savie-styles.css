@@ -1296,6 +1296,12 @@ h6 {
 .plan-calculator-holder .plan-form-holder #amount-slide-holder {
   padding-bottom: 30px;
 }
+@media (max-width: 992px) {
+	#amount-slide-holder {	
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+}
 @media (min-width: 992px) {
   /* line 805, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder {
