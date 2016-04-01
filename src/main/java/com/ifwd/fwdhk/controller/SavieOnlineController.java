@@ -63,7 +63,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}*/
 
-	@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/savie", "/Savie", "/SAVIE"}, method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
