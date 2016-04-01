@@ -212,21 +212,38 @@ public class DateApi {
 	}
 	
 	public static int getAge(Date dateOfBirth) {
-		int age = 0;
-		Calendar born = Calendar.getInstance();
-		Calendar now = Calendar.getInstance();
-		if (dateOfBirth != null) {
-		    now.setTime(new Date());
-		    born.setTime(dateOfBirth);
-		    if (born.after(now)) {
-				throw new IllegalArgumentException("Can't be born in the future");
-			}
-		    age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
-		    if (now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR)) {
-		        age -= 1;
-		    }
+		
+		Calendar dob = Calendar.getInstance();  
+		dob.setTime(dateOfBirth);  
+		Calendar today = Calendar.getInstance();  
+		int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);  
+		System.out.println("iniital age " + age);
+		if (today.get(Calendar.MONTH) < dob.get(Calendar.MONTH)) {
+		  age--;  
+		  System.out.println("month age " + age);
+		} else if (today.get(Calendar.MONTH) == dob.get(Calendar.MONTH)
+		    && today.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH)) {
+		  age--;  
+		  System.out.println("day age " + age);
 		}
+		System.out.println("final age " + age);
 		return age;
+//		
+//		int age = 0;
+//		Calendar born = Calendar.getInstance();
+//		Calendar now = Calendar.getInstance();
+//		if (dateOfBirth != null) {
+//		    now.setTime(new Date());
+//		    born.setTime(dateOfBirth);
+//		    if (born.after(now)) {
+//				throw new IllegalArgumentException("Can't be born in the future");
+//			}
+//		    age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
+//		    if (now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR)) {
+//		        age -= 1;
+//		    }
+//		}
+//		return age;
 	}
 	
 	/**
