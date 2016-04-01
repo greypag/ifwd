@@ -306,33 +306,6 @@ $(document).ready(function() {
 	
 	// Beneficiary Form
 	$("#beneficiary-next-btn, #back-summary-btn").click(function(){
-		var bootstrapValidator1 = $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator');
-		bootstrapValidator1.enableFieldValidators('beneficiaryPassport1',true, $(this).val() == 'Passport');
-		bootstrapValidator1.enableFieldValidators('beneficiaryID1',true, $(this).val() == 'hkid');
-		$('#beneficiary-info-form\\[0\\]').submit();
-		
-		if(isBeneficiary2Hidden() != "hidden") {
-			var bootstrapValidator2 = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator');
-			bootstrapValidator2.enableFieldValidators('beneficiaryPassport2',true, $(this).val() == 'Passport');
-			bootstrapValidator2.enableFieldValidators('beneficiaryID2',true, $(this).val() == 'hkid');
-			$('#beneficiary-info-form\\[1\\]').submit();
-		}
-	
-		if(isBeneficiary3Hidden() != "hidden"){
-			var bootstrapValidator3 = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator');
-			bootstrapValidator3.enableFieldValidators('beneficiaryPassport3',true, $(this).val() == 'Passport');
-			bootstrapValidator3.enableFieldValidators('beneficiaryID3',true, $(this).val() == 'hkid');
-			$('#beneficiary-info-form\\[2\\]').submit();
-		}
-		
-		/*if((($('#beneficiary-info-form\\[1\\] div').hasClass('has-error')) && (isBeneficiary2Hidden()!="hidden"))	||
-			 (($('#beneficiary-info-form\\[0\\] div').hasClass('has-error'))) ||
-			 (($('#beneficiary-info-form\\[2\\] div').hasClass('has-error')) && (isBeneficiary3Hidden()!="hidden"))) {
-			//has error do nothing
-			console.log('Form has error');
-		} else {
-			console.log('Form 1 has no error');
-		}*/
 		// Duplicate checking
 		duplicateBeneficiary();
 		duplicateBeneficiaryPassport();
