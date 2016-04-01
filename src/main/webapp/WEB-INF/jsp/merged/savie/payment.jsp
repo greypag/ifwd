@@ -700,9 +700,14 @@ var language = "${language}";
 			   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 			}
 		});
-						
 		
-				
+		$('select').change(function() {
+			$(this).blur();
+		});
+		$('option').click(function() {
+			$('select').blur();
+		});
+		
 		// set fields whether editable or not
 		setInputReadonly('paymentAmount', true);
 		setInputReadonly('paymentMethod', true);
