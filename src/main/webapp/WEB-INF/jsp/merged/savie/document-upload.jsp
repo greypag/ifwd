@@ -394,14 +394,19 @@ var languageP = "${language}";
 				var language = "en";
 				if(msieversion()>0 && msieversion()<10) {
 					$('.modal-ie-error').modal('show');
-					//$.ajax({
-					//	url: '<%=request.getContextPath()%>/${language}/savings-insurance/confirmation-upload-later',
-					//	type : 'POST',
-					//	async:false, 
-					//	success: function(data) {
-					//		console.log('success');
-					//	}
-					//});
+					$.ajax({     
+		    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/sendEmailForDocumentUploadLater',     
+		    		    type:'get',
+					    cache:false, 
+					    async:false,     
+		    		    error:function(){    
+		    		    	console.log('error');
+		    		    },     
+		    		    success:function(data){
+		    		    	console.log('success');
+		    		    	console.log(data);
+		    		    }
+		    		});
 				}
 				var errorMessageType = "${errorMessageType}";
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){

@@ -59,4 +59,5 @@ public interface SavieOnlineService {
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
 	public void deleteSaviePdf(HttpServletRequest request);
+	public void sendEmailForDocumentUploadLater(HttpServletRequest request) throws ECOMMAPIException;
 }

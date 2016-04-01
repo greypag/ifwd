@@ -3233,4 +3233,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	}
 	    }
 	}
+	
+	public void sendEmailForDocumentUploadLater(HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject models = new JSONObject();
+		models.put("name", request.getSession().getAttribute("username"));
+		String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+		if (request.getServerPort() != 80 && request.getServerPort() != 443){
+			serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		}
+		String language = (String) request.getSession().getAttribute("language");
+		if(StringUtils.isEmpty(language)){
+			language = "tc";
+		}
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse)request.getSession().getAttribute("lifePolicy");
+		String url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+		models.put("uploadLink", url);
+		JSONObject responseJsonObj = this.sendEmails(request, "uploadDocument", models);
+		if(responseJsonObj==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		if(responseJsonObj.get("errMsgs") != null){
+			logger.info(responseJsonObj.get("errMsgs").toString());
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+	}
 }
