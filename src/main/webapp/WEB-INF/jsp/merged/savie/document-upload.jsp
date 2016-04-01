@@ -106,8 +106,8 @@ var languageP = "${language}";
 										</div>
 										<div class="col-md-11">
 											<div class="text-bold pull-left desc">
-												Upload Now 
-												<span>The policy will be commenced, as soon as the documentation are verified.</span>
+												<fmt:message key="option.upload.now" bundle="${msg}" />
+												<span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
 											</div>
 										</div>
 									</div>
@@ -121,8 +121,8 @@ var languageP = "${language}";
 										</div>
 										<div class="col-md-11">
 											<div class="text-bold pull-left desc">
-												Upload later
-												<span class="uplater-span">You may upload the required documentation under profile of your eService account.</span>
+												<fmt:message key="option.upload.later" bundle="${msg}" />
+												<span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
 											</div>
 										</div>
 									</div>
