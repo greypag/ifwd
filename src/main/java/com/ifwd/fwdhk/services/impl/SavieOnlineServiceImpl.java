@@ -446,7 +446,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
 		        String path = uploadDir + "/JSignature.png";
 		        path = path.replace("/", "\\");
-				attributeList.add(new PdfAttribute("Signature",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature1",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature2",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature3",path,"imagepath"));
+				attributeList.add(new PdfAttribute("Signature4",path,"imagepath"));
 			}
 			
 			String pdfTemplateName = "";
