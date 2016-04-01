@@ -202,7 +202,7 @@ var languageP = "${language}";
 												</div>
 												<!--  <![endif]-->
 												<div class="mob-desk or">
-													<span class="OR">or</span>
+													<span class="OR"><fmt:message key="label.icon.or" bundle="${msg}" /></span>
 												</div>
 												<div class="mob-desk">
 													<label for="hkidFileToUpload" class="orange-select-file">
@@ -319,7 +319,7 @@ var languageP = "${language}";
 												</div>
 												<!--  <![endif]-->
 												<div class="mob-desk or">
-													<span class="OR">or</span>
+													<span class="OR"><fmt:message key="label.icon.or" bundle="${msg}" /></span>
 												</div>
 												<div class="mob-desk">
 													<label for="fileToUploadProofAdd" class="orange-select-file">
