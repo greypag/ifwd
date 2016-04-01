@@ -152,7 +152,7 @@ var languageP = "${language}";
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></p>
+															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -373,7 +373,7 @@ var languageP = "${language}";
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
+															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
@@ -576,7 +576,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.resources" bundle="${msg}" /></h4>
-															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
+															<p class="info-data"><a href="<fmt:message key="link.claims" bundle="${msg}" />" target="_blank"><fmt:message key="label.status.claim.form" bundle="${msg}" /></a></p>
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -770,7 +770,7 @@ var languageP = "${language}";
 									<p><fmt:message key="info.refferal.program" bundle="${msg}" /></p>
 									<div class="row" id="input-social-holder">
 										<div class="col-xs-12 col-md-7" id="promo-input-holder">
-											<div class="form-control gray-textbox promo-code-input" id="toBeCopied" contenteditable="true">https://uat-ecom.i.fwd.com.hk/en/home?promo=${userDetails.getReferralCode()}</div>
+											<div class="form-control gray-textbox promo-code-input" id="toBeCopied" contenteditable="true">https://i.fwd.com.hk/${language}/home?promo=${userDetails.getReferralCode()}</div>
 											<div id="copyTipBox" class="boxMain boxSub" style="display: none;">
 												<span class="boxMessage hidden-sm hidden-xs">Press CTRL-C to copy</span>
 												<span class="boxMessage hidden-md hidden-lg">Long-press to copy</span>
@@ -827,12 +827,12 @@ var languageP = "${language}";
 										 </thead>
 										 <tbody>
 										 	<tr>
-										 		<td class="first-col"><fmt:message key="label.account.partner.row1.col1" bundle="${msg}" /></td>
+										 		<td class="first-col"><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row1.col1" bundle="${msg}" /></a></td>
 										 		<td><fmt:message key="label.account.partner.row1.col2" bundle="${msg}" /></td>
 										 		<td><fmt:message key="label.account.partner.row1.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col"><fmt:message key="label.account.partner.row2.col1" bundle="${msg}" /></td>
+										 		<td class="first-col"><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row2.col1" bundle="${msg}" /></a></td>
 										 		<td><fmt:message key="label.account.partner.row2.col2" bundle="${msg}" /></td>
 										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
 										 	</tr>												 	
