@@ -63,7 +63,7 @@ var languageP = "${language}";
 					<h3 id=""><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></h3>
 				 </div>
 			  </div>
-			  <span id="step-of">4 out of 5</span>
+			  <span id="step-of">4 out of 6</span>
 		   </div>
 		</div>
 	 </div>
