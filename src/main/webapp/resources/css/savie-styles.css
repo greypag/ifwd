@@ -9652,3 +9652,6 @@ h3 .heading-title{
 .fwd-savie-wrapper .modal.fade #pics-copy-final{
 	font-size: 14px
 }
+.savie-application-summary input[type="text"], .savie-application-summary select {
+	text-transform: uppercase;
+}
