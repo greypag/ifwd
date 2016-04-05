@@ -685,7 +685,9 @@ var home_url = "<%=request.getContextPath()%>";
 		
 		<script type="text/javascript">
 			var language = "en";
-			
+			$(document).ready(function (){
+				$(".fna-carousel .carousel-inner").swipe("disable");
+			});
 			$("#one-off-button").click(function(){
 				$("#one-off-button").addClass('clicked-button');
 				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
@@ -704,7 +706,7 @@ var home_url = "<%=request.getContextPath()%>";
 			$( window ).resize(function() {
 				//bannerimg();
 			});
-
+			
 			function bannerimg() {
 				if(getWidth() >= 992 && getWidth() <= 1350) {
 					$('#hero-img-desktop').attr('src','<%=request.getContextPath()%>/resources/images/savie/o2o-landing/landing-md-bg-desktopss.jpg');
@@ -717,7 +719,7 @@ var home_url = "<%=request.getContextPath()%>";
 				if(getWidth() > 991) {
 					$("#so-carousel").on('swipeleft swiperight', '.selector', function(event) {
 					 	event.stopPropagation();
-					 	event.preventDefault();
+					 	event.preventDefault();					 	
 					});
 				}
 			}
