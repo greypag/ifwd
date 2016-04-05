@@ -34,7 +34,7 @@ var language = "${language}";
 					<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
 					<li class="divider"><i class="fa fa-play"></i></li>
 					<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
-					<li class="divider last"><i class="fa fa-play"></i></i></li>
+					<li class="divider last"><i class="fa fa-play"></i></li>
 					<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
                </ol>
             </div>

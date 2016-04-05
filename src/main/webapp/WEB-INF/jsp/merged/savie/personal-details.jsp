@@ -758,15 +758,16 @@ var languageP = "${language}";
 				}
 		   });
 			
-			$('select').change(function() {
-				$(this).blur();
-			});
-			$('option').click(function() {
-				$('select').blur();
-			});
 			// detect IE browsers
 			if (window.clipboardData) {
 				$('.selectDiv .gray-dropdown').addClass('ie-select');
+				//fix for IE8 highlight blue when selected
+				$('select').change(function() {
+					$(this).blur();
+				});
+				$('option').click(function() {
+					$('select').blur();
+				});
 			} else {
 				$('.selectDiv .gray-dropdown').removeClass('ie-select');
 			}
