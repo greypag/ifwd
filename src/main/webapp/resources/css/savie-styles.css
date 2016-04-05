@@ -9655,3 +9655,16 @@ h3 .heading-title{
 .savie-application-summary input[type="text"], .savie-application-summary select {
 	text-transform: uppercase;
 }
+#plan-details-b-page .thank-you-modal img {
+	position: relative;
+	z-index: 4;
+}
+#plan-details-b-page .thank-you-modal #thank-you-continue {
+	position: relative;
+	z-index: 9;
+	margin-top: -68px;
+}
+#plan-details-b-page .thank-you-modal .modal-content {
+    padding-bottom: 20px !important;
+    background: #F0EFF8;
+}
