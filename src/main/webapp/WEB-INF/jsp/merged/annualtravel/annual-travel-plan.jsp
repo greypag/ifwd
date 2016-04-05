@@ -533,7 +533,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                              </thead>
 	                                              <tbody>
 	                                              <tr>
-                                                      <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
+                                                      <td class="word-break" data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.plana" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.planb" bundle="${msg}" /></td>
                                                   </tr>

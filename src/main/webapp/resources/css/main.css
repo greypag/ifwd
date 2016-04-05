@@ -10462,6 +10462,9 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	 .mob-topbar .callus{		
 	   font-size: 12px;		
 	   padding: 0 10px 0 10px !important;		
+	 }
+	 body.chin #plan-no-more-tables td.word-break{
+	   word-break: break-all;
 	 }		
 	 		
 }		
