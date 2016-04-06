@@ -654,3 +654,11 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 .checkbox-description, #et-medi-question-4-text {
 	cursor: pointer;
 }
+@media ( min-width : 980px) and (max-width: 1100px) {
+	.beneficiary-info-row .et-hkid-pass .orange-caret {
+		padding-right: 5px !important;
+	}
+	.beneficiary-info-row .et-hkid-pass select{
+		padding-left: 7px !important;
+	}
+}	
