@@ -14,26 +14,29 @@
     long cCurrent = System.currentTimeMillis();
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
-    
-    long cStart = cformat.parse("2016-03-31 14:59:59").getTime();
+    //hotel monthly campiagn display end time
+    long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();    
+    //hotel monthly campiagn display end time
+    long hotelcStart = cformat.parse("2016-04-17 23:59:59").getTime();
+    //GI monthly campiagn display end time
+    long cStart = cformat.parse("2016-04-14 23:59:59").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
-    boolean isCNYOffer = false;
-    if( cCurrent<= cStart ){
-        disableOfferClass = "paused-plan";
-        countDownDate = "2016-04-14 23:59:59";
-        countDownDD = "15";
-        countDownMM = "Apr";
-        //isCNYOffer = true;
+    boolean isRegPromo = true;
+    if( cCurrent <= hotelcEnd /* && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1) */){
+    	isRegPromo = false;
+        countDownDate = "2016-04-22 23:59:59";
+        countDownDD = "23";
+        countDownMM = "Apr";        
     } else {
-        disableOfferClass = "";
         countDownDate = "2016-04-14 23:59:59";
         countDownDD = "15";
-        countDownMM = "Apr";
-        //isCNYOffer = false;
-        //isCNYOffer = true;
+        countDownMM = "Apr";    	
+    	if(cCurrent >= cStart && cCurrent <= hotelcStart){
+    		disableOfferClass = "paused-plan";
+    	}
     }
 
 %>
@@ -142,7 +145,8 @@
                         </div>
                     </div>
                 </div>
-                <%--<div class="hotel-voucher-carousel-wrapper">
+                <% if (isRegPromo == false) { %>
+                <div class="hotel-voucher-carousel-wrapper">
 	                <div class="hotel-voucher-carousel-title-wrapper">
 	                    <div class="Carousel-title"><fmt:message key="Fanfare.Hotel.Carousel.Title" bundle="${msg}" /></div>
 	                    <div class="Carousel-subtitle"><fmt:message key="Fanfare.Hotel.Carousel.SubTitle" bundle="${msg}" /></div>
@@ -152,8 +156,8 @@
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="0">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar14-oneworld.png" class="img-responsive">			                        
 			                        <div class="carousel-description-container">
-			                              <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" /></div>
-			                              <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
+			                              <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" /></div>
+			                              <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" /></div>
 			                        </div> 
 		                        </div>   
 		                  </div>
@@ -161,8 +165,8 @@
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="1">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar13-Vivatel.png" class="img-responsive">		                        
 			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
+		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" /></div>
+		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
@@ -170,8 +174,8 @@
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="2">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar12-shangri-la-rasa.png" class="img-responsive">
 			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar16.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar16.HotelName" bundle="${msg}" /></div>
+		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" /></div>
+		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
@@ -179,8 +183,8 @@
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="3">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar11-goldensand-resort.png" class="img-responsive">
 			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar17.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar17.HotelName" bundle="${msg}" /></div>
+		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" /></div>
+		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
@@ -188,22 +192,23 @@
 		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="4">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar15-traders-hotel.png" class="img-responsive">
 			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar18.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar18.HotelName" bundle="${msg}" /></div>
+		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" /></div>
+		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
 	                </div>
 	                <div class="clearfix"></div>
-                </div> --%>
-                <%-- <div class="sponsor-logo-wrapper">
+                </div>
+                <div class="sponsor-logo-wrapper">
                     <div class="sponsor-text">
                         <fmt:message key="Fanfare.Hotel.Sponsor.Text" bundle="${msg}" />
                         <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/agoda-logo.png" class="img-responsive">
                         </a>
                     </div>
-                </div> --%>
+                </div>
+                <% } else { %>
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
                     
                     <!-- Carousel items -->
@@ -213,7 +218,7 @@
                                 
                                 
                                 
-                                <% if(isCNYOffer==true){ %>
+								<%--<% if(isRegPromo==true){ %>
                                 <div class="col-xs-4">
                                     <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_thumbnail.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm long-text">
@@ -224,7 +229,7 @@
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail0" bundle="${msg}" /></p>
                                     </span>
                                 </div>
-                                <% } %>
+                                <% } %> --%>
                                 
                                 
                                 <div class="col-xs-4">
@@ -304,12 +309,14 @@
                         </div>
                     </a>
                 </div>
+                <% } %>
                 <!--/myCarousel-->
                 
                 <!-- PLANS -->
                 <div class="plans-holder fwdiscover-container">
                 <!-- Hotel Promotion Start -->
-                	<%-- <% if (hotelVoucherCampaignId == 14) { %>
+                <% if (isRegPromo == false) { %>
+                	<% if (hotelVoucherCampaignId == 14) { %>
                     <!-- Hotel 3-11 Offer Start -->
                     <div class="fwdiscover-plan hotel-voucher">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-mobile.png" class="img-responsive hidden-lg hidden-md">
@@ -547,11 +554,12 @@
                         </div>
                     </div>
                     <!-- Hotel 3-15 Offer End -->
-                    <% } %> --%>
+                    <% } %>
+                <% } else { %>
                 <!-- Hotel Promotion End -->          
                 <!-- CNY PROMOTION START -->
                 <%--<%
-                    if (isCNYOffer) {
+                    if (isRegPromo) {
                 %>
                     <div class="fwdiscover-plan">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
@@ -814,8 +822,10 @@
                     <!-- end fifth plan -->
                 </div>
                 <!-- end PLANS -->
+                <% } %>
                 <!-- Hotel Partner Start -->
-                <%--<div class="hotel-partner-wrapper">
+                <% if (isRegPromo == false) { %>
+                <div class="hotel-partner-wrapper">
                     <div class="hotel-partner-title"><fmt:message key="Fanfare.Hotel.Sponsor.Title" bundle="${msg}" /></div>
                     <div class="hotel-partner-icon-wrapper">
 	                    <div class="col-1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="img-responsive" style="margin-top: 20px;"></div>
@@ -824,7 +834,8 @@
 	                    <div class="col-4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="img-responsive"></div>
 	                    <div class="col-5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="img-responsive"></div>
                     </div>
-                </div> --%>
+                </div>
+                <% } %>
                 <!-- Hotel Partner End -->
                 <!-- fwdiscover footer -->
                 <div class="fwdiscover-footer">
@@ -1470,7 +1481,7 @@
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-oneworld-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-oneworld-desktop.png" class="img-responsive hidden-xs hidden-sm">
 
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Url" bundle="${msg}" />">
@@ -1498,7 +1509,7 @@
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="hotel-icon vivatel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-vivatel-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-vivatel-desktop.png" class="img-responsive hidden-xs hidden-sm">				                                				                            
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper item">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar15.Url" bundle="${msg}" />">
@@ -1526,7 +1537,7 @@
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-rasa-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar16.HotelName" bundle="${msg}" /></div>
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar16.Url" bundle="${msg}" />">
@@ -1555,7 +1566,7 @@
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-golden-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-golden-desktop.png" class="img-responsive hidden-xs hidden-sm">				                                
 				                                
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar17.HotelName" bundle="${msg}" /></div>
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar17.Url" bundle="${msg}" />">
@@ -1583,7 +1594,7 @@
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-traders-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-traders-desktop.png" class="img-responsive hidden-xs hidden-sm">
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar18.HotelName" bundle="${msg}" /></div>
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
 	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar18.Url" bundle="${msg}" />">
@@ -1622,39 +1633,39 @@
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
         <script type="text/javascript">
         var slide1Nav = {
-        	Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
-        	LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar18.Date" bundle="${msg}" />',
-        	RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
-        	LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar18.HotelName" bundle="${msg}" />',
-        	RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />'
+        	Date: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
+        	LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
+        	RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
+        	LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" />',
+        	RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" />'
         };
 		var slide2Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar16.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar16.HotelName" bundle="${msg}" />'
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" />'
 		};
 		var slide3Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar16.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar17.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar17.HotelName" bundle="${msg}" />'
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" />'
 		};
 		var slide4Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar17.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar16.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar18.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar16.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar18.HotelName" bundle="${msg}" />'
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" />'
 		};
 		var slide5Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar18.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar17.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar17.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" />'
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" />'
 		};        
         function assignHotelNav(slideNav){
         	//console.log(slideNav);
@@ -1868,10 +1879,10 @@
             }
 
             //adjust CNY offer carousel-inner
-            if (<%=(isCNYOffer)?true:false%>){
+			/*if (<%=(isRegPromo)?true:false%>){
                 $('#myCarousel-fwdiscover .carousel-inner').css('width', '70%');
                 $('#myCarousel-fwdiscover .carousel-inner .desktop-img-align').css('width', '16.6%');
-            }
+            }*/
 
             if( window.location.href.indexOf("mar29=") > -1 ){
                 $('.paused-plan').removeClass('paused-plan');
