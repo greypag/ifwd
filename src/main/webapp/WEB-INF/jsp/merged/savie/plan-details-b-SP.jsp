@@ -828,6 +828,10 @@ var affordabilityPremium = ${sliderMax};
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});
+		
+		$('.rate-btn').on('click', function (){
+			$('.tooltip').hide();
+		});
 
 	});
 	
