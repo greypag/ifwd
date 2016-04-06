@@ -229,7 +229,7 @@ function getParameterByUrl(name){
 	    //System.out.println(personalSpinnerStyle);
   }
 %>
-<section id="main-slider" class="no-margin"> 
+<section id="main-slider" class="travel-hero-wrapper no-margin"> 
   <!--Mobilebanner--> 
   <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="travel.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
   <!--Mobilebanner-->
@@ -253,6 +253,9 @@ function getParameterByUrl(name){
     </div>
     <!--/.carousel inner--> 
   </div>
+  <div class="tagline-holder">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="travel.hero.text.image" bundle="${msg}" />" class="img-responsive">
+  </div>  
   <!--/.carousel--> 
   <form name="frmTravelGetQuote" id="frmTravelGetQuoteDesk" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateDeskTravel();">
 	<section id="middle" class="hidden-sm hidden-xs">

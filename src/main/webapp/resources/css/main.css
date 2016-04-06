@@ -1707,13 +1707,12 @@ input.search-form:hover {
 .p_homecare .tagline-holder{top: 50%;}		
 .p_workingholiday .tagline-holder{top: 25%; left: 0;}		
 .p_workingholiday .tagline-holder img{width: 100%;}		
-.p_flight .tagline-holder{top: 25%;}		
-.p_flight .tagline-holder img{width: 70%;}		
+.p_flight .tagline-holder,.travel-hero-wrapper .tagline-holder{top: 25%;}		
+.p_flight .tagline-holder img,.travel-hero-wrapper .tagline-holder img{width: 70%;}		
 .p_travel .tagline-holder{top: 25%;}		
 .p_travel .tagline-holder img{width: 70%;}		
 .p_oversea .tagline-holder{top: 20%;}		
 .p_oversea .tagline-holder img{width: 100%;}		
-
 @media(max-width: 1245px){		
 	.p_workingholiday .tagline-holder img{width: 70%;}		
 	.p_oversea .tagline-holder img{width: 70%;}		
@@ -11323,3 +11322,16 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	   
 	}
 }
+@media (min-width: 992px){
+	.travel-hero-wrapper .tagline-holder{
+		top: 25%;
+	}
+}
+@media (max-width: 991px){
+	.travel-hero-wrapper .tagline-holder img{
+		width: 100%;
+	}
+	.travel-hero-wrapper .tagline-holder{
+		top: auto;
+		bottom: 20%;
+	}	
