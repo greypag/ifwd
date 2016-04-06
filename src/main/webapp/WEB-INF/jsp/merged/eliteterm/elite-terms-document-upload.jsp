@@ -308,7 +308,7 @@ var languageP = "${language}";
 												</a>
 											</h5>
 										</div>
-										<form action="http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile" id="js-upload-form" method="POST" class="upload-form">
+										<form action="upload-documents" id="js-upload-form" method="POST" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-addr">
 												<div class="center-align">
 													<span class="finish-upload-check"></span>
