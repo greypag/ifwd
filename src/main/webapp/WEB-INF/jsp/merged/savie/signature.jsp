@@ -293,7 +293,7 @@ var languageP = "${language}";
 				<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
 				
 				<div class="pdf-image-scroll">
-					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${fnaFormJpgName}" />
+					<img class="pdf-image" data-width="75" src="<%=request.getContextPath()%>/${language}/savings-insurance/imageView/${fnaFormJpgName}" />					
 				</div>
 			</div>
 		</div>
@@ -1008,16 +1008,35 @@ var languageP = "${language}";
 			pdfImageInit('#pdf-image-2');
 			pdfImageInit('#pdf-image-3');
 			$('#pdf-image-1 .pdf-image-scroll').scroll(function() {
-				$('#review-btn-1').toggleClass('bottom', checkPdfScroll($(this)));
-				$('#review-btn-1').toggleClass('disabled-gray-btn', !$('#review-btn-1').hasClass('bottom') || !$('#review-btn-1').hasClass('timeout'));
+				//$('#review-btn-1').addClass('bottom', checkPdfScroll($(this)));
+				//$('#review-btn-1').toggleClass('disabled-gray-btn', !$('#review-btn-1').hasClass('bottom') || !$('#review-btn-1').hasClass('timeout'));
+				if(checkPdfScroll($(this))) {
+					$('#review-btn-1').addClass('bottom');
+				}
+				if($('#review-btn-1').hasClass('bottom') && $('#review-btn-1').hasClass('timeout')) {
+					$('#review-btn-1').removeClass('disabled-gray-btn');
+				}
 			});
+			
 			$('#pdf-image-2 .pdf-image-scroll').scroll(function() {
-				$('#review-btn-2').toggleClass('bottom', checkPdfScroll($(this)));
-				$('#review-btn-2').toggleClass('disabled-gray-btn', !$('#review-btn-2').hasClass('bottom') || !$('#review-btn-2').hasClass('timeout'));
+				//$('#review-btn-2').toggleClass('bottom', checkPdfScroll($(this)));
+				//$('#review-btn-2').toggleClass('disabled-gray-btn', !$('#review-btn-2').hasClass('bottom') || !$('#review-btn-2').hasClass('timeout'));
+				if(checkPdfScroll($(this))) {
+					$('#review-btn-2').addClass('bottom');
+				}
+				if($('#review-btn-2').hasClass('bottom') && $('#review-btn-2').hasClass('timeout')) {
+					$('#review-btn-2').removeClass('disabled-gray-btn');
+				}
 			});
 			$('#pdf-image-3 .pdf-image-scroll').scroll(function() {
-				$('#review-btn-3').toggleClass('bottom', checkPdfScroll($(this)));
-				$('#review-btn-3').toggleClass('disabled-gray-btn', !$('#review-btn-3').hasClass('bottom') || !$('#review-btn-3').hasClass('timeout'));
+				//$('#review-btn-3').toggleClass('bottom', checkPdfScroll($(this)));
+				//$('#review-btn-3').toggleClass('disabled-gray-btn', !$('#review-btn-3').hasClass('bottom') || !$('#review-btn-3').hasClass('timeout'));
+				if(checkPdfScroll($(this))) {
+					$('#review-btn-3').addClass('bottom');
+				}
+				if($('#review-btn-3').hasClass('bottom') && $('#review-btn-3').hasClass('timeout')) {
+					$('#review-btn-3').removeClass('disabled-gray-btn');
+				}
 			});
 		});
 		
