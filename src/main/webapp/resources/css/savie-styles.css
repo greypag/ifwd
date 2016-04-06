@@ -9662,7 +9662,7 @@ h3 .heading-title{
 #plan-details-b-page .thank-you-modal #thank-you-continue {
 	position: relative;
 	z-index: 9;
-	margin-top: -68px;
+	/*margin-top: -68px;*/
 }
 #plan-details-b-page .thank-you-modal .modal-content {
     padding-bottom: 20px !important;
