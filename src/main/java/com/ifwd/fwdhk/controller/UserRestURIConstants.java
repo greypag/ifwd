@@ -307,7 +307,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "confirmation-upload-later";
 	public static final String PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "confirmation-offline-signature";
 	public static final String PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION = "confirmation-paylater";
-	public static final String PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "confirmation-appointment";
+	public static final String PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP = "confirmation-appointment-sp";
+	public static final String PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP = "confirmation-appointment-rp";
 	public static final String PAGE_SAVIEONLINE_SERVICE_CENTER = "customer-service-centre";
 	public static final String PAGE_SAVIEONLINE_SINGLE_PREMIUM = "savings-insurance-sp";
 	public static final String PAGE_SAVIEONLINE_REGULAR_PREMIUM = "savings-insurance-rp";
@@ -335,7 +336,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "savings.confirmation.upload.later";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "savings.confirmation.offline.signature";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION = "savings.confirmation.paylater";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "savings.confirmation.appointment";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP = "savings.confirmation.appointment.sp";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP = "savings.confirmation.appointment.rp";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER = "savings.customer.service.centre";
 
 	/* for image configuration */

@@ -832,8 +832,8 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment"})
-	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment-sp"})
+	public ModelAndView getSavieOnlineAppointmentConfirmationSp(Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -850,7 +850,29 @@ public class SavieOnlineController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
+			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP);
+		}
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment-rp"})
+	public ModelAndView getSavieOnlineAppointmentConfirmationRp(Model model, HttpServletRequest request) {
+		String userName = (String)request.getSession().getAttribute("username");
+		if(userName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}else{
+			try {
+				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.info(e.getMessage());
+			}
+			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP);
 		}
 	}
 	
