@@ -1692,19 +1692,24 @@
     float: left;
 }
 .hotel-partner-icon-wrapper .col-1{
-	width: 24%;
+	/*width: 24%; round1*/
+	width: 20%;
 }
 .hotel-partner-icon-wrapper .col-2{
-    width: 28%;
+    /*width: 28%; round1*/
+    width: 20%;
 }
 .hotel-partner-icon-wrapper .col-3{
-    width: 22%;
+    /*width: 22%; round1*/
+    width: 20%;
 }
 .hotel-partner-icon-wrapper .col-4{
-    width: 19%;
+    /*width: 19%; round1*/
+    width: 20%;
 }
 .hotel-partner-icon-wrapper .col-5{
-    width: 7%;
+    /*width: 7%; round1*/
+    width: 20%;
 }
 .sponsor-logo-wrapper .sponsor-text .img-responsive{
     display: inline-block;
