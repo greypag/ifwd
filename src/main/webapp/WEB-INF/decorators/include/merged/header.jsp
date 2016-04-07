@@ -50,8 +50,6 @@ $( "#testajax" ).click(function() {
 */
 
 
-
-
 var home_url = "<%=request.getContextPath()%>";
 
 /* New GetBundle */
@@ -324,8 +322,6 @@ function getStarted(){
 	}
 %>
 
-
-
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <!--desktop header-->
@@ -349,9 +345,12 @@ function getStarted(){
  	} else {
  %> <a
 								class="lang chi pull-left" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
+								<%
+								    if (request.getQueryString() == null || request.getQueryString() == "") {%>
+								    	href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"
+								    	<% } else{ %>
+								    	href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>?<%=request.getQueryString()%>"<%
+								    }%>><fmt:message key="header.menu.language" bundle="${msg}" /></a> <%}
  	} else {
  %> <%
  	if (request.getServletPath().equals("/tc")) {
@@ -362,8 +361,12 @@ function getStarted(){
  	} else {
  %> <a
 								class="lang chi pull-left" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
+								<%
+								    if (request.getQueryString() == null || request.getQueryString() == "") {
+								    	%>href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"<%
+								    } else{ %>href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>?<%=request.getQueryString()%>"<%
+								    }
+								%>><fmt:message	key="header.menu.language" bundle="${msg}" /></a> <%
  	}
  %> <%
  	}

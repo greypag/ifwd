@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
@@ -219,14 +220,24 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" 
+														    <c:choose>
+															 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}">selected="selected"</c:when>   
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															</c:choose>
+														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etAmountOtherSourceCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" 
+														    <c:choose>
+															 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}">selected="selected"</c:when>   
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															</c:choose>
+														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -234,12 +245,18 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etAmountOtherSourceEN}">
-													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if>
+												    <c:choose>
+													 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>   
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													</c:choose>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etAmountOtherSourceCN}">
-													<c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if>
+												    <c:choose>
+													 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>   
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													</c:choose>
 												</c:forEach>
 											</c:if>
 											<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${amountOfOtherSourceOfIncomeCode }">
@@ -264,14 +281,24 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" 
+														    <c:choose>
+															 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}">selected="selected"</c:when>   
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															</c:choose>
+														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" 
+														    <c:choose>
+															 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}">selected="selected"</c:when>   
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															</c:choose>
+														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -279,12 +306,18 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if>
+												    <c:choose>
+													 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>   
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													</c:choose>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if>
+												    <c:choose>
+													 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>   
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													</c:choose>
 												</c:forEach>
 											</c:if>
 											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${monthlyPersonalIncomeCode }">
@@ -471,9 +504,14 @@ var languageP = "${language}";
 				setSelectReadonly('tmpBusinessNature', true);
 				setSelectReadonly('tmpOccupation', true);
 				setSelectReadonly('tmpEducationLevel', true);
-				//setSelectReadonly('tmpOtherIncomeAmount', true);
 				setSelectReadonly('tmpLiquidAssetsAmount', true);
 				setInputReadonly('other-occupation', true);
+				if('${fn:length(monthlyPersonalIncomeCN)}' == '1'){
+					setSelectReadonly('tmpMonthlyPersonalIncome', true);
+				}
+				if('${fn:length(etAmountOtherSourceEN)}' == '1'){
+					setSelectReadonly('tmpOtherIncomeAmount', true);
+				}
 				
 				var employmentS = '${savieFna.employment_status }';
 				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){

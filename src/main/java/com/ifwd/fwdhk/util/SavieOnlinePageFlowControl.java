@@ -186,17 +186,26 @@ public class SavieOnlinePageFlowControl {
 			filePath = "savie/";
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP;
 			filePath = "savie/";
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			filePath = "savie/";
+			current = "confirmation-appointment";
 			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
+			current = "confirmation-appointment";
+			break;
+			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SINGLE_PREMIUM:
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
 			filePath = "savie/";
@@ -286,8 +295,11 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION;
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;

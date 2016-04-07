@@ -428,7 +428,12 @@ var language = "${language}";
 			    success:function(data){
 			    	if(data.errMsgs == null){
 			    		//send email
-			    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}');
+			    		if('${savieType }' == 'SP'){
+			    			$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}');
+			    		}
+			    		else{
+			    			$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
+			    		}
 				    	$("#paymentForm").submit();
 			    	}else if(data.errMsgs == "Access code has already been used"){
 			    		$('#accessCodeUsed').modal('show');
