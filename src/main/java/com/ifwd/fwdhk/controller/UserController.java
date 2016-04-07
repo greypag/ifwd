@@ -278,7 +278,6 @@ public class UserController {
 //					Saving insurance - savie
 //					Household - easy home
 //					Travel - all others 
-					
 					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
 						List<PurchaseHistoryPolicies> pending_life = new ArrayList<PurchaseHistoryPolicies>();
 						List<PurchaseHistoryPolicies> active_life = new ArrayList<PurchaseHistoryPolicies>();
@@ -299,41 +298,67 @@ public class UserController {
 						long currentTime = DateApi.getCurrentTime();
 						
 						PurchaseHistoryPolicies entity;
+						String url;
+						sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
+						String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+						if (request.getServerPort() != 80 && request.getServerPort() != 443){
+							serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+						}
+						String language = (String) request.getSession().getAttribute("language");
+						if(StringUtils.isEmpty(language)){
+							language = "tc";
+						}
+						String inComplete = WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request));
+						String type1 = WebServiceUtils.getMessage("eservice.product.type1", UserRestURIConstants.getLanaguage(request));
+						String type2 = WebServiceUtils.getMessage("eservice.product.type2", UserRestURIConstants.getLanaguage(request));
+						String type3 = WebServiceUtils.getMessage("eservice.product.type3", UserRestURIConstants.getLanaguage(request));
+						String type4 = WebServiceUtils.getMessage("eservice.product.type4", UserRestURIConstants.getLanaguage(request));
+						String type5 = WebServiceUtils.getMessage("eservice.product.type5", UserRestURIConstants.getLanaguage(request));
+						String type6 = WebServiceUtils.getMessage("eservice.product.type6", UserRestURIConstants.getLanaguage(request));
+						String type7 = WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request));
+						String type8 = WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request));
+						String type9 = WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request));
+						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
+						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
+						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
+						String active = WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request));
+						String past = WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request));
+						
 						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
 							entity = purchaseHistory.getPolicies().get(i);
 							
 							if(!StringUtils.isEmpty(entity.getCommencementDate())) {
 								entity.setCommencementDateDesc(DateApi.formatTime2(entity.getCommencementDate()));
 							}else {
-								entity.setCommencementDateDesc(WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request)));
+								entity.setCommencementDateDesc(inComplete);
 						    }
 							if(!StringUtils.isEmpty(entity.getExpiryDate())) {
 								entity.setExpiryDateDesc(DateApi.formatTime2(entity.getExpiryDate()));
 							}else {
-								entity.setExpiryDateDesc(WebServiceUtils.getMessage("user.policy.status.incomplete", UserRestURIConstants.getLanaguage(request)));
+								entity.setExpiryDateDesc(inComplete);
 							}
 							if("ET".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type1", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type1);
 							}else if("FlightCare".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type2", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type2);
 							}else if("TravelCare".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type3", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type3);
 							}else if("AnnualTravelCare".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type4", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type4);
 							}else if("OverseasStudyCare".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type5", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type5);
 							}else if("WorkingHolidayCare".equalsIgnoreCase(entity.getPlanCode()) || "WorkingHoliday".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type6", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type6);
 							}else if("EasyHomeCare".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type7);
 							}else if("SAVIE".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type8);
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
-								entity.setPlanName(WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request)));
+								entity.setPlanName(type9);
 							}
 							
 							if("Z".equalsIgnoreCase(entity.getStatus())){
-								entity.setStatus(WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request)));
+								entity.setStatus(inforce);
 							}
 							
 							if("ET".equals(entity.getPlanCode())) {
@@ -351,32 +376,82 @@ public class UserController {
 									}
 
 									if("PENDING".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(pending);
+										}
 										pending_life.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
 										active_life.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
 										past_life.add(entity);
 									}
 								}
 							}else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
 										active_saving.add(entity);
 									}else {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
 										past_saving.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(pending);
+										}
 										pending_saving.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
 										active_saving.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
 										past_saving.add(entity);
 									}
 								}
@@ -389,13 +464,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(pending);
 										pending_house.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(active);
 										active_house.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(past);
 										past_house.add(entity);
 									}
 								}
@@ -408,13 +483,13 @@ public class UserController {
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
 									if("PENDING".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(pending);
 										pending_travel.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.active", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(active);
 										active_travel.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
-										entity.setStatus(WebServiceUtils.getMessage("tab.member.top.past", UserRestURIConstants.getLanaguage(request)));
+										entity.setStatus(past);
 										past_travel.add(entity);
 									}
 								}
@@ -436,8 +511,6 @@ public class UserController {
 						model.addAttribute("past_travel", past_travel);
 						
 					}
-					
-					
 				}
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eservices");
 			} catch (Exception e) {
