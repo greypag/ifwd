@@ -2835,6 +2835,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
 		JSONObject serviceCentreObj = new JSONObject();
 		ServiceCentreResponse serviceCentreResponse;
+		ServiceCentreResponse serviceCentre = new ServiceCentreResponse();
 		if (lang.equals("CN")) {
 			serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
 		}else {
@@ -2920,8 +2921,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		logger.info("entityMap: " + entityMap);
 		logger.info("datesMap: " + datesMap);
-		serviceCentreResponse.setServiceCentres(results);
-		model.addAttribute("serviceCentre", serviceCentreResponse);
+		serviceCentre.setServiceCentres(results);
+		model.addAttribute("serviceCentre", serviceCentre);
 		model.addAttribute("datesMap", datesMap);
 		model.addAttribute("defaultDate", defaultDate);
 		model.addAttribute("results", results);
