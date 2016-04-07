@@ -100,26 +100,26 @@ var languageP = "${language}";
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
 								<div class="clearfix form-group has-error">
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" autocomplete="off" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="firstName"><fmt:message key="placeholder.first.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="firstNameErMsg"></span>
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" autocomplete="off" value="${userDetails.lastName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="lastName"><fmt:message key="placeholder.last.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="lastNameErMsg"></span>
 								</div>
                                  <div class="clearfix form-group has-error">
-									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="chineseName"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
                                  </div>
 								 			<div class="clearfix form-group has-error" id="gender-errormsg">
-                                    <div class="left-desktop text-box is-not-active">
+                                    <div class="left-desktop text-box">
                                        <div class="selectDiv">
 														<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.gender" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpGender" id="tmpGender">
@@ -134,14 +134,14 @@ var languageP = "${language}";
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkid" type="text" autocomplete="off" value="${lifePersonalDetails.hkid }" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="hkId" id="personal-info-label"><fmt:message key="placeholder.hkid" bundle="${msg}" /></label>
                                     </div>
 									<span class="error-msg" id="hkidErMsg"></span>
                                  </div>
 								 <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box is-not-active">
+                                    <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label" id="personal-info-label"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpPlaceOfBirth" id="tmpPlaceOfBirth">
@@ -179,7 +179,7 @@ var languageP = "${language}";
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box is-not-active">
+                                    <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  				<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nationality" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpNationality" id="tmpNationality">
@@ -217,7 +217,7 @@ var languageP = "${language}";
                                     </div>
                                  </div>
                                  <div class="clearfix form-group has-error dob-content">
-                                    <div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty is-not-active">
+                                    <div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}" /></label>
 											<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
@@ -229,7 +229,7 @@ var languageP = "${language}";
                               </div>
                               <div class="col-sm-12 col-md-6 right">
 								<div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
                                              <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" autocomplete="off" maxlength="8" oninput="maxLengthCheck(this)" />
@@ -240,7 +240,7 @@ var languageP = "${language}";
 									<span class="error-msg" id="resTelNoErMsg"></span>
                                  </div>
                                  <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
                                              <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" autocomplete="off" maxlength="8" oninput="maxLengthCheck(this)" />
@@ -251,7 +251,7 @@ var languageP = "${language}";
 									<span class="error-msg" id="mobileNoErMsg"></span>
                                  </div>
                                  <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box is-not-active">
+                                    <div class="left-desktop text-box">
                                        <div class="selectDiv">
 									      			<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.martial.status" bundle="${msg}" /></label>                                          
                                           <select class="form-control gray-dropdown" name="tmpMaritalStatus"  id="tmpMaritalStatus">
@@ -317,7 +317,7 @@ var languageP = "${language}";
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
-                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }" readonly="readonly" type="email" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="emailAddress"><fmt:message key="placeholder.email" bundle="${msg}" /></label>
                                     </div>
