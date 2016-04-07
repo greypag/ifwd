@@ -125,50 +125,50 @@ $(function() {
 	
 
 
-	function isValidHKID(hkid){
-		if(hkid!=''){
-			var checkSumRegex = /(.{1})\s*$/;
-			var checkSum = checkSumRegex.exec(hkid);
-			
-			console.log('CheckSum'+checkSum);
-			
-			var hkidCheckBit = hkid.replace(/^(.*).{1} /,'');
-			var hkidCheckBitArr = hkidCheckBit.split("");
-			
-			var isValid='';
-			var i , n , alphaEquivalentInt, hkidSum;
-			for(i=hkidCheckBitArr.length,n=0 ;n>=hkidCheckBitArr.length,i>=2;i--,n++){
-				
-				console.log(hkidCheckBitArr[n]+":"+i);
-				var sum;
-				if (/[A-Z]/i.test(hkidCheckBitArr[n])) {
-					alphaEquivalentInt = equivalentInteger(hkidCheckBitArr[n]);
-					sum = alphaEquivalentInt*i;
-					hkidSum = sum;
-				}else{
-					sum = hkidCheckBitArr[n]*i;
-					hkidSum+=sum;
-				}
-				
-			}
-			
-			console.log('Sum'+hkidSum);
-			
-			var hkidSumMod11 = 11- (hkidSum % 11);
-			
-			if(hkidSumMod11 == checkSum[1]){
-				isValid= 'Valid';
-				console.log('Valid');
-			}else{
-				isValid = 'Invalid';
-				console.log('Invalid');
-			}
-		}
-		else{
-			//isValid = 'Invalid';
-		}
-		return isValid;
-	}
+	//function isValidHKID(hkid){
+	//	if(hkid!=''){
+	//		var checkSumRegex = /(.{1})\s*$/;
+	//		var checkSum = checkSumRegex.exec(hkid);
+	//		
+	//		console.log('CheckSum'+checkSum);
+	//		
+	//		var hkidCheckBit = hkid.replace(/^(.*).{1} /,'');
+	//		var hkidCheckBitArr = hkidCheckBit.split("");
+	//		
+	//		var isValid='';
+	//		var i , n , alphaEquivalentInt, hkidSum;
+	//		for(i=hkidCheckBitArr.length,n=0 ;n>=hkidCheckBitArr.length,i>=2;i--,n++){
+	//			
+	//			console.log(hkidCheckBitArr[n]+":"+i);
+	//			var sum;
+	//			if (/[A-Z]/i.test(hkidCheckBitArr[n])) {
+	//				alphaEquivalentInt = equivalentInteger(hkidCheckBitArr[n]);
+	//				sum = alphaEquivalentInt*i;
+	//				hkidSum = sum;
+	//			}else{
+	//				sum = hkidCheckBitArr[n]*i;
+	//				hkidSum+=sum;
+	//			}
+	//			
+	//		}
+	//		
+	//		console.log('Sum'+hkidSum);
+	//		
+	//		var hkidSumMod11 = 11- (hkidSum % 11);
+	//		
+	//		if(hkidSumMod11 == checkSum[1]){
+	//			isValid= 'Valid';
+	//			console.log('Valid');
+	//		}else{
+	//			isValid = 'Invalid';
+	//			console.log('Invalid');
+	//		}
+	//	}
+	//	else{
+	//		//isValid = 'Invalid';
+	//	}
+	//	return isValid;
+	//}
 	
 	function equivalentInteger(hkidChar){
 		var digit;

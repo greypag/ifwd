@@ -1232,7 +1232,11 @@ function isValidHKID(hkid){
          checksumTotal += (digit * checkCtr--);
       }
       
-      isValid = (checksum === (11 - (checksumTotal) % 11));
+      //isValid = (checksum === (11 - (checksumTotal) % 11));
+      var remainder = checksumTotal % 11; 
+      var checkDigit = (remainder==0)?0:11-remainder;
+      isValid = checksum == checkDigit || checksum == 'A' && checkDigit == 10;
+
    }
    
    return isValid;
