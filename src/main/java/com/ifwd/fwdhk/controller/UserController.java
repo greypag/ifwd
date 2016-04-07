@@ -364,8 +364,22 @@ public class UserController {
 							if("ET".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
 										active_life.add(entity);
 				 					}else {
+				 						if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
 										past_life.add(entity);
 									}
 								}else if("Life".equals(entity.getPolicyType())) {
@@ -377,7 +391,7 @@ public class UserController {
 
 									if("PENDING".equals(entity.getStatus())) {
 										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
 											entity.setStatus("<a href=\"" + url + "\">"
 												+ docNow + "</a>");
 										}else {
@@ -386,7 +400,7 @@ public class UserController {
 										pending_life.add(entity);
 									}else if("ACTIVE".equals(entity.getStatus())) {
 										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
 											entity.setStatus("<a href=\"" + url + "\">"
 												+ docNow + "</a>");
 										}else {
@@ -395,7 +409,7 @@ public class UserController {
 										active_life.add(entity);
 									}else if("PAST".equals(entity.getStatus())) {
 										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
 											entity.setStatus("<a href=\"" + url + "\">"
 												+ docNow + "</a>");
 										}else {
