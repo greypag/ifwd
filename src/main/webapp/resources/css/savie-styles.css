@@ -9696,3 +9696,10 @@ h3 .heading-title{
     padding-bottom: 20px !important;
     background: #F0EFF8;
 }
+.member-account-details-footer {
+    line-height: 22px;
+    font-size: 14px;
+}
+.member-account-details-footer a:hover{
+	text-decoration: underline;
+}
