@@ -296,7 +296,7 @@ var fnaSavieGame = {
 			});
 		});
 
-		$(".game-fna").find("input[type=text]").keyup(function(e){
+		$(".game-fna").find("input[type=text], input[type=number]").keyup(function(e){
 			var formField = $(this).data("frmFld");
 			var dataType = $(this).data("type");
 
@@ -317,14 +317,14 @@ var fnaSavieGame = {
 
 				val = val.toString();
 
-				this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				//this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 
 			that.postData[formField] = ($(this).val() == "") ? null : (dataType == "int")? parseInt(val,10):  $(this).val();
 
 		});
 
-		$(".game-fna").find("input[type=text]").blur(function(){
+		$(".game-fna").find("input[type=text], input[type=number]").blur(function(){
 			$(this).trigger("keyup");
 		});
 	},

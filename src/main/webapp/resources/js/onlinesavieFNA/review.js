@@ -51,7 +51,8 @@ var fnaOccOther = {
 //thousand comma separator
 function formatNum (num) {
 	num = (num + '').replace(/,/g,"");
-    return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+    //return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+    return num;
 }
 
 $(document).ready(function(){  
@@ -76,7 +77,7 @@ var Review = {
 
 		//default disable all input
 		$(".option").find("input[type='checkbox']").attr("disabled", "disabled");
-		$(".option").find("input[type='text']").attr("readonly", "readonly");
+		$(".option").find("input[type='text'], input[type='number']").attr("readonly", "readonly");
 		$(".occupation_others").val("").prop("disabled", true).hide();
 
 		//Get review result
@@ -166,7 +167,7 @@ var Review = {
 			if(rid != row){
 				$("#"+rid).removeClass("selected");
 				$("#"+rid).find("input[type='checkbox']").removeAttr("checked");
-				$("#"+rid).find("input[type='text']").val("");
+				$("#"+rid).find("input[type='text'], input[type='number']").val("");
 			}
 		});
 	},
@@ -255,7 +256,7 @@ var Review = {
 				}
 				if(options[j].other != undefined){
 					var inputId = options[j].other;
-					text = text.replace("{0}", "<input type='text' id='"+inputId+"' name='"+inputId+"' value='' maxlength='10' />");
+					text = text.replace("{0}", "<input type='number' id='"+inputId+"' name='"+inputId+"' value='' maxlength='10' />");
 					option.find(".checkbox input").attr("data-id", inputId);
 				}
 
@@ -667,7 +668,7 @@ var Review = {
 			$(this).addClass("selected");
 			target.removeClass("display");
 			target.find("input[type='checkbox']").removeAttr("disabled");
-			target.find("input[type='text']").removeAttr("readonly");
+			target.find("input[type='text'], input[type='number']").removeAttr("readonly");
 			target.find(".btn-action").show();
 		}
 		
@@ -689,7 +690,7 @@ var Review = {
 			target.addClass("display")
 			target.find(".btn_edit").removeClass("selected")
 			target.find("input[type='checkbox']").attr("disabled", "disabled");	
-			target.find("input[type='text']").attr("readonly", "readonly");
+			target.find("input[type='text'], input[type='number']").attr("readonly", "readonly");
 			target.find(".btn-action").hide();
 		}
 
@@ -717,7 +718,7 @@ var Review = {
 		target.addClass("display")
 		target.find(".btn_edit").removeClass("selected")
 		target.find("input[type='checkbox']").attr("disabled", "disabled");	
-		target.find("input[type='text']").attr("readonly", "readonly");
+		target.find("input[type='text'], input[type='number']").attr("readonly", "readonly");
 		target.find(".btn-action").hide();
 		
 		//enable "BTN_SAVE" when all review box ok
