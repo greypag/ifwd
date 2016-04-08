@@ -1183,7 +1183,9 @@ h6 {
 
 #application-summary-page .is-dirty .mdl-textfield__label,
 #application-summary-page .is-not-active .cstm-dropdown-label,
+#plan-details-b-page .so-mdl-textfield.is-not-active label,
 #beneficiary-name-others-page .so-mdl-textfield.is-not-active label,
+#payment-page .so-mdl-textfield.is-not-active label,
 #personal-info .so-mdl-textfield.is-not-active label {
   color: #ff8200 !important;
 }
@@ -1209,6 +1211,10 @@ h6 {
 #application-summary-page .warning-note{
 	margin-top: 0;
 }
+#applicant-info-page .so-mdl-textfield.is-not-active label {
+	top: 4px !important;
+}
+
 /* line 717, ../sass/partials/savie/_common.scss */
 .active-checkbox:after {
   border: 0px solid #FFF !important;
