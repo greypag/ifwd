@@ -909,6 +909,7 @@ var language = "${language}";
 				var csCenter = $("#centre").val();
 				var perferredDate = $("#preferred-date").val();
 				var perferredTime = $("#preferred-time").val();
+				var planCode = "SAVIE-SP";
 				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 					$('#fullyBooked').modal('show');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
@@ -921,6 +922,7 @@ var language = "${language}";
 					    	"csCenter": csCenter,
 					        "perferredDate":perferredDate,
 					        "perferredTime":perferredTime,
+					        "planCode":planCode,
 					        "type":"1"
 				   		},     
 					    error:function(){       

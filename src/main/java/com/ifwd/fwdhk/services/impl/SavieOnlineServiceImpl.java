@@ -2733,7 +2733,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
-		String planCode = "SAVIE-SP";
+		String planCode = request.getParameter("planCode");
 		String policyNumber = "";
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");
@@ -2758,6 +2758,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("planCode", planCode);
 		parameters.put("accessCode", accessCode);
+		logger.info(parameters.toString());
 		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
 		applicationNumber = (String)appJsonObj.get("applicationNumber");
 		session.setAttribute("applicationNumber", applicationNumber);
@@ -2776,6 +2777,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", servicingAgent);
 			
+			logger.info(parameters.toString());
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
 			
 			response.setContentType("text/json;charset=utf-8");

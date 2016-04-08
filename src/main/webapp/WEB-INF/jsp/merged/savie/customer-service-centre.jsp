@@ -405,7 +405,14 @@ var language = "${language}";
        
     $("#btn-cstmr-srvc-cnter").on('click', function(){
       	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-      	
+    	var planCode = "";
+		if('${savieType }' == 'SP'){
+			planCode = "SAVIE-SP";
+		}
+		else{
+			planCode = "SAVIE-RP";
+		}
+		
     	var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
@@ -421,6 +428,7 @@ var language = "${language}";
 			    	"csCenter": csCenter,
 			        "perferredDate":perferredDate,
 			        "perferredTime":perferredTime,
+			        "planCode":planCode,
 			        "type":"4"
 		   		},     
 			    error:function(){       
