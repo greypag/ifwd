@@ -31,7 +31,7 @@ var languageP = "${language}";
 				<h2><fmt:message key="label.fwd.member.account2" bundle="${msg}" /></h2>
 				<div class="btn-group account-dropdown hidden-md hidden-lg clearfix">
                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                           <span class="button-text"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></span>
+                           <span class="button-text"><fmt:message key="tab.member.profile" bundle="${msg}" /></span>
                            <i class="fa fa-angle-down"></i>
                        </button>
                        <ul class="dropdown-menu" role="menu">
