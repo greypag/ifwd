@@ -11,6 +11,7 @@
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    //hotelVoucherCampaignId = 17;
     long cCurrent = System.currentTimeMillis();
     //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
     //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
@@ -348,10 +349,10 @@
                                             <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.offerHotel1.enddate" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.landingpage.offerHotel1.enddate" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.offerHotel1.enddate.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.landingpage.offerHotel1.enddate.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -523,6 +524,7 @@
                                     <ul>
                                         <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet3" bundle="${msg}" /></li>
 		                                <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
 		                                	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
 		                                	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
@@ -1336,6 +1338,7 @@
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerHotel5.bullet3" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part1" bundle="${msg}" />
                                 	<a target="_blank" href="<%=request.getContextPath()%>/<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part2" bundle="${msg}" /></a>
                                 	<fmt:message key="Fanfare.landingpage.offerHotel.bullet4.part3" bundle="${msg}" />
