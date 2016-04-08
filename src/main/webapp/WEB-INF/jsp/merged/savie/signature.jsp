@@ -916,6 +916,7 @@ var languageP = "${language}";
 				        "perferredDate":perferredDate,
 				        "perferredTime":perferredTime,
 				        "planCode":planCode,
+				        "remarks":"sign offline",
 				        "type":"3"
 			   		},     
 				    error:function(){       

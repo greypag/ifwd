@@ -429,6 +429,7 @@ var language = "${language}";
 			        "perferredDate":perferredDate,
 			        "perferredTime":perferredTime,
 			        "planCode":planCode,
+			        "remarks":"",
 			        "type":"4"
 		   		},     
 			    error:function(){       

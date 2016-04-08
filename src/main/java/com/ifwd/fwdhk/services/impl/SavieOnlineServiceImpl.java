@@ -2738,7 +2738,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");
 		String status = "Active";
-		String remarks = "";
+		String remarks = request.getParameter("remarks");
 		String accessCode = (String)request.getSession().getAttribute("accessCode");
 		String servicingAgent = "";
 		

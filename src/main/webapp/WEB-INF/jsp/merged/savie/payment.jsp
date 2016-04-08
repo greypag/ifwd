@@ -923,6 +923,7 @@ var language = "${language}";
 					        "perferredDate":perferredDate,
 					        "perferredTime":perferredTime,
 					        "planCode":planCode,
+					        "remarks":"pay offline",
 					        "type":"1"
 				   		},     
 					    error:function(){       
