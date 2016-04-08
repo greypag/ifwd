@@ -333,83 +333,35 @@ function getStarted(){
 					<ul class="nav navbar-nav lang-btn-grp">
  							<li>
 								<%
+									String switchUrl = "";
+								    String langClass = "";
 									if ("en".equals(session.getAttribute("language").toString())) {
-								%>
-
-								<%
-									if (request.getServletPath().equals("/en")) {
-								%> <a
-								class="lang eng pull-left" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang chi pull-left" id="anchor-lang"
-								<%
-								    if (request.getQueryString() == null || request.getQueryString() == "") {%>
-								    	href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"
-								    	<% } else{ %>
-								    	href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>?<%=request.getQueryString()%>"<%
-								    }%>><fmt:message key="header.menu.language" bundle="${msg}" /></a> <%}
- 	} else {
- %> <%
- 	if (request.getServletPath().equals("/tc")) {
- %> <a
-								class="lang eng pull-left" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang chi pull-left" id="anchor-lang"
-								<%
-								    if (request.getQueryString() == null || request.getQueryString() == "") {
-								    	%>href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"<%
-								    } else{ %>href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>?<%=request.getQueryString()%>"<%
-								    }
-								%>><fmt:message	key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
- %> <%
- 	}
- %>
-							</li>					
-					
-<%-- 							<li>														
-  								<% if (request.getServletPath().equals("/en") || request.getServletPath().equals("/tc") ) { %>
-									<a
-									class="lang eng pull-left" id="anchor-lang"
-									href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
-											key="header.menu.language.en" bundle="${msg}" /></a>
-									<a
-									class="lang chi pull-left" id="anchor-lang"
-									href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
-											key="header.menu.language.tc" bundle="${msg}" /></a>									
-								<% }else { %>
-									<% 
-									String relativePath = request.getServletPath().toString();
-									if (request.getServletPath().equals("/en")){
-										relativePath = relativePath.replace("/tc","/tc");
-									}else if(request.getServletPath().equals("/tc")){
-										relativePath = relativePath.replace("/tc","/en");
+									    langClass = "eng";
+										if (request.getServletPath().equals("/en")) {
+											switchUrl = request.getContextPath() + "/changeLang?selectLang=en&action=/en/";
+										} else {
+											switchUrl = request.getContextPath() + "/changeLang?selectLang=tc&action=" + request.getServletPath();
+											if (request.getQueryString() != null && request.getQueryString().length() > 0) {
+												switchUrl += "?" + request.getQueryString();
+											}
+										}
+									} else {
+									    langClass = "chi";
+										if (request.getServletPath().equals("/tc")) {
+											switchUrl = request.getContextPath() + "/changeLang?selectLang=tc&action=/tc/";
+										} else {
+											switchUrl = request.getContextPath() + "/changeLang?selectLang=tc&action=" + request.getServletPath();
+											if (request.getQueryString() != null && request.getQueryString().length() > 0) {
+												switchUrl += "?" + request.getQueryString();
+											}
+										}
 									}
-
-									%>
-									<%=relativePath %>
-									<a
-									class="lang eng pull-left" id="anchor-lang"
-									href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=relativePath%>"><fmt:message
-											key="header.menu.language.en" bundle="${msg}" /></a>
-									<a
-									class="lang chi pull-left" id="anchor-lang"
-									href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=relativePath%>"><fmt:message
-											key="header.menu.language.tc" bundle="${msg}" /></a> 																
-								<% }%>
-
-							 </li> --%>
+								%>
+								<a class="lang <%=langClass%> pull-left" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+							</li>					
 							<li><span class="top-livechat"><a class="livechat_button"><i class="fa fa-comments-o"></i></a></span></li>								 
 							<li>
-							<div class="top-number">
-															<span class="callus"> <fmt:message key="header.hotline"
-										bundle="${msg}" /></span>
+							<div class="top-number"><span class="callus"> <fmt:message key="header.hotline" bundle="${msg}" /></span>
 							</div>
 							</li>      						 
  					</ul>					
@@ -810,7 +762,6 @@ function getStarted(){
 	id="test"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
-<!--<div class="mob-header hidden-lg hidden-md pad-none">-->
 	<div class="mob-topbar">
 		<!-- 
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
@@ -821,45 +772,7 @@ function getStarted(){
 			href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><span
 			class="chat pull-right"><fmt:message key="header.menu.chatnow"
 					bundle="${msg}" /></span></a>
-
-
-		<!-- <a class="lang pull-right" href="<%=request.getContextPath()%>/changeLang?selectLang=EN&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>  -->
-		<%
-			if ("en".equals(session.getAttribute("language").toString())) {
-		%>
-
-		<%
-			if (request.getServletPath().equals("/en")) {
-		%>
-		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
-		<%
-			} else {
-		%>
-		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
-
-		<%
-			}
-			} else {
-		%>
-		<%
-			if (request.getServletPath().equals("/tc")) {
-		%>
-		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/">EN</a>
-		<%
-			} else {
-		%>
-		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>">EN</a>
-		<%
-			}
-		%>
-
-		<%
-			}
-		%>
+			<a class="lang pull-right" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
@@ -876,41 +789,7 @@ function getStarted(){
 				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_mobile.png"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
-				<!-- 
-			<div class="mob-lang-btn col-xs-1 col-sm1">
-                                <%
-                                    if ("en".equals(session.getAttribute("language").toString())) {
-                                %>
-
-                                <%
-                                    if (request.getServletPath().equals("/en")) {
-                                %> <a
-                                class="lang pull-right" id="anchor-lang"
-                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
-                                        key="header.menu.language" bundle="${msg}" /></a> <%
-    } else {
- %> <a
-                                class="lang pull-right" id="anchor-lang"
-                                href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
-                                        key="header.menu.language" bundle="${msg}" /></a> <%
-    }
-    } else {
- %> <%
-    if (request.getServletPath().equals("/tc")) {
- %> <a
-                                class="lang pull-right" id="anchor-lang"
-                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
-                                        key="header.menu.language" bundle="${msg}" /></a> <%
-    } else {
- %> <a
-                                class="lang pull-right" id="anchor-lang"
-                                href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
-                                        key="header.menu.language" bundle="${msg}" /></a> <%
-    }
- %> <%
-    }
- %>
-                            </div>	 -->			
+				<a class="lang pull-right" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 			<div class="clearfix"></div>
 		</div>
 	    
@@ -1072,41 +951,8 @@ function getStarted(){
              <li class="pad-none col-sm-12 dropdown lang-grp">
                 <ul>
  							<li>
-								<%
-									if ("en".equals(session.getAttribute("language").toString())) {
-								%>
-
-								<%
-									if (request.getServletPath().equals("/en")) {
-								%> <a
-								class="lang menu-lang" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang menu-lang" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
- 	} else {
- %> <%
- 	if (request.getServletPath().equals("/tc")) {
- %> <a
-								class="lang menu-lang" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=/tc/"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	} else {
- %> <a
-								class="lang menu-lang" id="anchor-lang"
-								href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message
-										key="header.menu.language" bundle="${msg}" /></a> <%
- 	}
- %> <%
- 	}
- %>
+ 							<a class="lang menu-lang" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 							</li>	                
-<%--                     <li><a class="lang menu-lang" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=en&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.en" bundle="${msg}" /></a></li>
-                    <li><a class="lang menu-lang chin" id="anchor-lang" href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>"><fmt:message key="header.menu.language.tc" bundle="${msg}" /></a></li> --%>
                 </ul>
              </li>
           </ul>
@@ -1353,18 +1199,10 @@ $(function() {
 	}	
     var pageControllerName = "#<%=actionName%>";
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
-    //console.log(faqProductLink);
     $("#faqProductLink").attr("href", ""+ faqProductLink + pageControllerName + "");
     var faqLinkRe = new RegExp(/^faq/);
     var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
     console.log(faqLinkRe.test(langFaqProductLink));
-//     if(faqLinkRe.test(langFaqProductLink)){
-<%--         <%if ("en".equals(session.getAttribute("language").toString())) {%> --%>
-<%--         $("#anchor-lang").attr("href", "<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/tc/"+langFaqProductLink+""); --%>
-<%--     	<%} else {%> --%>
-<%--     	$("#anchor-lang").attr("href", "<%=request.getContextPath()%>/"+langFaqProductLink+"changeLang?selectLang=tc&action=/en/"+langFaqProductLink+""); --%>
-<%--     	<%}%> --%>
-//     }
 });
 	function centerModals($element) {
 	    var $modals;
