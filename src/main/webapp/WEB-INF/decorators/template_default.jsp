@@ -9,6 +9,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
 </script>

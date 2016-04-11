@@ -4,13 +4,11 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
 	scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
 <!--   Main Content-->
 <section id="contact-page">
 	<div class="container mob-pad" id="joinus_form">
@@ -116,4 +114,72 @@
 		</div>
 	</div>
 	<!--/.container-->
+	<!--  Become partner form start -->
+	<div class="partnership container">
+		<div class="partner-headline-wrapper">
+			<h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
+			<div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
+			<h4 class="form-title">A<fmt:message key="partner.form.title" bundle="${msg}" /></h4>		
+		</div>
+		<form id="becomePartnerForm" method="post" class="form-horizontal form-uppercase" action="" onsubmit="return false">
+			<div class="col-sm-12 col-md-6 left">
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="contactName" name="contactName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" for="contactName"><fmt:message key="placeholder.contact.person.name" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="contactNameErMsg"></span>
+		        </div>
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="contactEmail" name="contactEmail" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" for="contactEmail"><fmt:message key="placeholder.contact.person.email" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="contactEmailErMsg"></span>
+		        </div>
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="industryName" name="industryName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" for="industryName"><fmt:message key="placeholder.industry" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="industryNameErMsg"></span>
+		        </div>
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyLocation" name="companyLocation" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" for="companyLocation"><fmt:message key="placeholder.company.location" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="companyLocationErMsg"></span>
+		        </div>			        				        				        			        			        
+	        </div>		        
+			<div class="col-sm-12 col-md-6 left">
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="contactNum" name="contactNum" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" id="personal-info-label" for="contactNum"><fmt:message key="placeholder.contact.no" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="contactNumErMsg"></span>
+		        </div>
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyName" name="companyName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+						<label class="mdl-textfield__label" for="companyName"><fmt:message key="placeholder.company.name" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="companyNameErMsg"></span>
+		        </div>
+		        <div class="clearfix form-group has-error">
+					<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<textarea class="form-control gray-textbox mdl-textfield__input chinese-input" id="descriptionMsg" name="descriptionMsg" type="text" row="3" value="${lifePersonalDetails.chineseName }" autocomplete="off"/></textarea>
+						<label class="mdl-textfield__label" for="descriptionMsg"><fmt:message key="placeholder.message" bundle="${msg}" /></label>
+					</div>
+					<span class="error-msg" id="descriptionMsgErMsg"></span>
+		        </div>			        				        			        			        
+	        </div>
+	        <div class="clearfix"></div>	        		        
+            <div class="next-btn">
+                <button id="applyPartner" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>
+            </div>	        
+        </form>                        		
+	</div>
+	<!-- Become partner form end -->
 </section>
