@@ -222,45 +222,45 @@ public class SendEmailService implements SendEmailDao {
 			String expiryDate = null;			
 			
 			if (offername.equals("Fanfare.offername6")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in an Executive Deluxe Room with Breakfast for Two Persons";
-				rewardNameCh = "行政豪華房3日2夜的住宿及2份早餐";
-				hotelUrl = "http://www.oneworldhotel.com.my/";
-				hotelNameEn = "One World Hotel";
-				hotelNameCh = "世界酒店";
-				referenceCode = "89811";
-				expiryDate = "06-04-2016";
+				rewardNameEn = "3 Days / 2 Nights Stay in a Superior Hillview Room with Breakfast";
+				rewardNameCh = "高级山景客房3日2夜的住宿及早餐";
+				hotelUrl = "http://www.bayviewhotels.com/";
+				hotelNameEn = "Bayview Hotel";
+				hotelNameCh = "灣景酒店";
+				referenceCode = "7626";
+				expiryDate = "09-05-2016";
 			} else if (offername.equals("Fanfare.offername7")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in a Standard Room with Breakfast";
-				rewardNameCh = "標準房3日2夜的住宿及早餐";
-				hotelUrl = "http://www.vivatel.com.my/";
-				hotelNameEn = "Vivatel Kuala Lumpur";
-				hotelNameCh = "吉隆坡輝煌酒店";
-				referenceCode = "398975";
-				expiryDate = "07-04-2016";
+				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Room with Breakfast";
+				rewardNameCh = "豪華客房3日2夜的住宿及早餐";
+				hotelUrl = "http://www.dorsetthotels.com/malaysia/subang/";
+				hotelNameEn = "Dorsett Grand Subang Hotel";
+				hotelNameCh = "梳邦帝盛君豪酒店";
+				referenceCode = "164674";
+				expiryDate = "10-05-2016";
 			} else if (offername.equals("Fanfare.offername8")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Garden View Room with Buffet Breakfast for Two Persons";
-				rewardNameCh = "豪華園景房3日2夜的住宿及2份自助早餐";
-				hotelUrl = "http://www.shangri-la.com/penang/rasasayangresort/";
-				hotelNameEn = "Shangri-La's Rasa Sayang Resort & Spa, Penang";
-				hotelNameCh = "檳城香格里拉沙洋度假酒店";
-				referenceCode = "10468";
-				expiryDate = "08-04-2016";
+				rewardNameEn = "3 Days / 2 Nights Stay in a Dorsett Room with Breakfast";
+				rewardNameCh = "帝盛客房3日2夜的住宿及早餐";
+				hotelUrl = "http://www.dorsetthotels.com/malaysia/kualalumpur/";
+				hotelNameEn = "Dorsett Kuala Lumpur Hotel";
+				hotelNameCh = "吉隆坡帝盛酒店";
+				referenceCode = "10403";
+				expiryDate = "11-05-2016";
 			} else if (offername.equals("Fanfare.offername9")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in a Deluxe Seafacing Room with Buffet Breakfast for Two Persons";
-				rewardNameCh = "豪華海景房3日2夜的住宿及2份自助早餐";
-				hotelUrl = "http://www.shangri-la.com/penang/goldensandsresort/";
-				hotelNameEn = "Golden Sands Resort, Penang";
-				hotelNameCh = "檳城香格里拉金色海灘度假村";
-				referenceCode = "10466";
-				expiryDate = "09-04-2016";
+				rewardNameEn = "3 Days / 2 Nights Stay in an One Bed Residensi with Breakfast";
+				rewardNameCh = "單臥室公寓3日2夜的住宿及早餐";
+				hotelUrl = "http://bukitceylon.lansonplace.com/";
+				hotelNameEn = "Lanson Place Bukit Ceylon Serviced Residences";
+				hotelNameCh = "逸蘭武吉錫朗服務式住宅";
+				referenceCode = "478069";
+				expiryDate = "12-05-2016";
 			} else if (offername.equals("Fanfare.offername10")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in Traders Twins Towers View Suite for Two Persons";
-				rewardNameCh = "雙子塔景套房3日2夜的住宿";
-				hotelUrl = "http://www.shangri-la.com/traders/";
-				hotelNameEn = "Traders Hotels by Shangri-La";
-				hotelNameCh = "吉隆坡商貿飯店";
-				referenceCode = "72006";
-				expiryDate = "10-04-2016";
+				rewardNameEn = "3 Days / 2 Nights Stay in a Superior room with Breakfast";
+				rewardNameCh = "高級客房3日2夜的住宿及早餐";
+				hotelUrl = "http://www.minggardenhotel.com/";
+				hotelNameEn = "Ming Garden Hotel & Residence";
+				hotelNameCh = "明園酒店及公寓";
+				referenceCode = "284035";
+				expiryDate = "13-05-2016";
 			}
 			model.put("userName", username);
 			model.put("rewardNameEn", rewardNameEn);

@@ -86,7 +86,8 @@ public class CampaignServiceImpl implements CampaignService {
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
 		int[] indexs = {5, 6, 7, 8, 9};
-		/*
+		
+		/* hotel voucher start */
 	    if (request.getParameter("hid")!=null) {	  
 		    switch (Integer.parseInt(request.getParameter("hid").toString())) {
 			    case 14:
@@ -109,7 +110,7 @@ public class CampaignServiceImpl implements CampaignService {
 		            break;
 		    }
 	    }
-	    */
+	    /* hotel voucher end */
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		Map<String,String> map = new HashMap<String,String>();

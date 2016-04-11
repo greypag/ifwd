@@ -64,7 +64,7 @@ public class SavieOnlinePageFlowControl {
 		// Landing Page
 		String to = "";
 		String to2 = "";
-		String filePath = "savieonline/";
+		String filePath = "fna/";
 
 		logger.debug("referer : " + referer);
 		logger.debug("current : " + current);
