@@ -202,8 +202,8 @@ public class ECommController {
 		String code;
 		JSONObject responseJsonObj;
 		
-		int hotelVoucherCampaignId = -1;
-		/*
+		// int hotelVoucherCampaignId = -1;
+		/* hotel voucher start */
 	    java.util.Calendar cal = java.util.Calendar.getInstance();
 	    cal.setTime(java.util.Calendar.getInstance().getTime());
 
@@ -212,32 +212,32 @@ public class ECommController {
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
 	    
 	    int hotelVoucherCampaignId = -1;
-	    if (month == 2) {
-	        if (day == 16) {
+	    if (month == 3 && day < 30) {
+	        if (day == 18) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 14;
 	        	} else {
 		            hotelVoucherCampaignId = -1;
 	        	}
-	        } else if (day == 17) {
+	        } else if (day == 19) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 15;
 	        	} else {
 		            hotelVoucherCampaignId = 14;
 	        	}
-	        } else if (day == 18) {
+	        } else if (day == 20) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 16;
 	        	} else {
 		            hotelVoucherCampaignId = 15;
 	        	}
-	        } else if (day == 19) {
+	        } else if (day == 21) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 17;
 	        	} else {
 		            hotelVoucherCampaignId = 16;
 	        	}
-	        } else if (day == 20) {
+	        } else if (day == 22) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 18;
 	        	} else {
@@ -269,7 +269,7 @@ public class ECommController {
 	            indexs = new int[]{-1};
 	            break;
 	    }
-	    */
+	    /* hotel voucher end */
 	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampaignId);
 		
 		if(!StringUtils.isEmpty(choose) &&
