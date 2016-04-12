@@ -11389,6 +11389,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #becomePartnerForm .mdl-textfield label:after {
   background-color: transparent;
 }
+#becomePartnerForm textarea.form-control.gray-textbox{
+	height: 135px;
+}
 .partnership.container{
 	margin:0;
 }
