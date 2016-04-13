@@ -671,7 +671,8 @@ function isBeneficiary3Hidden() {
 }
 
 function duplicateBeneficiary() {
-	var dupStr = duplicateBeneficiaries(); 
+	var dupStr = duplicateBeneficiaries();
+	/*
 	if(dupStr!= '') {
 		var result = /\d+(?:\.\d+)?/.exec(dupStr);
 		switch(result.toString()) {
@@ -705,6 +706,7 @@ function duplicateBeneficiary() {
 		$('#beneficiaryDupHkidErMsg\\[1\\]').addClass('hidden');
 		$('#beneficiaryDupHkidErMsg\\[2\\]').addClass('hidden');
 	}
+	*/
 }
 
 //Checking for Duplicate Beneficiaries
@@ -749,6 +751,7 @@ function duplicateBeneficiaries(){
 
 function duplicateBeneficiaryPassport() {
 	var dupStr = duplicateBeneficiariesPassport();
+	/*
 	if(dupStr!= '') {
 		var result = /\d+(?:\.\d+)?/.exec(dupStr);
 		switch(result.toString()) {
@@ -782,6 +785,7 @@ function duplicateBeneficiaryPassport() {
 		$('#beneficiaryDupPassportErMsg\\[1\\]').addClass('hidden');
 		$('#beneficiaryDupPassportErMsg\\[2\\]').addClass('hidden');
 	}
+	*/
 }
 
 //Checking for Duplicate Beneficiaries

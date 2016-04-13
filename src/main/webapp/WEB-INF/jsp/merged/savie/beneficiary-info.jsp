@@ -887,11 +887,23 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 			               },
 								callback: {
-		                      message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
-		                      callback: function(value, validator) {
-		                         return isValidHKID(value);
-		                      }
-				            }
+									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiaries()!=''){
+											return false;
+										}
+										
+										if(duplicateBeneficiariesPassport()!=''){
+											return false;
+										}
+										
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
+									}
+								}
 							}
 						},
 							'tmpBeneficiaryGender-3': {
@@ -920,7 +932,7 @@ var languageP = "${language}";
 										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 									},
 									between:{
-										min: 0,
+										min: 1,
 										max: 100,
 										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 									},
@@ -1057,7 +1069,19 @@ var languageP = "${language}";
 								callback: {
 									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
-		                         return isValidHKID(value);
+										if(duplicateBeneficiaries()!=''){
+											return false;
+										}
+										
+										if(duplicateBeneficiariesPassport()!=''){
+											return false;
+										}
+										
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
 		                     }
 				            }
 							}
@@ -1088,7 +1112,7 @@ var languageP = "${language}";
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 								},
 								between:{
-									min: 0,
+									min: 1,
 									max: 100,
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 								},
@@ -1256,7 +1280,19 @@ var languageP = "${language}";
 								callback: {
 									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
-		                         return isValidHKID(value);
+										if(duplicateBeneficiaries()!=''){
+											return false;
+										}
+										
+										if(duplicateBeneficiariesPassport()!=''){
+											return false;
+										}
+										
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
 		                     }
 			                  /* callback: function(value, validator) {
 										if(!isValidHKID(value)) {
@@ -1296,7 +1332,7 @@ var languageP = "${language}";
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 				            },
 			               between:{
-			                	min: 0,
+			                	min: 1,
 			                	max: 100,
 		                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 		                  },
@@ -1401,6 +1437,7 @@ var languageP = "${language}";
 			});
 			
 		});
+
 		</script>
 	</body>
 </html>
