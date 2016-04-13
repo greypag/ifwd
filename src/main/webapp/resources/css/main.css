@@ -11393,7 +11393,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	height: 135px;
 }
 .partnership.container{
-	margin:0;
+	margin:0 auto;
 }
 .partner-headline-wrapper{
 	margin-bottom: 30px;

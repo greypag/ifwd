@@ -91,25 +91,26 @@
                                         </li>
                                     </ul>
                                 </div>
-                            <div class="partner_tnc">
-                                <div class="partner_tnc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
-                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="partner_link">
-                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
-                            </div>
-                    </div>                              
-	                <div class="clearfix"></div>
-                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
+	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
+	                                                <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <div class="partner_link">
+	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
+	                            </div>
+                    		</div>                              
+	                	<div class="clearfix"></div>
+                	</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -181,7 +182,7 @@
             </div>	        
         </form>                        		
 	</div>
-	<!-- Become partner form end -->
+	<!-- Become partner form end -->	
 </section>
 
 <script>

@@ -60,7 +60,7 @@
             	countDownMM = "Apr"; 
             	break;
     		case -1:
-    	        countDownDate = "2016-04-30 23:59:59";
+    	        countDownDate = "2016-04-30 14:59:59";
             	countDownDD = "30";
             	countDownMM = "Apr"; 
             	break;             	
