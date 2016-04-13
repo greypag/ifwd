@@ -762,19 +762,17 @@ function getStarted(){
 	id="test"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
-	<div class="mob-topbar">
-		<!-- 
+<%-- 	<div class="mob-topbar">
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
-		 -->
 		<span id="toplefthotline" class="callus top-number"><fmt:message
 				key="header.hotlineSmall" bundle="${msg}" /></span> <a
 			href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><span
 			class="chat pull-right"><fmt:message key="header.menu.chatnow"
 					bundle="${msg}" /></span></a>
-			<a class="lang pull-right" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+			<a class="lang pull-right hehe" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 		<div class="clearfix"></div>
-	</div>
+	</div> --%>
 	<div class="logobox">
 		<div class="navbar-header" style="overflow: hidden;">
 			<button type="button"
@@ -789,7 +787,6 @@ function getStarted(){
 				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_mobile.png"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
-				<a class="lang pull-right" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
 			<div class="clearfix"></div>
 		</div>
 	    
@@ -1259,7 +1256,7 @@ $(function() {
 			});
 		}
         $('.livechat_button').on("click",function(){
-        	console.log("hehe");
+        	//console.log("livechat clicked");
             $('#livechat-compact-container').show();
             $('#livechat-compact-container').css({
                 visibility: 'visible', 
