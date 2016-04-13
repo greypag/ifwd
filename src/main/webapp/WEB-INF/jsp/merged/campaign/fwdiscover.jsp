@@ -222,7 +222,7 @@
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-lanson.jpg" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
+		                                  <div class="hotel-name long-hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
