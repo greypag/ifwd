@@ -759,14 +759,11 @@ var languageP = "${language}";
 		   });
 			
 			// detect IE browsers
-			if (window.clipboardData) {
+			if(msieversion() >= 9) {
 				$('.selectDiv .gray-dropdown').addClass('ie-select');
 				//fix for IE8 highlight blue when selected
-				$('select').change(function() {
-					$(this).blur();
-				});
 				$('option').click(function() {
-					$('select').blur();
+				    $('select').blur();
 				});
 			} else {
 				$('.selectDiv .gray-dropdown').removeClass('ie-select');

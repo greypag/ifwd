@@ -707,12 +707,12 @@ var languageP = "${language}";
 			
 			$('.selectDiv').removeClass('is-not-active');
 			
-			$('select').change(function() {
-				$(this).blur();
-			});
-			$('option').click(function() {
-				$('select').blur();
-			});
+			if(msieversion() >= 9) {
+				//fix for IE8 highlight blue when selected
+				$('option').click(function() {
+				    $('select').blur();
+				});
+			}	
 			// detect IE browsers
 			if (window.clipboardData) {
 				$('.selectDiv .gray-dropdown').addClass('ie-select');

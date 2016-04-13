@@ -701,12 +701,17 @@ var language = "${language}";
 			}
 		});
 		
-		$('select').change(function() {
-			$(this).blur();
-		});
-		$('option').click(function() {
-			$('select').blur();
-		});
+		// detect IE browsers
+		if(msieversion() >= 9) {
+			//fix for IE8 highlight blue when selected
+			$('option').click(function() {
+			    $('select').blur();
+			});
+			$('.selectDiv .gray-dropdown').addClass('ie-select');
+			
+		} else {
+			$('.selectDiv .gray-dropdown').removeClass('ie-select');
+		}
 		
 		// set fields whether editable or not
 		setInputReadonly('paymentAmount', true);
