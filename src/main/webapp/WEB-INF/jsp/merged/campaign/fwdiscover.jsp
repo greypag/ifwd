@@ -10,6 +10,9 @@
 
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
+	if (request.getParameter("hid")!=null && ((String)request.getParameter("hid")).length() > 0) {
+		hotelVoucherCampaignId = Integer.parseInt((String)request.getParameter("hid"));
+	}
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     long cCurrent = System.currentTimeMillis();
