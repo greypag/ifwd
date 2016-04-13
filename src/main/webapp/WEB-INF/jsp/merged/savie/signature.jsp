@@ -662,21 +662,28 @@ var languageP = "${language}";
 	var sec1 = 32;
 	var sec2 = 32;
 	var sec3 = 72;
+	var interval1;
 	$('#fna-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec1 -= 1;
-			updateSecond(sec1);
+		clearInterval(interval1);
+		interval1 = setInterval(function() {
+			if (sec1 <= 32){
+				sec1 --;
+				updateSecond(sec1);
+				$('#timer-1').text(sec1);
+			}
 		}, 1000);
 
 		function updateSecond(second) {
+			//sec1 -= 1;
+			//console.log(interval);
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval1);
 				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-1').hasClass('bottom')) {
 					$('#review-btn-1').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-1').text(second);
+			//clearInterval(interval);
 		}
 	});
 	$('#sales-signature-modal').on('shown.bs.modal', function () {
