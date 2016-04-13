@@ -11,32 +11,66 @@
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
     java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    //hotelVoucherCampaignId = 17;
+
     long cCurrent = System.currentTimeMillis();
-    //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
-    //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     //hotel monthly campiagn display end time
-    long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();    
+    long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();
     //hotel monthly campiagn display end time
-    long hotelcStart = cformat.parse("2016-04-17 23:59:59").getTime();
+    long hotelcStart = cformat.parse("2016-04-18 15:00:00").getTime();
     //GI monthly campiagn display end time
     long cStart = cformat.parse("2016-04-14 23:59:59").getTime();
+    
+    /* For Debug and test the campaign switching logic
+    set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
+    set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
+    */
+    //hotelVoucherCampaignId = 14;
+    //cCurrent = cformat.parse("2016-04-18 15:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
     boolean isRegPromo = true;
-    if( cCurrent <= hotelcEnd /* && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1) */){
+    if( cCurrent <= hotelcEnd && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1)){
     	isRegPromo = false;
-        countDownDate = "2016-04-22 23:59:59";
-        countDownDD = "23";
-        countDownMM = "Apr";        
+    	switch(hotelVoucherCampaignId){
+    		case 14:
+    	        countDownDate = "2016-04-19 14:59:59";
+            	countDownDD = "19";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 15:
+    	        countDownDate = "2016-04-20 14:59:59";
+            	countDownDD = "20";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 16:
+    	        countDownDate = "2016-04-21 14:59:59";
+            	countDownDD = "21";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 17:
+    	        countDownDate = "2016-04-22 14:59:59";
+            	countDownDD = "22";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 18:
+    	        countDownDate = "2016-04-30 14:59:59";
+            	countDownDD = "30";
+            	countDownMM = "Apr"; 
+            	break;
+    		case -1:
+    	        countDownDate = "2016-04-30 23:59:59";
+            	countDownDD = "30";
+            	countDownMM = "Apr"; 
+            	break;             	
+    	}       
     } else {
-        countDownDate = "2016-04-14 23:59:59";
-        countDownDD = "15";
+        countDownDate = "2016-04-18 14:59:59";
+        countDownDD = "18";
         countDownMM = "Apr";    	
     	if(cCurrent >= cStart && cCurrent <= hotelcStart){
-    		disableOfferClass = "paused-plan";
+    		disableOfferClass = "paused-plan";    		
     	}
     }
 
