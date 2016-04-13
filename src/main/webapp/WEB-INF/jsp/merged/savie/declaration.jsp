@@ -458,7 +458,7 @@ var languageP = "${language}";
 								    },     
 								    success:function(data){
 								    	if(data != null && data.successMsg !=null){
-								    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 								    	}
 								    	else{
 								    		$('.btn-proceed').removeAttr("disabled");

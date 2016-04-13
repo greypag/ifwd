@@ -784,10 +784,10 @@ var languageP = "${language}";
 							  }
 							  else{
 								  if('${backSummary}'=="Y"){
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+									  window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 								  }
 								  else{
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+									  window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 								  }
 							  }
 						  }

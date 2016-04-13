@@ -703,7 +703,7 @@ var language = "${language}";
 			var getpath = "<%=request.getContextPath()%>";
 			
 			function goNext(){
-					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
 		$(document).ready(function() {
          var employmentS = '${savieFna.employment_status }';

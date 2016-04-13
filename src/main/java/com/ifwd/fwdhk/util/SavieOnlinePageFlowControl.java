@@ -105,26 +105,26 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
@@ -136,14 +136,14 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			filePath = "savie/";
 			break;
 			

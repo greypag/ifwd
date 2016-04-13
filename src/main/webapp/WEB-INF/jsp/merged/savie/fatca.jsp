@@ -133,7 +133,7 @@ var languageP = "${language}";
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			$("#yes-btn").click(function(){
-					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			});
 		</script>
 	</body>
