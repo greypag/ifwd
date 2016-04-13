@@ -157,6 +157,7 @@ var languageP = "${language}";
 										</div-->
 								   </div>
 								</div>
+								<p id="chkHaveReplacedErMsg" class="err-msg hidden"><fmt:message key="error.haveReplaced.tnc.not.checked" bundle="${msg}" /></p>
 							</div>
 							<div class="col-xs-12">
 								<p><fmt:message key="declaration.policyreplacement.copy2" bundle="${msg}" /></p>
@@ -181,6 +182,7 @@ var languageP = "${language}";
 										</div-->									  
 								   </div>
 								</div>
+								<p id="chkIntentToReplacedErMsg" class="err-msg hidden"><fmt:message key="error.intentToReplaced.tnc.not.checked" bundle="${msg}" /></p>
 							</div>
 						</div>
 						
@@ -223,6 +225,7 @@ var languageP = "${language}";
 							  </div>
 						   </div>
 						</div>
+						<p id="chkIntentToLiveOutsideErMsg" class="err-msg hidden"><fmt:message key="error.intentToLiveOutside.tnc.not.checked" bundle="${msg}" /></p>
 					</div>
 					
 					<div class="cstm-panel">
@@ -430,7 +433,11 @@ var languageP = "${language}";
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
 			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
-			
+
+			isPassed &= validateChkboxField('haveReplacedNo', 'chkHaveReplacedErMsg');
+			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');
+			isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');
+			//console.log(isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg'));
 			if(! isPassed) {
 				return false;
 			}else {
@@ -479,8 +486,7 @@ var languageP = "${language}";
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
-			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
-			
+			isPassed &= validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');			
             if(isPassed) {
 				$('#save-and-continue-batch5-modal').modal('show');
             }
