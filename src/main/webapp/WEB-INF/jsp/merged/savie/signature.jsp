@@ -663,14 +663,14 @@ var languageP = "${language}";
 	var sec2 = 32;
 	var sec3 = 72;
 	var interval1;
+	var interval2;
+	var interval3;
 	$('#fna-signature-modal').on('shown.bs.modal', function () {
 		clearInterval(interval1);
 		interval1 = setInterval(function() {
-			if (sec1 <= 32){
-				sec1 --;
-				updateSecond(sec1);
-				$('#timer-1').text(sec1);
-			}
+			sec1 --;
+			updateSecond(sec1);
+			$('#timer-1').text(sec1);
 		}, 1000);
 
 		function updateSecond(second) {
@@ -687,37 +687,39 @@ var languageP = "${language}";
 		}
 	});
 	$('#sales-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec2 -= 1;
+		clearInterval(interval2);
+		interval2 = setInterval(function() {
+			sec2 --;
 			updateSecond(sec2);
+			$('#timer-2').text(sec2);
 		}, 1000);
 
 		function updateSecond(second) {
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval2);
 				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-2').hasClass('bottom')) {
 					$('#review-btn-2').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-2').text(second);
 		}
 	});
 	$('#policy-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec3 -= 1;
+		clearInterval(interval3);
+		interval3 = setInterval(function() {
+			sec3 --;
 			updateSecond(sec3);
+			$('#timer-3').text(sec3);
 		}, 1000);
 
 		function updateSecond(second) {
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval3);
 				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-3').hasClass('bottom')) {
 					$('#review-btn-3').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-3').text(second);
 		}
 	});
 	 
