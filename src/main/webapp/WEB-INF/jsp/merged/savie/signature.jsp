@@ -298,7 +298,7 @@ var languageP = "${language}";
 			</div>
 		</div>
 		<div class="text-center">
-			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">40</span>)</button>
+			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">32</span>)</button>
 		</div>	
 	</div>
   </div>
@@ -659,7 +659,7 @@ var languageP = "${language}";
 		var pdfFile = $('#pdf-object').attr('data');
 		var success = new PDFObject({ url: pdfFile }).embed();
 	};
-	var sec1 = 40;
+	var sec1 = 32;
 	var sec2 = 32;
 	var sec3 = 72;
 	$('#fna-signature-modal').on('shown.bs.modal', function () {
