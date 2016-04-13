@@ -1390,6 +1390,16 @@ var languageP = "${language}";
 					}
 				});
 			}
+
+			$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keypress', function (event) {
+				var regex = new RegExp("/^[\s\u4e00-\u9eff]*$/");
+				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+				if (!regex.test(key)) {
+					event.preventDefault();
+					return false;
+				}
+			});
+			
 		});
 		</script>
 	</body>
