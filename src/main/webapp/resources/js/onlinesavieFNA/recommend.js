@@ -1032,6 +1032,10 @@ var FNArecommendation = {
 		var email = $.trim($("#FNAinputEmail").val());
 		var mobileno = $.trim($("#FNAinputMobileNo").val());
 
+		var validName = false;
+		var validEmail = false;
+		var validMobile = false;
+
 		//Reset error message
 		$("#errFNAinputCustomerName").text('');
 		$("#errFNAinputEmail").text('');
@@ -1039,30 +1043,45 @@ var FNArecommendation = {
 
 		if(name == ""){
 			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
-			result = false;
+			validName = false;
 		}else if(!name_eng_pattern.test(name)){
 			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
-			result = false;
+			validName = false;
+		}else{
+			validName = true;
 		}
+
 
 		if(email == ""){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.empty"));
-			result = false;
+			validEmail = false;
 		}else if (!emailreg.test(email)){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.invalid"));
-			result = false;
-			
+			validEmail = false;
+		}else{
+			validEmail = true;
 		}
 
 		if(mobileno == ""){
 			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.empty"));
-			result = false;
+			validMobile = false;
 		}else if(!mobile_pattern.test(mobileno)){
 			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.invalid"));
-			result = false;
+			validMobile = false;
+		}else{
+			validMobile = true;
 		}
 
-		return result;		
+		if( email == "" && validMobile ){
+			$("#errFNAinputEmail").text("");
+			validEmail = true;
+		}
+		if( mobileno == "" && validEmail ){
+			$("#errFNAinputMobileNo").text("");
+			validMobile = true;
+		}
+
+		return validName && validEmail && validMobile;		
 	}
 
 };
