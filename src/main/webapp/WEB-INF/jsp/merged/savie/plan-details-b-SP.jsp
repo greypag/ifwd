@@ -775,7 +775,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').addClass('hidden');
 	        $('#rate-table-4').addClass('hidden');
 	    });
-	    
+		
 	    $('#rate-2').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -830,6 +830,9 @@ var affordabilityPremium = ${sliderMax};
 		});
 		
 		$('.rate-btn').on('click', function (){
+			$('.tooltip').hide();
+		});
+		$(document).on('click touchstart', function (){
 			$('.tooltip').hide();
 		});
 
