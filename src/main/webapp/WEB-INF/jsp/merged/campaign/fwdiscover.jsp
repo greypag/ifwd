@@ -1724,7 +1724,7 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
-        	$('#offer-details-hotel-voucher').modal('show');
+        	//$('#offer-details-hotel-voucher').modal('show');
         	if(isMobile){
 	            $(window).on("load resize",function(){     
 	                if(window.innerHeight > window.innerWidth) // Portrait
