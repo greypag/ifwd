@@ -100,9 +100,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        			</ul>
 	        		</div>
 	        </div>
-       		
-       		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span></span>
-       		</p>
+     				
+     		<ul class="availability-notice" style="padding-left: 10px;">
+  				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
+  			</ul>
 
        		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
 				<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
