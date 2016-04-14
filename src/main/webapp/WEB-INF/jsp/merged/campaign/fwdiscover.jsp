@@ -29,8 +29,8 @@
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
-    //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-04-18 15:00:00").getTime();
+    hotelVoucherCampaignId = 16;
+    cCurrent = cformat.parse("2016-04-18 15:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -1540,7 +1540,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1568,7 +1568,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1596,7 +1596,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                            			                                    
 				                          </div>
@@ -1625,7 +1625,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1653,7 +1653,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>  	                                             			                                    
 				                          </div>			                          
@@ -1724,6 +1724,7 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
+        	$('#offer-details-hotel-voucher').modal('show');
         	if(isMobile){
 	            $(window).on("load resize",function(){     
 	                if(window.innerHeight > window.innerWidth) // Portrait
