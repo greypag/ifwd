@@ -60,7 +60,7 @@ $(document).ready(function(){
     	var val = $(this).val();
     	//val = (val + '').replace(/,/g,"");
     	val = val.replace(/\D/g, ''); //remove invalid characters
-		val = val.replace(/\b(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
+		val = val.replace(/\b0(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
 
     	val = parseInt(val+'', 10);
     	val = isNaN(val) ? "":val;

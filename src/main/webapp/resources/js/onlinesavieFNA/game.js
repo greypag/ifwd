@@ -305,7 +305,7 @@ var fnaSavieGame = {
 				
 				var input = this.value;
 				input = input.replace(/\D/g, ''); //remove invalid characters
-				input = input.replace(/\b(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
+				input = input.replace(/\b0(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
 				var val = parseInt(input,10);
 
 				if(isNaN(val)){
