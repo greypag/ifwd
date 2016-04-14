@@ -354,8 +354,9 @@ var language = "${language}";
 				
 				<div class="col-xs-12 pay-later-div hidden">
 					<div class="payment-later-desc"><fmt:message key="payment.paylater.desc" bundle="${msg}" /></div>
-					<br/><br/>
-					<a href="#" class="save-link-paylater" id="payment-save-and-con-paylater"><fmt:message key="payment.paylater.label.save.and.continue.later" bundle="${msg}" /></a>
+					<div class="text-center clearfix save-link-paylater-div">
+						<a href="#" class="savie-common-btn save-link-paylater" id="payment-save-and-con-paylater"><fmt:message key="payment.paylater.label.save.and.continue.later" bundle="${msg}" /></a>
+					</div>
 				</div>
 				<center>
 						<button type="button" id="btn-next" class="text-bold btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
@@ -666,11 +667,13 @@ var language = "${language}";
 				$('.save-link').removeClass('hidden');
 				//$('#pay-later-page').addClass('hidden');
 				$('.pay-later-div').addClass('hidden');
+				$('#btn-next').removeClass('hidden');
 			} else {
 				$('#direct-debit-panel').addClass('hidden');
 				$('.save-link').addClass('hidden');
 				//$('#pay-later-page').removeClass('hidden');
 				$('.pay-later-div').removeClass('hidden');
+				$('#btn-next').addClass('hidden');
 				
 				if($("#full-date").length > 0){
 					$('#fullyBooked').modal('show');

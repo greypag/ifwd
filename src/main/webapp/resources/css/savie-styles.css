@@ -9711,13 +9711,8 @@ h3 .heading-title{
 }
 
 /* add on 20160414 */
-#signature-offline #btn-cstmr-srvc-cnter{
+#signature-offline  .save-link-later-div,
+#payment-page .save-link-paylater-div{
 	margin: 5% auto;
 }
-#payment-page .pay-later-div{
-	margin-bottom: 5%;
-}
-#payment-page a.save-link-paylater#payment-save-and-con-paylater,
-#signature-offline a.save-link-later#signature-save-and-con-later{
-	text-decoration: underline;
-}
+

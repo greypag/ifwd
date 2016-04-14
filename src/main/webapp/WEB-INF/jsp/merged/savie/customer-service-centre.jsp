@@ -391,6 +391,7 @@ var language = "${language}";
 	});
 	$('#fullyBooked-button').click(function(){
 		$('#fullyBooked').modal('hide');
+		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 	});
 	$('#perferredTimeIsNull-btn').click(function(){
 		$('#perferredTimeIsNull').modal('hide');

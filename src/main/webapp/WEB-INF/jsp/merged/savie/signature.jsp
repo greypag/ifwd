@@ -232,15 +232,11 @@ var languageP = "${language}";
 			
 			<div class="col-xs-12 sign-later-div hidden">
 				<div class="signature-later-desc"><fmt:message key="signature.later.desc" bundle="${msg}" /></div>
-				<br/><br/>
-				<a href="#" class="save-link-later" id="signature-save-and-con-later" data-toggle="modal" data-target="#save-and-continue-modal">
-					<span><fmt:message key="signature.label.save.and.continue.later" bundle="${msg}" /></span>
-				</a>
-			</div>
-			<div class="col-xs-12 hidden" id="desktop-position-btn-later">
-				<div class="text-center clearfix" id="btn-srv-center">
-					<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.Next" bundle="${msg}" /></button>
-				 </div>
+				<div class="text-center clearfix save-link-later-div">
+					<a href="#" class="savie-common-btn save-link-later" id="signature-save-and-con-later" data-toggle="modal" data-target="#save-and-continue-modal">
+						<span><fmt:message key="signature.label.save.and.continue.later" bundle="${msg}" /></span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
