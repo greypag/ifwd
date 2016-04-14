@@ -78,7 +78,7 @@
   width: 100% !important;
   background-color: #FFF; }
   #FNAReview #personal_info .select2-container .select2-selection--single {
-    padding: 8px 22px;
+    padding: 8px 22px 8px 15px;
     height: auto;
     border: none; }
 #FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b {

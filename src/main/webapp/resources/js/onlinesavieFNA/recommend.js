@@ -256,7 +256,7 @@ var FNArecommendation = {
 		$(".q4_b_amount input").keyup(function(){
 			var q = $(this).data();
 			var val = parseInt(this.value.replace(/\D/g, ''),10);
-			console.log(val);
+			
 			if(isNaN(val) || val == 0){
 				val = "";
 			}
@@ -372,7 +372,7 @@ var FNArecommendation = {
 
 				};
 				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){
-					console.log(res);
+					
 					if(res.errMsgs == null){
 						$('#fnaPopupEnquiry').modal('hide');
 					}else if(res.status == 1){
@@ -569,7 +569,7 @@ var FNArecommendation = {
 
 					for(var j = 0; j < gp_data.products.length; j++){
 						pNum++;
-						console.log("j",j);
+						
 						var prod_data = gp_data.products[j];
 
 						
@@ -900,9 +900,9 @@ var FNArecommendation = {
 			/* Check if there are unmatched objectives Q1*/
 			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
 			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
-			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
+			//var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
 			rq1a=unmatched_q1.join(",");
-			rq2a=affordable_q2.join(",");
+			rq2a=FNArecommendation.fnaData.q2;
 
 		    if( (rq1a!=null && rq1a!='') && (rq2a!=null && rq2a!='') ){
 		    	FNArecommendation.showNoAvailableProduct(true,rq2a,rq1a,fnaq4e,1);
