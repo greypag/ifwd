@@ -305,8 +305,8 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/fatca"})
-	public ModelAndView getSavieOnlineLifeFatca(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/fatca"})
+	public ModelAndView getSavieOnlineLifeFatca(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -318,12 +318,12 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/personal-details"})
-	public ModelAndView getSavieOnlineLifePersonalDetails(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/personal-details"})
+	public ModelAndView getSavieOnlineLifePersonalDetails(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -348,12 +348,12 @@ public class SavieOnlineController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/employment-info"})
-	public ModelAndView getSavieOnlineLifeEmploymentInfo(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/employment-info"})
+	public ModelAndView getSavieOnlineLifeEmploymentInfo(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -530,12 +530,12 @@ public class SavieOnlineController extends BaseController{
 			}
 			model.addAttribute("etLiquidAssetEN", liquidAssetsEN);
 			model.addAttribute("etLiquidAssetCN", liquidAssetsCN);
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/beneficiary-info"})
-	public ModelAndView getSavieOnlineLifeBeneficaryInfo(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/beneficiary-info"})
+	public ModelAndView getSavieOnlineLifeBeneficaryInfo(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -554,7 +554,7 @@ public class SavieOnlineController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 		}
 	}
 	
@@ -605,7 +605,7 @@ public class SavieOnlineController extends BaseController{
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
-				return SavieOnlinePageFlowControl.pageFlow("savieOnline",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
+				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 			}else {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 						+ "/savings-insurance");
@@ -613,8 +613,8 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/application-summary"})
-	public ModelAndView getSavieOnlineLifePolicySummary(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/application-summary"})
+	public ModelAndView getSavieOnlineLifePolicySummary(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -626,18 +626,18 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/{planCode}/declaration"})
-	public ModelAndView getSavieOnlineLifeDeclaration(@PathVariable("planCode") String planCode,Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/declaration"})
+	public ModelAndView getSavieOnlineLifeDeclaration(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
-			return SavieOnlinePageFlowControl.pageFlow(planCode,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
 		}
 	}
 	

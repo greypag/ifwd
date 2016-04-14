@@ -197,7 +197,7 @@ var languageP = "${language}";
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			$("#accept-btn").click(function(){
-				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/savieOnline/${nextPageFlow}';
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			});
 			$(document).ready(function() {
 				pdfImageInit('#pdf-image');

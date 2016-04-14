@@ -12,7 +12,7 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 public class SavieOnlinePageFlowControl {
 	private final static Logger logger = LoggerFactory.getLogger(SavieOnlinePageFlowControl.class);
 
-	public static ModelAndView pageFlow(String planCode,Model model, HttpServletRequest request, String key) {
+	public static ModelAndView pageFlow(String plan,Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 		
@@ -105,55 +105,49 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA: 
-			to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
-			to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS: 
-			to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
-			to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO: 
-			to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
-			to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO: 
-			if("savieOnline".equals(planCode)){
-				to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
+			if("savings-insurance".equals(plan)){
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
 			}
 			else{
-				to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			}
-			to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT: 
-			to = planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY: 
-			to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
-			to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
-			if("savieOnline".equals(planCode)){
-				to = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-				to2 = "savings-insurance/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-			}
-			else{
-				to = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-				to2 = "savings-insurance/"+planCode+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-			}
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			filePath = "savie/";
 			break;
 			

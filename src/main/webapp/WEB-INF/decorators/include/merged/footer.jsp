@@ -173,7 +173,7 @@ $('#timeout-btn').on('click', function(e) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 <% 
-if(request.getRequestURI().indexOf("/savings-insurance")>0 || request.getRequestURI().indexOf("/easy-health")>0) {
+if(request.getRequestURI().indexOf("/savings-insurance")>0 || request.getRequestURI().indexOf("/easyhealth-insurance")>0) {
 %>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/savie-online.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
