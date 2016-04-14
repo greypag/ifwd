@@ -746,14 +746,14 @@ var FNArecommendation = {
 					if( gp_data.other_types.length > 0 ){
 						//unaffordable_group.push(i.toString()); // i denotes product list number
 						switch(gp_data.group){							
-							case '純保險產品 - 沒有任何儲蓄或投資成份': unaffordable_group.push('0'); break;
-							case '有儲蓄成份的保險產品 - 有儲蓄但沒有投資成份': unaffordable_group.push('1'); break;
-							case '有投資成份的保險產品 - 投資決定及風險由保險公司承擔': unaffordable_group.push('2'); break;
-							case '有投資成份的保險產品 - 投資決定及風險由保單持有人承擔': unaffordable_group.push('3'); break;
-							case 'Pure insurance product - without any savings or investment element': unaffordable_group.push('0'); break;
-							case 'Insurance product with savings element - with any savings but without investment element': unaffordable_group.push('1'); break;
-							case 'Insurance product with investment element – investment decisions and risks borne by insurer': unaffordable_group.push('2'); break;
-							case 'Insurance product with investment element – investment decisions and risks borne by policyholder': unaffordable_group.push('3'); break;
+							case '純保險產品 - 沒有任何儲蓄或投資成份': unaffordable_group.push(0); break;
+							case '有儲蓄成份的保險產品 - 有儲蓄但沒有投資成份': unaffordable_group.push(1); break;
+							case '有投資成份的保險產品 - 投資決定及風險由保險公司承擔': unaffordable_group.push(2); break;
+							case '有投資成份的保險產品 - 投資決定及風險由保單持有人承擔': unaffordable_group.push(3); break;
+							case 'Pure insurance product - without any savings or investment element': unaffordable_group.push(0); break;
+							case 'Insurance product with savings element - with any savings but without investment element': unaffordable_group.push(1); break;
+							case 'Insurance product with investment element – investment decisions and risks borne by insurer': unaffordable_group.push(2); break;
+							case 'Insurance product with investment element – investment decisions and risks borne by policyholder': unaffordable_group.push(3); break;
 							default: break;
 						}
 					}
@@ -900,9 +900,9 @@ var FNArecommendation = {
 			/* Check if there are unmatched objectives Q1*/
 			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
 			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
-			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
+			//var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
 			rq1a=unmatched_q1.join(",");
-			rq2a=affordable_q2.join(",");
+			rq2a=FNArecommendation.fnaData.q2;
 
 		    if( (rq1a!=null && rq1a!='') && (rq2a!=null && rq2a!='') ){
 		    	FNArecommendation.showNoAvailableProduct(true,rq2a,rq1a,fnaq4e,1);
