@@ -29,8 +29,8 @@
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
-    hotelVoucherCampaignId = 16;
-    cCurrent = cformat.parse("2016-04-18 15:00:00").getTime();
+    //hotelVoucherCampaignId = 15;
+    //cCurrent = cformat.parse("2016-04-18 15:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -2141,7 +2141,7 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(false && <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                        if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -2153,7 +2153,7 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(true || <%=hotelVoucherCampaignId<13%>){
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<13%>){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
@@ -2161,7 +2161,7 @@
                         loginpopup(campaignId);
                     }else{
                         $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(true || <%=hotelVoucherCampaignId<=13%>){
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<=13%>){
                             $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                         }
                     }
