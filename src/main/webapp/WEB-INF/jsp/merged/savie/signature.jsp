@@ -150,6 +150,7 @@ var languageP = "${language}";
 				</div>
 			</form>
 			<!-- Offline Signature -->
+			<!-- keep hidden for following code as it is useless from 20160414 -->
 			<form class="form-signatureoffline-info hidden" id="signoff-table" method="post">
 				<div id="choose-service-centre">
 					<div class="row">
@@ -227,6 +228,20 @@ var languageP = "${language}";
 					</div>
 				</div>
 			</form>
+			<!-- END of hidden from 20160414 -->
+			
+			<div class="col-xs-12 sign-later-div hidden">
+				<div class="signature-later-desc"><fmt:message key="signature.later.desc" bundle="${msg}" /></div>
+				<br/><br/>
+				<a href="#" class="save-link-later" id="signature-save-and-con-later" data-toggle="modal" data-target="#save-and-continue-modal">
+					<span><fmt:message key="signature.label.save.and.continue.later" bundle="${msg}" /></span>
+				</a>
+			</div>
+			<div class="col-xs-12 hidden" id="desktop-position-btn-later">
+				<div class="text-center clearfix" id="btn-srv-center">
+					<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.Next" bundle="${msg}" /></button>
+				 </div>
+			</div>
 		</div>
 	</div>
 	<!-- FOOTER -->
@@ -610,12 +625,17 @@ var languageP = "${language}";
 	$('#digi-radio').click(function () {
 		if ($(this).is(':checked')) {
 			$('#table-info').removeClass('hidden');
-			$('#signoff-table').addClass('hidden');
+			//$('#signoff-table').addClass('hidden');
+			$('.sign-later-div').addClass('hidden');
+			$('#desktop-position-btn-later').addClass('hidden');
 		}
 	});
 	$('#off-radio').click(function () {
 		if ($(this).is(':checked')) {
-			$('#signoff-table').removeClass('hidden');
+			//$('#signoff-table').removeClass('hidden');
+			$('.sign-later-div').removeClass('hidden');
+			$('#desktop-position-btn-later').removeClass('hidden');
+			
 			$('#table-info').addClass('hidden');
 			if($("#full-date").length > 0){
 				$('#fullyBooked').modal('show');

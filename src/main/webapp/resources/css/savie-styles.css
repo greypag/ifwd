@@ -9709,3 +9709,15 @@ h3 .heading-title{
 .member-account-details-footer a:hover{
 	text-decoration: underline;
 }
+
+/* add on 20160414 */
+#signature-offline #btn-cstmr-srvc-cnter{
+	margin: 5% auto;
+}
+#payment-page .pay-later-div{
+	margin-bottom: 5%;
+}
+#payment-page a.save-link-paylater#payment-save-and-con-paylater,
+#signature-offline a.save-link-later#signature-save-and-con-later{
+	text-decoration: underline;
+}
