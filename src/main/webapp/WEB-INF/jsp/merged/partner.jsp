@@ -115,7 +115,7 @@
 		</div>
 	</div>
 	<!--/.container-->
-	<!--  Become partner form start -->
+<%-- 	<!--  Become partner form start -->
 	<div class="partnership container">
 		<div class="partner-headline-wrapper">
 			<h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
@@ -182,10 +182,10 @@
             </div>	        
         </form>                        		
 	</div>
-	<!-- Become partner form end -->	
+	<!-- Become partner form end -->	 --%>
 </section>
 
-<script>
+<%-- <script>
 function resetForm(fvForm){
     fvForm.data('formValidation').resetForm();
 }
@@ -298,4 +298,4 @@ $(document).ready(function() {
         //function to submit form here
     });    
 });
-</script>
+</script> --%>
