@@ -1196,10 +1196,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 //	        }
 	        String case3aMsg = "";
 	        String case3bMsg = "";
-	        if (hasIlas && isIlasAffordable) {
-	        	objectives = objectives.replace("4","9");
-	        	productGroups = productGroups.replace("3", "9");
-	        }        
+//	        if (hasIlas && isIlasAffordable) {
+//	        	objectives = objectives.replace("4","9");
+//	        	productGroups = productGroups.replace("3", "9");
+//	        }        
 	        String[] obj = objectives.split(",");
 	        String notMatchObj = "";
 	        for (int a=0;a<obj.length;a++){
@@ -1235,24 +1235,24 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        }
 	        if (notMatchGrp.length()>0){
 	        	String allObjName = "";
-	        	String[] allObj = savieFna.getQ2().split(",");
+	        	String[] allObj = savieFna.getQ1().split(",");
 	            for (int a=0;a<allObj.length;a++){
 	        		if (allObjName.length()>0){
 	        			allObjName += ",";
 	        		}
 	            	allObjName += objectiveNames.get(allObj[a]);
 	            }
-	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
 	        }
 	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
 	        	if (case3aMsg.equals(case3bMsg)){
-	        		fnaMsg += case3aMsg + "\r\n";
+	        		fnaMsg += case3aMsg;
 	        	} else {
 	        		if (case3aMsg.length() > 0){
-	        			fnaMsg += case3aMsg + "\r\n";
+	        			fnaMsg += case3aMsg;
 	        		}
 	        		if (case3bMsg.length() > 0){
-	        			fnaMsg += case3bMsg + "\r\n";
+	        			fnaMsg += case3bMsg;
 	        		}
 	        	}
 	        }
