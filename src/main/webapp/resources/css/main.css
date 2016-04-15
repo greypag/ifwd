@@ -11003,7 +11003,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	line-height: 2;
 }
 .footer-container .contact-number,.footer .bottom-link a{
-	color:#f6871e;
+	color:#f6871e !important;
 }
 .footer-container .contact-label{
     color:#fff;
