@@ -1115,17 +1115,28 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         String matchProductGroup = "";
         List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
         int productCount = 0;
-        int unaffortableCount = 0;
         Map<String, String> unaffortableTypes = new HashMap();
         Map<String, String> affortableTypes = new HashMap();
         boolean hasUlife = false;
+        boolean hasIlas = false;
+        boolean isIlasAffordable = true;
         String objectives = savieFna.getQ1();
         String productGroups = savieFna.getQ2();
-        for(int a=0;a<productRecommendation.getProduct_list().size();a++){
+        for(int a=0;a<productRecommendation.getProduct_list().size();a++){       		
             List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
             List<MorphDynaBean> otherTypes = (List<MorphDynaBean>) productLists.get(a).get("other_types");
+            
+            boolean isIlasGroup = false;
+        	if (productLists.get(a).get("groupCode") != null && productLists.get(a).get("groupCode").equals("ILAS")) {
+        		hasIlas = true;
+        		isIlasGroup = true;
+        	}
+
             for (int b=0;b<otherTypes.size();b++){
-            	if (!unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
+            	if (isIlasGroup) {
+            		isIlasAffordable = false;
+            	}
+            	if (!isIlasGroup && !unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
             		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
             	}
             		
@@ -1161,80 +1172,90 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         {
             fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
         }
-        if (productRecommendation.getHasILAS().equals("Y")) {
+        if (hasIlas) {
             fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
         }
-        if (unaffortableTypes.size()>0 && productCount<=1){
-        	String unaffortableTypesName = "";
-            for (Map.Entry<String, String> entry : unaffortableTypes.entrySet())
-            {
-            	if (unaffortableTypesName.length()>0){
-            		unaffortableTypesName += ",";
-            	}
-            	unaffortableTypesName += entry.getKey();
-            }
-            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
-        }
-        if (productCount==1 && hasUlife && unaffortableCount==0){
+
+//        if (productCount==1 && hasUlife && unaffortableTypes.size()==0) {
+        if (productCount==1 && hasUlife && savieFna.getQ4_e().equals("0")) {
         	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
-        }
-        String case3aMsg = "";
-        String case3bMsg = "";
-        String[] obj = objectives.split(",");
-        String notMatchObj = "";
-        for (int a=0;a<obj.length;a++){
-        	if (!obj[a].equals("9"))
-        	{
-        		if (notMatchObj.length()>0){
-        			notMatchObj += ",";
-        		}
-        		notMatchObj += objectiveNames.get(obj[a]);
-        	}
-        }
-        if (notMatchObj.length()>0){
-        	String allGroupName = "";
-        	String[] allGroups = savieFna.getQ2().split(",");
-            for (int a=0;a<allGroups.length;a++){
-        		if (allGroupName.length()>0){
-        			allGroupName += ",";
-        		}
-        		allGroupName += groupNames.get(allGroups[a]);
-            }
-        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, notMatchObj, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
-        }
-        String[] group = productGroups.split(",");
-        String notMatchGrp = "";
-        for (int a=0;a<group.length;a++){
-        	if (!group[a].equals("9"))
-        	{
-        		if (notMatchGrp.length()>0){
-        			notMatchGrp += ",";
-        		}
-        		notMatchGrp += groupNames.get(group[a]);
-        	}
-        }
-        if (notMatchGrp.length()>0){
-        	String allObjName = "";
-        	String[] allObj = savieFna.getQ2().split(",");
-            for (int a=0;a<allObj.length;a++){
-        		if (allObjName.length()>0){
-        			allObjName += ",";
-        		}
-            	allObjName += objectiveNames.get(allObj[a]);
-            }
-        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, allObjName, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
-        }
-        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
-        	if (case3aMsg.equals(case3bMsg)){
-        		fnaMsg += case3aMsg + "\r\n";
-        	} else {
-        		if (case3aMsg.length() > 0){
-        			fnaMsg += case3aMsg + "\r\n";
-        		}
-        		if (case3bMsg.length() > 0){
-        			fnaMsg += case3bMsg + "\r\n";
-        		}
-        	}
+        } else {
+	        if (unaffortableTypes.size()>0 && productCount<=1){
+	        	String unaffortableTypesName = "";
+	            for (Map.Entry<String, String> entry : unaffortableTypes.entrySet())
+	            {
+	            	if (unaffortableTypesName.length()>0){
+	            		unaffortableTypesName += ",";
+	            	}
+	            	unaffortableTypesName += entry.getKey();
+	            }
+	            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
+	        }
+//	        if (productCount==1 && hasUlife && unaffortableTypes.size()==0){
+//	        	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
+//	        }
+	        String case3aMsg = "";
+	        String case3bMsg = "";
+	        if (hasIlas && isIlasAffordable) {
+	        	objectives = objectives.replace("4","9");
+	        	productGroups = productGroups.replace("3", "9");
+	        }        
+	        String[] obj = objectives.split(",");
+	        String notMatchObj = "";
+	        for (int a=0;a<obj.length;a++){
+	        	if (!obj[a].equals("9"))
+	        	{
+	        		if (notMatchObj.length()>0){
+	        			notMatchObj += ",";
+	        		}
+	        		notMatchObj += objectiveNames.get(obj[a]);
+	        	}
+	        }
+	        if (notMatchObj.length()>0){
+	        	String allGroupName = "";
+	        	String[] allGroups = savieFna.getQ2().split(",");
+	            for (int a=0;a<allGroups.length;a++){
+	        		if (allGroupName.length()>0){
+	        			allGroupName += ",";
+	        		}
+	        		allGroupName += groupNames.get(allGroups[a]);
+	            }
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
+	        }
+	        String[] group = productGroups.split(",");
+	        String notMatchGrp = "";
+	        for (int a=0;a<group.length;a++){
+	        	if (!group[a].equals("9"))
+	        	{
+	        		if (notMatchGrp.length()>0){
+	        			notMatchGrp += ",";
+	        		}
+	        		notMatchGrp += groupNames.get(group[a]);
+	        	}
+	        }
+	        if (notMatchGrp.length()>0){
+	        	String allObjName = "";
+	        	String[] allObj = savieFna.getQ2().split(",");
+	            for (int a=0;a<allObj.length;a++){
+	        		if (allObjName.length()>0){
+	        			allObjName += ",";
+	        		}
+	            	allObjName += objectiveNames.get(allObj[a]);
+	            }
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	        }
+	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
+	        	if (case3aMsg.equals(case3bMsg)){
+	        		fnaMsg += case3aMsg + "\r\n";
+	        	} else {
+	        		if (case3aMsg.length() > 0){
+	        			fnaMsg += case3aMsg + "\r\n";
+	        		}
+	        		if (case3bMsg.length() > 0){
+	        			fnaMsg += case3bMsg + "\r\n";
+	        		}
+	        	}
+	        }
         }
                 
         attributeList.add(new PdfAttribute("Noresult", fnaMsg));
