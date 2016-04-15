@@ -361,9 +361,9 @@ var languageP = "${language}";
 													<c:forEach var="list" items="${etLiquidAssetEN}">
 														<option value="${list.itemCode }" 
 														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
