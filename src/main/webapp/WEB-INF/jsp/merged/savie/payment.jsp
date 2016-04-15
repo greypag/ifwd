@@ -675,9 +675,9 @@ var language = "${language}";
 				$('.pay-later-div').removeClass('hidden');
 				$('#btn-next').addClass('hidden');
 				
-				if($("#full-date").length > 0){
-					$('#fullyBooked').modal('show');
-				}
+				//if($("#full-date").length > 0){
+				//	$('#fullyBooked').modal('show');
+				//}
 			}
 		});
 		

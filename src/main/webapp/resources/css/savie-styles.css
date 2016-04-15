@@ -9716,3 +9716,12 @@ h3 .heading-title{
 	margin: 5% auto;
 }
 
+/* add on 20160415 */
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content p.registered{
+	text-align: center;
+}
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content #fullyBooked-button{
+	white-space: normal;
+}
+
