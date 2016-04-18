@@ -3144,7 +3144,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		
 		/* send email to operation team for case follow up */
-		if("paylater".equals(action)
+		if("paylater".equals(action)				
+				||"offlineApplication".equals(action)
 				||"uploadDocument".equals(action)
 				||"savieComplete".equals(action)
 				||"signLater".equals(action)){
