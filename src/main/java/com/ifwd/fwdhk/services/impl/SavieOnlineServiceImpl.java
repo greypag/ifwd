@@ -1110,7 +1110,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
-		*/
+		*/		
 		String fnaMsg = "";
         String matchProductGroup = "";
         List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
@@ -1119,7 +1119,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         Map<String, String> affortableTypes = new HashMap();
         boolean hasUlife = false;
         boolean hasIlas = false;
-        boolean isIlasAffordable = true;
+//        boolean isIlasAffordable = true;
         String objectives = savieFna.getQ1();
         String productGroups = savieFna.getQ2();
         for(int a=0;a<productRecommendation.getProduct_list().size();a++){       		
@@ -1133,9 +1133,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         	}
 
             for (int b=0;b<otherTypes.size();b++){
-            	if (isIlasGroup) {
-            		isIlasAffordable = false;
-            	}
             	if (!isIlasGroup && !unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
             		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
             	}
@@ -1150,13 +1147,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
             
             for (int b=0;b<products.size();b++){            	
                 String[] ans = products.get(b).get("q1").toString().split(",");
-                for (int c=0;c<ans.length;c++){
-                	objectives = objectives.replace(ans[c],"9");
-                }
             	if (!affortableTypes.containsKey(products.get(b).get("type"))){
             		affortableTypes.put(products.get(b).get("type").toString(), products.get(b).get("type").toString());
             	}
-                productGroups = productGroups.replace(products.get(b).get("q2").toString(), "9");
                 matchProductGroup = products.get(b).get("q2").toString();
             }
             productCount += products.size();
@@ -1175,8 +1168,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         if (hasIlas) {
             fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
         }
-
-//        if (productCount==1 && hasUlife && unaffortableTypes.size()==0) {
+        String[] matchObj = productRecommendation.getQ1().split(",");
+        String[] matchPdg = productRecommendation.getQ2().split(",");
+        for (int i=0;i<matchObj.length;i++){
+        	objectives = objectives.replace(matchObj[i],"9");
+        }
+        for (int i=0;i<matchPdg.length;i++){
+        	productGroups = productGroups.replace(matchPdg[i],"9");
+        }
+        
         if (productCount==1 && hasUlife && savieFna.getQ4_e().equals("0")) {
         	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
         } else {
@@ -1191,15 +1191,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	            }
 	            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
 	        }
-//	        if (productCount==1 && hasUlife && unaffortableTypes.size()==0){
-//	        	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
-//	        }
 	        String case3aMsg = "";
 	        String case3bMsg = "";
-//	        if (hasIlas && isIlasAffordable) {
-//	        	objectives = objectives.replace("4","9");
-//	        	productGroups = productGroups.replace("3", "9");
-//	        }        
 	        String[] obj = objectives.split(",");
 	        String notMatchObj = "";
 	        for (int a=0;a<obj.length;a++){
