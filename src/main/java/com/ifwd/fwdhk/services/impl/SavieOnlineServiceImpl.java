@@ -3142,6 +3142,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
+		
+		/* send email to operation team for case follow up */
+		if("paylater".equals(action)
+				||"uploadDocument".equals(action)
+				||"savieComplete".equals(action)
+				||"signLater".equals(action)){
+				parameters = new JSONObject();
+				parameters.put("to", UserRestURIConstants.getConfigs("innerMailTo"));
+				parameters.put("subject", subject);
+				parameters.put("model", model);
+				parameters.put("template", template);
+				responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);		
+		}				
 		return responseJsonObj;
 	}
 	
