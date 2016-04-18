@@ -418,7 +418,7 @@ var language = "${language}";
 </div>
 
 <!--Modal in Customer Service Centre-->
-<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog teaserSurvey" role="document">
 		<div class="modal-content teaserSurvey">
 			<div class="modal-header teaserSurvey">
