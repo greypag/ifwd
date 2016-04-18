@@ -873,7 +873,17 @@ var languageP = "${language}";
 								   regexp: {
 									  regexp: /^[a-zA-Z0-9\-]*$/,
 									  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-								   }
+								   },
+									callback: {
+										message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+										callback: function(value, validator) {
+											if(duplicateBeneficiariesPassport()!=''){
+												//$('#beneficiaryPassErMsg\\[2\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+												return false;
+											}
+											return true;
+										}
+									}
 								}
 							},
 							'beneficaryID3':{
@@ -892,11 +902,11 @@ var languageP = "${language}";
 										if(duplicateBeneficiaries()!=''){
 											return false;
 										}
-										
+										/*
 										if(duplicateBeneficiariesPassport()!=''){
 											return false;
 										}
-										
+										*/
 										if(!isValidHKID(value)){
 											return false;
 										}
@@ -1053,7 +1063,17 @@ var languageP = "${language}";
 			               regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
 			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-			               }
+			               },
+								callback: {
+									message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryPassErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+											return false;
+										}
+										return true;
+									}
+								}
 							}
 						},
 						'beneficaryID2':{
@@ -1070,13 +1090,15 @@ var languageP = "${language}";
 									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
 										if(duplicateBeneficiaries()!=''){
+											//$('#beneficiaryHkidErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.hkid.invalid" bundle="${msg}" />');
 											return false;
 										}
-										
+										/*
 										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryHkidErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.hkid.invalid" bundle="${msg}" />');
 											return false;
 										}
-										
+										*/
 										if(!isValidHKID(value)){
 											return false;
 										}
@@ -1247,7 +1269,17 @@ var languageP = "${language}";
 			               regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
 			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-			               }
+			               },
+								callback: {
+									message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryPassErMsg\\[0\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+											return false;
+										}
+										return true;
+									}
+								}
 							}
 			         },
 						/* 'beneficiaryPassport1':{
@@ -1283,11 +1315,11 @@ var languageP = "${language}";
 										if(duplicateBeneficiaries()!=''){
 											return false;
 										}
-										
+										/*
 										if(duplicateBeneficiariesPassport()!=''){
 											return false;
 										}
-										
+										*/
 										if(!isValidHKID(value)){
 											return false;
 										}
