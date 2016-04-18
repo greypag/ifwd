@@ -466,6 +466,7 @@ ul.maintabs li a span.special-offer:hover {
 }
 
 .travel-and-home-tab, .protect-save-enjoy-tab {
+	text-transform: uppercase;
 	top: 47px;
 	position: relative;
 	margin-left: 30px;
@@ -11001,6 +11002,11 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 .footer-container .bottom-link a{
 	display: block;
 	line-height: 2;
+	color: #9fb1b2;
+}
+.footer-container .bottom-link a:hover{
+	color: #fff;
+	text-decoration: underline;
 }
 .footer-container .contact-number,.footer .bottom-link a{
 	color:#f6871e !important;
@@ -11043,9 +11049,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 }
 @media all and (min-width: 992px){
     .upper-footer-wrapper{
-        max-width: 1070px;
+        /*max-width: 1070px;*/
         margin: 0 auto;
-        padding: 30px 0 30px 0;
+        padding: 30px 15px;
     }
     .bottom-footer-link{
         max-width: 1070px;
@@ -11070,7 +11076,11 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	   margin-bottom: 16px;
 	}
 	.bottom-footer-wrapper .copy-right{
+	   padding-top: 5px;
 	   float: right;
+	   color: #ffffff;
+   	   font-size: 14px;
+   	   line-height: 18px;	   
 	}
 	.social-link-wrapper{
 	   float: right;
