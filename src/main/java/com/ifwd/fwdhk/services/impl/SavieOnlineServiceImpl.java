@@ -534,7 +534,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationNo", lifePolicy.getPolicyNo()));
 	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("applicationChineseName", lifePersonalDetails.getChineseName()));
-	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
+	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid().toUpperCase()));
 	    attributeList.add(new PdfAttribute("applicationSex", gender));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
@@ -617,7 +617,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationEnName1()));
 	    	    }
 	    	    
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1():lifeBeneficaryInfo.getBeneficiaryPassport1()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase()));
 	    	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
@@ -631,7 +631,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationEnName2()));
 	    	    }
 	    	    
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2():lifeBeneficaryInfo.getBeneficiaryPassport2()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase()));
 	    	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
@@ -645,7 +645,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationEnName3()));
 	    	    }
 	    		
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3():lifeBeneficaryInfo.getBeneficiaryPassport3()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase()));
 	       	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    	}
 	    }else{
@@ -1791,8 +1791,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("applicantChineseName", lifePersonalDetails.getChineseName()!=null?lifePersonalDetails.getChineseName():"");
 		parameters.accumulate("applicantDob", lifePersonalDetails.getDob()!=null?lifePersonalDetails.getDob():"");
 		parameters.accumulate("applicantGender", lifePersonalDetails.getGender()!=null?lifePersonalDetails.getGender():"");
-		parameters.accumulate("applicantHkId", lifePersonalDetails.getHkid()!=null?lifePersonalDetails.getHkid():"");
-		parameters.accumulate("applicantPassport", lifePersonalDetails.getPassport()!=null?lifePersonalDetails.getPassport():"");
+		parameters.accumulate("applicantHkId", lifePersonalDetails.getHkid()!=null?lifePersonalDetails.getHkid().toUpperCase():"");
+		parameters.accumulate("applicantPassport", lifePersonalDetails.getPassport()!=null?lifePersonalDetails.getPassport().toUpperCase():"");
 		parameters.accumulate("applicantMaritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus():"");
 		parameters.accumulate("applicantPlaceOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth():"");
 		parameters.accumulate("applicantNationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty():"");
@@ -1899,8 +1899,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
 		parameters.accumulate("beneficiaryHkidPassport1", lifeBeneficaryInfo.getBeneficiaryHkidPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport1():"");
-		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1():"");
-		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1():"");
+		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()!=null?lifeBeneficaryInfo.getBeneficaryGender1():"");
 		parameters.accumulate("beneficiaryRelationship1", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1():"");
 		parameters.accumulate("beneficiaryEntitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()!=null?lifeBeneficaryInfo.getBeneficaryWeight1():"");
@@ -1908,8 +1908,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName2", lifeBeneficaryInfo.getBeneficaryLastName2()!=null?lifeBeneficaryInfo.getBeneficaryLastName2():"");
 		parameters.accumulate("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()!=null?lifeBeneficaryInfo.getBeneficaryChineseName2():"");
 		parameters.accumulate("beneficiaryHkidPassport2", lifeBeneficaryInfo.getBeneficiaryHkidPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport2():"");
-		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2():"");
-		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2():"");
+		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()!=null?lifeBeneficaryInfo.getBeneficaryGender2():"");
 		parameters.accumulate("beneficiaryRelationship2", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2():"");
 		parameters.accumulate("beneficiaryEntitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()!=null?lifeBeneficaryInfo.getBeneficaryWeight2():"");
@@ -1917,8 +1917,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName3", lifeBeneficaryInfo.getBeneficaryLastName3()!=null?lifeBeneficaryInfo.getBeneficaryLastName3():"");
 		parameters.accumulate("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()!=null?lifeBeneficaryInfo.getBeneficaryChineseName3():"");
 		parameters.accumulate("beneficiaryHkidPassport3", lifeBeneficaryInfo.getBeneficiaryHkidPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport3():"");
-		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3():"");
-		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3():"");
+		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()!=null?lifeBeneficaryInfo.getBeneficaryGender3():"");
 		parameters.accumulate("beneficiaryRelationship3", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3():"");
 		parameters.accumulate("beneficiaryEntitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()!=null?lifeBeneficaryInfo.getBeneficaryWeight3():"");
