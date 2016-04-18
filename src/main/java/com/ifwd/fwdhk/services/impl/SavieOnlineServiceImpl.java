@@ -1657,7 +1657,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie1.put("hkId", "");
-								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase());
 							}
 							beneficiarie1.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"M":"F");
 							beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
@@ -1674,7 +1674,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie2.put("hkId", "");
-								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase());
 							}
 							beneficiarie2.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"M":"F");
 							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
@@ -1691,7 +1691,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie3.put("hkId", "");
-								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase());
 							}
 							beneficiarie3.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"M":"F");
 							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
