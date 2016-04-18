@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
@@ -1056,7 +1057,10 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("bankCodeCN : " + bankCodeCN);
 		try {
-			branchCodeEN = commonUtils.getOptionItemDescList("Branchcode","EN",type);
+			branchCodeEN = new ArrayList<OptionItemDesc>();
+			for(OptionItemDesc item:InitApplicationMessage.bankCodeEN){
+				branchCodeEN.addAll(commonUtils.getOptionItemDescList(item.getItemCode(),"EN",type));
+			}			
 		} catch (Exception e) {
 			logger.error("error : "+e.getMessage());
 			if("start".equals(type)){
@@ -1066,7 +1070,10 @@ public class InitApplicationMessage implements ApplicationListener{
 		logger.info("branchCodeEN : " + branchCodeEN);
 		
 		try {
-			branchCodeCN = commonUtils.getOptionItemDescList("Branchcode","CH",type);
+			branchCodeCN = new ArrayList<OptionItemDesc>();
+			for(OptionItemDesc item:InitApplicationMessage.bankCodeCN){
+				branchCodeCN.addAll(commonUtils.getOptionItemDescList(item.getItemCode(),"CN",type));
+			}			
 		} catch (Exception e) {
 			logger.error("error : "+e.getMessage());
 			if("start".equals(type)){
@@ -1075,11 +1082,188 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("branchCodeCN : " + branchCodeCN);
 	}
-	
+
 	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type, HttpServletRequest request){
 		List<OptionItemDesc> occupation = null;
 		try {
-			occupation = commonUtils.getOptionItemDescList(nobCode,language,type, request);
+			if (nobCode.indexOf("Bank")==0) {
+				if (language.equals("EN")){
+					occupation = InitApplicationMessage.branchCodeEN;
+				} else {
+					occupation = InitApplicationMessage.branchCodeCN;
+				}
+			} else {
+				switch (nobCode){
+					case "NoB1":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB1;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB1;
+						}
+						break;
+					case "NoB10":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB10;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB10;
+						}
+						break;
+					case "NoB11":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB11;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB11;
+						}
+						break;
+					case "NoB12":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB12;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB12;
+						}
+						break;
+					case "NoB13":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB13;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB13;
+						}
+						break;
+					case "NoB14":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB14;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB14;
+						}
+						break;
+					case "NoB15":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB15;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB15;
+						}
+						break;
+					case "NoB16":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB16;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB16;
+						}
+						break;
+					case "NoB17":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB17;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB17;
+						}
+						break;
+					case "NoB18":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB18;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB18;
+						}
+						break;
+					case "NoB19":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB19;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB19;
+						}
+						break;
+					case "NoB2":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB2;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB2;
+						}
+						break;
+					case "NoB20":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB20;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB20;
+						}
+						break;
+					case "NoB21":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB21;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB21;
+						}
+						break;
+					case "NoB22":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB22;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB22;
+						}
+						break;
+					case "NoB23":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB23;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB23;
+						}
+						break;
+					case "NoB24":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB24;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB24;
+						}
+						break;
+					case "NoB3":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB3;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB3;
+						}
+						break;
+					case "NoB4":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB4;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB4;
+						}
+						break;
+					case "NoB5":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB5;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB5;
+						}
+						break;
+					case "NoB6":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB6;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB6;
+						}
+						break;
+					case "NoB7":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB7;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB7;
+						}
+						break;
+					case "NoB8":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB8;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB8;
+						}
+						break;
+					case "NoB9":
+						if (language.equals("EN")){
+							occupation = InitApplicationMessage.occupationEnNoB9;
+						} else {
+							occupation = InitApplicationMessage.occupationCnNoB9;
+						}
+						break;					
+				}
+			}
 		} catch (Exception e) {
 			logger.error("error : "+e.getMessage());
 		}
