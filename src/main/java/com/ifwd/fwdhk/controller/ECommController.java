@@ -212,37 +212,39 @@ public class ECommController {
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
 	    
 	    int hotelVoucherCampaignId = -1;
-	    if (month == 3 && day < 30) {
-	        if (day == 18) {
+	    if (month == 3 && day <= 30) {
+	        if (day == 20) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 14;
 	        	} else {
 		            hotelVoucherCampaignId = -1;
 	        	}
-	        } else if (day == 19) {
+	        } else if (day == 21) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 15;
 	        	} else {
 		            hotelVoucherCampaignId = 14;
 	        	}
-	        } else if (day == 20) {
+	        } else if (day == 22) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 16;
 	        	} else {
 		            hotelVoucherCampaignId = 15;
 	        	}
-	        } else if (day == 21) {
+	        } else if (day == 23) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 17;
 	        	} else {
 		            hotelVoucherCampaignId = 16;
 	        	}
-	        } else if (day == 22) {
+	        } else if (day == 24) {
 	        	if (hour >= 15) {
 		            hotelVoucherCampaignId = 18;
 	        	} else {
 		            hotelVoucherCampaignId = 17;
 	        	}
+	        } else if (day > 25) {
+	            hotelVoucherCampaignId = 18;
 	        }
 	    }
 	    
