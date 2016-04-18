@@ -119,7 +119,7 @@
                                                 </tr>
                                                 <tr>
                                                   <td style="padding: 8px 0; font-weight:700;">指定酒店：</td>
-                                                  <td style="padding: 8px 0;"><a href="${hotelName}" target="_blank">${hotelNameCh}</a></td>
+                                                  <td style="padding: 8px 0;"><a href="${hotelUrl}" target="_blank">${hotelNameCh}</a></td>
                                                 </tr>
                                                 <tr>
                                                   <td style="padding: 8px 0; font-weight:700;">參考编號：</td>
