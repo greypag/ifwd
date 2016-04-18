@@ -11446,3 +11446,8 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 		margin-left: 0;
 	}
 }
+@media (max-width: 767px){
+	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
+		height: auto;
+	}	
+}
