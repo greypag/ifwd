@@ -438,6 +438,10 @@ var languageP = "${language}";
 			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');
 			isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');
 			//console.log(isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg'));
+			isPassed &= validateChkboxField('haveReplacedNo', 'chkHaveReplacedErMsg');		
+			isPassed &= validateChkboxField('intentToReplacedNo', 'chkIntentToReplacedErMsg');		
+			isPassed &= validateChkboxField('intentToLiveOutsideNo', 'chkIntentToLiveOutsideErMsg');		
+			//console.log(isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg'));
 			if(! isPassed) {
 				return false;
 			}else {

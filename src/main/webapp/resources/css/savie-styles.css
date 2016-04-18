@@ -4546,11 +4546,11 @@ a.eserv-link:hover {
 }
 /* line 127, ../sass/partials/savie/_footer.scss */
 .footer-container .upper-footer-wrapper .bottom-link a {
-  color: #f6871e;
+  color: #9fb1b2;
 }
 /* line 129, ../sass/partials/savie/_footer.scss */
 .footer-container .upper-footer-wrapper .bottom-link a:hover {
-  color: #9fb1b2;
+  color: #fff;
 }
 
 /** Save and Continue style**/

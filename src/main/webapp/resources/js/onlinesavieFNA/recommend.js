@@ -824,7 +824,6 @@ var FNArecommendation = {
 		var only1KSTS = (pNum == 1 && prodWrapper.find(".fna-product").first().data("productCode") == "KSTS");
 		only1KSTS = only1KSTS && bUnaffordableULife;
 		only1KSTS = only1KSTS && FNArecommendation.fnaData.q4_e=="0"; //Contribution < 1
-
 		//if(only1KSTS){
 		//	only1KSTS = false;
 		//	gpOthersWrapper.find(".fna-other-product").each(function(){
