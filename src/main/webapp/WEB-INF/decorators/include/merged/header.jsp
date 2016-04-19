@@ -1330,4 +1330,6 @@ $(function() {
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
 <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+<%if (session.getAttribute("authenticate") != null || session.getAttribute("username") != null) {%>
 <jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
+<% } %>

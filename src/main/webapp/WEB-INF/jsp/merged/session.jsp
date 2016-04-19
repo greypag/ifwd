@@ -26,8 +26,20 @@
         </div>
 </div>
 
- 
-<div class="session-debug hidden-xs hidden-sm hidden-md hidden-lg"> 
+<%
+/*  session = request.getSession(false);
+    if(session==null){
+        session.invalidate();
+    }   
+    if (session.getAttribute("userDetails") != null) {
+        //session.setMaxInactiveInterval(60);
+        out.println(session.getAttribute("username"));
+    } */
+    long creationTime = session.getLastAccessedTime() + (session.getMaxInactiveInterval()* 1000);
+    long now = new Date().getTime();
+    
+%>
+<%-- <div class="session-debug hidden-xs hidden-sm hidden-md hidden-lg"> 
     <h3>Session ID:<c:out value="${pageContext.session.id}"/></h3>
     <h3>Session date values formatted as Dates</h3>
     
@@ -43,20 +55,7 @@
     <fmt:formatDate value="${timeValues}" type="both" dateStyle="short" />
     
     <c:out value="${timeValues}"/>
-	<%
-/* 	session = request.getSession(false);
-    if(session==null){
-        session.invalidate();
-    }	
-	if (session.getAttribute("userDetails") != null) {
-	    //session.setMaxInactiveInterval(60);
-	    out.println(session.getAttribute("username"));
-	} */
-	long creationTime = session.getLastAccessedTime() + (session.getMaxInactiveInterval()* 1000);
-	long now = new Date().getTime();
-	
-	%>
-</div>
+</div> --%>
 
 
 <script type="text/javascript">
