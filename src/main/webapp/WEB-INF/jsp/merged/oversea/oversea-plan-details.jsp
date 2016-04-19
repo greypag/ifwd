@@ -1128,4 +1128,4 @@ var awesompleteTest = new Awesomplete(countryInput,options);
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
-
+<jsp:include page="/WEB-INF/jsp/merged/travel-alert.jsp" />
