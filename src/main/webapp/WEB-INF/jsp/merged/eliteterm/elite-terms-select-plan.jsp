@@ -2918,14 +2918,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-1"></p>
+										<p class="info" id="etasbi-en-lname-1"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-1"></p>
+										<p class="info" id="etasbi-en-fname-1"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -2982,14 +2982,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-2"></p>
+										<p class="info" id="etasbi-en-lname-2"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-2"></p>
+										<p class="info" id="etasbi-en-fname-2"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -3046,14 +3046,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-3"></p>
+										<p class="info" id="etasbi-en-lname-3"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-3"></p>
+										<p class="info" id="etasbi-en-fname-3"></p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
