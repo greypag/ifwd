@@ -11485,8 +11485,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     font-family: 'Calibri';		
 }
 #travel-alert .modal-body button{
-    width: 70%;
-    min-width: 200px;
+    width: 100%;
     font-size: 30px;
     padding: 15px;
     font-family: 'Calibri';
@@ -11494,6 +11493,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     background-color: #ff8200;
     border-radius: 0;
     white-space: normal;	
+}
+#travel-alert .btn#travel-alert-proceed{
+	margin-bottom: 30px;
 }
 #travel-alert .btn-orange:hover, #travel-alert .btn-orange:focus{
 	background: #fff;
@@ -11511,5 +11513,14 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	    width: 665px;
 	    margin-top: 150px;
 	}
+	#travel-alert .modal-body button{
+		width: 48%;
+	}
+	#travel-alert .modal-body button#travel-alert-proceed{
+		float: left;
+	}
+	#travel-alert .modal-body button#travel-alert-close{
+		float: right;
+	}	
 }
 /*----- Travel Alert Modal End -----*/
