@@ -927,7 +927,7 @@ var language = "${language}";
 				var perferredTime = $("#preferred-time").val();
 				var planCode = "SAVIE-SP";
 				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-					$('#fullyBooked').modal('show');
+					//$('#fullyBooked').modal('show');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
 					$('#perferredTimeIsNull').modal('show');
 				}else{
