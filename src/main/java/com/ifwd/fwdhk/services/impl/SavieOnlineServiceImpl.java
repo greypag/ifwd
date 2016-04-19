@@ -960,7 +960,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("USTreasurybills", "On"));
 			}
 			if("6".equals(i)){
-				attributeList.add(new PdfAttribute("4bother", "On"));
+				attributeList.add(new PdfAttribute("4bother", "Off"));
 				attributeList.add(new PdfAttribute("4bothers", savieFna.getQ4_b_others()));
 			}
 		}
