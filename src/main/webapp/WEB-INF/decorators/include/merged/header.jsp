@@ -1333,3 +1333,6 @@ $(function() {
 <%if (session.getAttribute("authenticate") != null || session.getAttribute("username") != null) {%>
 <jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
 <% } %>
+<%if ((actionName.equals("WorkingHoliday") && request.getRequestURI().indexOf("/user-details")>0) | (actionName.equals("Oversea") && request.getRequestURI().indexOf("/application")>0) | (actionName.equals("Travel") && request.getRequestURI().indexOf("/user-details")>0) ){%>
+<jsp:include page="/WEB-INF/jsp/merged/travel-alert.jsp" />
+<% } %>

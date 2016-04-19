@@ -11451,3 +11451,65 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 		height: auto;
 	}	
 }
+/*----- Travel Alert Modal -----*/
+#travel-alert .modal-dialog{
+	margin: 100px auto;
+}
+#travel-alert .modal-dialog.teaserSurvey {
+	background-color: #fff;
+    width: 100%;
+}
+#travel-alert .modal-dialog .modal-content{
+    text-align: center;
+    padding: 35px 30px;
+}
+#travel-alert .modal-header.teaserSurvey{
+	padding: 0;
+	margin-bottom: 30px;
+	border-bottom: none;
+}
+#travel-alert .modal-header.teaserSurvey h2{
+	font-family: 'Calibri-Bold', Arial;
+	font-size: 30px;
+    color: #ff8200;
+    margin: 0;
+}
+#travel-alert .modal-body.teaserSurvey{
+	padding: 0;
+	margin-bottom: 10px;
+}
+#travel-alert .modal-body .registered{
+	margin-bottom: 35px;
+	font-size: 18px;
+    color: #061d2a;
+    font-family: 'Calibri';		
+}
+#travel-alert .modal-body button{
+    width: 70%;
+    min-width: 200px;
+    font-size: 30px;
+    padding: 15px;
+    font-family: 'Calibri';
+    color: #fff;
+    background-color: #ff8200;
+    border-radius: 0;
+    white-space: normal;	
+}
+#travel-alert .btn-orange:hover, #travel-alert .btn-orange:focus{
+	background: #fff;
+    color: #ff8200;
+    border: 1px solid #ff8200;	
+}
+#travel-alert .btn:focus,#travel-alert .btn:active,#travel-alert .btn:hover,
+#travel-alert .btn:active:focus{
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none;	
+}
+@media (min-width: 992px){
+	#travel-alert .modal-dialog.teaserSurvey {
+	    width: 665px;
+	    margin-top: 150px;
+	}
+}
+/*----- Travel Alert Modal End -----*/
