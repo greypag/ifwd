@@ -699,7 +699,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    attributeList.add(new PdfAttribute("ExpiryDate", "N/A"));
 	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
-	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
+	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid().toUpperCase()));
 	    
 	    if(lifeDeclaration.getChkboxDoNotSendMarketingInfo() != null && lifeDeclaration.getChkboxDoNotSendMarketingInfo()){
 	    	attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
