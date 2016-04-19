@@ -634,7 +634,7 @@ var languageP = "${language}";
 			
 			$('#table-info').addClass('hidden');
 			if($("#full-date").length > 0){
-				$('#fullyBooked').modal('show');
+				//$('#fullyBooked').modal('show');
 			}
 		}
 	});
@@ -929,7 +929,7 @@ var languageP = "${language}";
 			var perferredTime = $("#preferred-time").val();
 			var planCode = "SAVIE-SP";
 			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-				$('#fullyBooked').modal('show');
+				//$('#fullyBooked').modal('show');
 			}else if(perferredTime == null || perferredTime.trim() == ""){
 				$('#perferredTimeIsNull').modal('show');
 			}else{
