@@ -70,6 +70,7 @@
     </web-resource-collection>
     <auth-constraint/>
   </security-constraint>
+
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
