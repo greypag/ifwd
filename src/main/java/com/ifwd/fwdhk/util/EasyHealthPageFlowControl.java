@@ -46,7 +46,7 @@ public class EasyHealthPageFlowControl {
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("easy-health")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("easyhealth-insurance")){
 				referer = UserRestURIConstants.URL_EASYHEALTH;
 			} else {
 				referer = getEasyHealthPage(referer);
@@ -54,7 +54,7 @@ public class EasyHealthPageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("easy-health")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("easyhealth-insurance")){
 				current = UserRestURIConstants.URL_EASYHEALTH;
 			} else {
 				current = getEasyHealthPage(current);
@@ -74,38 +74,19 @@ public class EasyHealthPageFlowControl {
 			to = UserRestURIConstants.URL_EASYHEALTH_FATCA;
 			break;
 			
-		case UserRestURIConstants.URL_EASYHEALTH_FATCA: 
-			to = UserRestURIConstants.URL_EASYHEALTH_PERSONAL_DETAILS;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_PERSONAL_DETAILS;
-			filePath = "savie/";
+		case UserRestURIConstants.URL_EASYHEALTH_SIGNATURE: 
+			to = UserRestURIConstants.URL_EASYHEALTH_PAYMENT;
+			to2 = UserRestURIConstants.URL_EASYHEALTH_PAYMENT;
 			break;
 			
-		case UserRestURIConstants.URL_EASYHEALTH_PERSONAL_DETAILS: 
-			to = UserRestURIConstants.URL_EASYHEALTH_EMPLOYMENT_INFO;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY;
-			filePath = "savie/";
+		case UserRestURIConstants.URL_EASYHEALTH_PAYMENT: 
+			to = UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
+			to2 = UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
 			break;
 			
-		case UserRestURIConstants.URL_EASYHEALTH_EMPLOYMENT_INFO: 
-			to = UserRestURIConstants.URL_EASYHEALTH_BENEFICARY_INFO;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY;
-			filePath = "savie/";
-			break;
-			
-		case UserRestURIConstants.URL_EASYHEALTH_BENEFICARY_INFO: 
-			to = UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY;
-			filePath = "savie/";
-			break;
-			
-		case UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY: 
-			to = UserRestURIConstants.URL_EASYHEALTH_DECLARATION;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_DECLARATION;
-			filePath = "savie/";
-			break;
-		
-		case UserRestURIConstants.URL_EASYHEALTH_DECLARATION: 
-			filePath = "savie/";
+		case UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD: 
+			to = UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
+			to2 = UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
 			break;
 
 		default:
@@ -113,11 +94,11 @@ public class EasyHealthPageFlowControl {
 
 		}
 
-		logger.debug("nextPageFlow : " + "easy-health/"+to);
-		logger.debug("nextPageFlow2 : " + "easy-health/"+to2);
+		logger.debug("nextPageFlow : " + "easyhealth-insurance/"+to);
+		logger.debug("nextPageFlow2 : " + "easyhealth-insurance/"+to2);
 
-		model.addAttribute("nextPageFlow", "easy-health/"+to);
-		model.addAttribute("nextPageFlow2", "easy-health/"+to2);
+		model.addAttribute("nextPageFlow", "easyhealth-insurance/"+to);
+		model.addAttribute("nextPageFlow2", "easyhealth-insurance/"+to2);
 
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 
@@ -131,23 +112,17 @@ public class EasyHealthPageFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH)) {
 			return UserRestURIConstants.URL_EASYHEALTH;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_FATCA)) {
-			return UserRestURIConstants.URL_EASYHEALTH_FATCA;
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_SIGNATURE)) {
+			return UserRestURIConstants.URL_EASYHEALTH_SIGNATURE;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_PERSONAL_DETAILS)) {
-			return UserRestURIConstants.URL_EASYHEALTH_PERSONAL_DETAILS;
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_PAYMENT)) {
+			return UserRestURIConstants.URL_EASYHEALTH_PAYMENT;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_EMPLOYMENT_INFO)) {
-			return UserRestURIConstants.URL_EASYHEALTH_EMPLOYMENT_INFO;
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD)) {
+			return UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_BENEFICARY_INFO)) {
-			return UserRestURIConstants.URL_EASYHEALTH_BENEFICARY_INFO;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY)) {
-			return UserRestURIConstants.URL_EASYHEALTH_APPLICATION_SUMMARY;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_DECLARATION)) {
-			return UserRestURIConstants.URL_EASYHEALTH_DECLARATION;
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION)) {
+			return UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
 		}
 		return "";
 	}

@@ -434,40 +434,45 @@ var languageP = "${language}";
 			if(! isPassed) {
 				return false;
 			}else {
-				$('.btn-proceed').attr({"disabled":"disabled"});
-		        $('#loadingDiv').toggle();
-		        $('body').addClass('modal-open');			
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclaration",
-					  data: $("#declarationForm").serialize(),
- 					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $('.btn-proceed').removeAttr("disabled");
-							  show_stack_bar_top(data.errorMsg);
+		        if('${plan }' == 'savings-insurance'){
+		        	$('.btn-proceed').attr({"disabled":"disabled"});
+			        $('#loadingDiv').toggle();
+			        $('body').addClass('modal-open');	
+		        	$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclaration",
+						  data: $("#declarationForm").serialize(),
+	 					  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $('.btn-proceed').removeAttr("disabled");
+								  show_stack_bar_top(data.errorMsg);
+							  }
+							  else{
+								  $.ajax({     
+									    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
+									    type:'get',     
+									    error:function(){
+									    	$('.btn-proceed').removeAttr("disabled");
+	                                        $('#loadingDiv').toggle();
+	                                        $('body').removeClass('modal-open');								           
+									    },     
+									    success:function(data){
+									    	if(data != null && data.successMsg !=null){
+									    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+									    	}
+									    	else{
+									    		$('.btn-proceed').removeAttr("disabled");
+									    	}
+									    }  
+								  });
+							  }
 						  }
-						  else{
-							  $.ajax({     
-								    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
-								    type:'get',     
-								    error:function(){
-								    	$('.btn-proceed').removeAttr("disabled");
-                                        $('#loadingDiv').toggle();
-                                        $('body').removeClass('modal-open');								           
-								    },     
-								    success:function(data){
-								    	if(data != null && data.successMsg !=null){
-								    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-								    	}
-								    	else{
-								    		$('.btn-proceed').removeAttr("disabled");
-								    	}
-								    }  
-							  });
-						  }
-					  }
-			     });
+				     });
+		        }
+		        else{
+		        	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+		        }
 			}
 		});
 		
