@@ -3121,8 +3121,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("model", model);
 		parameters.put("template", template);
 		
-		//final Map<String,String> header = headerUtil.getHeader(request);
-		final Map<String,String> header = headerUtil.getHeader1(request);
+		final Map<String,String> header = headerUtil.getHeader(request);
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		
