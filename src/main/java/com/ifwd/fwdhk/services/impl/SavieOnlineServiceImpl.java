@@ -3088,7 +3088,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) {
 		HttpSession session = request.getSession();
 		String Url = UserRestURIConstants.SEND_EMAILS;
-		String email = (String)session.getAttribute("emailAddress");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
@@ -3116,7 +3116,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		
 		JSONObject parameters = new JSONObject();
-		parameters.put("to", email);
+		parameters.put("to", userDetails.getEmailAddress());
 		parameters.put("subject", subject);
 		parameters.put("model", model);
 		parameters.put("template", template);
