@@ -3088,7 +3088,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public JSONObject sendEmails(HttpServletRequest request, String action, JSONObject model) {
 		HttpSession session = request.getSession();
 		String Url = UserRestURIConstants.SEND_EMAILS;
-		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		String email = (String)session.getAttribute("emailAddress");
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
@@ -3116,23 +3116,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		
 		JSONObject parameters = new JSONObject();
-		parameters.put("to", userDetails.getEmailAddress());
+		parameters.put("to", email);
 		parameters.put("subject", subject);
 		parameters.put("model", model);
 		parameters.put("template", template);
 		
 		//final Map<String,String> header = headerUtil.getHeader(request);
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		final Map<String,String> header = headerUtil.getHeader1(request);
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		
