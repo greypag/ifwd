@@ -3121,7 +3121,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("model", model);
 		parameters.put("template", template);
 		
-		//final Map<String,String> header = headerUtil.getHeader(request);
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		
 		header.put("content-type", "application/json ");
