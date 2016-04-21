@@ -71,7 +71,17 @@ public class EasyHealthPageFlowControl {
 		switch (current) {
 
 		case UserRestURIConstants.URL_EASYHEALTH:
-			to = UserRestURIConstants.URL_EASYHEALTH_FATCA;
+			to = UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION;
+			break;
+			
+		case UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION: 
+			to = UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			break;
+			
+		case UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			break;
 			
 		case UserRestURIConstants.URL_EASYHEALTH_SIGNATURE: 
@@ -111,6 +121,12 @@ public class EasyHealthPageFlowControl {
 	public static String getEasyHealthPage(String url){
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH)) {
 			return UserRestURIConstants.URL_EASYHEALTH;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION)) {
+			return UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION)) {
+			return UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION;
 		}
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_SIGNATURE)) {
 			return UserRestURIConstants.URL_EASYHEALTH_SIGNATURE;

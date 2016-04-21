@@ -910,17 +910,17 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
-	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	@RequestMapping(value = {"/{lang}/{plan}/customer-service-centre"})
+	public ModelAndView getSavieOnlineLifeServiceCenter(@PathVariable("plan") String plan,Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
 			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
@@ -931,8 +931,7 @@ public class SavieOnlineController extends BaseController{
 				}
 				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER);
 			}else {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-						+ "/savings-insurance/plan-details");
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan+"/plan-details");
 			}
 		}
 	}

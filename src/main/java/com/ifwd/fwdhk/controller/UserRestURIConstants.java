@@ -342,24 +342,16 @@ public class UserRestURIConstants {
 	
 	/* Page Flow Control For easy health */
 	public static final String URL_EASYHEALTH = "landing";
-	public static final String URL_EASYHEALTH_FATCA = "fatca";
-	public static final String URL_EASYHEALTH_PERSONAL_DETAILS = "personal-details";
-	public static final String URL_EASYHEALTH_EMPLOYMENT_INFO = "employment-info";
-	public static final String URL_EASYHEALTH_BENEFICARY_INFO = "beneficiary-info";
-	public static final String URL_EASYHEALTH_APPLICATION_SUMMARY = "application-summary";
-	public static final String URL_EASYHEALTH_DECLARATION = "declaration";
+	public static final String URL_EASYHEALTH_PLAN_OPTION = "plan-option";
+	public static final String URL_EASYHEALTH_UNDERWRITING_QUESTION = "underwriting-question";
 	public static final String URL_EASYHEALTH_SIGNATURE = "signature";
 	public static final String URL_EASYHEALTH_PAYMENT = "payment";
 	public static final String URL_EASYHEALTH_DOCUMENT_UPLOAD = "document-upload";
 	public static final String URL_EASYHEALTH_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_PROPERTIES_EASYHEALTH = "landing";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_FATCA = "fatca";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS = "personal.details";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO = "employment.info";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO = "beneficary.info";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_APPLICATION_SUMMARY = "application.summary";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_DECLARATION = "declaration";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION = "plan.option";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING_QUESTION = "underwriting.question";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "signature";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "payment";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD = "document.upload";

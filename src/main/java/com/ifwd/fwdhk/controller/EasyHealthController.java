@@ -62,6 +62,15 @@ public class EasyHealthController extends BaseController{
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH);
 	}
 	
+	@RequestMapping(value = {"/{lang}/easyhealth-insurance/plan-option"})
+	public ModelAndView getEasyHealthPlanOption(Model model, HttpServletRequest request, HttpSession httpSession) {
+		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/easyhealth-insurance/underwriting-question"})
+	public ModelAndView getEasyHealthUnderwritingQuestion(Model model, HttpServletRequest request, HttpSession httpSession) {
+		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING_QUESTION);
+	}
 	
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance/signature"})
 	public ModelAndView getEasyHealthSignature(Model model, HttpServletRequest request,HttpSession session) {
