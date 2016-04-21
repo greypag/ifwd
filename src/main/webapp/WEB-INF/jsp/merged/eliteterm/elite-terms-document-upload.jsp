@@ -743,17 +743,24 @@ var languageP = "${language}";
             }
          });*/
          $(document).ready(function() {
-        	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' != 'yes'){
-        		 ga('ecommerce:addItem', {
-        			 'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. 
-        			 'name': 'Elite Term', // Product name. 
-        			 'category': 'Life', // Category or variation 
-        			 'revenue': '${eliteTermPremium.monthlyDuePremium*2}',  
-        			 'price': '${eliteTermPremium.monthlyPremium}', // Unit price 
-        			 'currency': 'HKD',
-        			 'quantity': '2'
-        		 });
-        	 }
+        	 ga('create', 'UA-60032236-1', 'auto');
+             ga('require', 'ecommerce');
+             ga('ecommerce:addTransaction', {
+              'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. Required.
+              'revenue': '${eliteTermPremium.monthlyDuePremium*2}', // Grand Total.
+              'affiliation': 'Protect', // Insurance type, e.g. Life
+               'currency': 'HKD'
+              });
+             ga('ecommerce:addItem', {
+                  'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. Required
+                  'name': 'Elite Term', // Product name. Required
+                  'category': 'Life', // Category or variation
+                  'price': '${eliteTermPremium.monthlyPremium}', // Unit price
+                  'quantity': '2',
+                  'currency': 'HKD'
+                });
+             ga('ecommerce:send');
+
 
         	/* Initialize tooltip */
 			$(function () {
