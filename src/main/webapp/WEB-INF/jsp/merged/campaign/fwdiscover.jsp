@@ -23,14 +23,14 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-04-14 23:59:59").getTime();
+    long cStart = cformat.parse("2016-05-15 11:59:59").getTime();
     
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-04-30 15:00:00").getTime();
+    //cCurrent = cformat.parse("2016-04-30 12:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -71,11 +71,14 @@
             	break;             	
     	}       
     } else {
-        countDownDate = "2016-04-20 14:59:59";
-        countDownDD = "20";
-        countDownMM = "Apr";    	
-    	if(cCurrent > cStart && cCurrent < hotelcStart){
-    		disableOfferClass = "paused-plan";    		
+        countDownDate = "2016-05-15 11:59:59";
+        countDownDD = "15";
+        countDownMM = "May";    	
+    	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
+    		disableOfferClass = "paused-plan";  
+            countDownDate = "2016-05-18 14:59:59";
+            countDownDD = "18";
+            countDownMM = "May";     		
     	}
     }
 
@@ -1725,6 +1728,7 @@
         });
         $(document).ready(function() {
         	//$('#offer-details-hotel-voucher').modal('show');
+        	//$('#offer-details-promotion-code').modal('show');
         	if(isMobile){
 	            $(window).on("load resize",function(){     
 	                if(window.innerHeight > window.innerWidth) // Portrait
