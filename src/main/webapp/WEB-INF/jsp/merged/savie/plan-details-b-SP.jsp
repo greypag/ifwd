@@ -513,8 +513,8 @@ var affordabilityPremium = ${sliderMax};
 			    <div class="modal-content">
 			    	<div class="row">
 			    		<div class="col-xs-2 col-md-1 numbering-holder">
-			    			<img src="<%=request.getContextPath()%>/resources/images/savie-2016/dk-numbering.png" class="visible-md visible-lg" />
-			    			<img src="<%=request.getContextPath()%>/resources/images/savie-2016/mb-numbering.png" class="visible-xs visible-sm" />
+			    			<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.oneoff.image.desktop" bundle="${msg}" />" class="visible-md visible-lg" />
+			    			<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.oneoff.image.mobile" bundle="${msg}" />" class="visible-xs visible-sm" />
 			    		</div>
 			    		<div class="col-xs-10 col-md-10" id="steps-holder">
 			    			<h4 class="text-center"><fmt:message key="product.details.savie.step.title" bundle="${msg}" /></h4>
@@ -775,7 +775,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').addClass('hidden');
 	        $('#rate-table-4').addClass('hidden');
 	    });
-	    
+		
 	    $('#rate-2').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -830,6 +830,9 @@ var affordabilityPremium = ${sliderMax};
 		});
 		
 		$('.rate-btn').on('click', function (){
+			$('.tooltip').hide();
+		});
+		$(document).on('click touchstart', function (){
 			$('.tooltip').hide();
 		});
 

@@ -36,7 +36,7 @@
 
 <!--mob bottom-->
 <div class="footer-container">
-    <div class="upper-footer-wrapper">
+    <div class="upper-footer-wrapper container">
 	    <div class="bottom-contact-wrapper">
 	        <div class="contact-label">
 	           <a href="<fmt:message key="footer.menu.contactus.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.contactus" bundle="${msg}" /><i class="fa fa-caret-right" aria-hidden="true"></i></a><br/><br/>

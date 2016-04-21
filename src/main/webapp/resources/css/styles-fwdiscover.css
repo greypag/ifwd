@@ -1605,6 +1605,9 @@
 	font-size: 20px;
 	
 }
+#hotel-voucher-carousel .carousel-item-container .hotel-name.long-hotel-name{
+	padding:2% 0;
+}
 #hotel-voucher-carousel .carousel-item-container .fanfare-date{
 	width: 20%;
 	border-right: 1px solid #081d28;

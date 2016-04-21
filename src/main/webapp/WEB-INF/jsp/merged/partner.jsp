@@ -9,6 +9,11 @@
 	scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<!--[if IE]>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/savie-2016/selectivizr-min.js"></script>
+<![endif]-->
 <!--   Main Content-->
 <section id="contact-page">
 	<div class="container mob-pad" id="joinus_form">
@@ -91,30 +96,31 @@
                                         </li>
                                     </ul>
                                 </div>
-                            <div class="partner_tnc">
-                                <div class="partner_tnc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
-                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="partner_link">
-                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
-                            </div>
-                    </div>                              
-	                <div class="clearfix"></div>
-                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
+	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
+	                                                <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <div class="partner_link">
+	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
+	                            </div>
+                    		</div>                              
+	                	<div class="clearfix"></div>
+                	</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<!--/.container-->
-	<!--  Become partner form start -->
+	<%--<!--  Become partner form start -->
 	<div class="partnership container">
 		<div class="partner-headline-wrapper">
 			<h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
@@ -181,10 +187,10 @@
             </div>	        
         </form>                        		
 	</div>
-	<!-- Become partner form end -->
+	<!-- Become partner form end -->--%>
 </section>
 
-<script>
+<%--<script>
 function resetForm(fvForm){
     fvForm.data('formValidation').resetForm();
 }
@@ -297,4 +303,4 @@ $(document).ready(function() {
         //function to submit form here
     });    
 });
-</script>
+</script>--%>

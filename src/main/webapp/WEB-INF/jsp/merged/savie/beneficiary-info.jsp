@@ -707,12 +707,12 @@ var languageP = "${language}";
 			
 			$('.selectDiv').removeClass('is-not-active');
 			
-			$('select').change(function() {
-				$(this).blur();
-			});
-			$('option').click(function() {
-				$('select').blur();
-			});
+			if(msieversion() >= 9) {
+				//fix for IE8 highlight blue when selected
+				$('option').click(function() {
+				    $('select').blur();
+				});
+			}	
 			// detect IE browsers
 			if (window.clipboardData) {
 				$('.selectDiv .gray-dropdown').addClass('ie-select');
@@ -873,7 +873,17 @@ var languageP = "${language}";
 								   regexp: {
 									  regexp: /^[a-zA-Z0-9\-]*$/,
 									  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-								   }
+								   },
+									callback: {
+										message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+										callback: function(value, validator) {
+											if(duplicateBeneficiariesPassport()!=''){
+												//$('#beneficiaryPassErMsg\\[2\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+												return false;
+											}
+											return true;
+										}
+									}
 								}
 							},
 							'beneficaryID3':{
@@ -887,11 +897,23 @@ var languageP = "${language}";
 			                  message: '<fmt:message key="error.hkid.special.chars" bundle="${msg}" />'
 			               },
 								callback: {
-		                      message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
-		                      callback: function(value, validator) {
-		                         return isValidHKID(value);
-		                      }
-				            }
+									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiaries()!=''){
+											return false;
+										}
+										/*
+										if(duplicateBeneficiariesPassport()!=''){
+											return false;
+										}
+										*/
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
+									}
+								}
 							}
 						},
 							'tmpBeneficiaryGender-3': {
@@ -920,7 +942,7 @@ var languageP = "${language}";
 										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 									},
 									between:{
-										min: 0,
+										min: 1,
 										max: 100,
 										message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 									},
@@ -1041,7 +1063,17 @@ var languageP = "${language}";
 			               regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
 			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-			               }
+			               },
+								callback: {
+									message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryPassErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+											return false;
+										}
+										return true;
+									}
+								}
 							}
 						},
 						'beneficaryID2':{
@@ -1057,7 +1089,21 @@ var languageP = "${language}";
 								callback: {
 									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
-		                         return isValidHKID(value);
+										if(duplicateBeneficiaries()!=''){
+											//$('#beneficiaryHkidErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.hkid.invalid" bundle="${msg}" />');
+											return false;
+										}
+										/*
+										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryHkidErMsg\\[1\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.hkid.invalid" bundle="${msg}" />');
+											return false;
+										}
+										*/
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
 		                     }
 				            }
 							}
@@ -1088,7 +1134,7 @@ var languageP = "${language}";
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 								},
 								between:{
-									min: 0,
+									min: 1,
 									max: 100,
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 								},
@@ -1223,7 +1269,17 @@ var languageP = "${language}";
 			               regexp: {
 			                  regexp: /^[a-zA-Z0-9\-]*$/,
 			                  message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />'
-			               }
+			               },
+								callback: {
+									message: '<fmt:message key="error.bene.passport.invalid" bundle="${msg}" />',
+									callback: function(value, validator) {
+										if(duplicateBeneficiariesPassport()!=''){
+											//$('#beneficiaryPassErMsg\\[0\\] small[data-bv-validator="callback"]').text('<fmt:message key="error.pass.duplicate" bundle="${msg}" />');
+											return false;
+										}
+										return true;
+									}
+								}
 							}
 			         },
 						/* 'beneficiaryPassport1':{
@@ -1256,7 +1312,19 @@ var languageP = "${language}";
 								callback: {
 									message: '<fmt:message key="error.hkid.invalid" bundle="${msg}" />',
 		                     callback: function(value, validator) {
-		                         return isValidHKID(value);
+										if(duplicateBeneficiaries()!=''){
+											return false;
+										}
+										/*
+										if(duplicateBeneficiariesPassport()!=''){
+											return false;
+										}
+										*/
+										if(!isValidHKID(value)){
+											return false;
+										}
+										
+										return true;
 		                     }
 			                  /* callback: function(value, validator) {
 										if(!isValidHKID(value)) {
@@ -1296,7 +1364,7 @@ var languageP = "${language}";
 									message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 				            },
 			               between:{
-			                	min: 0,
+			                	min: 1,
 			                	max: 100,
 		                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 		                  },
@@ -1390,7 +1458,18 @@ var languageP = "${language}";
 					}
 				});
 			}
+
+			$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keypress', function (event) {
+				var regex = new RegExp("/^[\s\u4e00-\u9eff]*$/");
+				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+				if (!regex.test(key)) {
+					event.preventDefault();
+					return false;
+				}
+			});
+			
 		});
+
 		</script>
 	</body>
 </html>

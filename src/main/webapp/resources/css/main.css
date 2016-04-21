@@ -466,6 +466,7 @@ ul.maintabs li a span.special-offer:hover {
 }
 
 .travel-and-home-tab, .protect-save-enjoy-tab {
+	text-transform: uppercase;
 	top: 47px;
 	position: relative;
 	margin-left: 30px;
@@ -11001,9 +11002,14 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 .footer-container .bottom-link a{
 	display: block;
 	line-height: 2;
+	color: #9fb1b2;
+}
+.footer-container .bottom-link a:hover{
+	color: #fff;
+	text-decoration: underline;
 }
 .footer-container .contact-number,.footer .bottom-link a{
-	color:#f6871e;
+	color:#f6871e !important;
 }
 .footer-container .contact-label{
     color:#fff;
@@ -11043,9 +11049,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 }
 @media all and (min-width: 992px){
     .upper-footer-wrapper{
-        max-width: 1070px;
+        /*max-width: 1070px;*/
         margin: 0 auto;
-        padding: 30px 0 30px 0;
+        padding: 30px 15px;
     }
     .bottom-footer-link{
         max-width: 1070px;
@@ -11070,7 +11076,11 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	   margin-bottom: 16px;
 	}
 	.bottom-footer-wrapper .copy-right{
+	   padding-top: 5px;
 	   float: right;
+	   color: #ffffff;
+   	   font-size: 14px;
+   	   line-height: 18px;	   
 	}
 	.social-link-wrapper{
 	   float: right;
@@ -11393,7 +11403,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	height: 135px;
 }
 .partnership.container{
-	margin:0;
+	margin:0 auto;
 }
 .partner-headline-wrapper{
 	margin-bottom: 30px;
@@ -11436,3 +11446,81 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 		margin-left: 0;
 	}
 }
+@media (max-width: 767px){
+	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
+		height: auto;
+	}	
+}
+/*----- Travel Alert Modal -----*/
+#travel-alert .modal-dialog{
+	margin: 100px auto;
+}
+#travel-alert .modal-dialog.teaserSurvey {
+	background-color: #fff;
+    width: 100%;
+}
+#travel-alert .modal-dialog .modal-content{
+    text-align: center;
+    padding: 35px 30px;
+}
+#travel-alert .modal-header.teaserSurvey{
+	padding: 0;
+	margin-bottom: 30px;
+	border-bottom: none;
+}
+#travel-alert .modal-header.teaserSurvey h2{
+	font-family: 'Calibri-Bold', Arial;
+	font-size: 30px;
+    color: #ff8200;
+    margin: 0;
+}
+#travel-alert .modal-body.teaserSurvey{
+	padding: 0;
+	margin-bottom: 10px;
+}
+#travel-alert .modal-body .registered{
+	margin-bottom: 35px;
+	font-size: 18px;
+    color: #061d2a;
+    font-family: 'Calibri';		
+}
+#travel-alert .modal-body button{
+    width: 100%;
+    font-size: 30px;
+    padding: 15px;
+    font-family: 'Calibri';
+    color: #fff;
+    background-color: #ff8200;
+    border-radius: 0;
+    white-space: normal;	
+}
+#travel-alert .btn#travel-alert-proceed{
+	margin-bottom: 30px;
+}
+#travel-alert .btn-orange:hover, #travel-alert .btn-orange:focus{
+	background: #fff;
+    color: #ff8200;
+    border: 1px solid #ff8200;	
+}
+#travel-alert .btn:focus,#travel-alert .btn:active,#travel-alert .btn:hover,
+#travel-alert .btn:active:focus{
+    outline: 0;
+    text-decoration: none;
+    box-shadow: none;	
+}
+@media (min-width: 992px){
+	#travel-alert .modal-dialog.teaserSurvey {
+	    width: 665px;
+	    margin-top: 150px;
+	}
+	#travel-alert .modal-body button{
+		width: 48%;
+	}
+	#travel-alert .modal-body button#travel-alert-proceed{
+		float: left;
+	}
+	#travel-alert .modal-body button#travel-alert-close{
+		float: right;
+	}	
+}
+/*----- Travel Alert Modal End -----*/

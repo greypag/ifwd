@@ -256,7 +256,7 @@ var FNArecommendation = {
 		$(".q4_b_amount input").keyup(function(){
 			var q = $(this).data();
 			var val = parseInt(this.value.replace(/\D/g, ''),10);
-			console.log(val);
+			
 			if(isNaN(val) || val == 0){
 				val = "";
 			}
@@ -372,7 +372,7 @@ var FNArecommendation = {
 
 				};
 				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){
-					console.log(res);
+					
 					if(res.errMsgs == null){
 						$('#fnaPopupEnquiry').modal('hide');
 					}else if(res.status == 1){
@@ -569,7 +569,7 @@ var FNArecommendation = {
 
 					for(var j = 0; j < gp_data.products.length; j++){
 						pNum++;
-						console.log("j",j);
+						
 						var prod_data = gp_data.products[j];
 
 						
@@ -823,7 +823,7 @@ var FNArecommendation = {
 
 		var only1KSTS = (pNum == 1 && prodWrapper.find(".fna-product").first().data("productCode") == "KSTS");
 		only1KSTS = only1KSTS && bUnaffordableULife;
-		
+		only1KSTS = only1KSTS && FNArecommendation.fnaData.q4_e=="0"; //Contribution < 1
 		//if(only1KSTS){
 		//	only1KSTS = false;
 		//	gpOthersWrapper.find(".fna-other-product").each(function(){
@@ -850,10 +850,10 @@ var FNArecommendation = {
 
 		//Show Only 1 product description
 		if(pNum == 1){
-			FNArecommendation.showOnly1Product(true,FNArecommendation.fnaData.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(true,data.q2,fnaq4e);
 		}
 		else{
-			FNArecommendation.showOnly1Product(false,FNArecommendation.fnaData.q2,fnaq4e);
+			FNArecommendation.showOnly1Product(false,data.q2,fnaq4e);
 		}
 
 		var bShowILASsContainer = false;
@@ -900,9 +900,9 @@ var FNArecommendation = {
 			/* Check if there are unmatched objectives Q1*/
 			var pq1= (data.q1=="")?[]:$.unique(data.q1.split(","));
 			var unmatched_q1=FNArecommendation.getArrDiff(fq1, pq1);
-			var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
+			//var affordable_q2 = FNArecommendation.getArrDiff(fq2, unaffordable_group); // filter out selected products in un affordable section
 			rq1a=unmatched_q1.join(",");
-			rq2a=affordable_q2.join(",");
+			rq2a=FNArecommendation.fnaData.q2;
 
 		    if( (rq1a!=null && rq1a!='') && (rq2a!=null && rq2a!='') ){
 		    	FNArecommendation.showNoAvailableProduct(true,rq2a,rq1a,fnaq4e,1);
@@ -1032,6 +1032,10 @@ var FNArecommendation = {
 		var email = $.trim($("#FNAinputEmail").val());
 		var mobileno = $.trim($("#FNAinputMobileNo").val());
 
+		var validName = false;
+		var validEmail = false;
+		var validMobile = false;
+
 		//Reset error message
 		$("#errFNAinputCustomerName").text('');
 		$("#errFNAinputEmail").text('');
@@ -1039,30 +1043,45 @@ var FNArecommendation = {
 
 		if(name == ""){
 			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
-			result = false;
+			validName = false;
 		}else if(!name_eng_pattern.test(name)){
 			$("#errFNAinputCustomerName").text(getBundle(getBundleLanguage, "applicant.name.notNull.message"));
-			result = false;
+			validName = false;
+		}else{
+			validName = true;
 		}
+
 
 		if(email == ""){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.empty"));
-			result = false;
+			validEmail = false;
 		}else if (!emailreg.test(email)){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.invalid"));
-			result = false;
-			
+			validEmail = false;
+		}else{
+			validEmail = true;
 		}
 
 		if(mobileno == ""){
 			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.empty"));
-			result = false;
+			validMobile = false;
 		}else if(!mobile_pattern.test(mobileno)){
 			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.invalid"));
-			result = false;
+			validMobile = false;
+		}else{
+			validMobile = true;
 		}
 
-		return result;		
+		if( email == "" && validMobile ){
+			$("#errFNAinputEmail").text("");
+			validEmail = true;
+		}
+		if( mobileno == "" && validEmail ){
+			$("#errFNAinputMobileNo").text("");
+			validMobile = true;
+		}
+
+		return validName && validEmail && validMobile;		
 	}
 
 };

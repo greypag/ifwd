@@ -1643,6 +1643,9 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
     max-width: 700px;
     margin-top: 18px;
   }
+  .savie-regular-landing .payment-mode .availability-notice .inner {
+    margin-top: 5px;margin-left: 20px;padding-left: 10px;list-style-type: initial;
+  }
   /* line 386, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .availability-notice span {
     display: block;

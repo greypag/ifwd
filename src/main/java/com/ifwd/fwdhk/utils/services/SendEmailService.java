@@ -246,7 +246,7 @@ public class SendEmailService implements SendEmailDao {
 				referenceCode = "10403";
 				expiryDate = "11-05-2016";
 			} else if (offername.equals("Fanfare.offername9")) {
-				rewardNameEn = "3 Days / 2 Nights Stay in an One Bed Residensi with Breakfast";
+				rewardNameEn = "3 Days / 2 Nights Stay in an One-Bedroom Residensi with Breakfast";
 				rewardNameCh = "單臥室公寓3日2夜的住宿及早餐";
 				hotelUrl = "http://bukitceylon.lansonplace.com/";
 				hotelNameEn = "Lanson Place Bukit Ceylon Serviced Residences";

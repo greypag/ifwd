@@ -393,20 +393,20 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
 														<option value="${list.itemCode }" 
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
 														<option value="${list.itemCode }" 
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
@@ -414,18 +414,18 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
-														<c:if test="${savieFna.q4_b_amount <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 10001 && savieFna.q4_b_amount <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 50001 && savieFna.q4_b_amount <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-														<c:if test="${savieFna.q4_b_amount >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>	
 											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
@@ -609,12 +609,12 @@ var languageP = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 				
-				$('select').change(function() {
-					$(this).blur();
-				});
-				$('option').click(function() {
-					$('select').blur();
-				});
+				if(msieversion() >= 9) {
+					//fix for IE8 highlight blue when selected
+					$('option').click(function() {
+					    $('select').blur();
+					});
+				}	
 				// detect IE browsers
 				if (window.clipboardData) {
 					$('.selectDiv .gray-dropdown').addClass('ie-select');

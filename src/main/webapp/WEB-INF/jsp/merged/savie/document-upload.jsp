@@ -542,6 +542,9 @@ var languageP = "${language}";
 				
 				// Check if passport is valid
 				function isPassportValidity() {
+					if ($('#hkPermanentRes').prop('checked')) {
+						return true;
+					}
 					/* For IE9, check the src result */
 					if(msieversion()>0 && msieversion()<10) {
 						return $('#iframe-two').attr('src').indexOf('uploadResult=true') > -1; 
@@ -564,9 +567,6 @@ var languageP = "${language}";
 				
 				// Check if proof of address is valid
 				function isProfAddValidity() {
-					if ($('#hkPermanentRes').prop('checked')) {
-						return true;
-					}
 					/* For IE9, check the src result */
 					if(msieversion()>0 && msieversion()<10) {
 						return $('#iframe-three').attr('src').indexOf('uploadResult=true') > -1; 

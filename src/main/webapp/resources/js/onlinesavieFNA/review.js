@@ -56,12 +56,19 @@ function formatNum (num) {
 }
 
 $(document).ready(function(){  
-    $("#q4_a_others, #q4_b_amount, #q4_c_others, #q4_d_1_others, #q4_d_2_others").bind("blur",function(){
+    $("#q4_a_others, #q4_b_amount, #q4_c_others, #q4_d_1_others, #q4_d_2_others").bind("keyup",function(){
     	var val = $(this).val();
-    	val = (val + '').replace(/,/g,"");
-    	val = parseInt(val+'');
+    	//val = (val + '').replace(/,/g,"");
+    	val = val.replace(/\D/g, ''); //remove invalid characters
+		val = val.replace(/\b0(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
+
+    	val = parseInt(val+'', 10);
     	val = isNaN(val) ? "":val;
     	$(this).val(formatNum(val));
+    });
+
+    $("#q4_a_others, #q4_b_amount, #q4_c_others, #q4_d_1_others, #q4_d_2_others").bind("blur",function(){
+    	$(this).trigger("keyup");
     });
     
 })
@@ -77,7 +84,7 @@ var Review = {
 
 		//default disable all input
 		$(".option").find("input[type='checkbox']").attr("disabled", "disabled");
-		$(".option").find("input[type='text'], input[type='number']").attr("readonly", "readonly");
+		$(".option").find("input[type='text'], input[type='tel']").attr("readonly", "readonly");
 		$(".occupation_others").val("").prop("disabled", true).hide();
 
 		//Get review result
@@ -167,7 +174,7 @@ var Review = {
 			if(rid != row){
 				$("#"+rid).removeClass("selected");
 				$("#"+rid).find("input[type='checkbox']").removeAttr("checked");
-				$("#"+rid).find("input[type='text'], input[type='number']").val("");
+				$("#"+rid).find("input[type='text'], input[type='tel']").val("");
 			}
 		});
 	},
@@ -256,7 +263,7 @@ var Review = {
 				}
 				if(options[j].other != undefined){
 					var inputId = options[j].other;
-					text = text.replace("{0}", "<input type='number' id='"+inputId+"' name='"+inputId+"' value='' maxlength='10' />");
+					text = text.replace("{0}", "<input type='tel' id='"+inputId+"' name='"+inputId+"' value='' maxlength='10' />");
 					option.find(".checkbox input").attr("data-id", inputId);
 				}
 
@@ -668,7 +675,7 @@ var Review = {
 			$(this).addClass("selected");
 			target.removeClass("display");
 			target.find("input[type='checkbox']").removeAttr("disabled");
-			target.find("input[type='text'], input[type='number']").removeAttr("readonly");
+			target.find("input[type='text'], input[type='tel']").removeAttr("readonly");
 			target.find(".btn-action").show();
 		}
 		
@@ -690,7 +697,7 @@ var Review = {
 			target.addClass("display")
 			target.find(".btn_edit").removeClass("selected")
 			target.find("input[type='checkbox']").attr("disabled", "disabled");	
-			target.find("input[type='text'], input[type='number']").attr("readonly", "readonly");
+			target.find("input[type='text'], input[type='tel']").attr("readonly", "readonly");
 			target.find(".btn-action").hide();
 		}
 
@@ -718,7 +725,7 @@ var Review = {
 		target.addClass("display")
 		target.find(".btn_edit").removeClass("selected")
 		target.find("input[type='checkbox']").attr("disabled", "disabled");	
-		target.find("input[type='text'], input[type='number']").attr("readonly", "readonly");
+		target.find("input[type='text'], input[type='tel']").attr("readonly", "readonly");
 		target.find(".btn-action").hide();
 		
 		//enable "BTN_SAVE" when all review box ok

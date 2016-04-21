@@ -534,7 +534,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationNo", lifePolicy.getPolicyNo()));
 	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("applicationChineseName", lifePersonalDetails.getChineseName()));
-	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
+	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid().toUpperCase()));
 	    attributeList.add(new PdfAttribute("applicationSex", gender));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
@@ -617,7 +617,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelationEnName1()));
 	    	    }
 	    	    
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1():lifeBeneficaryInfo.getBeneficiaryPassport1()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID1", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID1())?lifeBeneficaryInfo.getBeneficaryID1().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase()));
 	    	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
@@ -631,7 +631,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelationEnName2()));
 	    	    }
 	    	    
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2():lifeBeneficaryInfo.getBeneficiaryPassport2()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID2", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID2())?lifeBeneficaryInfo.getBeneficaryID2().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase()));
 	    	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
 	    	}
 	    	if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
@@ -645,7 +645,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    	    	attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelationEnName3()));
 	    	    }
 	    		
-	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3():lifeBeneficaryInfo.getBeneficiaryPassport3()));
+	    	    attributeList.add(new PdfAttribute("beneficiaryHKID3", StringUtils.isNotBlank(lifeBeneficaryInfo.getBeneficaryID3())?lifeBeneficaryInfo.getBeneficaryID3().toUpperCase():lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase()));
 	       	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    	}
 	    }else{
@@ -699,7 +699,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    attributeList.add(new PdfAttribute("ExpiryDate", "N/A"));
 	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
-	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
+	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid().toUpperCase()));
 	    
 	    if(lifeDeclaration.getChkboxDoNotSendMarketingInfo() != null && lifeDeclaration.getChkboxDoNotSendMarketingInfo()){
 	    	attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
@@ -811,15 +811,25 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
 		String occupation = "";
-		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
-			occupation = lifeEmploymentInfo.getOtherOccupation();
-		}else{
-			if("tc".equals(lang)){
-				occupation = lifeEmploymentInfo.getOccupationCnName();
+	    String status = lifeEmploymentInfo.getEmploymentStatus();
+	    status = status.split("-")[0];
+	    if("ES1".equals(status)||"ES2".equals(status)||"ES3".equals(status)){
+			if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
+				occupation = lifeEmploymentInfo.getOtherOccupation();
 			}else{
-				occupation = lifeEmploymentInfo.getOccupationEnName();
+				if("tc".equals(lang)){
+					occupation = lifeEmploymentInfo.getNatureOfBusinessCnName() + " - " + lifeEmploymentInfo.getOccupationCnName();
+				}else{
+					occupation = lifeEmploymentInfo.getNatureOfBusinessEnName() + " - " + lifeEmploymentInfo.getOccupationEnName();
+				}
 			}
-		}
+	    } else {
+			if("tc".equals(lang)){
+		    	occupation = lifeEmploymentInfo.getEmploymentStatusCnName();
+			}else{
+		    	occupation = lifeEmploymentInfo.getEmploymentStatusEnName();
+			}
+	    }
 		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
 		
 		String group_3 = "";
@@ -960,7 +970,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				attributeList.add(new PdfAttribute("USTreasurybills", "On"));
 			}
 			if("6".equals(i)){
-				attributeList.add(new PdfAttribute("4bother", "On"));
+				attributeList.add(new PdfAttribute("4bother", "Off"));
 				attributeList.add(new PdfAttribute("4bothers", savieFna.getQ4_b_others()));
 			}
 		}
@@ -1110,22 +1120,30 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Noresult", (StringUtils.isNotBlank(showOnly1Product)?showOnly1Product:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showILASsDescription)?showILASsDescription:"") + "\r\n" + 
 				   (StringUtils.isNotBlank(showNoAvailableProduct)?showNoAvailableProduct:"")));
-		*/
+		*/		
 		String fnaMsg = "";
         String matchProductGroup = "";
         List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
         int productCount = 0;
-        int unaffortableCount = 0;
         Map<String, String> unaffortableTypes = new HashMap();
         Map<String, String> affortableTypes = new HashMap();
         boolean hasUlife = false;
+        boolean hasIlas = false;
+//        boolean isIlasAffordable = true;
         String objectives = savieFna.getQ1();
         String productGroups = savieFna.getQ2();
-        for(int a=0;a<productRecommendation.getProduct_list().size();a++){
+        for(int a=0;a<productRecommendation.getProduct_list().size();a++){       		
             List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
             List<MorphDynaBean> otherTypes = (List<MorphDynaBean>) productLists.get(a).get("other_types");
+            
+            boolean isIlasGroup = false;
+        	if (productLists.get(a).get("groupCode") != null && productLists.get(a).get("groupCode").equals("ILAS")) {
+        		hasIlas = true;
+        		isIlasGroup = true;
+        	}
+
             for (int b=0;b<otherTypes.size();b++){
-            	if (!unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
+            	if (!isIlasGroup && !unaffortableTypes.containsKey(otherTypes.get(b).get("type"))){
             		unaffortableTypes.put(otherTypes.get(b).get("type").toString(), otherTypes.get(b).get("type").toString());
             	}
             		
@@ -1139,13 +1157,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
             
             for (int b=0;b<products.size();b++){            	
                 String[] ans = products.get(b).get("q1").toString().split(",");
-                for (int c=0;c<ans.length;c++){
-                	objectives = objectives.replace(ans[c],"9");
-                }
             	if (!affortableTypes.containsKey(products.get(b).get("type"))){
             		affortableTypes.put(products.get(b).get("type").toString(), products.get(b).get("type").toString());
             	}
-                productGroups = productGroups.replace(products.get(b).get("q2").toString(), "9");
                 matchProductGroup = products.get(b).get("q2").toString();
             }
             productCount += products.size();
@@ -1161,80 +1175,90 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         {
             fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
         }
-        if (productRecommendation.getHasILAS().equals("Y")) {
+        if (hasIlas) {
             fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
         }
-        if (unaffortableTypes.size()>0 && productCount<=1){
-        	String unaffortableTypesName = "";
-            for (Map.Entry<String, String> entry : unaffortableTypes.entrySet())
-            {
-            	if (unaffortableTypesName.length()>0){
-            		unaffortableTypesName += ",";
-            	}
-            	unaffortableTypesName += entry.getKey();
-            }
-            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
+        String[] matchObj = productRecommendation.getQ1().split(",");
+        String[] matchPdg = productRecommendation.getQ2().split(",");
+        for (int i=0;i<matchObj.length;i++){
+        	objectives = objectives.replace(matchObj[i],"9");
         }
-        if (productCount==1 && hasUlife && unaffortableCount==0){
+        for (int i=0;i<matchPdg.length;i++){
+        	productGroups = productGroups.replace(matchPdg[i],"9");
+        }
+        
+        if (productCount==1 && hasUlife && savieFna.getQ4_e().equals("0")) {
         	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
-        }
-        String case3aMsg = "";
-        String case3bMsg = "";
-        String[] obj = objectives.split(",");
-        String notMatchObj = "";
-        for (int a=0;a<obj.length;a++){
-        	if (!obj[a].equals("9"))
-        	{
-        		if (notMatchObj.length()>0){
-        			notMatchObj += ",";
-        		}
-        		notMatchObj += objectiveNames.get(obj[a]);
-        	}
-        }
-        if (notMatchObj.length()>0){
-        	String allGroupName = "";
-        	String[] allGroups = savieFna.getQ2().split(",");
-            for (int a=0;a<allGroups.length;a++){
-        		if (allGroupName.length()>0){
-        			allGroupName += ",";
-        		}
-        		allGroupName += groupNames.get(allGroups[a]);
-            }
-        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, notMatchObj, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
-        }
-        String[] group = productGroups.split(",");
-        String notMatchGrp = "";
-        for (int a=0;a<group.length;a++){
-        	if (!group[a].equals("9"))
-        	{
-        		if (notMatchGrp.length()>0){
-        			notMatchGrp += ",";
-        		}
-        		notMatchGrp += groupNames.get(group[a]);
-        	}
-        }
-        if (notMatchGrp.length()>0){
-        	String allObjName = "";
-        	String[] allObj = savieFna.getQ2().split(",");
-            for (int a=0;a<allObj.length;a++){
-        		if (allObjName.length()>0){
-        			allObjName += ",";
-        		}
-            	allObjName += objectiveNames.get(allObj[a]);
-            }
-        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, allObjName, contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
-        }
-        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
-        	if (case3aMsg.equals(case3bMsg)){
-        		fnaMsg += case3aMsg + "\r\n";
-        	} else {
-        		if (case3aMsg.length() > 0){
-        			fnaMsg += case3aMsg + "\r\n";
-        		}
-        		if (case3bMsg.length() > 0){
-        			fnaMsg += case3bMsg + "\r\n";
-        		}
-        	}
+        } else {
+	        if (unaffortableTypes.size()>0 && productCount<=1){
+	        	String unaffortableTypesName = "";
+	            for (Map.Entry<String, String> entry : unaffortableTypes.entrySet())
+	            {
+	            	if (unaffortableTypesName.length()>0){
+	            		unaffortableTypesName += ",";
+	            	}
+	            	unaffortableTypesName += entry.getKey();
+	            }
+	            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
+	        }
+	        String case3aMsg = "";
+	        String case3bMsg = "";
+	        String[] obj = objectives.split(",");
+	        String notMatchObj = "";
+	        for (int a=0;a<obj.length;a++){
+	        	if (!obj[a].equals("9"))
+	        	{
+	        		if (notMatchObj.length()>0){
+	        			notMatchObj += ",";
+	        		}
+	        		notMatchObj += objectiveNames.get(obj[a]);
+	        	}
+	        }
+	        if (notMatchObj.length()>0){
+	        	String allGroupName = "";
+	        	String[] allGroups = savieFna.getQ2().split(",");
+	            for (int a=0;a<allGroups.length;a++){
+	        		if (allGroupName.length()>0){
+	        			allGroupName += ",";
+	        		}
+	        		allGroupName += groupNames.get(allGroups[a]);
+	            }
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
+	        }
+	        String[] group = productGroups.split(",");
+	        String notMatchGrp = "";
+	        for (int a=0;a<group.length;a++){
+	        	if (!group[a].equals("9"))
+	        	{
+	        		if (notMatchGrp.length()>0){
+	        			notMatchGrp += ",";
+	        		}
+	        		notMatchGrp += groupNames.get(group[a]);
+	        	}
+	        }
+	        if (notMatchGrp.length()>0){
+	        	String allObjName = "";
+	        	String[] allObj = savieFna.getQ1().split(",");
+	            for (int a=0;a<allObj.length;a++){
+	        		if (allObjName.length()>0){
+	        			allObjName += ",";
+	        		}
+	            	allObjName += objectiveNames.get(allObj[a]);
+	            }
+	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	        }
+	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
+	        	if (case3aMsg.equals(case3bMsg)){
+	        		fnaMsg += case3aMsg;
+	        	} else {
+	        		if (case3aMsg.length() > 0){
+	        			fnaMsg += case3aMsg;
+	        		}
+	        		if (case3bMsg.length() > 0){
+	        			fnaMsg += case3bMsg;
+	        		}
+	        	}
+	        }
         }
                 
         attributeList.add(new PdfAttribute("Noresult", fnaMsg));
@@ -1657,7 +1681,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie1.put("hkId", "");
-								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase());
 							}
 							beneficiarie1.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"M":"F");
 							beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
@@ -1674,7 +1698,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie2.put("hkId", "");
-								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase());
 							}
 							beneficiarie2.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"M":"F");
 							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
@@ -1691,7 +1715,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 							}
 							else{
 								beneficiarie3.put("hkId", "");
-								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase());
 							}
 							beneficiarie3.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"M":"F");
 							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
@@ -1791,8 +1815,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("applicantChineseName", lifePersonalDetails.getChineseName()!=null?lifePersonalDetails.getChineseName():"");
 		parameters.accumulate("applicantDob", lifePersonalDetails.getDob()!=null?lifePersonalDetails.getDob():"");
 		parameters.accumulate("applicantGender", lifePersonalDetails.getGender()!=null?lifePersonalDetails.getGender():"");
-		parameters.accumulate("applicantHkId", lifePersonalDetails.getHkid()!=null?lifePersonalDetails.getHkid():"");
-		parameters.accumulate("applicantPassport", lifePersonalDetails.getPassport()!=null?lifePersonalDetails.getPassport():"");
+		parameters.accumulate("applicantHkId", lifePersonalDetails.getHkid()!=null?lifePersonalDetails.getHkid().toUpperCase():"");
+		parameters.accumulate("applicantPassport", lifePersonalDetails.getPassport()!=null?lifePersonalDetails.getPassport().toUpperCase():"");
 		parameters.accumulate("applicantMaritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus():"");
 		parameters.accumulate("applicantPlaceOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth():"");
 		parameters.accumulate("applicantNationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty():"");
@@ -1899,8 +1923,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
 		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
 		parameters.accumulate("beneficiaryHkidPassport1", lifeBeneficaryInfo.getBeneficiaryHkidPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport1():"");
-		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1():"");
-		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1():"");
+		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()!=null?lifeBeneficaryInfo.getBeneficaryGender1():"");
 		parameters.accumulate("beneficiaryRelationship1", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1():"");
 		parameters.accumulate("beneficiaryEntitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()!=null?lifeBeneficaryInfo.getBeneficaryWeight1():"");
@@ -1908,8 +1932,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName2", lifeBeneficaryInfo.getBeneficaryLastName2()!=null?lifeBeneficaryInfo.getBeneficaryLastName2():"");
 		parameters.accumulate("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()!=null?lifeBeneficaryInfo.getBeneficaryChineseName2():"");
 		parameters.accumulate("beneficiaryHkidPassport2", lifeBeneficaryInfo.getBeneficiaryHkidPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport2():"");
-		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2():"");
-		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2():"");
+		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()!=null?lifeBeneficaryInfo.getBeneficaryGender2():"");
 		parameters.accumulate("beneficiaryRelationship2", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2():"");
 		parameters.accumulate("beneficiaryEntitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()!=null?lifeBeneficaryInfo.getBeneficaryWeight2():"");
@@ -1917,8 +1941,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("beneficiaryLastName3", lifeBeneficaryInfo.getBeneficaryLastName3()!=null?lifeBeneficaryInfo.getBeneficaryLastName3():"");
 		parameters.accumulate("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()!=null?lifeBeneficaryInfo.getBeneficaryChineseName3():"");
 		parameters.accumulate("beneficiaryHkidPassport3", lifeBeneficaryInfo.getBeneficiaryHkidPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryHkidPassport3():"");
-		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3():"");
-		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3():"");
+		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3().toUpperCase():"");
+		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase():"");
 		parameters.accumulate("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()!=null?lifeBeneficaryInfo.getBeneficaryGender3():"");
 		parameters.accumulate("beneficiaryRelationship3", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3():"");
 		parameters.accumulate("beneficiaryEntitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()!=null?lifeBeneficaryInfo.getBeneficaryWeight3():"");
@@ -3107,20 +3131,25 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("model", model);
 		parameters.put("template", template);
 		
-		//final Map<String,String> header = headerUtil.getHeader(request);
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		
+		header.put("content-type", "application/json ");
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
+		
+		/* send email to operation team for case follow up */
+		if("paylater".equals(action)				
+				||"offlineApplication".equals(action)
+				||"uploadDocument".equals(action)
+				||"savieComplete".equals(action)
+				||"signLater".equals(action)){
+				parameters = new JSONObject();
+				parameters.put("to", UserRestURIConstants.getConfigs("innerMailTo"));
+				parameters.put("subject", subject);
+				parameters.put("model", model);
+				parameters.put("template", template);
+				responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);		
+		}				
 		return responseJsonObj;
 	}
 	

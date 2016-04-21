@@ -164,7 +164,7 @@ var language = "${language}";
 							</div> --%>
 							
 							<div class="col-xs-12 col-md-6">
-								<div class="payment-select-wrapper">
+								<div class="form-group payment-select-wrapper">
 									<p class="bank-info-select-label"><fmt:message key="placeholder.bank.name" bundle="${msg}" /></p>
 								   <div class="selectDiv centreDiv gray-text-bg">
 										<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
@@ -251,7 +251,8 @@ var language = "${language}";
 					</div>
 				</form>	
 				<!-- merge with pay later -->
-				<form action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
+				<!-- hidden for following code as it is useless from 20160414 -->
+				<form class="hidden" action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
 					<div id="pay-later-page" class="hidden">
 						<div class="make-an-appointment clearfix">
 							<div class="col-xs-12 col-md-6" id="left-side-form">
@@ -349,13 +350,19 @@ var language = "${language}";
 						</div>
 					</div>
 				</form>
+				<!-- END of hidden from 20160414 -->
 				
+				<div class="col-xs-12 pay-later-div hidden">
+					<div class="payment-later-desc"><fmt:message key="payment.paylater.desc" bundle="${msg}" /></div>
+					<div class="text-center clearfix save-link-paylater-div">
+						<a href="#" class="savie-common-btn save-link-paylater" id="payment-save-and-con-paylater"><fmt:message key="payment.paylater.label.save.and.continue.later" bundle="${msg}" /></a>
+					</div>
+				</div>
 				<center>
 						<button type="button" id="btn-next" class="text-bold btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 					<button type="button" id="btn-back" class="text-bold btn btn-payment hidden" onclick="goNext();"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 				</center>
-				
 			</div>
 		</div>
 	</div>
@@ -411,7 +418,7 @@ var language = "${language}";
 </div>
 
 <!--Modal in Customer Service Centre-->
-<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog teaserSurvey" role="document">
 		<div class="modal-content teaserSurvey">
 			<div class="modal-header teaserSurvey">
@@ -656,17 +663,21 @@ var language = "${language}";
 		
 		$("input[type='radio']").on('click', function() {
 			if($('#payment-debit:checked').length > 0 ) {
-				$('#pay-later-page').addClass('hidden');
 				$('#direct-debit-panel').removeClass('hidden');
 				$('.save-link').removeClass('hidden');
+				//$('#pay-later-page').addClass('hidden');
+				$('.pay-later-div').addClass('hidden');
+				$('#btn-next').removeClass('hidden');
 			} else {
 				$('#direct-debit-panel').addClass('hidden');
 				$('.save-link').addClass('hidden');
-				$('#pay-later-page').removeClass('hidden');
+				//$('#pay-later-page').removeClass('hidden');
+				$('.pay-later-div').removeClass('hidden');
+				$('#btn-next').addClass('hidden');
 				
-				if($("#full-date").length > 0){
-					$('#fullyBooked').modal('show');
-				}
+				//if($("#full-date").length > 0){
+				//	$('#fullyBooked').modal('show');
+				//}
 			}
 		});
 		
@@ -675,7 +686,7 @@ var language = "${language}";
 			open($('#' + selectId));
 		});
 		
-		$('#payment-save-and-con').on('click', function (e) {
+		$('#payment-save-and-con-paylater, #payment-save-and-con').on('click', function (e) {
 			var isChecked = true;
 			isChecked &= validateChkbox('payment_confirm_authorize', 'chkPolicyErMsg');
 			
@@ -701,12 +712,17 @@ var language = "${language}";
 			}
 		});
 		
-		$('select').change(function() {
-			$(this).blur();
-		});
-		$('option').click(function() {
-			$('select').blur();
-		});
+		// detect IE browsers
+		if(msieversion() >= 9) {
+			//fix for IE8 highlight blue when selected
+			$('option').click(function() {
+			    $('select').blur();
+			});
+			$('.selectDiv .gray-dropdown').addClass('ie-select');
+			
+		} else {
+			$('.selectDiv .gray-dropdown').removeClass('ie-select');
+		}
 		
 		// set fields whether editable or not
 		setInputReadonly('paymentAmount', true);
@@ -911,7 +927,7 @@ var language = "${language}";
 				var perferredTime = $("#preferred-time").val();
 				var planCode = "SAVIE-SP";
 				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-					$('#fullyBooked').modal('show');
+					//$('#fullyBooked').modal('show');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
 					$('#perferredTimeIsNull').modal('show');
 				}else{

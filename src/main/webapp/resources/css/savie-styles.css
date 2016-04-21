@@ -695,7 +695,7 @@ a:hover {
 
 /* line 305, ../sass/partials/savie/_common.scss */
 .browse-container {
-  max-width: 1115px;
+  max-width: 1140px;
   margin: 0 auto;
   padding-left: 12px;
 }
@@ -4546,11 +4546,11 @@ a.eserv-link:hover {
 }
 /* line 127, ../sass/partials/savie/_footer.scss */
 .footer-container .upper-footer-wrapper .bottom-link a {
-  color: #f6871e;
+  color: #9fb1b2;
 }
 /* line 129, ../sass/partials/savie/_footer.scss */
 .footer-container .upper-footer-wrapper .bottom-link a:hover {
-  color: #9fb1b2;
+  color: #fff;
 }
 
 /** Save and Continue style**/
@@ -9709,3 +9709,19 @@ h3 .heading-title{
 .member-account-details-footer a:hover{
 	text-decoration: underline;
 }
+
+/* add on 20160414 */
+#signature-offline  .save-link-later-div,
+#payment-page .save-link-paylater-div{
+	margin: 5% auto;
+}
+
+/* add on 20160415 */
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content p.registered{
+	text-align: center;
+}
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content #fullyBooked-button{
+	white-space: normal;
+}
+

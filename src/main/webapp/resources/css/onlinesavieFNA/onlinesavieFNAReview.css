@@ -78,7 +78,7 @@
   width: 100% !important;
   background-color: #FFF; }
   #FNAReview #personal_info .select2-container .select2-selection--single {
-    padding: 8px 22px;
+    padding: 8px 22px 8px 15px;
     height: auto;
     border: none; }
 #FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -159,7 +159,7 @@
     left: auto;
     right: -4px; }
   #FNAReview .review-box .option input[type="text"],
-  #FNAReview .review-box .option input[type="number"] {
+  #FNAReview .review-box .option input[type="tel"] {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #666;
@@ -301,7 +301,7 @@
     #FNAReview .review-box .option .checkbox label::after {
       right: -20px; }
     #FNAReview .review-box .option input[type="text"],
-    #FNAReview .review-box .option input[type="number"] {
+    #FNAReview .review-box .option input[type="tel"] {
       font-size: 18px;
       width: 180px; }
     #FNAReview .review-box .btn-action .btn {
@@ -355,7 +355,7 @@
       #FNAReview .review-box .option label {
         font-size: 14px; }
       #FNAReview .review-box .option input[type="text"],
-      #FNAReview .review-box .option input[type="number"] {
+      #FNAReview .review-box .option input[type="tel"] {
         font-size: 14px;
         width: 150px; }
     #FNAReview .review-box .btn-action .btn {

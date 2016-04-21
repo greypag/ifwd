@@ -150,6 +150,7 @@ var languageP = "${language}";
 				</div>
 			</form>
 			<!-- Offline Signature -->
+			<!-- keep hidden for following code as it is useless from 20160414 -->
 			<form class="form-signatureoffline-info hidden" id="signoff-table" method="post">
 				<div id="choose-service-centre">
 					<div class="row">
@@ -227,6 +228,16 @@ var languageP = "${language}";
 					</div>
 				</div>
 			</form>
+			<!-- END of hidden from 20160414 -->
+			
+			<div class="col-xs-12 sign-later-div hidden">
+				<div class="signature-later-desc"><fmt:message key="signature.later.desc" bundle="${msg}" /></div>
+				<div class="text-center clearfix save-link-later-div">
+					<a href="#" class="savie-common-btn save-link-later" id="signature-save-and-con-later" data-toggle="modal" data-target="#save-and-continue-modal">
+						<span><fmt:message key="signature.label.save.and.continue.later" bundle="${msg}" /></span>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- FOOTER -->
@@ -298,7 +309,7 @@ var languageP = "${language}";
 			</div>
 		</div>
 		<div class="text-center">
-			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">40</span>)</button>
+			<button class="btn savie-common-btn disabled-gray-btn review-btn" id="review-btn-1"><fmt:message key="button.review.and.agree" bundle="${msg}" /> (<span id="timer-1">48</span>)</button>
 		</div>	
 	</div>
   </div>
@@ -431,7 +442,7 @@ var languageP = "${language}";
   </div>
 </div>
 
-<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog teaserSurvey" role="document">
 		<div class="modal-content teaserSurvey">
 			<div class="modal-header teaserSurvey">
@@ -610,15 +621,20 @@ var languageP = "${language}";
 	$('#digi-radio').click(function () {
 		if ($(this).is(':checked')) {
 			$('#table-info').removeClass('hidden');
-			$('#signoff-table').addClass('hidden');
+			//$('#signoff-table').addClass('hidden');
+			$('.sign-later-div').addClass('hidden');
+			$('#desktop-position-btn-later').addClass('hidden');
 		}
 	});
 	$('#off-radio').click(function () {
 		if ($(this).is(':checked')) {
-			$('#signoff-table').removeClass('hidden');
+			//$('#signoff-table').removeClass('hidden');
+			$('.sign-later-div').removeClass('hidden');
+			$('#desktop-position-btn-later').removeClass('hidden');
+			
 			$('#table-info').addClass('hidden');
 			if($("#full-date").length > 0){
-				$('#fullyBooked').modal('show');
+				//$('#fullyBooked').modal('show');
 			}
 		}
 	});
@@ -659,58 +675,67 @@ var languageP = "${language}";
 		var pdfFile = $('#pdf-object').attr('data');
 		var success = new PDFObject({ url: pdfFile }).embed();
 	};
-	var sec1 = 40;
+	var sec1 = 48;
 	var sec2 = 32;
 	var sec3 = 72;
+	var interval1;
+	var interval2;
+	var interval3;
 	$('#fna-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec1 -= 1;
+		clearInterval(interval1);
+		interval1 = setInterval(function() {
+			sec1 --;
 			updateSecond(sec1);
+			$('#timer-1').text(sec1);
 		}, 1000);
 
 		function updateSecond(second) {
+			//sec1 -= 1;
+			//console.log(interval);
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval1);
 				$('#review-btn-1').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-1').hasClass('bottom')) {
 					$('#review-btn-1').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-1').text(second);
+			//clearInterval(interval);
 		}
 	});
 	$('#sales-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec2 -= 1;
+		clearInterval(interval2);
+		interval2 = setInterval(function() {
+			sec2 --;
 			updateSecond(sec2);
+			$('#timer-2').text(sec2);
 		}, 1000);
 
 		function updateSecond(second) {
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval2);
 				$('#review-btn-2').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-2').hasClass('bottom')) {
 					$('#review-btn-2').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-2').text(second);
 		}
 	});
 	$('#policy-signature-modal').on('shown.bs.modal', function () {
-		var interval = setInterval(function() {
-			sec3 -= 1;
+		clearInterval(interval3);
+		interval3 = setInterval(function() {
+			sec3 --;
 			updateSecond(sec3);
+			$('#timer-3').text(sec3);
 		}, 1000);
 
 		function updateSecond(second) {
 			if(second == 0) {
-				clearInterval(interval);
+				clearInterval(interval3);
 				$('#review-btn-3').text('<fmt:message key="button.review.and.agreed" bundle="${msg}" />').addClass('timeout');
 				if ($('#review-btn-3').hasClass('bottom')) {
 					$('#review-btn-3').removeClass('disabled-gray-btn');
 				}
 			}
-			$('#timer-3').text(second);
 		}
 	});
 	 
@@ -904,7 +929,7 @@ var languageP = "${language}";
 			var perferredTime = $("#preferred-time").val();
 			var planCode = "SAVIE-SP";
 			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-				$('#fullyBooked').modal('show');
+				//$('#fullyBooked').modal('show');
 			}else if(perferredTime == null || perferredTime.trim() == ""){
 				$('#perferredTimeIsNull').modal('show');
 			}else{

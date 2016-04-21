@@ -184,7 +184,7 @@ var language = "${language}";
 		</div><!-- /.modal -->
 		
 		<!--Modal in Customer Service Centre-->
-		<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked">
+		<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="fullyBooked" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog teaserSurvey" role="document">
 				<div class="modal-content teaserSurvey">
 					<div class="modal-header teaserSurvey">
@@ -391,6 +391,7 @@ var language = "${language}";
 	});
 	$('#fullyBooked-button').click(function(){
 		$('#fullyBooked').modal('hide');
+		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 	});
 	$('#perferredTimeIsNull-btn').click(function(){
 		$('#perferredTimeIsNull').modal('hide');

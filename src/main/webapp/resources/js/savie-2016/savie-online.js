@@ -93,6 +93,7 @@ $(document).ready(function() {
 		if ($self.is(':checked')) {
 			$('#upload-later-section').removeClass('hidden');
 			$('#upload-now-section').addClass('hidden');
+			$('#updoc-complete-btn').removeAttr('disabled');
 		}
 	});
 	
@@ -153,6 +154,9 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'callback');
 		$('#add-btn-img').attr('src', contextPath + '/resources/images/savie-2016/gray-plus.png');
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
+		
+		//trigger('change') to force calculate again
+		$('#beneficiaryEntitlement\\[0\\]' ).trigger('change');
 	});
 	$('#remove-beneficiary\\[2\\]').click(function () {
 		$('#beneficiaryFirstName\\[2\\]').val("");
@@ -163,6 +167,9 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficaryWeight2', 'INVALID', 'callback');
 		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficaryWeight1', 'INVALID', 'callback');
+
+		//trigger('change') to force calculate again
+		$('#beneficiaryEntitlement\\[0\\]' ).trigger('change');
 	});
 
    var open = false;
@@ -671,7 +678,8 @@ function isBeneficiary3Hidden() {
 }
 
 function duplicateBeneficiary() {
-	var dupStr = duplicateBeneficiaries(); 
+	var dupStr = duplicateBeneficiaries();
+	/*
 	if(dupStr!= '') {
 		var result = /\d+(?:\.\d+)?/.exec(dupStr);
 		switch(result.toString()) {
@@ -705,6 +713,7 @@ function duplicateBeneficiary() {
 		$('#beneficiaryDupHkidErMsg\\[1\\]').addClass('hidden');
 		$('#beneficiaryDupHkidErMsg\\[2\\]').addClass('hidden');
 	}
+	*/
 }
 
 //Checking for Duplicate Beneficiaries
@@ -749,6 +758,7 @@ function duplicateBeneficiaries(){
 
 function duplicateBeneficiaryPassport() {
 	var dupStr = duplicateBeneficiariesPassport();
+	/*
 	if(dupStr!= '') {
 		var result = /\d+(?:\.\d+)?/.exec(dupStr);
 		switch(result.toString()) {
@@ -782,6 +792,7 @@ function duplicateBeneficiaryPassport() {
 		$('#beneficiaryDupPassportErMsg\\[1\\]').addClass('hidden');
 		$('#beneficiaryDupPassportErMsg\\[2\\]').addClass('hidden');
 	}
+	*/
 }
 
 //Checking for Duplicate Beneficiaries

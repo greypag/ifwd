@@ -10,33 +10,72 @@
 
 <%
 	int hotelVoucherCampaignId = Integer.parseInt(session.getAttribute("hotelVoucherCampaignId").toString());
-    java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    //hotelVoucherCampaignId = 17;
-    long cCurrent = System.currentTimeMillis();
-    //cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
-    //cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
+	java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long cCurrent = System.currentTimeMillis();
+	
+	if (request.getParameter("hid")!=null && ((String)request.getParameter("hid")).length() > 0) {
+		hotelVoucherCampaignId = Integer.parseInt((String)request.getParameter("hid"));
+		cCurrent = cformat.parse("2016-04-21 00:00:00").getTime();
+	}
+
     //hotel monthly campiagn display end time
-    long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();    
+    long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();
     //hotel monthly campiagn display end time
-    long hotelcStart = cformat.parse("2016-04-17 23:59:59").getTime();
+    long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
     long cStart = cformat.parse("2016-04-14 23:59:59").getTime();
+    
+    /* For Debug and test the campaign switching logic
+    set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
+    set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
+    */
+    //hotelVoucherCampaignId = 14;
+    //cCurrent = cformat.parse("2016-04-30 15:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
     boolean isRegPromo = true;
-    if( cCurrent <= hotelcEnd /* && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1) */){
+    if( cCurrent <= hotelcEnd && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1)){
     	isRegPromo = false;
-        countDownDate = "2016-04-22 23:59:59";
-        countDownDD = "23";
-        countDownMM = "Apr";        
+    	switch(hotelVoucherCampaignId){
+    		case 14:
+    	        countDownDate = "2016-04-21 14:59:59";
+            	countDownDD = "21";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 15:
+    	        countDownDate = "2016-04-22 14:59:59";
+            	countDownDD = "22";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 16:
+    	        countDownDate = "2016-04-23 14:59:59";
+            	countDownDD = "23";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 17:
+    	        countDownDate = "2016-04-24 14:59:59";
+            	countDownDD = "24";
+            	countDownMM = "Apr"; 
+            	break;
+    		case 18:
+    	        countDownDate = "2016-04-30 14:59:59";
+            	countDownDD = "30";
+            	countDownMM = "Apr"; 
+            	break;
+    		case -1:
+    	        countDownDate = "2016-04-30 14:59:59";
+            	countDownDD = "30";
+            	countDownMM = "Apr"; 
+            	break;             	
+    	}       
     } else {
-        countDownDate = "2016-04-14 23:59:59";
-        countDownDD = "15";
+        countDownDate = "2016-04-20 14:59:59";
+        countDownDD = "20";
         countDownMM = "Apr";    	
-    	if(cCurrent >= cStart && cCurrent <= hotelcStart){
-    		disableOfferClass = "paused-plan";
+    	if(cCurrent > cStart && cCurrent < hotelcStart){
+    		disableOfferClass = "paused-plan";    		
     	}
     }
 
@@ -185,7 +224,7 @@
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-lanson.jpg" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
+		                                  <div class="hotel-name long-hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
 			                        </div>
 		                        </div>    
 		                  </div>
@@ -1501,7 +1540,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1529,7 +1568,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1557,7 +1596,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                            			                                    
 				                          </div>
@@ -1586,7 +1625,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>	                                             			                                    
 				                          </div>
@@ -1614,7 +1653,7 @@
                                                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
                                                         </a>
 	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
 	                                                <div class="clearfix"></div>
 	                                            </div>  	                                             			                                    
 				                          </div>			                          
@@ -1685,6 +1724,7 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
+        	//$('#offer-details-hotel-voucher').modal('show');
         	if(isMobile){
 	            $(window).on("load resize",function(){     
 	                if(window.innerHeight > window.innerWidth) // Portrait
@@ -2101,7 +2141,7 @@
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
-                        if(false && <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                        if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                             $('#offer-details-hotel-voucher').modal('show');
                             $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        	
                         }else{
@@ -2113,7 +2153,7 @@
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
-                        if(true || <%=hotelVoucherCampaignId<13%>){
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<13%>){
 	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 	                        setPlanLink(campaignId, data["promoCode"]);
                         }
@@ -2121,7 +2161,7 @@
                         loginpopup(campaignId);
                     }else{
                         $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(true || <%=hotelVoucherCampaignId<=13%>){
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<=13%>){
                             $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
                         }
                     }
@@ -2217,7 +2257,7 @@
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
                     $('#offer-details-promotion-code-error-once').modal('show');
                 }else{
-                    if(false && <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                    if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
                         $('#offer-details-hotel-voucher').modal('show');
                         $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel${hotelVoucherCampaignId}" bundle="${msg}" />');                 	
                     }else{
