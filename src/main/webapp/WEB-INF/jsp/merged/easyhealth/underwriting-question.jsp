@@ -10,7 +10,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
-<h1 style="color: black;">easy health landing page</h1>
+<h1 style="color: black;">easy health underwriting-question page</h1>
 <a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
 </div>
 <script type="text/javascript">

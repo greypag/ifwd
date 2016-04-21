@@ -10,11 +10,23 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
-<h1 style="color: black;">easy health landing page</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
+<h1 style="color: black;">easy health plan-option page</h1>
+<a id="online" class="buy-now et-quote btn-color-ylw" href="#" >online</a>
+<a id="offline" class="buy-now et-quote btn-color-ylw" href="#" >offline</a>
 </div>
 <script type="text/javascript">
-$("#nextPage").click(function(){
-	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+$("#online").click(function(){
+	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
+		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    }else{
+        $('#loginpopup').modal('show');         
+    }
+});
+$("#offline").click(function(){
+	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
+		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
+    }else{
+        $('#loginpopup').modal('show');         
+    }
 });
 </script>
