@@ -287,8 +287,8 @@ var fnaq4e = '${savieFna.q4_e }';
 						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="***">i</span>
 					</div>
 					<div class="fna-product-cfa hidden-print">
-						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product KSTS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
-						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" class="fna-btn-sel-product KSTR"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.makeappointment" bundle="${msg}" /></a>
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/single-premium?utm_source=productrecommendation&utm_media=fna&utm_channel=ifwd" class="fna-btn-sel-product KSTS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/regular-premium?utm_source=productrecommendation&utm_media=fna&utm_channel=ifwd" class="fna-btn-sel-product KSTR"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.makeappointment" bundle="${msg}" /></a>
 						<a href="<%=request.getContextPath()%>/${language}/term-life-insurance" class="fna-btn-sel-product UTLS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
 						<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png"><fmt:message key="fna.button.callfordetails" bundle="${msg}" /></a>
 					</div>
@@ -340,8 +340,8 @@ var fnaq4e = '${savieFna.q4_e }';
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-print">
 								<div class="fna-product-cfa-mobile">
-									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product KSTS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
-									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" class="fna-btn-sel-product KSTR"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.makeappointment" bundle="${msg}" /></a>
+									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/single-premium?utm_source=productrecommendation&utm_media=fna&utm_channel=ifwd" class="fna-btn-sel-product KSTS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
+									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/regular-premium?utm_source=productrecommendation&utm_media=fna&utm_channel=ifwd" class="fna-btn-sel-product KSTR"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.makeappointment" bundle="${msg}" /></a>
 									<a href="<%=request.getContextPath()%>/${language}/term-life-insurance" class="fna-btn-sel-product UTLS"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png"><fmt:message key="fna.button.applynow" bundle="${msg}" /></a>
 									<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png"><fmt:message key="fna.button.callfordetails" bundle="${msg}" /></a>
 								</div>
