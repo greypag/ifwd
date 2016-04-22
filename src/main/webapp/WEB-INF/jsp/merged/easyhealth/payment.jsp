@@ -531,6 +531,7 @@ var UILANGUAGE = 'en';
                 <div class="col-xs-12">
                 	<div class="text-center btn-row">
                         <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-confirm-1">Proceed to Upload Document</a><br>
+                        <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Proceed to Upload Document</a>
                         <a href="javascript:void(0);" class="link-text">Save and continue later</a>
                     </div>
                 </div>

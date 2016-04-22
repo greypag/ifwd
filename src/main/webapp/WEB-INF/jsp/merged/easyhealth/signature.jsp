@@ -396,6 +396,7 @@ var UILANGUAGE = 'en';
                                 <span>Correct</span>
                             </div>
                             <a class="text-bold btn btn-confirm btn-app" id="btn-confirm-1">Proceed to Payment</a>
+                            <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Proceed to Payment</a>
                         </div>
                      </form>
                 </div>

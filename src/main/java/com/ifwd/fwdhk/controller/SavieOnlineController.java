@@ -709,8 +709,8 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
-	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
+	@RequestMapping(value = {"/{lang}/{plan}/document-upload"})
+	public ModelAndView getSavieOnlineLifeDocumentUpload(@PathVariable("plan") String plan,Model model, HttpServletRequest request,HttpSession session) {
 		
 		String policyNumber = (String) request.getParameter("policyNumber");
 		String userName = (String)request.getSession().getAttribute("username");
@@ -732,23 +732,25 @@ public class SavieOnlineController extends BaseController{
 			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 		}else{
 			if(userName == null){
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			} else if ("*DIRECTGI".equalsIgnoreCase(userName)) {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
 			if(userDetails == null){
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}else{
-				JSONObject jsonObject = new JSONObject();
-				try {
-					savieOnlineService.uploadSavieOnlineDocument(request);
-					savieOnlineService.finalizeLifePolicy(request, session);
-				}
-				catch (ECOMMAPIException e) {
-					jsonObject.put("errorMsg", e.getMessage());
-				}
-				catch (Exception e) {
-					jsonObject.put("errorMsg", e.getMessage());
+				if("savings-insurance".equals(plan)){
+					JSONObject jsonObject = new JSONObject();
+					try {
+						savieOnlineService.uploadSavieOnlineDocument(request);
+						savieOnlineService.finalizeLifePolicy(request, session);
+					}
+					catch (ECOMMAPIException e) {
+						jsonObject.put("errorMsg", e.getMessage());
+					}
+					catch (Exception e) {
+						jsonObject.put("errorMsg", e.getMessage());
+					}
 				}
 				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 			}

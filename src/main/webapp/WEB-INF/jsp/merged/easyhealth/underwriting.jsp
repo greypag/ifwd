@@ -465,6 +465,7 @@ var UILANGUAGE = 'en';
 							</div>
 							<div class="btn-row text-center">
 								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out">Next</a>
+								<a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Next</a>
 							</div>
 					</div>
 				</div>

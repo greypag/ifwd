@@ -554,6 +554,7 @@
                         <div class="col-sm12">
                             <div class="text-center">
                                 <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn">Plan overview</a>
+                                <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" id="plan-option-next" class="savie-common-btn">Plan overview</a>
                             </div>
                         </div>
                     </div>
@@ -2840,5 +2841,14 @@
         }
         </style>
 </body>
-
+<script>
+        $("#plan-option-next").click(function(){
+        	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
+        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            }else{
+                $('#loginpopup').modal('show');         
+            }
+        });
+</script>
 </html>
+
