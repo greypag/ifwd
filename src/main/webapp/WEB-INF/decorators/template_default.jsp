@@ -10,7 +10,7 @@
 <html>
 <head>
 <%
-if(request.getRequestURI().indexOf("/offer")>0) {
+if(request.getRequestURI().indexOf("/become-partner")>0) {
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <% } %>

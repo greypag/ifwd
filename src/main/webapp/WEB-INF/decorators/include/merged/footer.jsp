@@ -181,7 +181,7 @@ if(request.getRequestURI().indexOf("/savings-insurance")>0) {
 }
 %> 
 <%
-if(request.getRequestURI().indexOf("/offer")>0) {
+if(request.getRequestURI().indexOf("/become-partner")>0) {
 %>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 <%
