@@ -17686,6 +17686,30 @@ button#thank-you-continue {
 	width: 100%;
 }
 
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing {
+	max-width: 414px;
+	margin: 230px auto;
+}
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing {
+		max-width: 665px;
+		margin: 230px auto;
+	}
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing .modal-content.teaserSurvey .modal-body.teaserSurvey.forbid-landing{
+	position: relative;
+}
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing .modal-content.teaserSurvey .modal-body.teaserSurvey.forbid-landing #forbid-landing-button {
+	position: absolute;
+	top: 60%;
+	left: 7%;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 1.5;
+	border-radius: 3px;
+}
+
 @media ( min-width : 992px) {
 	/* line 130, ../sass/partials/_teaser.scss */
 	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey {
@@ -21625,6 +21649,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 /* line 5, ../sass/partials/_elite-terms-widget.scss */
 #flux.et-page {
 	background: #fff;
+	overflow: visible;
 }
 
 /* line 10, ../sass/partials/_elite-terms-widget.scss */

@@ -192,7 +192,7 @@ var language = "${language}";
 						<h2><fmt:message key="savie.customerServiceCentre.fullyBookmodalheader" bundle="${msg}" /></h2>
 					</div>
 					<div class="modal-body teaserSurvey">
-						<p class="registered"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbody" bundle="${msg}" /></p>
+						<p class="registered"><!--fmt:message key="savie.customerServiceCentre.fullyBookmodalbody" bundle="${msg}" /--></p>
 						
 						<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
 						<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbtnTxt" bundle="${msg}" /></button>
@@ -391,7 +391,8 @@ var language = "${language}";
 	});
 	$('#fullyBooked-button').click(function(){
 		$('#fullyBooked').modal('hide');
-		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+		//window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=3';
 	});
 	$('#perferredTimeIsNull-btn').click(function(){
 		$('#perferredTimeIsNull').modal('hide');

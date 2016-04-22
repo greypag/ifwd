@@ -686,7 +686,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
+		<!--script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script-->
 		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
@@ -696,7 +696,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script type="text/javascript">
 			var language = "en";
 			$(document).ready(function (){
-				$(".fna-carousel .carousel-inner").swipe("disable");
+				//$(".fna-carousel .carousel-inner").swipe("disable");
 			});
 			$("#one-off-button").click(function(){
 				$("#one-off-button").addClass('clicked-button');
@@ -821,6 +821,13 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 
 			$(document).ready(function() {
+				$('#forbid-landing').modal('show');
+				
+				$('#forbid-landing-button').click(function(){
+					//$('#forbid-landing').modal('hide');
+					//URL for SP:
+					window.location = '<%=request.getContextPath()%>/${language}?utm_campaign=savie_soldout&utm_source=savie_sp&utm_medium=ifwd';
+				});
 				if(isMobile) {
 					$(".annualTravel_policy_item").click(function(){
 						itemTop = $(this).offset();
@@ -873,3 +880,18 @@ var home_url = "<%=request.getContextPath()%>";
     </div>
   </div>
 </div>
+
+
+<!--Modal in Forbid Landing of SP-->
+<div class="modal fade" role="dialog" aria-labelledby="forbid-landing" id="forbid-landing" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog teaserSurvey forbid-landing" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey"></div>
+			<div class="modal-body teaserSurvey forbid-landing">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
+				<button type="button" class="btn btn-orange" id="forbid-landing-button"><fmt:message key="forbid.landing.modal.button" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
