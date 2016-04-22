@@ -343,15 +343,15 @@ var UILANGUAGE = 'en';
               <div class="row reset-margin hidden-xs hidden-sm">
                  <ul class="common-steps-list six-steps nav nav-pills">
                     <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select Plan</button></li>
-                    <li class="arrow-next-step"> <img src="./asset/header-browse-arrow.png" class="browse-arrow"></li>
+                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
                     <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application, Summary &amp; Declaration</button></li>
-                    <li class="arrow-next-step"> <img src="./asset/header-browse-arrow.png" class="browse-arrow"></li>
+                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
                     <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
-                    <li class="arrow-next-step"> <img src="./asset/header-browse-arrow.png" class="browse-arrow"></li>
+                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
                     <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">4</span>Payment</button></li>
-                    <li class="arrow-next-step"> <img src="./asset/header-browse-arrow.png" class="browse-arrow"></li>
+                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
                     <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document Upload</button></li>
-                    <li class="arrow-next-step"> <img src="./asset/header-browse-arrow.png" class="browse-arrow"></li>
+                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
                     <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
                  </ul>
              </div>
@@ -484,7 +484,7 @@ var UILANGUAGE = 'en';
 									</div>
 								</div>
 								<div class="col-xs-3 col-md-3">
-									<img src="./asset/cvv-logo.png" alt="" class="img-responsive">
+									<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" alt="" class="img-responsive">
 								</div>
 							</div>
                          </div>
@@ -503,7 +503,7 @@ var UILANGUAGE = 'en';
 		                <div class="col-xs-12 col-md-4">
 		                	<div class="text-center">
 		                		<div class="ico-wrapper">
-		                			<img src="./asset/paydollar-icon.png" alt="">
+		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/paydollar-icon.png" alt="">
 		                		</div>
 		                		<p>We adopt PayDollar Payment Gateway, a leading, secure, reliable international payment service provider to banks and online merchants.</p>
 		                	</div>
@@ -511,7 +511,7 @@ var UILANGUAGE = 'en';
 		                <div class="col-xs-12 col-md-4">
 		                	<div class="text-center">
 		                		<div class="ico-wrapper">
-			                		<img src="./asset/verifiedbyvisa-icon.png" alt="">
+			                		<img src="<%=request.getContextPath()%>/resources/images/elite-terms/verifiedbyvisa-icon.png" alt="">
 			                	</div>
 		                		<p>Verified by Visa (VbV) is a program designed to help make shopping online more secure.</p>
 		                	</div>
@@ -519,7 +519,7 @@ var UILANGUAGE = 'en';
 		                <div class="col-xs-12 col-md-4">
 		                	<div class="text-center">
 		                		<div class="ico-wrapper">
-		                			<img src="./asset/mastercard-icon.png" alt="">
+		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-icon.png" alt="">
 		                		</div>
 		                		<p>Get an extra layer of online shopping security with MasterCard SecureCode - a private, secure code that protects your purchases.</p>
 		                	</div>
@@ -626,7 +626,7 @@ var UILANGUAGE = 'en';
     <!-- -->
     <div id="myModal" class="mob-login-form-wrapper modal fade" role="dialog">
         <div style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 2001" class="login-ajax-loading">
-            <img style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;" src="./asset/ajax-loader.gif">
+            <img style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
         </div>
         <div id="myDropdownMob" class="modal-dialog">
             <form name="loginform" id="loginform2">
@@ -789,7 +789,7 @@ var UILANGUAGE = 'en';
                     <p class="alert_header">Opps...Your browser is currently not supported.</p>
                     <p class="alert_suggest">Please switch to suggested
                         <br>browsers below:</p>
-                    <img src="./asset/safari_background.png">
+                    <img src="<%=request.getContextPath()%>/resources/images/safari_background.png">
                 </div>
                 <div class="modal-footer">
                     <button id="closemodal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -811,15 +811,15 @@ var UILANGUAGE = 'en';
 	                        Let’s complete a quick Financial Needs Analysis (FNA) to assess your suitability for your interested products! You can log in to your existing FWD account or create one to proceed.
 	                    </h5>
                     </div>
-                    <img src="./asset/savie-bg-overlay.png" alt="Saive" class="hidden-xs hidden-sm img-responsive">
-                    <img src="./asset/savie-bg-mobile-overlay.png" alt="Saive" class="hidden-lg hidden-md img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/login/savie-bg-overlay.png" alt="Saive" class="hidden-xs hidden-sm img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/login/savie-bg-mobile-overlay.png" alt="Saive" class="hidden-lg hidden-md img-responsive">
                 </div>
                 <div class="login-title-wrapper">
                     <h4 class="color-darkgray heading-h4">Log In</h4></div>
                 <form name="loginform" id="loginform-pop">
                     <div class="login-form">
                         <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="./asset/ajax-loader.gif">
+                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
                         </div>
                         <div class="form-container">
                             <h4 class="heading-h4 color-orange">
@@ -855,7 +855,7 @@ var UILANGUAGE = 'en';
                 <form name="forgotUserNameForm" id="forgotUserNameForm" action="http://localhost:8080/fwdhk/en/savings-insurance/forgotUserNameFields" method="post" commandname="forgotUserName" style="display: none">
                     <div class="login-form">
                         <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="./asset/ajax-loader.gif">
+                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
                         </div>
                         <div id="success-message" class="alert alert-success empHide" role="alert" style="display: none;">
                             <p id="error1"></p>
@@ -953,7 +953,7 @@ var UILANGUAGE = 'en';
                 <form name="forgotPasswordForm" id="forgotPasswordForm" action="http://localhost:8080/fwdhk/en/savings-insurance/forgotPassword" method="post" commandname="forgotUserPassword" style="display: none">
                     <div class="login-form">
                         <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="./asset/ajax-loader.gif">
+                            <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
                         </div>
                         <div class="form-container">
                             <h4 class="heading-h4 color-orange">
@@ -1138,7 +1138,7 @@ var UILANGUAGE = 'en';
     <div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg loading-dialog">
             <div class="modal-content plan-modal loading-modal">
-                <img src="./asset/loading.gif" width="300">
+                <img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="300">
             </div>
         </div>
     </div>

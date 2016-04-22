@@ -346,7 +346,6 @@ public class UserRestURIConstants {
 	public static final String URL_EASYHEALTH_UNDERWRITING = "underwriting";
 	public static final String URL_EASYHEALTH_SIGNATURE = "signature";
 	public static final String URL_EASYHEALTH_PAYMENT = "payment";
-	public static final String URL_EASYHEALTH_DOCUMENT_UPLOAD = "document-upload";
 	public static final String URL_EASYHEALTH_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_PROPERTIES_EASYHEALTH = "landing";
@@ -354,7 +353,6 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING = "underwriting";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "signature";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "payment";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD = "document.upload";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "confirmation";
 
 	/* for image configuration */

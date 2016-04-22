@@ -90,11 +90,11 @@ public class EasyHealthPageFlowControl {
 			break;
 			
 		case UserRestURIConstants.URL_EASYHEALTH_PAYMENT: 
-			to = UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
-			to2 = UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
 			break;
 			
-		case UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD: 
+		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
 			to = UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
 			to2 = UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
 			break;
@@ -133,9 +133,6 @@ public class EasyHealthPageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_PAYMENT)) {
 			return UserRestURIConstants.URL_EASYHEALTH_PAYMENT;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD)) {
-			return UserRestURIConstants.URL_EASYHEALTH_DOCUMENT_UPLOAD;
 		}
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION)) {
 			return UserRestURIConstants.URL_EASYHEALTH_CONFIRMATION;
