@@ -827,6 +827,18 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(request)+ "partner";
 	}
 	
+	@RequestMapping(value = {"/{lang}/become-partner"}, method = RequestMethod.GET)
+	public String partner(Model model, HttpServletRequest request) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		
+		String pageTitle = WebServiceUtils.getPageTitle("page.become.partner", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.become.partner", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		return UserRestURIConstants.getSitePath(request)+ "become-partner";
+	}
 
 	@RequestMapping(value = {"/{lang}/faq"}, method = RequestMethod.GET)
 	public String faq(Model model, HttpServletRequest req) {	
