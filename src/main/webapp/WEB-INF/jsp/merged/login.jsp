@@ -437,9 +437,9 @@
 	        $('#errorEmptyUName').hide();
 	        $('#errorInvalidUName').hide();
 	        
-	        $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
+	        /* $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
 	        $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
-	        $("#userName").removeClass("invalid-field");
+	        $("#userName").removeClass("invalid-field"); */
 	        
 	        var valid = true;
 	         
@@ -450,13 +450,13 @@
 	          // Mobile Number Validation
 	        if (mobileNo.trim() == "") {
 	             $('#errorEmptyMob-forgotPassword').show();
-	             $("#mobileNo-forgotpassowrd").addClass("invalid-field");
+	             /* $("#mobileNo-forgotpassowrd").addClass("invalid-field"); */
 	             valid = false;
 	        }   else{
 	            
 	            if (mobile_pattern.test(mobileNo) == false) {
 	                $("#errorInvalidMob-forgotPassword").show();         
-	                $("#mobileNo-forgotpassowrd").addClass("invalid-field");
+	                /* $("#mobileNo-forgotpassowrd").addClass("invalid-field"); */
 	                valid = false;
 	            }               
 	        }             
@@ -464,13 +464,13 @@
 	        // Email Address Validation
 	        if (emailId.trim() == "") {
 	           $('#errorEmptyEmailId-forgotpassword').show();
-	           $("#emailAddress-forgotpassowrd").addClass("invalid-field");
+	           /* $("#emailAddress-forgotpassowrd").addClass("invalid-field"); */
 	            valid = false;
 	            
 	        } else {
 	            if (emailreg.test(emailId) == false) {
 	                  $('#errorInvalidEmailId-forgotpassword').show();
-	                  $("#emailAddress-forgotpassowrd").addClass("invalid-field");
+	                  /* $("#emailAddress-forgotpassowrd").addClass("invalid-field"); */
 	                  valid = false;
 	                //document.getElementById("errorInvalidEmailId").style.display = "block";
 	                //valid = false;
@@ -480,21 +480,21 @@
 	        // UserName Validation
 	        if (userName.trim() == "") {
 	            $("#errorEmptyUName").show();
-	            $("#userName").addClass("invalid-field");
+	            /* $("#userName").addClass("invalid-field"); */
 	            valid = false;
 	
 	        } else {                
 	            if (isAccountNumeric(userName)) {
 	            	$("#errorInvalidUName").show();
-	            	$("#userName").addClass("invalid-field");
+	            	/* $("#userName").addClass("invalid-field"); */
 	                valid = false;
 	            } else if (!plan_user.test(userName)) {
 	            	$("#errorInvalidUName").show();
-	            	$("#userName").addClass("invalid-field");
+	            	/* $("#userName").addClass("invalid-field"); */
 	                valid = false;
 	            } else if(userName.length < 6 || userName.length > 50) {
 	            	$("#errorInvalidUName").show();
-	            	$("#userName").addClass("invalid-field");
+	            	/* $("#userName").addClass("invalid-field"); */
 	                valid = false;
 	            }
 	        }

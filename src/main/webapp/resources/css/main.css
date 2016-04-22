@@ -8482,7 +8482,7 @@ tr.product-landing-error-wrap {
 }
 
 .invalid-field {
-	border: 2px solid red;
+	border: 2px solid red !important;
 }
 
 /* override bootstrap 3 class to remove scrollbar from modal backdrop
