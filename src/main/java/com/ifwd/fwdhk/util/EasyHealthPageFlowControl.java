@@ -75,11 +75,11 @@ public class EasyHealthPageFlowControl {
 			break;
 			
 		case UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION: 
-			to = UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION;
+			to = UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			break;
 			
-		case UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION: 
+		case UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			break;
@@ -125,8 +125,8 @@ public class EasyHealthPageFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION)) {
 			return UserRestURIConstants.URL_EASYHEALTH_PLAN_OPTION;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION)) {
-			return UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING_QUESTION;
+		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING)) {
+			return UserRestURIConstants.URL_EASYHEALTH_UNDERWRITING;
 		}
 		if(url.endsWith(UserRestURIConstants.URL_EASYHEALTH_SIGNATURE)) {
 			return UserRestURIConstants.URL_EASYHEALTH_SIGNATURE;
