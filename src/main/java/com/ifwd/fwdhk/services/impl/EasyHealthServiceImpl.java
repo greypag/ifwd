@@ -1571,7 +1571,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "SAVIE-SP");
+		parameters.put("planCode", "ROPHI");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
@@ -1624,8 +1624,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
-			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
-			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
+			applicant.put("optOut1", "true");
+			applicant.put("optOut2", "true");
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("lastName")+" "+applicant.get("firstName"));
@@ -1658,7 +1658,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							}
 							else{
 								beneficiarie1.put("hkId", "");
-								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1());
+								beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport1().toUpperCase());
 							}
 							beneficiarie1.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender1())?"M":"F");
 							beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
@@ -1675,7 +1675,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							}
 							else{
 								beneficiarie2.put("hkId", "");
-								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2());
+								beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport2().toUpperCase());
 							}
 							beneficiarie2.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender2())?"M":"F");
 							beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
@@ -1692,7 +1692,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							}
 							else{
 								beneficiarie3.put("hkId", "");
-								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3());
+								beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficiaryPassport3().toUpperCase());
 							}
 							beneficiarie3.put("gender", "male".equals(lifeBeneficaryInfo.getBeneficaryGender3())?"M":"F");
 							beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
@@ -1703,15 +1703,15 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			insured.put("beneficiaries", beneficiaries);
 		parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
-			payment.put("amount", saviePlanDetails.getInsuredAmount());
-			payment.put("paymentMethod", lifePayment.getPaymentMethod());
-			payment.put("bankCode", lifePayment.getBankCode()!=null?lifePayment.getBankCode().split("-")[0]:"");
-			payment.put("branchCode", lifePayment.getBranchCode());
-			payment.put("accountNo", lifePayment.getAccountNumber());
+			payment.put("amount", "");
+			payment.put("paymentMethod", "CC");
+			payment.put("bankCode", "");
+			payment.put("branchCode", "");
+			payment.put("accountNo", "");
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
-		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
-		parameters.put("referralCode", saviePlanDetails.getPromoCode());
+		parameters.put("insuredAmount", "100000");
+		parameters.put("referralCode", "");
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);

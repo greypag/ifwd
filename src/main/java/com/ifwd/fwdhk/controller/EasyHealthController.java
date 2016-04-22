@@ -74,18 +74,20 @@ public class EasyHealthController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance/signature"})
 	public ModelAndView getEasyHealthSignature(Model model, HttpServletRequest request,HttpSession session) {
-		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
-		lifePolicy.setPolicyNo("13108629");
-		lifePolicy.setTransactionNumber("UM3RQSV002547");
-		lifePolicy.setTransactionDate("2016-04-22");
-		lifePolicy.setPaymentGateway("https://test.paydollar.com/b2cDemo/eng/dPayment/payComp.jsp");
-		lifePolicy.setMerchantId("88116468");
-		request.getSession().setAttribute("lifePolicy", lifePolicy);
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 	}
 	
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance/payment"})
 	public ModelAndView getEasyHealthPayment(Model model, HttpServletRequest request) {
+		try {
+			String path = request.getRequestURL().toString();
+			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
+			model.addAttribute("failurePath", path);
+			easyHealthService.createLifePolicy(request, request.getSession());
+		} catch (ECOMMAPIException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
 	}
 	

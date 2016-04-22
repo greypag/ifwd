@@ -375,8 +375,25 @@ var UILANGUAGE = 'en';
 	<!-- Application Content Start -->
 	<div class="app-pg-cont">
 		<form id="ef-form-payment">
-		<input type="hidden" id="appFirstName" value="Kin"> 
-		<input type="hidden" id="appLastName" value="Fok">
+		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
+        <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
+        <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
+        <input type="hidden" name="amount" value="68000' pattern="#.00"/>">
+        <input type="hidden" name="orderRef" value="${lifePolicy.transactionNumber }">
+        <input type="hidden" name="currCode" value="344">
+        <input type="hidden" name="successUrl" value="${successUrl}">
+        <input type="hidden" name="failUrl" value="${failurePath }">
+        <input type="hidden" name="cancelUrl" value="${failurePath }">
+        <input type="hidden" name="payType" value="N">
+        <input type="hidden" name="lang" value="C">
+        <input type="hidden" name="remark" value="">
+        <input type="hidden" name="pMethod" id="pMethod" value="Master">
+        <input type="hidden" id="emailAddress" name="emailAddress" value="273128396@qq.com"> 
+        <input type="hidden" id="appFirstName" value="Kris"> 
+        <input type="hidden" id="appLastName" value="Xia"> 
+		<input type="hidden" name="referenceNo" value="${lifePolicy.policyNo}">
+		<input type="hidden" id="gateway" name="gateway" value="${lifePolicy.paymentGateway}"/>
+		
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
@@ -531,7 +548,7 @@ var UILANGUAGE = 'en';
                 <div class="col-xs-12">
                 	<div class="text-center btn-row">
                         <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-confirm-1">Proceed to Upload Document</a><br>
-                        <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Proceed to Upload Document</a>
+                        <a href="javascript:void(0);" onclick="confirmTermPayment();" class="savie-common-btn">Proceed to Upload Document</a>
                         <a href="javascript:void(0);" class="link-text">Save and continue later</a>
                     </div>
                 </div>
@@ -1339,6 +1356,32 @@ var UILANGUAGE = 'en';
     //		return "???index.leavePage.desc???";
     //	}
     //}
+    
+    function confirmTermPayment() {
+              $("#PaymentingDiv").show();
+	 			 var creditCaredNo = $('#ccNumber').val();
+	 	 		 var expiryDate = $('#expMonth').val()+$('#expYear').val().substr(2, 2);
+	 	 		 var cardHolderName = $('#ccName').val();
+		 		  $.ajax({
+		 			  type : "POST",
+		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPaymentSession",
+		 			  data : {creditCaredNo : creditCaredNo,
+		 					  expiryDate: expiryDate,
+		 					  cardHolderName: cardHolderName},
+		 			  success : function(data) {
+			 			  clicked = false;
+			 			  setTimeout(function(){
+					   		  console.log($("#gateway").val());
+		                      $("#ef-form-payment").attr('action', $("#gateway").val());
+		                      $("#ef-form-payment").submit();
+	                      }, 3000);
+		 			  },
+		 			  error:function(){
+		 			      console.log('error');   
+		 		      }
+	 		      });
+ 		  }
+    
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
