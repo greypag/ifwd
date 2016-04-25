@@ -354,31 +354,6 @@ public class SavieOnlineController extends BaseController{
 				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender("0");
 				savieFna.setDob("31-01-1990");
-				savieFna.setMarital_status("0");
-				savieFna.setDependents("0");
-				savieFna.setEducation("0");
-				savieFna.setEmployment_status("ES1");
-				savieFna.setNature_of_business("NoB1");
-				savieFna.setOccupation("NoBD3");
-				savieFna.setOccupation_others("");
-				savieFna.setQ1("0,1,2,3,4");
-				savieFna.setQ1_others("");
-				savieFna.setQ2("0,1,2,3");
-				savieFna.setQ2_others("");
-				savieFna.setQ3("5");
-				savieFna.setQ4("0");
-				savieFna.setQ4_a("2");
-				savieFna.setQ4_a_others("");
-				savieFna.setQ4_b("0");
-				savieFna.setQ4_b_amount("5000000");
-				savieFna.setQ4_b_others("");
-				savieFna.setQ4_c("2000");
-				savieFna.setQ4_d_1("3000");
-				savieFna.setQ4_d_2("20000");
-				savieFna.setQ4_e("5");
-				savieFna.setQ4_f("1");
-				savieFna.setQ4_g("0");
-				savieFna.setQ4_g_others("");
 				request.getSession().setAttribute("savieFna", savieFna);
 			}
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
@@ -426,7 +401,7 @@ public class SavieOnlineController extends BaseController{
 			String code = null;
 			String codeO = null;
 			String liquidAssets = null;
-			if(savieFna!=null){
+			if(savieFna!=null && savieFna.getQ4_b_amount() != null && !savieFna.getQ4_b_amount().equals("")){
 				int liquidAssetsAmt = Integer.valueOf(savieFna.getQ4_b_amount().replace(",", ""));
 				if(liquidAssetsAmt<=10000){
 					liquidAssets = "LA1";
@@ -563,6 +538,8 @@ public class SavieOnlineController extends BaseController{
 			}
 			model.addAttribute("etLiquidAssetEN", liquidAssetsEN);
 			model.addAttribute("etLiquidAssetCN", liquidAssetsCN);
+			
+			model.addAttribute("plan", plan);
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 		}
 	}

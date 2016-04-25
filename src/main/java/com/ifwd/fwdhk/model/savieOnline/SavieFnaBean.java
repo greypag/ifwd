@@ -271,7 +271,12 @@ public class SavieFnaBean implements Serializable {
 	}
 
 	public String getQ4_b_amount() {
-		return q4_b_amount.replace(",", "");
+		if(this.q4_b_amount ==null){
+			return "";
+		}
+		else{
+			return q4_b_amount.replace(",", "");
+		}
 	}
 
 	public void setQ4_b_amount(String q4_b_amount) {

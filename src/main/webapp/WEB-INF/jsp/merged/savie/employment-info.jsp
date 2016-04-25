@@ -136,7 +136,7 @@ var languageP = "${language}";
 									<div id="natureOfBusinessDiv" class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
-											<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
+											<select onchange="getOccupation(this.value,'${language }');" name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
@@ -500,17 +500,19 @@ var languageP = "${language}";
 			var getpath =  "<%=request.getContextPath()%>";
 		
 			$(document).ready(function () {
-				setSelectReadonly('tmpEmploymentStatus', true);
-				setSelectReadonly('tmpBusinessNature', true);
-				setSelectReadonly('tmpOccupation', true);
-				setSelectReadonly('tmpEducationLevel', true);
-				setSelectReadonly('tmpLiquidAssetsAmount', true);
-				setInputReadonly('other-occupation', true);
-				if('${fn:length(monthlyPersonalIncomeCN)}' == '1'){
-					setSelectReadonly('tmpMonthlyPersonalIncome', true);
-				}
-				if('${fn:length(etAmountOtherSourceEN)}' == '1'){
-					setSelectReadonly('tmpOtherIncomeAmount', true);
+				if('${plan }' == 'savings-insurance'){
+					setSelectReadonly('tmpEmploymentStatus', true);
+					setSelectReadonly('tmpBusinessNature', true);
+					setSelectReadonly('tmpOccupation', true);
+					setSelectReadonly('tmpEducationLevel', true);
+					setSelectReadonly('tmpLiquidAssetsAmount', true);
+					setInputReadonly('other-occupation', true);
+					if('${fn:length(monthlyPersonalIncomeCN)}' == '1'){
+						setSelectReadonly('tmpMonthlyPersonalIncome', true);
+					}
+					if('${fn:length(etAmountOtherSourceEN)}' == '1'){
+						setSelectReadonly('tmpOtherIncomeAmount', true);
+					}
 				}
 				
 				var employmentS = '${savieFna.employment_status }';
@@ -782,6 +784,26 @@ var languageP = "${language}";
 				     });
 				}
 			});
+			
+			function getOccupation(value, language) {
+				var code = value.replace(/[^0-9]/ig, "");
+				$.get(contextPath+'/ajax/savie/application/getOccupation',
+				{ 
+					value : value,
+					language : language
+				},
+				function(data) {
+					$("#tmpOccupation").empty();
+					if(data != null){
+						for(var i = 0; i < data.length; i++) {
+							$("#tmpOccupation").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");
+						}
+					}
+				})
+				.fail(function(data) {
+					console.log("data error:"+data.length);
+				});
+			}
 		</script>
 	</body>
 </html>	
