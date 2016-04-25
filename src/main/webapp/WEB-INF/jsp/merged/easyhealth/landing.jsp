@@ -85,6 +85,9 @@ if (typeof console == "undefined") {
 // global variables
 var UILANGUAGE = 'en';
 </script>
+<script type="text/javascript">
+    var context = "${pageContext.request.contextPath}";
+    </script>
 <div class="fwd-savie-wrapper">
     <link rel="icon" type="image/x-icon" href="http://localhost:8080/fwdhk/resources/images/favicon.ico">
     </head>
