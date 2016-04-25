@@ -11438,6 +11438,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     font-size: 24px;
     margin-left: -52px;	
 }
+#becomePartnerForm .has-error .help-block{
+	color: #e4002b;
+}
 @media (max-width: 991px){
 	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
 		text-align: center;
