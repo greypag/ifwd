@@ -1,7 +1,13 @@
 var contextPath = context;
 
 // Savie Online
-$(document).ready(function() {	
+$(document).ready(function() {
+	$('.modal').on('shown.bs.modal', function(){
+		document.ontouchmove = function(e){ e.preventDefault(); }
+	});
+	$('.modal').on('hidden.bs.modal', function(){
+		document.ontouchmove = function(e){ return true; }
+	});
 	
 	// PDF lightbox resizing
 	var browWidth = $(window).width();
