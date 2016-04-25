@@ -3,11 +3,11 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
 <!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/prettyPhoto.css" /> -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>

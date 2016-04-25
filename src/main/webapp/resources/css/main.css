@@ -11035,6 +11035,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 .contact-label .fa{
 	padding-left: 5px;
 }
+.bottom-footer-link{
+	color: #ffffff;
+}
 @media all and (max-width: 991px){	
     .bottom-link{
         width: 50%;
@@ -11054,7 +11057,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
         padding: 30px 15px;
     }
     .bottom-footer-link{
-        max-width: 1070px;
+        /*max-width: 1070px;*/
         margin: 0 auto;
     }	
 	.bottom-contact-wrapper{

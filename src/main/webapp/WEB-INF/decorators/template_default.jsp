@@ -9,11 +9,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<%
+<%-- <%
 if(request.getRequestURI().indexOf("/become-partner")>0) {
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
-<% } %>
+<% } %> --%>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
 </script>
