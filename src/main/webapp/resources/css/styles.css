@@ -17757,11 +17757,14 @@ button#thank-you-continue {
 	}
 }
 /* line 157, ../sass/partials/_teaser.scss */
-.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-header.teaserSurvey
-	{
+#forbid-landing .modal-header.teaserSurvey{
 	display: none;
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-header.teaserSurvey{
 	margin-bottom: 10px;
 }
+
 /* line 161, ../sass/partials/_teaser.scss */
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey
 	{
