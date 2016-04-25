@@ -186,7 +186,7 @@ $(document).ready(function(){
 						notEmpty:{
 							message:'Please enter name printed on credit card.'
 							//message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
-						},
+						}/*,
 						callback:{
 							message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer service at 3123 3123 for more details.",
 							//message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
@@ -201,7 +201,7 @@ $(document).ready(function(){
 									return false;
 								}
 							}
-						}
+						}*/
 					}
 				},
 				cvvNumber: {
@@ -247,10 +247,31 @@ $(document).ready(function(){
 			}
 		})
 
-		$(".btn-confirm").on("click",function(){
+		$("#btn-payment").on("click",function(){
 			$('#ef-form-payment').bootstrapValidator('validate');
 			if($('#ef-form-payment').data('bootstrapValidator').isValid()){
 				//do something
+				var creditCaredNo = $('#ccNumber').val();
+	 	 		 var expiryDate = $('#expMonth').val()+$('#expYear').val().substr(2, 2);
+	 	 		 var cardHolderName = $('#ccName').val();
+		 		  $.ajax({
+		 			  type : "POST",
+		 			  cache:false, 
+					  async:false, 
+		 			  url : context+"/ajax/eliteTerm/putEtPaymentSession",
+		 			  data : {creditCaredNo : creditCaredNo,
+		 					  expiryDate: expiryDate,
+		 					  cardHolderName: cardHolderName},
+		 			  success : function(data) {
+		 				 console.log($("#gateway").val());
+	                     /*$("#ef-form-payment").attr('action', $("#gateway").val());
+	                     document.getElementById('ef-form-payment').submit();*/
+		 				window.location.href= contextPath+'/en/easyhealth-insurance/document-upload';
+		 			  },
+		 			  error:function(){
+		 			      console.log('error');   
+		 		      }
+	 		      });
 			}
 		});
 	}

@@ -1571,7 +1571,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "ROPHI");
+		parameters.put("planCode", "ROPHI1");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());

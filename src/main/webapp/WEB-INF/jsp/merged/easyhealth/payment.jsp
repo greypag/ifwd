@@ -374,11 +374,11 @@ var UILANGUAGE = 'en';
 	
 	<!-- Application Content Start -->
 	<div class="app-pg-cont">
-		<form id="ef-form-payment">
+		<form name="paymentForm" id="ef-form-payment" method="post">
 		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
         <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
         <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
-        <input type="hidden" name="amount" value="68000' pattern="#.00"/>">
+        <input type="hidden" name="amount" value="345.00" pattern="#.00"/>
         <input type="hidden" name="orderRef" value="${lifePolicy.transactionNumber }">
         <input type="hidden" name="currCode" value="344">
         <input type="hidden" name="successUrl" value="${successUrl}">
@@ -389,8 +389,8 @@ var UILANGUAGE = 'en';
         <input type="hidden" name="remark" value="">
         <input type="hidden" name="pMethod" id="pMethod" value="Master">
         <input type="hidden" id="emailAddress" name="emailAddress" value="273128396@qq.com"> 
-        <input type="hidden" id="appFirstName" value="Kris"> 
-        <input type="hidden" id="appLastName" value="Xia"> 
+        <input type="hidden" id="appFirstName" value="testing"> 
+        <input type="hidden" id="appLastName" value="card"> 
 		<input type="hidden" name="referenceNo" value="${lifePolicy.policyNo}">
 		<input type="hidden" id="gateway" name="gateway" value="${lifePolicy.paymentGateway}"/>
 		
@@ -405,8 +405,7 @@ var UILANGUAGE = 'en';
                          	<div class="form-group">
 	                         	<div class="fld-wrapper">
 									<p class="fld-label">Amount</p>
-									<p class="fld-val">HK$ 30,000</p>
-									<input type="hidden" name="paymentAmount" value="30000">
+									<p class="fld-val">HK$ 345</p>
 								</div>
 							</div>
 							<div class="form-group">
@@ -418,7 +417,7 @@ var UILANGUAGE = 'en';
 							<div class="form-group">
 								<div class="fld-wrapper">
 		                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" id="ccNumber" name="ccNumber" data-keycheck-numOnly="true" maxlength="19">
+										<input class="mdl-textfield__input" type="tel" id="ccNumber" data-keycheck-numOnly="true" maxlength="19">
 										<label class="mdl-textfield__label" for="ccNumber">Credit card Number</label>
 									</div>
 									
@@ -430,7 +429,7 @@ var UILANGUAGE = 'en';
 							<div class="form-group">
 								<div class="fld-wrapper">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" id="ccName" name="ccName">
+										<input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder">
 										<label class="mdl-textfield__label" for="ccName">Name on credit card</label>
 									</div>
 								</div>
@@ -441,7 +440,7 @@ var UILANGUAGE = 'en';
 									<div class="form-group">
 										<div class="fld-wrapper">
 											<div class="mdl-select">
-												<select id="expMonth" name="expMonth">
+												<select id="expMonth" name="epMonth">
 													<option value="" disabled selected></option>
 													<option value="01">01</option>
 													<option value="02">02</option>
@@ -467,7 +466,7 @@ var UILANGUAGE = 'en';
 									<div class="form-group">
 										<div class="fld-wrapper">
 											<div class="mdl-select">
-												<select id="expYear" name="expYear">
+												<select id="expYear" name="epYear">
 													<option value="" disabled selected></option>
 													<option value="2016">2016</option>
 													<option value="2017">2017</option>
@@ -493,7 +492,7 @@ var UILANGUAGE = 'en';
 									<div class="form-group">
 										<div class="fld-wrapper">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" id="cvvNumber" name="cvvNumber" data-keycheck-numOnly="true" maxlength="3">
+												<input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keycheck-numOnly="true" maxlength="3">
 												<label class="mdl-textfield__label" for="cvvNumber">Security Code</label>
 											</div>
 										</div>
@@ -510,7 +509,7 @@ var UILANGUAGE = 'en';
                 <div class="col-xs-12">
                 	<div class="form-group cbTNC-wrapper">
 	    				<div class="checkbox">
-							<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
+							<input type="checkbox" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
 						</div>
 						<span class="error-msg" id="cbTNCErrMsg"></span>
 					</div>
@@ -547,8 +546,7 @@ var UILANGUAGE = 'en';
                 
                 <div class="col-xs-12">
                 	<div class="text-center btn-row">
-                        <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-confirm-1">Proceed to Upload Document</a><br>
-                        <a href="javascript:void(0);" onclick="confirmTermPayment();" class="savie-common-btn">Proceed to Upload Document</a>
+                        <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-payment">Proceed to Upload Document</a><br>
                         <a href="javascript:void(0);" class="link-text">Save and continue later</a>
                     </div>
                 </div>
@@ -1180,6 +1178,11 @@ var UILANGUAGE = 'en';
 
 
     $(document).ready(function() {
+        $('#ccNumber').keyup(function() {
+            var replaceSpace = $(this).val(); 
+            var result = replaceSpace.replace(/\s/g,'');
+            $("#cardNo").val(result);
+        }); 
 
 
 
@@ -1357,30 +1360,6 @@ var UILANGUAGE = 'en';
     //	}
     //}
     
-    function confirmTermPayment() {
-              $("#PaymentingDiv").show();
-	 			 var creditCaredNo = $('#ccNumber').val();
-	 	 		 var expiryDate = $('#expMonth').val()+$('#expYear').val().substr(2, 2);
-	 	 		 var cardHolderName = $('#ccName').val();
-		 		  $.ajax({
-		 			  type : "POST",
-		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPaymentSession",
-		 			  data : {creditCaredNo : creditCaredNo,
-		 					  expiryDate: expiryDate,
-		 					  cardHolderName: cardHolderName},
-		 			  success : function(data) {
-			 			  clicked = false;
-			 			  setTimeout(function(){
-					   		  console.log($("#gateway").val());
-		                      $("#ef-form-payment").attr('action', $("#gateway").val());
-		                      $("#ef-form-payment").submit();
-	                      }, 3000);
-		 			  },
-		 			  error:function(){
-		 			      console.log('error');   
-		 		      }
-	 		      });
- 		  }
     
     </script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>

@@ -68,7 +68,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		}		
 		CreateEliteTermPolicyResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			
 			logger.debug(request.getParameterMap().toString());
 			JSONObject parameters = new JSONObject();
@@ -246,7 +246,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			File file = new File(uploadDir);
 			byte data[];
 			int i;
-			final Map<String, String> header = headerUtil.getHeader(request);
+			final Map<String, String> header = headerUtil.getHeader1(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
@@ -333,7 +333,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			apiReturn = connector.getEliteTermPremium(request, header);
 			request.getSession().setAttribute("eliteTermPremium", apiReturn);
 			request.getSession().removeAttribute("sendEmailOrNot");
@@ -350,7 +350,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse finalizeEliteTermPolicy(HttpServletRequest request,String policyNo)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			
 			JSONObject parameters = new JSONObject();
 			parameters.put("planCode", "ET");
@@ -371,7 +371,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse getUploadedDocument(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			apiReturn = connector.getUploadedDocument(header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl getUploadedDocument occurs an exception!");
@@ -385,7 +385,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			
 			JSONObject parameters = new JSONObject();
 			parameters.put("name", request.getParameter("name"));
@@ -409,7 +409,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse setEliteTermPolicyAgentEmail(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			
 			JSONObject parameters = new JSONObject();
 			parameters.put("policyNo", request.getParameter("policyNo"));
@@ -448,7 +448,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 
 	        FileUtil.deletFile(uploadDir);
 	        
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
@@ -488,7 +488,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			if(StringUtils.isEmpty(customerName)){
 				customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
 			}
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			header.put("language", "ZH");
 			String to = (String) request.getSession().getAttribute("eliteTermEmail");
 			logger.info("To Email:"+to);
@@ -629,7 +629,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		try {
 			String promoteCode = "ELTERM";
 			
-			final Map<String,String> header = headerUtil.getHeader(request);
+			final Map<String,String> header = headerUtil.getHeader1(request);
 			header.put("language", "ZH");
 			String to = request.getParameter("email");
 			logger.info("To Email:"+to);
@@ -687,7 +687,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				String policyNo = eliteTermPolicy.getPolicyNo();	
-				final Map<String,String> headerEmail = headerUtil.getHeader(request);
+				final Map<String,String> headerEmail = headerUtil.getHeader1(request);
 				headerEmail.put("language", "ZH");
 				String subject = "FWD Elite Term – Complete["+policyNo+"]";
 				String policyUserName = (String) request.getSession().getAttribute("policyUserName");
