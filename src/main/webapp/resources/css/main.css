@@ -11524,3 +11524,333 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	}	
 }
 /*----- Travel Alert Modal End -----*/
+
+/* login page || login.jsp */
+#loginform-pop .col-sm-12.col-md-6.left, #loginform-pop .col-sm-12.col-md-12.left {
+	padding-right: 100px;
+}
+#loginform-pop a#forgotUserName, #loginform-pop a#link-forgotPassword {
+	text-decoration: none;
+	font-style: normal;
+}
+#loginform-pop .mdl-textfield{
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;	
+}
+#loginform-pop .form-control.gray-textbox{
+    font-size: 18px;
+    font-family: 'Calibri';
+    color: #000;
+    margin-top: 6px;
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    padding: 12px 15px 0 15px;
+    border-radius: 0;
+    border: 0 transparent;
+}
+#loginform-pop .mdl-textfield__label{
+    padding-top: 5px;
+    font-size: 14px;
+    left: 0;
+    top: 10px;
+    padding-left: 15px;
+    font-family: 'Calibri-Bold';    	
+}
+#loginform-pop .mdl-textfield.is-focused label,#loginform-pop .mdl-textfield.is-dirty label{
+	color: #ff8200;
+	font-size: 12px;
+    top: 1px;
+}
+#loginform-pop .mdl-textfield.is-not-active label {
+    color: #ff8200;
+}
+#loginform-pop .mdl-textfield input:hover,#loginform-pop .mdl-textfield input:focus,
+#loginform-pop .mdl-textfield textarea:hover,#loginform-pop .mdl-textfield textarea:focus{
+	border-bottom: 2px solid #Ff8200;
+}
+#loginform-pop .mdl-textfield__input:focus{
+    transition: all 0.1s;
+    background-color: #ffffff;  	
+}
+#loginform-pop .mdl-textfield__input:focus,#loginform-pop .mdl-textfield__input:hover{
+    outline: none;
+    outline-offset: 0;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);  	
+}
+#loginform-pop .mdl-textfield label:after {
+  background-color: transparent;
+}
+#loginform-pop textarea.form-control.gray-textbox{
+	height: 135px;
+}
+.partnership.container{
+	margin:0 auto;
+}
+.partner-headline-wrapper{
+	margin-bottom: 30px;
+}
+.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+    font-size: 24px;
+    text-align: left;
+    color: #ff8200;
+    font-family: 'Calibri-Bold', Arial;		
+}
+.partner-headline-wrapper .form-title{
+	margin-top: 20px;
+}
+#loginform-pop .next-btn{
+	padding: 20px 0 40px 0;
+	text-align: center;
+}
+#loginform-pop .apply-btn{
+	background: #ffa500;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 37px;
+    border-radius: 4px !important;
+    border-bottom: 3px solid #c56501;	
+}
+#loginform-pop #applyPartner{
+    padding: 5px 90px;
+    font-size: 24px;
+    margin-left: -52px;	
+}
+@media (max-width: 991px){
+	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+		text-align: center;
+	}
+	#loginform-pop .col-sm-12.col-md-6.left{
+		padding-right: 0;
+	}
+	#loginform-pop #applyPartner{
+		margin-left: 0;
+	}
+}
+@media (max-width: 767px){
+	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
+		height: auto;
+	}	
+}
+
+/* forgotPasswordForm || login.jsp */
+#forgotPasswordForm .col-sm-12.col-md-6.left, #forgotPasswordForm .col-sm-12.col-md-12.left {
+	padding-right: 100px;
+}
+#forgotPasswordForm .col-sm-12.col-md-6.left #forgotUserName, #forgotPasswordForm .col-sm-12.col-md-6.left #link-forgotPassword {
+	text-decoration: none;
+	font-style: normal;
+}
+#forgotPasswordForm .mdl-textfield{
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;	
+}
+#forgotPasswordForm .form-control.gray-textbox{
+    font-size: 18px;
+    font-family: 'Calibri';
+    color: #000;
+    margin-top: 6px;
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    padding: 12px 15px 0 15px;
+    border-radius: 0;
+    border: 0 transparent;
+}
+#forgotPasswordForm .mdl-textfield__label{
+    padding-top: 5px;
+    font-size: 14px;
+    left: 0;
+    top: 10px;
+    padding-left: 15px;
+    font-family: 'Calibri-Bold';    	
+}
+#forgotPasswordForm .mdl-textfield.is-focused label,#forgotPasswordForm .mdl-textfield.is-dirty label{
+	color: #ff8200;
+	font-size: 12px;
+    top: 1px;
+}
+#forgotPasswordForm .mdl-textfield.is-not-active label {
+    color: #ff8200;
+}
+#forgotPasswordForm .mdl-textfield input:hover,#forgotPasswordForm .mdl-textfield input:focus,
+#forgotPasswordForm .mdl-textfield textarea:hover,#forgotPasswordForm .mdl-textfield textarea:focus{
+	border-bottom: 2px solid #Ff8200;
+}
+#forgotPasswordForm .mdl-textfield__input:focus{
+    transition: all 0.1s;
+    background-color: #ffffff;  	
+}
+#forgotPasswordForm .mdl-textfield__input:focus,#forgotPasswordForm .mdl-textfield__input:hover{
+    outline: none;
+    outline-offset: 0;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);  	
+}
+#forgotPasswordForm .mdl-textfield label:after {
+  background-color: transparent;
+}
+#forgotPasswordForm textarea.form-control.gray-textbox{
+	height: 135px;
+}
+.partnership.container{
+	margin:0 auto;
+}
+.partner-headline-wrapper{
+	margin-bottom: 30px;
+}
+.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+    font-size: 24px;
+    text-align: left;
+    color: #ff8200;
+    font-family: 'Calibri-Bold', Arial;		
+}
+.partner-headline-wrapper .form-title{
+	margin-top: 20px;
+}
+#forgotPasswordForm .next-btn{
+	padding: 20px 0 40px 0;
+	text-align: center;
+}
+#forgotPasswordForm .apply-btn{
+	background: #ffa500;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 37px;
+    border-radius: 4px !important;
+    border-bottom: 3px solid #c56501;	
+}
+#forgotPasswordForm #applyPartner{
+    padding: 5px 90px;
+    font-size: 24px;
+    margin-left: -52px;	
+}
+@media (max-width: 991px){
+	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+		text-align: center;
+	}
+	#forgotPasswordForm .col-sm-12.col-md-6.left{
+		padding-right: 0;
+	}
+	#forgotPasswordForm #applyPartner{
+		margin-left: 0;
+	}
+}
+@media (max-width: 767px){
+	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
+		height: auto;
+	}	
+}
+
+/* forgotUserNameForm || login.jsp */
+#forgotUserNameForm .col-sm-12.col-md-6.left, #forgotUserNameForm .col-sm-12.col-md-12.left {
+	padding-right: 100px;
+}
+#forgotUserNameForm .col-sm-12.col-md-6.left #forgotUserName, #forgotUserNameForm .col-sm-12.col-md-6.left #link-forgotPassword {
+	text-decoration: none;
+	font-style: normal;
+}
+#forgotUserNameForm .mdl-textfield{
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;	
+}
+#forgotUserNameForm .form-control.gray-textbox{
+    font-size: 18px;
+    font-family: 'Calibri';
+    color: #000;
+    margin-top: 6px;
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    padding: 12px 15px 0 15px;
+    border-radius: 0;
+    border: 0 transparent;
+}
+#forgotUserNameForm .mdl-textfield__label{
+    padding-top: 5px;
+    font-size: 14px;
+    left: 0;
+    top: 10px;
+    padding-left: 15px;
+    font-family: 'Calibri-Bold';    	
+}
+#forgotUserNameForm .mdl-textfield.is-focused label,#forgotUserNameForm .mdl-textfield.is-dirty label{
+	color: #ff8200;
+	font-size: 12px;
+    top: 1px;
+}
+#forgotUserNameForm .mdl-textfield.is-not-active label {
+    color: #ff8200;
+}
+#forgotUserNameForm .mdl-textfield input:hover,#forgotUserNameForm .mdl-textfield input:focus,
+#forgotUserNameForm .mdl-textfield textarea:hover,#forgotUserNameForm .mdl-textfield textarea:focus{
+	border-bottom: 2px solid #Ff8200;
+}
+#forgotUserNameForm .mdl-textfield__input:focus{
+    transition: all 0.1s;
+    background-color: #ffffff;  	
+}
+#forgotUserNameForm .mdl-textfield__input:focus,#forgotUserNameForm .mdl-textfield__input:hover{
+    outline: none;
+    outline-offset: 0;
+    -webkit-appearance: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);  	
+}
+#forgotUserNameForm .mdl-textfield label:after {
+  background-color: transparent;
+}
+#forgotUserNameForm textarea.form-control.gray-textbox{
+	height: 135px;
+}
+.partnership.container{
+	margin:0 auto;
+}
+.partner-headline-wrapper{
+	margin-bottom: 30px;
+}
+.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+    font-size: 24px;
+    text-align: left;
+    color: #ff8200;
+    font-family: 'Calibri-Bold', Arial;		
+}
+.partner-headline-wrapper .form-title{
+	margin-top: 20px;
+}
+#forgotUserNameForm .next-btn{
+	padding: 20px 0 40px 0;
+	text-align: center;
+}
+#forgotUserNameForm .apply-btn{
+	background: #ffa500;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 37px;
+    border-radius: 4px !important;
+    border-bottom: 3px solid #c56501;	
+}
+#forgotUserNameForm #applyPartner{
+    padding: 5px 90px;
+    font-size: 24px;
+    margin-left: -52px;	
+}
+@media (max-width: 991px){
+	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
+		text-align: center;
+	}
+	#forgotUserNameForm .col-sm-12.col-md-6.left{
+		padding-right: 0;
+	}
+	#forgotUserNameForm #applyPartner{
+		margin-left: 0;
+	}
+}
+@media (max-width: 767px){
+	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
+		height: auto;
+	}	
+}
