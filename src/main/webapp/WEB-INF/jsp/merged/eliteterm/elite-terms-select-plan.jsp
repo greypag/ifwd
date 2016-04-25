@@ -2883,8 +2883,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<h3 class="beneficiary">
 										<fmt:message key="eliteTerms.selectPlan.Beneficiary"
 											bundle="${msg}" />
-										<span><fmt:message key="eliteTerms.selectPlan.Person1"
-												bundle="${msg}" /></span> <a href="#" title="Edit"
+										<a href="#" title="Edit"
 											class="et-app-sum-edit"
 											data-target="#et-beneficiary-info-section"><fmt:message
 												key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a>
