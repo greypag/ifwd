@@ -264,9 +264,9 @@ $(document).ready(function(){
 		 					  cardHolderName: cardHolderName},
 		 			  success : function(data) {
 		 				 console.log($("#gateway").val());
-	                     /*$("#ef-form-payment").attr('action', $("#gateway").val());
-	                     document.getElementById('ef-form-payment').submit();*/
-		 				window.location.href= contextPath+'/en/easyhealth-insurance/document-upload';
+	                     $("#ef-form-payment").attr('action', $("#gateway").val());
+	                     document.getElementById('ef-form-payment').submit();
+		 				//window.location.href= contextPath+'/en/easyhealth-insurance/document-upload';
 		 			  },
 		 			  error:function(){
 		 			      console.log('error');   
