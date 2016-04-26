@@ -589,7 +589,10 @@ var languageP = "${language}";
 				setInputReadonly('so-calendar-dob', true);
 				//setInputReadonly('residentialNo', true);
 				setInputReadonly('mobileNo', true);
-				setSelectReadonly('tmpMaritalStatus', true);
+				
+				if('${plan }' == 'savings-insurance'){
+					setSelectReadonly('tmpMaritalStatus', true);
+				}
 				
 				if('${lifePersonalDetails.permanetAddress1}' != ''){
 					if ($('.res-additional').hasClass('hidden')) {
