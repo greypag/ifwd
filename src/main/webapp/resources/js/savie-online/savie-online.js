@@ -143,7 +143,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		    	type:'post',    
 		    	cache:false, 
 			    async:false, 
-		    	data:{ "image" : datapair[1] },     
+		    	data:{ "image" : datapair[1],"planCode" : "SAVIE-SP" },
 		    	success:function(data){
 		    	    if(data==null || data == ''){
 		    	    	//Unknown errors

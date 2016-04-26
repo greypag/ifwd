@@ -547,7 +547,7 @@ var UILANGUAGE = 'en';
                 <div class="col-xs-12">
                 	<div class="text-center btn-row">
                         <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-payment">Proceed to Upload Document</a><br>
-                        <a href="javascript:void(0);" class="link-text">Save and continue later</a>
+                        <!-- <a href="javascript:void(0);" class="link-text">Save and continue later</a> -->
                     </div>
                 </div>
 			</div>

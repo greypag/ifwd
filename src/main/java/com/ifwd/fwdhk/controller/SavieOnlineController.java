@@ -720,7 +720,7 @@ public class SavieOnlineController extends BaseController{
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}else{
 				try {
-					savieOnlineService.finalizeLifePolicy(request, session);
+					savieOnlineService.finalizeLifePolicy(plan, request, session);
 				}
 				catch (ECOMMAPIException e) {
 				}

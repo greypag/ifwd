@@ -1749,7 +1749,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return lifePolicy;
 	}
 	
-	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+	public BaseResponse finalizeLifePolicy(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		if(lifePayment==null){
@@ -1760,7 +1760,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
-		parameters.put("planCode", "SAVIE-SP");
+		if("savings-insurance".equals(plan)){
+			parameters.put("planCode", "SAVIE-SP");
+		}
+		else{
+			parameters.put("planCode", "ROPHI1");
+		}
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
@@ -2674,7 +2679,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", "SAVIE-SP");
+			parameters.put("planCode", request.getParameter("planCode"));
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");

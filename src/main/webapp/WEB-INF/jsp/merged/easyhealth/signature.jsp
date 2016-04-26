@@ -571,7 +571,7 @@ var UILANGUAGE = 'en';
     						$.ajax({
     					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
     					    	type:'post',     
-    					    	data:{ "image" : datapair[1] },     
+    					    	data:{ "image" : datapair[1],"planCode" : "ROPHI1" },     
     					    	success:function(data){
     					    		//loading mask 
     					    		$('#loadingDiv').toggle();
