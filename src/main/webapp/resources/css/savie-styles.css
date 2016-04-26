@@ -9705,6 +9705,7 @@ h3 .heading-title{
 .member-account-details-footer {
     line-height: 22px;
     font-size: 14px;
+    padding-bottom: 30px;
 }
 .member-account-details-footer a:hover{
 	text-decoration: underline;
