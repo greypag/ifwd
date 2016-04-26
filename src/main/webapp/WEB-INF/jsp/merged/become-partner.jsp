@@ -22,6 +22,7 @@
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
             <h4 class="form-title">A<fmt:message key="partner.form.title" bundle="${msg}" /></h4>       
         </div>
+        <div id="success-msg" class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
         <form id="becomePartnerForm" class="form-horizontal form-uppercase" onsubmit="return false;">
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
@@ -80,7 +81,8 @@
             <div class="next-btn">
                 <button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>
                 <!--<button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>-->
-            </div>          
+            </div>
+            <div id="failure-msg" class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>          
         </form>                             
     </div>
     <!-- Become partner form end -->
@@ -89,6 +91,8 @@ function resetForm(fvForm){
     $(fvForm).bootstrapValidator('resetForm', true);
 }
 $(document).ready(function() {
+	$('#failure-msg').hide();
+	$('#success-msg').hide();
     $('#becomePartnerForm').bootstrapValidator({
         row: {
             valid: 'has-success',
@@ -198,28 +202,32 @@ $(document).ready(function() {
     	});  */    
         //Prevent form submission
         //console.log("hehe");
-        //e.preventDefault();
+        e.preventDefault();
         //resetForm($('#becomePartnerForm'));
         //function to submit form here
+   		console.log('test');
+   		  $.ajax({
+   			  type : 'POST',
+   			  url : '<%=request.getContextPath()%>/ajax/leads/partnership/register',
+   			  data : {
+   				  	  contactName : $('input[name="contactName"]').val(),
+   				      contactEmail : $('#contactEmail').val(),
+   				      industryName : $('#industryName').val(),
+   				      companyLocation : $('#companyLocation').val(),
+   				      companyName : $('#companyName').val(),
+   				      contactNum : $('#contactNum').val(),
+   				      descriptionMsg : $('#descriptionMsg').val()
+   			  },
+   			  success : function(data) {
+   				$('#success-msg').show();
+   				  resetForm('#becomePartnerForm');
+   			  },
+   			  error : function(xhr) {
+   				$('#failure-msg').show();
+   				  console.error(xhr.status);
+   			  }
+   	     });
     });    
 });
 
-$('#applyPartner').on('click', function(e) {
-	  $.ajax({
-		  type : 'POST',
-		  url : '<%=request.getContextPath()%>/ajax/leads/partnership/register',
-		  data : {
-			  	  contactName : $('input[name="contactName"]').val(),
-			      contactEmail : $('#contactEmail').val(),
-			      industryName : $('#industryName').val(),
-			      companyLocation : $('#companyLocation').val(),
-			      companyName : $('#companyName').val(),
-			      contactNum : $('#contactNum').val(),
-			      descriptionMsg : $('#descriptionMsg').val()
-		  },
-		  success : function(data) {
-			  //resetFrom($('#becomePartnerForm'));
-		  }
-     });
-});
 </script>
