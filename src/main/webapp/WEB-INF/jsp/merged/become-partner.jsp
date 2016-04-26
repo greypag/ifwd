@@ -102,7 +102,7 @@ $(document).ready(function() {
                            message: getBundle(getBundleLanguage, "error.contact.person.name.empty")
                        },
                        regexp: {
-                          regexp: /^[-'a-z\u4e00-\u9eff]+$/i ,
+                          regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.contact.person.name.invalid")
                        }
                 }
@@ -126,7 +126,7 @@ $(document).ready(function() {
                             message: getBundle(getBundleLanguage, "error.company.industry.empty")
                         },
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9eff]+$/i ,
+                           regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.industry.invalid")
                         }
                  }
@@ -138,7 +138,7 @@ $(document).ready(function() {
                             message: getBundle(getBundleLanguage, "error.company.location.empty")
                         },
                         regexp: {
-                           regexp: /^[-'a-z,-\s\u4e00-\u9eff]+$/i ,
+                           regexp: /^[-'a-z,-\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.location.invalid")
                         }
                  }
@@ -167,7 +167,7 @@ $(document).ready(function() {
                             message: getBundle(getBundleLanguage, "error.company.name.empty")
                         },
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9eff]+$/i ,
+                           regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.name.invalid")
                         }
                  }
@@ -183,7 +183,7 @@ $(document).ready(function() {
                            message: "Please enter no more than 255 word."
                        },                      
                        regexp: {
-                          regexp: /^[-'a-z\u4e00-\u9eff]+$/i ,
+                          regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.message.invalid")
                        }
                 }

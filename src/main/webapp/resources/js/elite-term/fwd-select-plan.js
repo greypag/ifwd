@@ -896,7 +896,7 @@
                      message: getBundle(getBundleLanguage, "et.selectPlan.Chinese.Name.must.be.no.more.than.6.characters")
                   },
                   regexp: {
-                     regexp: /^[\s\u4e00-\u9eff]*$/,
+                     regexp: /^[\s\u4e00-\u9fa5]*$/,
                      message: getBundle(getBundleLanguage, "error.chinese.name.invalid")
                   }
                }

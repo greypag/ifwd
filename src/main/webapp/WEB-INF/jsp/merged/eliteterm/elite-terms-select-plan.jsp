@@ -4360,7 +4360,7 @@ var home_url = "<%=request.getContextPath()%>";
                            message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
                         },
                         regexp: {
-                           regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/, /*chinese and english chars only*/
+                           regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/, /*chinese and english chars only*/
                            message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
                         },
                         callback: {

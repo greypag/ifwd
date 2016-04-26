@@ -393,7 +393,7 @@ $(function() {
                         message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                     },
 					regexp: {
-						regexp: /^[\s\u4e00-\u9eff]*$/,
+						regexp: /^[\s\u4e00-\u9fa5]*$/,
 						message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 					},
 					callback: {
@@ -581,7 +581,7 @@ $(function() {
 	                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 	                       },
 	                  regexp: {
-	                     regexp: /^[\s\u4e00-\u9eff]*$/,
+	                     regexp: /^[\s\u4e00-\u9fa5]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 	                  }/*,
 	                  callback: {
@@ -781,7 +781,7 @@ $(function() {
                            message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                        },
                   regexp: {
-                     regexp: /^[\s\u4e00-\u9eff]*$/,
+                     regexp: /^[\s\u4e00-\u9fa5]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
                   }/*,
                   callback: {
