@@ -109,6 +109,10 @@ function submitLoginForm(formID) {
 							$("#fullName1").html(data.fullName);
 							saviePlanDetailsGoNext();
 						}
+						else if(window.location.href.indexOf("easyhealth-insurance/plan-option")>0){
+							$('#loginpopup').modal('hide');       
+							$("#offline-online-modal").modal('show');       
+						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;
 							ga('send', 'event', 'Login', 'Click', 'Login success');

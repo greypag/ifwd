@@ -448,7 +448,7 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/style.css">
         <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
         <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/uifn.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/uifn.js"></script>
         <div class="easy-health">
             <div id="bought-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog modal-sm" role="document">
@@ -554,7 +554,6 @@
                         <div class="col-sm12">
                             <div class="text-center">
                                 <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn">Plan overview</a>
-                                <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" id="plan-option-next" class="savie-common-btn">Plan overview</a>
                             </div>
                         </div>
                     </div>
@@ -2586,6 +2585,32 @@
             </div>
         </div>
         <script>
+        $("#plan-option-next").click(function(){
+        	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
+        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            }else{
+                $('#loginpopup').modal('show');         
+            }
+        });
+        
+        $(document).ready(function() {
+        	$("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
+    			if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+    				$("#offline-online-modal").modal();
+    	        }else{
+    	            $('#offline-online-modal').modal('hide');
+    	            $('.login-info').addClass('hidden');
+    	            $('#loginpopup .modal-dialog').removeClass('loginpopupext');
+    	            $('#loginpopup #fna-check').val("false");
+    	            $('#loginpopup #nav-bar-check').val("false");
+    	            $('#loginpopup').modal('show');         
+    	        }
+            });
+        })
+</script>
+        
+        
+        <script>
         function backToLogin() {
             $('#loginform-pop').fadeIn();
             $('#forgotUserNameForm').hide();
@@ -2841,14 +2866,5 @@
         }
         </style>
 </body>
-<script>
-        $("#plan-option-next").click(function(){
-        	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
-        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-            }else{
-                $('#loginpopup').modal('show');         
-            }
-        });
-</script>
 </html>
 

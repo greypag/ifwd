@@ -1,4 +1,5 @@
-var getPremiumApiLink = "api/easy_health/get_premium";
+var contextPath = context;
+var getPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/getPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -56,7 +57,7 @@ $(document).ready(function() {
         var selectDobAry = $('#dob').mobiscroll('getArrayVal');
         var dobStr = selectDobAry[2]+"-"+pad(selectDobAry[1], 2)+"-"+pad(selectDobAry[0], 2);
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
-            fillPlanData(JSON.parse(data));
+            fillPlanData(data);
             //change step2 back btn img
             $(".step2 .btn-back-step1").attr("data-gender", genderNum);
 
@@ -150,10 +151,6 @@ $(document).ready(function() {
             $("body").scrollTo(".step3");
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
-    });
-
-    $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
-        $("#offline-online-modal").modal();
     });
 
     $("#online-application-btn").click(function() {
