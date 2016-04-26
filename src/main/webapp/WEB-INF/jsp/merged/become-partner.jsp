@@ -203,4 +203,23 @@ $(document).ready(function() {
         //function to submit form here
     });    
 });
+
+$('#applyPartner').on('click', function(e) {
+	  $.ajax({
+		  type : 'POST',
+		  url : '<%=request.getContextPath()%>/ajax/leads/partnership/register',
+		  data : {
+			  	  contactName : $('input[name="contactName"]').val(),
+			      contactEmail : $('#contactEmail').val(),
+			      industryName : $('#industryName').val(),
+			      companyLocation : $('#companyLocation').val(),
+			      companyName : $('#companyName').val(),
+			      contactNum : $('#contactNum').val(),
+			      descriptionMsg : $('#descriptionMsg').val()
+		  },
+		  success : function(data) {
+			  //resetFrom($('#becomePartnerForm'));
+		  }
+     });
+});
 </script>

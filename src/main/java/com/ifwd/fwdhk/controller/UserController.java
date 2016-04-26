@@ -827,7 +827,7 @@ public class UserController {
 		return UserRestURIConstants.getSitePath(request)+ "partner";
 	}
 	
-	@RequestMapping(value = {"/{lang}/become-partner"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/{lang}/become-our-partner"}, method = RequestMethod.GET)
 	public String partner(Model model, HttpServletRequest request) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);

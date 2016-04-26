@@ -19,6 +19,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
@@ -60,4 +61,5 @@ public interface SavieOnlineService {
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
 	public void deleteSaviePdf(HttpServletRequest request);
 	public void sendEmailForDocumentUploadLater(HttpServletRequest request) throws ECOMMAPIException;
+	public void partnerRegister(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
 }

@@ -9,10 +9,8 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,6 +52,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
@@ -3278,6 +3277,26 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if(responseJsonObj.get("errMsgs") != null){
 			logger.info(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+	}
+	
+	public void partnerRegister(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException{
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		JSONObject parameters = new JSONObject();
+		parameters.put("name", partnerRegisterDetails.getContactName()==null?"":partnerRegisterDetails.getContactName());
+		parameters.put("email", partnerRegisterDetails.getContactEmail()==null?"":partnerRegisterDetails.getContactEmail());
+		parameters.put("industry", partnerRegisterDetails.getIndustryName()==null?"":partnerRegisterDetails.getIndustryName());
+		parameters.put("location", partnerRegisterDetails.getCompanyLocation()==null?"":partnerRegisterDetails.getCompanyLocation());
+		parameters.put("number", partnerRegisterDetails.getContactNum()==null?"":partnerRegisterDetails.getContactNum());
+		parameters.put("companyName", partnerRegisterDetails.getCompanyName()==null?"":partnerRegisterDetails.getCompanyName());
+		parameters.put("message", partnerRegisterDetails.getDescriptionMsg()==null?"":partnerRegisterDetails.getDescriptionMsg());
+		logger.info(parameters.toString());
+		BaseResponse apiReturn = connector.partnerRegister(parameters, header);
+		
+		if(apiReturn!=null && apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 	}
 }
