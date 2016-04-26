@@ -158,9 +158,9 @@ public class SavieOnlinePageFlowControl {
 			current = "signature";
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD:
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
 			filePath = "savie/";
 			break;
 			

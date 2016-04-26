@@ -545,9 +545,70 @@ var UILANGUAGE = 'en';
     <!--/header-->
     <script>
         $(document).ready(function() {
-        	$("#btn-signature-next").click(function() {
-        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-            });
+        	var signatureFileSize = "${signatureFileSize}";
+    		$('#btn-signature-next').on('click', function(e) {
+    			e.preventDefault();
+    			if($('#correct-signature').hasClass('hidden') == false) {
+    				if (!$("#signature").jSignature('getData', 'native').length) {
+    			    	alert(getBundle(getBundleLanguage, "error.signature.empty"))
+    				}
+    				else{
+    					$('#btn-signature-next').attr('disabled',"true");
+    					var $sigdiv = $("#signature");
+    					var datapair = $sigdiv.jSignature("getData", "image");
+    					var obj = datapair[1];
+    					if(datapair[1].length > signatureFileSize*1024 ){
+    					    //$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
+    					    alert(getBundle(getBundleLanguage, "error.signature.size"));
+    					    $('#loading-overlay').modal('hide');
+    	
+    					}else if($('.correct-signature').hasClass('hidden')){
+    						//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+    						alert(getBundle(getBundleLanguage, "error.signature.empty"));
+    						$('#loading-overlay').modal('hide');
+    					}
+    					else{
+    						$.ajax({
+    					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
+    					    	type:'post',     
+    					    	data:{ "image" : datapair[1] },     
+    					    	success:function(data){
+    					    		//loading mask 
+    					    		$('#loadingDiv').toggle();
+    								$('body').addClass('modal-open');
+    					    	    if(data==null || data == ''){
+    					    	    	//Unknown errors
+    					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+    					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
+    					    	    	$('#loading-overlay').modal('hide');					   
+    					    	    } 
+    					    	    else if( data.errMsgs == 'session expired'){
+    					    	    	//Timeout errors
+    					    	    	$('#loading-overlay').modal('hide');
+    					    	    	$('#timeout-modal').modal('show'); 
+    					    	    } 
+    					    	    else if( data.errMsgs != null ){
+    					    	    	//Other errors
+    					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+    					    	    	alert(getBundle(getBundleLanguage, "system.error.message"))
+    					    	    	$('#loading-overlay').modal('hide');
+    					    	    } 
+    					    	    else {
+    					    	    	// success
+    					    	    	window.onbeforeunload=null;
+    					    	    	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+    					    	    }
+    					        },
+    							error:function(){
+    								$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+    								$('#loading-overlay').modal('hide');
+    							}
+    					    });
+    					}
+    				}
+    				
+    			}
+    		});
         })
 </script>
 

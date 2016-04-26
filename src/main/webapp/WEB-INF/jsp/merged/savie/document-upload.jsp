@@ -503,7 +503,7 @@ var languageP = "${language}";
 						}
 					}
 					else{
-						window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 					}
 				});
 				

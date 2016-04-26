@@ -74,20 +74,21 @@ public class EasyHealthController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance/signature"})
 	public ModelAndView getEasyHealthSignature(Model model, HttpServletRequest request,HttpSession session) {
-		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
-	}
-	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/payment"})
-	public ModelAndView getEasyHealthPayment(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		try {
-			String path = request.getRequestURL().toString();
-			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
-			model.addAttribute("failurePath", path);
 			easyHealthService.createLifePolicy(request, request.getSession());
 		} catch (ECOMMAPIException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
+	}
+	
+	@RequestMapping(value = {"/{lang}/easyhealth-insurance/payment"})
+	public ModelAndView getEasyHealthPayment(Model model, HttpServletRequest request) {
+		String path = request.getRequestURL().toString();
+		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
+		model.addAttribute("failurePath", path);
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
 	}
 	
