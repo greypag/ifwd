@@ -152,21 +152,6 @@ $(document).ready(function() {
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
     });
-
-    $("#online-application-btn").click(function() {
-        $('#offline-online-modal').modal('hide');
-        $('#loginpopup .modal-dialog').addClass('loginpopupext');
-        $("#loginpopup .login-info").removeClass("hidden");
-        $("#loginpopup").modal();
-    });
-
-    $("#offline-application-btn").click(function() {
-        $('#offline-online-modal').modal('hide');
-        $('#loginpopup .modal-dialog').removeClass('loginpopupext');
-        $("#loginpopup .login-info").addClass("hidden");
-        $("#loginpopup").modal();
-    });
-
     $(".btn-back-step1").click(function() {
         $(".step2").fadeOut(function() {
             $("html, body").animate({ scrollTop: 0 }, "slow");

@@ -160,162 +160,6 @@
         function getBundle(lang, key) {
             return fwdGetBundle(lang, key);
         }
-
-        function submitLoginForm(formID) {
-            $('.login-ajax-loading').css({
-                "left": "0px",
-                "right": "0px"
-            });
-            $('.login-ajax-loading').show();
-            $("#" + formID + ' #login-err-msg').html("");
-            $("#" + formID + ' #login-err-msg').hide();
-            setTimeout(function() {
-                if (validUser(formID)) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/fwdhk/userLogin",
-                        data: $("#" + formID).serialize(), //$("#headerLoginForm form").serialize(),
-                        async: false,
-                        success: function(data) {
-                            if (data.loginResult == 'success') {
-                                //$('.login-ajax-loading').hide();
-                                //var Backlen = history.length;
-                                //history.go(-Backlen);
-                                if (window.location.href.indexOf("savings-insurance/plan-details") > 0) {
-                                    $("#fullName").html(data.fullName);
-                                    saviePlanDetailsGoNext();
-                                } else if (window.location.href.indexOf("term-life-insurance/select-plan") > 0) {
-                                    perventRedirect = false;
-                                    ga('send', 'event', 'Login', 'Click', 'Login success');
-                                    window.location.href = "/fwdhk/en/term-life-insurance/select-plan?goApp=" + $('#goApp').val();
-                                } else {
-                                    perventRedirect = false;
-                                    ga('send', 'event', 'Login',
-                                        'Click',
-                                        'Login success');
-                                    //location.reload();
-                                    window.location.href = window.location.href;
-                                }
-                            } else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.first"));
-                            } else if (data.loginResult == 'Please provide a valid User Name and Password.') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.first"));
-                            } else if (data.loginResult == 'Link Sent Successfully On Your Registered Mail ID') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.forgotPassword.success.message"));
-                            } else if (data.loginResult == 'Internet Connection Error') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "Connection.lost.message"));
-                            } else if (data.loginResult == 'Invaild Username or password. Please try again.') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.first"));
-                            } else if (data.loginResult == 'Invaild Username or password. Next invalid attempt will block your account.') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.second"));
-                            } else if (data.loginResult == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
-                                try {
-                                    $('.login-ajax-loading').hide();
-                                } catch (error) {}
-                                $('#ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.third"));
-                            } else if (data.loginResult == 'fail') {
-                                $('.login-ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(
-                                        getBundle(
-                                            getBundleLanguage,
-                                            "member.login.fail.first"));
-                            } else {
-                                $('.login-ajax-loading').hide();
-                                $("#" + formID + ' #login-err-msg')
-                                    .show();
-                                $("#" + formID + ' #login-err-msg')
-                                    .html(data.loginResult);
-                            }
-
-                        },
-                        error: function() {
-                            $('.login-ajax-loading').hide();
-
-                            $('.login-ajax-loading').hide();
-                            $("#" + formID + ' #login-err-msg')
-                                .show();
-                            $("#" + formID + ' #login-err-msg')
-                                .html(data.loginResult);
-
-                        }
-                    });
-                } else {
-                    $('.login-ajax-loading').hide();
-                }
-                $('.login-ajax-loading').hide();
-            }, 1000);
-
-        }
         </script>
         <!-- Session is alive or not -->
         <!-- End Visual Website Optimizer Asynchronous Code -->
@@ -2585,14 +2429,6 @@
             </div>
         </div>
         <script>
-        $("#plan-option-next").click(function(){
-        	if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
-        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-            }else{
-                $('#loginpopup').modal('show');         
-            }
-        });
-        
         $(document).ready(function() {
         	$("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
     			if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
@@ -2605,6 +2441,14 @@
     	            $('#loginpopup #nav-bar-check').val("false");
     	            $('#loginpopup').modal('show');         
     	        }
+            });
+        	
+        	$("#online-application-btn").click(function() {
+        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            });
+
+            $("#offline-application-btn").click(function() {
+            	window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
             });
         })
 </script>

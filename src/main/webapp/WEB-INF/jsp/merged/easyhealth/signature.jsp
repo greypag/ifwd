@@ -395,8 +395,7 @@ var UILANGUAGE = 'en';
                                 <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png">
                                 <span>Correct</span>
                             </div>
-                            <a class="text-bold btn btn-confirm btn-app" id="btn-confirm-1">Proceed to Payment</a>
-                            <a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Proceed to Payment</a>
+                            <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next">Proceed to Payment</a>
                         </div>
                      </form>
                 </div>
@@ -404,6 +403,7 @@ var UILANGUAGE = 'en';
 		</div>
 		</form>
 	</div>
+	
 	<!-- Application Content End -->
 		<!-- <div class="fwd-container-limit clearfix">	
 				<div class="row">
@@ -543,6 +543,14 @@ var UILANGUAGE = 'en';
     </div>
     <!--End Mobile header-->
     <!--/header-->
+    <script>
+        $(document).ready(function() {
+        	$("#btn-signature-next").click(function() {
+        		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            });
+        })
+</script>
+
     <script>
     $(function() {
         var pageControllerName = "#SavieOnline";

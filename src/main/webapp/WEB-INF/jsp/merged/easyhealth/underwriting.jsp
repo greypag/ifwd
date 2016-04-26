@@ -464,8 +464,7 @@ var UILANGUAGE = 'en';
 								</div>
 							</div>
 							<div class="btn-row text-center">
-								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out">Next</a>
-								<a href="<%=request.getContextPath()%>/${language}/${nextPageFlow}" class="savie-common-btn">Next</a>
+								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next">Next</a>
 							</div>
 					</div>
 				</div>
@@ -480,6 +479,10 @@ var UILANGUAGE = 'en';
 
 <script>
 	$(document).ready(function(){
+		$("#eh-btn-underwriting-next").click(function() {
+    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+        });
+		
 			// ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
