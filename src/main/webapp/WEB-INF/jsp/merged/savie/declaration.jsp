@@ -267,7 +267,9 @@ var languageP = "${language}";
 						
 					<center>
 						<button type="button" class="text-bold btn savie-common-btn btn-proceed"><fmt:message key="button.proceed.to.signature" bundle="${msg}" /></button>
-						<a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+						<c:if test="${plan == 'savings-insurance'}">
+						   <a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+						</c:if>
 					</center>
 				</form>
 			</div>

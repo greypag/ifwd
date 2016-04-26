@@ -96,13 +96,13 @@ var language = "${language}";
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${language == 'en' ? 'SAVIE':'自助息' }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? 'EASY-HEALTH':'EASY-HEALTH'}" readonly="readonly" />
 								<label class="mdl-textfield__label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
 							</div>
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:'345'}" readonly="readonly" />
 								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>
 							</div>
 						</div>
@@ -587,6 +587,7 @@ var language = "${language}";
 			            </c:if>
 			       </c:otherwise>
 			</c:choose>
+			<c:if test="${plan == 'savings-insurance'}">
             <div class="summary-section below-payment clearfix">
                <h5><fmt:message key="label.payment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
@@ -642,11 +643,14 @@ var language = "${language}";
 						</div>
                </div>
             </div>
+            </c:if>
 
             <div class="text-center clearfix">
                <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
-                <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
-               <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span></a>
+                <c:if test="${plan == 'savings-insurance'}">
+                   <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
+               	   <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span></a>
+                </c:if>
             </div>
          </div>
 			<!-- FOOTER -->

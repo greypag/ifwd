@@ -356,6 +356,7 @@ public class SavieOnlineController extends BaseController{
 				savieFna.setDob("31-01-1990");
 				request.getSession().setAttribute("savieFna", savieFna);
 			}
+			model.addAttribute("plan", plan);
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 		}
 	}
@@ -564,6 +565,7 @@ public class SavieOnlineController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
+			model.addAttribute("plan", plan);
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 		}
 	}
@@ -636,6 +638,7 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
+			model.addAttribute("plan", plan);
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
 		}
 	}
@@ -729,6 +732,7 @@ public class SavieOnlineController extends BaseController{
 						jsonObject.put("errorMsg", e.getMessage());
 					}
 				}
+				model.addAttribute("plan", plan);
 				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 			}
 		}

@@ -437,7 +437,9 @@ var languageP = "${language}";
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="text-bold btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
 	  								<button type="button" class="text-bold btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
-									<a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+									<c:if test="${plan == 'savings-insurance'}">
+									   <a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+									</c:if>
 								</div>	
 	  						</form>
 	  					</div>
