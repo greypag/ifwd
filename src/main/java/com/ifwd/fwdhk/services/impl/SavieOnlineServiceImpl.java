@@ -510,7 +510,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-	    attributeList.add(new PdfAttribute("CampaignCode", "KSS008"));
+	    attributeList.add(new PdfAttribute("CampaignCode", "KSSS16"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    
 	    if("tc".equals(lang)){
