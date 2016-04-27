@@ -22,9 +22,7 @@ var home_url = "<%=request.getContextPath()%>";
     <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
     <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/resources/jsignature/jSignature.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/application.signature.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/application.common.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
