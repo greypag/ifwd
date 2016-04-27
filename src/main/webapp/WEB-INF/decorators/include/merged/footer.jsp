@@ -184,9 +184,9 @@ if(request.getRequestURI().indexOf("/savings-insurance")>0) {
 }
 %> 
 <%
-if(request.getRequestURI().indexOf("/become-partner")>0) {
+if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 <%
 }
 %>
