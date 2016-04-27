@@ -811,15 +811,25 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("group_2", group_2));
 		
 		String occupation = "";
-		if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
-			occupation = lifeEmploymentInfo.getOtherOccupation();
-		}else{
-			if("tc".equals(lang)){
-				occupation = lifeEmploymentInfo.getOccupationCnName();
+	    String status = lifeEmploymentInfo.getEmploymentStatus();
+	    status = status.split("-")[0];
+	    if("ES1".equals(status)||"ES2".equals(status)||"ES3".equals(status)){
+			if(StringUtils.isNotBlank(lifeEmploymentInfo.getOtherOccupation())){
+				occupation = lifeEmploymentInfo.getOtherOccupation();
 			}else{
-				occupation = lifeEmploymentInfo.getOccupationEnName();
+				if("tc".equals(lang)){
+					occupation = lifeEmploymentInfo.getNatureOfBusinessCnName() + " - " + lifeEmploymentInfo.getOccupationCnName();
+				}else{
+					occupation = lifeEmploymentInfo.getNatureOfBusinessEnName() + " - " + lifeEmploymentInfo.getOccupationEnName();
+				}
 			}
-		}
+	    } else {
+			if("tc".equals(lang)){
+		    	occupation = lifeEmploymentInfo.getEmploymentStatusCnName();
+			}else{
+		    	occupation = lifeEmploymentInfo.getEmploymentStatusEnName();
+			}
+	    }
 		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
 		
 		String group_3 = "";
