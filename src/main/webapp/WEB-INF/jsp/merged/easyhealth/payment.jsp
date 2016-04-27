@@ -378,7 +378,7 @@ var UILANGUAGE = 'en';
 		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
         <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
         <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
-        <input type="hidden" name="amount" value="345.00" pattern="#.00"/>
+        <input type="hidden" name="amount" value="345.00" />
         <input type="hidden" name="orderRef" value="${lifePolicy.transactionNumber }">
         <input type="hidden" name="currCode" value="344">
         <input type="hidden" name="successUrl" value="${successUrl}">
