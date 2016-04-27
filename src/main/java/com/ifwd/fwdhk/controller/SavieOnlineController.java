@@ -78,7 +78,7 @@ public class SavieOnlineController extends BaseController{
     }
     */	
 
-	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		savieOnlineService.removeSavieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
@@ -99,7 +99,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/single-premium"})
+	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/single-premium"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		savieOnlineService.removeSavieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
