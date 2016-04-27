@@ -15,7 +15,11 @@
 	
 	if (request.getParameter("hid")!=null && ((String)request.getParameter("hid")).length() > 0) {
 		hotelVoucherCampaignId = Integer.parseInt((String)request.getParameter("hid"));
-		cCurrent = cformat.parse("2016-04-21 00:00:00").getTime();
+		if (hotelVoucherCampaignId == -1) {
+			cCurrent = cformat.parse("2016-05-01 00:00:00").getTime();
+		} else {
+			cCurrent = cformat.parse("2016-04-21 00:00:00").getTime();
+		}
 	}
 
     //hotel monthly campiagn display end time

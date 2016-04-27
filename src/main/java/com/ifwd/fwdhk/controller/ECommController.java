@@ -243,33 +243,41 @@ public class ECommController {
 	        	} else {
 		            hotelVoucherCampaignId = 17;
 	        	}
-	        } else if (day > 25) {
+	        } else if (day >= 25 && day < 30) {
 	            hotelVoucherCampaignId = 18;
+	        } else if (day == 30) {
+	        	if (hour >= 15) {
+		            hotelVoucherCampaignId = -1;
+	        	} else {
+		            hotelVoucherCampaignId = 18;
+	        	}
 	        }
 	    }
 	    
 	    if (request.getParameter("hid")!=null) {
 	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
 	    }
-	    switch(hotelVoucherCampaignId) {
-		    case 14:
-	            indexs = new int[]{14};
-	            break;
-		    case 15:
-	            indexs = new int[]{15};
-	            break;
-		    case 16:
-	            indexs = new int[]{16};
-	            break;
-		    case 17:
-	            indexs = new int[]{17};
-	            break;
-		    case 18:
-	            indexs = new int[]{18};
-	            break;
-		    case -1:
-	            indexs = new int[]{-1};
-	            break;
+	    if (hotelVoucherCampaignId != -1) {
+		    switch(hotelVoucherCampaignId) {
+			    case 14:
+		            indexs = new int[]{14};
+		            break;
+			    case 15:
+		            indexs = new int[]{15};
+		            break;
+			    case 16:
+		            indexs = new int[]{16};
+		            break;
+			    case 17:
+		            indexs = new int[]{17};
+		            break;
+			    case 18:
+		            indexs = new int[]{18};
+		            break;
+			    case -1:
+		            indexs = new int[]{-1};
+		            break;
+		    }
 	    }
 	    /* hotel voucher end */
 	    session.setAttribute("hotelVoucherCampaignId", hotelVoucherCampaignId);
