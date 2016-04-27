@@ -519,15 +519,14 @@ public class AjaxSavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermSendImageFlage"},method = RequestMethod.POST)
 	  public void getEliteTermSendImageFlage(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam String passportFlage,
-	            @RequestParam String uploadLaterFlage
+	            @RequestParam String uploadLaterFlage,@RequestParam String plan
 	            ) throws Exception {
 			if (Methods.isXssAjax(request)) {				
 				return;
 			}
-		
 			try {
 				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
-				ajaxReturn(response, savieOnlineService.sendImage(request, passportFlage));
+				ajaxReturn(response, savieOnlineService.sendImage(request, passportFlage,plan));
 			} catch (Exception e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();

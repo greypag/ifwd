@@ -175,7 +175,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 	}
 });
 
-function documentUpload(){
+function documentUpload(plan){
 	if(!checkLogin()){
 		return false;
 	}
@@ -200,7 +200,7 @@ function documentUpload(){
 	}else{
 		uploadLaterFlage = true;
 	}
-	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
+	sendEliteTermSendImageFlage(plan,passportFlage,uploadLaterFlage);
 }
 
 $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
@@ -230,7 +230,7 @@ $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
 	if(uploadNow != 'upload-now'){
 		uploadLaterFlage = true;
 	}
-	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
+	sendEliteTermSendImageFlage("savings-insurance",passportFlage,uploadLaterFlage);
 });
 
 function isDis2Sub(){
@@ -281,7 +281,7 @@ function isFProfAddValidity() {
     return isValid;
 }
 
-function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
+function sendEliteTermSendImageFlage(plan,passportFlage,uploadLaterFlage) {
 	$('#updoc-complete-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
@@ -290,12 +290,13 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 		        url:contextPath+'/ajax/savings-insurance/getEliteTermSendImageFlage',
 		        data: {
 					"passportFlage":passportFlage,
-					"uploadLaterFlage":uploadLaterFlage
+					"uploadLaterFlage":uploadLaterFlage,
+					"plan":plan
 				},
 		        success:function(data){
 					if(data.errMsgs[0] == null || data.errMsgs[0] == ''){
 						window.onbeforeunload=null;
-						window.location.href= contextPath+'/'+language+'/savings-insurance/confirmation';
+						window.location.href= contextPath+'/'+language+'/'+plan+'/confirmation';
 					}
 				}
 		});

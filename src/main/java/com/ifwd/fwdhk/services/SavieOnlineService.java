@@ -42,7 +42,7 @@ public interface SavieOnlineService {
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
-	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
+	public BaseResponse sendImage(HttpServletRequest request,String passportFlage,String plan) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	public void removeSavieOnlineSession(HttpServletRequest request);
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;

@@ -495,7 +495,7 @@ var languageP = "${language}";
 						if (isValid && up) {
 							console.log('Proceed');
 							$self.removeAttr('disabled');
-							documentUpload();
+							documentUpload('${plan }');
 							up = false;
 						} 
 						else {

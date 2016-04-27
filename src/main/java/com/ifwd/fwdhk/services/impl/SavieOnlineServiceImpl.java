@@ -2537,11 +2537,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return num;
 	}
 	
-	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
+	public BaseResponse sendImage(HttpServletRequest request,String passportFlage,String plan) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
 		apiReturn.setErrMsg(null);
 		FileInputStream is = null;
 		BaseResponse br = null;
+		String planCode = null;
+		if("savings-insurance".equals(plan)){
+			planCode = "SAVIE-SP";
+		}
+		else{
+			planCode = "ROPHI1";
+		}
 		try {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 			String policyNo = lifePolicy.getPolicyNo();
@@ -2555,7 +2562,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("policyNo", policyNo);
-			parameters.put("planCode", "SAVIE-SP");
+			parameters.put("planCode", planCode);
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			if(fileToUpload==null){
 				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
