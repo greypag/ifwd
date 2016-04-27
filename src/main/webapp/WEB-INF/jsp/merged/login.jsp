@@ -299,7 +299,6 @@
 						<!-- 電話 inout -->
 						<div class="form-group">
 							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="tel" name="mobileNo"
 								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
 								id="mobileNo-forgotpassowrd"
@@ -317,7 +316,6 @@
 		                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
 		                                    bundle="${msg}" /></label>
 		                        </span>
-							</div>
 							</div>
 						</div>
 

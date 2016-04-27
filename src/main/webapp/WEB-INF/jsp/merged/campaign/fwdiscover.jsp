@@ -75,14 +75,14 @@
             	break;             	
     	}       
     } else {
-        countDownDate = "2016-05-15 11:59:59";
-        countDownDD = "15";
+        countDownDate = "2016-05-31 11:59:59";
+        countDownDD = "31";
         countDownMM = "May";    	
     	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
-            countDownDate = "2016-05-18 14:59:59";
-            countDownDD = "18";
-            countDownMM = "May";     		
+            /*countDownDate = "2016-05-31 11:59:59";
+            countDownDD = "15";
+            countDownMM = "May";*/    		
     	}
     }
 
