@@ -2733,7 +2733,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String perferredDate = request.getParameter("perferredDate");
 			request.getSession().setAttribute("csCenter", csCenter);
 			request.getSession().setAttribute("perferredDate", perferredDate);
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?appointmentTypeId=1&date=" + perferredDate + "&serviceCentreCode=" + csCenter;
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc")) {
 				lang = "CN";
@@ -2858,7 +2858,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	 */
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
 		String lang = UserRestURIConstants.getLanaguage(request);
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all?appointmentTypeId=1";
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}
