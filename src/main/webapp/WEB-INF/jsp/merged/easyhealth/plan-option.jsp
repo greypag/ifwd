@@ -1650,14 +1650,6 @@ var home_url = "<%=request.getContextPath()%>";
         </div>
 
 <script>
-    $("#plan-option-next").click(function(){
-        if('${authenticate}' == 'true' && '${authenticate}' != '*DIRECTGI'){
-            window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-        }else{
-            $('#loginpopup').modal('show');         
-        }
-    });
-
     $(document).ready(function() {
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
             if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
