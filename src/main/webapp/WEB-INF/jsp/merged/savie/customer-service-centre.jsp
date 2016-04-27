@@ -315,7 +315,7 @@ var language = "${language}";
 				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
 			}
 			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }', '1');
 			}
 			else{
 				$("#preferred-time").empty();
@@ -331,7 +331,7 @@ var language = "${language}";
 		setCentre(serviceCentreCode);
 		
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
-			getTimeSlot('${perferredTime }');
+			getTimeSlot('${perferredTime }', '1');
 		}
 		
 		$('#centre').on('change', function() {
@@ -339,7 +339,7 @@ var language = "${language}";
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				$("#preferred-date").val($("#preferred-date-"+ centre).val());
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }', '1');
 			}
 		});
 	});
@@ -432,7 +432,8 @@ var language = "${language}";
 			        "perferredTime":perferredTime,
 			        "planCode":planCode,
 			        "remarks":"",
-			        "type":"4"
+			        "type":"4",
+			        "appointmentTypeId":"1"
 		   		},     
 			    error:function(){       
 			    },     

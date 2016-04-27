@@ -582,7 +582,7 @@ var languageP = "${language}";
 				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
 			}
 			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }','2');
 			}
 			else{
 				$('#perferredTimeIsNull').modal('show');
@@ -600,7 +600,7 @@ var languageP = "${language}";
 		
 		if( $("#centre").val() ){
 			if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }','2');
 			}
 		}
 		$('#centre').on('change', function() {
@@ -608,7 +608,7 @@ var languageP = "${language}";
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				$("#preferred-date").val($("#preferred-date-"+ centre).val());
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }','2');
 			}
 		});
 	});
@@ -942,7 +942,8 @@ var languageP = "${language}";
 				        "perferredTime":perferredTime,
 				        "planCode":planCode,
 				        "remarks":"sign offline",
-				        "type":"3"
+				        "type":"3",
+				        "appointmentTypeId":"2"
 			   		},     
 				    error:function(){       
 				    },     

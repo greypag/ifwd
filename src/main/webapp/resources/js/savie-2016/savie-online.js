@@ -1538,7 +1538,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
     });
 }
 
-function getTimeSlot(perTime){
+function getTimeSlot(perTime, appointmentTypeId){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();
 	$.ajax({     
@@ -1546,7 +1546,8 @@ function getTimeSlot(perTime){
 	    type:'post',     
 	    data:{    
 	    	"csCenter": csCenter,
-	        "perferredDate":perferredDate
+	        "perferredDate":perferredDate,
+	        "appointmentTypeId":appointmentTypeId
    		},     
 	    error:function(){       
 	    },     
