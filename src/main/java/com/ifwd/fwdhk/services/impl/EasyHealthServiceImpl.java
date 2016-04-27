@@ -94,59 +94,11 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 	@Override
 	@SuppressWarnings("unchecked")
 	public JSONObject getPremium(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_EASYHEALTH_PREMIUM+"?dob=1990-01-30&gender=F&planCode=ROPHI";
+		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("gender", "0");
-		jsonObject.put("dob", "2015-12-31");
-		  JSONArray plans = new JSONArray();
-		    JSONObject plan1 = new JSONObject();
-		    plan1.put("type", "BASIC");
-		    plan1.put("plan_code", "BASIC");
-		    plan1.put("monthly_amount", "349");
-		    plan1.put("daily_hospital_cash", "300");
-		    plan1.put("intensive_care_unit", "300");
-		    plan1.put("infectious_disease", "300");
-		    plan1.put("death_benefit", "6282");
-		    plan1.put("accidential_death_benefit", "8379");
-		    plan1.put("refund_premium", "64067");
-		    plans.add(plan1);
-		    
-		    JSONObject plan2 = new JSONObject();
-		    plan2.put("type", "PLUS");
-		    plan2.put("plan_code", "PLUS");
-		    plan2.put("monthly_amount", "657");
-		    plan2.put("daily_hospital_cash", "600");
-		    plan2.put("intensive_care_unit", "600");
-		    plan2.put("infectious_disease", "600");
-		    plan2.put("death_benefit", "11682");
-		    plan2.put("accidential_death_benefit", "19578");
-		    plan2.put("refund_premium", "119125");
-		    plans.add(plan2);
-		    
-		    JSONObject plan3 = new JSONObject();
-		    plan3.put("type", "ADVANCED");
-		    plan3.put("plan_code", "ADVANCED");
-		    plan3.put("monthly_amount", "820");
-		    plan3.put("daily_hospital_cash", "900");
-		    plan3.put("intensive_care_unit", "900");
-		    plan3.put("infectious_disease", "900");
-		    plan3.put("death_benefit", "17082");
-		    plan3.put("accidential_death_benefit", "27776");
-		    plan3.put("refund_premium", "174236");
-		    plans.add(plan3);
-		    
-		    JSONObject plan4 = new JSONObject();
-		    plan4.put("type", "DELUXE");
-		    plan4.put("plan_code", "DELUXE");
-		    plan4.put("monthly_amount", "1200");
-		    plan4.put("daily_hospital_cash", "1200");
-		    plan4.put("intensive_care_unit", "1200");
-		    plan4.put("infectious_disease", "1200");
-		    plan4.put("death_benefit", "22482");
-		    plan4.put("accidential_death_benefit", "29976");
-		    plan4.put("refund_premium", "24239");
-		    plans.add(plan4);
-		jsonObject.put("plans", plans);
-		return jsonObject;
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, jsonObject);
+		return responseJsonObj;
 	}
 	
 	@SuppressWarnings("unchecked")

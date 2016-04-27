@@ -719,11 +719,17 @@ public class SavieOnlineController extends BaseController{
 			if(userDetails == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}else{
+				try {
+					savieOnlineService.finalizeLifePolicy(plan, request, session);
+				}
+				catch (ECOMMAPIException e) {
+				}
+				catch (Exception e) {
+				}
 				if("savings-insurance".equals(plan)){
 					JSONObject jsonObject = new JSONObject();
 					try {
 						savieOnlineService.uploadSavieOnlineDocument(request);
-						savieOnlineService.finalizeLifePolicy(request, session);
 					}
 					catch (ECOMMAPIException e) {
 						jsonObject.put("errorMsg", e.getMessage());
@@ -733,7 +739,7 @@ public class SavieOnlineController extends BaseController{
 					}
 				}
 				model.addAttribute("plan", plan);
-				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 			}
 		}
 	}

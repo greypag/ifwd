@@ -348,12 +348,15 @@ public class UserRestURIConstants {
 	public static final String URL_EASYHEALTH_PAYMENT = "payment";
 	public static final String URL_EASYHEALTH_CONFIRMATION = "confirmation";
 	
-	public static final String PAGE_PROPERTIES_EASYHEALTH = "landing";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION = "plan.option";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING = "underwriting";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "signature";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "payment";
-	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "confirmation";
+	public static final String PAGE_PROPERTIES_EASYHEALTH = "easyhealth.landing";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION = "easyhealth.plan.option";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING = "easyhealth.underwriting";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "easyhealth.signature";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "easyhealth.payment";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "easyhealth.confirmation";
+	
+	/*API For easy health*/
+	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";

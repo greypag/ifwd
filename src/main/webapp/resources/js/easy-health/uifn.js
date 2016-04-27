@@ -291,38 +291,38 @@ function fillPlanData(json) {
 
         //plan overview
         $(".step2 .txt-type-" + pc).html(p.type);
-        $(".step2 .plan-mca .txt-price-" + pc).html(priceFormat(p.monthly_amount));
-        $(".step2 .plan-dhc .txt-price-" + pc).html(priceFormat(p.daily_hospital_cash));
-        $(".step2 .plan-icu .txt-price-" + pc).html(priceFormat(p.intensive_care_unit));
-        $(".step2 .plan-id .txt-price-" + pc).html(priceFormat(p.infectious_disease));
-        $(".step2 .plan-rop .txt-price-" + pc).html(priceFormat(p.refund_premium));
+        $(".step2 .plan-mca .txt-price-" + pc).html(priceFormat(p.monthlyPremium));
+        $(".step2 .plan-dhc .txt-price-" + pc).html(priceFormat(p.dailyHospitalCash));
+        $(".step2 .plan-icu .txt-price-" + pc).html(priceFormat(p.intensiveCareUnit));
+        $(".step2 .plan-id .txt-price-" + pc).html(priceFormat(p.infectiousDisease));
+        $(".step2 .plan-rop .txt-price-" + pc).html(priceFormat(p.refundPremium));
 
         //plan selector
         $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
-        $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthly_amount));
+        $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
-        $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthly_amount));
+        $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
 
         //ferris wheel       
         $(".step3 .eh-plan-" + pc + " .txt-type").html(p.type);
-        $(".step3 .eh-plan-" + pc + " .txt-youpay-price").html(priceFormat(p.monthly_amount));
-        $(".step3 .eh-plan-" + pc + " .txt-price-hc").html(priceFormat(p.daily_hospital_cash));
-        $(".step3 .eh-plan-" + pc + " .txt-price-icu").html(priceFormat(p.intensive_care_unit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-id").html(priceFormat(p.infectious_disease));
-        $(".step3 .eh-plan-" + pc + " .txt-price-db").html(priceFormat(p.death_benefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-adb").html(priceFormat(p.accidential_death_benefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-rop").html(priceFormat(p.refund_premium));
-        $(".step3 .eh-plan-" + pc + " .txt-price-yca").html(priceFormat(p.monthly_amount * 12));
+        $(".step3 .eh-plan-" + pc + " .txt-youpay-price").html(priceFormat(p.monthlyPremium));
+        $(".step3 .eh-plan-" + pc + " .txt-price-hc").html(priceFormat(p.dailyHospitalCash));
+        $(".step3 .eh-plan-" + pc + " .txt-price-icu").html(priceFormat(p.intensiveCareUnit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-id").html(priceFormat(p.infectiousDisease));
+        $(".step3 .eh-plan-" + pc + " .txt-price-db").html(priceFormat(p.deathBenefit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-adb").html(priceFormat(p.accidentalDeathBenefit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-rop").html(priceFormat(p.refundPremium));
+        $(".step3 .eh-plan-" + pc + " .txt-price-yca").html(priceFormat(p.monthlyPremium * 12));
 
         //benefit
-        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-dhc").html(priceFormat(p.daily_hospital_cash));
-        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-icu").html(priceFormat(p.intensive_care_unit));
-        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-id").html(priceFormat(p.infectious_disease));
-        var totlaUpTo = p.daily_hospital_cash + p.intensive_care_unit + p.infectious_disease;
+        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-dhc").html(priceFormat(p.dailyHospitalCash));
+        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-icu").html(priceFormat(p.intensiveCareUnit));
+        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-id").html(priceFormat(p.infectiousDisease));
+        var totlaUpTo = p.dailyHospitalCash + p.intensiveCareUnit + p.infectiousDisease;
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price").html(priceFormat(totlaUpTo));
 
-        $(".step3 .eh-plan-" + pc + " .txt-price-y15").html(priceFormat(p.monthly_amount * 12 * 15));
-        $(".step3 .eh-plan-" + pc + " .txt-price-y15_102").html(priceFormat(p.monthly_amount * 12 * 15 * 1.02));
+        $(".step3 .eh-plan-" + pc + " .txt-price-y15").html(priceFormat(p.monthlyPremium * 12 * 15));
+        $(".step3 .eh-plan-" + pc + " .txt-price-y15_102").html(priceFormat(p.monthlyPremium * 12 * 15 * 1.02));
 
         (function(section, mca) {
             var rangeSlider = $(".step3 .eh-plan-" + pc + " .slider-15yr-policy")[0];
@@ -356,7 +356,7 @@ function fillPlanData(json) {
 
             });
 
-        })(pc, p.monthly_amount);
+        })(pc, p.monthlyPremium);
     }
 }
 

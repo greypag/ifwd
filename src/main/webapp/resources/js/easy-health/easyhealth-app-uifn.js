@@ -142,7 +142,7 @@ $(document).ready(function(){
 		//Using jquery.payment.js plug-in for creditcard checking
 		$('#ccNumber').payment('formatCardNumber');
 
-		$("#ef-form-payment").bootstrapValidator({
+		$("#paymentForm").bootstrapValidator({
 			fields:{
 				ccNumber:{
 					container:'#ccNumberErrMsg',
@@ -180,8 +180,8 @@ $(document).ready(function(){
 						}
 					}
 				},
-				ccName:{
-					container:'#ccNameErrMsg',
+				cardHolder:{
+					container:'#cardHolderErrMsg',
 					validators: {
 						notEmpty:{
 							message:'Please enter name printed on credit card.'
@@ -204,8 +204,8 @@ $(document).ready(function(){
 						}*/
 					}
 				},
-				cvvNumber: {
-					container:'#cvvNumberErrMsg',
+				securityCode: {
+					container:'#securityCodeErrMsg',
 					validators: {
 						notEmpty:{
 							message:'Please enter security code on credit card.'
@@ -217,8 +217,8 @@ $(document).ready(function(){
 						}
 					}
 				},
-				expMonth:{
-					container:'#expMonthErrMsg',
+				epMonth:{
+					container:'#epMonthErrMsg',
 					validators: {
 						notEmpty:{
 							message:"Please specify your credit card's expiry month."
@@ -226,8 +226,8 @@ $(document).ready(function(){
 						}
 					}
 				},
-				expYear:{
-					container:'#expYearErrMsg',
+				epYear:{
+					container:'#epYearErrMsg',
 					validators: {
 						notEmpty:{
 							message:"Please specify your credit card's expiry year."
@@ -246,34 +246,6 @@ $(document).ready(function(){
 				}				
 			}
 		})
-
-		$("#btn-payment").on("click",function(){
-			$('#ef-form-payment').bootstrapValidator('validate');
-			if($('#ef-form-payment').data('bootstrapValidator').isValid()){
-				//do something
-				var creditCaredNo = $('#ccNumber').val();
-	 	 		 var expiryDate = $('#expMonth').val()+$('#expYear').val().substr(2, 2);
-	 	 		 var cardHolderName = $('#ccName').val();
-		 		  $.ajax({
-		 			  type : "POST",
-		 			  cache:false, 
-					  async:false, 
-		 			  url : context+"/ajax/eliteTerm/putEtPaymentSession",
-		 			  data : {creditCaredNo : creditCaredNo,
-		 					  expiryDate: expiryDate,
-		 					  cardHolderName: cardHolderName},
-		 			  success : function(data) {
-		 				 console.log($("#gateway").val());
-	                     $("#ef-form-payment").attr('action', $("#gateway").val());
-	                     document.getElementById('ef-form-payment').submit();
-		 				//window.location.href= contextPath+'/en/easyhealth-insurance/document-upload';
-		 			  },
-		 			  error:function(){
-		 			      console.log('error');   
-		 		      }
-	 		      });
-			}
-		});
 	}
 
 

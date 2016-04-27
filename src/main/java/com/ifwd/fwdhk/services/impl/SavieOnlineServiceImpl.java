@@ -1749,15 +1749,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return lifePolicy;
 	}
 	
-	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+	public BaseResponse finalizeLifePolicy(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
+		if(lifePayment==null){
+			lifePayment = new LifePaymentBean();
+		}
 		JSONObject parameters = new JSONObject();
 		parameters.put("creditCaredNo", "");
 		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
+		parameters.put("cardHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
 		parameters.put("policyNo", lifePolicy.getPolicyNo());
-		parameters.put("planCode", "SAVIE-SP");
+		if("savings-insurance".equals(plan)){
+			parameters.put("planCode", "SAVIE-SP");
+		}
+		else{
+			parameters.put("planCode", "ROPHI1");
+		}
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;
@@ -2529,11 +2537,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return num;
 	}
 	
-	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
+	public BaseResponse sendImage(HttpServletRequest request,String passportFlage,String plan) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
 		apiReturn.setErrMsg(null);
 		FileInputStream is = null;
 		BaseResponse br = null;
+		String planCode = null;
+		if("savings-insurance".equals(plan)){
+			planCode = "SAVIE-SP";
+		}
+		else{
+			planCode = "ROPHI1";
+		}
 		try {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 			String policyNo = lifePolicy.getPolicyNo();
@@ -2547,7 +2562,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("policyNo", policyNo);
-			parameters.put("planCode", "SAVIE-SP");
+			parameters.put("planCode", planCode);
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			if(fileToUpload==null){
 				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
@@ -2671,7 +2686,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
-			parameters.put("planCode", "SAVIE-SP");
+			parameters.put("planCode", request.getParameter("planCode"));
 			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
@@ -2718,7 +2733,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			String perferredDate = request.getParameter("perferredDate");
 			request.getSession().setAttribute("csCenter", csCenter);
 			request.getSession().setAttribute("perferredDate", perferredDate);
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?appointmentTypeId=1&date=" + perferredDate + "&serviceCentreCode=" + csCenter;
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc")) {
 				lang = "CN";
@@ -2843,7 +2858,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	 */
 	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
 		String lang = UserRestURIConstants.getLanaguage(request);
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all?appointmentTypeId=1";
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}

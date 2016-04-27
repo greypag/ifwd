@@ -33,7 +33,7 @@ public interface SavieOnlineService {
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException;
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
-	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
+	public BaseResponse finalizeLifePolicy(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public List<OptionItemDesc> getBranchCode(String value,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException;
@@ -42,7 +42,7 @@ public interface SavieOnlineService {
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public void uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
-	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
+	public BaseResponse sendImage(HttpServletRequest request,String passportFlage,String plan) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	public void removeSavieOnlineSession(HttpServletRequest request);
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;

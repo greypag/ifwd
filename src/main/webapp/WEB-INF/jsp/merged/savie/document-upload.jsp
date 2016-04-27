@@ -495,7 +495,7 @@ var languageP = "${language}";
 						if (isValid && up) {
 							console.log('Proceed');
 							$self.removeAttr('disabled');
-							documentUpload();
+							documentUpload('${plan }');
 							up = false;
 						} 
 						else {
@@ -503,7 +503,7 @@ var languageP = "${language}";
 						}
 					}
 					else{
-						window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 					}
 				});
 				

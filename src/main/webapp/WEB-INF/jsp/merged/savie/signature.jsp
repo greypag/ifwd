@@ -852,7 +852,7 @@ var languageP = "${language}";
 						$.ajax({
 					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
 					    	type:'post',     
-					    	data:{ "image" : datapair[1] },     
+					    	data:{ "image" : datapair[1],"planCode" : "SAVIE-SP" }, 
 					    	success:function(data){
 					    		//loading mask 
 					    		$('#loadingDiv').toggle();

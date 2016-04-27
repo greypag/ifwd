@@ -159,6 +159,9 @@ var language = "${language}";
                       <c:if test="${(savieType == 'SP' && applicationType == 'online')}">
                      	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
                       </c:if>
+                      <c:if test="${plan == 'easyhealth-insurance' }">
+                     	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter-eh"><fmt:message key="button.next" bundle="${msg}" /></button>
+                      </c:if>
                    </div>
                 </div>   
              </form>
@@ -403,6 +406,46 @@ var language = "${language}";
 	$('#back-to-home-btn').click(function(){
 		window.location.href= context + "/" + language + "/savings-insurance";
 	});
+	$("#btn-cstmr-srvc-cnter-eh").on('click', function(){
+    	var planCode = "ROPHI1";
+		
+    	var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		var perferredTime = $("#preferred-time").val();
+		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			$('#fullyBooked').modal('show');
+		}else if(perferredTime == null || perferredTime.trim() == ""){
+			$('#perferredTimeIsNull').modal('show');
+		}else{
+			$.ajax({     
+			    url:context+'/ajax/savings-insurance/upsertAppointment',
+			    type:'post',     
+			    data:{    
+			    	"csCenter": csCenter,
+			        "perferredDate":perferredDate,
+			        "perferredTime":perferredTime,
+			        "planCode":planCode,
+			        "remarks":"",
+			        "type":"4"
+		   		},     
+			    error:function(){       
+			    },     
+			    success:function(data){
+			    	if(data.errMsgs == null){
+			    		//send email
+			    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}');
+				    	$("#paymentForm").submit();
+			    	}else if(data.errMsgs == "Access code has already been used"){
+			    		$('#accessCodeUsed').modal('show');
+			    		console.log(data.errMsgs);
+			    	}else if(data.errMsgs == "Reservation is invalid"){
+			    		$('#reservationInvalid').modal('show');
+			    		console.log(data.errMsgs);
+			    	}
+			    }  
+			});
+		}
+   	});
        
     $("#btn-cstmr-srvc-cnter").on('click', function(){
       	//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
