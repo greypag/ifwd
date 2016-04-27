@@ -665,6 +665,10 @@ function getStarted(){
 			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			                          <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a>
 			                          </li>
+			                          <li class="menu-link">
+			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			                          <a href="<%=request.getContextPath()%>/${language}/easyhealth-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
+			                          </li>
 		                         </ul> 		                      
 			                  </li>
 	                          <li class="nav-group no-padding middle-group">
