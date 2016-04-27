@@ -20,10 +20,10 @@
         <div class="partner-headline-wrapper">
             <h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
-            <h4 class="form-title">A<fmt:message key="partner.form.title" bundle="${msg}" /></h4>       
+            <%-- <h4 class="form-title"><fmt:message key="partner.form.title" bundle="${msg}" /></h4>  --%>      
         </div>
-        <div id="success-msg" class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
         <form id="becomePartnerForm" class="form-horizontal form-uppercase" onsubmit="return false;">
+        	<div id="success-msg" class="h4-5"><fmt:message key="partner.form.success" bundle="${msg}" /></div>
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -79,10 +79,10 @@
             </div>
             <div class="clearfix"></div>                            
             <div class="next-btn">
-                <button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>
+                <button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>  
                 <!--<button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>-->
             </div>
-            <div id="failure-msg" class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>          
+            <div id="failure-msg" class="error-msg has-error"><small class="help-block"><fmt:message key="partner.form.systemError" bundle="${msg}" /></small></div>        
         </form>                             
     </div>
     <!-- Become partner form end -->
@@ -205,7 +205,7 @@ $(document).ready(function() {
         e.preventDefault();
         //resetForm($('#becomePartnerForm'));
         //function to submit form here
-   		console.log('test');
+   		//console.log('test');
    		  $.ajax({
    			  type : 'POST',
    			  url : '<%=request.getContextPath()%>/ajax/leads/partnership/register',
@@ -219,12 +219,12 @@ $(document).ready(function() {
    				      descriptionMsg : $('#descriptionMsg').val()
    			  },
    			  success : function(data) {
-   				$('#success-msg').show();
-   				  resetForm('#becomePartnerForm');
+  				$('#failure-msg').hide();
+  				$('#success-msg').show();
+  				resetForm('#becomePartnerForm');
    			  },
-   			  error : function(xhr) {
-   				$('#failure-msg').show();
-   				  console.error(xhr.status);
+   			  error: function(){
+   		      	$('#failure-msg').show(); 
    			  }
    	     });
     });    
