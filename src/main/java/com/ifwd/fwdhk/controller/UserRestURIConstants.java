@@ -354,6 +354,9 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "signature";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "payment";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "confirmation";
+	
+	/*API For easy health*/
+	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
