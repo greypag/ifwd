@@ -2705,9 +2705,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if(StringUtils.isNotBlank((String)session.getAttribute("username"))) {
 			String csCenter = request.getParameter("csCenter");
 			String perferredDate = request.getParameter("perferredDate");
+			String appointmentTypeId = request.getParameter("appointmentTypeId");
 			request.getSession().setAttribute("csCenter", csCenter);
 			request.getSession().setAttribute("perferredDate", perferredDate);
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			request.getSession().setAttribute("appointmentTypeId", appointmentTypeId);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate
+					+ "&serviceCentreCode=" + csCenter + "&appointmentTypeId=" + appointmentTypeId;
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc")) {
 				lang = "CN";
@@ -2746,6 +2749,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
+		String appointmentTypeId = request.getParameter("appointmentTypeId");
 		String planCode = request.getParameter("planCode");
 		String policyNumber = "";
 		String applicationNumber = "";
@@ -2776,6 +2780,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		applicationNumber = (String)appJsonObj.get("applicationNumber");
 		session.setAttribute("applicationNumber", applicationNumber);
 		
+		session.removeAttribute("csCenter");
+		session.removeAttribute("perferredDate");
+		session.removeAttribute("perferredTime");
+		session.removeAttribute("appointmentTypeId");
+		
 		if(appJsonObj != null) {
 			parameters = new org.json.simple.JSONObject();
 			parameters.put("serviceCentreCode", csCenter);
@@ -2789,6 +2798,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("remarks", remarks);
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", servicingAgent);
+			parameters.put("appointmentTypeId", appointmentTypeId);
 			
 			logger.info(parameters.toString());
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
@@ -2827,12 +2837,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	/**
 	 * 获取服务中心页面的数据
-	 * @param model request session
+	 * @param model request session appointmentTypeId ,later:2; 其它:1;
 	 * @return
 	 */
-	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
+	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session, String appointmentTypeId) {
 		String lang = UserRestURIConstants.getLanaguage(request);
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all?appointmentTypeId=" + appointmentTypeId;
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}
@@ -2848,7 +2858,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
-		JSONObject serviceCentreObj = new JSONObject();
 		ServiceCentreResponse serviceCentreResponse;
 		ServiceCentreResponse serviceCentre = new ServiceCentreResponse();
 		if (lang.equals("CN")) {
@@ -2868,68 +2877,50 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		List<String> calendarList;
 		long beforeDay = 86400000;
 		long dateTime;
-		JSONObject serviceCentreObjB;
 		JSONArray datesArrB;
 		JSONObject dateObjB;
 		long dateTimeB;
 		
-		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
-			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			calendarList = DateApi.timeslot(2, 24);
-			
-			datesList = new ArrayList<String>();
-			for(ServiceCentreResult entity :serviceCentreResultList) {
-				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
-					entityMap.put(entity.getServiceCentreCode(), entity);
-					datesArray = (JSONArray) serviceCentreObj.get("dates");
-					dateObj = (JSONObject) datesArray.get(0);
-					dateTime = (long) dateObj.get("date");
-					
-					for(int j = 0; j< datesArray.size(); j++) {
-						datesObj = (JSONObject)datesArray.get(j);
-						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
-					}
-					calendarList.removeAll(datesList);
-					datesMap.put(entity.getServiceCentreCode(), calendarList);
-					defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTime));
-					break;
-				}
-			}
-		}
-		
-		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
-			for(int i=1;i<serviceCentresArr.size();i++){
-				datesArray = (JSONArray) serviceCentreObj.get("dates");
-				dateObj = (JSONObject) datesArray.get(0);
-				dateTime = (long) dateObj.get("date");
-				
-				serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
-				datesArrB = (JSONArray) serviceCentreObjB.get("dates");
-				dateObjB = (JSONObject) datesArrB.get(0);
-				dateTimeB = (long) dateObjB.get("date");
-				if(dateTime>dateTimeB){
-					serviceCentreObj = serviceCentreObjB;
-				}
-				
+		JSONObject firstService = null;
+		JSONObject compareService = null;
+		ServiceCentreResult serviceCentreResult;
+		if(serviceCentresArr!=null && serviceCentresArr.size()>0) {
+			for(int i = 0; i < serviceCentreResultList.size(); i ++) {
 				calendarList = DateApi.timeslot(2, 24);
 				datesList = new ArrayList<String>();
-				for(ServiceCentreResult entity : serviceCentreResultList) {
-					if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
-						entityMap.put(entity.getServiceCentreCode(), entity);
+				serviceCentreResult = serviceCentreResultList.get(i);
+				for(int j = 0; j < serviceCentresArr.size(); j++) {
+					compareService = (JSONObject) serviceCentresArr.get(j);
+					if(serviceCentreResult.getServiceCentreCode().equals(compareService.get("serviceCentreCode"))) {
+						datesArrB = (JSONArray) compareService.get("dates");
+						dateObjB = (JSONObject) datesArrB.get(0);
+						dateTimeB = (long) dateObjB.get("date");
+						if(firstService == null) {
+							firstService = compareService;
+						}else {
+							datesArray = (JSONArray) firstService.get("dates");
+							dateObj = (JSONObject) datesArray.get(0);
+							dateTime = (long) dateObj.get("date");
+							if(dateTime>dateTimeB){
+								firstService = compareService;
+							}
+						}
 						
-						datesArray = (JSONArray) serviceCentreObjB.get("dates");
-						for(int j = 0; j< datesArray.size(); j++) {
-							datesObj = (JSONObject)datesArray.get(j);
+						entityMap.put(serviceCentreResult.getServiceCentreCode(), serviceCentreResult);
+						datesArray = (JSONArray) compareService.get("dates");
+						for(int k = 0; k< datesArray.size(); k++) {
+							datesObj = (JSONObject)datesArray.get(k);
 							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 						}
 						calendarList.removeAll(datesList);
-						datesMap.put(entity.getServiceCentreCode(), calendarList);
-						defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
+						datesMap.put(serviceCentreResult.getServiceCentreCode(), calendarList);
+						defaultDate.put(serviceCentreResult.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
 						break;
 					}
 				}
 			}
 		}
+		
 		List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
 		for(ServiceCentreResult result : entityMap.values()) {
 			results.add(result);
@@ -2941,9 +2932,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		model.addAttribute("datesMap", datesMap);
 		model.addAttribute("defaultDate", defaultDate);
 		model.addAttribute("results", results);
-		if(serviceCentreObj != null){
-			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
-			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+		if(firstService != null){
+			session.setAttribute("csCenter", firstService.get("serviceCentreCode"));
+			JSONArray datesArr = (JSONArray) firstService.get("dates");
 			if(datesArr != null) {
 				dateObj = (JSONObject) datesArr.get(0);
 				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
