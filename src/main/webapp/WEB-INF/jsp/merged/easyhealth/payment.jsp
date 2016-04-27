@@ -77,7 +77,7 @@ var home_url = "<%=request.getContextPath()%>";
 	
 	<!-- Application Content Start -->
 	<div class="app-pg-cont">
-		<form name="paymentForm" id="ef-form-payment" method="post">
+	    <form name="paymentForm" id="paymentForm" method="post">
 		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
         <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
         <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
@@ -212,7 +212,7 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="col-xs-12">
                 	<div class="form-group cbTNC-wrapper">
 	    				<div class="checkbox">
-							<input type="checkbox" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
+							<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
 						</div>
 						<span class="error-msg" id="cbTNCErrMsg"></span>
 					</div>
@@ -257,82 +257,6 @@ var home_url = "<%=request.getContextPath()%>";
 		</div>
 		</form>
 	</div>
-	<!-- Application Content End -->
-		<!-- <div class="fwd-container-limit clearfix">	
-				<div class="row">
-					<h3 class="heading-title">Your Selected Plan<span>
-					<a href="/en/savings-insurance/plan-details-sp?type=2">Edit</a>
-					</span></h3>
-					
-					<div class="col-xs-12 col-md-6 left-side-form">
-						<div class="gray-bg-data-info">
-							<label class="data-label">Plan name</label>
-							<p class="data-info">Savie</p>
-						</div>
-						<div class="gray-bg-data-info">
-							<label class="data-label">Saving amount</label>
-							<p class="data-info">HK$ 100,000</p>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-6 right-side-form">
-						<div class="gray-bg-data-info">
-							<label class="data-label">Premium mode</label>
-							<p class="data-info">
-							   Single premium
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="row" id="sales-input">
-					<h3 class="heading-title">Input for sales illustration</h3>
-					<p id="info-note"><span class="asterisk">*</span>The following information will become your policy information</p>
-					<div class="col-xs-12 col-md-6 left-side-form">
-						<div class="gray-bg-data-info">
-							<label class="data-label">Last name(same as HKID)</label>
-							<p class="data-info">Fok</p>
-						</div>
-						<div class="gray-bg-data-info">
-							<label class="data-label">Given name (same as HKID)</label>
-							<p class="data-info">Ting Kin </p>
-						</div>
-						<div class="gray-bg-data-info hidden">
-							<label class="data-label">label.chinese.name</label>
-							<p class="data-info">陳大文</p>
-							<p class="data-info"> </p>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-6 right-side-form">
-						<div class="gray-bg-data-info">
-							<label class="data-label">Date of birth</label>
-							<p class="data-info">29-12-1958</p>
-						</div>
-						<div class="gray-bg-data-info">
-							<label class="data-label">Gender</label>
-							<p class="data-info">Male</p>
-						</div>
-					</div>       	
-				 </div>
-		    <div class="row" id="pdf-illustration-holder">
-		    	<p id="review-note">Review and accept your sales illustration in order to proceed, you may refer to the <a href="#" data-toggle="modal" data-target="#sales-illustration-modal">sales illustration sample</a> for easy reference.</p>
-		    </div>
-			<div class="modal fade common-welcome-modal" id="sales-illustration-modal" tabindex="-1" role="dialog">
-			  <div class="modal-dialog">
-				<div class="modal-content">
-					<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-					<div id="pdf-image" class="pdf-image-container">
-						<div class="pdf-image-zoom zoom-in"><span class="glyphicon glyphicon-plus"></span></div>
-						<div class="pdf-image-zoom zoom-out"><span class="glyphicon glyphicon-minus"></span></div>
-						<div class="pdf-image-scroll">
-							<img class="pdf-image" data-width="75" src="/resources/pdf/template/SavieProposalTemplate_en.jpg" style="width: 75%;">
-						</div>
-					</div>
-					<div class="text-center">
-						<button class="text-bold btn savie-common-btn" data-dismiss="modal" id="close-btn">Close</button>
-					</div>	
-				</div>
-			  </div>
-			</div>					
-		</div> -->
     </div>
 
 </div>
@@ -344,7 +268,35 @@ $(document).ready(function() {
         var replaceSpace = $(this).val(); 
         var result = replaceSpace.replace(/\s/g,'');
         $("#cardNo").val(result);
-    }); 
+    });
+    
+    $("#btn-payment").on("click",function(){
+    	$('#paymentForm').bootstrapValidator('validate');
+		if($('#paymentForm').data('bootstrapValidator').isValid()){
+			//do something
+			var creditCaredNo = $('#securityCode').val();
+ 	 		 var expiryDate = $('#epMonth').val()+$('#epYear').val().substr(2, 2);
+ 	 		 var cardHolderName = $('#cardHolder').val();
+	 		  $.ajax({
+	 			  type : "POST",
+	 			  cache:false, 
+				  async:false, 
+	 			  url : context+"/ajax/eliteTerm/putEtPaymentSession",
+	 			  data : {creditCaredNo : creditCaredNo,
+	 					  expiryDate: expiryDate,
+	 					  cardHolderName: cardHolderName},
+	 			  success : function(data) {
+                     console.log($("#gateway").val());
+                     $("#paymentForm").attr('action', $("#gateway").val());
+                     //$("#paymentForm").submit();
+                     document.getElementById('paymentForm').submit();
+	 			  },
+	 			  error:function(){
+	 			      console.log('error');   
+	 		      }
+ 		      });
+		}
+	});
 });
 
 </script>

@@ -142,7 +142,7 @@ $(document).ready(function(){
 		//Using jquery.payment.js plug-in for creditcard checking
 		$('#ccNumber').payment('formatCardNumber');
 
-		$("#ef-form-payment").bootstrapValidator({
+		$("#paymentForm").bootstrapValidator({
 			fields:{
 				ccNumber:{
 					container:'#ccNumberErrMsg',
@@ -246,34 +246,6 @@ $(document).ready(function(){
 				}				
 			}
 		})
-
-		$("#btn-payment").on("click",function(){
-			$('#ef-form-payment').bootstrapValidator('validate');
-			if($('#ef-form-payment').data('bootstrapValidator').isValid()){
-				//do something
-				var creditCaredNo = $('#securityCode').val();
-	 	 		 var expiryDate = $('#epMonth').val()+$('#epYear').val().substr(2, 2);
-	 	 		 var cardHolderName = $('#cardHolder').val();
-		 		  $.ajax({
-		 			  type : "POST",
-		 			  cache:false, 
-					  async:false, 
-		 			  url : context+"/ajax/eliteTerm/putEtPaymentSession",
-		 			  data : {creditCaredNo : creditCaredNo,
-		 					  expiryDate: expiryDate,
-		 					  cardHolderName: cardHolderName},
-		 			  success : function(data) {
-		 				 console.log($("#gateway").val());
-	                     $("#ef-form-payment").attr('action', $("#gateway").val());
-	                     document.getElementById('ef-form-payment').submit();
-		 				//window.location.href= contextPath+'/en/easyhealth-insurance/document-upload';
-		 			  },
-		 			  error:function(){
-		 			      console.log('error');   
-		 		      }
-	 		      });
-			}
-		});
 	}
 
 
