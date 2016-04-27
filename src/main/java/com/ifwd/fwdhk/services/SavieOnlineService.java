@@ -61,4 +61,5 @@ public interface SavieOnlineService {
 	public void deleteSaviePdf(HttpServletRequest request);
 	public void sendEmailForDocumentUploadLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void partnerRegister(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
+	public void sendMailToNewPartner(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
 }
