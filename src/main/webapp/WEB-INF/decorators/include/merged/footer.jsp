@@ -56,7 +56,7 @@
 	           <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>	       
 	       </div>
 	       <div class="bottom-link">
-	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partner.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.partner" bundle="${msg}" /></a>      
+	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partner.link" bundle="${msg}" />"><fmt:message key="footer.menu.partner" bundle="${msg}" /></a>      
 	       </div>	       
 	       <div class="clearfix"></div>	         
 	    </div>
