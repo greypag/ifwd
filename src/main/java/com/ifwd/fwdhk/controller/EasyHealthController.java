@@ -59,6 +59,7 @@ public class EasyHealthController extends BaseController{
 
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance"})
 	public ModelAndView getEasyHealth(Model model, HttpServletRequest request, HttpSession httpSession) {
+		easyHealthService.removeSession(request);
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH);
 	}
 	

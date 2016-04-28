@@ -286,4 +286,21 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void removeSession(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.removeAttribute("saviePlanDetails");
+		session.removeAttribute("planDetailData");
+		session.removeAttribute("savieFna");
+		session.removeAttribute("productRecommendation");
+		session.removeAttribute("lifePersonalDetails");
+		session.removeAttribute("lifeEmploymentInfo");
+		session.removeAttribute("lifeBeneficaryInfo");
+		session.removeAttribute("lifePayment");
+		session.removeAttribute("lifeDeclaration");
+		session.removeAttribute("lifePolicy");
+		session.removeAttribute("type");
+		session.removeAttribute("ehPlanDetail");
+		logger.info("remove session");
+	}
 }

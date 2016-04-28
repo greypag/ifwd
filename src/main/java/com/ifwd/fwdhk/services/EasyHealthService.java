@@ -28,5 +28,6 @@ public interface EasyHealthService {
 	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request) throws ECOMMAPIException;
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public void putPaymentSession(HttpServletRequest request)throws Exception;
+	public void removeSession(HttpServletRequest request);
 	
 }
