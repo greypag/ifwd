@@ -572,13 +572,7 @@ var home_url = "<%=request.getContextPath()%>";
 		    $('#'+slideFrom.attr('next-target')).addClass('active');
 		});
 		$(document).ready(function() {
-			$('#forbid-landing').modal('show');
 			
-			$('#forbid-landing-button').click(function(){
-				//$('#forbid-landing').modal('hide');
-				//URL for RP:
-				window.location = '<%=request.getContextPath()%>/${language}?utm_campaign=savie_soldout&utm_source=savie_rp&utm_medium=ifwd';
-			});
 			if(isMobile) {
 				$(".annualTravel_policy_item").click(function(){
 					itemTop = $(this).offset();
