@@ -15,6 +15,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -24,7 +25,9 @@ import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 
 public interface EasyHealthService {
-	public JSONObject getPremium(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request) throws ECOMMAPIException;
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
+	public void putPaymentSession(HttpServletRequest request)throws Exception;
+	public void removeSession(HttpServletRequest request);
 	
 }

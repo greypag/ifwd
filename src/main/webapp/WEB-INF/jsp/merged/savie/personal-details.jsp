@@ -220,7 +220,7 @@ var languageP = "${language}";
                                     <div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}" /></label>
-											<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
+											<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly" />
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>

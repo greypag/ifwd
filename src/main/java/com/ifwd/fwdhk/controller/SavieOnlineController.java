@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
@@ -352,8 +353,8 @@ public class SavieOnlineController extends BaseController{
 				SavieFnaBean savieFna = new SavieFnaBean();
 				savieFna.setName(userDetails.getFullName());
 				savieFna.setUser_name(userDetails.getFullName());
-				savieFna.setGender("0");
-				savieFna.setDob("31-01-1990");
+				EasyHealthPlanDetailBean ehPlanDetail = (EasyHealthPlanDetailBean) request.getSession().getAttribute("ehPlanDetail");
+				savieFna.setGender(ehPlanDetail.getGender());
 				request.getSession().setAttribute("savieFna", savieFna);
 			}
 			model.addAttribute("plan", plan);

@@ -1752,20 +1752,27 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public BaseResponse finalizeLifePolicy(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
-		if(lifePayment==null){
-			lifePayment = new LifePaymentBean();
-		}
-		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", "");
-		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", lifePayment.getAccountHolderName()!=null?lifePayment.getAccountHolderName():"");
-		parameters.put("policyNo", lifePolicy.getPolicyNo());
+		String creditCaredNo = "";
+		String expiryDate = "";
+		String cardHolderName = "";
+		String planCode = "";
 		if("savings-insurance".equals(plan)){
-			parameters.put("planCode", "SAVIE-SP");
+			cardHolderName = lifePayment.getAccountHolderName();
+			planCode = "SAVIE-SP";
 		}
 		else{
-			parameters.put("planCode", "ROPHI1");
+			creditCaredNo = (String) session.getAttribute("creditCaredNo");
+			expiryDate = (String) session.getAttribute("expiryDate");
+			cardHolderName = (String) session.getAttribute("cardHolderName");
+			planCode = "ROPHI1";
 		}
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("creditCaredNo", creditCaredNo);
+		parameters.put("expiryDate", expiryDate);
+		parameters.put("cardHolderName", cardHolderName);
+		parameters.put("policyNo", lifePolicy.getPolicyNo());
+		parameters.put("planCode", planCode);
 		logger.info(parameters.toString());
 		
 		BaseResponse apiReturn = null;

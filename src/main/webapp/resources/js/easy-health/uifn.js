@@ -54,8 +54,7 @@ $(document).ready(function() {
 
         if ($(this).hasClass("disabled-gray-btn")) return;
 
-        var selectDobAry = $('#dob').mobiscroll('getArrayVal');
-        var dobStr = selectDobAry[2]+"-"+pad(selectDobAry[1], 2)+"-"+pad(selectDobAry[0], 2);
+        var dobStr = $('#plan-dob-datepicker').val();
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
             fillPlanData(data);
             //change step2 back btn img
@@ -75,6 +74,8 @@ $(document).ready(function() {
     $(".eh-btn-tbl-detail").click(function() {
         $(".eh-plan-tab").hide();
         $(".btn-plan-selector[data-tab='" + $(this).data("tab") + "']:first").trigger("click");
+        
+        //alert($(this).data("data-tab"));
 
 
         $(".step2").fadeOut(function() {

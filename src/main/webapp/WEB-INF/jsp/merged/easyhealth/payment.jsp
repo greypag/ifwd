@@ -279,7 +279,7 @@ $(document).ready(function() {
 	 			  type : "POST",
 	 			  cache:false, 
 				  async:false, 
-	 			  url : context+"/ajax/eliteTerm/putEtPaymentSession",
+	 			  url : context+"/ajax/easyhealth-insurance/putPaymentSession",
 	 			  data : {creditCaredNo : creditCaredNo,
 	 					  expiryDate: expiryDate,
 	 					  cardHolderName: cardHolderName},
