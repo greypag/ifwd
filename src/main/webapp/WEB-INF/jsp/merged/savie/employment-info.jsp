@@ -796,6 +796,7 @@ var languageP = "${language}";
 				},
 				function(data) {
 					$("#tmpOccupation").empty();
+					$("#tmpOccupation").append("<option value='' disabled='disabled' selected='selected' ><fmt:message key='placeholder.occupation' bundle='${msg}' /></option>");
 					if(data != null){
 						for(var i = 0; i < data.length; i++) {
 							$("#tmpOccupation").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");
