@@ -75,6 +75,8 @@ $(document).ready(function() {
     $(".eh-btn-tbl-detail").click(function() {
         $(".eh-plan-tab").hide();
         $(".btn-plan-selector[data-tab='" + $(this).data("tab") + "']:first").trigger("click");
+        
+        //alert($(this).data("data-tab"));
 
 
         $(".step2").fadeOut(function() {
