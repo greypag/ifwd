@@ -26,5 +26,6 @@ import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 public interface EasyHealthService {
 	public JSONObject getPremium(HttpServletRequest request) throws ECOMMAPIException;
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
+	public void putPaymentSession(HttpServletRequest request)throws Exception;
 	
 }

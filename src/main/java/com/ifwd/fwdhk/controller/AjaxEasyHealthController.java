@@ -90,4 +90,18 @@ public class AjaxEasyHealthController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+	
+	@RequestMapping(value = {"/ajax/easyhealth-insurance/putPaymentSession"})
+	public void putPaymentSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			easyHealthService.putPaymentSession(request);
+			ajaxReturn(response,"success");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

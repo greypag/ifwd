@@ -265,4 +265,16 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		}
 		return lifePolicy;
 	}
+	
+	public void putPaymentSession(HttpServletRequest request)throws Exception{
+		try {
+			request.getSession().setAttribute("creditCaredNo", request.getParameter("creditCaredNo").replaceAll(" ", ""));
+			request.getSession().setAttribute("expiryDate", request.getParameter("expiryDate"));
+			request.getSession().setAttribute("cardHolderName", request.getParameter("cardHolderName"));
+			logger.info("payment put session success");
+		}catch(Exception e){
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
