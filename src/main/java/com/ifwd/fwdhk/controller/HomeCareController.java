@@ -259,9 +259,12 @@ public class HomeCareController {
 					UserRestURIConstants.getLanaguage(request));
 			String scriptChildName = WebServiceUtils.getPageTitle("homeCare.script.child.name",
 					UserRestURIConstants.getLanaguage(request));
+			String scriptImg = WebServiceUtils.getPageTitle("homeCare.sharing.og.image",
+					UserRestURIConstants.getLanaguage(request));
 			model.addAttribute("scriptName", scriptName);
 			model.addAttribute("scriptDescription", scriptDescription);
 			model.addAttribute("scriptChildName", scriptChildName);
+			model.addAttribute("scriptImg", scriptImg);
 			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";

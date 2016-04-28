@@ -45,11 +45,11 @@
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${travelScriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_travelcare_en.jpg",
+  "image":"${travelScriptImg}",
   "description":"${travelScriptDescription}",
   "brand":{
     "@type":"Insurance",
-    "name":"FWD"
+    "name":"${travelScriptChildName}"
   },
   "offers":{
     "@type":"AggregateOffer",

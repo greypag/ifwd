@@ -306,8 +306,14 @@ public class TravelController {
 				UserRestURIConstants.getLanaguage(request));
 		String travelScriptDescription = WebServiceUtils.getPageTitle("travel.script.description",
 				UserRestURIConstants.getLanaguage(request));
+		String travelScriptChildName = WebServiceUtils.getPageTitle("travel.script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		String travelScriptImg = WebServiceUtils.getPageTitle("travel.og.image",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("travelScriptName", travelScriptName);
 		model.addAttribute("travelScriptDescription", travelScriptDescription);
+		model.addAttribute("travelScriptChildName", travelScriptChildName);
+		model.addAttribute("travelScriptImg", travelScriptImg);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}

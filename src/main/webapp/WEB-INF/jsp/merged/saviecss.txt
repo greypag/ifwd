@@ -1,0 +1,76 @@
+O2O-landing.jsp:					$('#emailErrMsg').css('visibility', 'visible');
+O2O-landing.jsp:			                $('body').css("position", "inital");
+O2O-landing.jsp:			                //$('body').css("position", "fixed");
+O2O-landing.jsp:			                $('body').css("position", "initial");
+O2O-landing.jsp:			                //$('body').css("position", "relative");
+application-summary.jsp:      <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+archive/confirmation.jsp:	<link href="<%=request.getContextPath()%>/resources/css/main.css" rel="stylesheet">
+archive/confirmation.jsp:	<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+archive/declarations.jsp:	<link href="<%=request.getContextPath()%>/resources/css/main.css" rel="stylesheet">
+archive/declarations.jsp:	<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+archive/document-upload.jsp:<link href="<%=request.getContextPath()%>/resources/dropzonejs/basic.css" rel="stylesheet">  
+archive/document-upload.jsp:<link href="<%=request.getContextPath()%>/resources/dropzonejs/dropzone.css" rel="stylesheet"> 
+archive/financial-needs-analysis.jsp:<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
+archive/O2O-landing.jsp:					$('#emailErrMsg').css('visibility', 'visible');
+archive/sales-illustration.jsp:<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
+beneficiary-info.jsp:	    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+confirmation-rp.jsp:	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
+confirmation-rp.jsp:	href="<%=request.getContextPath()%>/resources/css/print.css" media="print">
+confirmation-rp.jsp:        	$('body').css('margin-top','98px');
+declaration.jsp://			$('#yes-radio-popup').css("display","block");
+declaration.jsp://			$('#yes-radio-popup-intent').css("display","block");
+declaration.jsp://			$('#yes-radio-popup').css("display","none");
+declaration.jsp://			$('#yes-radio-popup-intent').css("display","none");
+declaration.jsp://		$('#yes-radio-popup').css("display","none");
+declaration.jsp://		$('#yes-radio-popup-intent').css("display","none");
+declarations.jsp:	<link href="<%=request.getContextPath()%>/resources/css/main.css" rel="stylesheet">
+declarations.jsp:	<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" rel="stylesheet">
+document-upload.jsp:                  $('#iframe-three').css('left', '68%');
+document-upload.jsp:                  $('#iframe-three').css('left', '34%');
+document-upload.jsp:						$('.upload-ie-iframe').css({'width': '103%', 'border': 'none', 'height': '1450px', 'margin-left': '-15px'});
+document-upload.jsp:						$('.upload-ie-iframe').css({'width': '140%', 'border': 'none', 'height': '550px'});
+document-upload.jsp:						$('.upload-ie-iframe-second').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'34%'});
+document-upload.jsp:						$('.upload-ie-iframe-third').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'68%'});
+employment-info.jsp:		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+financial-needs-analysis.jsp:<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
+header.jsp:		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/animate.min.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/main.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/responsive.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css" />
+header.jsp:		<link rel="stylesheet" href="assets/css/icomoon.min.css">
+header.jsp:		<link rel="stylesheet" href="assets/css/header.css">
+login-overlay.jsp:		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+login-overlay.jsp:		<link rel="stylesheet" href="assets/css/savie-styles.css">
+payment.jsp:<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+personal-details.jsp:		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+personal-details.jsp:						$('.res-textfield-hidden').css("margin-bottom", "10px");
+plan-details-b-SP.jsp:<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+plan-details-b-SP.jsp:			}).css('cursor', 'default');
+plan-details-b-SP.jsp:			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
+plan-details-b-SP.jsp:			$(this).parent().find('.custom-made-label').css({color: '#000000'});
+plan-details.jsp:                        //$('.login-info').css('display','block');
+purchase-history.jsp:					$('#copy-link-btn').css('width', computedWidth+'px' );
+purchase-history.jsp:						$('#copy-link-btn').css('width', computedWidth+'px' );
+purchase-history.jsp:						$('#copy-link-btn').css('width', '115px' );
+savings-insurance-rp.jsp:<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
+savings-insurance-rp.jsp:		                $('body').css("position", "inital");
+savings-insurance-rp.jsp:		                $('.hidden-benefits-info').css("font-family", "Calibri");
+savings-insurance-rp.jsp:						$('.hidden-benefits-info').css("font-size", "14px");
+savings-insurance-rp.jsp:		                $('body').css("position", "initial");
+savings-insurance-rp.jsp:		                //$('body').css("position", "relative");
+savings-insurance-sp.jsp:<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
+savings-insurance-sp.jsp:					$('#emailErrMsg').css('visibility', 'visible');
+savings-insurance-sp.jsp:			                $('body').css("position", "inital");
+savings-insurance-sp.jsp:			                $('.hidden-benefits-info').css("font-family", "Calibri");
+savings-insurance-sp.jsp:							$('.hidden-benefits-info').css("font-size", "14px");
+savings-insurance-sp.jsp:			                $('body').css("position", "initial");
+savings-insurance-sp.jsp:			                //$('body').css("position", "relative");
+signature.jsp:			    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+signature.jsp:					    //$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
+signature.jsp:						//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+signature.jsp:					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+signature.jsp:					    	    	//$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+signature.jsp:								$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+signature.jsp:			$('canvas.jSignature').prop({"height": height, "width": width, "lineWidth": 2}).css({'height':height + 'px', 'width': width + 'px'});
