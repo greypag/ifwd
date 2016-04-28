@@ -17686,24 +17686,57 @@ button#thank-you-continue {
 	width: 100%;
 }
 
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing {
+	max-width: 414px;
+	margin: 230px auto;
+}
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing {
+		max-width: 1000px;
+		margin: 230px auto;
+	}
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing .modal-content.teaserSurvey .modal-body.teaserSurvey.forbid-landing{
+	position: relative;
+}
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing .modal-content.teaserSurvey .modal-body.teaserSurvey.forbid-landing #forbid-landing-button {
+	position: absolute;
+	top: 55%;
+	left: 6%;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 1.5;
+	border-radius: 3px;
+}
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey.forbid-landing .modal-content.teaserSurvey .modal-body.teaserSurvey.forbid-landing #forbid-landing-button {
+		top: 70%;
+		left: 6%;
+		font-size: 20px;
+	}
+}
+
 @media ( min-width : 992px) {
 	/* line 130, ../sass/partials/_teaser.scss */
 	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey {
-		width: 665px;
+		width: 100%;
 	}
 }
 /* line 137, ../sass/partials/_teaser.scss */
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey
 	{
 	background-color: #fff;
-	padding: 20px 23px 31px 23px;
+	/*padding: 20px 23px 31px 23px;*/
+	padding: 0;
 }
 
 @media ( min-width : 992px) {
 	/* line 137, ../sass/partials/_teaser.scss */
 	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey
 		{
-		padding: 27px 54px 40px 54px;
+		/*padding: 27px 54px 40px 54px;*/
+		padding: 0;
 	}
 }
 /* line 145, ../sass/partials/_teaser.scss */
@@ -17724,10 +17757,14 @@ button#thank-you-continue {
 	}
 }
 /* line 157, ../sass/partials/_teaser.scss */
-.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-header.teaserSurvey
-	{
+#forbid-landing .modal-header.teaserSurvey{
+	display: none;
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-header.teaserSurvey{
 	margin-bottom: 10px;
 }
+
 /* line 161, ../sass/partials/_teaser.scss */
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey
 	{
@@ -21625,6 +21662,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 /* line 5, ../sass/partials/_elite-terms-widget.scss */
 #flux.et-page {
 	background: #fff;
+	overflow: visible;
 }
 
 /* line 10, ../sass/partials/_elite-terms-widget.scss */

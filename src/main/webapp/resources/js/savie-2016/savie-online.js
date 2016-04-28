@@ -1,7 +1,13 @@
 var contextPath = context;
 
 // Savie Online
-$(document).ready(function() {	
+$(document).ready(function() {
+	$('.modal').on('shown.bs.modal', function(){
+		document.ontouchmove = function(e){ e.preventDefault(); }
+	});
+	$('.modal').on('hidden.bs.modal', function(){
+		document.ontouchmove = function(e){ return true; }
+	});
 	
 	// PDF lightbox resizing
 	var browWidth = $(window).width();
@@ -1532,7 +1538,7 @@ function getSavieOnlinePlandetails(isSavedReturn) {
     });
 }
 
-function getTimeSlot(perTime){
+function getTimeSlot(perTime, appointmentTypeId){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();
 	$.ajax({     
@@ -1540,7 +1546,8 @@ function getTimeSlot(perTime){
 	    type:'post',     
 	    data:{    
 	    	"csCenter": csCenter,
-	        "perferredDate":perferredDate
+	        "perferredDate":perferredDate,
+	        "appointmentTypeId":appointmentTypeId
    		},     
 	    error:function(){       
 	    },     

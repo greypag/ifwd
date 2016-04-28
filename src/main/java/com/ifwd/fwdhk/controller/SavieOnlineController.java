@@ -601,7 +601,7 @@ public class SavieOnlineController extends BaseController{
 			HttpSession session = request.getSession();
 			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
 				try {
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "2");
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
@@ -658,7 +658,7 @@ public class SavieOnlineController extends BaseController{
 				model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 				
 				if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "2");
 					savieOnlineService.createApplicationFormPdf("1", request, session);
 					savieOnlineService.createFnaFormPdf("1", request, session);
 					savieOnlineService.createSalesIllustrationPdf("1",request);
@@ -891,7 +891,7 @@ public class SavieOnlineController extends BaseController{
 		else{
 			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
 				try {
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "1");
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}

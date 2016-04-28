@@ -9,10 +9,8 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,6 +52,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
@@ -2716,9 +2715,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if(StringUtils.isNotBlank((String)session.getAttribute("username"))) {
 			String csCenter = request.getParameter("csCenter");
 			String perferredDate = request.getParameter("perferredDate");
+			String appointmentTypeId = request.getParameter("appointmentTypeId");
 			request.getSession().setAttribute("csCenter", csCenter);
 			request.getSession().setAttribute("perferredDate", perferredDate);
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			request.getSession().setAttribute("appointmentTypeId", appointmentTypeId);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate
+					+ "&serviceCentreCode=" + csCenter + "&appointmentTypeId=" + appointmentTypeId;
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc")) {
 				lang = "CN";
@@ -2757,6 +2759,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
+		String appointmentTypeId = request.getParameter("appointmentTypeId");
 		String planCode = request.getParameter("planCode");
 		String policyNumber = "";
 		String applicationNumber = "";
@@ -2787,6 +2790,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		applicationNumber = (String)appJsonObj.get("applicationNumber");
 		session.setAttribute("applicationNumber", applicationNumber);
 		
+		session.removeAttribute("csCenter");
+		session.removeAttribute("perferredDate");
+		session.removeAttribute("perferredTime");
+		session.removeAttribute("appointmentTypeId");
+		
 		if(appJsonObj != null) {
 			parameters = new org.json.simple.JSONObject();
 			parameters.put("serviceCentreCode", csCenter);
@@ -2800,6 +2808,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("remarks", remarks);
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", servicingAgent);
+			parameters.put("appointmentTypeId", appointmentTypeId);
 			
 			logger.info(parameters.toString());
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
@@ -2838,12 +2847,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	/**
 	 * 获取服务中心页面的数据
-	 * @param model request session
+	 * @param model request session appointmentTypeId ,later:2; 其它:1;
 	 * @return
 	 */
-	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
+	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session, String appointmentTypeId) {
 		String lang = UserRestURIConstants.getLanaguage(request);
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all?appointmentTypeId=" + appointmentTypeId;
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}
@@ -2859,7 +2868,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
-		JSONObject serviceCentreObj = new JSONObject();
 		ServiceCentreResponse serviceCentreResponse;
 		ServiceCentreResponse serviceCentre = new ServiceCentreResponse();
 		if (lang.equals("CN")) {
@@ -2879,68 +2887,50 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		List<String> calendarList;
 		long beforeDay = 86400000;
 		long dateTime;
-		JSONObject serviceCentreObjB;
 		JSONArray datesArrB;
 		JSONObject dateObjB;
 		long dateTimeB;
 		
-		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
-			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			calendarList = DateApi.timeslot(2, 24);
-			
-			datesList = new ArrayList<String>();
-			for(ServiceCentreResult entity :serviceCentreResultList) {
-				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
-					entityMap.put(entity.getServiceCentreCode(), entity);
-					datesArray = (JSONArray) serviceCentreObj.get("dates");
-					dateObj = (JSONObject) datesArray.get(0);
-					dateTime = (long) dateObj.get("date");
-					
-					for(int j = 0; j< datesArray.size(); j++) {
-						datesObj = (JSONObject)datesArray.get(j);
-						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
-					}
-					calendarList.removeAll(datesList);
-					datesMap.put(entity.getServiceCentreCode(), calendarList);
-					defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTime));
-					break;
-				}
-			}
-		}
-		
-		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
-			for(int i=1;i<serviceCentresArr.size();i++){
-				datesArray = (JSONArray) serviceCentreObj.get("dates");
-				dateObj = (JSONObject) datesArray.get(0);
-				dateTime = (long) dateObj.get("date");
-				
-				serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
-				datesArrB = (JSONArray) serviceCentreObjB.get("dates");
-				dateObjB = (JSONObject) datesArrB.get(0);
-				dateTimeB = (long) dateObjB.get("date");
-				if(dateTime>dateTimeB){
-					serviceCentreObj = serviceCentreObjB;
-				}
-				
+		JSONObject firstService = null;
+		JSONObject compareService = null;
+		ServiceCentreResult serviceCentreResult;
+		if(serviceCentresArr!=null && serviceCentresArr.size()>0) {
+			for(int i = 0; i < serviceCentreResultList.size(); i ++) {
 				calendarList = DateApi.timeslot(2, 24);
 				datesList = new ArrayList<String>();
-				for(ServiceCentreResult entity : serviceCentreResultList) {
-					if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
-						entityMap.put(entity.getServiceCentreCode(), entity);
+				serviceCentreResult = serviceCentreResultList.get(i);
+				for(int j = 0; j < serviceCentresArr.size(); j++) {
+					compareService = (JSONObject) serviceCentresArr.get(j);
+					if(serviceCentreResult.getServiceCentreCode().equals(compareService.get("serviceCentreCode"))) {
+						datesArrB = (JSONArray) compareService.get("dates");
+						dateObjB = (JSONObject) datesArrB.get(0);
+						dateTimeB = (long) dateObjB.get("date");
+						if(firstService == null) {
+							firstService = compareService;
+						}else {
+							datesArray = (JSONArray) firstService.get("dates");
+							dateObj = (JSONObject) datesArray.get(0);
+							dateTime = (long) dateObj.get("date");
+							if(dateTime>dateTimeB){
+								firstService = compareService;
+							}
+						}
 						
-						datesArray = (JSONArray) serviceCentreObjB.get("dates");
-						for(int j = 0; j< datesArray.size(); j++) {
-							datesObj = (JSONObject)datesArray.get(j);
+						entityMap.put(serviceCentreResult.getServiceCentreCode(), serviceCentreResult);
+						datesArray = (JSONArray) compareService.get("dates");
+						for(int k = 0; k< datesArray.size(); k++) {
+							datesObj = (JSONObject)datesArray.get(k);
 							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
 						}
 						calendarList.removeAll(datesList);
-						datesMap.put(entity.getServiceCentreCode(), calendarList);
-						defaultDate.put(entity.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
+						datesMap.put(serviceCentreResult.getServiceCentreCode(), calendarList);
+						defaultDate.put(serviceCentreResult.getServiceCentreCode(), DateApi.formatTime2(dateTimeB));
 						break;
 					}
 				}
 			}
 		}
+		
 		List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
 		for(ServiceCentreResult result : entityMap.values()) {
 			results.add(result);
@@ -2952,9 +2942,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		model.addAttribute("datesMap", datesMap);
 		model.addAttribute("defaultDate", defaultDate);
 		model.addAttribute("results", results);
-		if(serviceCentreObj != null){
-			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
-			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+		if(firstService != null){
+			session.setAttribute("csCenter", firstService.get("serviceCentreCode"));
+			JSONArray datesArr = (JSONArray) firstService.get("dates");
 			if(datesArr != null) {
 				dateObj = (JSONObject) datesArr.get(0);
 				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
@@ -3289,5 +3279,281 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			logger.info(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
+	}
+	
+	public void partnerRegister(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException{
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader1(request);
+		JSONObject parameters = new JSONObject();
+		parameters.put("name", partnerRegisterDetails.getContactName()==null?"":partnerRegisterDetails.getContactName());
+		parameters.put("email", partnerRegisterDetails.getContactEmail()==null?"":partnerRegisterDetails.getContactEmail());
+		parameters.put("industry", partnerRegisterDetails.getIndustryName()==null?"":partnerRegisterDetails.getIndustryName());
+		parameters.put("location", partnerRegisterDetails.getCompanyLocation()==null?"":partnerRegisterDetails.getCompanyLocation());
+		parameters.put("number", partnerRegisterDetails.getContactNum()==null?"":partnerRegisterDetails.getContactNum());
+		parameters.put("companyName", partnerRegisterDetails.getCompanyName()==null?"":partnerRegisterDetails.getCompanyName());
+		parameters.put("message", partnerRegisterDetails.getDescriptionMsg()==null?"":partnerRegisterDetails.getDescriptionMsg());
+		logger.info(parameters.toString());
+		BaseResponse apiReturn = connector.partnerRegister(parameters, header);
+		
+		if(apiReturn!=null && apiReturn.hasError()) {
+			logger.info(apiReturn.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		} else {
+			sendMailToNewPartner(partnerRegisterDetails, request);
+		}
+	}
+
+
+	@Override
+	public void sendMailToNewPartner(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException {
+		
+		try {
+			String from = UserRestURIConstants.getConfigs("becomePartnerMailTo");
+			String subject = "New Partner – Partner_" + partnerRegisterDetails.getCompanyName();
+			
+			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+			if (request.getServerPort() != 80 && request.getServerPort() != 443)
+			{
+				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+			}
+			
+			String imageUrl  = serverUrl +"/resources/images/ifwd_hero-banner_edm.jpg";
+			String message = " <body>  "+
+							" <div marginwidth=\"0\" marginheight=\"0\" style=\"margin:0;padding:0;background-color:#f2f2f2;min-height:100%!important;width:100%!important\">  "+
+							" <center>  "+
+							" <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" width=\"100%\" style=\"border-collapse:collapse;margin:0;padding:0;background-color:#f2f2f2;height:100%!important;width:100%!important\">  "+
+							"  <tbody>  "+
+							"   <tr>  "+
+							"     <td align=\"center\" valign=\"top\" style=\"margin:0;padding:20px;border-top:0;height:100%!important;width:100%!important\">  "+
+							"   <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;border:0\">  "+
+							"    <tbody>  "+
+							"     <tr>  "+
+							"    <td align=\"center\" valign=\"top\">  "+
+							"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">  "+
+							"     <tbody>  "+
+							"     <tr>  "+
+							"     <td valign=\"top\" style=\"padding-top:9px\">  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td valign=\"top\">  "+
+							"               <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"266\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">  "+
+							"                       <a href=\""+serverUrl+"\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><img align=\"none\" src=\""+serverUrl+"/resources/images/fwd-email-logo.jpg\" style=\"margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important\" class=\"CToWUd\"></a>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"               <table align=\"right\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"297\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">  "+
+							"                       <div style=\"text-align:right\"><br>  "+
+							"                       </div>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"     </td>  "+
+							"   </tr>  "+
+							" </tbody>  "+
+							" </table>  "+
+							" </td>  "+
+							" </tr>  "+
+							"  <tr>  "+
+							"    <td align=\"center\" valign=\"top\">  "+
+							"     <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">  "+
+							" <tbody>  "+
+							"   <tr>  "+
+							"     <td valign=\"top\">  "+
+							"     </td>  "+
+							"   </tr>  "+
+							" </tbody>  "+
+							"    </table>  "+
+							"  </td>  "+
+							"  </tr>  "+
+							"  <tr>  "+
+							"   <td align=\"center\" valign=\"top\">  "+
+							"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">  "+
+							" <tbody>  "+
+							"   <tr>  "+
+							"     <td valign=\"top\">  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td valign=\"top\">  "+
+							"               <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding:9px 18px;line-height:125%;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;text-align:left\">  "+
+							"                       <div style=\"text-align:center\">  "+
+							"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Dear "+partnerRegisterDetails.getContactName()+",</span></span></p>  "+
+							"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">New partner contact with below information </p>  "+
+							"                         <div>"+
+							"                          <table border=\"0\" cellpadding=\"3\" cellspacing=\"0\" width=\"100%\" align=\"left\" style=\"background-color: #b9d8f3;\">"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Name</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getContactName()+"</td></tr>"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Email</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getContactEmail()+"</td></tr>"+		
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Industry</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getIndustryName()+"</td></tr>"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Location</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getCompanyLocation()+"</td></tr>"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Number</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getContactNum()+"</td></tr>"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Company Name</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getCompanyName()+"</td></tr>"+
+							"                                 <tr style=\"text-align: left; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold\"><td font size=\"2\">Message</td><td font size=\"2\" style=\"word-break:break-all;word-wrap:break-word\">"+partnerRegisterDetails.getDescriptionMsg()+"</td></tr>"+
+							"  							</table>"+
+							" 						</div><br><br>"+
+							"                         &nbsp;  "+
+							"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Regards,<br>FWD Life Insurance Company (Bermuda) Limited (“FWD”)<br>富衛人壽保險(百慕達)有限公司（「富衛」）謹啟</span></span>  "+
+							"                         </p>  "+
+							"                       </div>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td style=\"padding:18px\">  "+
+							"               <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td>  "+
+							"                       <span></span>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td valign=\"top\">  "+
+							"               <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;line-height:150%;text-align:left\">  "+
+							"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. </p>  "+
+							"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">備註：中英文本如有歧異，概以英文本為準。</p>  "+
+							"                      "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td valign=\"top\">  "+
+							"               <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;line-height:150%;text-align:left\">  "+
+							"                       <div style=\"text-align:center\">備註：此乃電腦發出之電子郵件，請不要回覆。<br>Note: This is an automatically generated email, please do not reply.</div>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td style=\"padding:18px\">  "+
+							"               <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td>  "+
+							"                       <span></span>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"     </td>  "+
+							"   </tr>  "+
+							" </tbody>  "+
+							" </table>  "+
+							" </td>  "+
+							" </tr>  "+
+							"   <tr>  "+
+							"    <td align=\"center\" valign=\"top\">  "+
+							"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">  "+
+							" <tbody>  "+
+							"   <tr>  "+
+							"     <td valign=\"top\" style=\"padding-bottom:9px\">  "+
+							"       <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">  "+
+							"         <tbody>  "+
+							"           <tr>  "+
+							"             <td valign=\"top\">  "+
+							"               <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">  "+
+							"                 <tbody>  "+
+							"                   <tr>  "+
+							"                     <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">  "+
+							"                       <div style=\"text-align:center\">  "+
+							"                         <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">富衛人壽保險(百慕達)有限公司</span></span></p>  "+
+							"                         <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><a href=\"http://www.fwd.com/hk/\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><span style=\"color:#ff8c00\"><span style=\"font-family:microsoft jhenghei,calibri,sans-serif\"><span><span style=\"background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">www.fwd.com.hk</span></span></span></span></a></p>  "+
+							"                       </div>  "+
+							"                     </td>  "+
+							"                   </tr>  "+
+							"                 </tbody>  "+
+							"               </table>  "+
+							"             </td>  "+
+							"           </tr>  "+
+							"         </tbody>  "+
+							"       </table>  "+
+							"     </td>  "+ 
+							"   </tr>  "+
+							" </tbody>  "+
+							"   </table>  "+
+							"   </td>  "+
+							" </tr>  "+
+							"   </tbody>  "+
+							"     </table>  "+
+							"       </td>  "+
+							"         </tr>  "+
+							"          </tbody>  "+
+							"         </table>  "+
+							"    </center>  "+
+							"    </div>  "+
+							"  </body>";
+			
+			final Map<String,String> headerEmail = headerUtil.getHeader1(request);
+			String attachment = "";
+			boolean isHTML = true;
+			String[] emailList = {partnerRegisterDetails.getContactEmail(), UserRestURIConstants.getConfigs("becomePartnerMailTo")};
+			for (int i=0; i<emailList.length; i++) {
+				org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
+				parametersEmail.put("to", emailList[i]);
+				parametersEmail.put("message", message);
+				parametersEmail.put("subject", subject);
+				parametersEmail.put("attachment", attachment);
+				parametersEmail.put("from", from);
+				parametersEmail.put("isHtml", isHTML);
+				connector.sendEmail(parametersEmail,headerEmail);
+			}	
+		} catch (Exception e) {
+			logger.info("SavieOnlineServiceImpl sendEmailToNewPartner occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}				
 	}
 }

@@ -6,9 +6,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+
+
 <%
 	String actionName="";
-	        
+
 	if (request.getAttribute("controller") != null) {
 	    actionName = request.getAttribute("controller").toString();
 	}
@@ -24,7 +26,7 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
-			<!-- 登入 -->			    
+			<!-- 登入 -->
                 <%if(actionName== "SavieOnline" || request.getRequestURI().indexOf("/") == 0){%>
                 <div class="login-info hidden login-info-savie">
                     <div class="upper-overlay">
@@ -56,20 +58,26 @@
 						</h4>
 						<div class="form-group">
 							<!--使用者名 -->
-							<input type="text" name="userName"
-								class="form-control check-emp login-input" placeholder="<fmt:message key="header.login.username" bundle="${msg}" />" id="headerUserName" onkeypress="return validationUsername(event);">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input type="text" name="userName"
+								class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="headerUserName" onkeypress="return validationUsername(event);">
 							<!-- 忘記使用者名 -->
 								<a id="forgotUserName" class="heading-h6"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
+								<label class="mdl-textfield__label" for="headerUserName"><fmt:message key="header.login.username" bundle="${msg}" /></label>
 								<span id="errUserName" class="empHide color-red heading-h5"></span>
+							</div>
 						</div>
 
 						<div class="form-group">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="password" name="password"
-								class="form-control check-emp-forgotusername login-input" placeholder="<fmt:message key="header.login.password" bundle="${msg}" />" autocomplete="off" id="headerPassword">
-							<!--忘記密碼 -->  
+								class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="headerPassword">
+							<label class="mdl-textfield__label" for="headerPassword"><fmt:message key="header.login.password" bundle="${msg}" /></label>
+							<!--忘記密碼 -->
 								<a id="link-forgotPassword" class="heading-h6"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
-								<span id="errPass" class="empHide color-red heading-h5"></span>			
-						</div>						
+								<span id="errPass" class="empHide color-red heading-h5"></span>
+							</div>
+						</div>
 						<div class="login-button-group">
 						    <input id="fna-check" type="hidden" name="fna" value="false">
                             <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
@@ -77,19 +85,19 @@
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
-                            <div class="login-error-wrapper">                   
+                            <div class="login-error-wrapper">
                                 <div id="login-err-msg" class="color-red heading-h5"
                                 role="alert"></div>
-                            </div>													                        
+                            </div>
 						</div>
-						
+
 						<h6 class="heading-h6 color-gray login-disclaimer"><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
 					</div>
-					
-					
-					
 
-					
+
+
+
+
 				</div>
 			</form>
 
@@ -119,8 +127,8 @@
 					<P id="error1"></P>
 				</div>
 				<div id="login-err-msg" class="alert alert-danger" role="alert"
-					style="display: none;"></div>					
-				
+					style="display: none;"></div>
+
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
 							<!--Message 忘記用戶名稱 -->
@@ -130,52 +138,44 @@
 
 
 						<!--電話 text-------->
-						
+
 
 						<!-- 電話 inout -->
 						<div class="form-group">
-							<input type="tel" name="mobileNo"
-								class="form-control check-emp-forgotusername login-input"
-								id="mobileNo"
-								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
-								onkeypress="return isNumeric(event)" onblur="forgotUserName();">
-		                        <!--  phone erro message -->
-		                        <span id="errorEmptyMob" class="hide1 empHide"> <label
-		                            class="color-red heading-h5"><fmt:message
-		                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
-		                                    bundle="${msg}" /></label>
-		
-		
-		                        </span>	
-		                        <span id="errorInvalidMob" class="hide1 empHide"> <label
-		                            class="color-red heading-h5"><fmt:message
-		                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
-		                                    bundle="${msg}" /></label>
-		                        </span>		                        							
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input type="tel" name="mobileNo"
+									class="form-control gray-textbox check-emp-forgotusername login-input mdl-textfield__input" id="mobileNo"
+									onkeypress="return isNumeric(event)" onblur="forgotUserName();">
+								<label class="mdl-textfield__label" for="mobileNo"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
+			                        <!--  phone erro message -->
+			                        <span id="errorEmptyMob" class="hide1 empHide"> <label
+			                            class="color-red heading-h5"><fmt:message
+			                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
+			                                    bundle="${msg}" /></label>
+
+			                        </span>
+			                        <span id="errorInvalidMob" class="hide1 empHide"> <label
+			                            class="color-red heading-h5"><fmt:message
+			                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
+			                                    bundle="${msg}" /></label>
+			                        </span>
+			                </div>
 						</div>
-
-
-
 
 						<!-- -======================================================================- -->
 
-
 						<!-- 電郵 text-->
-					
-
-
-
 						<!-- 電郵 input-->
 						<div class="form-group">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="email" name="emailAddress"
-                                class="form-control check-emp-forgotusername login-input"
+                                class="form-control gray-textbox mdl-textfield__input check-emp-forgotusername login-input"
 								id="emailAddress"
 								onkeypress="return validationEmail(event);"
-								onblur="forgotUserName();"
-								placeholder="<fmt:message key="member.registration.details.label.emailAddress"
-                                bundle="${msg}" />">
+								onblur="forgotUserName();">
+                                <label class="mdl-textfield__label" for="emailAddress"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 		                         <!-- 電郵 Errror message -->
-		
+
 		                        <span id="errorEmptyEmailId" class="hide1 empHide"><label
 		                            class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
@@ -183,8 +183,8 @@
 		                            class="hide1 empHide"> <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
 		                                    bundle="${msg}" /></label>
-		                        </span>                                
-
+		                        </span>
+		                     </div>
 						</div>
 
 
@@ -207,7 +207,7 @@
 
 
 
-					</div>				
+					</div>
 				</div>
 			</form>
 
@@ -218,7 +218,7 @@
         function getForgotUserName() {
         	$('#forgotusername-err-msg').hide();
         	$('#success-message').hide();
-        	
+
             var validationFormVal = forgotUserName();
             if (validationFormVal == true) {
                 $('#forgotusername-err-msg').hide();
@@ -245,7 +245,7 @@
                                     $('#success-message').hide();
                                     $('#forgotusername-err-msg').html(data.slice(2, data.length-2));
                                     $('#forgotusername-err-msg').show();
-                                } else {             
+                                } else {
                                     $('#success-message').html('Your Username is ' + data);
                                     $('#success-message').show();
                                 }
@@ -298,24 +298,25 @@
 
 						<!-- 電話 inout -->
 						<div class="form-group">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="tel" name="mobileNo"
-								class="form-control check-emp-forgotuserpassoword login-input"
+								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
 								id="mobileNo-forgotpassowrd"
-								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
 								onkeypress="return isNumeric(event)"
 								onblur="validForgetUserPassword();">
+							<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label>
 		                        <!--  phone erro message -->
 		                        <span id="errorEmptyMob-forgotPassword" class="hide1 empHide color-red heading-h5">
 		                            <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
 		                                    bundle="${msg}" /></label>
-		                        </span> 
+		                        </span>
 		                        <span id="errorInvalidMob-forgotPassword" class="hide1 empHide color-red heading-h5">
 		                            <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
 		                                    bundle="${msg}" /></label>
 		                        </span>
-
+							</div>
 						</div>
 
 
@@ -328,12 +329,13 @@
 
 						<!-- 電郵 input-->
 						<div class="form-group">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="email" name="emailAddress"
-								class="form-control check-emp-forgotuserpassoword login-input"
+								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
 								id="emailAddress-forgotpassowrd"
 								onkeypress="return validationEmail(event);"
-								onblur="validForgetUserPassword();"
-								placeholder="<fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />">
+								onblur="validForgetUserPassword();">
+								<label class="mdl-textfield__label" for="emailAddress-forgotpassowrd"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label>
 		                        <!-- 電郵 Errror message -->
 		                        <span id="errorEmptyEmailId" class="hide1 empHide color-red heading-h5"> <label
 		                            class="color-red heading-h5"><fmt:message
@@ -342,12 +344,13 @@
 		                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
 		                                    bundle="${msg}" /></label>
-		                        </span> 
+		                        </span>
 		                        <span id="errorInvalidEmailId-forgotpassword"
 		                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
 		                                    bundle="${msg}" /></label>
-		                        </span>								
+		                        </span>
+		                       </div>
 						</div>
 
 
@@ -359,24 +362,26 @@
 						<!-- 使用者input -->
 
 						<div class="form-group">
+							<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<input type="text" name="userName"
-								class="form-control check-emp-forgotuserpassoword login-input"
+								class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input"
 								id="userName"
-								placeholder="<fmt:message key="member.registration.details.label.userName" bundle="${msg}" />"
 								onkeypress="return validationUsername(event);"
 								onblur="validForgetUserPassword();">
+								<label class="mdl-textfield__label" for="userName"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" /></label>
 		                        <!-- 使用者ERROR -->
-		
+
 		                        <span id="errorEmptyUName" class="hide1 empHide color-red heading-h5"> <label
 		                            class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.userName.errorEmptyUName"
 		                                    bundle="${msg}" /></label>
-		                        </span> 
+		                        </span>
 		                        <span id="errorInvalidUName" class="hide1 empHide color-red heading-h5"> <label
 		                            class="color-red heading-h5"><fmt:message
 		                                    key="member.registration.details.label.userName.errorInvalidUName"
 		                                    bundle="${msg}" /></label>
-		                        </span> 								
+		                        </span>
+		                        </div>
 						</div>
 
 
@@ -398,15 +403,15 @@
 							</button>
 
 						</div>
-	                    <div id="hide-field"></div>						                                                                       
+	                    <div id="hide-field"></div>
 						</div>
 
 
 
-                    
 
-                            
-                            
+
+
+
 				</div>
 
 			</form>
@@ -427,46 +432,46 @@
 
 			<script>
 	    function validForgetUserPassword(){
-	    	$('#forgotpassword-err-msg').hide();
+	    		$('#forgotpassword-err-msg').hide();
 	        $('#success-message-password').hide();
-	        
+
 	        $('#errorEmptyMob-forgotPassword').hide();
 	        $('#errorInvalidMob-forgotPassword').hide();
 	        $('#errorEmptyEmailId-forgotpassword').hide();
 	        $('#errorInvalidEmailId-forgotpassword').hide();
 	        $('#errorEmptyUName').hide();
 	        $('#errorInvalidUName').hide();
-	        
+
 	        $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
 	        $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
 	        $("#userName").removeClass("invalid-field");
-	        
+
 	        var valid = true;
-	         
+
 	        var mobileNo = $('#mobileNo-forgotpassowrd').val();
 	        var emailId = $('#emailAddress-forgotpassowrd').val();
-	        var userName = $('#userName').val();        
-	        
+	        var userName = $('#userName').val();
+
 	          // Mobile Number Validation
 	        if (mobileNo.trim() == "") {
 	             $('#errorEmptyMob-forgotPassword').show();
 	             $("#mobileNo-forgotpassowrd").addClass("invalid-field");
 	             valid = false;
 	        }   else{
-	            
+
 	            if (mobile_pattern.test(mobileNo) == false) {
-	                $("#errorInvalidMob-forgotPassword").show();         
+	                $("#errorInvalidMob-forgotPassword").show();
 	                $("#mobileNo-forgotpassowrd").addClass("invalid-field");
 	                valid = false;
-	            }               
-	        }             
-	       
+	            }
+	        }
+
 	        // Email Address Validation
 	        if (emailId.trim() == "") {
 	           $('#errorEmptyEmailId-forgotpassword').show();
 	           $("#emailAddress-forgotpassowrd").addClass("invalid-field");
 	            valid = false;
-	            
+
 	        } else {
 	            if (emailreg.test(emailId) == false) {
 	                  $('#errorInvalidEmailId-forgotpassword').show();
@@ -475,15 +480,15 @@
 	                //document.getElementById("errorInvalidEmailId").style.display = "block";
 	                //valid = false;
 	            }
-	        }
-	        
+}
+
 	        // UserName Validation
 	        if (userName.trim() == "") {
 	            $("#errorEmptyUName").show();
 	            $("#userName").addClass("invalid-field");
 	            valid = false;
-	
-	        } else {                
+
+	        } else {
 	            if (isAccountNumeric(userName)) {
 	            	$("#errorInvalidUName").show();
 	            	$("#userName").addClass("invalid-field");
@@ -500,15 +505,15 @@
 	        }
 	        return valid;
 	    }
-    
-    
+
+
         function forgotUserPassword() {
 
-            
-            
+
+
             if( validForgetUserPassword() == true){
 
-   
+
                 $('.login-ajax-loading').show();
                 $.ajax({
                             type : 'POST',
@@ -516,7 +521,7 @@
                             data : {'emailAddress':$('#emailAddress-forgotpassowrd').val(),
                                     'mobileNo':$('#mobileNo-forgotpassowrd').val(),
                                     'userName':$('#userName').val()
-                                                                
+
                                 },
                             success : function(data) {
 
@@ -543,7 +548,7 @@
     </script>
 
 		</div>
-		
+
 
     </div>
 </div>
@@ -591,161 +596,161 @@
 
 
 <script>
-    
+
     function backToLogin(){
     	$('#loginform-pop').fadeIn();
         $('#forgotUserNameForm').hide();
         $('#forgotPasswordForm').hide();
         $('.empHide').hide();
-        
+
         $("#mobileNo").removeClass("invalid-field");
         $("#emailAddress").removeClass("invalid-field");
-        
+
         $("#loginform-pop #headerUserName").removeClass("invalid-field");
         $("#loginform-pop #headerPassword").removeClass("invalid-field");
-        
+
         $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
         $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
         $("#userName").removeClass("invalid-field");
     }
-   
-    
+
+
        $(document).ready(function(){
 	   	   $('#loginpopup').on('hidden.bs.modal', function () {
-		   		console.log("fna-cnacel");   
+		   		console.log("fna-cnacel");
 		   		$('#loginpopup #fna-check').val("false");
-	   	   })    	             
+	   	   })
            $('html').keyup(function(e){
-                    
+
                  var emp= "";
             $(".check-emp").each(function(){
-               emp = emp + $(this).val(); 
+               emp = emp + $(this).val();
             });
-         
-            
-            
-            
+
+
+
+
             if(emp==""){
-             
+
               $('.empHide').hide();
-              
+
               $("#mobileNo").removeClass("invalid-field");
               $("#emailAddress").removeClass("invalid-field");
-              
+
               $("#loginform-pop #headerUserName").removeClass("invalid-field");
               $("#loginform-pop #headerPassword").removeClass("invalid-field");
-              
+
               $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
               $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
               $("#userName").removeClass("invalid-field");
             }
-            
-            
-            var checkEmpForgotuserName = "";                       
+
+
+            var checkEmpForgotuserName = "";
             $(".check-emp-forgotusername").each(function(){
-                checkEmpForgotuserName = checkEmpForgotuserName + $(this).val(); 
-             });            
-            
-            
-            if(checkEmpForgotuserName==""){               
+                checkEmpForgotuserName = checkEmpForgotuserName + $(this).val();
+             });
+
+
+            if(checkEmpForgotuserName==""){
                 $('.empHide').hide();
                 $("#mobileNo").removeClass("invalid-field");
                 $("#emailAddress").removeClass("invalid-field");
-                
+
                 $("#loginform-pop #headerUserName").removeClass("invalid-field");
                 $("#loginform-pop #headerPassword").removeClass("invalid-field");
-                
+
                 $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                 $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                 $("#userName").removeClass("invalid-field");
               }
-            
+
             var checkEmpForgotuserPassword = "";
-            $('.check-emp-forgotuserpassoword').each(function(){                
-                checkEmpForgotuserPassword = checkEmpForgotuserPassword + $(this).val(); 
-                if(checkEmpForgotuserPassword==""){                    
-                    $('.empHide').hide();    
+            $('.check-emp-forgotuserpassoword').each(function(){
+                checkEmpForgotuserPassword = checkEmpForgotuserPassword + $(this).val();
+                if(checkEmpForgotuserPassword==""){
+                    $('.empHide').hide();
                     $("#mobileNo").removeClass("invalid-field");
                     $("#emailAddress").removeClass("invalid-field");
-                    
+
                     $("#loginform-pop #headerUserName").removeClass("invalid-field");
                     $("#loginform-pop #headerPassword").removeClass("invalid-field");
-                    
+
                     $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                     $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                     $("#userName").removeClass("invalid-field");
-                  }                                         
+                  }
             })
-            
-            
-               
-           })
-           
-           
-           
 
-           
-           
+
+
+           })
+
+
+
+
+
+
            //--
-           $('.login-btn').click(function(){              
+           $('.login-btn').click(function(){
                $('#loginform-pop').show();
                $('#forgotUserNameForm').hide();
                $('#forgotPasswordForm').hide();
-               
-               
+
+
                $("#mobileNo").removeClass("invalid-field");
                $("#emailAddress").removeClass("invalid-field");
-               
+
                $("#headerUserName").removeClass("invalid-field");
                $("#headerPassword").removeClass("invalid-field");
-               
+
                $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                $("#userName").removeClass("invalid-field");
-               
+
 
                $('.login-info').addClass('hidden');
                $('#loginpopup .modal-dialog').removeClass('loginpopupext');
            })
-           
-           
-           $('#forgotUserName').click(function(){       
-               
+
+
+           $('#forgotUserName').click(function(){
+
                $('#loginform-pop').hide();
                $('#forgotUserNameForm').fadeIn();
                $('#forgotPasswordForm').hide();
-               $('.empHide').hide();    
-               
+               $('.empHide').hide();
+
                $("#mobileNo").removeClass("invalid-field");
                $("#emailAddress").removeClass("invalid-field");
-               
+
                $("#headerUserName").removeClass("invalid-field");
                $("#headerPassword").removeClass("invalid-field");
-               
+
                $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                $("#userName").removeClass("invalid-field");
            })
-           
-           
-           $('#link-forgotPassword').click(function(){             
+
+
+           $('#link-forgotPassword').click(function(){
                   $('#loginform-pop').hide();
-                  $('#forgotUserNameForm').hide(); 
+                  $('#forgotUserNameForm').hide();
                   $('#forgotPasswordForm').fadeIn();
                   $('.empHide').hide();
-                  
+
                   $("#mobileNo").removeClass("invalid-field");
                   $("#emailAddress").removeClass("invalid-field");
-                  
+
                   $("#headerUserName").removeClass("invalid-field");
                   $("#headerPassword").removeClass("invalid-field");
-                  
+
                   $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                   $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                   $("#userName").removeClass("invalid-field");
            })
-          
-                                         
+
+
        })
     </script>
 
@@ -787,7 +792,7 @@
 function userLoginFnc() {
 
     /* var a=validUser(); */
-    /* 
+    /*
     if(a==true)
     { */
     $.ajax({

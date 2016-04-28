@@ -564,7 +564,7 @@ var language = "${language}";
 				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
 			}
 			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }','2');
 			}
 			else{
 				$('#perferredTimeIsNull').modal('show');				
@@ -581,14 +581,14 @@ var language = "${language}";
 		setCentre(serviceCentreCode);
 		
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val() != ""){
-			getTimeSlot('${perferredTime }');
+			getTimeSlot('${perferredTime }','2');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				$("#preferred-date").val($("#preferred-date-"+ centre).val());
-				getTimeSlot('${perferredTime }');
+				getTimeSlot('${perferredTime }','2');
 			}
 		});
 		
@@ -940,7 +940,8 @@ var language = "${language}";
 					        "perferredTime":perferredTime,
 					        "planCode":planCode,
 					        "remarks":"pay offline",
-					        "type":"1"
+					        "type":"1",
+					        "appointmentTypeId":"2"
 				   		},     
 					    error:function(){       
 					    },     

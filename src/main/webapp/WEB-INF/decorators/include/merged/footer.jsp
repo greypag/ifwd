@@ -55,6 +55,9 @@
 	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a>
 	           <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>	       
 	       </div>
+	       <div class="bottom-link">
+	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partner.link" bundle="${msg}" />"><fmt:message key="footer.menu.partner" bundle="${msg}" /></a>      
+	       </div>	       
 	       <div class="clearfix"></div>	         
 	    </div>
         <div class="social-link-wrapper">
@@ -68,7 +71,7 @@
         <div class="clearfix"></div>  	    	            
     </div>
     <div class="bottom-footer-wrapper">
-        <div class="bottom-footer-link">
+        <div class="bottom-footer-link container">
 		    <a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a> |
 		    <a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a> |
 		    <a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a>
@@ -181,9 +184,9 @@ if(request.getRequestURI().indexOf("/savings-insurance")>0) {
 }
 %> 
 <%
-if(request.getRequestURI().indexOf("/offer")>0) {
+if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 <%
 }
 %>
