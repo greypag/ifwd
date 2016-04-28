@@ -2276,7 +2276,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="pull-left pics-desc checkbox-description">
 							<fmt:message key="eliteTerms.selectPlan.PICS.part1"
 								bundle="${msg}" />
-							<a href="<fmt:message key="PICS.life.link" bundle="${msg}" />"
+							<a href="<%=request.getContextPath()%>/<fmt:message key="PICS.life.link" bundle="${msg}" />"
 								class="link" target="_blank"><fmt:message
 									key="eliteTerms.selectPlan.PICS.part2" bundle="${msg}" /></a>
 							<fmt:message key="eliteTerms.selectPlan.PICS.part3"
@@ -3220,7 +3220,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="notice">
 										<fmt:message key="eliteTerms.selectPlan.PICS.part1"
 											bundle="${msg}" />
-										<a href="<fmt:message key="PICS.life.link" bundle="${msg}" />"
+										<a href="<%=request.getContextPath()%>/<fmt:message key="PICS.life.link" bundle="${msg}" />"
 											class="link" target="_blank"><fmt:message
 												key="eliteTerms.selectPlan.PICS.part2" bundle="${msg}" /></a>
 										<fmt:message key="eliteTerms.selectPlan.PICS.part3"
