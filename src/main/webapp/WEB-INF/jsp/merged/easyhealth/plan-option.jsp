@@ -117,7 +117,11 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
                                         <h5 class="text-center">Date of Birth:</h5>
-                                        <input id="dob" name="dob" placeholder="Please Select ..." readonly>
+                                        <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->
+                                        <div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
+											<input  name="plan-dob" id="plan-dob-datepicker" readonly value="" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+										</div>
                                     </div>
                                 </div>
                                 <div class="clearfix visible-xs"></div>
@@ -1651,6 +1655,23 @@ var home_url = "<%=request.getContextPath()%>";
 
 <script>
     $(document).ready(function() {
+    	var dob_end_date = new Date();
+    	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+    	
+    	// 86 year ago date
+    	var dob_start_date = new Date();
+    	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
+    	dob_start_date.setDate(dob_start_date.getDate()+1);
+    	
+    	$('#plan-dob-datepicker').datepicker({
+			format: "yyyy-mm-dd",
+			startView: "decade",
+			startDate: dob_start_date,
+			endDate: dob_end_date,
+			autoclose: true,
+			startView: 2
+		}).css('cursor', 'default');
+    	
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
             if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
                 $("#offline-online-modal").modal();

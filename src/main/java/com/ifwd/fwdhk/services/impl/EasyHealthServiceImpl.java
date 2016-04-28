@@ -49,6 +49,7 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
@@ -93,11 +94,19 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public JSONObject getPremium(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.GET_EASYHEALTH_PREMIUM+"?dob=1990-01-30&gender=F&planCode=ROPHI";
+	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request) throws ECOMMAPIException{
+		logger.info(planDetail.getGender().equals("0")?"M":"F");
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.GET_EASYHEALTH_PREMIUM);
+		url.append("?dob=");
+		url.append(planDetail.getDob());
+		url.append("&gender=");
+		url.append(planDetail.getGender().equals("0")?"M":"F");
+		url.append("&planCode=ROPHI");
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, jsonObject);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
+		request.getSession().setAttribute("ehPlanDetail", planDetail);
 		return responseJsonObj;
 	}
 	

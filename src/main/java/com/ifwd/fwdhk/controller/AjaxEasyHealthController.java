@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -76,13 +77,13 @@ public class AjaxEasyHealthController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/easyhealth-insurance/getPremium"})
-	public void getPremium(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	public void getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			jsonObject = easyHealthService.getPremium(request);
+			jsonObject = easyHealthService.getPremium(planDetail, request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
