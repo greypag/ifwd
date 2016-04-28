@@ -21,7 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${scriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_savie-sp_en.jpg",
+  "image":"${scriptImg}",
   "description":"${scriptDescription}",
   "brand":{
     "@type":"Insurance",
@@ -29,7 +29,7 @@ var home_url = "<%=request.getContextPath()%>";
   },
   "offers":{
     "@type":"AggregateOffer",
-    "lowPrice":"3000",
+    "lowPrice":"30000",
     "highPrice":"400000",
     "priceCurrency":"HKD"
   }

@@ -212,9 +212,12 @@ public class WorkingHolidayController {
 				UserRestURIConstants.getLanaguage(request));
 		String scriptChildName = WebServiceUtils.getPageTitle("workingholiday.script.child.name",
 				UserRestURIConstants.getLanaguage(request));
+		String scriptImg = WebServiceUtils.getPageTitle("workingholiday.sharing.og.image",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("scriptName", scriptName);
 		model.addAttribute("scriptDescription", scriptDescription);
 		model.addAttribute("scriptChildName", scriptChildName);
+		model.addAttribute("scriptImg", scriptImg);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday");			
 	}
 	

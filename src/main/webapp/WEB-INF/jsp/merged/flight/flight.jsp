@@ -29,7 +29,7 @@
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${flightScriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_flightcare_en.jpg",
+  "image":"${flightScriptImg}",
   "description":"${flightScriptDescription}",
   "brand":{
     "@type":"Insurance",

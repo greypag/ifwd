@@ -1,0 +1,406 @@
+O2O-landing.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+O2O-landing.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+O2O-landing.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/bootstrap-select.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-teaser.js"></script>
+application-after-30-days.jsp:		<%@include file="includes/head.jsp" %>
+application-after-30-days.jsp:		<%@include file="includes/js-include.jsp" %>
+application-save.jsp:  <%@include file="includes/head.jsp" %>
+application-save.jsp:	<%@include file="includes/js-include.jsp" %>
+application-summary.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+application-summary.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:						   <div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application-summary.jsp:							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+application.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+application.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+application.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+application.jsp:						<form id="insuredInfoForm" method="post" class="form-horizontal" action="target.jsp" onsubmit="return false">
+application.jsp:					<form class="content"  id="employmentInfoForm" method="post" action="application.jsp" onsubmit="return false">
+application.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+appointment-success.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+appointment-success.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+appointment-success.jsp:<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+appointment-success.jsp:<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+archive/application-summary.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/application-summary.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/application.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/application.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/application.jsp:						<form id="insuredInfoForm" method="post" class="form-horizontal" action="target.jsp" onsubmit="return false">
+archive/application.jsp:					<form class="content"  id="employmentInfoForm" method="post" action="application.jsp" onsubmit="return false">
+archive/application.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+archive/appointment-success.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/appointment-success.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/appointment-success.jsp:<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/appointment-success.jsp:<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+archive/confirmation-offline.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/confirmation-offline.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+archive/confirmation-offline.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+archive/confirmation.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/confirmation.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/confirmation.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+archive/confirmation.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+archive/confirmation.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+archive/confirmation.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+archive/confirmation.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+archive/customer-service-centre.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/customer-service-centre.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/customer-service-centre.jsp:<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
+archive/customer-service-centre.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+archive/customer-service-centre.jsp:<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/declarations.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/declarations.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+archive/declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+archive/declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+archive/declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+archive/declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+archive/document-upload.jsp:<link href="<%=request.getContextPath()%>/resources/dropzonejs/basic.css" rel="stylesheet">  
+archive/document-upload.jsp:<link href="<%=request.getContextPath()%>/resources/dropzonejs/dropzone.css" rel="stylesheet"> 
+archive/document-upload.jsp:<script src="<%=request.getContextPath()%>/resources/dropzonejs/dropzone-amd-module.js"></script>
+archive/email-submitted.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/email-submitted.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+archive/financial-needs-analysis.jsp:<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+archive/financial-needs-analysis.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
+archive/financial-needs-analysis.jsp:<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+archive/interest-gathering.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/interest-gathering.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+archive/interest-gathering.jsp:	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
+archive/interest-gathering.jsp:	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
+archive/interest-gathering.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+archive/interest-gathering.jsp:		//console.log('kjshfd');
+archive/landing.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/landing.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+archive/landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+archive/landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+archive/landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+archive/landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+archive/O2O-landing.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/O2O-landing.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+archive/O2O-landing.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+archive/pdf-show.jsp:<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+archive/pdf-show.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+archive/plan-details.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/plan-details.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/plan-details.jsp:		<!--For Sales Illustration page js-->
+archive/plan-details.jsp:		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
+archive/plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
+archive/plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
+archive/plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
+archive/plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+archive/plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/sales-illustration.jsp:<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+archive/sales-illustration.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
+archive/sales-illustration.jsp:<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+archive/sales-illustration.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+archive/service-center.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+archive/service-center.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+archive/service-center.jsp:<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+archive/service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
+archive/service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+archive/service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+archive/signature.jsp:<script src="<%=request.getContextPath()%>/resources/jsignature/jSignature.min.js"></script>
+archive/signature.jsp:<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jsignature/flashcanvas.js"></script>
+beneficiary-info.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+beneficiary-info.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+beneficiary-info.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-0">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-0">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-1">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-1">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-2">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-2">
+beneficiary-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+confirmation-appointment-rp.jsp:		<%@include file="includes/head.jsp" %>
+confirmation-appointment-rp.jsp:			<%@include file="includes/header-block.jsp" %>
+confirmation-appointment-rp.jsp:			<%@include file="includes/footer-block.jsp" %>
+confirmation-appointment-rp.jsp:		<%@include file="includes/js-include.jsp" %>
+confirmation-appointment.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-appointment.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+confirmation-offline-signature.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-offline-signature.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+confirmation-offline.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-offline.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+confirmation-offline.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+confirmation-paylater.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-paylater.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+confirmation-rp.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-rp.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/html2canvas.js"></script>
+confirmation-rp.jsp:    <script src="<%=request.getContextPath()%>/resources/js/jquery.plugin.html2canvas.js"></script>
+confirmation-upload-later.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation-upload-later.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+confirmation-upload-later.jsp:      <script type="text/javascript" src="assets/js/pdfobject.js"></script>
+confirmation.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+confirmation.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+confirmation.jsp:      <script type="text/javascript" src="assets/js/pdfobject.js"></script>
+customer-service-centre.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+customer-service-centre.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+customer-service-centre.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+declaration.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+declaration.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+declarations.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+declarations.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+declarations.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+digital-signature.jsp:  <%@include file="includes/head.jsp" %>
+digital-signature.jsp:		<%@include file="includes/header-block.jsp" %>
+digital-signature.jsp:			<%@include file="includes/footer-block.jsp" %>
+digital-signature.jsp:	<%@include file="includes/js-include.jsp" %>
+document-upload-iframe-address.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+document-upload-iframe-address.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+document-upload-iframe-address.jsp:		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
+document-upload-iframe-address.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
+document-upload-iframe-hkid.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+document-upload-iframe-hkid.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+document-upload-iframe-hkid.jsp:		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
+document-upload-iframe-passport.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+document-upload-iframe-passport.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+document-upload-iframe-passport.jsp:		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
+document-upload-iframe-passport.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
+document-upload.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+document-upload.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+document-upload.jsp:									<form action="" id="js-upload-form" method="POST" class="upload-form">
+document-upload.jsp:		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
+document-upload.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
+email-submitted.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+email-submitted.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+employment-info.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+employment-info.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+employment-info.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+employment-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
+employment-info.jsp:										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
+error-box-demo.jsp:		<%@include file="includes/head.jsp" %>
+error-box-demo.jsp:			<%@include file="includes/header-block.jsp" %>
+error-box-demo.jsp:			<%@include file="includes/footer-block.jsp" %>
+error-box-demo.jsp:		<%@include file="includes/js-include.jsp" %>
+fatca-declaration.jsp:  <%@include file="includes/head.jsp" %>
+fatca-declaration.jsp:	<%@include file="includes/js-include.jsp" %>
+fatca.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+fatca.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+financial-needs-analysis.jsp:<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+financial-needs-analysis.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
+financial-needs-analysis.jsp:<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+header.jsp:		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+header.jsp:		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+header.jsp:		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+header.jsp:		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+header.jsp:		<%@include file="includes/js-include.jsp" %>
+homepage.jsp:		<%@include file="includes/head.jsp" %>
+homepage.jsp:			<%@include file="includes/header-block.jsp" %>
+homepage.jsp:			<%@include file="includes/footer-block.jsp" %>
+homepage.jsp:		<%@include file="includes/js-include.jsp" %>
+homepage.jsp:		<script type="text/javascript" src="assets/js/savie-2016/jquery.mobile-1.4.5.min.js"></script>
+interest-gathering.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+interest-gathering.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+interest-gathering.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+interest-gathering.jsp:	<form class="sign-up-teaser-form" method="post" id="teaserSignUpForm" action="teaser.jsp">
+interest-gathering.jsp:	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=${captchaLang}"
+interest-gathering.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+interest-gathering.jsp:		//console.log('kjshfd');
+landing.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+landing.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+landing.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+login-overlay.jsp:		<%@include file="includes/js-include.jsp" %>
+offline-signature-confirmation-batch-5.jsp:		<%@include file="includes/head.jsp" %>
+offline-signature-confirmation-batch-5.jsp:			<%@include file="includes/header-block.jsp" %>
+offline-signature-confirmation-batch-5.jsp:			<%@include file="includes/footer-block.jsp" %>
+offline-signature-confirmation-batch-5.jsp:		<%@include file="includes/js-include.jsp" %>
+online-offline-fna.jsp:		<%@include file="includes/head.jsp" %>
+online-offline-fna.jsp:		<%@include file="includes/js-include.jsp" %>
+payment.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+payment.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+payment.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+payment.jsp:									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+payment.jsp:									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+payment.jsp:									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+payment.jsp:									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+pdf-show.jsp:<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+pdf-show.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+personal-details.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+personal-details.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+personal-details.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-not-active">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:                                    <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+personal-details.jsp:									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
+plan-details-b-SP.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+plan-details-b-SP.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+plan-details-b-SP.jsp:						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
+plan-details-b-SP.jsp:<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
+plan-details-b-SP.jsp:<%--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>
+plan-details.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+plan-details.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+plan-details.jsp:		<!--For Sales Illustration page js-->
+plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
+plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
+plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
+plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+plan-details.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+previous-savie-application.jsp:		<%@include file="includes/head.jsp" %>
+previous-savie-application.jsp:		<%@include file="includes/js-include.jsp" %>
+purchase-history.jsp:		<%@include file="includes/head.jsp" %>
+purchase-history.jsp:			<%@include file="includes/header-block.jsp" %>
+purchase-history.jsp:			<%@include file="includes/footer-block.jsp" %>
+purchase-history.jsp:		<%@include file="includes/js-include.jsp" %>
+review-fna.jsp:		<%@include file="includes/head.jsp" %>
+review-fna.jsp:		<%@include file="includes/js-include.jsp" %>
+sales-illustration.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+sales-illustration.jsp:<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+sales-illustration.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+savings-insurance-rp.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+savings-insurance-rp.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+savings-insurance-rp.jsp:<script type="application/ld+json">
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
+savings-insurance-rp.jsp:	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+savings-insurance-sp.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+savings-insurance-sp.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+savings-insurance-sp.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+savings-insurance-sp.jsp:<script type="application/ld+json">
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/bootstrap-select.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+savings-insurance-sp.jsp:		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-teaser.js"></script>
+service-center.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+service-center.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+service-center.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+service-center.jsp:<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
+service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
+service-center.jsp:<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+signature.jsp:<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+signature.jsp:<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+signature.jsp:<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
