@@ -1,78 +1,32 @@
 package com.ifwd.fwdhk.services.impl;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import net.sf.ezmorph.bean.MorphDynaBean;
-
-import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.common.document.PDFGeneration;
-import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
-import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
-import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
-import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
-import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
-import com.ifwd.fwdhk.connector.response.savieonline.PolicyApplication;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremium;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
-import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
-import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
-import com.ifwd.fwdhk.util.CompareUtil;
-import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
-import com.ifwd.fwdhk.util.ImgUtil;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.NumberFormatUtils;
-import com.ifwd.fwdhk.util.PDFToImages;
-import com.ifwd.fwdhk.util.PolicyNoUtil;
-import com.ifwd.fwdhk.util.StringHelper;
-import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
 public class EasyHealthServiceImpl implements EasyHealthService {
 	private final static Logger logger = LoggerFactory.getLogger(EasyHealthServiceImpl.class);
@@ -93,7 +47,6 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request) throws ECOMMAPIException{
 		logger.info(planDetail.getGender().equals("0")?"M":"F");
 		StringBuffer url = new StringBuffer();
@@ -107,17 +60,18 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
 		request.getSession().setAttribute("ehPlanDetail", planDetail);
+		
+		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+		EasyHealthPremium easyHealthPremium = (EasyHealthPremium) net.sf.json.JSONObject.toBean(json, EasyHealthPremium.class);
+		request.getSession().setAttribute("easyHealthPremium", easyHealthPremium);
 		return responseJsonObj;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
-		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
-		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
-		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "ROPHI1");
@@ -301,5 +255,30 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("type");
 		session.removeAttribute("ehPlanDetail");
 		logger.info("remove session");
+	}
+	
+	public void putPremium(HttpServletRequest request) throws Exception{
+		EasyHealthPremium easyHealthPremium = (EasyHealthPremium) request.getSession().getAttribute("easyHealthPremium");
+		List<MorphDynaBean> plans = easyHealthPremium.getPlans();
+		if(plans != null && plans.size() > 0){
+			EasyHealthPremiumSelectPlan selectPlan = new EasyHealthPremiumSelectPlan();
+			String pro = request.getParameter("pro");
+			String[] strArray = {"eh-plan-a","eh-plan-b","eh-plan-c", "eh-plan-d"};
+			for(int i=0;i<plans.size();i++){
+				if(strArray[i].equals(pro)){
+					selectPlan.setIntensiveCareUnit(plans.get(i).get("intensiveCareUnit").toString());
+					selectPlan.setDeathBenefit(plans.get(i).get("deathBenefit").toString());
+					selectPlan.setDailyHospitalCash(plans.get(i).get("dailyHospitalCash").toString());
+					selectPlan.setRefundPremium(plans.get(i).get("refundPremium").toString());
+					selectPlan.setType(plans.get(i).get("type").toString());
+					selectPlan.setPaidPremium(plans.get(i).get("paidPremium").toString());
+					selectPlan.setPlanCode(plans.get(i).get("planCode").toString());
+					selectPlan.setMonthlyPremium(plans.get(i).get("monthlyPremium").toString());
+					selectPlan.setInfectiousDisease(plans.get(i).get("infectiousDisease").toString());
+					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
+				}
+			}
+			request.getSession().setAttribute("selectPlan", selectPlan);
+		}
 	}
 }

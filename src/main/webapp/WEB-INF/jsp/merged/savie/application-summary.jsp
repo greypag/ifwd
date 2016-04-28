@@ -104,7 +104,7 @@ var language = "${language}";
 						</div>
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:'345'}" readonly="readonly" />
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" readonly="readonly" />
 								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>
 							</div>
 						</div>

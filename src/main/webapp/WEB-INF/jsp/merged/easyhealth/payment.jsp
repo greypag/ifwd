@@ -79,7 +79,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
         <input type="hidden" name="merchantId" value="${lifePolicy.merchantId}">
         <input type="hidden" name="secureHash" value="${lifePolicy.secureHash }">
-        <input type="hidden" name="amount" value="345.00" pattern="#.00"/>
+        <input type="hidden" name="amount" value="${selectPlan.monthlyPremium *2 }" pattern="#.00"/>
         <input type="hidden" name="orderRef" value="${lifePolicy.transactionNumber }">
         <input type="hidden" name="currCode" value="344">
         <input type="hidden" name="successUrl" value="${successUrl}">
@@ -99,14 +99,14 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
                     <h3 class="heading-title">Payment details</h3>
-                     <p>We will now charge the first 2 months' premium upfront<br>Monthly premium: HK$143.10<br>Total Amount: HK$ xxx (2 months)</p>
+                     <p>We will now charge the first 2 months' premium upfront<br>Monthly premium: HK$ ${selectPlan.monthlyPremium }<br>Total Amount: HK$ ${selectPlan.monthlyPremium *2 } (2 months)</p>
 
                      <div class="row inner-row">
                          <div class="col-xs-12 col-md-6">
                          	<div class="form-group">
 	                         	<div class="fld-wrapper">
 									<p class="fld-label">Amount</p>
-									<p class="fld-val">HK$ 345</p>
+									<p class="fld-val">HK$ ${selectPlan.monthlyPremium *2 }</p>
 								</div>
 							</div>
 							<div class="form-group">
