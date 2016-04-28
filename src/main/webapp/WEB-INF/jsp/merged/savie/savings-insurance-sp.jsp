@@ -70,16 +70,16 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 			</div>
 			
-			<div class="savie-regular-container savie-regular-landing">
+			<div class="savie-regular-container savie-regular-landing sp-only">
 				<div class="whole-banner">
               	<div class="page-banner">
-              		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-              		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
               		<div class="fwd-container-limit">
               		
               		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
-      	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
+      	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
       	        			<div id="clearfix-height-rp">
       	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
       	        			</div>        			
