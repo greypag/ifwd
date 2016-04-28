@@ -27,28 +27,28 @@
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="contactName" name="contactName" type="text" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="contactName" name="contactName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="contactName"><fmt:message key="placeholder.contact.person.name" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactNameErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="contactEmail" data-bv-emailaddress="false" name="contactEmail" type="email" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input" id="contactEmail" data-bv-emailaddress="false" name="contactEmail" type="email"  maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="contactEmail"><fmt:message key="placeholder.contact.person.email" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactEmailErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="industryName" name="industryName" type="text" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="industryName" name="industryName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="industryName"><fmt:message key="placeholder.industry" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="industryNameErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="companyLocation" name="companyLocation" type="text" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyLocation" name="companyLocation" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="companyLocation"><fmt:message key="placeholder.company.location" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="companyLocationErMsg"></span>
@@ -57,21 +57,21 @@
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input" id="contactNum" name="contactNum" type="tel" maxlength="8" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input" id="contactNum" name="contactNum" type="tel" maxlength="13" autocomplete="off" />
                         <label class="mdl-textfield__label" id="personal-info-label" for="contactNum"><fmt:message key="placeholder.contact.no" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="contactNumErMsg"></span>
                 </div>
                 <div class="clearfix form-group has-error">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyName" name="companyName" type="text" autocomplete="off" autocomplete="off" />
+                        <input class="form-control gray-textbox mdl-textfield__input chinese-input" id="companyName" name="companyName" type="text" maxlength="255" autocomplete="off" />
                         <label class="mdl-textfield__label" for="companyName"><fmt:message key="placeholder.company.name" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="companyNameErMsg"></span>
                 </div>
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="form-control gray-textbox mdl-textfield__input" id="descriptionMsg" name="descriptionMsg" type="text" row="3" maxlength="255" autocomplete="off"/></textarea>
+                        <textarea class="form-control gray-textbox mdl-textfield__input chinese-input" id="descriptionMsg" name="descriptionMsg" type="text" row="3" maxlength="2048" autocomplete="off"/></textarea>
                         <label class="mdl-textfield__label" for="descriptionMsg"><fmt:message key="placeholder.message" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="descriptionMsgErMsg"></span>
@@ -104,9 +104,9 @@ $(document).ready(function() {
                 validators: {
                        notEmpty: {
                            message: getBundle(getBundleLanguage, "error.contact.person.name.empty")
-                       },
+                       },                      
                        regexp: {
-                          regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
+                          regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.contact.person.name.invalid")
                        }
                 }
@@ -128,9 +128,9 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.industry.empty")
-                        },
+                        },                        
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
+                           regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.industry.invalid")
                         }
                  }
@@ -140,26 +140,21 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.location.empty")
-                        },
+                        },                       
                         regexp: {
-                           regexp: /^[-'a-z,-\s\u4e00-\u9fa5]+$/i ,
+                           regexp: /^[a-z,-\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.location.invalid")
                         }
                  }
             },
             contactNum: {
                  container: '#contactNumErMsg',
-                 validators: {
-                        stringLength: {
-                            min: 8,
-                            max: 8,
-                            message: "Please enter an 8-digit Tel No."
-                        },                   
+                 validators: {                 
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.contact.person.no.empty")
                         },
                         regexp: {
-                           regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/ ,
+                           regexp: /^[235689][0-9]{7}$|[0-9]{11,13}$/ ,
                            message:getBundle(getBundleLanguage, "error.contact.person.no.invalid")
                         }
                  }
@@ -169,9 +164,9 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.name.empty")
-                        },
+                        },                       
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
+                           regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.name.invalid")
                         }
                  }
@@ -181,13 +176,9 @@ $(document).ready(function() {
                 validators: {
                        notEmpty: {
                            message: getBundle(getBundleLanguage, "error.message.empty")
-                       },
-                       stringLength: {
-                           max: 255,
-                           message: "Please enter no more than 255 word."
                        },                      
                        regexp: {
-                          regexp: /^[-'a-z\u4e00-\u9fa5]+$/i ,
+                          regexp: /^[a-zA-Z0-9~!@#$%^&*()_+={}|:"'<>-?,.\-\\\/\s\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.message.invalid")
                        }
                 }

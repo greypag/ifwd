@@ -11049,6 +11049,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     .bottom-footer-wrapper{
         text-align: center;
     }
+    .bottom-footer-link.container{
+        width: auto;
+    }
 }
 @media all and (min-width: 992px){
     .upper-footer-wrapper{
@@ -11417,8 +11420,14 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     color: #ff8200;
     font-family: 'Calibri-Bold', Arial;		
 }
+body.chin .partner-headline-wrapper .headline-title{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif;
+}
 .partner-headline-wrapper .form-title{
 	margin-top: 20px;
+}
+#becomePartnerForm{
+	overflow: hidden;
 }
 #becomePartnerForm .next-btn{
 	padding: 20px 0 40px 0;
@@ -11447,6 +11456,9 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 	}
 	#becomePartnerForm .col-sm-12.col-md-6.left{
 		padding-right: 0;
+	}
+	#becomePartnerForm #success-msg{
+	   text-align: center;
 	}
 	#becomePartnerForm #applyPartner{
 		margin-left: 0;
@@ -11591,21 +11603,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #loginform-pop textarea.form-control.gray-textbox{
 	height: 135px;
 }
-.partnership.container{
-	margin:0 auto;
-}
-.partner-headline-wrapper{
-	margin-bottom: 30px;
-}
-.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-    font-size: 24px;
-    text-align: left;
-    color: #ff8200;
-    font-family: 'Calibri-Bold', Arial;		
-}
-.partner-headline-wrapper .form-title{
-	margin-top: 20px;
-}
 #loginform-pop .next-btn{
 	padding: 20px 0 40px 0;
 	text-align: center;
@@ -11625,9 +11622,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     margin-left: -52px;	
 }
 @media (max-width: 991px){
-	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-		text-align: center;
-	}
 	#loginform-pop .col-sm-12.col-md-6.left{
 		padding-right: 0;
 	}
@@ -11701,21 +11695,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #forgotPasswordForm textarea.form-control.gray-textbox{
 	height: 135px;
 }
-.partnership.container{
-	margin:0 auto;
-}
-.partner-headline-wrapper{
-	margin-bottom: 30px;
-}
-.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-    font-size: 24px;
-    text-align: left;
-    color: #ff8200;
-    font-family: 'Calibri-Bold', Arial;		
-}
-.partner-headline-wrapper .form-title{
-	margin-top: 20px;
-}
 #forgotPasswordForm .next-btn{
 	padding: 20px 0 40px 0;
 	text-align: center;
@@ -11735,9 +11714,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     margin-left: -52px;	
 }
 @media (max-width: 991px){
-	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-		text-align: center;
-	}
 	#forgotPasswordForm .col-sm-12.col-md-6.left{
 		padding-right: 0;
 	}
@@ -11745,11 +11721,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 		margin-left: 0;
 	}
 }
-@media (max-width: 767px){
-	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
-		height: auto;
-	}	
-}
+
 
 /* forgotUserNameForm || login.jsp */
 #forgotUserNameForm .col-sm-12.col-md-6.left, #forgotUserNameForm .col-sm-12.col-md-12.left {
@@ -11811,21 +11783,6 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #forgotUserNameForm textarea.form-control.gray-textbox{
 	height: 135px;
 }
-.partnership.container{
-	margin:0 auto;
-}
-.partner-headline-wrapper{
-	margin-bottom: 30px;
-}
-.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-    font-size: 24px;
-    text-align: left;
-    color: #ff8200;
-    font-family: 'Calibri-Bold', Arial;		
-}
-.partner-headline-wrapper .form-title{
-	margin-top: 20px;
-}
 #forgotUserNameForm .next-btn{
 	padding: 20px 0 40px 0;
 	text-align: center;
@@ -11845,18 +11802,10 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
     margin-left: -52px;	
 }
 @media (max-width: 991px){
-	.partner-headline-wrapper,.partner-headline-wrapper .headline-title,.partner-headline-wrapper .form-title{
-		text-align: center;
-	}
 	#forgotUserNameForm .col-sm-12.col-md-6.left{
 		padding-right: 0;
 	}
 	#forgotUserNameForm #applyPartner{
 		margin-left: 0;
 	}
-}
-@media (max-width: 767px){
-	 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input{
-		height: auto;
-	}	
 }
