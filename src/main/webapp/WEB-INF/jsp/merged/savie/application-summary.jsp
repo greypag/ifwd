@@ -92,7 +92,9 @@ var language = "${language}";
          <div class="container-fluid fwd-container savie-application-summary headerStick">
             <h5 class="title"><fmt:message key="label.summary2" bundle="${msg}" /></h5>
             <div class="summary-section clearfix">
-               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <c:if test="${plan == 'savings-insurance'}"><c:set var="backPlanUrl" value="plan-details-sp"/></c:if>
+               <c:if test="${plan == 'easyhealth-insurance'}"><c:set var="backPlanUrl" value="plan-option"/></c:if>
+               <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -113,7 +115,8 @@ var language = "${language}";
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款' }">${language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款' }</option>
+									<option disabled="disabled" selected="selected" value="${plan == 'savings-insurance' ? language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款':language == 'en' ? 'Monthly Regular Contribution':'月繳供款'}">
+									${plan == 'savings-insurance' ? language=='en' ? saviePlanDetails.paymentType=='SP'?'Single premium':saviePlanDetails.paymentType:saviePlanDetails.paymentType=='SP'?'一筆過供款':'月繳供款':language == 'en' ? 'Monthly Regular Contribution':'月繳供款'}</option>
 								</select>
 								<input type="hidden" id="premiumMode" name="premiumMode" />
 							</div>
@@ -121,7 +124,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below clearfix">
-               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -301,7 +304,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
-               <h5><fmt:message key="label.employment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/employment-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.employment.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/employment-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
@@ -392,7 +395,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
 		       <c:if test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
 		             <div class="desktop-left">
 			            <div class="form-group application-summ">
