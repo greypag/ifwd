@@ -516,13 +516,6 @@ var language = "${language}";
 			htmlObj.innerHTML = 'Back to application summary';
 		}
 
-		
-		/* var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		} */
 		<%
 		if(!result) {
 		%>
@@ -679,6 +672,13 @@ var language = "${language}";
 				
 				if($("#full-date").length > 0){
 					//$('#fullyBooked').modal('show');
+				}
+
+				var csCenter = $("#centre").val();
+				var perferredDate = $("#preferred-date").val();
+				var perferredTime = $("#preferred-time").val();
+				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+					$('#fullyBooked').modal('show');
 				}
 			}
 		});
