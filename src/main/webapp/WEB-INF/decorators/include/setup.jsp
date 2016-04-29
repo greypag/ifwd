@@ -3,8 +3,10 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
 <!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/prettyPhoto.css" /> -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">

@@ -259,9 +259,12 @@ public class HomeCareController {
 					UserRestURIConstants.getLanaguage(request));
 			String scriptChildName = WebServiceUtils.getPageTitle("homeCare.script.child.name",
 					UserRestURIConstants.getLanaguage(request));
+			String scriptImg = WebServiceUtils.getPageTitle("homeCare.sharing.og.image",
+					UserRestURIConstants.getLanaguage(request));
 			model.addAttribute("scriptName", scriptName);
 			model.addAttribute("scriptDescription", scriptDescription);
 			model.addAttribute("scriptChildName", scriptChildName);
+			model.addAttribute("scriptImg", scriptImg);
 			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";
@@ -575,9 +578,6 @@ public class HomeCareController {
 				
 		}
 		
-		
-		
-		
 		if (homeCareDetails.getTotalDue() != null) {
 			session.setAttribute("homeCareDetails", homeCareDetails);
 		} else {
@@ -596,7 +596,6 @@ public class HomeCareController {
 		userDetails.setFullName(applicantName);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
-//		userDetails.setDob("");
 		userDetails.setDob(dob);
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
@@ -606,45 +605,12 @@ public class HomeCareController {
 			lang = "CN";
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
-		CreatePolicy createdPolicy = (CreatePolicy) session
-				.getAttribute("homeCreatedPolicy");
-		
-		createdPolicy = null;
-		
-		if (createdPolicy == null) {
-			createdPolicy = homecareService.createHomeCarePolicy(userName,
-					token, homeCareDetails, userDetails,
-					lang, (String)session.getAttribute("referralCode"),
-					(String)session.getAttribute("theClubMembershipNo"));
+		CreatePolicy createdPolicy = homecareService.createHomeCarePolicy(userName,
+										token, homeCareDetails, userDetails,
+										lang, (String)session.getAttribute("referralCode"),
+										(String)session.getAttribute("theClubMembershipNo"));
 			
-			
-			session.setAttribute("homeCreatedPolicy", createdPolicy);
-			
-			
-		} else {
-			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
-			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
-			session.setAttribute("transNo", transactionNumber);
-			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
-			String paymentFail = "1";
-			
-			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
-			
-			if (creditCardNo !=null) {
-				try {
-					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			
-			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
-			String emailId = (String) session.getAttribute("emailAddress");
-			CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
-					userName, token, referenceNo, transactionNumber,
-					transactionDate, creditCardNo, expiryDate, emailId,
-					lang, paymentFail);
-		}
+		session.setAttribute("homeCreatedPolicy", createdPolicy);
 		
 		model.addAttribute("createdPolicy", createdPolicy);
 
@@ -661,11 +627,7 @@ public class HomeCareController {
 			model.addAttribute("confirm", confirm);
 		} else {
 			model.addAttribute("errMsgs", createdPolicy.getErrMsgs());
-			//return getHomeCarePage((String)session.getAttribute("referralCode"), request, model);
 			return prepareYoursDetails(null, model, request); 
-			
-//			return UserRestURIConstants.getSitePath(request)
-//					+ "home-insurance/user-details";
 		}
 
 		model.addAttribute("totalDue", totalDue);
@@ -698,8 +660,6 @@ public class HomeCareController {
 		model.addAttribute("effectiveDate", DateApi.pickDate1(homeCareDetails.getEffectiveDate()));
 		model.addAttribute("effectiveEndDate", endDate);
 		model.addAttribute("homeCareDetails", homeCareDetails);
-//		model.addAttribute("path", path.replace("prepareUserSummaryForHome",
-//				"homecare-confirmation"));
 		model.addAttribute("path",
 				path.replace("home-summary", "confirmation?utm_nooverride=1"));
 		

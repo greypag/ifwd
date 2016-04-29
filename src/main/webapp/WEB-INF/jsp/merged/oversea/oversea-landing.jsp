@@ -45,7 +45,7 @@ function mouseout2div(obj) {
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${scriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_overseas-studycare_en.jpg",
+  "image":"${scriptImg}",
   "description":"${scriptDescription}",
   "brand":{
     "@type":"Insurance",

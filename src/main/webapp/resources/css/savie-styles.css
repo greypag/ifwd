@@ -5769,7 +5769,7 @@ p .payment-policy-wrapper{
   font-size: 18px;
   width: 100%;
   margin-bottom: 0;
-  padding-left: 10px;
+  padding-left: 15px !important;
   padding-bottom: 0 !important;
   padding-top: 12px !important;
   height: 45px;
@@ -8687,6 +8687,7 @@ form#table-info #id-policy, form#table-info #id-application {
   /* line 2, ../sass/partials/savie/_sales-illustration-lightbox.scss */
   #sales-illustration-modal .modal-dialog, #fna-signature-modal .modal-dialog {
     margin: 30px auto;
+    /*margin: 0 auto;*/
   }
 }
 @media (min-width: 992px) {
@@ -9705,6 +9706,7 @@ h3 .heading-title{
 .member-account-details-footer {
     line-height: 22px;
     font-size: 14px;
+    padding-bottom: 30px;
 }
 .member-account-details-footer a:hover{
 	text-decoration: underline;

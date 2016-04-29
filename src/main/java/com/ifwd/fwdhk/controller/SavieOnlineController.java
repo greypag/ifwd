@@ -80,7 +80,7 @@ public class SavieOnlineController extends BaseController{
     }
     */	
 
-	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/regular-premium"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		savieOnlineService.removeSavieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
@@ -101,7 +101,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/single-premium"})
+	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/single-premium"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		savieOnlineService.removeSavieOnlineSession(request);
 		String affiliate = (String) request.getParameter("affiliate");
@@ -620,7 +620,7 @@ public class SavieOnlineController extends BaseController{
 			HttpSession session = request.getSession();
 			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
 				try {
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "2");
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
@@ -679,7 +679,7 @@ public class SavieOnlineController extends BaseController{
 				model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 				
 				if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "2");
 					savieOnlineService.createApplicationFormPdf("1", request, session);
 					savieOnlineService.createFnaFormPdf("1", request, session);
 					savieOnlineService.createSalesIllustrationPdf("1",request);
@@ -921,7 +921,7 @@ public class SavieOnlineController extends BaseController{
 		else{
 			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
 				try {
-					savieOnlineService.getCustomerServiceCentre(model, request, session);
+					savieOnlineService.getCustomerServiceCentre(model, request, session, "1");
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}

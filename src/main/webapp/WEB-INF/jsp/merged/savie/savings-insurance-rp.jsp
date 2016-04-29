@@ -21,7 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${scriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_savie-rp_en.jpg",
+  "image":"${scriptImg}",
   "description":"${scriptDescription}",
   "brand":{
     "@type":"Insurance",
@@ -104,7 +104,7 @@ var home_url = "<%=request.getContextPath()%>";
      		<ul class="availability-notice" style="padding-left: 10px;">
   				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
   				<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li>
+            <%--<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li> --%>
   				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
   			</ul>
 
@@ -572,6 +572,7 @@ var home_url = "<%=request.getContextPath()%>";
 		    $('#'+slideFrom.attr('next-target')).addClass('active');
 		});
 		$(document).ready(function() {
+			
 			if(isMobile) {
 				$(".annualTravel_policy_item").click(function(){
 					itemTop = $(this).offset();
@@ -635,6 +636,22 @@ var home_url = "<%=request.getContextPath()%>";
     </div>
   </div>
 </div>
+
+
+<!--Modal in Forbid Landing of RP-->
+<div class="modal fade" role="dialog" aria-labelledby="forbid-landing" id="forbid-landing" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog teaserSurvey forbid-landing" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey"></div>
+			<div class="modal-body teaserSurvey forbid-landing">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
+				<button type="button" class="btn btn-orange" id="forbid-landing-button"><fmt:message key="forbid.landing.modal.button" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
+
 	<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>

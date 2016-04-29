@@ -144,6 +144,8 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.FINALIZE_LIFE_POLICY,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
+	
+	
 	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request,final Map<String,String> header)throws ECOMMAPIException{
 		StringBuffer url = new StringBuffer();
 		String[] dob = request.getParameter("dob").toString().split("-");
@@ -208,6 +210,10 @@ public class ECommWsConnector {
 	
 	public BaseResponse clearPolicyApplication(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.START_POLICY_APPLICATION,HttpMethod.PUT,parameters,BaseResponse.class,header);
+	}
+	
+	public BaseResponse partnerRegister(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.BECOME_PARTNER,HttpMethod.PUT,parameters,BaseResponse.class,header);
 	}
 	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {

@@ -843,7 +843,7 @@ var languageP = "${language}";
 									   message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 									   },
 								  regexp: {
-									 regexp: /^[\s\u4e00-\u9eff]*$/,
+									 regexp: /^[\s\u4e00-\u9fa5]*$/,
 									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								  },
 								  callback: {
@@ -1033,7 +1033,7 @@ var languageP = "${language}";
 									message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 								},
 								regexp: {
-									regexp: /^[\s\u4e00-\u9eff]*$/,
+									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
 								callback: {
@@ -1242,7 +1242,7 @@ var languageP = "${language}";
 			                        message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 			                    },
 								regexp: {
-									regexp: /^[\s\u4e00-\u9eff]*$/,
+									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
 								trigger: 'change keyup'
@@ -1393,7 +1393,7 @@ var languageP = "${language}";
 					e.preventDefault();
 				}).on('error.form.bv', function(e) {
 				});
-/* 				var chinNameRegex = /^[\s\u4e00-\u9eff]*$/;
+/* 				var chinNameRegex = /^[\s\u4e00-\u9fa5]*$/;
 				//added to fix bene chinese tpying problem in 9 and 11
 				if(msieversion()>0){
 					$( "#beneficiaryChineseName\\[0\\]" ).on('change keyup', function() {
@@ -1462,7 +1462,7 @@ var languageP = "${language}";
 			}
 
 			$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keypress', function (event) {
-				var regex = new RegExp("/^[\s\u4e00-\u9eff]*$/");
+				var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
 				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
 				if (!regex.test(key)) {
 					event.preventDefault();

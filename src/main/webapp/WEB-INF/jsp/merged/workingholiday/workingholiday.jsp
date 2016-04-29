@@ -39,8 +39,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${scriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_working-holidaycare_en.jpg",
-  "description":"${scriptChildName}",
+  "image":"${scriptImg}",
+  "description":"${scriptDescription}",
   "brand":{
     "@type":"Insurance",
     "name":"${scriptChildName}"

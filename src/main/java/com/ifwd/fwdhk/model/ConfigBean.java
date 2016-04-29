@@ -30,6 +30,8 @@ public class ConfigBean {
 	private String Url_SZWS;
 	@Value("#{configProperties['pdfImagesKey']}")
 	private String pdfImagesKey;
+	@Value("#{configProperties['becomePartnerMailTo']}")
+	private String becomePartnerMailTo;
 
 	public String getUrl_SZWS() {
 		return Url_SZWS;
@@ -126,5 +128,14 @@ public class ConfigBean {
 	public void setPdfImagesKey(String pdfImagesKey) {
 		this.pdfImagesKey = pdfImagesKey;
 	}
+
+	public String getBecomePartnerMailTo() {
+		return becomePartnerMailTo;
+	}
+
+	public void setBecomePartnerMailTo(String becomePartnerMailTo) {
+		this.becomePartnerMailTo = becomePartnerMailTo;
+	}
+	
 
 }

@@ -850,7 +850,8 @@ var languageP = "${language}";
 					   container: '#chineseNameErMsg',
 						 validators: {			                   
 			                    regexp: {
-			                        regexp: /^[\s\u4e00-\u9eff]*$/,
+			                        //regexp: /^[\s\u4e00-\u9eff]*$/,
+											regexp: /^[\s\u4e00-\u9fa5]*$/,
 			                        message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
 			                    }			             
 			                }
@@ -965,7 +966,7 @@ var languageP = "${language}";
 							},
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -975,7 +976,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -985,7 +986,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1006,7 +1007,7 @@ var languageP = "${language}";
 							},
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1016,7 +1017,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1026,7 +1027,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1047,7 +1048,7 @@ var languageP = "${language}";
 							},
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1057,7 +1058,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1067,7 +1068,7 @@ var languageP = "${language}";
 						validators: {
 							regexp: {
 								regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-								//regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/,
+								//regexp: /^[a-zA-Z\s\u4e00-\u9fa5]*$/,
 								message: '<fmt:message key="error.addr.invalid" bundle="${msg}" />'
 							}
 						}
@@ -1088,7 +1089,7 @@ var languageP = "${language}";
 			}
 			
 			$('.chinese-input').bind('keypress', function (event) {
-				var regex = new RegExp("/^[\s\u4e00-\u9eff]*$/");
+				var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
 				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
 				if (!regex.test(key)) {
 					event.preventDefault();

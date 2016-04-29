@@ -21,7 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
   "@context":"http://schema.org/",
   "@type":"Product",
   "name":"${scriptName}",
-  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_savie-sp_en.jpg",
+  "image":"${scriptImg}",
   "description":"${scriptDescription}",
   "brand":{
     "@type":"Insurance",
@@ -29,7 +29,7 @@ var home_url = "<%=request.getContextPath()%>";
   },
   "offers":{
     "@type":"AggregateOffer",
-    "lowPrice":"3000",
+    "lowPrice":"30000",
     "highPrice":"400000",
     "priceCurrency":"HKD"
   }
@@ -70,16 +70,16 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 			</div>
 			
-			<div class="savie-regular-container savie-regular-landing">
+			<div class="savie-regular-container savie-regular-landing sp-only">
 				<div class="whole-banner">
               	<div class="page-banner">
-              		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-              		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
               		<div class="fwd-container-limit">
               		
               		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
-      	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
+      	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
       	        			<div id="clearfix-height-rp">
       	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
       	        			</div>        			
@@ -120,12 +120,12 @@ var home_url = "<%=request.getContextPath()%>";
        				<ul class="availability-notice" style="padding-left: 10px;">
 		  				<li><fmt:message key="product.detail.savie.remark.copy1_0" bundle="${msg}" /></li>
 		  				<li><fmt:message key="product.detail.savie.remark.copy1_1" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_2_1" bundle="${msg}" />
+		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_2_1" bundle="${msg}" />
 		  					<ul class="availability-notice inner">
 		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_a" bundle="${msg}" />
 		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_b" bundle="${msg}" />		
 		  					</ul>
-		  				</li>
+		  				</li>--%>
 		  				<li><fmt:message key="product.detail.savie.remark.copy1_3" bundle="${msg}" /></li>
 		  			</ul>
        				
@@ -686,7 +686,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
+		<!--script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script-->
 		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
@@ -696,7 +696,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script type="text/javascript">
 			var language = "en";
 			$(document).ready(function (){
-				$(".fna-carousel .carousel-inner").swipe("disable");
+				//$(".fna-carousel .carousel-inner").swipe("disable");
 			});
 			$("#one-off-button").click(function(){
 				$("#one-off-button").addClass('clicked-button');
@@ -821,6 +821,7 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 
 			$(document).ready(function() {
+				
 				if(isMobile) {
 					$(".annualTravel_policy_item").click(function(){
 						itemTop = $(this).offset();
@@ -873,3 +874,18 @@ var home_url = "<%=request.getContextPath()%>";
     </div>
   </div>
 </div>
+
+
+<!--Modal in Forbid Landing of SP-->
+<div class="modal fade" role="dialog" aria-labelledby="forbid-landing" id="forbid-landing" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog teaserSurvey forbid-landing" role="document">
+		<div class="modal-content teaserSurvey">
+			<div class="modal-header teaserSurvey"></div>
+			<div class="modal-body teaserSurvey forbid-landing">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+				<img src="<%=request.getContextPath()%>/<fmt:message key="forbid.landing.modal.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
+				<button type="button" class="btn btn-orange" id="forbid-landing-button"><fmt:message key="forbid.landing.modal.button" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->

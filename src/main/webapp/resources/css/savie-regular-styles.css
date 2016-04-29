@@ -1196,7 +1196,8 @@ body {
   .savie-regular-landing .page-banner .img-banner-text .savie-product {
     font-size: 18px;
     margin-top: 0;
-    margin-right: 47px;
+    /*margin-right: 47px;*/
+		margin-right: 0;
   }
 }
 @media (min-width: 992px) {
@@ -5459,4 +5460,50 @@ body.chin .ch-banner-img {
   background-color: #fff;
   color: #fdb714;
   border: 1px #fdb714  solid;
+}
+
+/* Add on 20160427*/
+.savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
+	top: auto; //IE Fix
+	top: initial;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	padding-left: 0;
+	bottom: 0;
+}
+
+.savie-regular-landing.sp-only .page-banner .img-banner-text .start-btn {
+	background: #fdb714;
+	border-color: #cf9611;
+	font-size: 12px;
+	max-width: 40px;
+	padding: 0;
+	margin-top: 24px;
+}
+.savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product a {
+  font-size: 12px;
+}
+@media (min-width: 620px) {
+	.savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
+		bottom: 14px;
+	}
+	.savie-regular-landing.sp-only .page-banner .img-banner-text .start-btn {
+		font-size: 16px;
+		max-width: 100px;
+		padding: 4.5px 0 5.5px;
+		margin-top: 8px;
+	}
+	.savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product a {
+		font-size: 14px;
+	}
+}
+@media (min-width: 992px) {
+	.savie-regular-landing.sp-only .page-banner .img-banner-text .start-btn {
+		font-size: 18px;
+		max-width: 120px;
+	}
+	.savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product a {
+		font-size: 16px;
+	}
 }

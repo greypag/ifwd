@@ -737,7 +737,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
-		}else if(departAge > 65 && currAge < 65){
+		}else if(departAge >= 65 && currAge <= 65){
 			$("#input_oversea_dob").addClass("invalid-field");
 			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.DOB.Error.65"));
 			$("#oversea_insure_dob").addClass("invalid-field");
@@ -768,7 +768,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
-		}else if((departAge > 65 && InsuDob!="") || (departAge < 12 && InsuDob!="")){
+		}else if((departAge >= 65 && InsuDob!="") || (departAge < 12 && InsuDob!="")){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			if(departAge < 12){
 				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.insured.DOB.Error.12"));

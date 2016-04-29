@@ -249,9 +249,12 @@ public class FlightController {
 				UserRestURIConstants.getLanaguage(request));
 		String flightScriptChildName = WebServiceUtils.getPageTitle("flight.script.child.name",
 				UserRestURIConstants.getLanaguage(request));
+		String flightScriptImg = WebServiceUtils.getPageTitle("flight.og.image",
+				UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("flightScriptName", flightScriptName);
 		model.addAttribute("flightScriptDescription", flightScriptDescription);
 		model.addAttribute("flightScriptChildName", flightScriptChildName);
+		model.addAttribute("flightScriptImg", flightScriptImg	);
 		
 		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
 				UserRestURIConstants.getLanaguage(request));

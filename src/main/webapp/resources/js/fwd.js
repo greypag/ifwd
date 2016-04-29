@@ -8,9 +8,9 @@ var password_full_pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[&%$!]).
 var password_pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
 var passport_pattern = /^[a-zA-Z0-9]{5,15}$/;
 
-var name_eng_pattern = /^[a-zA-Z\s\u4e00-\u9eff]*$/; /*English chars only*/
-var name_chi_pattern = /^[\u4e00-\u9eff\s]*$/; /*Chinese chars only*/
-var name_eng_chi_pattern = /^[a-zA-Z\s\u4e00-\u9eff]*$/; /*Chinese and english chars only*/
+var name_eng_pattern = /^[a-zA-Z\s\u4e00-\u9fa5]*$/; /*English chars only*/
+var name_chi_pattern = /^[\u4e00-\u9fa5\s]*$/; /*Chinese chars only*/
+var name_eng_chi_pattern = /^[a-zA-Z\s\u4e00-\u9fa5]*$/; /*Chinese and english chars only*/
 
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
  

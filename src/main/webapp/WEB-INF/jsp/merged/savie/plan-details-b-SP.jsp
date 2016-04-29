@@ -180,9 +180,10 @@ var affordabilityPremium = ${sliderMax};
 					</div>
 					<div class="col-xs-12 col-md-2 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
-				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-				           	<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label> 
-			           	</div>
+							<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
+							<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="label.promocode" bundle="${msg}" /></label>
+						</div>
+						<span class="error-msg hidden" id="promoCodeErrorMsg"><fmt:message key="plan.detail.promo.code.error" bundle="${msg}" /></span>
 					</div>
 					<div class="col-xs-12 col-md-2 plan-calculate">
 						<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="button.calculate" bundle="${msg}" /></button>
@@ -764,6 +765,12 @@ var affordabilityPremium = ${sliderMax};
 			
 			$("#errorMsg").html("");
 			$("#apiData").html("");
+			
+			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
+				$('#promoCodeErrorMsg').removeClass('hidden');
+			}else {
+				$('#promoCodeErrorMsg').addClass('hidden');
+			}
 			getSavieOnlinePlandetails(false);
 		});
 		
