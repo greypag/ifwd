@@ -79,7 +79,7 @@ public class EasyHealthController extends BaseController{
 		try {
 			easyHealthService.createLifePolicy(request, request.getSession());
 		} catch (ECOMMAPIException e) {
-			// TODO Auto-generated catch block
+			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);

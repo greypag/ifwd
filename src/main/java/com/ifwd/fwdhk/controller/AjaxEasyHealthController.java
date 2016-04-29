@@ -58,7 +58,7 @@ public class AjaxEasyHealthController extends BaseController{
 	
 	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/easyhealth-insurance/createLifePolicy"})
 	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
@@ -70,11 +70,12 @@ public class AjaxEasyHealthController extends BaseController{
 			jsonObject.put("successMsg", "yes");
 		}
 		catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
-	}
+	}*/
 	
 	@RequestMapping(value = {"/ajax/easyhealth-insurance/getPremium"})
 	public void getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
