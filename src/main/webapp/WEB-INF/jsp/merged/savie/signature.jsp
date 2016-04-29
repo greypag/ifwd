@@ -160,7 +160,7 @@ var languageP = "${language}";
 							<p class="bank-info-select-label"><fmt:message key="label.signature.location" bundle="${msg}" /></p>
 							   <span class="icon-chevron-thin-down orange-caret"></span>
 							   <select name="centre" id="centre" class="form-control gray-dropdown">
-								   <option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>
+								   <!--<option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>-->
 								   <c:choose>
 								       <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 								           <c:forEach var="list" items="${serviceCentre.serviceCentres}">
