@@ -164,6 +164,7 @@ $(document).ready(function(){
 								if(cardtype != ""){
 									if($.payment.validateCardNumber($("#ccNumber").val())){
 										$(".cardtype").find("span."+cardtype).addClass("detected");
+										$('#pMethod').val($("#ccNumber").hasClass("visa")?"VISA":$("#ccNumber").hasClass("mastercard")?"Master":"Unknown");
 										return true;
 									}else{
 										return false;
