@@ -383,7 +383,7 @@ function getTableData(year, mca) {
 }
 
 function priceFormat(priceInt) {
-    return "HK$" + numberWithCommas(priceInt);
+    return "HK$" + numberWithCommas(parseInt(priceInt));
 }
 
 function numberWithCommas(x) {
