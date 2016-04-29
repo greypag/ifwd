@@ -369,7 +369,40 @@ var languageP = "${language}";
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-						window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+                		
+                        $.ajax({     
+                            url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+                            type:'get',     
+                            error:function(){       
+                            },     
+                            success:function(data){
+                                if(data != null && data.errMsgs == null && data.nextPage !=null){
+                                    $('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
+                                    $('#loginpopup').modal('hide');
+                                    $('#retrieve-application-modal').modal('show');
+                                    nextPage = data.nextPage;
+                                }
+                                else{
+                                    $.ajax({     
+                                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+                                        type:'get',     
+                                        error:function(){       
+                                        },     
+                                        success:function(data){
+                                            if(data != null && data.errMsgs == null && data.name !=null){
+                                                $('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+                                                $('#loginpopup').modal('hide');
+                                                $('#review-fna-modal').modal('show');
+                                            }
+                                            else{
+                                                window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+                                            }
+                                        }  
+                                    });
+                                }
+                            }  
+                        });
+                        
             		}else{
             			$('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
