@@ -73,8 +73,17 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
+		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) session.getAttribute("selectPlan");
+		String planCode = "";
+		String[] strArray = {"eh-plan-a","eh-plan-b","eh-plan-c", "eh-plan-d"};
+		for(int i=0;i<4;i++){
+			if(strArray[i].equals(selectPlan.getSelectPlan())){
+				planCode = "ROPHI"+(i+1);
+			}
+		}
+		
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", "ROPHI1");
+		parameters.put("planCode", planCode);
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
@@ -276,6 +285,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 					selectPlan.setMonthlyPremium(plans.get(i).get("monthlyPremium").toString());
 					selectPlan.setInfectiousDisease(plans.get(i).get("infectiousDisease").toString());
 					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
+					selectPlan.setSelectPlan(pro);
 				}
 			}
 			request.getSession().setAttribute("selectPlan", selectPlan);

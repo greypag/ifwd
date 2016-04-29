@@ -11,6 +11,7 @@ public class EasyHealthPremiumSelectPlan {
 	private String monthlyPremium;
 	private String infectiousDisease;
 	private String accidentalDeathBenefit;
+	private String selectPlan;
 	
 	
 	public String getIntensiveCareUnit() {
@@ -73,5 +74,10 @@ public class EasyHealthPremiumSelectPlan {
 	public void setAccidentalDeathBenefit(String accidentalDeathBenefit) {
 		this.accidentalDeathBenefit = accidentalDeathBenefit;
 	}
-	
+	public String getSelectPlan() {
+		return selectPlan;
+	}
+	public void setSelectPlan(String selectPlan) {
+		this.selectPlan = selectPlan;
+	}
 }
