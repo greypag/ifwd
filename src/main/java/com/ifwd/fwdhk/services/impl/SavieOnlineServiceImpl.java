@@ -434,7 +434,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			
 			attributeList.add(new PdfAttribute("EndofContractTerm","4 - "+(100-issueAge)));
-			attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)));
+			if("tc".equals(lang)){
+				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+"年"));
+			}else{
+				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+" years"));
+			}
+			
 			
 			attributeList.add(new PdfAttribute("Date",format.format(new Date())));
 			attributeList.add(new PdfAttribute("Printdate",format.format(new Date())));
