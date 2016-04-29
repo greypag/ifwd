@@ -768,7 +768,9 @@ var affordabilityPremium = ${sliderMax};
 			
 			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
 				$('#promoCodeErrorMsg').removeClass('hidden');
-			}else {
+			}else if ($('#promoCode').val()!='' && !$('#promoCodeErrorMsg').hasClass('hidden')){
+				//do nothing
+			}else{
 				$('#promoCodeErrorMsg').addClass('hidden');
 			}
 			getSavieOnlinePlandetails(false);

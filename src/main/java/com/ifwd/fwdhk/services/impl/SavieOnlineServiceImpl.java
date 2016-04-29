@@ -434,7 +434,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			
 			attributeList.add(new PdfAttribute("EndofContractTerm","4 - "+(100-issueAge)));
-			attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)));
+			if("tc".equals(lang)){
+				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+"年"));
+			}else{
+				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+" Years"));
+			}
+			
 			
 			attributeList.add(new PdfAttribute("Date",format.format(new Date())));
 			attributeList.add(new PdfAttribute("Printdate",format.format(new Date())));
@@ -509,7 +514,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-	    attributeList.add(new PdfAttribute("CampaignCode", "KSSS16"));
+	    attributeList.add(new PdfAttribute("CampaignCode", "KSS016"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    
 	    if("tc".equals(lang)){
