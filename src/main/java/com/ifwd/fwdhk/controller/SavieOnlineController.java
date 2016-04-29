@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
@@ -398,6 +399,11 @@ public class SavieOnlineController extends BaseController{
 			String backSummary = request.getParameter("backSummary");
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
+			}
+			LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
+			if(lifeEmploymentInfo!=null && lifeEmploymentInfo.getNatureOfBusiness() !=null && lifeEmploymentInfo.getNatureOfBusiness()!=""){
+				model.addAttribute("occupationEN", InitApplicationMessage.getOccupationByNob(commonUtils,lifeEmploymentInfo.getNatureOfBusiness(), "EN", "1", request));
+				model.addAttribute("occupationCN", InitApplicationMessage.getOccupationByNob(commonUtils,lifeEmploymentInfo.getNatureOfBusiness(), "CH", "1", request));
 			}
 			
 			String code = null;

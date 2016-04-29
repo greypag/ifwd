@@ -264,7 +264,8 @@ var languageP = "${language}";
 																		   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
 																		   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
 																		   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
-																		   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+																		   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when>
+																		   <c:when test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:when> 
 																		   <c:otherwise></c:otherwise>  
 																		</c:choose>
 																	>${list.itemDesc }</option>
@@ -279,6 +280,7 @@ var languageP = "${language}";
 																		   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
 																		   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
 																		   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+																		   <c:when test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:when>
 																		   <c:otherwise></c:otherwise>  
 																		</c:choose>
 																	>${list.itemDesc }</option>
@@ -294,6 +296,7 @@ var languageP = "${language}";
 														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when>
 														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when> 
 														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when> 
+														   <c:when test="${lifePersonalDetails.martialStatus == list.itemCode}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when>
 														   <c:otherwise></c:otherwise>  
 														</c:choose>
 												</c:forEach>
@@ -306,6 +309,7 @@ var languageP = "${language}";
 														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when>
 														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when> 
 														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when> 
+														   <c:when test="${lifePersonalDetails.martialStatus == list.itemCode}"><c:set var="martialStatusCode" value="${list.itemCode }"/></c:when>
 														   <c:otherwise></c:otherwise>  
 														</c:choose>
 												</c:forEach>

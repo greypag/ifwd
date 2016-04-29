@@ -105,4 +105,20 @@ public class AjaxEasyHealthController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/easyhealth-insurance/putPremium"})
+	public void putPremium(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			easyHealthService.putPremium(request);
+		}
+		catch (Exception e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 }

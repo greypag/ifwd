@@ -105,14 +105,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" ${plan == 'savings-insurance' ? savieFna.employment_status == list.itemCode?'selected="selected"':'':lifeEmploymentInfo.employmentStatus == list.itemCode?'selected="selected"':''} >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${employmentStatusCN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }" <c:if test="${savieFna.employment_status == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" ${plan == 'savings-insurance' ? savieFna.employment_status == list.itemCode?'selected="selected"':'':lifeEmploymentInfo.employmentStatus == list.itemCode?'selected="selected"':''}>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
@@ -120,12 +120,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
-														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.employment_status == list.itemCode?'true':'false':lifeEmploymentInfo.employmentStatus == list.itemCode?'true':'false'}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${employmentStatusCN}">
-														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.employment_status == list.itemCode?'true':'false':lifeEmploymentInfo.employmentStatus == list.itemCode?'true':'false'}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="employmentStatus" name="employmentStatus" value="${employmentStatusCode }">
@@ -141,14 +141,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${natureOfBusinessCN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }" <c:if test="${savieFna.nature_of_business == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>				                     
@@ -156,12 +156,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
-														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${natureOfBusinessCN}">
-														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" value="${natureOfBusinessCode }">
@@ -177,14 +177,14 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
 														<enhance:out escapeXml="false">
-															<option value="${list.itemCode }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${occupationCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" <c:if test="${savieFna.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
 												</c:if>	
@@ -192,12 +192,12 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
-														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${occupationCN}">
-														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
+														<c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 											<input type="hidden" id="occupation" name="occupation" value="${occupationCode }">
@@ -338,6 +338,7 @@ var languageP = "${language}";
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}">selected="selected"</c:when>
+															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }">selected="selected"</c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 														>${list.itemDesc }</option>
@@ -351,6 +352,7 @@ var languageP = "${language}";
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}">selected="selected"</c:when>
+															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }">selected="selected"</c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 														>${list.itemDesc }</option>
@@ -365,6 +367,7 @@ var languageP = "${language}";
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 													</c:forEach>
@@ -376,6 +379,7 @@ var languageP = "${language}";
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
+															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:otherwise></c:otherwise>  
 															</c:choose>
 													</c:forEach>
@@ -397,6 +401,7 @@ var languageP = "${language}";
 														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														<c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:if>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
@@ -407,6 +412,7 @@ var languageP = "${language}";
 														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
+														<c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:if>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
@@ -418,6 +424,7 @@ var languageP = "${language}";
 														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+													    <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
@@ -426,6 +433,7 @@ var languageP = "${language}";
 														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+													    <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
 													</c:forEach>
 												</c:if>	
 											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
@@ -796,6 +804,7 @@ var languageP = "${language}";
 				},
 				function(data) {
 					$("#tmpOccupation").empty();
+					$("#tmpOccupation").append("<option value='' disabled='disabled' selected='selected' ><fmt:message key='placeholder.occupation' bundle='${msg}' /></option>");
 					if(data != null){
 						for(var i = 0; i < data.length; i++) {
 							$("#tmpOccupation").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");

@@ -1,5 +1,6 @@
 var contextPath = context;
 var getPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/getPremium';
+var putPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/putPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -75,7 +76,11 @@ $(document).ready(function() {
         $(".eh-plan-tab").hide();
         $(".btn-plan-selector[data-tab='" + $(this).data("tab") + "']:first").trigger("click");
         
-        //alert($(this).data("data-tab"));
+        var pro = $(this).attr("data-tab");
+        $.post(putPremiumApiLink, { pro: pro }, function(data) {
+        }).fail(function() {
+            alert("network error.");
+        });
 
 
         $(".step2").fadeOut(function() {
