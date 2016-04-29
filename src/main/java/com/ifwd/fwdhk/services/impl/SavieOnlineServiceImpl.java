@@ -437,7 +437,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if("tc".equals(lang)){
 				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+"年"));
 			}else{
-				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+" years"));
+				attributeList.add(new PdfAttribute("Benefitterm", String.valueOf(100-issueAge)+" Years"));
 			}
 			
 			
