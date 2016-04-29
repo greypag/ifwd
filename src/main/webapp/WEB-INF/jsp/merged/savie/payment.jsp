@@ -423,13 +423,13 @@ var language = "${language}";
 		<div class="modal-content teaserSurvey">
 			<div class="modal-header teaserSurvey">
 				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-				<h2><fmt:message key="savie.customerServiceCentre.fullyBookmodalheader" bundle="${msg}" /></h2>
+				<h2><fmt:message key="savie.pay.and.sign.later.fullyBookmodalheader" bundle="${msg}" /></h2>
 			</div>
 			<div class="modal-body teaserSurvey">
-				<p class="registered"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbody" bundle="${msg}" /></p>
+				<p class="registered"><fmt:message key="savie.pay.and.sign.later.fullyBookmodalbody" bundle="${msg}" /></p>
 				
 				<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-				<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="savie.customerServiceCentre.fullyBookmodalbtnTxt" bundle="${msg}" /></button>
+				<button type="button" class="btn btn-orange" id="fullyBooked-button"><fmt:message key="savie.pay.and.sign.later.fullyBookmodalbtnTxt" bundle="${msg}" /></button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->	
@@ -494,6 +494,7 @@ var language = "${language}";
 
 	$('#fullyBooked-button').click(function(){
 		$('#fullyBooked').modal('hide');
+		$('#payment-save-and-con').trigger('click');
 	});
 	$('#perferredTimeIsNull-btn').click(function(){
 		$('#perferredTimeIsNull').modal('hide');
