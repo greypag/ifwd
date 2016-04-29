@@ -115,6 +115,7 @@ public class AjaxEasyHealthController extends BaseController{
 		}
 		try {
 			easyHealthService.putPremium(request);
+			logger.info("putPremium success");
 		}
 		catch (Exception e) {
 			jsonObject.put("errorMsg", e.getMessage());

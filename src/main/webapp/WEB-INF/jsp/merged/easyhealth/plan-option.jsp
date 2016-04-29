@@ -1686,7 +1686,20 @@ var home_url = "<%=request.getContextPath()%>";
         });
 
         $("#online-application-btn").click(function() {
-            window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+        	var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
+        	$.ajax({
+	 			  type : "post",
+	 			  cache:false, 
+				  async:false, 
+	 			  url : '${pageContext.request.contextPath}/ajax/easyhealth-insurance/putPremium',
+	 			  data : {pro : pro},
+	 			  success : function(data) {
+	 				 window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+	 			  },
+	 			  error:function(){
+	 			      console.log('error');   
+	 		      }
+		    });
         });
 
         $("#offline-application-btn").click(function() {
