@@ -474,7 +474,7 @@ var fnaq4e = '${savieFna.q4_e }';
 										<label for="FNAinputCustomerName" class="field-label"><fmt:message key="label.name" bundle="${msg}" /></label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input type="text" autocomplete="off" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="FNAinputCustomerName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
+										<input type="text" autocomplete="off" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder chinese-input" id="FNAinputCustomerName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
 										<span id="errFNAinputCustomerName" class="text-red"></span>
 									</div>
 								</div>
