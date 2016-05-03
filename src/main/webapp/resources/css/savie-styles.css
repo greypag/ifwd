@@ -2172,7 +2172,7 @@ a.eserv-link:hover {
   background-color: #032c30;
   color: #ffffff;
   font-family: 'Calibri-Bold';
-  font-size: 40px;
+  font-size: 30px;
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid #ffffff;
   padding: 25px;
@@ -9743,4 +9743,21 @@ select::-ms-value {
 	cursor: pointer;
 }
 
-
+@media (min-width: 992px) {
+	.psa-divider{
+		height: 588px;
+	}
+}
+.psa-divider:hover,
+.psa-divider:hover .psa-btn{
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	background-color: #f68b1f;
+}
+.psa-divider:hover .psa-btn,
+.psa-divider:hover a,
+.psa-divider:hover a i{
+	color: #fff;
+}
