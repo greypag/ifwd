@@ -138,16 +138,16 @@ var languageP = "${language}";
 								<p><fmt:message key="declaration.policyreplacement.copy1" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
-									  <div class="clearfix desktop-align left">
+									  <div class="clearfix desktop-align left radio-no-div">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false"  class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
-									  <div class="clearfix below desktop-align">
+									  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -163,16 +163,16 @@ var languageP = "${language}";
 								<p><fmt:message key="declaration.policyreplacement.copy2" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group clearfix">
-									  <div class="clearfix desktop-align left">
+									  <div class="clearfix desktop-align left radio-no-div">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false"  class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
-									  <div class="clearfix below desktop-align">
+									  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -209,16 +209,16 @@ var languageP = "${language}";
 						<p><fmt:message key="declaration.residency.declaration.copy" bundle="${msg}" /></p>
 						<div class="radio-group clearfix">
 						   <div class="radio-button-group">
-							  <div class="clearfix desktop-align left">
+							  <div class="clearfix desktop-align left radio-no-div">
 								 <div class="pull-left radio-holder">
 									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false"  class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
 								 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 							  </div>
-							  <div class="clearfix below desktop-align">
+							  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
 								 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -385,6 +385,7 @@ var languageP = "${language}";
 	var $radio_no_elem;
 	
 	$(document).ready(function() {
+		/*
 		$("#haveReplacedYes").click(function(){
 			// these variables will be used when closing yes-radio-popup
  			$radio_yes_elem = $(this); 
@@ -402,7 +403,11 @@ var languageP = "${language}";
  			$radio_yes_elem = $(this); 
  			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
 		});
-
+		*/
+		$('.radio-yes-div').click(function(){
+ 			$radio_yes_elem = $(this).find('input:radio'); 
+ 			$radio_no_elem = $radio_yes_elem.parent().parent().siblings('.left').find('.radio-no');
+		});
 
 		
 		$('.close').click(function() {
@@ -412,7 +417,7 @@ var languageP = "${language}";
 		});
 		
 		$('.modal').on('click', function() {
-			if($(this).attr("id") == "yes-radio-popup") {						
+			if($(this).attr("id") == "yes-radio-popup") {
 				updateRadioStatus();
 			}
 		});
@@ -576,11 +581,17 @@ var languageP = "${language}";
 			$(this).siblings('input[type=checkbox]').click();
 		});
 		
-		$('.personal-info-link-parent .chkboxText').on('click', function() {
-			$('#hasReadAndAcceptPICS').click();		
-		});
+		//$('.personal-info-link-parent + p').on('click', function() {
+			//$('#hasReadAndAcceptPICS').click();
+		//});
 		
 //		$('#yes-radio-popup').css("display","none");
 //		$('#yes-radio-popup-intent').css("display","none");
+		
+		$('.radio-no-div, .radio-yes-div').on('click', function() {
+			$radio_group_parent = $(this).parent();
+			$radio_group_parent.find('input:radio').prop('checked', false);
+			$(this).find('input:radio').prop('checked', true);
+		});
 	});
 </script>
