@@ -76,18 +76,18 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xs-12 col-md-12">
-							<h3 class="heading-title">Medical declaration</h3>
+							<h3 class="heading-title"><fmt:message key="underwriting.title.easyhealth" bundle="${msg}" /></h3>
 							<div class="row form-group question-row">
 								<div class="col-xs-12">
 									<h4>Question 1</h4>
 								</div>
 								<div class="col-xs-12 col-md-10">
-									<p>Has your proposal, renewal or reinstatement for life, disability, accident, critical illness or health insurance made to any company including FWD ever been declined, postponed or modified in anyway?</p>
+									<p><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></p>
 								</div>
 								<div class="col-xs-12 col-md-2">
 									<div class="radio-gp">
-										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="Yes">Yes</label>
-										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="No">No</label>
+										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
+										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-12">
@@ -96,15 +96,15 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
                             <div class="row form-group question-row">
                                 <div class="col-xs-12">
-                                    <h4>Question 3</h4>
+                                    <h4><fmt:message key="underwriting.question.q2" bundle="${msg}" /></h4>
                                 </div>
                                 <div class="col-xs-12 col-md-10">
-                                    <p>In the past 3 years, have you ever had any accident or illness treatment (medication or drugs) for more than 14 days or have you undergone surgical operation at a hospital or clinic, or been advised by a registered physician to undergo any investigations including ECG, CT Scan, Blood Test, Biopsy etc. (Excluding Routine Medical or Employment check-up)?</p>
+                                    <p><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></p>
                                 </div>
                                 <div class="col-xs-12 col-md-2">
                                     <div class="radio-gp">
-                                        <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="Yes">Yes</label>
-                                        <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="No">No</label>
+                                        <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
+                                        <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
 
                                     </div>
                                 </div>
@@ -114,42 +114,43 @@ var home_url = "<%=request.getContextPath()%>";
                             </div>
 							<div class="row form-group question-row">
 								<div class="col-xs-12">
-									<h4>Question 2</h4>
+									<h4><fmt:message key="underwriting.question.q3" bundle="${msg}" /></h4>
 								</div>
 								<div class="col-xs-12 col-md-10">
 									<div class="row">
 										<div class="col-xs-12">
-											<p>Have you ever had, or been told to have or been treated for the following diseases?</p>
+											<p><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></p>
 										</div>
 										<div class="col-xs-12 col-md-6">
 											<ul>
-												<li>High Blood Pressure</li>
-												<li>Stroke</li>
-												<li>Chest Pain</li>
-												<li>Heart Disease</li>
-												<li>Kidney Disease</li>
-												<li>Diabetes Mellitus</li>
-												<li>Respiratory Disorder</li>
-												<li>Thyroid Disease</li>
+												<li><fmt:message key="underwriting.question.q3.sickness1" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness2" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness3" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness4" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness5" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness6" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness7" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness8" bundle="${msg}" /></li>
 											</ul>
 										</div>
 										<div class="col-xs-12 col-md-6">
 											<ul>
-												<li>Digestive Problems</li>
-												<li>Liver Problems (including Hepatitis B and C)</li>
-												<li>Blood Disease</li>
-												<li>Cancer or Tumour</li>
-												<li>any disease or disorder of Breast</li>
-												<li>any disease or disorder of Uro-Genital</li>
-												<li>AIDS or AIDS Related Complex</li>
+												<li><fmt:message key="underwriting.question.q3.sickness9" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness10" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness11" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness12" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness13" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness14" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness15" bundle="${msg}" /></li>
+												<li><fmt:message key="underwriting.question.q3.sickness16" bundle="${msg}" /></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-2">
 									<div class="radio-gp">
-										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="Yes">Yes</label>
-										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="No">No</label>
+										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
+										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-12">
@@ -159,12 +160,12 @@ var home_url = "<%=request.getContextPath()%>";
 
 							<div class="tnc-row form-group">
 								<div class="checkbox">
-									<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I declare to the best of my knowledge and belief that all the statements and answers in the above are full, complete and true and form part of the application and the basis of the policy to be issued. I understand and agree that if any of the statements and answers given in the above are inaccurate or I have not disclosed any material facts, FWD Life Insurance Company (Bermuda) Limited shall be entitled to cancel the policy or to re-issue the policy with changes even after the policy has been issued;</label>
+									<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="underwriting.declaration" bundle="${msg}" /></label>
 									<span class="error-msg" id="ehUnderWriting4ErrMsg"></span>
 								</div>
 							</div>
 							<div class="btn-row text-center">
-								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next">Next</a>
+								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
 							</div>
 					</div>
 				</div>

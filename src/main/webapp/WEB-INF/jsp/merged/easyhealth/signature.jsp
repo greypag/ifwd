@@ -80,17 +80,17 @@ var home_url = "<%=request.getContextPath()%>";
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
-                    <h3 class="heading-title">Signautre</h3>
-                     <p>Please sign in the grey area below</p>
+                    <h3 class="heading-title"><fmt:message key="signature.title" bundle="${msg}" /></h3>
+                     <p><fmt:message key="signature.description" bundle="${msg}" /></p>
                      <form action="">
                         <div class="signature-parent">
                             <div id="signature" class="signature-img so-signature"></div>
                         </div>
                         <div class="clearfix">
-                            <a id="link-clear" href="javascript:void(0);" class="pull-left link-clear">Clear</a>
+                            <a id="link-clear" href="javascript:void(0);" class="pull-left link-clear"><fmt:message key="signature.clear" bundle="${msg}" /></a>
                             
                                 
-                                <p class="text-right">Signed In Hong Kong</p>
+                                <p class="text-right"><fmt:message key="signature.hksign" bundle="${msg}" /></p>
                             
                         </div>
                         <div class="text-center">
@@ -99,7 +99,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png">
                                 <span>Correct</span>
                             </div>
-                            <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next">Proceed to Payment</a>
+                            <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next"><fmt:message key="button.proceed.to.payment" bundle="${msg}" /></a>
                         </div>
                      </form>
                 </div>
