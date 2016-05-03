@@ -9727,3 +9727,20 @@ h3 .heading-title{
 	white-space: normal;
 }
 
+/* add on 20160429 */
+select::-ms-value {
+    background: none; /* remove blue background on ie10/ie11 when selected*/
+    color:#000;
+}
+@-moz-document url-prefix(){ /* alignment of firefox of customer-service-centre */
+	#payment-page .payment-select-wrapper .form-control.gray-dropdown{
+		padding-left: 12px !important;
+	}
+}
+
+/* add on 20160502 */
+.radio-no-div, .radio-yes-div{
+	cursor: pointer;
+}
+
+
