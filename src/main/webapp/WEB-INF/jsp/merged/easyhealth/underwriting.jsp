@@ -18,8 +18,8 @@ var home_url = "<%=request.getContextPath()%>";
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/application.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/easyhealth-application.css">
-    <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
-    <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
+     <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
+ <%--   <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script> --%>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
@@ -175,116 +175,331 @@ var home_url = "<%=request.getContextPath()%>";
 		
 	</div>
 
-</div>
 
+
+
+
+<!--CANNOT APPLY MODAL-->
+<div class="modal et-modal fade" role="dialog"
+	aria-labelledby="cantapply" id="cannot-apply-modal">
+	<div class="container-fluid modal-dialog" role="document">
+		<div class="modal-content et-modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h5>
+					Sorry, you cannot apply for this plan online.
+				</h5>
+			</div>
+			<div class="modal-body">
+				<p>
+					Please call our Customer Service Hotline
+					3123 3123
+					to find out more or leave your contact and let us call you back.
+				</p>
+				<form action="" id="et-cust-serv-form" method="post" onsubmit="return submmitinfo()">
+					<div class="input-items clearfix form-group">
+						<label for="name">Name</label> <input
+							type="text" class="form-control gray-textbox chinese-input"
+							placeholder="Name"
+							id="name" name="name"> <span class="error-msg"
+							id="cannotApplyNameMessage"></span>
+					</div>
+					<div class="input-items clearfix form-group">
+						<label for="email">Email address</label> <input
+							type="email" class="form-control gray-textbox"
+							placeholder="Email address"
+							id="email" name="email"> <span class="error-msg"
+							id="cannotApplyEmailMessage"></span>
+					</div>
+					<div class="input-items clearfix form-group">
+						<label for="tel">Mobile Number</label> <input
+							type="tel" class="form-control gray-textbox"
+							placeholder="Mobile Number"
+							id="tel" name="tel" maxlength="8"> <span
+							class="error-msg" id="cannotApplyTelMessage"></span>
+					</div>
+					<div class="input-items clearfix form-group">
+						<label for="day"><fmt:message
+								key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
+						<div class="select-holder">
+							<select class="form-control gray-textbox" id="day" name="day">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${etCsContactPreferredDayEN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${etCsContactPreferredDayCN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="cannotApplyDayMessage"></span>
+					</div>
+					<div class="input-items clearfix form-group">
+						<label for="time"><fmt:message
+								key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
+						<div class="select-holder">
+							<select class="form-control gray-textbox" id="time" name="time">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${etCsContactPreferredTimeSlotCN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="cannotApplyTimeMessage"></span>
+					</div>
+					<div class="input-items clearfix form-group">
+						<label for="enquiry"><fmt:message
+								key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
+						<div class="select-holder">
+							<select class="form-control gray-textbox" id="enquiry"
+								name="enquiry">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${etEnquiryTypeEN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${etEnquiryTypeCN}">
+										<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="cannotApplyEnquireMessage"></span>
+					</div>
+					<div class="">
+						<p class="notice">
+							* The information will not be used for direct marketing.
+						</p>
+					</div>
+					<button type="submit" class="btn next" id="et-cannot-apply-btn">
+						Submit
+					</button>
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!--END OF CANNOT APPLY MODAL-->
+<div id="back-to-home-modal"
+	class="modal fade fwd-generic-modal back-to-home" role="dialog"
+	data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content" align="center">
+			<div class="modal-body form-container" style="color: #fc6d08">
+				<div class="row">
+					<h2>
+						<fmt:message key="eliteTerms.selectPlan.successfully.submitted"
+							bundle="${msg}" />
+					</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">
+						<button type="button"
+							class="btn next bdr-curve btn btn-primary btn-lg wd5"
+							id="et-select-plan-go-homepage" data-dismiss="modal">
+							<fmt:message key="eliteTerms.selectPlan.Back.to.homepage"
+								bundle="${msg}" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--<div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">Your request has been successfully submitted.</h4>
+                  </div>
+                     
+                  <div class="modal-body"></div>
+                  
+                  <div class="modal-footer">
+                     <a href="/" title="Back to homepage" class="btn-block">Back to homepage</a>
+                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  </div>
+               </div>-->
+
+	</div>
+</div>
 <script>
+	$('#et-select-plan-go-homepage').on('click', function(e) {
+		window.location.href= contextPath+'/'+language+'/easyhealth-insurance';
+	});
+
+	function submmitinfo() {
+		if($("#name").val() != '' && $("#cannotApplyNameMessage").val() == '' && $("#cannotApplyEmailMessage").val() == ''
+				&& $("#cannotApplyTelMessage").val() == '' && $("#cannotApplyDayMessage").val() == '' 
+				&& $("#cannotApplyDayMessage").val() == ''  && $("#cannotApplyTimeMessage").val() == ''){
+			$('.modal').modal('hide');
+			 var name = $('#name').val();
+	        	var email = $('#email').val();
+	        	var mobile = $('#tel').val();
+	        	var preferredDay = $('#day').val();
+	        	var preferredTimeSlot = $('#time').val();
+	        	var enquiryType = $('#enquiry').val();
+	        	var channel = $("#channel").val();
+	        	var product = "eliteterm";
+	        	
+	        	if(name ==null){
+	        		console.log("data error");
+	        	}
+	        	else{
+	        		$.get(contextPath+'/ajax/eliteTerm/contactCs',
+	        		{ 
+	        			name : name,
+	        			email : email,
+	        			mobile : mobile,
+	        			preferredDay : preferredDay,
+	        			preferredTimeSlot : preferredTimeSlot,
+	        			enquiryType : enquiryType,
+	        			channel : channel,
+	        			product : product
+	        		},
+	        		function(data) {
+	        			if(data.errMsgs == null){
+	        				console.log("data success");
+	                  $('#back-to-home-modal').modal('show');
+	        			}
+	        			else{
+	        				console.log("data error");
+	        			}
+	        		})
+	        		.fail(function(data) {
+	        		});
+	        	}
+		}
+        return false;
+	}
+
 	$(document).ready(function(){
 		$("#eh-btn-underwriting-next").click(function() {
     		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
         });
-		
-			// ^ bootstrap validation
-            $('#et-cust-serv-form').bootstrapValidator({
-               excluded:[],
-               fields: {
-                  "name": {
-                     container: '#cannotApplyNameMessage',
-                     trigger: 'blur',
-                     validators: {
-                        notEmpty: {
-                           message: 'Please enter your name.'
-                        },
-                        regexp: {
-                           regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/, /*chinese and english chars only*/
-                           message: 'Your name is invalid.'
-                        },
-                        callback: {
-                           message: 'Please enter your name.',
-                           callback: function(value, validator) {
-                              return value !== document.getElementById('name').getAttribute('placeholder');
-                           }
-                        }
-                     }
-                  },
-                  "email": {
-                     container: '#cannotApplyEmailMessage',
-                     trigger: 'blur',
-                     validators: {
-                        emailAddress: {
-                           message: 'Your email address is invalid.'
-                        },
-                        callback: {
-                        	message: 'Please enter your mobile no. or email address.',
-                           callback: function(value, validator) {
-                               // Check if both email and mobile is blank
-                               if ( value == '' && $('#et-cust-serv-form #tel').val() == '') {
-                                   return false;
-                              }
+		  $('#et-cust-serv-form').bootstrapValidator({
+              excluded:[],
+              fields: {
+                 "name": {
+                    container: '#cannotApplyNameMessage',
+                    trigger: 'blur',
+                    validators: {
+                       notEmpty: {
+                          message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
+                       },
+                       regexp: {
+                          regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/, /*chinese and english chars only*/
+                          message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
+                       },
+                       callback: {
+                          message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />',
+                          callback: function(value, validator) {
+                             return value !== document.getElementById('name').getAttribute('placeholder');
+                          }
+                       }
+                    }
+                 },
+                 "email": {
+                    container: '#cannotApplyEmailMessage',
+                    trigger: 'blur',
+                    validators: {
+                       emailAddress: {
+                          message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
+                       },
+                       callback: {
+                          callback: function(value, validator) {
+                              // Check if both email and mobile is blank
+                              if ( value == '' && $('#et-cust-serv-form #tel').val() == '') {
+                                  return {
+                                      valid: false,
+                                      message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                  }
+                             }
 
-                              // Remove Tel Error message as well
-                              $('#et-cust-serv-form')
-                                  .data('bootstrapValidator')
-                                  .updateStatus('tel','VALID');
-                              return true;
-                           }
-                        }
-                     }
-                  },
-                  "tel": {
-                     container: '#cannotApplyTelMessage',
-                     trigger: 'blur',
-                     validators: {
-                        stringLength: {
-                           min: 8,
-                           max: 8,
-                           message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
-                        },
-                       	regexp: {
-                              regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
-                              message: 'Your mobile no. is invalid.'
-                        },
-                        callback: {
-                           message: 'Please enter your mobile no. or email address.',
-                           callback: function(value, validator) {
-                               // Check if both email and mobile is blank
-                               if ( value == '' && $('#et-cust-serv-form #email').val() == '') {
-                                   return false;              
-                               }
-                               
-                              // Remove Email Error message as well
-                              $('#et-cust-serv-form')
-                                   .data('bootstrapValidator')
-                                   .updateStatus('email','VALID');
+                             // Remove Tel Error message as well
+                             $('#et-cust-serv-form')
+                                 .data('bootstrapValidator')
+                                 .updateStatus('tel','VALID');
+                             return true;
+                          }
+                       }
+                    }
+                 },
+                 "tel": {
+                    container: '#cannotApplyTelMessage',
+                    trigger: 'blur',
+                    validators: {
+                       stringLength: {
+                          min: 8,
+                          max: 8,
+                          message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
+                       },
+                      	regexp: {
+                             regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
+                             message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
+                       },
+                       callback: {
+                          callback: function(value, validator) {
+                              // Check if both email and mobile is blank
+                              if ( value == '' && $('#et-cust-serv-form #email').val() == '') {
+                                  return {
+                                      valid: false,
+                                      message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                  }                          
+                              }
                               
-                              return true;
-                           }
-                        }
-                     }
-                  },
-                  "day": {
-                     container: '#cannotApplyDayMessage',
-                     validators: {
-                        notEmpty: {
-                           message: 'Please choose a perferred day for our customer service representative to call you.'
-                        }
-                     }
-                  },
-                  "time": {
-                     container: '#cannotApplyTimeMessage',
-                     validators: {
-                        notEmpty: {
-                           message: 'Please choose a perferred timeslot for our customer service representative to call you.'
-                        }
-                     }
-                  }
-               }
-            }).on('success.form.bv', function(e) {
-                  e.preventDefault();
-                  var $form = $(this);
-          
-                   $('.modal').modal('hide');
-                   
-                     var name = $('#name').val();
+                             // Remove Email Error message as well
+                             $('#et-cust-serv-form')
+                                  .data('bootstrapValidator')
+                                  .updateStatus('email','VALID');
+                             
+                             return true;
+                          }
+                       }
+                    }
+                 },
+                 "day": {
+                    container: '#cannotApplyDayMessage',
+                    validators: {
+                       notEmpty: {
+                          message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.day" bundle="${msg}" />'
+                       }
+                    }
+                 },
+                 "time": {
+                    container: '#cannotApplyTimeMessage',
+                    validators: {
+                       notEmpty: {
+                          message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
+                       }
+                    }
+                 }
+              }
+           }).on('success.form.bv', function(e){
+                 e.preventDefault();
+                 var $form = $(this);
+                  $('.modal').modal('hide');
+                  
+                   var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
 	               	var preferredDay = $('#day').val();
@@ -311,7 +526,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		function(data) {
 	               			if(data.errMsgs == null){
 	               				console.log("data success");
-                              $('#back-to-home-modal').modal('show');
+                             $('#back-to-home-modal').modal('show');
 	               			}
 	               			else{
 	               				console.log("data error");
@@ -320,103 +535,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		.fail(function(data) {
 	               		});
 	               	}
-            });
-
+           });
+			
 	});
 </script>
-
-<!--CANNOT APPLY MODAL-->
-<div class="modal et-modal fade" role="dialog"
-	aria-labelledby="cantapply" id="cannot-apply-modal">
-	<div class="container-fluid modal-dialog" role="document">
-		<div class="modal-content et-modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h5>
-					Sorry, you cannot apply for this plan online.
-				</h5>
-			</div>
-			<div class="modal-body">
-				<p>
-					Please call our Customer Service Hotline
-					3123 3123
-					to find out more or leave your contact and let us call you back.
-				</p>
-				<form action="" id="et-cust-serv-form" method="post">
-					<div class="input-items clearfix form-group">
-						<label for="name">Name</label> <input
-							type="text" class="form-control gray-textbox chinese-input"
-							placeholder="Name"
-							id="name" name="name"> <span class="error-msg"
-							id="cannotApplyNameMessage"></span>
-					</div>
-					<div class="input-items clearfix form-group">
-						<label for="email">Email address</label> <input
-							type="email" class="form-control gray-textbox"
-							placeholder="Email address"
-							id="email" name="email"> <span class="error-msg"
-							id="cannotApplyEmailMessage"></span>
-					</div>
-					<div class="input-items clearfix form-group">
-						<label for="tel">Mobile Number</label> <input
-							type="tel" class="form-control gray-textbox"
-							placeholder="Mobile Number"
-							id="tel" name="tel" maxlength="8"> <span
-							class="error-msg" id="cannotApplyTelMessage"></span>
-					</div>
-					<div class="input-items clearfix form-group">
-						<label for="day">Preferred day</label>
-						<div class="select-holder">
-							<select class="form-control gray-textbox" id="day" name="day">
-								<option value="">- Please select -</option>
-								<option value="PD1-Monday - Friday">Monday - Friday</option>
-								<option value="PD2-Saturday - Sunday">Saturday - Sunday</option>
-							</select>
-						</div>
-						<span class="error-msg" id="cannotApplyDayMessage"></span>
-					</div>
-					<div class="input-items clearfix form-group">
-						<label for="time">Preferred timeslot</label>
-						<div class="select-holder">
-							<select class="form-control gray-textbox" id="time" name="time">
-								<option value="">- Please select -</option>
-								<option value="PTSL1-Morning (after 9am)">Morning (after 9am)</option>
-								<option value="PTSL2-Afternoon ">Afternoon </option>
-								<option value="PTSL3-Evening (before 9pm)">Evening (before 9pm)</option>
-							</select>
-						</div>
-						<span class="error-msg" id="cannotApplyTimeMessage"></span>
-					</div>
-					<div class="input-items clearfix form-group">
-						<label for="enquiry">Enquiry type</label>
-						<div class="select-holder">
-							<select class="form-control gray-textbox" id="enquiry"
-								name="enquiry">
-								<option value="">- Please select -</option>
-								<option value="enqType1-Product features">Product features</option>
-								<option value="enqType2-Application">Application</option>
-								<option value="enqType3-Policy services">Policy services</option>
-								<option value="-Not Specified">Not Specified</option>
-							</select>
-						</div>
-						<span class="error-msg" id="cannotApplyEnquireMessage"></span>
-					</div>
-					<div class="">
-						<p class="notice">
-							* The information will not be used for direct marketing.
-						</p>
-					</div>
-					<button type="submit" class="btn next" id="et-cannot-apply-btn">
-						Submit
-					</button>
-				</form>
-			</div>
-		</div>
-		<!-- /.modal-content -->
-	</div>
-	<!-- /.modal-dialog -->
-</div>
-<!--END OF CANNOT APPLY MODAL-->
