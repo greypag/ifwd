@@ -44,17 +44,17 @@ var home_url = "<%=request.getContextPath()%>";
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
                  <ul class="common-steps-list six-steps nav nav-pills">
-                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select Plan</button></li>
+                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">1</span><fmt:message key="stepindicator.selectplan" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application, Summary &amp; Declaration</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span><fmt:message key="stepindicator.application.summary.declaration" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Signature</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.sign" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Payment</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.payment" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document Upload</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.upload.document" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button></li>
                  </ul>
              </div>
            </div>  

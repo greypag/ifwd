@@ -1353,7 +1353,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                             <p><fmt:message key="easyhealth.plandetails.risk.1.content" bundle="${msg}" /></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.2.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><fmt:message key="easyhealth.plandetails.risk.3.content" bundle="${msg}" />/p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.3.content" bundle="${msg}" /></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.4.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.5.content" bundle="${msg}" /></p>
