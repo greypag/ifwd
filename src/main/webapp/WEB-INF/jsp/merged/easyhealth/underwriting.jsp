@@ -36,38 +36,7 @@ var home_url = "<%=request.getContextPath()%>";
      </div>
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
 	     <div class="container-fluid fwd-full-container browse-holder">
-	        <div class="application-page-header et-header-browse">
-	           <div class="browse-container">
-	              <div class="row reset-margin hidden-xs hidden-sm">
-	                 <ul class="common-steps-list six-steps nav nav-pills">
-	                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span>Select Plan</button></li>
-	                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-	                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span>Application, Summary &amp; Declaration</button></li>
-	                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-	                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Signature</button></li>
-	                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-	                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Payment</button></li>
-	                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-	                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document Upload</button></li>
-	                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-	                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
-	                 </ul>
-	             </div>
-	           </div>  
-	           <div class="et-mobile-header-info hidden-md hidden-lg">
-	              <div class="clearfix">
-	                 <div class="et-back-arrow">
-	                    <a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#" class="back-arrow-link">
-	                       <span class="icon-arrow-left2 arrow-left"></span>
-	                    </a>
-	                 </div>
-	                 <div class="et-header-tex">
-	                    <h3 id="">簽署</h3>
-	                 </div>
-	              </div>
-	              <span id="step-of">4 out of 5</span>
-	           </div>
-	        </div>
+	        <jsp:include page="/WEB-INF/jsp/merged/components/step-indicator.jsp" />
 	     </div>
 	
 	<!-- Application Content Start -->
@@ -79,7 +48,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<h3 class="heading-title"><fmt:message key="underwriting.title.easyhealth" bundle="${msg}" /></h3>
 							<div class="row form-group question-row">
 								<div class="col-xs-12">
-									<h4>Question 1</h4>
+									<h4><fmt:message key="underwriting.question.q1" bundle="${msg}" /></h4>
 								</div>
 								<div class="col-xs-12 col-md-10">
 									<p><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></p>
