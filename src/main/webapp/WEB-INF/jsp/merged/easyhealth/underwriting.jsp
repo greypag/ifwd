@@ -21,19 +21,8 @@ var home_url = "<%=request.getContextPath()%>";
      <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
  <%--   <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script> --%>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
-    <div class="fwd-container container-fluid breadcrumbs">
-        <div class="breadcrumb-container">
-           <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Home</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Save</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Life Insureance Plan</a></li>
-               <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
-           </ol>
-        </div>
-     </div>
+    <jsp:include page="/WEB-INF/jsp/merged/components/breadcrumb.jsp" />
+
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
 	     <div class="container-fluid fwd-full-container browse-holder">
 	        <jsp:include page="/WEB-INF/jsp/merged/components/step-indicator.jsp" />
