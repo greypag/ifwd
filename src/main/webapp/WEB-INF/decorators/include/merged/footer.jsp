@@ -152,14 +152,21 @@ $(function() {
      }(document, 'script', 'facebook-jssdk'));
 
     function fbShare(method,name,link,picture,description){
-        FB.ui({
-             method: method,
-             name: name,
-             link: link,
-             picture: picture,
-             description: description
-         });
-     }
+    	FB.ui({
+			method: method,
+			name: name,
+			link: link,
+			picture: picture,
+			description: description
+      	},
+		function(response) {
+			if (response && response.post_id) {
+				console.log('Post was published.'+ response);
+			} else {
+				console.log('Post was not published.' + response);
+			}
+		});    
+    }
     $('#fb-dialog-share').on("click",function(){
     	fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
     });
