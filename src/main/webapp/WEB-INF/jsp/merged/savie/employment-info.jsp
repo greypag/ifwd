@@ -738,6 +738,7 @@ var languageP = "${language}";
 					showHideOtherOccupationField($(this).val());
 				});
 				
+				/*
 				$('#tmpEmploymentStatus').on('change', function() {
 					if($(this).val().split("-")[0] != 'ES3') {
 						// Show employment fields. Hide unemployment fields
@@ -751,7 +752,54 @@ var languageP = "${language}";
 						$('.unemployment-field').removeClass('hidden');
 					}
 				});
+				*/
+				
+				//Update employment info fields
+				/*
+					ES1 - Full Time Employed
+					ES2 - Part Time Employed
+					ES3 - Self Employed
+					ES4 - Unemployed
+					ES5 - Retired
+					ES6 - Student
+					ES7 - Housewife
+				*/
+				$('#tmpEmploymentStatus').on('change', function(e) {
+					var $self = $(this);
+					var value = $self.val().slice(0,3);
 
+					var status = $(this).val();
+					$(this).val(status);
+					
+					if (value === 'ES1' || value === 'ES2' || value === 'ES3') {
+						$('#natureOfBusinessDiv').removeClass('hidden');
+						$('#occupationDiv').removeClass('hidden');
+						$('#employerNameDiv').removeClass('hidden');
+						$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+						$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
+						$('#amountOfLiquidAssetsDiv').addClass('hidden');
+					}else {
+						$('#natureOfBusinessDiv').addClass('hidden');
+						$('#occupationDiv').addClass('hidden');
+						$('#employerNameDiv').addClass('hidden');
+						$('#monthlyPersonalIncomeDiv').addClass('hidden');
+						$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
+						$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+					}
+				});
+				//Show/hide 'other occupation' field
+				//'Others' of Business Nature - NoB23
+				//'Others' of Occupation - NoBD16
+				$('#tmpOccupation').on('change', function(e) {
+					$businessNature = $('#tmpBusinessNature');
+					$self = $('#tmpOccupation');
+					
+					if($businessNature.val() == 'NoB23' && $self.val() == 'NoBD16'){
+						$('#otherOccupationDiv').removeClass('hidden');
+					}else{
+						$('#otherOccupationDiv').addClass('hidden');
+					}
+				});
 
 				//init next button text
 				if('${backSummary}'=="Y"){
@@ -803,6 +851,7 @@ var languageP = "${language}";
 					language : language
 				},
 				function(data) {
+					$("#tmpOccupation").trigger('change'); //trigger for refresh 'others'
 					$("#tmpOccupation").empty();
 					$("#tmpOccupation").append("<option value='' disabled='disabled' selected='selected' ><fmt:message key='placeholder.occupation' bundle='${msg}' /></option>");
 					if(data != null){
