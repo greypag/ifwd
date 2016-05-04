@@ -11316,6 +11316,12 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #header .top-bar .livechat_button:hover{
 	cursor: pointer;
 }
+.livechat_button{
+	font-size: 18px;
+}
+.lang-btn-grp > li{
+	line-height: 40px;
+}
 #success-message-password,#forgotpassword-err-msg,#success-message,#login-err-msg{
 	/*background-color: transparent;
     border: none;*/
