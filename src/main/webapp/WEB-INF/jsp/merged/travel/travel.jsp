@@ -838,28 +838,55 @@ function getParameterByUrl(name){
 <section style="margin-top:40px;margin-bottom:40px;">
   <div class="container pad-none">
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
-  <ul class="bullets">  
-    <li>
-      <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></p>
-    </li>
-    <li>
-      <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part4" bundle="${msg}" /></p>
-    </li>
-    <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />
-      </p>  
-    </li>
-  </ul>
+	<h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:40px;">
+	  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	  	<div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
+		    <img src="<%=request.getContextPath()%>/resources/images/CSL_logo.png" alt="" class="" style="display:block; margin-left:auto; margin-right:auto;">
+		  </div>
+		  <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
+		    <div class="col-md-12 col-xs-12">
+		        <img src="<%=request.getContextPath()%>/resources/images/CSL_logo.png" alt="" class="" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:15px;">
+		    </div>
+		  </div>
+      <ul class="bullets">
+	      <li style="clear: both;">
+	        <p class="h4-5">
+			  <fmt:message key="travel.main.other.benefit.desc10.part1" bundle="${msg}" />
+			  <a href="<fmt:message key="csl.simcard.link" bundle="${msg}" />" target="_blank">
+			    <fmt:message key="travel.main.other.benefit.desc10.part2" bundle="${msg}" />
+			  </a>
+			  <fmt:message key="travel.main.other.benefit.desc10.part3" bundle="${msg}" />
+			</p>
+	      </li>
+	    </ul>
+	  </div>
+	  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      	  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
+		    <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="display:block; margin-left:auto; margin-right:auto; padding-top:33px;">
+		  </div>
+		  <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
+		    <div class="col-md-12 col-xs-12">
+		        <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:15px; padding-top:33px;">
+		    </div>
+		  </div>
+    <ul class="bullets">
+      <li style="clear: both;">
+        <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></p>
+      </li>
+      <li>
+        <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc9.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc9.part4" bundle="${msg}" /></p>
+      </li>
+      <li>
+        <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />
+        </p>
+      </li>
+    </ul>
+	 </div>
+</div>
+
+
   
-  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
-    <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
-  </div>
-  <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
-    <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
-    </div>
-  </div>
   <div class="spacer3"></div>
   <!--<p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   

@@ -43,7 +43,6 @@ var languageP = "${language}";
 	</head>
 	<body>
 
-
 		<!--   Main Content-->
 		<div id="savie-online">
 			<div class="hero-banner">
@@ -302,7 +301,7 @@ var languageP = "${language}";
 				   <h2 class="text-bold text-center"><fmt:message key="label.partner" bundle="${msg}" /></h2>				   
 				   <div class="bp-divider"></div>				   
 				   <div id="business-partners" class="row">
-					  <div class="col-xs-2">&nbsp;</div>
+					  <div class="col-xs-1">&nbsp;</div>
 					  <div id="bp-agoda" class="col-xs-12 col-md-4 text-center">
 						 <div class="desktop-center clearfix">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png">
@@ -310,7 +309,6 @@ var languageP = "${language}";
 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
 <!-- 							</p> -->
 						</div>
-						
 					  </div>
 					  <div id="bp-club" class="col-xs-12 col-md-4 text-center">
 						 <div class="desktop-center clearfix">
@@ -319,8 +317,16 @@ var languageP = "${language}";
 <%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
 <!-- 							</p> -->
 						</div>
+					  </div>
+					  <div id="bp-csl" class="col-xs-12 col-md-3 text-center">
+						 <div class="desktop-center clearfix">
+							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png">
+<%-- 							<a class="hidden-md hidden-lg" href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> --%>
+<%-- 							<p class="hidden-xs hidden-sm"><fmt:message key="label.partner.offer.agoda.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link1" bundle="${msg}" />"> <fmt:message key="label.partner.offer.agoda.copy2" bundle="${msg}" /></a> <fmt:message key="label.partner.offer.agoda.copy3" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.agoda.link2" bundle="${msg}" />"><fmt:message key="label.partner.offer.agoda.copy4" bundle="${msg}" /></a><fmt:message key="label.partner.offer.agoda.copy5" bundle="${msg}" /> --%>
+<!-- 							</p> -->
+						</div>
 					  </div>					  
-					  <div class="col-xs-2">&nbsp;</div>
+					  <div class="col-xs-1">&nbsp;</div>
 				   </div>
 				</div>
 			</div>								

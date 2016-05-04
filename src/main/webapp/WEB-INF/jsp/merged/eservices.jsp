@@ -837,12 +837,18 @@ var languageP = "${language}";
 										 		<td class="first-col"><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row2.col1" bundle="${msg}" /></a></td>
 										 		<td><fmt:message key="label.account.partner.row2.col2" bundle="${msg}" /></td>
 										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
+										 	</tr>
+										 	<tr>
+										 		<td class="first-col"><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a></td>
+										 		<td><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
+										 		<td><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
 										 	</tr>												 	
 										 </tbody>
 									</table>
 									<div id="partners-logo" class="visible-md visible-lg">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_theclub.png" id="the-club" />
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png" id="csl" height="56" width="78"  />
 									</div>
 									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
 									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
