@@ -11809,3 +11809,15 @@ body.chin .partner-headline-wrapper .headline-title{
 		margin-left: 0;
 	}
 }
+
+/* added on 20160504 */
+#main-slider #freeFlight #myFWDropdown .dropdown-menu.bdr1,
+#main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1{
+	bottom: auto;
+	margin-top: 46px;
+}
+#main-slider #freeFlight #myFWDropdown .dropdown-menu.bdr1 h4,
+#main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1 h4{
+    line-height: 1.1;
+    margin: 2px 0 10px 0;
+}
