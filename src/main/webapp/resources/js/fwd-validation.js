@@ -170,61 +170,61 @@ $(function() {
 	//	return isValid;
 	//}
 	
-	function equivalentInteger(hkidChar){
-		var digit;
-		switch(hkidChar){
-			case 'A':
-			case 'L':
-			case 'M':
-				digit = 1;
-				break;
-			case 'B':
-			case 'M':
-			case 'X':
-				digit = 2;
-				break;
-			case 'C':
-			case 'N':
-			case 'Y':
-				digit = 3;
-				break;
-			case 'D':
-			case 'O':
-			case 'Z':
-				digit = 4;
-				break;
-			case 'E':
-			case 'P':
-				digit = 5;
-				break;
-			case 'F':
-			case 'Q':
-				digit = 6;
-				break;
-			case 'G':
-			case 'R':
-				digit = 7;
-				break;
-			case 'H':
-			case 'S':
-				digit = 8;
-				break;
-			case 'I':
-			case 'T':
-				digit = 9;
-				break;
-			case 'J':
-			case 'U':
-				digit = 10;
-				break;
-			case 'K':
-			case 'V':
-				digit = 11;
-				break;
-				
-		}
-		return digit;
-	}
+	//function equivalentInteger(hkidChar){
+	//	var digit;
+	//	switch(hkidChar){
+	//		case 'A':
+	//		case 'L':
+	//		case 'M':
+	//			digit = 1;
+	//			break;
+	//		case 'B':
+	//		case 'M':
+	//		case 'X':
+	//			digit = 2;
+	//			break;
+	//		case 'C':
+	//		case 'N':
+	//		case 'Y':
+	//			digit = 3;
+	//			break;
+	//		case 'D':
+	//		case 'O':
+	//		case 'Z':
+	//			digit = 4;
+	//			break;
+	//		case 'E':
+	//		case 'P':
+	//			digit = 5;
+	//			break;
+	//		case 'F':
+	//		case 'Q':
+	//			digit = 6;
+	//			break;
+	//		case 'G':
+	//		case 'R':
+	//			digit = 7;
+	//			break;
+	//		case 'H':
+	//		case 'S':
+	//			digit = 8;
+	//			break;
+	//		case 'I':
+	//		case 'T':
+	//			digit = 9;
+	//			break;
+	//		case 'J':
+	//		case 'U':
+	//			digit = 10;
+	//			break;
+	//		case 'K':
+	//		case 'V':
+	//			digit = 11;
+	//			break;
+	//			
+	//	}
+	//	return digit;
+	//}
 	
 	
 	
