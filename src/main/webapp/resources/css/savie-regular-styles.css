@@ -1097,7 +1097,8 @@ body {
 }
 @media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
-  .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing {
+  .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing,
+  .savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
     width: 100%;
     left: 0;
     text-align: center;
@@ -1202,7 +1203,8 @@ body {
 }
 @media (min-width: 992px) {
   /* line 80, ../sass/partials/savie/_landing-page.scss */
-  .savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product {
+  .savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product,
+  .savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product {
     margin-right: 0;
   }
 }
@@ -1210,10 +1212,12 @@ body {
 .savie-regular-landing .page-banner .img-banner-text .savie-product a {
   font-size: 14px;
 }
-.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a {
+.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a,
+.savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product a {
   color: #fff;
 }
-.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a:hover {
+.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a:hover,
+.savie-regular-landing.sp-only .page-banner .img-banner-text .savie-product a:hover {
   color: #f68a1d;
 }
 @media (min-width: 992px) {
@@ -5463,6 +5467,7 @@ body.chin .ch-banner-img {
 }
 
 /* Add on 20160427*/
+/*
 .savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
 	top: auto; //IE Fix
 	top: initial;
@@ -5472,7 +5477,6 @@ body.chin .ch-banner-img {
 	padding-left: 0;
 	bottom: 0;
 }
-
 .savie-regular-landing.sp-only .page-banner .img-banner-text .start-btn {
 	background: #fdb714;
 	border-color: #cf9611;
@@ -5507,3 +5511,4 @@ body.chin .ch-banner-img {
 		font-size: 16px;
 	}
 }
+*/
