@@ -1,4 +1,4 @@
-﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -21,6 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
      <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
  <%--   <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script> --%>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
     <jsp:include page="/WEB-INF/jsp/merged/components/breadcrumb.jsp" />
 
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
@@ -158,7 +159,7 @@ var home_url = "<%=request.getContextPath()%>";
 					3123 3123
 					to find out more or leave your contact and let us call you back.
 				</p>
-				<form action="" id="et-cust-serv-form" method="post" onsubmit="return submmitinfo()">
+				<form action="" id="eh-cust-serv-form" method="post">
 					<div class="input-items clearfix form-group">
 						<label for="name">Name</label> <input
 							type="text" class="form-control gray-textbox chinese-input"
@@ -249,7 +250,7 @@ var home_url = "<%=request.getContextPath()%>";
 							* The information will not be used for direct marketing.
 						</p>
 					</div>
-					<button type="submit" class="btn next" id="et-cannot-apply-btn">
+					<button type="submit" class="btn next" id="eh-cannot-apply-btn">
 						Submit
 					</button>
 				</form>
@@ -302,163 +303,103 @@ var home_url = "<%=request.getContextPath()%>";
 	</div>
 </div>
 <script>
-	$('#et-select-plan-go-homepage').on('click', function(e) {
-		window.location.href= contextPath+'/'+language+'/easyhealth-insurance';
-	});
-
-	function submmitinfo() {
-		if($("#name").val() != '' && $("#cannotApplyNameMessage").val() == '' && $("#cannotApplyEmailMessage").val() == ''
-				&& $("#cannotApplyTelMessage").val() == '' && $("#cannotApplyDayMessage").val() == '' 
-				&& $("#cannotApplyDayMessage").val() == ''  && $("#cannotApplyTimeMessage").val() == ''){
-			$('.modal').modal('hide');
-			 var name = $('#name').val();
-	        	var email = $('#email').val();
-	        	var mobile = $('#tel').val();
-	        	var preferredDay = $('#day').val();
-	        	var preferredTimeSlot = $('#time').val();
-	        	var enquiryType = $('#enquiry').val();
-	        	var channel = $("#channel").val();
-	        	var product = "eliteterm";
-	        	
-	        	if(name ==null){
-	        		console.log("data error");
-	        	}
-	        	else{
-	        		$.get(contextPath+'/ajax/eliteTerm/contactCs',
-	        		{ 
-	        			name : name,
-	        			email : email,
-	        			mobile : mobile,
-	        			preferredDay : preferredDay,
-	        			preferredTimeSlot : preferredTimeSlot,
-	        			enquiryType : enquiryType,
-	        			channel : channel,
-	        			product : product
-	        		},
-	        		function(data) {
-	        			if(data.errMsgs == null){
-	        				console.log("data success");
-	                  $('#back-to-home-modal').modal('show');
-	        			}
-	        			else{
-	        				console.log("data error");
-	        			}
-	        		})
-	        		.fail(function(data) {
-	        		});
-	        	}
-		}
-        return false;
-	}
-
 	$(document).ready(function(){
-		$("#eh-btn-underwriting-next").click(function() {
-    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-        });
-		  $('#et-cust-serv-form').bootstrapValidator({
-              excluded:[],
-              fields: {
-                 "name": {
-                    container: '#cannotApplyNameMessage',
-                    trigger: 'blur',
-                    validators: {
-                       notEmpty: {
-                          message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
-                       },
-                       regexp: {
-                          regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/, /*chinese and english chars only*/
-                          message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
-                       },
-                       callback: {
-                          message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />',
-                          callback: function(value, validator) {
-                             return value !== document.getElementById('name').getAttribute('placeholder');
-                          }
-                       }
-                    }
-                 },
-                 "email": {
-                    container: '#cannotApplyEmailMessage',
-                    trigger: 'blur',
-                    validators: {
-                       emailAddress: {
-                          message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
-                       },
-                       callback: {
-                          callback: function(value, validator) {
-                              // Check if both email and mobile is blank
-                              if ( value == '' && $('#et-cust-serv-form #tel').val() == '') {
-                                  return {
-                                      valid: false,
-                                      message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                  }
-                             }
+		$('#eh-cust-serv-form').bootstrapValidator({
+            excluded:[],
+            fields: {
+                "name": {
+                   container: '#cannotApplyNameMessage',
+                   trigger: 'blur',
+                   validators: {
+                      notEmpty: {
+                         message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
+                      },
+                      regexp: {
+                         regexp: /^[a-zA-Z\s\u4e00-\u9eff]*$/, /*chinese and english chars only*/
+                         message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
+                      },
+                      callback: {
+                         message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />',
+                         callback: function(value, validator) {
+                            return value !== document.getElementById('name').getAttribute('placeholder');
+                         }
+                      }
+                   }
+                },
+                "email": {
+                   container: '#cannotApplyEmailMessage',
+                   trigger: 'blur',
+                   validators: {
+                      emailAddress: {
+                         message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
+                      },
+                      callback: {
+                         callback: function(value, validator) {
+                             // Check if both email and mobile is blank
+                             if ( value == '' && $('#et-cust-serv-form #tel').val() == '') {
+                                 return {
+                                     valid: false,
+                                     message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                 }
+                            }
 
-                             // Remove Tel Error message as well
-                             $('#et-cust-serv-form')
-                                 .data('bootstrapValidator')
-                                 .updateStatus('tel','VALID');
-                             return true;
-                          }
-                       }
-                    }
-                 },
-                 "tel": {
-                    container: '#cannotApplyTelMessage',
-                    trigger: 'blur',
-                    validators: {
-                       stringLength: {
-                          min: 8,
-                          max: 8,
-                          message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
-                       },
-                      	regexp: {
-                             regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
-                             message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
-                       },
-                       callback: {
-                          callback: function(value, validator) {
-                              // Check if both email and mobile is blank
-                              if ( value == '' && $('#et-cust-serv-form #email').val() == '') {
-                                  return {
-                                      valid: false,
-                                      message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                  }                          
-                              }
-                              
-                             // Remove Email Error message as well
-                             $('#et-cust-serv-form')
-                                  .data('bootstrapValidator')
-                                  .updateStatus('email','VALID');
+                            return true;
+                         }
+                      }
+                   }
+                },
+                "tel": {
+                   container: '#cannotApplyTelMessage',
+                   trigger: 'blur',
+                   validators: {
+                      stringLength: {
+                         min: 8,
+                         max: 8,
+                         message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
+                      },
+                     	regexp: {
+                            regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
+                            message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
+                      },
+                      callback: {
+                         callback: function(value, validator) {
+                             // Check if both email and mobile is blank
+                             if ( value == '' && $('#et-cust-serv-form #email').val() == '') {
+                                 return {
+                                     valid: false,
+                                     message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                 }                          
+                             }
                              
-                             return true;
-                          }
-                       }
-                    }
-                 },
-                 "day": {
-                    container: '#cannotApplyDayMessage',
-                    validators: {
-                       notEmpty: {
-                          message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.day" bundle="${msg}" />'
-                       }
-                    }
-                 },
-                 "time": {
-                    container: '#cannotApplyTimeMessage',
-                    validators: {
-                       notEmpty: {
-                          message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
-                       }
-                    }
-                 }
-              }
-           }).on('success.form.bv', function(e){
-                 e.preventDefault();
-                 var $form = $(this);
-                  $('.modal').modal('hide');
-                  
-                   var name = $('#name').val();
+                            
+                            return true;
+                         }
+                      }
+                   }
+                },
+                "day": {
+                   container: '#cannotApplyDayMessage',
+                   validators: {
+                      notEmpty: {
+                         message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.day" bundle="${msg}" />'
+                      }
+                   }
+                },
+                "time": {
+                   container: '#cannotApplyTimeMessage',
+                   validators: {
+                      notEmpty: {
+                         message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
+                      }
+                   }
+                }
+             }
+         }).on('success.form.bv', function(e){
+        	 e.preventDefault();
+                var $form = $(this);
+                $('.modal').modal('hide');
+                
+                 var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
 	               	var preferredDay = $('#day').val();
@@ -471,7 +412,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		console.log("data error");
 	               	}
 	               	else{
-	               		$.get(contextPath+'/ajax/eliteTerm/contactCs',
+	               		$.get(context+'/ajax/eliteTerm/contactCs',
 	               		{ 
 	               			name : name,
 	               			email : email,
@@ -485,7 +426,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		function(data) {
 	               			if(data.errMsgs == null){
 	               				console.log("data success");
-                             $('#back-to-home-modal').modal('show');
+                           $('#back-to-home-modal').modal('show');
 	               			}
 	               			else{
 	               				console.log("data error");
@@ -493,8 +434,15 @@ var home_url = "<%=request.getContextPath()%>";
 	               		})
 	               		.fail(function(data) {
 	               		});
-	               	}
-           });
-			
+	               	} 
+         });
+		
+		$("#eh-btn-underwriting-next").click(function() {
+    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+        });
+		
+		$('#et-select-plan-go-homepage').on('click', function(e) {
+			window.location.href= contextPath+'/'+language+'/easyhealth-insurance';
+		});
 	});
 </script>
