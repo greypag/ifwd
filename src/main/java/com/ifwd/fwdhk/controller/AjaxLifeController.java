@@ -24,33 +24,33 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
-import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
-import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePaymentBean;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
+import com.ifwd.fwdhk.model.life.SavieFnaBean;
+import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 @Controller
-public class AjaxSavieOnlineController extends BaseController{
-	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieOnlineController.class);
+public class AjaxLifeController extends BaseController{
+	private final static Logger logger = LoggerFactory.getLogger(AjaxLifeController.class);
 	
 	@Autowired
 	private RestServiceDao restService;
 	@Autowired
-	private SavieOnlineService savieOnlineService;
+	private LifeService savieOnlineService;
 	
 	@Autowired
 	private CommonUtils commonUtils;

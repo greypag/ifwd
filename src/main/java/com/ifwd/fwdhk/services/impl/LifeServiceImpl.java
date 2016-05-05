@@ -37,26 +37,26 @@ import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.PolicyApplication;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
-import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
-import com.ifwd.fwdhk.connector.response.savieonline.PolicyApplication;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
-import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
-import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePaymentBean;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
+import com.ifwd.fwdhk.model.life.ProductRecommendation;
+import com.ifwd.fwdhk.model.life.SavieFnaBean;
+import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.CompareUtil;
@@ -71,8 +71,8 @@ import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
-public class SavieOnlineServiceImpl implements SavieOnlineService {
-	private final static Logger logger = LoggerFactory.getLogger(SavieOnlineServiceImpl.class);
+public class LifeServiceImpl implements LifeService {
+	private final static Logger logger = LoggerFactory.getLogger(LifeServiceImpl.class);
 	
 	@Autowired
 	private RestServiceDao restService;

@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.model.savieOnline;
+package com.ifwd.fwdhk.model.life;
 
 public class OtherTypes {
 

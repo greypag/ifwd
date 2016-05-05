@@ -11,19 +11,19 @@ import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
-import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.PartnerRegisterBean;
-import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePaymentBean;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
+import com.ifwd.fwdhk.model.life.SavieFnaBean;
+import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 
-public interface SavieOnlineService {
+public interface LifeService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
 	public void createSalesIllustrationPdf(String type,HttpServletRequest request) throws Exception;
 	public void createApplicationFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception;

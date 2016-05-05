@@ -34,25 +34,25 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
-import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePaymentBean;
+import com.ifwd.fwdhk.model.life.SavieFnaBean;
+import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 @Controller
-public class SavieOnlineController extends BaseController{
+public class LifeController extends BaseController{
 	
-	private final static Logger logger = LoggerFactory.getLogger(SavieOnlineController.class);
+	private final static Logger logger = LoggerFactory.getLogger(LifeController.class);
 	
 	@Autowired
 	private RestServiceDao restService;
 	@Autowired
-	private SavieOnlineService savieOnlineService;
+	private LifeService savieOnlineService;
 	@Autowired
 	private CommonUtils commonUtils;
 	

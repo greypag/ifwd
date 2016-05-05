@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.model.savieOnline;
+package com.ifwd.fwdhk.model.life;
 
 import java.io.Serializable;
 import java.util.ArrayList;

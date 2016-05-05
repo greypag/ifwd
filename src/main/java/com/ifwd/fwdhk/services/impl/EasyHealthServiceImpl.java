@@ -2,9 +2,12 @@ package com.ifwd.fwdhk.services.impl;
 
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import net.sf.ezmorph.bean.MorphDynaBean;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -12,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -20,9 +24,9 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremium;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
-import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;

@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.connector.response.savieonline;
+package com.ifwd.fwdhk.connector.response.life;
 
 public class PolicyApplication{
 	private String lastUpdateBy;

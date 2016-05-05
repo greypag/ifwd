@@ -39,7 +39,7 @@ import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -62,7 +62,7 @@ public class UserController {
 	protected HeaderUtil headerUtil;
 	
 	@Autowired
-	private SavieOnlineService savieOnlineService;
+	private LifeService savieOnlineService;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody

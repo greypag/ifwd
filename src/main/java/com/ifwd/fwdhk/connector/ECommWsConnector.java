@@ -39,11 +39,11 @@ import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
+import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
-import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 

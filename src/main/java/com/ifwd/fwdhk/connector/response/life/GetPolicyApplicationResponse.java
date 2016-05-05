@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.connector.response.savieonline;
+package com.ifwd.fwdhk.connector.response.life;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 
