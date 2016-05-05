@@ -247,7 +247,7 @@ var affiliate = "${affiliate}";
 						
 						<div class="modal-body">
 							<a class="close" aria-label="Close" data-dismiss="modal">
-								<span aria-hidden="true" style="font-size:30px;">×</span>
+								<span aria-hidden="true">×</span>
 							</a>
 							<h4><fmt:message key="fna.popup.clear.title" bundle="${msg}" /></h4>
 							<div class="cont"><p><fmt:message key="fna.popup.clear.description" bundle="${msg}" /></p></div>
