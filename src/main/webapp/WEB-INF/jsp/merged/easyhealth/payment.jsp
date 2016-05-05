@@ -24,6 +24,11 @@ var home_url = "<%=request.getContextPath()%>";
     <script src="<%=request.getContextPath()%>/resources/jsignature/jSignature.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
+    <script>
+        function showPaymentErrMsg(){
+            $("#paymentErr").show();
+        }
+    </script>
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -250,6 +255,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-payment"><fmt:message key="button.proceed.to.upload.document" bundle="${msg}" /></a><br>
                         <!-- <a href="javascript:void(0);" class="link-text">Save and continue later</a> -->
                     </div>
+                </div>
+                
+                <div class="col-xs-12">
+                	<div class="text-center">
+                		<span class="error-msg" id="paymentErMsg"><fmt:message key="payment.error.msg1" bundle="${msg}" /></span>
+                	</div>
                 </div>
 			</div>
 		</div>

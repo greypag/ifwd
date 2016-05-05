@@ -633,7 +633,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <div class="total-benefit">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                     <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
-                                                        <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span>
+                                                        <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -836,7 +836,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
-                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span>
+                                                    <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                                 </p>
                                             </div>
                                         </div>
@@ -1038,7 +1038,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
-                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span></p>
+                                                    <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1239,7 +1239,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
-                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span></p>
+                                                    <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span></p>
                                             </div>
                                         </div>
                                     </div>
