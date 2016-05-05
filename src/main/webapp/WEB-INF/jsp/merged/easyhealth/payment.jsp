@@ -1,4 +1,4 @@
-﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,17 +43,17 @@ var home_url = "<%=request.getContextPath()%>";
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
                  <ul class="common-steps-list six-steps nav nav-pills">
-                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select Plan</button></li>
+                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">1</span><fmt:message key="stepindicator.selectplan" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application, Summary &amp; Declaration</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span><fmt:message key="stepindicator.application.summary.declaration" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.sign" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">4</span>Payment</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">4</span><fmt:message key="stepindicator.payment" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document Upload</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.upload.document" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button></li>
                  </ul>
              </div>
            </div>  
@@ -98,20 +98,20 @@ var home_url = "<%=request.getContextPath()%>";
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
-                    <h3 class="heading-title">Payment details</h3>
-                     <p>We will now charge the first 2 months' premium upfront<br>Monthly premium: HK$ <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><br>Total Amount: HK$ <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/> (2 months)</p>
+                    <h3 class="heading-title"><fmt:message key="payment.title" bundle="${msg}" /></h3>
+                     <p><fmt:message key="payment.description.1" bundle="${msg}" /><br><fmt:message key="payment.description.2" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium }' pattern="#.00"/><br><fmt:message key="payment.description.3" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/> <fmt:message key="payment.description.3.extra" bundle="${msg}" /></p>
 
                      <div class="row inner-row">
                          <div class="col-xs-12 col-md-6">
                          	<div class="form-group">
 	                         	<div class="fld-wrapper">
-									<p class="fld-label">Amount</p>
-									<p class="fld-val">HK$ <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/></p>
+									<p class="fld-label"><fmt:message key="payment.description.amount" bundle="${msg}" /></p>
+									<p class="fld-val"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /> <fmt:formatNumber value='${selectPlan.monthlyPremium *2}' pattern="#.00"/></p>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="fld-wrapper">
-									<p class="fld-label">Card Type</p>
+									<p class="fld-label"><fmt:message key="payment.card.type" bundle="${msg}" /></p>
 									<p class="fld-val cardtype"><span class="visa">Visa</span>&nbsp;/&nbsp;<span class="mastercard">Master</span></p>
 								</div>
 							</div>
@@ -119,7 +119,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="fld-wrapper">
 		                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="tel" id="ccNumber" name="ccNumber" data-keycheck-numOnly="true" maxlength="19">
-										<label class="mdl-textfield__label" for="ccNumber">Credit card Number</label>
+										<label class="mdl-textfield__label" for="ccNumber"><fmt:message key="payment.card.no" bundle="${msg}" /></label>
 									</div>
 									
 								</div>
@@ -131,7 +131,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="fld-wrapper">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="text" id="cardHolder" name="cardHolder">
-										<label class="mdl-textfield__label" for="cardHolder">Name on credit card</label>
+										<label class="mdl-textfield__label" for="cardHolder"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 									</div>
 								</div>
 								<span class="error-msg" id="cardHolderErrMsg"></span>
@@ -156,7 +156,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<option value="11">11</option>
 													<option value="12">12</option>
 												</select>
-												<label class="mdl-textfield__label" for="epMonth">Expiry Month</label>
+												<label class="mdl-textfield__label" for="epMonth"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
 											</div>
 											
 										</div>
@@ -180,7 +180,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<option value="2024">2024</option>
 													<option value="2025">2025</option>
 												</select>
-												<label class="mdl-textfield__label" for="epYear">Expiry Year</label>
+												<label class="mdl-textfield__label" for="epYear"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
 
 											</div>
 										</div>
@@ -194,7 +194,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="fld-wrapper">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="tel" id="securityCode" name="securityCode" data-keycheck-numOnly="true" maxlength="3">
-												<label class="mdl-textfield__label" for="securityCode">Security Code</label>
+												<label class="mdl-textfield__label" for="securityCode"><fmt:message key="payment.security.code" bundle="${msg}" /></label>
 											</div>
 										</div>
 										<span class="error-msg" id="securityCodeErrMsg"></span>
@@ -210,7 +210,7 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="col-xs-12">
                 	<div class="form-group cbTNC-wrapper">
 	    				<div class="checkbox">
-							<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
+							<input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="payment.declaration" bundle="${msg}" /></label>
 						</div>
 						<span class="error-msg" id="cbTNCErrMsg"></span>
 					</div>
@@ -222,7 +222,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/paydollar-icon.png" alt="">
 		                		</div>
-		                		<p>We adopt PayDollar Payment Gateway, a leading, secure, reliable international payment service provider to banks and online merchants.</p>
+		                		<p><fmt:message key="payment.paydollar.copy" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 		                <div class="col-xs-12 col-md-4">
@@ -230,7 +230,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 			                		<img src="<%=request.getContextPath()%>/resources/images/elite-terms/verifiedbyvisa-icon.png" alt="">
 			                	</div>
-		                		<p>Verified by Visa (VbV) is a program designed to help make shopping online more secure.</p>
+		                		<p><fmt:message key="payment.visa.copy" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 		                <div class="col-xs-12 col-md-4">
@@ -238,7 +238,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-icon.png" alt="">
 		                		</div>
-		                		<p>Get an extra layer of online shopping security with MasterCard SecureCode - a private, secure code that protects your purchases.</p>
+		                		<p><fmt:message key="payment.master.copy" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 	                </div>
@@ -247,7 +247,7 @@ var home_url = "<%=request.getContextPath()%>";
                 
                 <div class="col-xs-12">
                 	<div class="text-center btn-row">
-                        <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-payment">Proceed to Upload Document</a><br>
+                        <a href="javascript:void(0);" class="text-bold btn btn-confirm btn-app" id="btn-payment"><fmt:message key="button.proceed.to.upload.document" bundle="${msg}" /></a><br>
                         <!-- <a href="javascript:void(0);" class="link-text">Save and continue later</a> -->
                     </div>
                 </div>

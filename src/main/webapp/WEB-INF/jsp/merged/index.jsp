@@ -68,11 +68,12 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.easy.health" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -87,7 +88,7 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<fmt:message key="link.category.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -102,9 +103,9 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="navbar.category3.group3.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -221,7 +222,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog1.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog1.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog1.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog1.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog1.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1.jpg" />
 						</div>
@@ -230,7 +231,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog2.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog2.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog2.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog2.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog2.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-2.jpg" />
 						</div>
@@ -239,7 +240,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog3.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog3.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog3.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog3.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog3.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-3.jpg" />
 						</div>
@@ -248,7 +249,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog4.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog4.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog4.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog4.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog4.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-4.jpg" />
 						</div>
@@ -259,7 +260,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog5.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog5.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog5.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog5.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog5.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-5.jpg" />
 						</div>
@@ -268,7 +269,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog6.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog6.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog6.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog6.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog6.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-6.jpg" />
 						</div>
@@ -277,7 +278,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog7.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog7.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog7.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog7.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog7.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-7.jpg" />
 						</div>
@@ -286,7 +287,7 @@ var languageP = "${language}";
 								<h4><fmt:message key="blog.blog8.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog8.title2" bundle="${msg}" /></h5>
 								<p class="show-sentence"><fmt:message key="blog.blog8.title3" bundle="${msg}" /></p>
-								<a href="<fmt:message key="link.blog8.link" bundle="${msg}" />"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
+								<a href="<fmt:message key="link.blog8.link" bundle="${msg}" />" target="_blank"><button class="btn-readnow" rel="tooltip"><fmt:message key="button.read.now" bundle="${msg}" /></button></a>
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-8.jpg" />
 						</div>

@@ -44,17 +44,17 @@ var home_url = "<%=request.getContextPath()%>";
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
                  <ul class="common-steps-list six-steps nav nav-pills">
-                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select Plan</button></li>
+                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">1</span><fmt:message key="stepindicator.selectplan" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application, Summary &amp; Declaration</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span><fmt:message key="stepindicator.application.summary.declaration" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Signature</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.sign" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Payment</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.payment" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document Upload</button></li>
+                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.upload.document" bundle="${msg}" /></button></li>
                     <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
+                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button></li>
                  </ul>
              </div>
            </div>  
@@ -80,17 +80,17 @@ var home_url = "<%=request.getContextPath()%>";
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-12">
-                    <h3 class="heading-title">Signautre</h3>
-                     <p>Please sign in the grey area below</p>
+                    <h3 class="heading-title"><fmt:message key="signature.title" bundle="${msg}" /></h3>
+                     <p><fmt:message key="signature.description" bundle="${msg}" /></p>
                      <form action="">
                         <div class="signature-parent">
                             <div id="signature" class="signature-img so-signature"></div>
                         </div>
                         <div class="clearfix">
-                            <a id="link-clear" href="javascript:void(0);" class="pull-left link-clear">Clear</a>
+                            <a id="link-clear" href="javascript:void(0);" class="pull-left link-clear"><fmt:message key="signature.clear" bundle="${msg}" /></a>
                             
                                 
-                                <p class="text-right">Signed In Hong Kong</p>
+                                <p class="text-right"><fmt:message key="signature.hksign" bundle="${msg}" /></p>
                             
                         </div>
                         <div class="text-center">
@@ -99,7 +99,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png">
                                 <span>Correct</span>
                             </div>
-                            <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next">Proceed to Payment</a>
+                            <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next"><fmt:message key="button.proceed.to.payment" bundle="${msg}" /></a>
                         </div>
                      </form>
                 </div>

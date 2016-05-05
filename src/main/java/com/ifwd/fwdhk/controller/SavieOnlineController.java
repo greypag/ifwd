@@ -777,17 +777,17 @@ public class SavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-upload-later"})
-	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/confirmation-upload-later"})
+	public ModelAndView getSavieOnlineUploadLaterConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/" + plan);
 		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/" + plan);
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/" + plan);
 		}
 		else{
 			try {
@@ -802,7 +802,7 @@ public class SavieOnlineController extends BaseController{
 					language = "tc";
 				}
 				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse)request.getSession().getAttribute("lifePolicy");
-				String url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String url = serverUrl + "/"+language+ plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
 				
 				models.put("uploadLink", url);
 				savieOnlineService.sendEmails(request, "uploadDocument", models);

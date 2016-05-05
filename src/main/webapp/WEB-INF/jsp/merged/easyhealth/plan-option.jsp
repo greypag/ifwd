@@ -69,9 +69,8 @@ var home_url = "<%=request.getContextPath()%>";
                     <dir class="row">
                         <div class="col-sm-12">
                             <div class="text-center title">
-                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_en.png" class="img-responsive eh-img-title inline-block">
-                                <p>Need financial support when unexpected hospitalization
-                                    <br>caused by sickness or bodily injury occurred?</p>
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_${language}.png" alt="<fmt:message key="label.take.it.easy" bundle="${msg}" />" class="img-responsive eh-img-title inline-block">
+                                <p><fmt:message key="label.plan.desc" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </dir>
@@ -80,16 +79,16 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row row-eq-height">
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
-                                        <h5 class="text-center">Gender:</h5>
+                                        <h5 class="text-center"><fmt:message key="label.gender" bundle="${msg}" />:</h5>
                                         <div class="selection-inner" id="gender-opt">
                                             <div class="row">
                                                 <div class="col-sm-6 col-xs-6 item" data-gender="0">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_male_off.png" class="img-responsive">
-                                                    <p class="text-center">Male</p>
+                                                    <p class="text-center"><fmt:message key="label.male2" bundle="${msg}" /></p>
                                                 </div>
                                                 <div class="col-sm-6 col-xs-6 item" data-gender="1">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_female_off.png" class="img-responsive">
-                                                    <p class="text-center">Female</p>
+                                                    <p class="text-center"><fmt:message key="label.female2" bundle="${msg}" /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,16 +97,16 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="clearfix visible-xs"></div>
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
-                                        <h5 class="text-center">Smoking Habit?</h5>
+                                        <h5 class="text-center"><fmt:message key="label.smoking.habit" bundle="${msg}" /></h5>
                                         <div class="selection-inner" id="smoker-opt">
                                             <div class="row">
                                                 <div class="col-sm-6 col-xs-6 item" data-smoker="1">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_smoker_off.png" class="img-responsive">
-                                                    <p class="text-center">Smoker</p>
+                                                    <p class="text-center"><fmt:message key="label.smoker" bundle="${msg}" /></p>
                                                 </div>
                                                 <div class="col-sm-6 col-xs-6 item" data-smoker="0">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_nonsmoker_off.png" class="img-responsive">
-                                                    <p class="text-center">Non-smoker</p>
+                                                    <p class="text-center"><fmt:message key="label.non.smoker" bundle="${msg}" /></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +115,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="clearfix visible-xs"></div>
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
-                                        <h5 class="text-center">Date of Birth:</h5>
+                                        <h5 class="text-center"><fmt:message key="label.dob" bundle="${msg}" />:</h5>
                                         <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->
                                         <div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
 											<input  name="plan-dob" id="plan-dob-datepicker" readonly value="" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
@@ -131,7 +130,7 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="row">
                         <div class="col-sm12">
                             <div class="text-center">
-                                <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn">Plan overview</a>
+                                <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn"><fmt:message key="button.plan.overview" bundle="${msg}" /></a>
                             </div>
                         </div>
                     </div>
@@ -142,9 +141,8 @@ var home_url = "<%=request.getContextPath()%>";
                     <dir class="row">
                         <div class="col-sm-12">
                             <div class="text-center title">
-                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_en.png" class="img-responsive inline-block">
-                                <p>Need financial support when unexpected hospitalization
-                                    <br>caused by sickness or bodily injury occurred?</p>
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_${language}.png" class="img-responsive inline-block" alt='<fmt:message key="label.take.it.easy" bundle="${msg}" />'>
+                                <p><fmt:message key="label.plan.desc" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </dir>
@@ -152,8 +150,8 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="col-sm-12 col-xs-12">
                             <div class="tbl-compare">
                                 <br>
-                                <a href="javascript:void(0);" class="hidden-sm hidden-md hidden-lg btn-back-step1 btn-back2-step1-mb"><span>Back</span><img src="<%=request.getContextPath()%>/resources/images/easy-health/btn_edit_mb_placeholder.png" alt=""></a>
-                                <a href="javascript:void(0);" class="visible-sm visible-md visible-lg btn-back-step1 btn-back2-step1-dt">Back to Personal Information</a>
+                                <a href="javascript:void(0);" class="hidden-sm hidden-md hidden-lg btn-back-step1 btn-back2-step1-mb"><span><fmt:message key="easyhealth.back.to.personal.info.m" bundle="${msg}" /></span><img src="<%=request.getContextPath()%>/resources/images/easy-health/btn_edit_mb_placeholder.png" alt=""></a>
+                                <a href="javascript:void(0);" class="visible-sm visible-md visible-lg btn-back-step1 btn-back2-step1-dt"><fmt:message key="button.back.to.personal.info" bundle="${msg}" /></a>
                                 <div class="inner">
                                     <table>
                                         <thead>
@@ -162,25 +160,25 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <th>
                                                     <div class="text-center">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p2_hospital_A.png">
-                                                        <br><span class="txt-type-a"></span>
+                                                        <br><span class="txt-type-a"><fmt:message key="easyhealth.plan.intro.label.basic" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div class="text-center">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p2_hospital_B.png">
-                                                        <br><span class="txt-type-b"></span>
+                                                        <br><span class="txt-type-b"><fmt:message key="easyhealth.plan.intro.label.plus" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div class="text-center">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p2_hospital_C.png">
-                                                        <br><span class="txt-type-c"></span>
+                                                        <br><span class="txt-type-c"><fmt:message key="easyhealth.plan.intro.label.advanced" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
                                                 <th>
                                                     <div class="text-center">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p2_hospital_D.png">
-                                                        <br><span class="txt-type-d"></span>
+                                                        <br><span class="txt-type-d"><fmt:message key="easyhealth.plan.intro.label.deluxe" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
                                             </tr>
@@ -189,100 +187,100 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-mca">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_01.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Monthly Contribution Amount">
-                                                        <span class="desc col-xs-9">Monthly Contribution Amount</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_01.png" alt="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <th class="head t1 txt-price-a" data-grp="t1"></th>
-                                                <th class="head t2 txt-price-b" data-grp="t2"></th>
-                                                <th class="head t3 txt-price-c" data-grp="t3"></th>
-                                                <th class="head t4 txt-price-d" data-grp="t4"></th>
+                                                <th class="head t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></span></th>
+                                                <th class="head t2" data-grp="t2"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-b"></span></th>
+                                                <th class="head t3" data-grp="t3"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-c"></span></th>
+                                                <th class="head t4" data-grp="t4"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-d"></span></th>
                                             </tr>
                                             <tr class="plan-dhc">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_02.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Daily Hospital Cash">
-                                                        <span class="desc col-xs-9">Hospital Cash Benefit (per day)</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_02.png" alt="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1"></td>
-                                                <td class="t2 txt-price-b" data-grp="t2"></td>
-                                                <td class="t3 txt-price-c" data-grp="t3"></td>
-                                                <td class="t4 txt-price-d" data-grp="t4"></td>
+                                                <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
+                                                <td class="t2" data-grp="t2"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-b"></td>
+                                                <td class="t3" data-grp="t3"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-c"></td>
+                                                <td class="t4" data-grp="t4"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-d"></td>
                                             </tr>
                                             <tr class="plan-icu">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_03.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Intensive Care Unit">
-                                                        <span class="desc col-xs-9">Intensive Care Unit Benefit (per day)</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_03.png" alt="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1"></td>
-                                                <td class="t2 txt-price-b" data-grp="t2"></td>
-                                                <td class="t3 txt-price-c" data-grp="t3"></td>
-                                                <td class="t4 txt-price-d" data-grp="t4"></td>
+                                                <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
+                                                <td class="t2" data-grp="t2"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-b"></td>
+                                                <td class="t3" data-grp="t3"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-c"></td>
+                                                <td class="t4" data-grp="t4"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-d"></td>
                                             </tr>
                                             <tr class="plan-id">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_04.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Infectious Disease">
-                                                        <span class="desc col-xs-9">Infectious Disease Benefit (per day)</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_04.png" alt="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1"></td>
-                                                <td class="t2 txt-price-b" data-grp="t2"></td>
-                                                <td class="t3 txt-price-c" data-grp="t3"></td>
-                                                <td class="t4 txt-price-d" data-grp="t4"></td>
+                                                <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
+                                                <td class="t2" data-grp="t2"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-b"></td>
+                                                <td class="t3" data-grp="t3"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-c"></td>
+                                                <td class="t4" data-grp="t4"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-d"></td>
                                             </tr>
                                             <tr class="plan-rop">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_07.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="15 -Year Refund of Premium">
-                                                        <span class="desc col-xs-9">Refund of Premium after 15 years</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_07.png" alt="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1"></td>
-                                                <td class="t2 txt-price-b" data-grp="t2"></td>
-                                                <td class="t3 txt-price-c" data-grp="t3"></td>
-                                                <td class="t4 txt-price-d" data-grp="t4"></td>
+                                                <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
+                                                <td class="t2" data-grp="t2"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-b"></td>
+                                                <td class="t3" data-grp="t3"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-c"></td>
+                                                <td class="t4" data-grp="t4"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-d"></td>
                                             </tr>
                                             <tr class="plan-db">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_05.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Death Benefit">
-                                                        <span class="desc col-xs-9">Death Benefit</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_05.png" alt="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1">150% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t2 txt-price-b" data-grp="t2">150% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t3 txt-price-c" data-grp="t3">150% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t4 txt-price-d" data-grp="t4">150% of Total Annualised Premium<sup>*</sup></td>
+                                                <td class="t1 txt-price-a" data-grp="t1"><fmt:message key="easyhealth.plan.compen.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t2 txt-price-b" data-grp="t2"><fmt:message key="easyhealth.plan.compen.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t3 txt-price-c" data-grp="t3"><fmt:message key="easyhealth.plan.compen.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t4 txt-price-d" data-grp="t4"><fmt:message key="easyhealth.plan.compen.death.benefit.basic" bundle="${msg}" /></td>
                                             </tr>
                                             <tr class="plan-adb">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_06.png" alt="Monthly Contribution" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="Accidental Death Benefit">
-                                                        <span class="desc col-xs-9">Accidental Death<br>Benefit</span>
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_06.png" alt="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />">
+                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" /></span>
                                                     </div>
                                                 </th>
-                                                <td class="t1 txt-price-a" data-grp="t1">Additional 50% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t2 txt-price-b" data-grp="t2">Additional 50% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t3 txt-price-c" data-grp="t3">Additional 50% of Total Annualised Premium<sup>*</sup></td>
-                                                <td class="t4 txt-price-d" data-grp="t4">Additional 50% of Total Annualised Premium<sup>*</sup></td>
+                                                <td class="t1 txt-price-a" data-grp="t1"><fmt:message key="easyhealth.plan.compen.acci.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t2 txt-price-b" data-grp="t2"><fmt:message key="easyhealth.plan.compen.acci.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t3 txt-price-c" data-grp="t3"><fmt:message key="easyhealth.plan.compen.acci.death.benefit.basic" bundle="${msg}" /></td>
+                                                <td class="t4 txt-price-d" data-grp="t4"><fmt:message key="easyhealth.plan.compen.acci.death.benefit.basic" bundle="${msg}" /></td>
                                             </tr>
                                             <tr>
                                                 <th></th>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a">DETAILS</a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b">DETAILS</a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c">DETAILS</a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d">DETAILS</a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -300,7 +298,7 @@ var home_url = "<%=request.getContextPath()%>";
                             </div>
                         </div> -->
                         <div class="col-xs-12">
-                            <p class="remarks"><small><sup>*</sup>Sum of the annualised premium of each policy year up to and including the policy year in which the insured died. Annualised premium of a policy year shall mean monthly premium of that policy year multiplied by 12.</small></p>
+                            <p class="remarks"><small><fmt:message key="easyhealth.plan.remarks.text" bundle="${msg}" /></small></p>
                         </div>
                     </div>
                 </div>
@@ -309,8 +307,8 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3>Need some help to choose the right plan?</h3>
-                            <p>Recommendations will be made based on your choices</p>
+                            <h3><fmt:message key="easyhealth.guidance.text.1" bundle="${msg}" /></h3>
+                            <p><fmt:message key="easyhealth.guidance.text.2" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="row">
@@ -318,30 +316,28 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="box-option">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> What type of food would you like to have during your hospital stay?</h4>
+                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> <fmt:message key="easyhealth.guidance.q1" bundle="${msg}" /></h4>
                                     </div>
                                 </div>
                                 <div class="row toggle-inner">
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_01_off.png" class="img-responsive">Standard
-                                            <br>Hospital Meals
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_01_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q1.ans1" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_02_off.png" class="img-responsive">Premium Meals
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_02_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q1.ans2" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_03_off.png" class="img-responsive">Home-made
-                                            <br>Fresh Meals
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_03_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q1.ans3" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_04_off.png" class="img-responsive">Health Supplements
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_04_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q1.ans4" bundle="${msg}" />
                                         </a>
                                     </div>
                                 </div>
@@ -353,24 +349,23 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="box-option">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> You may feel bored in hospital, would you want some entertainments?</h4>
+                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> <fmt:message key="easyhealth.guidance.q2" bundle="${msg}" /></h4>
                                     </div>
                                 </div>
                                 <div class="row toggle-inner">
                                     <div class="col-sm-4">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_05_off.png" class="img-responsive">Pay Online Entertainment
-                                            <br>（TV shows, movies, video games）
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_05_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q2.ans1" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-4">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_06_off.png" class="img-responsive">Daily WIFI or internet Service
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_06_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q2.ans2" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-4">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_07_off.png" class="img-responsive">Books &amp; Magazines
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_07_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q2.ans3" bundle="${msg}" />
                                         </a>
                                     </div>
                                 </div>
@@ -382,29 +377,28 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="box-option">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> You probably want to consider these services as well?</h4>
+                                        <h4><img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_question.png" alt="?"> <fmt:message key="easyhealth.guidance.q3" bundle="${msg}" /></h4>
                                     </div>
                                 </div>
                                 <div class="row toggle-inner">
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_08_off.png" class="img-responsive">Counselling
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_08_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans1" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive">Beauty Services
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans2" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_10_off.png" class="img-responsive">Domestic Helpers
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_10_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans3" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive">Recuperation
-                                            <br>(e.g. physiotherapy)
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans4" bundle="${msg}" />
                                         </a>
                                     </div>
                                 </div>
@@ -415,7 +409,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="col-sm-8">
                             <div class="box-btn-select">
                                 <a href="javascript:void(0);" class="btn-option-select savie-common-btn">
-                                    Show me the plan that is right for me
+                                    <fmt:message key="easyhealth.guidance.button.next" bundle="${msg}" />
                                 </a>
                             </div>
                         </div>
@@ -423,7 +417,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="col-sm-4">
                             <div class="box-btn-cancel">
                                 <a href="javascript:void(0);" class="btn-option-select savie-common-btn disabled-gray-btn btn-option-cancel">
-                                    Cancel
+                                    <fmt:message key="easyhealth.guidance.button.back" bundle="${msg}" />
                                 </a>
                             </div>
                         </div>
@@ -440,31 +434,31 @@ var home_url = "<%=request.getContextPath()%>";
                                 <a href="javascript:void(0);" class="text-center btn-plan-back">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/main_btn_back.png">
                                     <br>
-                                    <span>Plan Overview</span>
+                                    <span><fmt:message key="button.plan.overview" bundle="${msg}" /></span>
                                 </a>
                             </div>
                             <div class="plan-selector-grid">
                                 <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-a">
-                                    <span class="grid-head"></span>
-                                    <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                    <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.basic" bundle="${msg}" /></span>
+                                    <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                                 </a>
                             </div>
                             <div class="plan-selector-grid">
                                 <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-b">
-                                    <span class="grid-head"></span>
-                                    <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                    <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.plus" bundle="${msg}" /></span>
+                                    <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                                 </a>
                             </div>
                             <div class="plan-selector-grid">
                                 <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-c">
-                                    <span class="grid-head"></span>
-                                    <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                    <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.advanced" bundle="${msg}" /></span>
+                                    <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                                 </a>
                             </div>
                             <div class="plan-selector-grid">
                                 <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-d">
-                                    <span class="grid-head"></span>
-                                    <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                    <span class="grid-head"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /></span>
+                                    <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                                 </a>
                             </div>
                         </div>
@@ -482,38 +476,38 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="plan-selector-m-wrap">
                         <div>
                             <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-a">
-                                <span class="grid-head"></span>
-                                <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.basic" bundle="${msg}" /></span>
+                                <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                             </a>
                         </div>
                         <div>
                             <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-b">
-                                <span class="grid-head"></span>
-                                <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.plus" bundle="${msg}" /></span>
+                                <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                             </a>
                         </div>
                         <div>
                             <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-c">
-                                <span class="grid-head"></span>
-                                <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.advanced" bundle="${msg}" /></span>
+                                <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                             </a>
                         </div>
                         <div>
                             <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-d">
-                                <span class="grid-head"></span>
-                                <span class="grid-desc"><span class="txt-price"></span> / Month</span>
+                                <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.deluxe" bundle="${msg}" /></span>
+                                <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                             </a>
                         </div>
                         <div>
                             <a href="javascript:void(0);" class="text-center btn-plan-back btn-plan-overview">
-                                <span class="grid-head"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Plan overview</span>
+                                <span class="grid-head"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <fmt:message key="button.plan.overview" bundle="${msg}" /></span>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="sticky-help-wrapper">
                     <a href="javascript:void(0);">
-                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/btn_guidance_en.png" class="img-responsive pic">
+                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/btn_guidance_${language}.png" class="img-responsive pic" alt="<fmt:message key="easyhealth.plandetails.guidance" bundle="${msg}" />">
                     </a>
                 </div>
                 <div class="eh-plan-a eh-plan-tab">
@@ -536,7 +530,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-sm-12 col-md-6">
                                     <div class="plan-detail-desc">
                                         <div class="ferris-wheel-wrapper row no-margin">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_en.png" class="img-responsive img-big-border visible-md visible-lg">
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
                                                 <p class="txt-type text-center"></p>
@@ -545,43 +539,43 @@ var home_url = "<%=request.getContextPath()%>";
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
                                                     </div>
                                                     <div class="txt text-left">
-                                                        <span class="txt-youpay">You pay</span>
-                                                        <br><span class="txt-youpay-price"></span>
-                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"> Per month</span>
+                                                        <span class="txt-youpay"><fmt:message key="easyhealth.plandetails.premium" bundle="${msg}" /></span>
+                                                        <br><span class="txt-youpay-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"><fmt:message key="easyhealth.plandetails-pm.premium" bundle="${msg}" /></span>
                                                     </div>
                                                     <br>
-                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center">(Yearly Contribution Amount <span class="txt-price-yca"></span>)</span>
+                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
                                                 <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn">Login to Apply</a>
+                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
-                                                You will get
+                                                <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
                                             </div>
                                             <div class="img-id col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-id"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.infect.disease" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-id"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-icu col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-icu"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.icu.benefit" bundle="${msg}"/>'>
+                                                <span class="txt-price txt-price-icu"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-hc col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-hc"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.hospital.benefit" bundle="${msg}"/>'>
+                                                <span class="txt-price txt-price-hc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-15 col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-rop"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.refund" bundle="${msg}"/>'>
+                                                <span class="txt-price txt-price-rop"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-db col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-db"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}"/>'>
+                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-adb"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}"/>'>
+                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -597,7 +591,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <div class="row no-margin">
                                             <div class="col-xs-12">
                                                 <div class="text-center">
-                                                    <h4>Benefits</h4>
+                                                    <h4><fmt:message key="easyhealth.plandetails.benefits.heading" bundle="${msg}" /></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -606,40 +600,40 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <div class="text-center benefit-item first-item">
                                                     <div class="img-icon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_01.png" class="img-responsive pic">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_en.png" class="img-additional img-responsive">
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.uwillget" bundle="${msg}" />'>
                                                     </div>
-                                                    <h5>Hospital Cash Benefit</h5>
-                                                    <span class="txt-price"><span class="txt-price txt-price-dhc"></span> (per day)</span>
-                                                    <p>You are eligible to get the benefit when you have hospitalized more than 6 hours. You may claim up to 730 days per policy.</p>
+                                                    <h5><fmt:message key="easyhealth.plandetails.hospital.benefits.heading" bundle="${msg}" /></h5>
+                                                    <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-dhc"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                    <p><fmt:message key="easyhealth.plandetails.hospital.benefits.text" bundle="${msg}" /></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-3 col-xs-12">
                                                 <div class="text-center benefit-item indicate">
                                                     <div class="img-icon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_02.png" class="img-responsive pic">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.additional" bundle="${msg}" />'>
                                                     </div>
-                                                    <h5>Intensive Care Unit Benefit</h5>
-                                                    <span class="txt-price"><span class="txt-price txt-price-icu"></span> (per day) </span>
-                                                    <p>On top of daily hospital cash, you are eligible to get the additional benefits when you are admitted to Intensive Care Unit. You may claim up to 90 days per policy.</p>
+                                                    <h5><fmt:message key="easyhealth.plandetails.icubenefits.heading" bundle="${msg}" /></h5>
+                                                    <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-icu"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />) </span>
+                                                    <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-3 col-xs-12">
                                                 <div class="text-center benefit-item indicate">
                                                     <div class="img-icon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_03.png" class="img-responsive pic">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.additional" bundle="${msg}" />'>
                                                     </div>
-                                                    <h5>Infectious Disease Benefit</h5>
-                                                    <span class="txt-price"><span class="txt-price txt-price-id"></span>(per day)</span>
-                                                    <p>On top of daily hospital cash, you are eligible to get the additional benefits when you suffered from Infectious disease. You may claim up to 30 days per policy.</p>
+                                                    <h5><fmt:message key="easyhealth.plandetails.infect.disease.heading" bundle="${msg}" /></h5>
+                                                    <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-id"></span>(<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                    <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-3 col-xs-12">
                                                 <div class="total-benefit">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
-                                                    <p><span class="txt-ttl-upto">Total Amount Up to</span>
-                                                        <br><span class="txt-ttl-benefit-price"></span>
+                                                    <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+                                                        <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -653,7 +647,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_en.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -663,31 +657,31 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_en.png" class="img-responsive pic">
+                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_${language}.png" class="img-responsive pic">
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-left">
                                     <div class="wrapper-15yr">
                                         <div class="txt-15yr-box">
-                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png">15-year policy term</p>
+                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png"><fmt:message key="easyhealth.plandetails.infographic2.text1" bundle="${msg}" /></p>
                                             
                                         </div>
-                                        <p class="txt-percent-refund highlight">102% of actual total premium paid</p>
-                                        <p class="txt-refund-desc">Regardless of your claims made during the protection period</p>
+                                        <p class="txt-percent-refund highlight"><fmt:message key="easyhealth.plandetails.infographic2.text2" bundle="${msg}" /></p>
+                                        <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
-                                            <div class="lbl15yr-policy-top">Year <span class="lblYear"></span></div>
+                                            <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy" id="s1_1_1"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear">At maturity</span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
-                                                    <div class="tblv-title text-center">% of Premium Refund</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Actual Total Premium Paid (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.premium" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Refundable Amount (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.refund.amount" bundle="${msg}" /></div>
                                                 </div>
                                                 <div class="tblv-values">
                                                     <div class="tblv-value txt-ppr text-center"></div>
@@ -702,7 +696,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         </div>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Paid </p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"></p>
                                             </div>
                                             <div class="box-paidget vcenter">
@@ -710,7 +704,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
                                             </div>
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Get</p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                                 <p class="txt-paidget-price txt-price-y15_102"></p>
                                             </div>
                                         </div>
@@ -740,7 +734,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-sm-12 col-md-6">
                                     <div class="plan-detail-desc">
                                         <div class="ferris-wheel-wrapper row no-margin">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_en.png" class="img-responsive img-big-border visible-md visible-lg">
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
                                                 <p class="txt-type text-center"></p>
@@ -749,43 +743,43 @@ var home_url = "<%=request.getContextPath()%>";
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
                                                     </div>
                                                     <div class="txt text-left">
-                                                        <span class="txt-youpay">You Pay</span>
-                                                        <br><span class="txt-youpay-price"></span>
-                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"> per month</span>
+                                                        <span class="txt-youpay"></span>
+                                                        <br><span class="txt-youpay-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"><fmt:message key="easyhealth.plandetails-pm.premium" bundle="${msg}" /></span>
                                                     </div>
                                                     <br>
-                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center">(Yearly Contribution Amount <span class="txt-price-yca"></span>)</span>
+                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
                                                 <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn">Login to Apply</a>
+                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
-                                                You will get
+                                                <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
                                             </div>
                                             <div class="img-id col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-id"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.infect.disease" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-id"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-icu col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-icu"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.icu.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-icu"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-hc col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-hc"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.hospital.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-hc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-15 col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-rop"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.refund" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-rop"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-db col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-db"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-adb"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -800,7 +794,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="row no-margin">
                                         <div class="col-xs-12">
                                             <div class="text-center">
-                                                <h4>Benefits</h4>
+                                                <h4><fmt:message key="easyhealth.plandetails.benefits.heading" bundle="${msg}" /></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -809,40 +803,40 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="text-center benefit-item first-item">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_01.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.uwillget" bundle="${msg}" />'>
                                                 </div>
-                                                <h5>Hospital Cash Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-hc"></span>(per day)</span>
-                                                <p>You are eligible to get the benefit when you have hospitalized more than 6 hours. You may claim up to 730 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.hospital.benefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-hc"></span>(<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_02.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.additional" bundle="${msg}" />'>
                                                 </div>
-                                                <h5>Intensive Care Unit Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-icu"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you are admitted to Intensive Care Unit. You may claim up to 90 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.icubenefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-icu"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.infect.disease.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_03.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive" alt='<fmt:message key="easyhealth.plandetails.additional" bundle="${msg}" />'>
                                                 </div>
-                                                <h5>Infectious Disease Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-id"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you suffered from Infectious disease. You may claim up to 30 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.infect.disease.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-id"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.infect.disease.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
-                                                <p><span class="txt-ttl-upto">Total Amount Up to</span>
-                                                    <br><span class="txt-ttl-benefit-price"></span>
+                                                <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span>
                                                 </p>
                                             </div>
                                         </div>
@@ -855,7 +849,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_en.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -865,31 +859,31 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_en.png" class="img-responsive pic">
+                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_${language}.png" class="img-responsive pic">
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-left">
                                     <div class="wrapper-15yr">
                                         <div class="txt-15yr-box">
-                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png">15-year policy term</p>
+                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png"><fmt:message key="easyhealth.plandetails.infographic2.text1" bundle="${msg}" /></p>
                                             
                                         </div>
-                                        <p class="txt-percent-refund highlight">102% of actual total premium paid</p>
-                                        <p class="txt-refund-desc">Regardless of your claims made during the protection period</p>
+                                        <p class="txt-percent-refund highlight"><fmt:message key="easyhealth.plandetails.infographic2.text2" bundle="${msg}" /></p>
+                                        <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
-                                            <div class="lbl15yr-policy-top">Year <span class="lblYear"></span></div>
+                                            <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy" id="s1_1_1"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear">At maturity</span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
-                                                    <div class="tblv-title text-center">% of Premium Refund</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Actual Total Premium Paid (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.premium" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Refundable Amount (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.refund.amount" bundle="${msg}" /></div>
                                                 </div>
                                                 <div class="tblv-values">
                                                     <div class="tblv-value txt-ppr text-center"></div>
@@ -904,7 +898,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         </div>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Paid </p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"></p>
                                             </div>
                                             <div class="box-paidget vcenter">
@@ -912,7 +906,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
                                             </div>
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Get</p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                                 <p class="txt-paidget-price txt-price-y15_102"></p>
                                             </div>
                                         </div>
@@ -942,7 +936,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-sm-12 col-md-6">
                                     <div class="plan-detail-desc">
                                         <div class="ferris-wheel-wrapper row no-margin">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_en.png" class="img-responsive img-big-border visible-md visible-lg">
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
                                                 <p class="txt-type text-center"></p>
@@ -951,43 +945,43 @@ var home_url = "<%=request.getContextPath()%>";
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
                                                     </div>
                                                     <div class="txt text-left">
-                                                        <span class="txt-youpay">You pay</span>
-                                                        <br><span class="txt-youpay-price"></span>
-                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"> Per month</span>
+                                                        <span class="txt-youpay"><fmt:message key="easyhealth.plandetails.premium" bundle="${msg}" /></span>
+                                                        <br><span class="txt-youpay-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"><fmt:message key="easyhealth.plandetails-pm.premium" bundle="${msg}" /></span>
                                                     </div>
                                                     <br>
-                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center">(Yearly Contribution Amount <span class="txt-price-yca"></span>)</span>
+                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
                                                 <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn">Login to Apply</a>
+                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
-                                                You will get
+                                                <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
                                             </div>
                                             <div class="img-id col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-id"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.infect.disease" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-id"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-icu col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-icu"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.icu.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-icu"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-hc col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-hc"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.hospital.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-hc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-15 col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-rop"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.refund" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-rop"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-db col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-db"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-adb"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1002,7 +996,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="row no-margin">
                                         <div class="col-xs-12">
                                             <div class="text-center">
-                                                <h4>Benefits</h4>
+                                                <h4><fmt:message key="easyhealth.plandetails.benefits.heading" bundle="${msg}" /></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -1011,40 +1005,40 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="text-center benefit-item first-item">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_01.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Hospital Cash Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-dhc"></span> (per day)</span>
-                                                <p>You are eligible to get the benefit when you have hospitalized more than 6 hours. You may claim up to 730 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.hospital.benefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-dhc"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.hospital.benefits.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_02.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Intensive Care Unit Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-icu"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you are admitted to Intensive Care Unit. You may claim up to 90 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.icubenefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-icu"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_03.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Infectious Disease Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-id"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you suffered from Infectious disease. You may claim up to 30 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.infect.disease.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-id"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
-                                                <p><span class="txt-ttl-upto">Total Amount Up to</span>
-                                                    <br><span class="txt-ttl-benefit-price"></span></p>
+                                                <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1056,7 +1050,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_en.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -1066,31 +1060,31 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_en.png" class="img-responsive pic">
+                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_${language}.png" class="img-responsive pic">
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-left">
                                     <div class="wrapper-15yr">
                                         <div class="txt-15yr-box">
-                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png">15-year policy term</p>
+                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png"><fmt:message key="easyhealth.plandetails.infographic2.text1" bundle="${msg}" /></p>
                                             
                                         </div>
-                                        <p class="txt-percent-refund highlight">102% of actual total premium paid</p>
-                                        <p class="txt-refund-desc">Regardless of your claims made during the protection period</p>
+                                        <p class="txt-percent-refund highlight"><fmt:message key="easyhealth.plandetails.infographic2.text2" bundle="${msg}" /></p>
+                                        <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
-                                            <div class="lbl15yr-policy-top">Year <span class="lblYear"></span></div>
+                                            <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy" id="s1_1_1"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear">At maturity</span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
-                                                    <div class="tblv-title text-center">% of Premium Refund</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Actual Total Premium Paid (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.premium" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Refundable Amount (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.refund.amount" bundle="${msg}" /></div>
                                                 </div>
                                                 <div class="tblv-values">
                                                     <div class="tblv-value txt-ppr text-center"></div>
@@ -1105,7 +1099,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         </div>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Paid </p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"></p>
                                             </div>
                                             <div class="box-paidget vcenter">
@@ -1113,7 +1107,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
                                             </div>
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Get</p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                                 <p class="txt-paidget-price txt-price-y15_102"></p>
                                             </div>
                                         </div>
@@ -1143,7 +1137,7 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-sm-12 col-md-6">
                                     <div class="plan-detail-desc">
                                         <div class="ferris-wheel-wrapper row no-margin">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_en.png" class="img-responsive img-big-border visible-md visible-lg">
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
                                                 <p class="txt-type text-center"></p>
@@ -1152,43 +1146,43 @@ var home_url = "<%=request.getContextPath()%>";
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
                                                     </div>
                                                     <div class="txt text-left">
-                                                        <span class="txt-youpay">You pay</span>
-                                                        <br><span class="txt-youpay-price"></span>
-                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"> Per month</span>
+                                                        <span class="txt-youpay"><fmt:message key="easyhealth.plandetails.premium" bundle="${msg}" /></span>
+                                                        <br><span class="txt-youpay-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+                                                        <br><span class="txt-permonth"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_icon_month.png"><fmt:message key="easyhealth.plandetails-pm.premium" bundle="${msg}" /></span>
                                                     </div>
                                                     <br>
-                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center">(Yearly Contribution Amount <span class="txt-price-yca"></span>)</span>
+                                                    <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
                                                 <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn">Login to Apply</a>
+                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
-                                                You will get
+                                                <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
                                             </div>
                                             <div class="img-id col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-id"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_02_id_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.infect.disease" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-id"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-icu col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-icu"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_03_icu_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.icu.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-icu"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-hc col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-hc"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_01_hc_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.hospital.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-hc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-15 col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-rop"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_04_15_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.refund" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-rop"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-db col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-db"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
-                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_en.png" class="img-responsive pic">
-                                                <span class="txt-price txt-price-adb"></span>
+                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
+                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1203,7 +1197,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="row no-margin">
                                         <div class="col-xs-12">
                                             <div class="text-center">
-                                                <h4>Benefits</h4>
+                                                <h4><fmt:message key="easyhealth.plandetails.benefits.heading" bundle="${msg}" /></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -1212,40 +1206,40 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="text-center benefit-item first-item">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_01.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_get_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Hospital Cash Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-dhc"></span> (per day)</span>
-                                                <p>You are eligible to get the benefit when you have hospitalized more than 6 hours. You may claim up to 730 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.hospital.benefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-dhc"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.icubenefits.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_02.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Intensive Care Unit Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-icu"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you are admitted to Intensive Care Unit. You may claim up to 90 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.icubenefits.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-icu"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.infect.disease.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="text-center benefit-item indicate">
                                                 <div class="img-icon">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_03.png" class="img-responsive pic">
-                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_en.png" class="img-additional img-responsive">
+                                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_additional_${language}.png" class="img-additional img-responsive">
                                                 </div>
-                                                <h5>Infectious Disease Benefit</h5>
-                                                <span class="txt-price"><span class="txt-price txt-price-id"></span> (per day)</span>
-                                                <p>On top of daily hospital cash, you are eligible to get the additional benefits when you suffered from Infectious disease. You may claim up to 30 days per policy.</p>
+                                                <h5><fmt:message key="easyhealth.plandetails.infect.disease.heading" bundle="${msg}" /></h5>
+                                                <span class="txt-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price txt-price-id"></span> (<fmt:message key="easyhealth.plandetails-pd.premium" bundle="${msg}" />)</span>
+                                                <p><fmt:message key="easyhealth.plandetails.infect.disease.text" bundle="${msg}" /></p>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-xs-12">
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
-                                                <p><span class="txt-ttl-upto">Total Amount Up to</span>
-                                                    <br><span class="txt-ttl-benefit-price"></span></p>
+                                                <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+                                                    <br><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-ttl-benefit-price"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1257,7 +1251,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_en.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -1267,31 +1261,31 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="">
-                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_en.png" class="img-responsive pic">
+                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_table_${language}.png" class="img-responsive pic">
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-left">
                                     <div class="wrapper-15yr">
                                         <div class="txt-15yr-box">
-                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png">15-year policy term</p>
+                                            <p class="txt-15yr"><img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_icon.png"><fmt:message key="easyhealth.plandetails.infographic2.text1" bundle="${msg}" /></p>
                                             
                                         </div>
-                                        <p class="txt-percent-refund highlight">102% of actual total premium paid</p>
-                                        <p class="txt-refund-desc">Regardless of your claims made during the protection period</p>
+                                        <p class="txt-percent-refund highlight">1<fmt:message key="easyhealth.plandetails.infographic2.text2" bundle="${msg}" /></p>
+                                        <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
-                                            <div class="lbl15yr-policy-top">Year <span class="lblYear"></span></div>
+                                            <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy" id="s1_1_1"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear">At maturity</span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
-                                                    <div class="tblv-title text-center">% of Premium Refund</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Actual Total Premium Paid (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.premium" bundle="${msg}" /></div>
                                                     <!--
                                                     -->
-                                                    <div class="tblv-title text-center">Refundable Amount (HK$)</div>
+                                                    <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.refund.amount" bundle="${msg}" /></div>
                                                 </div>
                                                 <div class="tblv-values">
                                                     <div class="tblv-value txt-ppr text-center"></div>
@@ -1306,7 +1300,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         </div>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Paid </p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"></p>
                                             </div>
                                             <div class="box-paidget vcenter">
@@ -1314,7 +1308,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
                                             </div>
                                             <div class="box-paidget">
-                                                <p class="txt-paidget">You Get</p>
+                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                                 <p class="txt-paidget-price txt-price-y15_102"></p>
                                             </div>
                                         </div>
@@ -1331,10 +1325,10 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
                                     <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
                                         <li class="pd-sf-tab text-center active" role="presentation">
-                                            <a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab">Key Product<br class="visible-xs"> Risks &amp; Exclusions</a>
+                                            <a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="easyhealth.plandetails.risk.heading" bundle="${msg}" /></a>
                                         </li>
                                         <li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
-                                            <a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">Remarks</a>
+                                            <a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="easyhealth.plandetails.remarks.heading" bundle="${msg}" /></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1347,7 +1341,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="panel-heading" role="tab" id="pd-sf-product-related">
                                                         <h4 class="panel-title">
                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Key Product Risks
+                                    <fmt:message key="easyhealth.plandetails.risk.sub.heading" bundle="${msg}" />
                                     <span class="pull-right">
                                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png">
                                     </span>
@@ -1356,31 +1350,31 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </div>
                                                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
-                                                            <p>Credit risk </p>
-                                                            <p>This product is an insurance policy issued by FWD Life Insurance Company (Bermuda) Limited (“the Company”). The application of this insurance product and all benefits payable under your policy are subject to the credit risk of the Company. You will bear the default risk in the event that the Company is unable to satisfy its financial obligations under this insurance contract.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.1.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.2.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Exchange rate and currency risk</p>
-                                                            <p>The application of this insurance product with the policy currency denominated in a foreign currency is subject to that foreign currency’s exchange rate and currency risk. The foreign currency may be subject to the relevant regulatory bodies’ control (for example, exchange restrictions). If your home currency is different from the policy currency, please note that any exchange rate fluctuation between your home currency and the policy currency of this insurance product will have a direct impact on the amount of premium required and the value of benefit(s) to be received. For instance, if the policy currency of the insurance product depreciates substantially against your home currency, the potential loss arising from such exchange rate movement may have a negative impact on your benefits to be received from the product and your burden of the premium payment.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.3.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.4.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Inflation risk</p>
-                                                            <p>The cost of living in the future may be higher than now due to the effects of inflation. Therefore, the benefits under this policy may not be sufficient for the increasing protection needs in the future even if the Company fulfills all of its contractual obligations.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.5.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.6.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Early surrender risk</p>
-                                                            <p>If you surrender your policy in the early policy years or before the end of the policy term, or withdraw the premiums you contributed in the early policy years, the amount of the benefit you will get back may be considerably less than the total amount of the premiums you paid.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.7.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.8.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Premium adjustment</p>
-                                                            <p>The premium is non-guaranteed and may significantly increase due to factors including but not limited to claims experience and policy persistency. However, premium will not be increased based on the age of the Insured on his or her next birthday.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.10.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Premium term and non-payment of premium</p>
-                                                            <p>The premium payment period of the policy is 10 years. The Company allows a Grace Period of 30 days after the premium due date for payment of each premium. If a premium is still unpaid at the expiration of the Grace Period, the policy will be terminated from the date the first unpaid premium was due. Please note that once the policy is terminated on this basis, you will lose all of your benefits.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.11.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.12.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Termination conditions</p>
-                                                            <p>This Policy shall terminate on the earliest of the following:
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.13.content" bundle="${msg}" /></p>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.14.content" bundle="${msg}" />
                                                                 <ol>
-                                                                    <li>The death of the Insured; or</li>
-                                                                    <li>The Maturity Date; or</li>
-                                                                    <li>The date of Policy surrender. Such date is determined in accordance with the Company’s applicable rules and regulations in relation to Policy surrender; or</li>
-                                                                    <li>The end of the Grace Period of any premium due and not received by the Company.</li>
+                                                                    <li><fmt:message key="easyhealth.plandetails.risk.15.content" bundle="${msg}" /></li>
+                                                                    <li><fmt:message key="easyhealth.plandetails.risk.16.content" bundle="${msg}" /></li>
+                                                                    <li><fmt:message key="easyhealth.plandetails.risk.17.content" bundle="${msg}" /></li>
+                                                                    <li><fmt:message key="easyhealth.plandetails.risk.18.content" bundle="${msg}" /></li>
                                                                 </ol>
                                                             </p>
                                                         </div>
@@ -1390,7 +1384,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="panel-heading" role="tab" id="pd-sf-claim-related">
                                                         <h4 class="panel-title">
                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Key Exclusions
+                                    <fmt:message key="easyhealth.plandetails.exclusions.sub.heading" bundle="${msg}" />
                                     <span class="pull-right">
                                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png">
                                     </span>
@@ -1399,45 +1393,45 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </div>
                                                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
                                                         <div class="panel-body">
-                                                            <p>No Daily Hospital Cash Benefit, Intensive Care Unit Benefit or Infectious Disease Benefit is payable under this Policy when the Confinement is directly or indirectly caused by:</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>
                                                             <ol>
-                                                                <li>Congenital Conditions.</li>
-                                                                <li>Pre-existing Conditions.</li>
-                                                                <li>Intentional self-inflicted injury or attempted suicide, while sane or insane and while intoxicated or not; Disability arising out of excessive consumption of alcohol or narcotics or similar drugs or agents unless prescribed by a Physician for the treatment of a Disability.</li>
-                                                                <li>Conditions arising from surgical, mechanical or chemical contraceptive methods of birth control or the reversal of birth control or treatment pertaining to infertility.</li>
-                                                                <li>Cosmetic surgery or plastic surgery, preventive or vaccination treatment not related to a Disability, except as necessitated by bodily Injuries wholly caused by an Accident occurring after the Policy Date; dental care, surgery and treatment, except as necessitated by the need to restore sound natural teeth that are damaged wholly by Injury occurring after the Policy Date and the restoration is only to restore the basic function of the natural teeth that existed prior to the Injury.</li>
-                                                                <li>War or any act of war, terrorism or terroristic activities, declared or undeclared, hostilities, rebellion, revolution, insurrection, coup or usurped power or active duty in the military, naval or air forces of any country or international authority.</li>
-                                                                <li>Any Disability resulting from:
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.2.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.3.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.4.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.5.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.6.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.7.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.8.content" bundle="${msg}" />
                                                                     <ol class="lower-roman">
-                                                                        <li>Racing of any kind other than on foot.</li>
-                                                                        <li>Participation in all forms of professional sports competition with reward and income.</li>
-                                                                        <li>Motorcycling other than on roadways designed primarily for motor traffic.</li>
-                                                                        <li>An activity in the air other than as a fare paying passenger on a duly licensed commercial aircraft.</li>
-                                                                        <li>Deep water diving over thirty (30) meters requiring the use of breathing apparatus.</li>
-                                                                        <li>Abseiling and mountain climbing requiring the use of ropes and/or pitons.</li>
-                                                                        <li>Winter sports other than ice-rink skating.</li>
-                                                                        <li>Deliberate exposure to exceptional danger in the opinion of the Company except in an effort to save human life.</li>
-                                                                        <li>Nuclear radiation, or contamination or the use of ionization or combustion of any nuclear weapons.</li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.9.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.10.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.11.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.12.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.13.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.14.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.15.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.16.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.17.content" bundle="${msg}" /></li>
                                                                     </ol>
                                                                 </li>
-                                                                <li>Pregnancy, childbirth (including surgical delivery), miscarriage which is not a result of Accident, abortion and prenatal or postnatal care.</li>
-                                                                <li>The participation in any criminal event (including the consumption of illegal drugs).</li>
-                                                                <li>Trans-sexual surgery.</li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.18.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.19.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.20.content" bundle="${msg}" /></li>
                                                                 <li>
-                                                                    No Accidental Death Benefit is payable under this Policy when the death of the Insured is directly or indirectly caused by:
+                                                                    <fmt:message key="easyhealth.plandetails.exclusions.21.content" bundle="${msg}" />
                                                                     <ol>
-                                                                        <li>Disease or infection (except infections which occur through an accidental cut or wound).</li>
-                                                                        <li>Pregnancy, childbirth (including surgical delivery) and abortion irrespective of whether such event is accelerated or induced by an Injury.</li>
-                                                                        <li>Intentional self-inflicted injury or attempted suicide, while sane or insane and while intoxicated or not.</li>
-                                                                        <li>Any drug unless taken in accordance with the lawful directions and prescription of a qualified and registered Physician.</li>
-                                                                        <li>Accident occurring while or because the Insured is under the influence of alcohol.</li>
-                                                                        <li>Poison, gas or fumes, voluntarily or otherwise taken, absorbed or inhaled, other than as a result of an Accident arising from a hazardous incident in relation to the Insured’s occupation.</li>
-                                                                        <li>War or any act of war, terrorism or terroristic activities, declared or undeclared, hostilities, rebellion, revolution, insurrection, coup or usurped power or active duty in the military, naval or air forces of any country or international authority.</li>
-                                                                        <li>Any activity in the air other than as a fare paying passenger on a duly licensed commercial aircraft. </li>
-                                                                        <li>The participation in any criminal event (including the consumption of illegal drugs).</li>
-                                                                        <li>Racing of any kind other than on foot.</li>
-                                                                        <li>Nuclear radiation, or contamination or the use of ionization or combustion of any nuclear weapons.</li>
-                                                                        <li>Participation in all forms of professional sports competition with reward and income. </li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.22.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.23.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.24.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.25.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.26.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.27.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.28.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.29.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.30.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.31.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.32.content" bundle="${msg}" /></li>
+                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
                                                                     </ol>
                                                                 </li>
                                                             </ol>
@@ -1452,7 +1446,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="panel-heading" role="tab" id="pd-sf-product-related">
                                                         <h4 class="panel-title">
                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Remarks
+                                    <fmt:message key="easyhealth.plandetails.remarks.heading" bundle="${msg}" />
                                     <span class="pull-right">
                                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png">
                                     </span>
@@ -1461,55 +1455,56 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
-                                                            <p><b>Confinement - </b>a period during which the insured is admitted into a hospital or Designated Psychiatric Hospital as an in-patient for Medically Necessary services or treatments on the written recommendation of a physician as a result of a Disability, provided that the duration of such stay is not less than six (6) consecutive hours. Throughout the period from the insured’s admission until his/her discharge, the insured is required to be continuously confined in the hospital without any physical absence or interruption.</p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><b>Medically Necessary - </b>medical or health care services and Confinement which are necessary and consistent with the diagnosis and customary medical treatment for the Disability and recommended by a physician or surgeon. In no event will any of the following be considered to be Medically Necessary:
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
                                                             </p>
                                                             <ul>
-                                                                <li>Confinement mainly for the personal comfort or convenience of the Insured or the physician or any other person.</li>
-                                                                <li>Confinement which the insured’s Disability could safely and adequately be treated while not confined.</li>
-                                                                <li>Confinement for experimental, screening and preventive services, routine physical examinations, health check-ups, or tests not incidental to treatment or diagnosis of a Disability.</li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.5.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.6.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
                                                             </ul>
                                                             <br>
-                                                            <p><b>Disability - </b>any Sickness(es), Disease(s), Illness(es) or Injury(ies) and shall include all Disabilities arising from the same cause including any complications arising from it.</p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><b>Sickness, Disease or Illness - </b>a physical condition marked by a pathological deviation from the normal healthy state which manifests and commences more than thirty (30) days after the policy date or the date of reinstatement of this policy (whichever is later).</p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Maximum period for which Daily Hospital Cash Benefit is payable per Disability (other than a Psychiatric Disorder and any Human Immunodeficiency Virus (HIV) related Disability) is seven hundred and thirty (730) days. The benefit for the treatment of Psychiatric Disorder (i.e. mental, behavioral, psychiatric or psychological disorder) in a Designated Psychiatric Hospital is subject to the maximum period of thirty (30) days of per policy year regardless of the number of Psychiatric Disorders suffered. Designated Psychiatric Hospital includes Alice Ho Miu Ling Nethersole Hospital, Castle Peak Hospital, Kowloon Hospital, Kwai Chung Hospital, Pamela Youde Nethersole Eastern Hospital, Queen Mary Hospital, Shatin Hospital, Tai Po Hospital, Tuen Mun Hospital, United Christian Hospital and Conde S. Januário Hospital, Macau.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.12.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>If the Confinement occurs in places other than Hong Kong, Macau, South Korea, Taiwan, Singapore, Malaysia, Thailand, Japan, Canada, U.S.A, Western Europe, Australia and New Zealand, Daily Hospital Cash Benefit, Intensive Care Unit Benefit &amp; Infectious Disease Benefit payable for each day of Confinement under these benefits shall be reduced to fifty (50) percent of the benefit and further, the maximum period for which the Daily Hospital Cash Benefit is payable per Disability (other than a Psychiatric Disorder and any Human Immunodeficiency Virus (HIV) related Disability) shall be reduced to ninety (90) days. “Western Europe” shall mean Austria, Belgium, Denmark, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Monaco, Netherlands, Norway, Portugal, Spain, Sweden, Switzerland, United Kingdom and Vatican City.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.13.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>No Daily Hospital Cash Benefit or Intensive Care Unit Benefit shall be paid in respect of any Human Immunodeficiency Virus (HIV) related Disability, including Acquired Immunization Deficiency Syndrome (AIDS) and/or any mutations, derivations or variations, which is derived from an HIV infection (except due to blood transfusion), unless the signs or symptoms of such Disability first occur after the policy has been effective for five (5) consecutive policy years from the policy date or the date of reinstatement of this policy (whichever is later). The maximum period for which the Daily Hospital Cash Benefit and the Intensive Care Unit Benefit are payable in respect of HIV related Disabilities is thirty (30) days per policy year regardless of the number of HIV related Disabilities suffered.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.14.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Premium is non-guaranteed and may significantly increase due to factors including but not limited to claims experience and policy persistency. However, premium will not be increased based on the age of the Insured on his or her next birthday.</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.15.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Maximum period for which Intensive Care Unit Benefit is payable shall not exceed ninety (90) days per Disability. </p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.16.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p>Maximum period for which Infectious Disease Benefit is payable shall not exceed thirty (30) days per Disability. Covered infectious diseases include:</p>
+                                                            <p><fmt:message key="easyhealth.plandetails.remarks.17.content" bundle="${msg}" /></p>
                                                             <ol>
-                                                                <li>Malaria</li>
-                                                                <li>Cholera</li>
-                                                                <li>Dengue Fever</li>
-                                                                <li>Tetanus</li>
-                                                                <li>Measles</li>
-                                                                <li>Rabies</li>
-                                                                <li>Yellow Fever</li>
-                                                                <li>Scarlet Fever </li>
-                                                                <li>SARS</li>
-                                                                <li>Japanese Encephalitis</li>
-                                                                <li>Meningococcal Infection </li>
-                                                                <li>Creutzfeldt-Jakob Disease (Mad Cow Disease)</li>
-                                                                <li>Legionnaires' Disease </li>
-                                                                <li>Amoebic Dysentery </li>
-                                                                <li>Anthrax </li>
-                                                                <li>Leprosy </li>
-                                                                <li>Diphtheria </li>
-                                                                <li>Acute Poliomyelitis </li>
-                                                                <li>Plague </li>
-                                                                <li>Tuberculosis </li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.18.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.19.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.20.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.21.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.22.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.23.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.24.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.25.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.26.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.27.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.28.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.29.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.30.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.31.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.32.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.33.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.34.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.35.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.36.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.37.content" bundle="${msg}" /></li>
+
                                                             </ol>
                                                             <br>
-                                                            <p><b>Total Annualised Premium - </b>is the sum of the annualised premium of each policy year up to and including the policy year in which the insured died. Annualised premium of a policy year shall mean monthly premium of that policy year multiplied by 12.</p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.38.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.39.content" bundle="${msg}" /></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1644,7 +1639,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="text-center">
-                                    <a href="javascript:void(0);" class="savie-common-btn" id="btnLoginApply">Login to Apply</a>
+                                    <a href="javascript:void(0);" class="savie-common-btn" id="btnLoginApply"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
                                 </div>
                             </div>
                         </div>
@@ -1686,7 +1681,20 @@ var home_url = "<%=request.getContextPath()%>";
         });
 
         $("#online-application-btn").click(function() {
-            window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+        	var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
+        	$.ajax({
+	 			  type : "post",
+	 			  cache:false, 
+				  async:false, 
+	 			  url : '${pageContext.request.contextPath}/ajax/easyhealth-insurance/putPremium',
+	 			  data : {pro : pro},
+	 			  success : function(data) {
+	 				 window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+	 			  },
+	 			  error:function(){
+	 			      console.log('error');   
+	 		      }
+		    });
         });
 
         $("#offline-application-btn").click(function() {

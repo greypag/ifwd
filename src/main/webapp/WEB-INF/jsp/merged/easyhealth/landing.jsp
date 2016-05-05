@@ -24,7 +24,7 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
                 <div class="breadcrumb-container">
                     <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                      <li><a href="#">Home</a></li>
+                      <li><a href="#"><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></a></li>
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
                       <li><a href="#">Protect </a></li>
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
@@ -36,17 +36,17 @@ var home_url = "<%=request.getContextPath()%>";
     <div class="savie-regular-container savie-regular-landing rp-only">
         <div class="whole-banner">
             <div class="page-banner">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
                 <div class="fwd-container-limit">
                 
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/${nextPageFlow}" method="post">
                     <div class="img-banner-text savie-landing">
                         <div id="clearfix-height-rp">
-                            <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn">Quote Now</button>
+                            <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.quote.easyhealth" bundle="${msg}" /></button>
                         </div>                      
                     <div class="savie-product text-bold">
-                        <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank">Product brochure</a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank">Product provisions</a>
+                        <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="label.brochure" bundle="${msg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
                     </div>
                     </div>
                 </form>
@@ -56,7 +56,7 @@ var home_url = "<%=request.getContextPath()%>";
                         
         <div class="payment-mode">
            
-            <p class="availability-notice text-center"><strong>EasyHealth Refundable Hospital Income Plan</strong> (“the Plan”, “EasyHealth”) provides you Hospital Cash Benefit, regardless of the actual hospital expenses, for 15 years with 10 years of payment only, in addition, you will enjoy refund of 102% of actual total premium paid at maturity (i.e. end of the 15th policy year) regardless of any claims made during the protection period. Even if you surrender the policy before the maturity, you can still get back a percentage of actual premium paid starting at the 6th policy year.<span></span>
+            <p class="availability-notice text-center"><fmt:message key="label.product.statement.easyhealth" bundle="${msg}" /><span></span>
             </p>
 
             <!-- <h5 class="hidden-sm hidden-xs product-options text-center">
@@ -67,27 +67,27 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="fwd-container-limit">
                 <div class="usp row">
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm">Cash Benefit</h5>
+                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-flexible.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg">Cash Benefit</h5>
-                            <p>You will receive a cash benefit from HK$300 to HK$1,200 per day (depend on your selected plan) when hospitalised for not less than 6 consecutive hours. You have the flexibility to use the money to suit your needs, such as paying for your medical or non-medical expenses or protecting against any loss of income.</p>
+                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
+                            <p><fmt:message key="usp.copy1.easyhealth" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm">HK$12 per day</h5>
+                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-protection.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg">HK$12 per day</h5>
-                            <p class="padded">Affordable premium for unexpected hospitalization to provide daily hospital cash. Enjoy as low as HK$12/day to get additional coverage on top of your existing medical plan. EasyHealth offers 4 benefit levels to cater your needs.</p>
+                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
+                            <p class="padded"><fmt:message key="usp.copy2.easyhealth" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm">Return of Premium</h5>
+                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-save.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg">Return of Premium</h5>
-                            <p class="padded">You will enjoy refund of 102% of actual total premium paid at maturity (i.e. end of the 15th policy year) regardless of any claims made during the protection period.  Even if you surrender the policy before the maturity, you can still get back a percentage of actual premium paid starting the 6<sup>th</sup> policy year.</p>
+                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
+                            <p class="padded"><fmt:message key="usp.copy3.easyhealth" bundle="${msg}" /></p>
                         </div>
                     </div>
                 </div>
@@ -95,11 +95,11 @@ var home_url = "<%=request.getContextPath()%>";
  
             <div class="regular-benefit">
                     <div class="hidden-xs hidden-sm">
-                <h3 class="benefits-desktop text-center">Benefits</h3>
+                <h3 class="benefits-desktop text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h3>
                 <div class="gray-divide"></div>
             </div>
                 <div class="hidden-md hidden-lg">
-                    <h4 class="text-center">Benefits</h4>
+                    <h4 class="text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h4>
                     <div class="gray-divide"></div>
                 </div>
                 <div class="fwd-container-limit">
@@ -119,24 +119,24 @@ var home_url = "<%=request.getContextPath()%>";
                                 </div>-->
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png">
-                                    <span class="two-lines">Additional Intensive Care Unit and Infectious Disease benefits</span>
+                                    <span class="two-lines"><fmt:message key="benfit.group1.easyhealth" bundle="${msg}" /></span>
                                     <div class="hidden-benefits benefits-content">
                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png" />
                                         <div class="info hidden-benefits-info">
-                                            <h3 class="hidden-benefits-info">Additional Intensive Care Unit and Infectious Disease benefits</h3>
-                                            <p class="hidden-benefits-info">If you are admitted to the intensive care unit during a quarantine, an additional benefit will be payable (up to HK$1,200 per day) up to 90 days per disability. Further, an additional Infectious Disease Benefit will be payable (up to HK$1,200 per day) up to 30 days per disability.</p>
+                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group1.title.easyhealth" bundle="${msg}" /></h3>
+                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group1.copy.easyhealth" bundle="${msg}" /></p>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png">
-                                    <span>Claim Ambassador</span>
+                                    <span><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></span>
                                     <div class="hidden-benefits benefits-content">
                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png" />
                                         <div class="info hidden-benefits-info">
-                                            <h3 class="hidden-benefits-info">Claim Ambassador</h3>
-                                            <p class="hidden-benefits-info">When you are hospitalised or requires assistance during the claim process, a claim ambassador will be present to help make the claim for the insured.</p>
+                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group2.title.easyhealth" bundle="${msg}" /></h3>
+                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group2.copy.easyhealth" bundle="${msg}" /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -144,23 +144,23 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="row">
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
-                                    <span>Life protection</span>
+                                    <span><fmt:message key="benfit.group3.easyhealth" bundle="${msg}" /></span>
                                     <div class="hidden-benefits benefits-content">
                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png" />
                                         <div class="info">
-                                            <h3 class="hidden-benefits-info">Life protection</h3>
-                                            <p class="hidden-benefits-info">The Plan will offer a life protection of 150% of Total Annualised Premium to ease your family needs at the unfortunate event of death of the insured person.  There will be an additional accidental death benefit of 50% of Total Annualised Premium if the death is caused by an accident.</p>
+                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group3.title.easyhealth" bundle="${msg}" /></h3>
+                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group3.copy.easyhealth" bundle="${msg}" /></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
-                                    <span>Easy Online Purchase</span>
+                                    <span><fmt:message key="benfit.group4.easyhealth" bundle="${msg}" /></span>
                                     <div class="hidden-benefits benefits-content">
                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png" />
                                         <div class="info">
-                                            <h3 class="hidden-benefits-info">Easy Online Purchase</h3>
-                                            <p class="hidden-benefits-info">Simplified underwriting process enables you to complete the entire application process online. You may also visit our Customer Service Centers for more comprehensive coverage.</p>
+                                            <h3 class="hidden-benefits-info"><fmt:message key="benfit.group4.title.easyhealth" bundle="${msg}" /></h3>
+                                            <p class="hidden-benefits-info"><fmt:message key="benfit.group4.copy.easyhealth" bundle="${msg}" /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -173,16 +173,16 @@ var home_url = "<%=request.getContextPath()%>";
                                         <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center">Benefits </a>
                                     </li>-->
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-6">
-                                        <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Additional Intensive Care Unit and Infectious Disease benefits</a>
+                                        <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="benfit.group1.easyhealth" bundle="${msg}" /></a>
                                     </li>                                   
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
-                                        <a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">Claim Ambassador</a>
+                                        <a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></a>
                                     </li>
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-3">
-                                        <a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">Life protection</span></a>
+                                        <a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="benfit.group3.easyhealth" bundle="${msg}" /></span></a>
                                     </li>
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
-                                        <a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Easy Online Purchase</a>
+                                        <a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="benfit.group4.easyhealth" bundle="${msg}" /></a>
                                     </li>
                                     <!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
                                         <a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">24 hours <span>service hotline</span></a>
@@ -203,8 +203,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="benefits-content clearfix">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-2.png">
                                                         <div class="info">
-                                                            <h3>Additional Intensive Care Unit and Infectious Disease benefits </h3>
-                                                            <p>If you are admitted to the intensive care unit during a quarantine, an additional benefit will be payable (up to HK$1,200 per day) up to 90 days per disability. Further, an additional Infectious Disease Benefit will be payable (up to HK$1,200 per day) up to 30 days per disability.</p>
+                                                            <h3><fmt:message key="benfit.group1.title.easyhealth" bundle="${msg}" /></h3>
+                                                            <p><fmt:message key="benfit.group1.copy.easyhealth" bundle="${msg}" /></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,8 +221,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="benefits-content clearfix">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png">
                                                         <div class="info">
-                                                            <h3>Claim Ambassador</h3>
-                                                            <p>When you are hospitalised or requires assistance during the claim process, a claim ambassador will be present to help make the claim for the insured.</p>
+                                                            <h3><fmt:message key="benfit.group2.title.easyhealth" bundle="${msg}" /></h3>
+                                                            <p><fmt:message key="benfit.group2.copy.easyhealth" bundle="${msg}" /></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -239,8 +239,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="benefits-content clearfix">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
                                                         <div class="info">
-                                                            <h3>Life protection</h3>
-                                                            <p>The Plan will offer a life protection of 150% of Total Annualised Premium to ease your family needs at the unfortunate event of death of the insured person.  There will be an additional accidental death benefit of 50% of Total Annualised Premium if the death is caused by an accident.</p>
+                                                            <h3><fmt:message key="benfit.group3.title.easyhealth" bundle="${msg}" /></h3>
+                                                            <p><fmt:message key="benfit.group3.copy.easyhealth" bundle="${msg}" /></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -248,8 +248,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                     <div class="benefits-content clearfix">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
                                                         <div class="info">
-                                                            <h3>Easy Online Purchase</h3>
-                                                            <p>Simplified underwriting process enables you to complete the entire application process online. You may also visit our Customer Service Centers for more comprehensive coverage.</p>
+                                                            <h3><fmt:message key="benfit.group4.title.easyhealth" bundle="${msg}" /></h3>
+                                                            <p><fmt:message key="benfit.group4.copy.easyhealth" bundle="${msg}" /></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,16 +270,16 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="fwd-container-limit" id="nav-holder">
                     <ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
                         <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
-                            <a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link">Here when you need us</a>
+                            <a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link"><fmt:message key="pillar.support.title" bundle="${msg}" /></a>
                         </li>
                         <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
-                            <a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link">Come visit us</a>
+                            <a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></a>
                         </li>
                         <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
-                            <a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link">Make claims easy</a>
+                            <a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></a>
                         </li>
                         <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-                            <a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link">eService app available</a>
+                            <a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></a>
                         </li>
                     </ul>
                     <div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
@@ -289,8 +289,8 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="fna-icon-circle">
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
                                     </div>
-                                    <h3 class="visible-md visible-lg  tab-head">Here when you need us</h3>
-                                     <p>Our 24/7 Live Chat and Customer Hotline 3123 3123 are ready to assist you anytime you need us! <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
+                                    <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
+                                     <p><fmt:message key="pillar.support.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
                                 </div>
                             </div>
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
@@ -298,8 +298,8 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="fna-icon-circle">
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
                                     </div>
-                                    <h3 class="visible-md visible-lg tab-head">Come visit us</h3>
-                                    <p> 6 Customer Service Centres across Hong Kong, Kowloon and New Territories, to provide efficient, personalised and quality service for you.</p>
+                                    <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
+                                    <p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
@@ -307,8 +307,8 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="fna-icon-circle">
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
                                     </div>
-                                    <h3 class="visible-md visible-lg tab-head">Make claims easy</h3>
-                                    <p>We have developed a simple and quick process to make it easier for you to make a claim. <a href="http://www.fwd.com.hk/en/support-claims/" class="eserv-link ui-link" target="_blank">Click here</a> to learn more</p>
+                                    <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
+                                    <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en/support-claims/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
@@ -316,8 +316,8 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="fna-icon-circle">
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
                                     </div>
-                                    <h3 class="visible-md visible-lg  tab-head">eService app available</h3>
-                                    <p>Download our <a href="http://www.fwd.com.hk/en/support-claims/eservices-app/" class="eserv-link ui-link" target="_blank">eServices App</a> and get the support you need, when you need it.</p>
+                                    <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
+                                    <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en/support-claims/eservices-app/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -339,55 +339,55 @@ var home_url = "<%=request.getContextPath()%>";
                         <h5 class="text-center">Save before you spend</h5>
                     </div>
                     <div class="btn-holder">
-                        <button id="btn-blog-link" class="savie-regular-btn">Read More from our blog</button>
+                        <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
                     </div>
                 </div>
                 <div class="hidden-xs hidden-sm">
-                        <h3 class="text-center">Read more from our blog</h3>
+                        <h3 class="text-center"><fmt:message key="blog.home.title" bundle="${msg}" /></h3>
                         <div class="gray-divide"></div>
-                        <p class="definition text-center">Why not check out our savings tips?</p>
+                        <p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
     
                         <div class="blogs-holder clearfix fwd-container-limit">
                             <div class="blogs first">
                                 <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title">Efficient and affordable lessons for babies</p>
-                                    <span>SAVE</span>
-                                    <p class="definition"></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2016/01/25/efficient-and-affordable-lessons-for-babie/" target="_blank">Read now</a>
+                                    <p class="title"><fmt:message key="blog.savie.post1.title" bundle="${msg}" /></p>
+                                    <!-- <span>SAVE</span> -->
+                                    <p class="definition"><fmt:message key="blog.savie.post1.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2016/01/25/efficient-and-affordable-lessons-for-babie/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
                                 <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title">Do holidays have to be savings traps?</p>
-                                    <span>SAVE</span>
-                                    <p class="definition"></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/30/do-holidays-have-to-be-saving-traps-2/" target="_blank">Read now</a>
+                                    <p class="title"><fmt:message key="blog.savie.post2.title" bundle="${msg}" /></p>
+                                    <!-- <span>SAVE</span> -->
+                                    <p class="definition"><fmt:message key="blog.savie.post2.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/30/do-holidays-have-to-be-saving-traps-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
                                 <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title">Busting myths of savings traps</p>
-                                    <span>SAVE</span>
-                                    <p class="definition"></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/17/busting-the-myths-of-saving-traps-2/" target="_blank">Read now</a>
+                                    <p class="title"><fmt:message key="blog.savie.post3.title" bundle="${msg}" /></p>
+                                    <!-- <span>SAVE</span> -->
+                                    <p class="definition"><fmt:message key="blog.savie.post3.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/17/busting-the-myths-of-saving-traps-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs last">
                                 <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title">That’s right! Coupons do save you BIG bucks!</p>
-                                    <span>SAVE</span>
-                                    <p class="definition"></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/09/thats-right-coupons-do-save-you-big-bucks-2/" target="_blank">Read now</a>
+                                    <p class="title"><fmt:message key="blog.savie.post4.title" bundle="${msg}" /></p>
+                                    <!-- <span>SAVE</span> -->
+                                    <p class="definition"><fmt:message key="blog.savie.post4.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/09/thats-right-coupons-do-save-you-big-bucks-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                         </div>
     
                         <div class="fwd-container-limit">
-                            <p class="blog-notice">The information provided in the blogs is for reference only. While FWD Life Insurance Company (Bermuda) Limited and its affiliates ("FWD") use all reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof. FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material. Users should carefully evaluate the information.</p>
+                            <p class="blog-notice"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
                         </div>
                     </div>
             </div>

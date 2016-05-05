@@ -70,6 +70,12 @@ public class EasyHealthController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/easyhealth-insurance/underwriting"})
 	public ModelAndView getEasyHealthUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
+		model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
+		model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
+		model.addAttribute("etCsContactPreferredTimeSlotEN", InitApplicationMessage.etCsContactPreferredTimeSlotEN);
+		model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
+		model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
+		model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING);
 	}
 	
