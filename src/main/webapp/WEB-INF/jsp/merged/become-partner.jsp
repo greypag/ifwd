@@ -184,7 +184,7 @@ $(document).ready(function() {
                            message: getBundle(getBundleLanguage, "error.message.empty")
                        },                      
                        regexp: {
-                          regexp: /^[a-zA-Z0-9~!@#$%^&*()_+={}|:"'<>-?,.\-\\\/\s\u4e00-\u9fa5]+$/i ,
+                          regexp: /^[a-zA-Z0-9~!@#$%^&*()_+={}|:;"'<>-?,.\-\\\/\s\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.message.invalid")
                        }
                 }

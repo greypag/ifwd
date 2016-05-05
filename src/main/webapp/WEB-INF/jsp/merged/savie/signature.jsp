@@ -150,17 +150,17 @@ var languageP = "${language}";
 				</div>
 			</form>
 			<!-- Offline Signature -->
-			<!-- keep hidden for following code as it is useless from 20160414 -->
 			<form class="form-signatureoffline-info hidden" id="signoff-table" method="post">
 				<div id="choose-service-centre">
 					<div class="row">
 						<h5><fmt:message key="label.service.centre.title" bundle="${msg}" /></h5>
+						<p id="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
 						<div class="col-xs-12 col-md-6" id="left-side-form">
 							<div class="selectDiv">
 							<p class="bank-info-select-label"><fmt:message key="label.signature.location" bundle="${msg}" /></p>
 							   <span class="icon-chevron-thin-down orange-caret"></span>
 							   <select name="centre" id="centre" class="form-control gray-dropdown">
-								   <option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>
+								   <!--<option value="" disabled selected><fmt:message key="option.customer.service.centre" bundle="${msg}" /></option>-->
 								   <c:choose>
 								       <c:when test="${serviceCentre.serviceCentres.size() > 0}">
 								           <c:forEach var="list" items="${serviceCentre.serviceCentres}">
@@ -213,7 +213,6 @@ var languageP = "${language}";
                                 </select>
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
-							<p id="confirm-call"><fmt:message key="label.appointment" bundle="${msg}" /></p>
 						</div>
 						<div class="col-xs-12 col-md-6" id="right-side-form">
 							<div class="centre-info visible-md visible-lg" id="centre-info">
@@ -228,8 +227,8 @@ var languageP = "${language}";
 					</div>
 				</div>
 			</form>
-			<!-- END of hidden from 20160414 -->
 			
+			<!-- keep hidden for following code as it is useless from 20160414 -->
 			<div class="col-xs-12 sign-later-div hidden">
 				<div class="signature-later-desc"><fmt:message key="signature.later.desc" bundle="${msg}" /></div>
 				<div class="text-center clearfix save-link-later-div">
@@ -238,6 +237,7 @@ var languageP = "${language}";
 					</a>
 				</div>
 			</div>
+			<!-- END of hidden from 20160414 -->
 		</div>
 	</div>
 	<!-- FOOTER -->
@@ -534,12 +534,7 @@ var languageP = "${language}";
 	});
 	
 	$(document).ready(function() {
-		/* var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			//$('#fullyBooked').modal('show');
-		} */
+
 		<%
 		if(!result) {
 		%>
@@ -622,20 +617,27 @@ var languageP = "${language}";
 	$('#digi-radio').click(function () {
 		if ($(this).is(':checked')) {
 			$('#table-info').removeClass('hidden');
-			//$('#signoff-table').addClass('hidden');
-			$('.sign-later-div').addClass('hidden');
+			$('#signoff-table').addClass('hidden');
+			//$('.sign-later-div').addClass('hidden');
 			$('#desktop-position-btn-later').addClass('hidden');
 		}
 	});
 	$('#off-radio').click(function () {
 		if ($(this).is(':checked')) {
-			//$('#signoff-table').removeClass('hidden');
-			$('.sign-later-div').removeClass('hidden');
+			$('#signoff-table').removeClass('hidden');
+			//$('.sign-later-div').removeClass('hidden');
 			$('#desktop-position-btn-later').removeClass('hidden');
 			
 			$('#table-info').addClass('hidden');
 			if($("#full-date").length > 0){
 				//$('#fullyBooked').modal('show');
+			}
+
+			var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
 			}
 		}
 	});
@@ -930,7 +932,7 @@ var languageP = "${language}";
 			var perferredTime = $("#preferred-time").val();
 			var planCode = "SAVIE-SP";
 			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-				//$('#fullyBooked').modal('show');
+				$('#fullyBooked').modal('show');
 			}else if(perferredTime == null || perferredTime.trim() == ""){
 				$('#perferredTimeIsNull').modal('show');
 			}else{

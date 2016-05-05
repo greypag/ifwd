@@ -249,10 +249,10 @@ var language = "${language}";
 						</div>
 						<span id="chkPolicyErMsg" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
 					</div>
-				</form>	
+				</form>
+				
 				<!-- merge with pay later -->
-				<!-- hidden for following code as it is useless from 20160414 -->
-				<form class="hidden" action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
+				<form action="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}" id="payLaterForm" method="post">
 					<div id="pay-later-page" class="hidden">
 						<div class="make-an-appointment clearfix">
 							<div class="col-xs-12 col-md-6" id="left-side-form">
@@ -350,14 +350,15 @@ var language = "${language}";
 						</div>
 					</div>
 				</form>
-				<!-- END of hidden from 20160414 -->
 				
+				<!-- hidden for following code as it is useless from 20160427 -->
 				<div class="col-xs-12 pay-later-div hidden">
 					<div class="payment-later-desc"><fmt:message key="payment.paylater.desc" bundle="${msg}" /></div>
 					<div class="text-center clearfix save-link-paylater-div">
 						<a href="#" class="savie-common-btn save-link-paylater" id="payment-save-and-con-paylater"><fmt:message key="payment.paylater.label.save.and.continue.later" bundle="${msg}" /></a>
 					</div>
 				</div>
+				<!-- END of hidden from 20160427 -->
 				<center>
 						<button type="button" id="btn-next" class="text-bold btn btn-payment" onclick="goNext();"><fmt:message key="button.Next" bundle="${msg}" /></button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
@@ -515,13 +516,6 @@ var language = "${language}";
 			htmlObj.innerHTML = 'Back to application summary';
 		}
 
-		
-		/* var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		} */
 		<%
 		if(!result) {
 		%>
@@ -602,11 +596,11 @@ var language = "${language}";
 		// dummy condition for displaying the back / next button
 		if(dummy) {
 			// hide the back button and display the Next button
-			$('#btn-next, .save-link').removeClass('hidden');
+			$('.save-link').removeClass('hidden');
 			$('#btn-back').addClass('hidden');
 		} else {
 			// display the back button and hide the Next button
-			$('#btn-next, .save-link').addClass('hidden');
+			$('.save-link').addClass('hidden');
 			$('#btn-back').removeClass('hidden');
 		}
 		
@@ -666,19 +660,26 @@ var language = "${language}";
 			if($('#payment-debit:checked').length > 0 ) {
 				$('#direct-debit-panel').removeClass('hidden');
 				$('.save-link').removeClass('hidden');
-				//$('#pay-later-page').addClass('hidden');
-				$('.pay-later-div').addClass('hidden');
-				$('#btn-next').removeClass('hidden');
+				$('#pay-later-page').addClass('hidden');
+				//$('.pay-later-div').addClass('hidden');
+				//$('#btn-next').removeClass('hidden');
 			} else {
 				$('#direct-debit-panel').addClass('hidden');
 				$('.save-link').addClass('hidden');
-				//$('#pay-later-page').removeClass('hidden');
-				$('.pay-later-div').removeClass('hidden');
-				$('#btn-next').addClass('hidden');
+				$('#pay-later-page').removeClass('hidden');
+				//$('.pay-later-div').removeClass('hidden');
+				//$('#btn-next').addClass('hidden');
 				
-				//if($("#full-date").length > 0){
-				//	$('#fullyBooked').modal('show');
-				//}
+				if($("#full-date").length > 0){
+					//$('#fullyBooked').modal('show');
+				}
+
+				var csCenter = $("#centre").val();
+				var perferredDate = $("#preferred-date").val();
+				var perferredTime = $("#preferred-time").val();
+				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+					$('#fullyBooked').modal('show');
+				}
 			}
 		});
 		
@@ -928,7 +929,7 @@ var language = "${language}";
 				var perferredTime = $("#preferred-time").val();
 				var planCode = "SAVIE-SP";
 				if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-					//$('#fullyBooked').modal('show');
+					$('#fullyBooked').modal('show');
 				}else if(perferredTime == null || perferredTime.trim() == ""){
 					$('#perferredTimeIsNull').modal('show');
 				}else{
