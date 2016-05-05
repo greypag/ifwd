@@ -25,6 +25,7 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.signature.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
