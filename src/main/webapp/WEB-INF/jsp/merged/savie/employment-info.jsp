@@ -397,24 +397,30 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
 														<option value="${list.itemCode }" 
-														<c:if test="${savieFna.getQ4_b_amount() == null}"></c:if>
-														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
-														<c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:if>
+														<c:choose>
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"></c:when> <!-- trick for easy health -->
+															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:when>
+															<c:when test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:when>
+															<c:otherwise></c:otherwise>
+														</c:choose>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
 														<option value="${list.itemCode }" 
-														<c:if test="${savieFna.getQ4_b_amount() == null}"></c:if>
-														<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:if>
-														<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:if>
-														<c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:if>
+														<c:choose>
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"></c:when> <!-- trick for easy health -->
+															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}">selected="selected"</c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}">selected="selected"</c:when>
+															<c:when test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }">selected="selected"</c:when>
+															<c:otherwise></c:otherwise>
+														</c:choose>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
@@ -422,22 +428,28 @@ var languageP = "${language}";
 											
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etLiquidAssetEN}">
-													<c:if test="${savieFna.getQ4_b_amount() == null}"></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-												    <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:choose>
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when> <!-- trick for easy health -->
+															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:otherwise><c:set var="amountOfLiquidAssetsCode" value=""/></c:otherwise>
+														</c:choose>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etLiquidAssetCN}">
-													<c:if test="${savieFna.getQ4_b_amount() == null}"></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-													<c:if test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
-												    <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:if>
+														<c:choose>
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when> <!-- trick for easy health -->
+															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${savieFna.getQ4_b_amount() >= 100001 && list.itemCode == 'LA4'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:when test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode }"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
+															<c:otherwise><c:set var="amountOfLiquidAssetsCode" value=""/></c:otherwise>
+														</c:choose>
 												</c:forEach>
 											</c:if>	
 											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
