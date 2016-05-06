@@ -166,7 +166,7 @@ $(document).ready(function() {
                             message: getBundle(getBundleLanguage, "error.company.name.empty")
                         },                       
                         regexp: {
-                           regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
+                           regexp: /^[a-z()\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.name.invalid")
                         }
                  }
