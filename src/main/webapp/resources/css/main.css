@@ -8573,13 +8573,6 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 		width: 80%;
 		margin-left: 10%;
 	}
-	.partner_heading .h4-5 {
-		text-align: center;
-	}
-	.partner_container {
-		width: 80%;
-		margin-left: 10%;
-	}
 	.partner_content {
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -8592,6 +8585,9 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	.partner_image_container {
 		text-align: center;
 		margin-bottom: 50px;
+	}
+	.desc_sublist{
+		padding-left: 20px;
 	}
 }
 /***** partner *****/
