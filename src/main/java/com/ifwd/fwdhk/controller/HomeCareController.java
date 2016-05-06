@@ -546,34 +546,34 @@ public class HomeCareController {
 		String optIn1Value = WebServiceUtils.getParameterValue("donotWishDirectMarketing", session, request);
 		String optIn2Value = WebServiceUtils.getParameterValue("donotDisclose", session, request);
 		
-		boolean optIn1;
-		boolean optIn2;
+		String optOut1;
+		String optOut2;
 		if (optIn1Value == null) {
 			homeCareDetails.setCheckbox3(false);
-			optIn1 = false;
+			optOut1 = "0";
 		} else {
 		
 			if (optIn1Value.toUpperCase().toUpperCase().equals("ON")) {
 				homeCareDetails.setCheckbox3(true);
-				optIn1 = true;
+				optOut1 = "1";
 			} else {
 				homeCareDetails.setCheckbox3(false);
-				optIn1 = false;
+				optOut1 = "0";
 			}
 				
 		}
 		
 		if (optIn2Value == null) {
 			homeCareDetails.setCheckbox4(false);
-			optIn2 = false;
+			optOut2 = "0";
 		} else {
 		
 			if (optIn2Value.toUpperCase().toUpperCase().equals("ON")) {
 				homeCareDetails.setCheckbox4(true);
-				optIn2 = true;
+				optOut2 = "1";
 			} else {
 				homeCareDetails.setCheckbox4(false);
-				optIn2 = false;
+				optOut2 = "0";
 			}
 				
 		}

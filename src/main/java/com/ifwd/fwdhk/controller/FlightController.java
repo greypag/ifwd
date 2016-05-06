@@ -1351,8 +1351,8 @@ public class FlightController {
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 		
-		String optIn1 = planDetailsForm.getCheckbox3()==true?"1":"0";
-		String optIn2 = planDetailsForm.getCheckbox4()==true?"1":"0";
+		String optOut1 = planDetailsForm.getCheckbox3()==true?"1":"0";
+		String optOut2 = planDetailsForm.getCheckbox4()==true?"1":"0";
 				
 		/*String dob = request.getParameter("applicantDob");
 		Calendar dateDob = Calendar.getInstance();
@@ -1369,16 +1369,16 @@ public class FlightController {
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		applicantJsonObj.put("optIn1", optIn1);
-		applicantJsonObj.put("optIn2", optIn2);
+		applicantJsonObj.put("optOut1", optOut1);
+		applicantJsonObj.put("optOut2", optOut2);
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName", name);
 		request.setAttribute("hkid", hkid);
 		request.setAttribute("mobileNo", mobileNo);
 		request.setAttribute("emailAddress", emailAddress);
-		request.setAttribute("optOut1", optIn1);
-		request.setAttribute("optOut2", optIn2);
+		request.setAttribute("optOut1", optOut1);
+		request.setAttribute("optOut2", optOut2);
 		parameters.put("applicant", applicantJsonObj);
 		
 		String theClubMembershipNo = (String)session.getAttribute("theClubMembershipNo");

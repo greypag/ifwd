@@ -594,23 +594,23 @@ public class UserController {
 			@ModelAttribute("userDetails") UserDetails userDetails,
 			HttpServletRequest servletRequest, Model model) {
 		HttpSession session = servletRequest.getSession(false);
-		String optIn1;
-		String optIn2;
+		String optOut1;
+		String optOut2;
 		if (userDetails.getCheckbox3() == null) { 
-			optIn1 = "0";
+			optOut1 = "0";
 		} else	if (userDetails.getCheckbox3().toUpperCase().equals("ON")) {
-			optIn1 = "1";
+			optOut1 = "1";
 		} else {
-			optIn1 = "0";
+			optOut1 = "0";
 		}
 		
 		if (userDetails.getCheckbox4() == null) {
-			optIn2 = "0";
+			optOut2 = "0";
 		}
 		else if (userDetails.getCheckbox4().toUpperCase().equals("ON")) {
-			optIn2 = "1";
+			optOut2 = "1";
 		} else {
-			optIn2 = "0";
+			optOut2 = "0";
 		}
 		
 		
@@ -622,8 +622,8 @@ public class UserController {
 			params.put("password", userDetails.getPassword());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("name", userDetails.getFullName());
-			params.put("optOut1", optIn1);
-			params.put("optOut2", optIn2);
+			params.put("optOut1", optOut1);
+			params.put("optOut2", optOut2);
 			
 			//added this for ajax sign up for those forms
 			if(servletRequest.getParameter("ajax") != null){
