@@ -848,7 +848,7 @@ var languageP = "${language}";
 									<div id="partners-logo" class="visible-md visible-lg">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_theclub.png" id="the-club" />
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
-										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png" id="csl" height="56" width="78"  />
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png" id="csl" />
 									</div>
 									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
 									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
