@@ -402,8 +402,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		String edate = date.toString();
 		
-		boolean checkbox3;
-		boolean checkbox4;
+		String checkbox3;
+		String checkbox4;
 		
 //		if (homeCareDetails.getCheckbox3() == true) {
 //			checkbox3 = true;
@@ -419,15 +419,15 @@ public class HomeCareServiceImpl implements HomeCareService {
 
 		
 		if (homeCareDetails.getDonotWishDirectMarketing() != null) {
-			checkbox3 = true;
+			checkbox3 = "1";
 		} else {
-			checkbox3 = false;
+			checkbox3 = "0";
 		}
 	
 		if (homeCareDetails.getDonotDisclose() != null) {
-			checkbox4 = true;
+			checkbox4 = "1";
 		} else {
-			checkbox4 = false;
+			checkbox4 = "0";
 		}
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
@@ -447,8 +447,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("email", userDetails.getEmailAddress());
 		applicant.put("mobileNo", userDetails.getMobileNo());
 		applicant.put("occupation", "");
-		applicant.put("optIn1", checkbox3);
-		applicant.put("optIn2",checkbox4);
+		applicant.put("optOut1", checkbox3);
+		applicant.put("optOut2",checkbox4);
 
 		parameters.put("applicant", applicant);
 

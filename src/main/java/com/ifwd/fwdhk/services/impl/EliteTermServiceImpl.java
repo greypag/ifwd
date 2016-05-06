@@ -150,8 +150,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			employmentStatus.put("employerName", request.getParameter("savieEmploymentBean.currentEmployerName"));
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
-			applicant.put("optOut1", (request.getParameter("isMarketingInfo")!=null&&!request.getParameter("isMarketingInfo").equals(""))?request.getParameter("isMarketingInfo"):"false");
-			applicant.put("optOut2", (request.getParameter("isPersonalData")!=null&&!request.getParameter("isPersonalData").equals(""))?request.getParameter("isPersonalData"):"false");
+			applicant.put("optOut1", (request.getParameter("isMarketingInfo")!=null&&!request.getParameter("isMarketingInfo").equals(""))?"1":"0");
+			applicant.put("optOut2", (request.getParameter("isPersonalData")!=null&&!request.getParameter("isPersonalData").equals(""))?"1":"0");
 			parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.getString("firstName")+" "+applicant.getString("lastName"));
