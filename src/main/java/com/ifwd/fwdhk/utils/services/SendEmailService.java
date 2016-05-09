@@ -185,6 +185,31 @@ public class SendEmailService implements SendEmailDao {
 				"</html>";
 	}
 	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean sendCslPromotionEmail(HttpServletRequest request, String recipientEmail, HashMap<String, String> header) {
+		boolean result = false;
+
+		JSONObject emailParams = new JSONObject();
+		emailParams.put("to", recipientEmail);
+		emailParams.put("message", VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "mail-templates/singletravel-csl-confirmation.vm", "UTF-8", new HashMap<>()));
+		emailParams.put("subject", "A Gift from FWD ● discover!");
+		emailParams.put("attachment", null);
+		emailParams.put("from", UserRestURIConstants.getConfigs("innerMailFrom"));
+		emailParams.put("isHtml", true);
+		
+		JSONObject resp = restService.consumeApi(HttpMethod.POST,
+				UserRestURIConstants.SEND_MAIL, header, emailParams);
+		if (resp != null) {
+			if (checkJsonObjNull(resp, "errMsgs").equals("null")) {
+				result = true;
+			}
+		}
+
+		return result;
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean sendEmailByDiscover(String offername, String username,

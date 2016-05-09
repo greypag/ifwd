@@ -1935,7 +1935,7 @@ public class TravelController {
 			
 			Object errMsgs = responsObject.get("errMsgs");
 			if (errMsgs == null) {
-	            //sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
+	            sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
 				
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
