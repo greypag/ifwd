@@ -104,9 +104,9 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <div class="partner_link">
-	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
-	                            </div>
+<%-- 	                            <div class="partner_link"> --%>
+<%-- 	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+<%-- 	                            </div> --%>
                     		</div>                              
 	                	<div class="clearfix"></div>
                 	</div>
@@ -125,6 +125,8 @@
                                         <li>
                                             <p class="h4-5">
                                                 <fmt:message key="partner.csl.desc1.part1" bundle="${msg}" />
+                                                <b><fmt:message key="partner.csl.desc1.part1_1" bundle="${msg}" /></b>
+                                                <fmt:message key="partner.csl.desc1.part1_2" bundle="${msg}" />
                                                 <a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.desc1.part2" bundle="${msg}" /></a>
                                                 <fmt:message key="partner.csl.desc1.part3" bundle="${msg}" />
                                             </p>
@@ -137,7 +139,7 @@
 	                                        <li>
 	                                            <p class="h4-5">
 	                                                <fmt:message key="partner.csl.tnc1.part1" bundle="${msg}" />
-	                                                <b><fmt:message key="partner.csl.tnc1.part2" bundle="${msg}" /></b>
+	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="csl.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.tnc1.part2" bundle="${msg}" /></a>
 	                                                <fmt:message key="partner.csl.tnc1.part3" bundle="${msg}" />
 	                                            </p>
 	                                        </li>
@@ -149,9 +151,9 @@
 	                                    </ul>
 	                                </div>
 	                            </div>
-	                            <div class="partner_link">
-	                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
-	                            </div>
+	                            <%-- <div class="partner_link"> --%>
+	                            <%--     <a href="<fmt:message key="agoda.promo3.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a> --%>
+	                            <%-- </div> --%>
                     		</div>                              
 	                	<div class="clearfix"></div>
                 	</div>
