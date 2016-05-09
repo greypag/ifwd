@@ -1935,7 +1935,10 @@ public class TravelController {
 			
 			Object errMsgs = responsObject.get("errMsgs");
 			if (errMsgs == null) {
-	            sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
+				String promoCode = (String) session.getAttribute("referralCode");
+				if(!StringUtils.isEmpty(promoCode) && "CSL".equalsIgnoreCase(promoCode.substring(0, 3))) {
+					sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
+				}
 				
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
