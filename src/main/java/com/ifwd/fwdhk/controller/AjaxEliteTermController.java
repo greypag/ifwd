@@ -340,4 +340,18 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putEtPageKeySession"})
+	public void putEtPageKeySession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putEtPageKeySession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

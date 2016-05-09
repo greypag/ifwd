@@ -374,6 +374,8 @@
 				 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
 			 }, 0);
          } else {
+        	 putEtPageKeySession("1");
+        	 
 	         var $aboutYourSelf = $('#et-about-yoursel-section');
 	         
 	         $self.removeClass('et-pad-bot-50');
@@ -2184,3 +2186,12 @@
 		   $(this).prop('checked', true);
 	   }
    });
+   
+   function putEtPageKeySession(pageKey) {
+		$.ajax({
+	        type: "POST",
+	        url:contextPath+'/ajax/eliteTerm/putEtPageKeySession',
+	        data: { "etPageKey":pageKey },
+	        success:function(data){}
+		});
+	}

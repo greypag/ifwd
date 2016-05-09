@@ -3875,53 +3875,57 @@ var home_url = "<%=request.getContextPath()%>";
 	});
 		
 	$('#et-btn-before-start').on('click', function(e) {
-		ga('create', 'UA-60032236-1', 'auto');
-  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
+		//ga('create', 'UA-60032236-1', 'auto');
+  	  	//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
 	});
 	
 	$('#et-btn-ay-self').on('click', function(e) {
-		  ga('create', 'UA-60032236-1', 'auto');
-		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
+		  //ga('create', 'UA-60032236-1', 'auto');
+		  //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
     });
 	
 	$('#promocode-hidden-button button').on('click', function(e) {
-		ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
+		//ga('create', 'UA-60032236-1', 'auto');
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
 	});
 	
 	$('#et-brn-proceed-to-application').on('click', function(e) {
-  	  	ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5'); 
+  	  	//ga('create', 'UA-60032236-1', 'auto');
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5'); 
 	});
 	
 	$('#et-medical-dec-next').on('click', function(e) {
-		ga('create', 'UA-60032236-1', 'auto');
-        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6'); 
+		//ga('create', 'UA-60032236-1', 'auto');
+        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6'); 
 	});
 	
 	$('#et-employment-info-next').on('click', function(e) {
-		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8'); 
+		putEtPageKeySession("6");
+		 //ga('create', 'UA-60032236-1', 'auto');
+		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8'); 
 	});
 	
 	$('#et-beneficiary-info-next').on('click', function(e) {
-		ga('create', 'UA-60032236-1', 'auto');
-        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9'); 
+		putEtPageKeySession("7");
+		//ga('create', 'UA-60032236-1', 'auto');
+        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9'); 
 	});
 	
 	$('#et-app-sum-proceed-btn').on('click', function(e) { 
-		ga('create', 'UA-60032236-1', 'auto');
-  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10'); 
+		putEtPageKeySession("8");
+		//ga('create', 'UA-60032236-1', 'auto');
+  	  	//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10'); 
 	});
 	
 	$('#et-confirm-and-sign-btn').on('click', function(e) {
-		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11'); 
+		putEtPageKeySession("9");
+		 //ga('create', 'UA-60032236-1', 'auto');
+		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11'); 
 	});
 	
 	$('#et-signature-proceed-btn').on('click', function(e) {
-		ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12'); 
+		//ga('create', 'UA-60032236-1', 'auto');
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12'); 
 	});
       
       //select-plan
@@ -3937,8 +3941,10 @@ var home_url = "<%=request.getContextPath()%>";
   			    .updateStatus('dob','VALID');
   			}
   			
-  			ga('create', 'UA-60032236-1', 'auto');
-            ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7'); 
+  			putEtPageKeySession("5");
+  			
+  			//ga('create', 'UA-60032236-1', 'auto');
+            //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7'); 
   			
   			/*
          setTimeout(function(){
@@ -4143,6 +4149,8 @@ var home_url = "<%=request.getContextPath()%>";
   
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
+		    	  putEtPageKeySession("3");
+		    	  
 		    	  $.ajax({
 		 			  type : "POST",
 		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
@@ -4182,6 +4190,8 @@ var home_url = "<%=request.getContextPath()%>";
 		      });
 		      
 		      $('#et-medical-dec-next').on('click', function(e) {
+		    	  putEtPageKeySession("4");
+		    	  
 		    	  var $hideMedicalDec = $('#et-medical-declaration');
 		    	  var $etAppInfoSec = $('#et-application-info-section');
 		    	  var $etAppPageDiv = $('#et-application-info-section .page-divider');
@@ -4201,6 +4211,21 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
+		    		  putEtPageKeySession("2");
+		    		  
+		    		  $.ajax({
+			 			  type : "POST",
+			 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
+			 			  data : {
+			 				      gender : $('input[name="et-gender"]:checked ').val(),
+			 				      dobD: $('#et-select-plan-date-input').val(),
+			 				      smoke: $('input[name="et-smoker"]:checked ').val(),
+			 				      amount: $('#R2').val(),
+			 				      promocode: $('#et-promocode').val()
+			 				     },
+			 			  success : function(data) {
+			 			  }
+		 		      });
 			      });
 		      });
 		      
@@ -4230,124 +4255,6 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.removeClass('hide-element');
 		      });
-		      
-		     
-		      
-            //cannot apply modal 
-           /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
-               if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
-                  $('#et-cust-serv-form')
-                     .data('bootstrapValidator')
-                     .updateStatus('tel', 'VALID');
-               } else {
-                  $('#et-cust-serv-form')
-                     .data('bootstrapValidator')
-                     .updateStatus('tel', 'INVALID','callback');
-               }
-            }); */
-
-            /*
-            //addresses fix
-            $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.permanentAddress2').val()!='' || $('#savieApplicantBean\\.permanentAddress3').val()!='') && ($('#savieApplicantBean\\.permanentAddress2').val()!=$('#savieApplicantBean\\.permanentAddress2').attr('placeholder') || $('#savieApplicantBean\\.permanentAddress3').val()!=$('#savieApplicantBean\\.permanentAddress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.permanentAddress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
-            
-            $(document).on('change', '#eliteTermsInsuredInfoForm .residential-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.residentialAdress2').val()!='' || $('#savieApplicantBean\\.residentialAdress3').val()!='') && ($('#savieApplicantBean\\.residentialAdress2').val()!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder') || $('#savieApplicantBean\\.residentialAdress3').val()!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.residentialAdress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
-            
-            $(document).on('change', '#eliteTermsInsuredInfoForm .correspondence-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.correspondenceAdress2').val()!='' || $('#savieApplicantBean\\.correspondenceAdress3').val()!='') && ($('#savieApplicantBean\\.correspondenceAdress2').val()!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder') || $('#savieApplicantBean\\.correspondenceAdress3').val()!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.correspondenceAdress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
-            */
-            //ie fixes
-            /*
-            if(msieversion() > 0) {
-               $(document).on('change', '#et-cust-serv-form #email', function(e) {
-           			setTimeout(function(){
-	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val()) {
-	            			$('#et-cust-serv-form')
-                            .data('bootstrapValidator')
-                            .updateStatus('tel','VALID');
-	            		}
-           			}, 100);
-            	});
-            	
-            	$(document).on('change', '#et-cust-serv-form #tel', function(e) {
-           			setTimeout(function(){
-	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val()) {
-	            			$('#et-cust-serv-form')
-                            .data('bootstrapValidator')
-                            .updateStatus('email','VALID');
-	            		}
-           			}, 100);
-            	});
-            	
-            	$(document).on('change', '#savieApplicantBean\\.permanentAddress1', function(e) {
-	            	setTimeout(function(){
-	    	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
-	    	  				$('#eliteTermsInsuredInfoForm')
-	    	  			    .data('bootstrapValidator')
-	    	  			    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
-	    	            }
-	            	}, 300);
-            	});
-            	
-            	$(document).on('change', '#savieApplicantBean\\.residentialAdress1', function(e) {
-	            	setTimeout(function(){
-	            		if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
-	    	  				$('#eliteTermsInsuredInfoForm')
-	    	  			    .data('bootstrapValidator')
-	    	  			    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
-	    	            }
-	            	}, 300);
-            	});
-				
-            	$(document).on('change', '#savieApplicantBean\\.correspondenceAdress1', function(e) {
-	            	setTimeout(function(){
-	            		if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
-	    	  				$('#eliteTermsInsuredInfoForm')
-	    	  			    .data('bootstrapValidator')
-	    	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
-	    	            }
-	            	}, 300);
-            	});
-    	  			
-            }
-            */
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
@@ -4874,21 +4781,64 @@ var home_url = "<%=request.getContextPath()%>";
 												+ "</option>");
 							});
 		}
-		/*$.get(contextPath+'/ajax/savie/application/getOccupation',
-		{ 
-			value : value,
-			language : language
-		},
-		function(data) {
-			$("#savieEmploymentBean\\.occupation").empty();
-			if(data != null){
-				for(var i = 0; i < data.length; i++) {
-					$("#savieEmploymentBean\\.occupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
-				}
-			}
-		})
-		.fail(function(data) {
-			console.log("data error:"+data.length);
-		});*/
+		
 	}
+	
+	$(document).ready(function() {
+		  alert('${etPageKey }');
+		  if('${etPageKey }' == '1'){
+			  backToStep(1);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-about-yoursel-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '2'){
+			  backToStep(2);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-plan-option-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '3'){
+			  backToStep(3);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-first-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '4'){
+			  backToStep(4);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-info-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '5'){
+			  backToStep(5);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-employment-info-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '6'){
+			  backToStep(6);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '7'){
+			  backToStep(7);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-second-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '8'){
+			  backToStep(8);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  if('${etPageKey }' == '9'){
+			  backToStep(9);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-fourth-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+	});
 </script>

@@ -24,5 +24,6 @@ public interface EliteTermService {
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
 	public void removeEtSession(HttpServletRequest request)throws ECOMMAPIException;
+	public void putEtPageKeySession(HttpServletRequest request)throws ECOMMAPIException;
 	
 }

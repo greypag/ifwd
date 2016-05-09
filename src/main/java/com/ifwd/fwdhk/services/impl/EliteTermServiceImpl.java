@@ -1018,8 +1018,20 @@ public class EliteTermServiceImpl implements EliteTermService {
 			session.removeAttribute("cardHolderName");
 			session.removeAttribute("goApp");
 			session.removeAttribute("sendEmailOrNot");
+			session.removeAttribute("etPageKey");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl removeEtSession occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void putEtPageKeySession(HttpServletRequest request)throws ECOMMAPIException{
+		try {
+			request.getSession().setAttribute("etPageKey", request.getParameter("etPageKey"));
+			logger.info("etPageKey:"+request.getParameter("etPageKey"));
+		}catch(Exception e){
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
