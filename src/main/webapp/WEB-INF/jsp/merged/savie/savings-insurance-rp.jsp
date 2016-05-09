@@ -60,7 +60,10 @@ var home_url = "<%=request.getContextPath()%>";
         	<div class="page-banner">
         		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
         		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
-        		<div class="fwd-container-limit">
+				<a class="img-bg" href="#vModal" data-toggle="modal">
+					<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
+				</a>
+				<div class="fwd-container-limit">
         		
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
 	        		<div class="img-banner-text savie-landing">
@@ -658,3 +661,31 @@ var home_url = "<%=request.getContextPath()%>";
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+
+<!-- video Modal -->
+<div id="vModal" class="vModal modal fade">
+	<div class="modal-dialog">
+		<a href="#close-video" class="close-btn" data-dismiss="modal" aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="44px" height="44px" viewBox="-1 3 44 44" enable-background="new -1 3 44 44" xml:space="preserve">
+					<g>
+						<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="11" y1="15" x2="31" y2="35"></line>
+						<line fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="31" y1="15" x2="11" y2="35"></line>
+					</g>
+				</svg>
+		</a>
+		<div class="embed-container">
+			<iframe id="ifwdVideo" src="<fmt:message key="savie.online.home.youtube" bundle="${msg}" />" frameborder="0" allowfullscreen=""></iframe>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	var url = $("#ifwdVideo").attr('src');
+	$("#vModal").on('hide.bs.modal', function(){
+		$("#ifwdVideo").attr('src', '');
+	});
+	$("#vModal").on('show.bs.modal', function(){
+		$("#ifwdVideo").attr('src', url);
+	});
+});
+</script>
