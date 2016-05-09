@@ -1092,7 +1092,7 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("branchCodeCN : " + branchCodeCN);
 		
-		/*Map<String,Map<String,String>> allMessages = null;
+		Map<String,Map<String,String>> allMessages = null;
 		try {
 			MessageResponse messageResponse = connector.getAllMessage();
 			allMessages = messageResponse.getAllMessages();
@@ -1103,7 +1103,7 @@ public class InitApplicationMessage implements ApplicationListener{
 				System.exit(0);
 			}
 		}
-		logger.info("allMessages : " + allMessages);*/
+		logger.info("allMessages : " + allMessages);
 	}
 
 	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type, HttpServletRequest request){

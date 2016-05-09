@@ -45,16 +45,16 @@ public class ECommConnector {
 	private static String REQ_HEADER_TOKEN = "token";*/
 	
 	//private String wsUrl;
-	private String wsMsgUrl;
+	private String url;
 
 	/*@Value("#{prop['ws.url']}")
 	public void setWsUrl(String wsUrl) {
 		this.wsUrl = wsUrl;
 	}*/
 	
-	@Value("#{prop['ws.msgUrl']}")
-	public void setWsMsgUrl(String wsMsgUrl) {
-		this.wsMsgUrl = wsMsgUrl;
+	@Value("#{prop['url']}")
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	private <T> T parseJson(String response, Class<T> clazz) throws IOException, JsonParseException, JsonMappingException {
@@ -68,14 +68,14 @@ public class ECommConnector {
 
 	public ValueResponse getMessage(String key,String lang, Locale locale){
 		//String path="/messageBundle/mesgBundleWs/getMessage";
-		String path=wsMsgUrl+"/message/getMessage"+"/"+key+"/"+lang;		
+		String path=url+"/message/getMessage"+"/"+key+"/"+lang;		
 		return consumeECommWs(path, HttpMethod.GET, null, ValueResponse.class, locale);
 	}
 	
 	
 	public ValueResponse getMessage(String key,String lang, Locale locale,String preview){
 		//String path="/messageBundle/mesgBundleWs/getMessage";
-		String path=wsMsgUrl+"/message/getMessage"+"/"+key+"/"+lang;
+		String path=url+"/message/getMessage"+"/"+key+"/"+lang;
 		if(preview.equals("1"))
 		{
 			path=path+"?preview=1";
@@ -85,13 +85,13 @@ public class ECommConnector {
 	
 	public MessageResponse getAllMessage(){
 		//String path="/messageBundle/mesgBundleWs/getAllMessage";
-		String path=wsMsgUrl+"/message/getAllMessage";		
+		String path=url+"/messageBundle/all";		
 		return consumeECommWs(path, HttpMethod.GET, null, MessageResponse.class, null);
 	}
 	
 	public MessageResponse getAllMessage(String preview){
 		//String path="/messageBundle/mesgBundleWs/getAllMessage";
-		String path=wsMsgUrl+"/message/getAllMessage";
+		String path=url+"/message/getAllMessage";
 		if(preview.equals("1"))
 		{
 			path=path+"?preview=1";
