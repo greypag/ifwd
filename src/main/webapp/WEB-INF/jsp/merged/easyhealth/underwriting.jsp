@@ -330,6 +330,9 @@ var home_url = "<%=request.getContextPath()%>";
                    container: '#cannotApplyEmailMessage',
                    trigger: 'blur',
                    validators: {
+                	   notEmpty: {
+                           message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
+                        },
                       emailAddress: {
                          message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
                       },
@@ -437,9 +440,10 @@ var home_url = "<%=request.getContextPath()%>";
 	               	} 
          });
 		
-		$("#eh-btn-underwriting-next").click(function() {
+		var nextPageFlow = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+		/*$("#eh-btn-underwriting-next").click(function() {
     		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-        });
+        });*/
 		
 		$('#et-select-plan-go-homepage').on('click', function(e) {
 			window.location.href= contextPath+'/'+language+'/easyhealth-insurance';

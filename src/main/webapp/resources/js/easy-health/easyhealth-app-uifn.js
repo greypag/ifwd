@@ -66,7 +66,7 @@ $(document).ready(function(){
 		$(".eh-btn-next").on("click",function(){
 			$('#ef-form-underwriting').bootstrapValidator('validate');
 			if($('#ef-form-underwriting').data('bootstrapValidator').isValid()){
-				//do something
+				window.location = nextPageFlow;
 			}
 		});
 
