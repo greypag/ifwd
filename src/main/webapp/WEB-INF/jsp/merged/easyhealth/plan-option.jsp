@@ -188,8 +188,13 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-mca">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_01.png" alt="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_01.png" alt="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.monthly.premium" bundle="${msg}" /></span>    
+                                                        </div>
+                                                        
                                                     </div>
                                                 </th>
                                                 <th class="head t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></span></th>
@@ -200,8 +205,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-dhc">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_02.png" alt="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_02.png" alt="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.hospital.cash" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
@@ -212,8 +221,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-icu">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_03.png" alt="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_03.png" alt="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.icu.benefit" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
@@ -224,8 +237,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-id">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_04.png" alt="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_04.png" alt="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.infect.disease.benefit" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
@@ -236,8 +253,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-rop">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_07.png" alt="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_07.png" alt="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.refund" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1" data-grp="t1"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-a"></td>
@@ -248,8 +269,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-db">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_05.png" alt="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_05.png" alt="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.death.benefit" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1 txt-price-a" data-grp="t1"><fmt:message key="easyhealth.plan.compen.death.benefit.basic" bundle="${msg}" /></td>
@@ -260,8 +285,12 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr class="plan-adb">
                                                 <th>
                                                     <div class="row no-margin">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_06.png" alt="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />" class="icon col-xs-3" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />">
-                                                        <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" /></span>
+                                                        <div class="vertical-align">
+                                                            <div class="col-xs-12 col-sm-3">
+                                                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/p5_icon_06.png" alt="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />" class="img-responsive icon" data-toggle="tooltip" data-placement="right" title="<fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" />">
+                                                            </div>
+                                                            <span class="desc col-xs-9"><fmt:message key="easyhealth.plan.intro.label.acci.death.benefit" bundle="${msg}" /></span>
+                                                        </div>
                                                     </div>
                                                 </th>
                                                 <td class="t1 txt-price-a" data-grp="t1"><fmt:message key="easyhealth.plan.compen.acci.death.benefit.basic" bundle="${msg}" /></td>
@@ -272,16 +301,16 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr>
                                                 <th></th>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a" data-grp="t1"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b" data-grp="t2"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c" data-grp="t3"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d" data-grp="t4"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -389,7 +418,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans2" bundle="${msg}" />
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans4" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
@@ -399,7 +428,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans4" bundle="${msg}" />
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans2" bundle="${msg}" />
                                         </a>
                                     </div>
                                 </div>
@@ -634,7 +663,13 @@ var home_url = "<%=request.getContextPath()%>";
                                                 <div class="total-benefit">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                     <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+<<<<<<< Updated upstream
                                                         <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+=======
+                                                        <br><span class="txt-ttl-benefit-price">
+                                                            <fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span>
+                                                        </span>
+>>>>>>> Stashed changes
                                                     </p>
                                                 </div>
                                             </div>
@@ -671,7 +706,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
-                                            <div class="slider-15yr-policy" id="s1_1_1"></div>
+                                            <div class="slider-15yr-policy"></div>
                                             
                                             <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
@@ -698,7 +733,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
-                                                <p class="txt-paidget-price txt-price-y15"></p>
+                                                <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                             <div class="box-paidget vcenter">
                                                 <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
@@ -706,7 +741,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
-                                                <p class="txt-paidget-price txt-price-y15_102"></p>
+                                                <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -837,7 +872,13 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+<<<<<<< Updated upstream
                                                     <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
+=======
+                                                    <br><span class="txt-ttl-benefit-price">
+                                                        <fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span>
+                                                    </span>
+>>>>>>> Stashed changes
                                                 </p>
                                             </div>
                                         </div>
@@ -873,7 +914,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
-                                            <div class="slider-15yr-policy" id="s1_1_1"></div>
+                                            <div class="slider-15yr-policy"></div>
                                             
                                             <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
@@ -900,7 +941,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
-                                                <p class="txt-paidget-price txt-price-y15"></p>
+                                                <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                             <div class="box-paidget vcenter">
                                                 <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
@@ -908,7 +949,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
-                                                <p class="txt-paidget-price txt-price-y15_102"></p>
+                                                <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1039,7 +1080,13 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+<<<<<<< Updated upstream
                                                     <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span></p>
+=======
+                                                    <br><span class="txt-ttl-benefit-price">
+                                                        <fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span>
+                                                    </span></p>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>
@@ -1074,7 +1121,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
-                                            <div class="slider-15yr-policy" id="s1_1_1"></div>
+                                            <div class="slider-15yr-policy"></div>
                                             
                                             <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
@@ -1101,7 +1148,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
-                                                <p class="txt-paidget-price txt-price-y15"></p>
+                                                <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                             <div class="box-paidget vcenter">
                                                 <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
@@ -1109,7 +1156,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
-                                                <p class="txt-paidget-price txt-price-y15_102"></p>
+                                                <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1240,7 +1287,13 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="total-benefit">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s2_benefit_04.png">
                                                 <p><span class="txt-ttl-upto"><fmt:message key="easyhealth.plandetails.benefits.total" bundle="${msg}" /></span>
+<<<<<<< Updated upstream
                                                     <br><span class="txt-ttl-benefit-price"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span></p>
+=======
+                                                    <br><span class="txt-ttl-benefit-price">
+                                                        <fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span>
+                                                    </span></p>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>
@@ -1275,7 +1328,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <p class="txt-refund-desc"><fmt:message key="easyhealth.plandetails.infographic2.text3" bundle="${msg}" /></p>
                                         <div class="box-15yr-policy">
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
-                                            <div class="slider-15yr-policy" id="s1_1_1"></div>
+                                            <div class="slider-15yr-policy"></div>
                                             
                                             <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
                                             <div class="tableView">
@@ -1299,10 +1352,11 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                             </div>
                                         </div>
+                                        <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
-                                                <p class="txt-paidget-price txt-price-y15"></p>
+                                                <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                             <div class="box-paidget vcenter">
                                                 <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
@@ -1310,7 +1364,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
-                                                <p class="txt-paidget-price txt-price-y15_102"></p>
+                                                <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
                                             </div>
                                         </div>
                                     </div>
