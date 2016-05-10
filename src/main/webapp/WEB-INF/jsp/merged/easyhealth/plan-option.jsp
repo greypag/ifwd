@@ -438,7 +438,7 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="box-btn-select">
-                                <a href="javascript:void(0);" class="btn-option-select savie-common-btn">
+                                <a href="javascript:void(0);" class="btn-option-select savie-common-btn disabled-gray-btn btn-need-plan">
                                     <fmt:message key="easyhealth.guidance.button.next" bundle="${msg}" />
                                 </a>
                             </div>

@@ -150,13 +150,6 @@ $(document).ready(function() {
 
     });
 
-    $(".btn-option-select").click(function() {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        $(".step-option").fadeOut(function() {
-            $("body").scrollTo(".step3");
-            $(".step3, .sticky-help-wrapper").fadeIn();
-        });
-    });
     $(".btn-back-step1").click(function() {
         $(".step2").fadeOut(function() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -172,6 +165,39 @@ $(document).ready(function() {
 
     $("#plan-dob-datepicker").change(checkStepSelection);
 
+    $(".step-option .item").click(function (){
+        checkSuggestionSelection();
+    });
+    $(".step-option .btn-need-plan").click(function (){
+        if($(this).hasClass("disabled-gray-btn")) return;
+        var choices = $(".step-option .item.selected").length;
+        var plan = (function (){
+            if(choices < 3){
+                //basic
+                return "eh-plan-a";
+            }
+            if(choices < 6){
+                //plus
+                return "eh-plan-b";
+            }
+            if(choices < 9){
+                //advanced
+                return "eh-plan-c";
+            }
+            if(choices < 13){
+                //deluxe
+                return "eh-plan-d";
+            }
+        })();
+
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".step-option").fadeOut(function() {
+            $("body").scrollTo(".step3");
+            $(".step3, .sticky-help-wrapper").fadeIn();
+        });
+        $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
+        
+    })
 });
 
 function changeSelection(item, selected, isAddSelected) {
@@ -287,6 +313,17 @@ function checkStepSelection() {
 
     if (totalSelectedOpt === 2 && !!$("#plan-dob-datepicker").val()) {
         $(".step1 .eh-btn-plan-overview").removeClass("disabled-gray-btn");
+    }
+}
+
+function checkSuggestionSelection() {
+    var totalSelectedOpt = $(".step-option .item.selected").length;
+
+    var btn = $(".step-option .btn-need-plan");
+    if (totalSelectedOpt === 0) {
+        btn.addClass("disabled-gray-btn");
+    }else{
+        btn.removeClass("disabled-gray-btn");
     }
 }
 
