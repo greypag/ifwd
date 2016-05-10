@@ -855,4 +855,44 @@
   .fna-product-type {
     width: 100% !important; } }
 
+/* Added on 20160505*/
+#fnaPopupClear .fna-popup-cont{
+	max-width: none;
+	margin: auto;
+}
+#fnaPopupClear .fna-popup-cont .close{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#fnaPopupClear .fna-popup-cont .close span{
+	font-size: 25px;
+	line-height: 0;
+	position: relative;
+	top: -4px;
+}
+
+#fnaPopupClear .fna-popup-cont .btn-clear-confirm,
+#fnaPopupClear .fna-popup-cont .btn-clear-cancel{
+	padding: 10px 60px;
+	margin: auto 5px;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+	#fnaPopupClear .fna-popup-cont .btn-clear-confirm,
+	#fnaPopupClear .fna-popup-cont .btn-clear-cancel{
+		padding: 10px 60px;
+		margin: auto 5px;
+	}
+}
+@media screen and (max-width: 480px) {
+	#fnaPopupClear .fna-popup-cont .btn-clear-confirm{
+		padding: 10px 60px;
+		margin: 0 5px 5px 5px;
+	}
+	#fnaPopupClear .fna-popup-cont .btn-clear-cancel{
+		padding: 10px 60px;
+		margin: 5px 5px 0 5px;
+	}
+}
+
 /*# sourceMappingURL=onlinesavieFNARecommend.css.map */

@@ -11812,6 +11812,8 @@ body.chin .partner-headline-wrapper .headline-title{
 	}
 }
 
+
+
 #business-partners-container img.csl_logo {
     transform: initial;
   }
@@ -11826,4 +11828,16 @@ body.chin .partner-headline-wrapper .headline-title{
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container #partners-logo #csl {
     width: 65px;
     padding-left: 10px;
+}
+
+/* added on 20160504 */
+#main-slider #freeFlight #myFWDropdown .dropdown-menu.bdr1,
+#main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1{
+	bottom: auto;
+	margin-top: 46px;
+}
+#main-slider #freeFlight #myFWDropdown .dropdown-menu.bdr1 h4,
+#main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1 h4{
+    line-height: 1.1;
+    margin: 2px 0 10px 0;
 }
