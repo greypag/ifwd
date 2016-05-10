@@ -169,6 +169,9 @@ $(document).ready(function() {
         $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
     });
 
+
+    $("#plan-dob-datepicker").change(checkStepSelection);
+
 });
 
 function changeSelection(item, selected, isAddSelected) {
@@ -282,7 +285,7 @@ function showSuggestionModal() {
 function checkStepSelection() {
     var totalSelectedOpt = $(".step1 .item.selected").length;
 
-    if (totalSelectedOpt === 2) {
+    if (totalSelectedOpt === 2 && !!$("#plan-dob-datepicker").val()) {
         $(".step1 .eh-btn-plan-overview").removeClass("disabled-gray-btn");
     }
 }
@@ -310,21 +313,21 @@ function fillPlanData(json) {
 
         //ferris wheel       
         $(".step3 .eh-plan-" + pc + " .txt-type").html(p.type);
-        $(".step3 .eh-plan-" + pc + " .txt-youpay-price").html(priceFormat(p.monthlyPremium));
-        $(".step3 .eh-plan-" + pc + " .txt-price-hc").html(priceFormat(p.dailyHospitalCash));
-        $(".step3 .eh-plan-" + pc + " .txt-price-icu").html(priceFormat(p.intensiveCareUnit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-id").html(priceFormat(p.infectiousDisease));
-        $(".step3 .eh-plan-" + pc + " .txt-price-db").html(priceFormat(p.deathBenefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-adb").html(priceFormat(p.accidentalDeathBenefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-rop").html(priceFormat(p.refundPremium));
-        $(".step3 .eh-plan-" + pc + " .txt-price-yca").html(priceFormat(p.monthlyPremium * 12));
+        $(".step3 .eh-plan-" + pc + " .txt-youpay-price .value").html(priceFormat(p.monthlyPremium));
+        $(".step3 .eh-plan-" + pc + " .txt-price-hc .value").html(priceFormat(p.dailyHospitalCash));
+        $(".step3 .eh-plan-" + pc + " .txt-price-icu .value").html(priceFormat(p.intensiveCareUnit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-id .value").html(priceFormat(p.infectiousDisease));
+        $(".step3 .eh-plan-" + pc + " .txt-price-db .value").html(priceFormat(p.deathBenefit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-adb .value").html(priceFormat(p.accidentalDeathBenefit));
+        $(".step3 .eh-plan-" + pc + " .txt-price-rop .value").html(priceFormat(p.refundPremium));
+        $(".step3 .eh-plan-" + pc + " .txt-price-yca .value").html(priceFormat(p.monthlyPremium * 12));
 
         //benefit
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-dhc").html(priceFormat(p.dailyHospitalCash));
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-icu").html(priceFormat(p.intensiveCareUnit));
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-id").html(priceFormat(p.infectiousDisease));
-        var totlaUpTo = p.dailyHospitalCash + p.intensiveCareUnit + p.infectiousDisease;
-        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price").html(priceFormat(totlaUpTo));
+        var totlaUpTo = parseInt(p.dailyHospitalCash, 10) + parseInt(p.intensiveCareUnit, 10) + parseInt(p.infectiousDisease, 10);
+        $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price .value").html(priceFormat(totlaUpTo));
 
         $(".step3 .eh-plan-" + pc + " .txt-price-y15").html(priceFormat(p.monthlyPremium * 12 * 15));
         $(".step3 .eh-plan-" + pc + " .txt-price-y15_102").html(priceFormat(p.monthlyPremium * 12 * 15 * 1.02));
@@ -356,8 +359,8 @@ function fillPlanData(json) {
 
                 var v = getTableData(valueInt, mca);
                 $(".eh-plan-" + section + " .txt-ppr").html(v.ppr + "%");
-                $(".eh-plan-" + section + " .txt-atpp").html(v.atpp.toFixed(2));
-                $(".eh-plan-" + section + " .txt-ra").html(v.ra.toFixed(2));
+                $(".eh-plan-" + section + " .txt-atpp").html(priceFormat(v.atpp.toFixed(2)));
+                $(".eh-plan-" + section + " .txt-ra").html(priceFormat(v.ra.toFixed(2)));
 
             });
 
@@ -382,7 +385,7 @@ function getTableData(year, mca) {
 }
 
 function priceFormat(priceInt) {
-    return "HK$" + numberWithCommas(parseInt(priceInt));
+    return numberWithCommas(parseInt(priceInt));
 }
 
 function numberWithCommas(x) {
