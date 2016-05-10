@@ -956,7 +956,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox" autocomplete="off"
 												id="savieApplicantBean.chineseName"
-												name="savieApplicantBean.chineseName" type="text"
+												name="savieApplicantBean.chineseName" type="text" value="${etPolicyApplication.applicant.chineseName }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />"
 												value=""> <span class="error-msg"
 												id="savieApplicantBeanchineseNameMsg"></span>
@@ -1032,7 +1032,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox capitalize"
 												autocomplete="off" id="savieApplicantBean.hkId"
-												name="savieApplicantBean.hkId" type="text"
+												name="savieApplicantBean.hkId" type="text" value="${etPolicyApplication.applicant.hkId }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
 											<span class="error-msg" id="hkidMessage"></span>
 										</div>
@@ -1055,7 +1055,7 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${maritalStatusesEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
