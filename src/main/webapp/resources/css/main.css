@@ -11813,7 +11813,7 @@ body.chin .partner-headline-wrapper .headline-title{
 }
 
 #business-partners-container img.csl_logo {
-    transform: initial;
+    transform: none;
   }
   
 #business-partners-container img.club_logo {
