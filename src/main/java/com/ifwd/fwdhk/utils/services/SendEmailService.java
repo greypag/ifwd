@@ -194,7 +194,7 @@ public class SendEmailService implements SendEmailDao {
 		JSONObject emailParams = new JSONObject();
 		emailParams.put("to", recipientEmail);
 		emailParams.put("message", VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "mail-templates/singletravel-csl-confirmation.vm", "UTF-8", new HashMap<>()));
-		emailParams.put("subject", "A Gift from FWD ● discover!");
+		emailParams.put("subject", "25% off data roaming from FWD | 富衛送您數據儲值卡75折優惠");
 		emailParams.put("attachment", null);
 		emailParams.put("from", UserRestURIConstants.getConfigs("innerMailFrom"));
 		emailParams.put("isHtml", true);
