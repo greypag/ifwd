@@ -1,6 +1,6 @@
 var stickerOffsetTop = 0;
 $(document).ready(function() {
-    $(".tbl-compare .t1, .tbl-compare .t2, .tbl-compare .t3, .tbl-compare .t4")
+    $(".tbl-compare .t1, .tbl-compare .t2, .tbl-compare .t3, .tbl-compare .t4, .tbl-compare .eh-btn-tbl-detail")
         .mouseenter(function() {
             var className = $(this).attr("data-grp");
             $("." + className).addClass("highlight");
