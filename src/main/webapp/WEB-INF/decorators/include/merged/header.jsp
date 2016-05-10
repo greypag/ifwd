@@ -1194,12 +1194,14 @@ $(function() {
 	        // Leave this empty, that's the magic sauce
 	    });
 	}	
-    var pageControllerName = "#<%=actionName%>";
+    var pageControllerName = "<%=actionName%>";
+    if(pageControllerName!=""){
+    	pageControllerName = "#" + pageControllerName;
+    }
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
     $("#faqProductLink").attr("href", ""+ faqProductLink + pageControllerName + "");
     var faqLinkRe = new RegExp(/^faq/);
     var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
-    console.log(faqLinkRe.test(langFaqProductLink));
 });
 	function centerModals($element) {
 	    var $modals;

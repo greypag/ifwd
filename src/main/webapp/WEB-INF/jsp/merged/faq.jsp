@@ -3792,6 +3792,10 @@
         $(function() {
             //faqChangeCare("#OverseaFaq","o");
             $('input, textarea').placeholder();
+            $("#faqProductLink").attr("href", window.location.href);
+            $("#faqProductLink").on( "click", function() {
+            	location.reload(true);
+            });
             var curProductUrl = window.location.href;
             var productName = curProductUrl.substr(curProductUrl.indexOf("#") + 1)+"Faq";
             if(productName=="ElitetermFaq"){
