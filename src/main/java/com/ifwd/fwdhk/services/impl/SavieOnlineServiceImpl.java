@@ -1651,8 +1651,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
-			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
-			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
+			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?"1":"0");
+			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?"1":"0");
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("lastName")+" "+applicant.get("firstName"));
