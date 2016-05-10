@@ -1,0 +1,28 @@
+.breadcrumb {
+  font-size: 14px;
+  font-weight: 600; }
+
+.breadcrumb-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto; }
+
+.breadcrumb__list {
+  padding: 0; }
+  .breadcrumb__list--none {
+    list-style-type: none; }
+
+.breadcrumb__item {
+  padding-right: 2px;
+  display: inline-block; }
+  .breadcrumb__item--active {
+    color: #ff8200; }
+
+.breadcrumb__divider {
+  font-size: 7px;
+  padding: 0 10px;
+  display: inline-block; }
+  .breadcrumb__divider--active {
+    color: #ff8200; }
+
+/*# sourceMappingURL=breadcrumb.css.map */

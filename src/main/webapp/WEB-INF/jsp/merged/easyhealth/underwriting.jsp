@@ -22,11 +22,18 @@ var home_url = "<%=request.getContextPath()%>";
  <%--   <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script> --%>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
-    <jsp:include page="/WEB-INF/jsp/merged/components/breadcrumb.jsp" />
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comp/breadcrumb.css">
+    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+    	<jsp:param name="productName" value="easyHealth"/>
+    	<jsp:param name="activeBreadcrumb" value="2"/>
+	</jsp:include>
 
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
+
+     	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comp/step-indicator.css">
 	     <div class="container-fluid fwd-full-container browse-holder">
-	        <jsp:include page="/WEB-INF/jsp/merged/components/step-indicator.jsp" />
+	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp" />
 	     </div>
 	
 	<!-- Application Content Start -->
