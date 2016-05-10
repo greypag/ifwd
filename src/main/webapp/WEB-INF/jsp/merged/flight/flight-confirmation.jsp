@@ -575,13 +575,13 @@ $(document).ready(function() {
 	ga('ecommerce:addTransaction', {
 	  'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Flight', // Insurance type, e.g. Life
+	  'affiliation': 'Protect', // Insurance type, e.g. Life
 	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
 	      'id': '<%=request.getSession().getAttribute("policyNo")%>', // Transaction ID. Required
 	      'name': 'FlightCare', // Product name. Required
-	      'category': 'Flight', // Category or variation
+	      'category': 'Travel', // Category or variation
 	      'price': '${dueAmount}', // Unit price
 	      'quantity': '1',
 	      'currency': 'HKD'

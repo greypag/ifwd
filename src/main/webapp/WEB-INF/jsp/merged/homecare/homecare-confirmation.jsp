@@ -599,13 +599,13 @@ $(document).ready(function() {
 	ga('ecommerce:addTransaction', {
 	  'id': '${transNo}', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Home', // Insurance type, e.g. Life
+	  'affiliation': 'Protect', // Insurance type, e.g. Life
 	   'currency': 'HKD'
 	  });
 	ga('ecommerce:addItem', {
 	      'id': '${transNo}', // Transaction ID. Required
 	      'name': 'Easy HomeCare', // Product name. Required
-	      'category': 'Home', // Category or variation
+	      'category': 'Household', // Category or variation
 	      'price': '${dueAmount}', // Unit price
 	      'quantity': '1',
 	      'currency': 'HKD'

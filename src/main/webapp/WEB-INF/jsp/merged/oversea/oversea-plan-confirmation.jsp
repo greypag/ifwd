@@ -197,3 +197,24 @@
 
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/oversea.js"></script>
+<script>
+$(document).ready(function() {
+  ga('create', 'UA-60032236-1', 'auto');
+  ga('require', 'ecommerce');
+  ga('ecommerce:addTransaction', {
+    'id': '${overseaCreatePolicy.transactionNo}', // Transaction ID. Required.
+    'revenue': '${quoteDetails.toalDue}', // Grand Total.
+    'affiliation': 'Protect', // Insurance type, e.g. Life
+     'currency': 'HKD'
+    });
+  ga('ecommerce:addItem', {
+      'id': '${overseaCreatePolicy.transactionNo}', // Transaction ID. Required
+      'name': 'Overseas Study', // Product name. Required
+      'category': 'Travel', // Category or variation
+      'price': '${quoteDetails.toalDue}', // Unit price
+      'quantity': '1', // SUGGEST TO ADD NUMBER OF TRAVELLERS
+      'currency': 'HKD'
+    });
+  ga('ecommerce:send');
+});
+</script>
