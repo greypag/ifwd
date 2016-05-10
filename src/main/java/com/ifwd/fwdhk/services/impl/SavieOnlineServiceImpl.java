@@ -1865,6 +1865,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1909,6 +1910,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1974,6 +1976,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2018,6 +2021,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2076,6 +2080,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
