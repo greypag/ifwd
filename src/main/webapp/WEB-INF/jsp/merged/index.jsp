@@ -398,8 +398,10 @@ var languageP = "${language}";
                         $('.login-info').removeClass('hidden');
                         $('#loginpopup #fna-check').val("false");
                         $('#loginpopup #nav-bar-check').val("false");
+                        $('#loginpopup #forcefna').val("true");
                         $('#loginpopup .modal-dialog').addClass('loginpopupext');			
-            			$('#loginpopup').modal('show');			
+            			$('#loginpopup').modal('show');
+            		    
             		}
                 });
             	
