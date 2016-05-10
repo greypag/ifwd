@@ -328,9 +328,10 @@ function fillPlanData(json) {
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-id").html(priceFormat(p.infectiousDisease));
         var totlaUpTo = parseInt(p.dailyHospitalCash, 10) + parseInt(p.intensiveCareUnit, 10) + parseInt(p.infectiousDisease, 10);
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price .value").html(priceFormat(totlaUpTo));
-
-        $(".step3 .eh-plan-" + pc + " .txt-price-y15").html(priceFormat(p.monthlyPremium * 12 * 15));
-        $(".step3 .eh-plan-" + pc + " .txt-price-y15_102").html(priceFormat(p.monthlyPremium * 12 * 15 * 1.02));
+        var maxYearAmount = getTableData(16, p.monthlyPremium);
+        console.log(maxYearAmount);
+        $(".step3 .eh-plan-" + pc + " .txt-price-y15 .value").html(priceFormat(maxYearAmount.atpp));
+        $(".step3 .eh-plan-" + pc + " .txt-price-y15_102 .value").html(priceFormat(maxYearAmount.ra));
 
         (function(section, mca) {
             var rangeSlider = $(".step3 .eh-plan-" + pc + " .slider-15yr-policy")[0];
