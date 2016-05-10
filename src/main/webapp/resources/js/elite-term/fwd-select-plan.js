@@ -1220,6 +1220,13 @@
          var _form = $('#eliteTermsInsuredInfoForm');
          var isValidAddLine = true;
          
+         $.ajax({
+	         type: "POST",
+	         url:contextPath+'/ajax/eliteTerm/putPersonalInfoSession',
+	         data: $('#eliteTermsInsuredInfoForm').serialize(),
+	         success:function(data){}
+		 });
+         
          
          
          // Check if permanent address lines

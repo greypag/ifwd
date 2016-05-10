@@ -1037,4 +1037,14 @@ public class EliteTermServiceImpl implements EliteTermService {
 		}
 	}
 	
+	public void putPersonalInfoSession(HttpServletRequest request)throws ECOMMAPIException{
+		try {
+			request.getSession().setAttribute("etPageKey", request.getParameter("etPageKey"));
+			logger.info("putPersonalInfoSession success");
+		}catch(Exception e){
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
 }
