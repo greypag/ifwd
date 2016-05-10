@@ -324,7 +324,7 @@ public class OverseaServiceImpl implements OverseaService {
 		JSONObject insuredOjb = new JSONObject();
 		insuredOjb.put("name", planDetailsForm.getPersonalName());
 		insuredOjb.put("ageRange", "2");
-		insuredOjb.put("dob", dob);
+		insuredOjb.put("dob", DateApi.pickDate1(planDetailsForm.getInsuredDob()));
 		insuredOjb.put("hkId", planDetailsForm.getPersonalHKID());
 		insuredOjb.put("passport", "");
 		insuredOjb.put("relationship", planDetailsForm.getApplicantRelationship());

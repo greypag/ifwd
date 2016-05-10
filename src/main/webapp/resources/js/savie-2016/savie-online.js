@@ -525,7 +525,7 @@ function equivalentInteger(hkidChar){
    switch(hkidChar.toUpperCase()){
       case 'A':
       case 'L':
-      case 'M':
+      case 'W':
          digit = 1;
          break;
       case 'B':

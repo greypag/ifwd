@@ -75,7 +75,7 @@
             	break;             	
     	}       
     } else {
-        countDownDate = "2016-05-31 11:59:59";
+        countDownDate = "2016-05-31 14:59:59";
         countDownDD = "31";
         countDownMM = "May";    	
     	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){

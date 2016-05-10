@@ -57,7 +57,7 @@
 	       </div>
 	       <div class="bottom-link">
 	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partner.link" bundle="${msg}" />"><fmt:message key="footer.menu.partner" bundle="${msg}" /></a>      
-	       </div>	       
+	       </div>		          
 	       <div class="clearfix"></div>	         
 	    </div>
         <div class="social-link-wrapper">

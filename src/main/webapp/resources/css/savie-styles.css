@@ -9771,11 +9771,11 @@ select::-ms-value {
 .savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
 .savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
 	position: absolute;
-	top: 50%;
-	width: 80px;
-	height: 80px;
+	top: 55%;
+	width: 45px;
+	height: 45px;
 	margin-top: -40px;
-	left: 50%;
+	left: 52%;
 	margin-left: -40px;
 }
 .modal-open .vModal {
@@ -9809,9 +9809,25 @@ select::-ms-value {
 	top: 50%;
 }
 
+@media (min-width: 768px) {
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
+	}
+}
 @media (min-width: 992px) {
 	.modal-open .fwd-savie-wrapper .vModal.modal.fade .modal-dialog {
 		margin-top: 0;
+	}
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
 	}
 }
 
