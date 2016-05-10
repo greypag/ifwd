@@ -1055,12 +1055,14 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${maritalStatusesEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${maritalStatusesCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1086,12 +1088,14 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${placeOfBirthEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${placeOfBirthCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1117,12 +1121,14 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${nationalityEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.nationality == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${nationalityCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.nationality == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1141,7 +1147,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="left-desktop text-box clearfix">
 											<input type="text" class="form-control gray-textbox"
 												name="savieApplicantBean.residentialTelNo"
-												id="savieApplicantBean.residentialTelNo"
+												id="savieApplicantBean.residentialTelNo" value="${etPolicyApplication.applicant.residentialTelNo }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"
 												maxlength="8" /> <span class="error-msg" id="resTelMessage"></span>
 										</div>
@@ -1190,19 +1196,19 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="left-desktop text-box">
 											<input class="form-control gray-textbox permanent-address" maxlength="29"
 												autocomplete="off" id="savieApplicantBean.permanentAddress1"
-												name="savieApplicantBean.permanentAddress1" type="text"
+												name="savieApplicantBean.permanentAddress1" type="text" value="${etPolicyApplication.applicant.permanentAddress1 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="permanentAddressMessage1"></span>
 											<input
 												class="form-control gray-textbox permanent-address optional-field"  maxlength="29"
 												autocomplete="off" id="savieApplicantBean.permanentAddress2"
-												name="savieApplicantBean.permanentAddress2" type="text"
+												name="savieApplicantBean.permanentAddress2" type="text" value="${etPolicyApplication.applicant.permanentAddress2 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="permanentAddressMessage2"></span>
 											<input
 												class="form-control gray-textbox permanent-address optional-field"  maxlength="19"
 												autocomplete="off" id="savieApplicantBean.permanentAddress3"
-												name="savieApplicantBean.permanentAddress3" type="text"
+												name="savieApplicantBean.permanentAddress3" type="text" value="${etPolicyApplication.applicant.permanentAddress3 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 											<span class="error-msg" id="permanentAddressMessage3"></span>
 											<!--  <div class="selectDiv">
@@ -1229,12 +1235,14 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.permanentAddress == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.permanentAddress == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1282,21 +1290,21 @@ var home_url = "<%=request.getContextPath()%>";
 												class="form-control gray-textbox residential residential-address"
 												autocomplete="off"
 												id="savieApplicantBean.residentialAdress1" maxlength="29"
-												name="savieApplicantBean.residentialAdress1" type="text"
+												name="savieApplicantBean.residentialAdress1" type="text" value="${etPolicyApplication.applicant.residentialAdress1 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage1"></span>
 											<input
 												class="form-control gray-textbox residential residential-address optional-field"
 												autocomplete="off"
 												id="savieApplicantBean.residentialAdress2" maxlength="29"
-												name="savieApplicantBean.residentialAdress2" type="text"
+												name="savieApplicantBean.residentialAdress2" type="text" value="${etPolicyApplication.applicant.residentialAdress2 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage2"></span>
 											<input
 												class="form-control gray-textbox residential residential-address optional-field"
 												autocomplete="off"
 												id="savieApplicantBean.residentialAdress3" maxlength="19"
-												name="savieApplicantBean.residentialAdress3" type="text"
+												name="savieApplicantBean.residentialAdress3" type="text" value="${etPolicyApplication.applicant.residentialAdress3 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage3"></span>
 											<!-- <div class="selectDiv">
@@ -1322,12 +1330,14 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.residentialDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.residentialDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1374,19 +1384,19 @@ var home_url = "<%=request.getContextPath()%>";
 												class="form-control gray-textbox  correspondence-address"
 												autocomplete="off" maxlength="29"
 												id="savieApplicantBean.correspondenceAdress1" 
-												name="savieApplicantBean.correspondenceAdress1" type="text"
+												name="savieApplicantBean.correspondenceAdress1" type="text" value="${etPolicyApplication.applicant.correspondenceAdress1 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage1"></span> <input
 												class="form-control gray-textbox correspondence-address optional-field"
 												autocomplete="off" maxlength="29"
 												id="savieApplicantBean.correspondenceAdress2"
-												name="savieApplicantBean.correspondenceAdress2" type="text"
+												name="savieApplicantBean.correspondenceAdress2" type="text" value="${etPolicyApplication.applicant.correspondenceAdress2 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage2"></span> <input
 												class="form-control gray-textbox correspondence-address optional-field"
 												autocomplete="off" maxlength="19"
 												id="savieApplicantBean.correspondenceAdress3"
-												name="savieApplicantBean.correspondenceAdress3" type="text"
+												name="savieApplicantBean.correspondenceAdress3" type="text" value="${etPolicyApplication.applicant.correspondenceAdress3 }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage3"></small> </span>
 											<!-- <div class="selectDiv">
@@ -1412,12 +1422,14 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.correspondenceDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.correspondenceDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
