@@ -681,6 +681,8 @@ var home_url = "<%=request.getContextPath()%>";
 <script>
 $(document).ready(function(){
 	var url = $("#ifwdVideo").attr('src');
+	//stop playing youtube because autoplay just start when press play button
+	$("#ifwdVideo").attr('src', '');
 	$("#vModal").on('hide.bs.modal', function(){
 		$("#ifwdVideo").attr('src', '');
 	});
