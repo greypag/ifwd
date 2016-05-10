@@ -1038,13 +1038,39 @@ public class EliteTermServiceImpl implements EliteTermService {
 	}
 	
 	public void putPersonalInfoSession(HttpServletRequest request)throws ECOMMAPIException{
-		try {
-			request.getSession().setAttribute("etPageKey", request.getParameter("etPageKey"));
+			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+			if(etPolicyApplication == null){
+				etPolicyApplication = new CreateEliteTermPolicyRequest();
+			}		
+			etPolicyApplication.getApplicant().setFirstName(request.getParameter("savieApplicantBean.firstName"));
+			etPolicyApplication.getApplicant().setLastName(request.getParameter("savieApplicantBean.lastName"));
+			etPolicyApplication.getApplicant().setChineseName(request.getParameter("savieApplicantBean.chineseName"));
+			etPolicyApplication.getApplicant().setDob(request.getParameter("dob"));
+			etPolicyApplication.getApplicant().setGender(request.getParameter("savieApplicantBeanGender"));
+			etPolicyApplication.getApplicant().setHkId(request.getParameter("savieApplicantBean.hkId"));
+			etPolicyApplication.getApplicant().setPassport("");
+			etPolicyApplication.getApplicant().setMaritalStatus(request.getParameter("savieApplicantBean.maritalStatus"));
+			etPolicyApplication.getApplicant().setPlaceOfBirth(request.getParameter("savieApplicantBean.placeOfBirth"));
+			etPolicyApplication.getApplicant().setNationality(request.getParameter("savieApplicantBean.nationality"));
+			etPolicyApplication.getApplicant().setResidentialTelNo(request.getParameter("savieApplicantBean.residentialTelNo"));
+			etPolicyApplication.getApplicant().setMobileNo(request.getParameter("savieApplicantBean.mobileNo"));
+			etPolicyApplication.getApplicant().setEmail(request.getParameter("savieApplicantBean.emailAddress"));
+			etPolicyApplication.getApplicant().setPermanentAddress1(request.getParameter("savieApplicantBean.permanentAddress1"));
+			etPolicyApplication.getApplicant().setPermanentAddress2(request.getParameter("savieApplicantBean.permanentAddress2"));
+			etPolicyApplication.getApplicant().setPermanentAddress3(request.getParameter("savieApplicantBean.permanentAddress3"));
+			etPolicyApplication.getApplicant().setPermanentAddress4("");
+			etPolicyApplication.getApplicant().setPermanentAddress(request.getParameter("savieApplicantBean.permanentAddress"));
+			etPolicyApplication.getApplicant().setResidentialAdress1(request.getParameter("savieApplicantBean.residentialAdress1"));
+			etPolicyApplication.getApplicant().setResidentialAdress2(request.getParameter("savieApplicantBean.residentialAdress2"));
+			etPolicyApplication.getApplicant().setResidentialAdress3(request.getParameter("savieApplicantBean.residentialAdress3"));
+			etPolicyApplication.getApplicant().setResidentialAdress4("");
+			etPolicyApplication.getApplicant().setResidentialDistrict(request.getParameter("savieApplicantBean.residentialDistrict"));
+			etPolicyApplication.getApplicant().setCorrespondenceAdress1(request.getParameter("savieApplicantBean.correspondenceAdress1"));
+			etPolicyApplication.getApplicant().setCorrespondenceAdress2(request.getParameter("savieApplicantBean.correspondenceAdress2"));
+			etPolicyApplication.getApplicant().setCorrespondenceAdress3(request.getParameter("savieApplicantBean.correspondenceAdress3"));
+			etPolicyApplication.getApplicant().setCorrespondenceAdress4("");
+			etPolicyApplication.getApplicant().setCorrespondenceDistrict(request.getParameter("savieApplicantBean.correspondenceDistrict"));
+			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 			logger.info("putPersonalInfoSession success");
-		}catch(Exception e){
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
 	}
-	
 }
