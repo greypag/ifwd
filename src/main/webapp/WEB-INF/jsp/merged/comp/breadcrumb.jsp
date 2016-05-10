@@ -31,7 +31,7 @@
 %>
 
 <%!
-	public String createBreadcrumb(ArrayList<String> bcList, int pageName, String lang){
+	public String createBreadcrumb(ArrayList<String> bcList, int activeBreadcrumb, String lang){
 
 		String output = "";
 		
@@ -54,7 +54,7 @@
 	
 		for( int i=0; i<bcList.size(); i++ ){
 
-			isActive = (pageName==i)?true:false;
+			isActive = (activeBreadcrumb==i)?true:false;
 			isLast = (i==bcList.size()-1)?true:false;
 
 			itemCls = (isActive)?"breadcrumb__item breadcrumb__item--active":"breadcrumb__item";
@@ -77,7 +77,7 @@
 <div class="comp breadcrumb">
 	<div class="breadcrumb-container">
 	   <ul class="breadcrumb__list breadcrumb__list--none">
-	       <%= createBreadcrumb(breadcrumb, pageName, lang) %>
+	       <%= createBreadcrumb(breadcrumb, activeBreadcrumb, lang) %>
 	   </ul>
 	</div>
 </div>
