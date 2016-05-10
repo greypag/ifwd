@@ -727,6 +727,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                         </div>
                                         <div class="box-paidget-wrap">
+                                            <p class="after15-text"><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
@@ -931,6 +932,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                         </div>
                                         <div class="box-paidget-wrap">
+                                            <p class="after15-text"><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
@@ -1134,6 +1136,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                         </div>
                                         <div class="box-paidget-wrap">
+                                            <p class="after15-text"><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
@@ -1336,8 +1339,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                             </div>
                                         </div>
-                                        <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
+                                            <p class="after15-text"><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></p>
