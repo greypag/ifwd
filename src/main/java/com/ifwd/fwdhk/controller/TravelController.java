@@ -1936,10 +1936,11 @@ public class TravelController {
 			Object errMsgs = responsObject.get("errMsgs");
 			if (errMsgs == null) {
 				String promoCode = (String) session.getAttribute("referralCode");
-				if(!StringUtils.isEmpty(promoCode) && "CSL".equalsIgnoreCase(promoCode.substring(0, 3))) {
-					sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
-				}
-				
+				//PER SAVIO request to send out email for all policy
+//				if(!StringUtils.isEmpty(promoCode) && "CSL".equalsIgnoreCase(promoCode.substring(0, 3))) {
+//					sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
+//				}
+				sendEmail.sendCslPromotionEmail(request, session.getAttribute("emailAddress").toString(), header);
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
 				session.removeAttribute("upgradeTotalTravallingDays");
