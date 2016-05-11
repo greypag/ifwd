@@ -136,7 +136,7 @@ var language = "${language}";
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
 								<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
 							</div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation" bundle="${msg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation.rp" bundle="${msg}" /></p></div>
 						</div>
 					</div>
 					
