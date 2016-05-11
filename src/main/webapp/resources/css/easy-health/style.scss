@@ -53,6 +53,12 @@ ol.lower-roman {
             display: inline-block;
         }
     }
+    #loadingDiv{
+        display: none;
+        &.show{
+            display: block;
+        }
+    }
     .step1 {
         padding: 30px 0;
         .title {

@@ -65,6 +65,9 @@ var home_url = "<%=request.getContextPath()%>";
                 <!-- /.modal-dialog -->
             </div>
             <!-- /.modal -->
+            <div id="loadingDiv" class="waitingDiv">
+                <img src="<%=request.getContextPath()%>/resources/images/loading.gif">
+            </div>
             <div class="step1">
                 <div class="container">
                     <dir class="row">

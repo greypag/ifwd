@@ -54,8 +54,11 @@ $(document).ready(function() {
 
         if ($(this).hasClass("disabled-gray-btn")) return;
 
+        $("#loadingDiv").addClass("show");
+
         var dobStr = $('#plan-dob-datepicker').val();
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
+            $("#loadingDiv").removeClass("show");
             fillPlanData(data);
             //change step2 back btn img
             $(".step2 .btn-back-step1").attr("data-gender", genderNum);
@@ -66,8 +69,8 @@ $(document).ready(function() {
                 $(".step2").fadeIn();
             });
         }).fail(function() {
+            $("#loadingDiv").removeClass("show");
             alert("network error.");
-
         });
     });
 
