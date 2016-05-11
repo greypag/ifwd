@@ -1434,6 +1434,13 @@
             var $form = $(this);
             
             if ($form.data('bootstrapValidator').isValid()) {
+            	$.ajax({
+    		         type: "POST",
+    		         url:contextPath+'/ajax/eliteTerm/putEmploymentInfoSession',
+    		         data: $('#etEmploymentInfoForm').serialize(),
+    		         success:function(data){}
+    			});
+            	
                $('#et-employment-info-next').removeAttr('disabled');
                $('#et-employment-info-section').removeAttr('style');
                

@@ -1073,4 +1073,21 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 			logger.info("putPersonalInfoSession success");
 	}
+	
+	public void putEmploymentInfoSession(HttpServletRequest request)throws ECOMMAPIException{
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		if(etPolicyApplication == null){
+			etPolicyApplication = new CreateEliteTermPolicyRequest();
+		}
+		etPolicyApplication.getApplicant().setEmploymentStatus(request.getParameter("savieEmploymentBean.employmentStatus"));
+		etPolicyApplication.getApplicant().setOccupation(request.getParameter("savieEmploymentBean.occupation"));
+		etPolicyApplication.getApplicant().setEducationLevel(request.getParameter("savieEmploymentBean.educationLevel"));
+		etPolicyApplication.getApplicant().setNatureOfBusiness(request.getParameter("savieEmploymentBean.natureOfBusiness"));
+		etPolicyApplication.getApplicant().setMonthlyPersonalIncome(request.getParameter("savieEmploymentBean.monthlyPersonalIncome"));
+		etPolicyApplication.getApplicant().setLiquidAsset(request.getParameter("savieEmploymentBean.liquidAssets"));
+		etPolicyApplication.getApplicant().setSourceOfIncome(request.getParameter("savieEmploymentBean.sourceOfIncome"));
+		etPolicyApplication.getApplicant().setCurrentEmployerName(request.getParameter("savieEmploymentBean.currentEmployerName"));
+		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
+		logger.info("putEmploymentInfoSession success");
+}
 }

@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
@@ -1055,14 +1056,12 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${maritalStatusesEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.maritalStatus, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${maritalStatusesCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.maritalStatus == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.maritalStatus, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1088,14 +1087,12 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${placeOfBirthEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.placeOfBirth, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${placeOfBirthCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.placeOfBirth, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1121,14 +1118,12 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${nationalityEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.nationality == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.nationality, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${nationalityCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.nationality == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.nationality, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1235,14 +1230,12 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.permanentAddress == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.permanentAddress, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.permanentAddress == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.permanentAddress, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1330,14 +1323,12 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.residentialDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.residentialDistrict, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.residentialDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.residentialDistrict, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1422,14 +1413,12 @@ var home_url = "<%=request.getContextPath()%>";
 															bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.correspondenceDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.correspondenceDistrict, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${savieDistrictCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${etPolicyApplication.applicant.correspondenceDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.correspondenceDistrict, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -1480,12 +1469,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${employmentStatusEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.employmentStatus, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${employmentStatusCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.employmentStatus, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1508,12 +1497,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${natureOfBusinessEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${natureOfBusinessCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1534,12 +1523,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${occupationEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${occupationCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1890,12 +1879,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etAmountOtherSourceEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etAmountOtherSourceCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1917,12 +1906,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etLiquidAssetEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.liquidAsset, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etLiquidAssetCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.liquidAsset, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1961,12 +1950,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.monthlyPersonalIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.monthlyPersonalIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1986,12 +1975,12 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etEducationLevelEN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.educationLevel, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etEducationLevelCN}">
-													<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.educationLevel, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 										</select>

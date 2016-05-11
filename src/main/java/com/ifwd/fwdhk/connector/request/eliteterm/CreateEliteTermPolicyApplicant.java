@@ -38,7 +38,14 @@ public class CreateEliteTermPolicyApplicant{
 	private String correspondenceAdress4;
 	private String correspondenceDistrict;
 	
-	
+	private String employmentStatus;
+	private String occupation;
+	private String educationLevel;
+	private String natureOfBusiness;
+	private String monthlyPersonalIncome;
+	private String liquidAsset;
+	private String sourceOfIncome;
+	private String currentEmployerName;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -62,6 +69,12 @@ public class CreateEliteTermPolicyApplicant{
 	}
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+	public String getDobD() {
+		return dobD;
+	}
+	public void setDobD(String dobD) {
+		this.dobD = dobD;
 	}
 	public String getGender() {
 		return gender;
@@ -134,12 +147,6 @@ public class CreateEliteTermPolicyApplicant{
 	}
 	public void setSmoke(String smoke) {
 		this.smoke = smoke;
-	}
-	public String getDobD() {
-		return dobD;
-	}
-	public void setDobD(String dobD) {
-		this.dobD = dobD;
 	}
 	public String getPermanentAddress1() {
 		return permanentAddress1;
@@ -231,6 +238,56 @@ public class CreateEliteTermPolicyApplicant{
 	public void setCorrespondenceDistrict(String correspondenceDistrict) {
 		this.correspondenceDistrict = correspondenceDistrict;
 	}
+	public String getEmploymentStatus() {
+		return employmentStatus;
+	}
+	public void setEmploymentStatus(String employmentStatus) {
+		this.employmentStatus = employmentStatus;
+	}
+	public String getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+	public String getEducationLevel() {
+		return educationLevel;
+	}
+	public void setEducationLevel(String educationLevel) {
+		this.educationLevel = educationLevel;
+	}
+	public String getNatureOfBusiness() {
+		return natureOfBusiness;
+	}
+	public void setNatureOfBusiness(String natureOfBusiness) {
+		this.natureOfBusiness = natureOfBusiness;
+	}
+	public String getMonthlyPersonalIncome() {
+		return monthlyPersonalIncome;
+	}
+	public void setMonthlyPersonalIncome(String monthlyPersonalIncome) {
+		this.monthlyPersonalIncome = monthlyPersonalIncome;
+	}
+	public String getLiquidAsset() {
+		return liquidAsset;
+	}
+	public void setLiquidAsset(String liquidAsset) {
+		this.liquidAsset = liquidAsset;
+	}
+	public String getSourceOfIncome() {
+		return sourceOfIncome;
+	}
+	public void setSourceOfIncome(String sourceOfIncome) {
+		this.sourceOfIncome = sourceOfIncome;
+	}
+	public String getCurrentEmployerName() {
+		return currentEmployerName;
+	}
+	public void setCurrentEmployerName(String currentEmployerName) {
+		this.currentEmployerName = currentEmployerName;
+	}
+	
+	
 	
 	
 }
