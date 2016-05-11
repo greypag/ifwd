@@ -855,7 +855,7 @@ function getParameterByUrl(name){
 			  <fmt:message key="travel.main.other.benefit.desc10.part1" bundle="${msg}" />
 			  <b><fmt:message key="travel.main.other.benefit.desc10.part1_1" bundle="${msg}" /></b>
 			  <fmt:message key="travel.main.other.benefit.desc10.part1_2" bundle="${msg}" />
-			  <a href="<fmt:message key="csl.simcard.link" bundle="${msg}" />" target="_blank">
+			  <a href="<fmt:message key="csl.simcard.link1" bundle="${msg}" />/${language}/<fmt:message key="csl.simcard.link2" bundle="${msg}" />" target="_blank">
 			    <fmt:message key="travel.main.other.benefit.desc10.part2" bundle="${msg}" />
 			  </a>
 			  <fmt:message key="travel.main.other.benefit.desc10.part3" bundle="${msg}" />

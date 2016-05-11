@@ -70,7 +70,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 			$("#loadingPromo").hide();
 			promoCodeInsertFlag = true;
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
 			$('#inputPromo').addClass('invalid-field');
 			flag = false;
 		} else {
