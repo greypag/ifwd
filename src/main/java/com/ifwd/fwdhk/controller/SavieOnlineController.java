@@ -867,7 +867,7 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}else{
 			try {
-				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
+				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication-rp", model, request);
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.info(e.getMessage());
