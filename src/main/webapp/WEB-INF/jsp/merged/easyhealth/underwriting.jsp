@@ -310,6 +310,8 @@ var home_url = "<%=request.getContextPath()%>";
 	</div>
 </div>
 <script>
+
+var nextPageFlow = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 	$(document).ready(function(){
 		$('#eh-cust-serv-form').bootstrapValidator({
             excluded:[],
@@ -447,7 +449,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               	} 
          });
 		
-		var nextPageFlow = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+		
 		/*$("#eh-btn-underwriting-next").click(function() {
     		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
         });*/

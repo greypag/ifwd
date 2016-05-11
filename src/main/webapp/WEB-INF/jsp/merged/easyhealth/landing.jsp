@@ -24,11 +24,11 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
                 <div class="breadcrumb-container">
                     <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                      <li><a href="#"><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></a></li>
+                      <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
-                      <li><a href="#">Protect </a></li>
+                      <li><a href="#"><fmt:message key="easyhealth.breadcrumb.category" bundle="${msg}" /> </a></li>
                       <li class="divider"><i class="fa fa-angle-right"></i></li>
-                      <li class="active-bc" id="et-active-bc-menu">EasyHealth Refundable Hospital Income Plan</li>
+                      <li class="active-bc" id="et-active-bc-menu"><fmt:message key="easyhealth.breadcrumb.easyhealth" bundle="${msg}" /></li>
                      </ol>
                 </div>
             </div>
