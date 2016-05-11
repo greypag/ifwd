@@ -1929,7 +1929,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="selectEmployment">
 										<input type="text" class="form-control gray-textbox"
 											id="savieEmploymentBean.currentEmployerName"
-											name="savieEmploymentBean.currentEmployerName"
+											name="savieEmploymentBean.currentEmployerName" value="${etPolicyApplication.applicant.currentEmployerName }"
 											autocomplete="off">
 									</div>
 									<span class="error-msg" id="employerNameMessage"></span>
