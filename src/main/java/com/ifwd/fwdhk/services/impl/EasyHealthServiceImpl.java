@@ -139,8 +139,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
-			applicant.put("optOut1", true);
-			applicant.put("optOut1", true);
+			applicant.put("optOut1", 1);
+			applicant.put("optOut2", 0);
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("lastName")+" "+applicant.get("firstName"));
