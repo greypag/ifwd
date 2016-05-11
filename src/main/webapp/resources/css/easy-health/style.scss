@@ -777,7 +777,7 @@ ol.lower-roman {
                     }
                     > .txt-price {
                         color: #fd8224;
-                        font-size: 24px;
+                        font-size: 16px;
                         font-weight: bold;
                         text-align: center;
                     }
@@ -1143,11 +1143,12 @@ ol.lower-roman {
                     td,
                     th:first-child {
                         width: 9%;
-                        font-size: 15px;
+                        font-size: 20px;
                     }
                     th:first-child {
                         position: static;
                         padding-top: 6px;
+                        font-size: 16px !important;
                     }
                     th,
                     td {
@@ -1184,6 +1185,11 @@ ol.lower-roman {
                         &.t3,
                         &.t4 {
                             background-color: #ccc;
+                        }
+                    }
+                    .plan-adb, .plan-db{
+                        .text{
+                            font-size: 16px;    
                         }
                     }
                 }
