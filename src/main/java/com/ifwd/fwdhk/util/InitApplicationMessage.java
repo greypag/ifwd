@@ -1092,18 +1092,18 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("branchCodeCN : " + branchCodeCN);
 		
-		Map<String,Map<String,String>> allMessages = null;
-		try {
-			MessageResponse messageResponse = connector.getAllMessage();
-			allMessages = messageResponse.getAllMessages();
-			application.setAttribute("allMessages", allMessages);
-		} catch (Exception e) {
-			logger.error("error : "+e.getMessage());
-			if("start".equals(type)){
-				System.exit(0);
-			}
-		}
-		logger.info("allMessages : " + allMessages);
+//		Map<String,Map<String,String>> allMessages = null;
+//		try {
+//			MessageResponse messageResponse = connector.getAllMessage();
+//			allMessages = messageResponse.getAllMessages();
+//			application.setAttribute("allMessages", allMessages);
+//		} catch (Exception e) {
+//			logger.error("error : "+e.getMessage());
+//			if("start".equals(type)){
+//				System.exit(0);
+//			}
+//		}
+//		logger.info("allMessages : " + allMessages);
 	}
 
 	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type, HttpServletRequest request){
