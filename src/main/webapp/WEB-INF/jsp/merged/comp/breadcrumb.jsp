@@ -5,7 +5,7 @@
 	String productName = request.getParameter("productName");
 	int activeBreadcrumb = Integer.parseInt(request.getParameter("activeBreadcrumb"));
 	//String lang = ((String) request.getAttribute("language")).toUpperCase();
-	String lang = "ZH";
+	String lang = ((String)session.getAttribute("uiLocale")).substring(0, 2);
 
 	ArrayList<String> breadcrumb = new ArrayList<String>();
 	switch(productName){
@@ -44,13 +44,13 @@
 		String template_divider = "<li class=\"%s\"><i class=\"fa fa-play\"></i></li>";
 
 		String path_to_resources = "";
-		if( lang =="EN" ){
-			path_to_resources = "resources/messages_en_US";
+		if(lang.equalsIgnoreCase("EN")){
+			path_to_resources = "messages_en_US";
 		} else {
-			path_to_resources = "resources/messages_zh_HK";
+			path_to_resources = "messages_zh_HK";
 		}
 
-		//ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
+		ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
 	
 		for( int i=0; i<bcList.size(); i++ ){
 
@@ -65,8 +65,8 @@
 				output += String.format(template_divider, dividerCls);
 			}
 			//render breadcrumb item
-			output += String.format(template_item, itemCls, bcList.get(i));
-			//output += String.format(template_item, itemCls, resource.getString(bcList.get(i)));
+			//output += String.format(template_item, itemCls, bcList.get(i));
+			output += String.format(template_item, itemCls, resource.getString(bcList.get(i)));
 		}
 
 		return output;
