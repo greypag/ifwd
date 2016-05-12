@@ -9777,7 +9777,14 @@ select::-ms-value {
 	margin-top: -40px;
 	left: 52%;
 	margin-left: -40px;
+  opacity: 0.7;
 }
+
+.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
+.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn:hover{
+  opacity: 1;
+}
+
 .modal-open .vModal {
 	display: none;
 	position: fixed;
