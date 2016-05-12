@@ -839,9 +839,9 @@ var languageP = "${language}";
 										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col"><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>3</sup></td>
-										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
-										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
+										 		<td class="first-col"><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>3</sup></td>
+										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
+										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
 										 	</tr>												 	
 										 </tbody>
 									</table>
@@ -852,7 +852,7 @@ var languageP = "${language}";
 									</div>
 									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
 									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
-									<p class="referral-notes"><sup>3</sup> <fmt:message key="note.refferal.program3" bundle="${msg}" /></p>
+									<p class="referral-notes"><sup>3</sup> <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="note.refferal.program3" bundle="${msg}" /></a></p>
 								</div>
 							</div>		
 						</div>		
