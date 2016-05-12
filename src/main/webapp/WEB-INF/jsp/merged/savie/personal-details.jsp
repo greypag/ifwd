@@ -1081,8 +1081,14 @@ var languageP = "${language}";
 			
 			$('.chinese-input').bind('keypress', function (event) {
 				var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
-				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-				if (!regex.test(key)) {
+				var key = !event.charCode ? event.which : event.charCode;
+				var keyChar = String.fromCharCode(key);
+				
+				//Allow backspace for FF;
+				if( key == 8 ) {
+					return true;
+				}
+				if (!regex.test(keyChar)) {
 					event.preventDefault();
 					return false;
 				}
