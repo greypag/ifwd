@@ -139,7 +139,7 @@
 	                                        <li>
 	                                            <p class="h4-5">
 	                                                <fmt:message key="partner.csl.tnc1.part1" bundle="${msg}" />
-	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="csl.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.tnc1.part2" bundle="${msg}" /></a>
+	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="partner.csl.tnc1.part2" bundle="${msg}" /></a>
 	                                                <fmt:message key="partner.csl.tnc1.part3" bundle="${msg}" />
 	                                            </p>
 	                                        </li>

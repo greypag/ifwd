@@ -839,9 +839,9 @@ var languageP = "${language}";
 										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col"><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>3</sup></td>
-										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
-										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
+										 		<td class="first-col"><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>3</sup></td>
+										 		<td><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
+										 		<td><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
 										 	</tr>												 	
 										 </tbody>
 									</table>
