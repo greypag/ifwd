@@ -783,7 +783,7 @@ ol.lower-roman {
                     }
                     > .txt-price {
                         color: #fd8224;
-                        font-size: 16px;
+                        font-size: 22px;
                         font-weight: bold;
                         text-align: center;
                     }
@@ -1051,7 +1051,7 @@ ol.lower-roman {
     .img-id,
     .img-icu {
         > .txt-price {
-            top: 49% !important;
+            top: 55% !important;
         }
     }
     .img-db,
@@ -1061,7 +1061,6 @@ ol.lower-roman {
             font-size: 19px !important;
         }
     }
-
     .easy-health .step3 .plan-refund .txt-15yr{
         img{display: block;margin: 0 auto;}
         font-size: 30px;
@@ -1094,6 +1093,9 @@ ol.lower-roman {
         .desc {
             display: none;
         }
+    }
+    .step2 table .icon-wrap{
+        width: 100%;
     }
 }
 
@@ -1218,6 +1220,7 @@ ol.lower-roman {
         .img-15,
         .img-adb,
         .img-db {
+            > .txt-price { font-size: 16px;}
             &:hover {
                 animation: scaleBall .2s forwards;
             }
@@ -1226,7 +1229,7 @@ ol.lower-roman {
         .img-id,
         .img-icu {
             > .txt-price {
-                top: 51% !important;
+                top: 56% !important;
             }
         }
         .img-15,

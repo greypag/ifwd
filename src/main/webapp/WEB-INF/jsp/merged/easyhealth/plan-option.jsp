@@ -604,11 +604,9 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="img-db col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}"/>'>
-                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}"/>'>
-                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -707,7 +705,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.maturity" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
                                                     <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
@@ -729,6 +727,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                             </div>
                                         </div>
+                                        <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
@@ -810,11 +809,9 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="img-db col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -911,7 +908,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.maturity" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
                                                     <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
@@ -933,6 +930,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                             </div>
                                         </div>
+                                        <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
@@ -1014,11 +1012,9 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="img-db col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1114,7 +1110,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.maturity" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
                                                     <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
@@ -1136,6 +1132,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                             </div>
                                         </div>
+                                        <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
                                             <div class="box-paidget">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
@@ -1217,11 +1214,9 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                             <div class="img-db col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_06_db_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-db"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                             <div class="img-adb col-xs-6">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_05_adb_${language}.png" class="img-responsive pic" alt='<fmt:message key="easyhealth.plandetails.acci.death.benefit" bundle="${msg}" />'>
-                                                <span class="txt-price txt-price-adb"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -1317,7 +1312,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             <div class="lbl15yr-policy-top"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /> <span class="lblYear"></span></div>
                                             <div class="slider-15yr-policy"></div>
                                             
-                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.year" bundle="${msg}" /></span></div>
+                                            <div class="lbl15yr-policy-bottom"><span class="minYear">1</span> <span class="maxYear"><fmt:message key="easyhealth.plandetails.infographic2.maturity" bundle="${msg}" /></span></div>
                                             <div class="tableView">
                                                 <div class="tblv-titles">
                                                     <div class="tblv-title text-center"><fmt:message key="easyhealth.plandetails.infographic2.reund.percentage" bundle="${msg}" /></div>
@@ -1446,23 +1441,6 @@ var home_url = "<%=request.getContextPath()%>";
                                                                     </ol>
                                                                 </li>
                                                             </ol>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-                                                    <div class="panel-heading" role="tab" id="pd-sf-claim-related">
-                                                        <h4 class="panel-title">
-                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <fmt:message key="easyhealth.plandetails.exclusions.sub.heading" bundle="${msg}" />
-                                    <span class="pull-right">
-                                       <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png">
-                                    </span>
-                                 </a>
-                              </h4>
-                                                    </div>
-                                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
-                                                        <div class="panel-body">
                                                             <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>
                                                             <ol>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.2.content" bundle="${msg}" /></li>
@@ -1505,6 +1483,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                                     </ol>
                                                                 </li>
                                                             </ol>
+                                                            <br>
                                                         </div>
                                                     </div>
                                                 </div>

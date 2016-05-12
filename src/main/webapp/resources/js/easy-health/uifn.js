@@ -357,10 +357,8 @@ function fillPlanData(json) {
         $(".step3 .eh-plan-" + pc + " .txt-price-hc .value").html(priceFormat(p.dailyHospitalCash));
         $(".step3 .eh-plan-" + pc + " .txt-price-icu .value").html(priceFormat(p.intensiveCareUnit));
         $(".step3 .eh-plan-" + pc + " .txt-price-id .value").html(priceFormat(p.infectiousDisease));
-        $(".step3 .eh-plan-" + pc + " .txt-price-db .value").html(priceFormat(p.deathBenefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-adb .value").html(priceFormat(p.accidentalDeathBenefit));
         $(".step3 .eh-plan-" + pc + " .txt-price-rop .value").html(priceFormat(p.refundPremium));
-        $(".step3 .eh-plan-" + pc + " .txt-price-yca .value").html(priceFormat(p.monthlyPremium * 12));
+        $(".step3 .eh-plan-" + pc + " .txt-price-yca").html(priceFormat(p.monthlyPremium * 12));
 
         //benefit
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-dhc").html(priceFormat(p.dailyHospitalCash));
