@@ -548,6 +548,16 @@
          
          
          if (isBeneficaryValid()) {
+        	 var beneFormdata = $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+     	                        $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+     	                        $('#beneficiaryInfoForm\\[2\\]').serialize();
+        	 $.ajax({
+		         type: "POST",
+		         url:contextPath+'/ajax/eliteTerm/putBeneficiaryInfoSession',
+		         data: beneFormdata,
+		         success:function(data){}
+			 });
+        	 
             // Store beneficiaries data
             storeBeneficiaryInfo();
         	  populateAppSummBI();

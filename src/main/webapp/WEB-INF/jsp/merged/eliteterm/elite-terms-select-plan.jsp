@@ -2059,14 +2059,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" autocomplete="off"
 												id="savieBeneficiaryBean[0].fullName" hidden> <input
 												type="text" id="savieBeneficiaryBean[0].firstName"
-												name="savieBeneficiaryBean[0].firstName"
+												name="savieBeneficiaryBean[0].firstName" value="${etPolicyApplication.applicant.firstName1 }"
 												onchange="getBeneficiaryFullName0()"
 												class="form-control gray-textbox form-textbox"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />"
 												maxlength="25"> <span class="error-msg"
 												autocomplete="off" id="beneficiaryFnameMessage[0]"></span> <input
 												type="text" id="savieBeneficiaryBean[0].lastName"
-												name="savieBeneficiaryBean[0].lastName"
+												name="savieBeneficiaryBean[0].lastName" value="${etPolicyApplication.applicant.lastName1 }"
 												onchange="getBeneficiaryFullName0()"
 												class="form-control gray-textbox"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />"
@@ -2083,7 +2083,7 @@ var home_url = "<%=request.getContextPath()%>";
 														key="eliteTerms.selectPlan.optional" bundle="${msg}" /></span></label> <input
 												type="text" autocomplete="off"
 												id="savieBeneficiaryBean[0].chineseName"
-												name="savieBeneficiaryBean[0].chineseName"
+												name="savieBeneficiaryBean[0].chineseName" value="${etPolicyApplication.applicant.chineseName1 }"
 												class="form-control gray-textbox form-textbox"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />">
 											<span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
@@ -2101,13 +2101,13 @@ var home_url = "<%=request.getContextPath()%>";
 													<div class="selectDiv">
 														<span class="icon-chevron-thin-down orange-caret"></span>
 														<select class="form-control gray-dropdown"
-															id="beneficiaryHkidPassport[0]">
+															id="beneficiaryHkidPassport[0]" name="beneficiaryHkidPassport[0]">
 															<option disabled value=""><fmt:message
 																	key="eliteTerms.selectPlan.Please.select"
 																	bundle="${msg}" /></option>
-															<option selected value="HKID"><fmt:message
+															<option value="HKID" ${etPolicyApplication.applicant.beneficiaryHkidPassport1 == 'HKID' ? 'selected="selected"':'' }><fmt:message
 																	key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>
-															<option value="Passport"><fmt:message
+															<option value="Passport" ${etPolicyApplication.applicant.beneficiaryHkidPassport1 == 'Passport' ? 'selected="selected"':'' }><fmt:message
 																	key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>
 														</select>
 													</div>
@@ -2117,12 +2117,12 @@ var home_url = "<%=request.getContextPath()%>";
 														type="text" autocomplete="off"
 														placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />"
 														id="savieBeneficiaryBean[0].hkId"
-														name="savieBeneficiaryBean[0].hkId" value=""> <input
+														name="savieBeneficiaryBean[0].hkId" value="${etPolicyApplication.applicant.hkId1 }"> <input
 														class="form-control gray-textbox capitalize hidden"
 														type="text" autocomplete="off"
 														placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />"
 														id="savieBeneficiaryBean[0].passportNo"
-														name="savieBeneficiaryBean[0].passportNo" value="">
+														name="savieBeneficiaryBean[0].passportNo" value="${etPolicyApplication.applicant.passportNo1 }">
 												</div>
 											</div>
 											<span class="error-msg" id="bnfPassportMessage[0]"></span> <span
@@ -2140,7 +2140,7 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
 											<div id="gender-0" class="clearfix radio-buttons">
 												<input type="radio" name="savieBeneficiaryBean[0].gender"
-													value="M" id="male-0" checked> <label for="male-0"
+													value="M" id="male-0" ${etPolicyApplication.applicant.gender1 == 'M' ? 'checked="checked"':'' }> <label for="male-0"
 													class="male-0"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
@@ -2150,7 +2150,7 @@ var home_url = "<%=request.getContextPath()%>";
 													class="pull-left second-label hidden-xs hidden-sm"><fmt:message
 														key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span> <input
 													type="radio" name="savieBeneficiaryBean[0].gender"
-													value="F" id="female-0"> <label for="female-0"
+													value="F" id="female-0" ${etPolicyApplication.applicant.gender1 == 'F' ? 'checked="checked"':'' }> <label for="female-0"
 													class="female"> <span class="hidden-lg hidden-md"><fmt:message
 															key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span> <span
 													class="orange-hover hidden-xs hidden-sm pull-left"></span>
@@ -2176,13 +2176,13 @@ var home_url = "<%=request.getContextPath()%>";
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list"
 															items="${lifeBeneficiaryRelationshipEN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" ${fn:substringBefore(etPolicyApplication.applicant.relationship1, '-') == list.itemCode ? 'selected="selected"':'' }>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list"
 															items="${lifeBeneficiaryRelationshipCN}">
-															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+															<option value="${list.itemCode }-${list.itemDesc }" ${fn:substringBefore(etPolicyApplication.applicant.relationship1, '-') == list.itemCode ? 'selected="selected"':'' }>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -2193,7 +2193,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<label for="savieBeneficiaryBean[0].entitlement"><fmt:message
 													key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
 											<input type="tel" id="savieBeneficiaryBean[0].entitlement"
-												name="savieBeneficiaryBean[0].entitlement"
+												name="savieBeneficiaryBean[0].entitlement" value="${etPolicyApplication.applicant.entitlement1 }"
 												class="form-control gray-textbox percentage"
 												placeholder="--" value="100" /> <span class="error-msg"
 												id="entitlementMessage[0]"></span>

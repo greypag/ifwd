@@ -382,4 +382,18 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putBeneficiaryInfoSession"})
+	public void putBeneficiaryInfoSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putBeneficiaryInfoSession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

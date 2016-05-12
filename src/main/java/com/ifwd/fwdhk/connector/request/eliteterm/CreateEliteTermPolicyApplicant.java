@@ -46,6 +46,40 @@ public class CreateEliteTermPolicyApplicant{
 	private String liquidAsset;
 	private String sourceOfIncome;
 	private String currentEmployerName;
+	
+	
+	private String beneficiaryInfo;
+	
+	private String firstName1;
+	private String lastName1;
+	private String chineseName1;
+	private String beneficiaryHkidPassport1;
+	private String hkId1;
+	private String passportNo1;
+	private String gender1;
+	private String relationship1;
+	private String entitlement1;
+	
+	private String firstName2;
+	private String lastName2;
+	private String chineseName2;
+	private String beneficiaryHkidPassport2;
+	private String hkId2;
+	private String passportNo2;
+	private String gender2;
+	private String relationship2;
+	private String entitlement2;
+	
+	private String firstName3;
+	private String lastName3;
+	private String chineseName3;
+	private String beneficiaryHkidPassport3;
+	private String hkId3;
+	private String passportNo3;
+	private String gender3;
+	private String relationship3;
+	private String entitlement3;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -285,6 +319,177 @@ public class CreateEliteTermPolicyApplicant{
 	}
 	public void setCurrentEmployerName(String currentEmployerName) {
 		this.currentEmployerName = currentEmployerName;
+	}
+	public String getBeneficiaryInfo() {
+		return beneficiaryInfo;
+	}
+	public void setBeneficiaryInfo(String beneficiaryInfo) {
+		this.beneficiaryInfo = beneficiaryInfo;
+	}
+	public String getFirstName1() {
+		return firstName1;
+	}
+	public void setFirstName1(String firstName1) {
+		this.firstName1 = firstName1;
+	}
+	
+	public String getBeneficiaryHkidPassport1() {
+		return beneficiaryHkidPassport1;
+	}
+	public void setBeneficiaryHkidPassport1(String beneficiaryHkidPassport1) {
+		this.beneficiaryHkidPassport1 = beneficiaryHkidPassport1;
+	}
+	public String getHkId1() {
+		return hkId1;
+	}
+	public void setHkId1(String hkId1) {
+		this.hkId1 = hkId1;
+	}
+	public String getPassportNo1() {
+		return passportNo1;
+	}
+	public void setPassportNo1(String passportNo1) {
+		this.passportNo1 = passportNo1;
+	}
+	public String getGender1() {
+		return gender1;
+	}
+	public void setGender1(String gender1) {
+		this.gender1 = gender1;
+	}
+	public String getRelationship1() {
+		return relationship1;
+	}
+	public void setRelationship1(String relationship1) {
+		this.relationship1 = relationship1;
+	}
+	public String getEntitlement1() {
+		return entitlement1;
+	}
+	public void setEntitlement1(String entitlement1) {
+		this.entitlement1 = entitlement1;
+	}
+	public String getFirstName2() {
+		return firstName2;
+	}
+	public void setFirstName2(String firstName2) {
+		this.firstName2 = firstName2;
+	}
+	
+	public String getBeneficiaryHkidPassport2() {
+		return beneficiaryHkidPassport2;
+	}
+	public void setBeneficiaryHkidPassport2(String beneficiaryHkidPassport2) {
+		this.beneficiaryHkidPassport2 = beneficiaryHkidPassport2;
+	}
+	public String getHkId2() {
+		return hkId2;
+	}
+	public void setHkId2(String hkId2) {
+		this.hkId2 = hkId2;
+	}
+	public String getPassportNo2() {
+		return passportNo2;
+	}
+	public void setPassportNo2(String passportNo2) {
+		this.passportNo2 = passportNo2;
+	}
+	public String getGender2() {
+		return gender2;
+	}
+	public void setGender2(String gender2) {
+		this.gender2 = gender2;
+	}
+	public String getRelationship2() {
+		return relationship2;
+	}
+	public void setRelationship2(String relationship2) {
+		this.relationship2 = relationship2;
+	}
+	public String getEntitlement2() {
+		return entitlement2;
+	}
+	public void setEntitlement2(String entitlement2) {
+		this.entitlement2 = entitlement2;
+	}
+	public String getFirstName3() {
+		return firstName3;
+	}
+	public void setFirstName3(String firstName3) {
+		this.firstName3 = firstName3;
+	}
+
+	public String getBeneficiaryHkidPassport3() {
+		return beneficiaryHkidPassport3;
+	}
+	public void setBeneficiaryHkidPassport3(String beneficiaryHkidPassport3) {
+		this.beneficiaryHkidPassport3 = beneficiaryHkidPassport3;
+	}
+	public String getHkId3() {
+		return hkId3;
+	}
+	public void setHkId3(String hkId3) {
+		this.hkId3 = hkId3;
+	}
+	public String getPassportNo3() {
+		return passportNo3;
+	}
+	public void setPassportNo3(String passportNo3) {
+		this.passportNo3 = passportNo3;
+	}
+	public String getGender3() {
+		return gender3;
+	}
+	public void setGender3(String gender3) {
+		this.gender3 = gender3;
+	}
+	public String getRelationship3() {
+		return relationship3;
+	}
+	public void setRelationship3(String relationship3) {
+		this.relationship3 = relationship3;
+	}
+	public String getEntitlement3() {
+		return entitlement3;
+	}
+	public void setEntitlement3(String entitlement3) {
+		this.entitlement3 = entitlement3;
+	}
+	public String getLastName1() {
+		return lastName1;
+	}
+	public void setLastName1(String lastName1) {
+		this.lastName1 = lastName1;
+	}
+	public String getChineseName1() {
+		return chineseName1;
+	}
+	public void setChineseName1(String chineseName1) {
+		this.chineseName1 = chineseName1;
+	}
+	public String getLastName2() {
+		return lastName2;
+	}
+	public void setLastName2(String lastName2) {
+		this.lastName2 = lastName2;
+	}
+	public String getChineseName2() {
+		return chineseName2;
+	}
+	public void setChineseName2(String chineseName2) {
+		this.chineseName2 = chineseName2;
+	}
+	public String getLastName3() {
+		return lastName3;
+	}
+	public void setLastName3(String lastName3) {
+		this.lastName3 = lastName3;
+	}
+	public String getChineseName3() {
+		return chineseName3;
+	}
+	public void setChineseName3(String chineseName3) {
+		this.chineseName3 = chineseName3;
 	}
 	
 	
