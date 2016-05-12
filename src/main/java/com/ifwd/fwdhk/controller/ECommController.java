@@ -24,13 +24,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
-public class ECommController {
+public class ECommController extends BaseController {
 	@Autowired
 	private SendEmailDao sendEmail;
 	@Autowired
@@ -184,6 +186,56 @@ public class ECommController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 
+	@RequestMapping(value = {"/{lang}/cx"})
+	public ModelAndView getCxHomePage(HttpServletRequest request,HttpServletResponse response) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t1");
+	}
+
+	@RequestMapping(value = {"/{lang}/cx/step2"})
+	public ModelAndView getCxStep2(HttpServletRequest request,HttpServletResponse response) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t2");
+	}
+
+	@RequestMapping(value = {"/{lang}/cx/step3"})
+	public ModelAndView getCxStep3(HttpServletRequest request,HttpServletResponse response) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t3");
+	}
+
+	@RequestMapping(value = {"/{lang}/cx/step4"})
+	public ModelAndView getCxStep4(HttpServletRequest request,HttpServletResponse response) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t4");
+	}
+
+	@RequestMapping(value = {"/{lang}/cx/login"})
+	public ModelAndView getCxLogin(HttpServletRequest request,HttpServletResponse response) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t8");
+	}
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/cx/action"})
+	public void getCxAction(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if (request.getParameter("step").equals("get_flight")){
+			if (!request.getParameter("flight_num").equals("CX337")){
+				jsonObject.put("errorMsg", "fail");
+			}
+		} else {
+			jsonObject.put("data", "pass");		
+		}
+		
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = "/{lang}/fwdiscover")
 	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
 		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.discover", UserRestURIConstants.getLanaguage(request)));
