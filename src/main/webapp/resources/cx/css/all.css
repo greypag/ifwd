@@ -910,8 +910,15 @@ body form ul li.expand.focus .placeholder {
     margin: 30px 0 10px
 }
 .margin-top-40 {
-    margin-top: 40px;
+    margin-top: 55px;
 }
+
+@media screen and (min-width: 544px){
+	.margin-top-40 {
+    	margin-top: 35px;
+	}
+}
+
 .error-message {
     color: red;
 }
