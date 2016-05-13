@@ -159,7 +159,7 @@ var language = "${language}";
                       <c:if test="${(savieType == 'SP' && applicationType == 'online')}">
                      	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="button.next" bundle="${msg}" /></button>
                       </c:if>
-                      <c:if test="${plan == 'easyhealth-insurance' }">
+                      <c:if test="${plan == 'medical-insurance' }">
                      	<button class="btn savie-common-btn" type="button" id="btn-cstmr-srvc-cnter-eh"><fmt:message key="button.next" bundle="${msg}" /></button>
                       </c:if>
                    </div>

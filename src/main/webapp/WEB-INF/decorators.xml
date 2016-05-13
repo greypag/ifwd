@@ -36,7 +36,7 @@
 	</decorator>
 	
 	<decorator name="fwdeasyhealth" page="template_easy_health.jsp">
-		<pattern>/*/easyhealth-insurance*</pattern>
+		<pattern>/*/medical-insurance*</pattern>
 	</decorator>
 	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">

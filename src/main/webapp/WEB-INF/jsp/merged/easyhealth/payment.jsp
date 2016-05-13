@@ -291,7 +291,7 @@ $(document).ready(function() {
 	 			  type : "POST",
 	 			  cache:false, 
 				  async:false, 
-	 			  url : context+"/ajax/easyhealth-insurance/putPaymentSession",
+	 			  url : context+"/ajax/medical-insurance/putPaymentSession",
 	 			  data : {creditCaredNo : creditCaredNo,
 	 					  expiryDate: expiryDate,
 	 					  cardHolderName: cardHolderName},

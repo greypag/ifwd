@@ -93,7 +93,7 @@ var language = "${language}";
             <h5 class="title"><fmt:message key="label.summary2" bundle="${msg}" /></h5>
             <div class="summary-section clearfix">
                <c:if test="${plan == 'savings-insurance'}"><c:set var="backPlanUrl" value="plan-details-sp"/></c:if>
-               <c:if test="${plan == 'easyhealth-insurance'}"><c:set var="backPlanUrl" value="plan-option"/></c:if>
+               <c:if test="${plan == 'medical-insurance'}"><c:set var="backPlanUrl" value="plan-option"/></c:if>
                <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
