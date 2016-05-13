@@ -1177,10 +1177,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         }
         if (productCount==1) // case 1
         {
-            fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "." + "\r\n";
+            fnaMsg += String.format(WebServiceUtils.getMessage("fna.case1", lang), groupNames.get(matchProductGroup), contributeNames.get(savieFna.getQ4_e())).toString() + "\r\n";
         }
         if (hasIlas) {
-            fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "." + "\r\n";
+            fnaMsg += WebServiceUtils.getMessage("fna.case5", lang) + "\r\n";
         }
         String[] matchObj = productRecommendation.getQ1().split(",");
         String[] matchPdg = productRecommendation.getQ2().split(",");
@@ -1192,7 +1192,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         }
         
         if (productCount==1 && hasUlife && savieFna.getQ4_e().equals("0")) {
-        	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "." + "\r\n";
+        	fnaMsg += WebServiceUtils.getMessage("fna.case7", lang) + "\r\n";
         } else {
 	        if (unaffortableTypes.size()>0 && productCount<=1){
 	        	String unaffortableTypesName = "";
@@ -1203,7 +1203,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	            	}
 	            	unaffortableTypesName += entry.getKey();
 	            }
-	            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "." + "\r\n" + unaffortableTypesName + "." + "\r\n";
+	            fnaMsg += WebServiceUtils.getMessage("fna.case4", lang) + "\r\n" + unaffortableTypesName + "\r\n";
 	        }
 	        String case3aMsg = "";
 	        String case3bMsg = "";
@@ -1253,13 +1253,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        }
 	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
 	        	if (case3aMsg.equals(case3bMsg)){
-	        		fnaMsg += case3aMsg + ".";
+	        		fnaMsg += case3aMsg;
 	        	} else {
 	        		if (case3aMsg.length() > 0){
-	        			fnaMsg += case3aMsg + ".";
+	        			fnaMsg += case3aMsg;
 	        		}
 	        		if (case3bMsg.length() > 0){
-	        			fnaMsg += case3bMsg + ".";
+	        			fnaMsg += case3bMsg;
 	        		}
 	        	}
 	        }
