@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-<title>iFWD CX</title>
+<title>iFWD CXX</title>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../resources/cx/css/all.css" />
 <meta name="description" content="description" />
@@ -78,30 +78,38 @@
             </div>                
             <div class="content-box flight">
                 <p>
-                    To get online <i>and</i> receive one of our discount vouchers simply fill out the form and grab it now!  We have limited quantity so get a move on!
+                    To 1) get online and 2) receive one of our discount vouchers, simply fill out the form and grab them now!
+                </p>
+                <p>
+                    We have limited quantity so get a move on!
                 </p>
                 <form id="flight_number" method="post">
                    <ul>
                        <li>
                            <input id="flight" type="text" name="flight" class="" data-validate="required script symbol whitespace" />
                            <span class="sp icon"></span>
-                           <label class="placeholder" for="flight">Current Flight Number</label>
+                           <label class="placeholder" for="flight">Flight number </label>
                            <label class="error-message" for="flight">Error Message</label>                                   
                        </li>
                    </ul>  
-                   <div class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </div>
+                   <div class="small">I agree the Free Wi-fi Terms & Conditions</div>
                    <div id="submit" class="btn primary">GET STARTED</div>                          
                 </form>                        
             </div>
             <div class="row-space"></div>
             <div class="content-box intro">
-                <h2>About FWD</h2>
+                <h2>About FWD Hong Kong & Macau</h2>
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    FWD Group's businesses span Hong Kong & Macau, Thailand, Indonesia and the Philippines. In Hong Kong, FWD offers life and medical insurance, employee benefits, pension, and general insurance. The life insurance and general insurance operating entities have been assigned strong financial strength ratings by international rating agencies — FWD Life Insurance Company (Bermuda) Limited is rated "A3" by Moody's and "A" by Fitch; and FWD General Insurance Company Limited is rated "A" by Fitch.
                 </p>
-                <h2>About iFWD</h2>
                 <p>
-                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    FWD is focused on creating fresh customer experiences, with easy-to-understand products, supported by leading digital technologies. Through this customer-led approach, FWD will achieve its vision to become the leading pan-Asian insurer that changes the way people feel about insurance.
+                </p>
+                <p>
+                    Established in Asia in 2013, FWD is the insurance business arm of investment group, Pacific Century Group.
+                </p>
+                <p>
+                    For more information please visit <a class="link" href="www.fwd.com.hk" target="_blank">WWW.FWD.COM.HK</a>.
                 </p>
             </div>
             <div class="row-space"></div>
