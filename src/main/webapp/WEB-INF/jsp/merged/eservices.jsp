@@ -30,21 +30,21 @@ var languageP = "${language}";
 			<div class="row" id="purchase-history-page">
 				<h2><fmt:message key="label.fwd.member.account2" bundle="${msg}" /></h2>
 				<div class="btn-group account-dropdown hidden-md hidden-lg clearfix">
-                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                           <span class="button-text"><fmt:message key="tab.member.profile" bundle="${msg}" /></span>
-                           <i class="fa fa-angle-down"></i>
-                       </button>
-                       <ul class="dropdown-menu" role="menu">
-                           <li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
-                           <li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
-                           <li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
-                       </ul>
-                   </div>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						<span class="button-text"><fmt:message key="tab.member.profile" bundle="${msg}" /></span>
+						<i class="fa fa-angle-down"></i>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li class="mobile-dropdown dropdown-profile active"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-insurance-plan"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+						<li class="mobile-dropdown dropdown-promo-offers"><a href="#" data-toggle="tab" aria-expanded="true"><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+					</ul>
+				</div>
 				<div class="col-md-3 side-menu hidden-xs hidden-sm">
 					<ul class="nav nav-pills nav-stacked">
 						<li class="left-side-tab-menu profile active" id="profile-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="profile"></span><fmt:message key="tab.member.profile" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
-						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon  hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu insurance-plan" id="insurance-plan-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="insurance-plan"></span><fmt:message key="tab.insurance.plan" bundle="${msg}" /></a></li>
+						<li class="left-side-tab-menu promo-offers" id="promo-offers-tab-link"><a href="#"><span class="side-menu-icon hidden-xs hidden-sm" id="promo-offers"></span><fmt:message key="tab.promo.and.offers" bundle="${msg}" /></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-md-9 right-side-content">
@@ -108,8 +108,8 @@ var languageP = "${language}";
 	                                            </c:forEach>
 									        </c:when>
 									    </c:choose>
-									</div>	
-								</div>											
+									</div>
+								</div>
 								<!-- -->	
 								<div class="travel-container">
 									<div class="category-holder">
@@ -812,6 +812,7 @@ var languageP = "${language}";
 										 	</tr-->
 										 </tbody>
 									</table>
+									<p class="referral-notes visible-xs visible-sm"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
 								</div>
 							</div>	
 							<!--fwd partner code-->	
@@ -839,10 +840,10 @@ var languageP = "${language}";
 										 		<td><fmt:message key="label.account.partner.row2.col3" bundle="${msg}" /></td>
 										 	</tr>
 										 	<tr>
-										 		<td class="first-col"><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>3</sup></td>
+										 		<td class="first-col"><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col1" bundle="${msg}" /></a><sup>2</sup></td>
 										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col2" bundle="${msg}" /></a></td>
 										 		<td><a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.account.partner.row3.col3" bundle="${msg}" /></a></td>
-										 	</tr>												 	
+										 	</tr>
 										 </tbody>
 									</table>
 									<div id="partners-logo" class="visible-md visible-lg">
@@ -850,9 +851,8 @@ var languageP = "${language}";
 										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/partner_agoda.png" id="agoda" />
 										<a href="<%=request.getContextPath()%>/${language}/offers"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/CSL_logo.png" id="csl" /></a>
 									</div>
-									<p class="referral-notes"><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /></p>
-									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
-									<p class="referral-notes"><sup>3</sup> <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="note.refferal.program3" bundle="${msg}" /></a></p>
+									<p class="referral-notes hidden-xs hidden-sm "><sup>1</sup> <fmt:message key="note.refferal.program1" bundle="${msg}" /> <fmt:message key="note.refferal.program2" bundle="${msg}" /></p>
+									<p class="referral-notes"><sup>2</sup> <fmt:message key="note.refferal.program3.1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.csl_simcard" bundle="${msg}" />" target="_blank"><fmt:message key="note.refferal.program3.2" bundle="${msg}" /></a><fmt:message key="note.refferal.program3.3" bundle="${msg}" /></p>
 								</div>
 							</div>		
 						</div>		
@@ -949,7 +949,7 @@ var languageP = "${language}";
 				$('#promo-offers-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-profile').addClass('active');
-				var selText = 'Profile';
+				var selText = '<fmt:message key="tab.member.profile" bundle="${msg}" />'; //'Profile';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
 			} else if ($(this).hasClass('insurance-plan')) {
 				$('.eservices').addClass('insurance-active-page');
@@ -959,7 +959,7 @@ var languageP = "${language}";
 				$('#promo-offers-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
 				$('.dropdown-insurance-plan').addClass('active');
-				var selText = 'Insurance Plan';
+				var selText = '<fmt:message key="tab.insurance.plan" bundle="${msg}" />'; //'Insurance Plan';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
 			} else if ($(this).hasClass('promo-offers')) {
 				$('.eservices').addClass('promo-active-page');
@@ -968,8 +968,8 @@ var languageP = "${language}";
 				$('#purchase-history-tab-contents').addClass('hidden');
 				$('#eservices-tab-contents').addClass('hidden');
 				$('.mobile-dropdown').removeClass('active');
-				$('.dropdown-insurance-plan').addClass('active');
-				var selText = 'Promo & Offers';
+				$('.dropdown-promo-offers').addClass('active');
+				var selText = '<fmt:message key="tab.promo.and.offers" bundle="${msg}" />'; //'Promo & Offers';
 		  		$('.dropdown-menu li a').parents('.btn-group').find('.dropdown-toggle').html(selText+' <i class="fa fa-angle-down"></i>');
 		  	}	
 		});
