@@ -20,6 +20,7 @@
 	                        </p>
 	                    </div>
 	                    <div class="col-xs-12 col-sm-12 pad-none faq_menu">
+	                    	<div class="faq_menu_item" onclick="faqChangeCareMob('eh');"><fmt:message key="faq.easyhealth.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('e');"><fmt:message key="faq.eliteterm" bundle="${msg}" /></div>
                             <div class="faq_menu_item" onclick="faqChangeCareMob('s');"><fmt:message key="faq.savie.care" bundle="${msg}" /></div>
                             <div class="faq_menu_item" onclick="faqChangeCareMob('o');"><fmt:message key="faq.overseas" bundle="${msg}" /></div>
@@ -30,6 +31,307 @@
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
+
+                    <!-- Easy Health start -->
+                    <div id="faq_eh_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
+                        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg pad-none faq_title_container">
+                            <div class="faq_back" onclick="faqMainMenuMob('eh')">
+                                <i class="fa fa-arrow-left fa-2"></i>
+                            </div>
+                            <div class="faq_title">
+                               <fmt:message key="faq.easyhealth.care" bundle="${msg}" />
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                               <fmt:message key="faq.easyhealth.group1" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group1.q1" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group1.a1" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group1.q2" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group1.a2" bundle="${msg}" />   
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                               
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group1.q3" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group1.a3" bundle="${msg}" />   
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.easyhealth.group2" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group2.q4" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group2.a4" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group2.q5" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group2.a5" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.easyhealth.group3" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group3.q6" bundle="${msg}" />                                     
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer faq-answer">
+                                        <fmt:message key="faq.easyhealth.group3.a6.summary" bundle="${msg}" />
+										<table class="faq-answer__table">
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row1" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row1" bundle="${msg}" /></td>
+                                       	</tr>
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row2" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row2" bundle="${msg}" /></td>
+                                       	</tr>
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row3" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row3" bundle="${msg}" /></td>
+                                       	</tr>
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row4" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row4" bundle="${msg}" /></td>
+                                       	</tr>
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row5" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row5" bundle="${msg}" /></td>
+                                       	</tr>
+                                       	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row6" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row6" bundle="${msg}" /></td>
+                                       	</tr>
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row7" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row7" bundle="${msg}" /></td>
+                                       	</tr>
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row8" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row8" bundle="${msg}" /></td>
+                                       	</tr>
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row9" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row9" bundle="${msg}" /></td>
+                                       	</tr> 
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row10" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row10" bundle="${msg}" /></td>
+                                       	</tr> 
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row11" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row11" bundle="${msg}" /></td>
+                                       	</tr>
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row12" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row12" bundle="${msg}" /></td>
+                                       	</tr>
+                                        	<tr>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.left.row13" bundle="${msg}" /></td>
+                                       		<td class="faq-answer__table__cell"><fmt:message key="faq.easyhealth.group3.a6.table.right.row13" bundle="${msg}" /></td>
+                                       	</tr>                                         	                                         	                                         	                                        	                                        	                                         	                                       	                                        	                                        	                                        	                                        	                                        	
+                                       	</table>                                           
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group3.q7" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group3.a7" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group3.q8" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.easyhealth.group3.a8" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.easyhealth.group3.q9" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer faq-answer">
+                                        <fmt:message key="faq.easyhealth.group3.a9.summary" bundle="${msg}" />
+                                        <ol class="faq-answer__orderList clearfix">
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease1" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease2" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease3" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease4" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease5" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease6" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease7" bundle="${msg}" /></li>
+                                            <li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease8" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease9" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease10" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease11" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease12" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease13" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease14" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease15" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease16" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease17" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease18" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease19" bundle="${msg}" /></li>
+                                        	<li class="faq-answer__orderList__listItem"><fmt:message key="faq.easyhealth.group3.a9.disease20" bundle="${msg}" /></li>                                        	                            	
+                                        </ol>                                        
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                		<div class="clearfix"></div>
+                    </div>
+                    <!-- Easy Health end -->				    
                     <!-- oversea start -->
                     <div id="faq_o_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-xs-12 col-sm-12 hidden-md hidden-lg pad-none faq_title_container">
