@@ -13,12 +13,14 @@
 <title>iFWD CX</title>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../../resources/cx/css/all.css" />
+<meta name="robots" content="noindex">
 <meta name="description" content="description" />
 <meta name="title" content="title" />
 <meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="og title" />
 <meta property="og:image" content="og  image" />
 <meta property="og:description" content="og description" />
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script type="text/javascript">	
 	$(document).ready(function () {
@@ -58,7 +60,7 @@
                     </div>
                 </div>
                 <div class="logo-wrap">
-                    <a href="/">
+                    <a href="/cx/en">
                         <img class="logo" src="../../resources/cx/images/mobile_logo.png" alt="" />
                     </a>
                 </div>

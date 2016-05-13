@@ -8,17 +8,17 @@
 <html class="no-js">
 <!--<![endif]-->
 <head>
+<title>iFWD CX</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
-<title>iFWD CX</title>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="stylesheet" type="text/css"
 	href="../resources/cx/css/all.css" />
+<meta name="robots" content="noindex">
 <meta name="description" content="description" />
-<meta name="title" content="title" />
+<meta name="title" content="iFWD CX" />
 <meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="og title" />
 <meta property="og:image" content="og  image" />
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="logo-wrap">
-						<a href="/"> <img class="logo"
+						<a href="/cx/en"> <img class="logo"
 							src="../resources/cx/images/mobile_logo.png" alt="" />
 						</a>
 					</div>
