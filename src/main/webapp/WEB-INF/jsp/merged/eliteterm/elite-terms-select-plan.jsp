@@ -4786,6 +4786,14 @@ var home_url = "<%=request.getContextPath()%>";
 	}
 	
 	$(document).ready(function() {
+		var isOwnEstate = '${etPolicyApplication.applicant.beneficiaryInfo }';
+		if(isOwnEstate == 'name-others-now' || '${etPolicyApplication.applicant.firstName1 }' != ''){
+			$("#name-others-now").click();
+		}
+		else{
+			$("#own-estate-now").click();
+		}
+		
 		  alert('${etPageKey }');
 		  if('${etPageKey }' == '1'){
 			  backToStep(1);
