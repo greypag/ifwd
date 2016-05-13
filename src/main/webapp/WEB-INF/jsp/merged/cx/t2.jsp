@@ -46,12 +46,12 @@
     
         <div class="container main">
             <div class="content-box">
-                <h2>Pick a discount voucher</h2>
+                <h2>Pick a voucher</h2>
                 <p>
-                    Get ready to live with FWD! Select one of our great offers below.
+                    Get ready to live with FWD! Select one of our great offers below – 
                 </p>
                 <div class="small">
-                    You are under no obligation to purchase - We promise! :)                               
+                    you are under no obligation to purchase! We promise :)                               
                 </div>  
                 <form class="discount-wrap">
                     <div class="discount-headline">Please choose one</div>
@@ -61,16 +61,18 @@
                             <div id="discount_1_img" class="image-wrap" style="background-image: url('../../resources/cx/images/discount-travel.png');">
                                 <div class="input-wrap">
                                     <input id="discount_1" type="radio" name="discount" data-validate="" value="discount_1" />
-                                    <label for="discount_1"><span class="sp icon"></span><span class="title">Annual Travel Plan (80% OFF)</span></label>
+                                    <label for="discount_1"><span class="sp icon"></span><span class="title">Free 4-day Travel insurance</span></label>
                                     <span class="more">More ></span>
                                 </div>   
                                 <div class="shadow"></div>                                     
                             </div>
                             <div class="content-box">                                      
                                 <ul>
-                                    <li>Original price: HK$3,500 (Plan B)</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                    <li>4-days single trip travel plan</li>
+                                    <li>Original price: HK$135 (Plan B)</li>
+                                    <li>Valid for one individual</li>
+                                    <li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+                                    <li>Please refer to full Terms & Conditions.</li>
                                 </ul>                                        
                             </div>
                             <div class="line"></div>
@@ -80,18 +82,19 @@
                             <div id="discount_2_img" class="image-wrap" style="background-image: url('../../resources/cx/images/discount-travel2.png');">
                                 <div class="input-wrap">
                                     <input id="discount_2" type="radio" name="discount" data-validate="" value="discount_2" />
-                                    <label for="discount_2"><span class="sp icon"></span><span class="title">14-day Single Trip for you next</span></label>
+                                    <label for="discount_2"><span class="sp icon"></span><span class="title">Annual Travel insurance 80% off (now HK$260)</span></label>
                                     <span class="more">More ></span>
                                 </div>  
                                 <div class="shadow"></div>                                      
                             </div>
                             <div class="content-box">                                   
                                 <ul>
-                                    <li>Original price: HK$3,500 (Plan B)</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                    <li>Original price: HK$1,300 (Plan B)</li>
+                                    <li>Valid for one individual</li>
+                                    <li>Year-round coverage up to 90 days per trip</li>
+                                    <li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+                                    <li>Please refer to full Terms & Conditions.</li>
                                 </ul>
-
                             </div>
                             <div class="line"></div>
                         </div>
@@ -100,16 +103,17 @@
                             <div id="discount_3_img" class="image-wrap" style="background-image: url('../../resources/cx/images/discount-home.png');">
                                 <div class="input-wrap">
                                     <input id="discount_3" type="radio" name="discount" data-validate="" value="discount_3" />
-                                    <label for="discount_3"><span class="sp icon"></span><span class="title">Home Insurance Deal</span></label>
+                                    <label for="discount_3"><span class="sp icon"></span><span class="title">Home insurance 50% off (now HK$210)</span></label>
                                     <span class="more">More ></span>
                                 </div>      
                                 <div class="shadow"></div>                                  
                             </div>
                             <div class="content-box">
                                 <ul>
-                                    <li>Original price: HK$3,500 (Plan B)</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                    <li>Original price: HK$420</li>
+                                    <li>Applicable to any home below a net floor area of 1,000 sq. ft., aged not more than 35 years and situated in a building which is at least 5-storeys high</li>
+                                    <li>Covers up to HK$500,000 household contents, alternative accommodation of up to HK$1,000 per day / HK$50,000 per year and up to HK$5,000,000 personal liability</li>
+                                    <li>Please refer to full Terms & Conditions.</li>
                                 </ul>                                        
                             </div>
                         </div>
@@ -132,10 +136,9 @@
         <div class="container">
             <div class="copyright-links">
                 <ul class="nav">
-                    <li><a href="#" target="">Online Security</a></li>
-                    <li><a href="#" target="">Disclaimer</a></li>
-                    <li><a href="#" target="">Personal Data</a></li>
-                    <li><a href="#" target="">Protection Policy and Practices</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/online-security" target="_blank">Online Security</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/disclaimer" target="_blank">Disclaimer</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/personal-data-protection-policy-and-practices" target="_blank">Personal Data Protection Policy and Practices</a></li>
                 </ul>
                 
 

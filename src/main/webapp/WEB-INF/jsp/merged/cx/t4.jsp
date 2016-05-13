@@ -50,13 +50,13 @@
                 <div class="row-space"></div>              
                 <input id="wifi-voucher" spellcheck="false" value="XEF456" />
                 <div class="small">
-                    We also emailed this code to you along with your discount voucher.
+                    (We also emailed you the FWD discount voucher offer)
                 </div>                        
                 <div class="row-space"></div>
                 <div class="btn primary copy">Copy This Code</div> 
                 <div class="row-space"></div>
                 <p>
-                    Simply copy this code and then select the <span class="highlight">'Redeem your voucher'</span> button on the next screen.
+                    Simply copy this code and then select <span class="highlight">"Redeem your voucher"</span> on the next screen.
                 </p>
                 <div class="row-space"></div>
                 <div class="btn primary next">Next</div> 
@@ -76,10 +76,9 @@
         <div class="container">
             <div class="copyright-links">
                 <ul class="nav">
-                    <li><a href="#" target="">Online Security</a></li>
-                    <li><a href="#" target="">Disclaimer</a></li>
-                    <li><a href="#" target="">Personal Data</a></li>
-                    <li><a href="#" target="">Protection Policy and Practices</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/online-security" target="_blank">Online Security</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/disclaimer" target="_blank">Disclaimer</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/personal-data-protection-policy-and-practices" target="_blank">Personal Data Protection Policy and Practices</a></li>
                 </ul>
                 
 

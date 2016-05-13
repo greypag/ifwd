@@ -71,11 +71,11 @@
             <div class="full-width-container">
                 <div class="container">
                     <div class="content-box">
-                        <h2>Tell us about yourself</h2>
+                        <h2>Something about you</h2>
                         <div class="small">
-                            Registered just now but <a href="#" class="link">lost your voucher code</a>?
-                            <br/>
-                            Already friends? Existing members <a href="login" class="link">sign in</a> here                                
+                            Existing members<a href="login" class="link">sign in</a> here
+                            <br>
+                            Please ensure you use a valid email address to allow you to re-login should your connection drops.
                         </div>   
                     </div>                      
                 </div>    
@@ -86,37 +86,37 @@
                                 <li>
                                     <input id="name" type="text" name="name" data-validate="required script symbol" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="name">Full Name</label>
+                                    <label class="placeholder" for="name">Full Name (same as your HKID / Passport)</label>
                                     <label class="error-message" for="name">Please enter your Name.</label>
                                 </li>
                                 <li>
                                     <input id="mobile" type="tel" name="mobile" data-validate="required script phone" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="mobile">Mobile No.</label>
+                                    <label class="placeholder" for="mobile">Mobile Number  (country code + mobile number)</label>
                                     <label class="error-message" for="mobile">Please enter a valid Mobile No.</label>
                                 </li>
                                 <li>
                                     <input id="email" type="email" name="email" data-validate="required script email" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="email">Email address</label>
+                                    <label class="placeholder" for="email">Email Address (Wi-fi Voucher Code will be sent to this email)</label>
                                     <label class="error-message" for="email">Please enter your Email Address.</label>
                                 </li>
                                 <li>
                                     <input id="username" type="text" name="username" data-validate="required script username" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="username">User Name</label>
+                                    <label class="placeholder" for="username">Username (this will become your FWD eService login name)</label>
                                     <label class="error-message" for="username">Username must be between 6 and 50 characters.</label>
                                 </li>
                                 <li>
                                     <input id="password" type="password" name="password" data-validate="required script password" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="password">Password</label>
+                                    <label class="placeholder" for="password">Password (this will become your FWD login password)</label>
                                     <label class="error-message" for="password">Password must be at least 8 characters and alphanumeric (both upper AND lower cases).</label>
                                 </li>
                                 <li>
                                     <input id="password_confirm" type="password" name="password_confirm" data-validate="required script confirm_password" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="password_confirm">Confirm Password</label>
+                                    <label class="placeholder" for="password_confirm">Confirm password (this will become your FWD login)</label>
                                     <label class="error-message" for="password_confirm">Please Confirm Password.</label>
                                 </li>
                             </ul>    
@@ -131,7 +131,7 @@
                                         <li>
                                             <input id="agreement" type="checkbox" name="agreement" data-validate="checkbox" value="Agree" />
                                             <label for="agreement" class="sp">
-                                                I have read and understood Personal Information Collection Statement and agree to be bound by the same. By submitting my email address I agree to receive FWD's promotion code and other offers in the future.
+                                                I have read and understood <a class="link" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.<br>By submitting my personal information above I agree to receive FWD's WIFI Service Voucher Code, promotion code and other FWD offers in the future.
                                             </label>
                                             <label class="error-message" for="agreement">Please read and agree the statement.</label>
 
@@ -140,7 +140,7 @@
 
 
                             </div>
-                            <div id="submit" class="btn primary">Give Me Wi-Fi !!!</div>                        
+                            <div id="submit" class="btn primary">GIVE ME WI-FI</div>                        
                         </div>   
                     </div> 
                 </form>            
@@ -159,10 +159,9 @@
         <div class="container">
             <div class="copyright-links">
                 <ul class="nav">
-                    <li><a href="#" target="">Online Security</a></li>
-                    <li><a href="#" target="">Disclaimer</a></li>
-                    <li><a href="#" target="">Personal Data</a></li>
-                    <li><a href="#" target="">Protection Policy and Practices</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/online-security" target="_blank">Online Security</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/disclaimer" target="_blank">Disclaimer</a></li>
+                    <li><a href="https://www.fwd.com.hk/en/personal-data-protection-policy-and-practices" target="_blank">Personal Data Protection Policy and Practices</a></li>
                 </ul>
                 
 
