@@ -109,7 +109,7 @@ function submitLoginForm(formID) {
 							$("#fullName1").html(data.fullName);
 							saviePlanDetailsGoNext();
 						}
-						else if(window.location.href.indexOf("easyhealth-insurance/plan-option")>0){
+						else if(window.location.href.indexOf("medical-insurance/plan-option")>0){
 							$('#loginpopup').modal('hide');       
 							$("#offline-online-modal").modal('show');       
 						}
@@ -667,7 +667,7 @@ function getStarted(){
 			                          </li>
 			                          <li class="menu-link">
 			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			                          <a href="<%=request.getContextPath()%>/${language}/easyhealth-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
+			                          <a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
 			                          </li>
 		                         </ul> 		                      
 			                  </li>
@@ -930,7 +930,7 @@ function getStarted(){
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
 	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a></li>
-	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/easyhealth-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
+	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
 	                </ul>
                 </li>
                 <li class="menu-link-grp-title">

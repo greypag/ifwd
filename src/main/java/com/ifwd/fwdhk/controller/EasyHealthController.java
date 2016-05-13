@@ -57,18 +57,18 @@ public class EasyHealthController extends BaseController{
 	@Autowired
 	protected HeaderUtil headerUtil;
 
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance"})
+	@RequestMapping(value = {"/{lang}/medical-insurance"})
 	public ModelAndView getEasyHealth(Model model, HttpServletRequest request, HttpSession httpSession) {
 		easyHealthService.removeSession(request);
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH);
 	}
 	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/plan-option"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/plan-option"})
 	public ModelAndView getEasyHealthPlanOption(Model model, HttpServletRequest request, HttpSession httpSession) {
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/underwriting"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/underwriting"})
 	public ModelAndView getEasyHealthUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
 		model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
 		model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
@@ -79,7 +79,7 @@ public class EasyHealthController extends BaseController{
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/signature"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/signature"})
 	public ModelAndView getEasyHealthSignature(Model model, HttpServletRequest request,HttpSession session) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		try {
@@ -91,7 +91,7 @@ public class EasyHealthController extends BaseController{
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/payment"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/payment"})
 	public ModelAndView getEasyHealthPayment(Model model, HttpServletRequest request) {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
@@ -99,7 +99,7 @@ public class EasyHealthController extends BaseController{
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
 	}
 	
-	@RequestMapping(value = {"/{lang}/easyhealth-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/medical-insurance/confirmation"})
 	public ModelAndView getEasyHealthConfirmation(Model model, HttpServletRequest request) {
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION);
 	}

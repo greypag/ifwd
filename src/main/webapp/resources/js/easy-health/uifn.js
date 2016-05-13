@@ -1,5 +1,5 @@
 var contextPath = context;
-var getPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/getPremium';
+var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {

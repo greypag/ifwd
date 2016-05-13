@@ -1767,7 +1767,7 @@ var home_url = "<%=request.getContextPath()%>";
                   type : "post",
                   cache:false, 
                   async:false, 
-                  url : '${pageContext.request.contextPath}/ajax/easyhealth-insurance/putPremium',
+                  url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
                   data : {pro : pro},
                   success : function(data) {
                      window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
