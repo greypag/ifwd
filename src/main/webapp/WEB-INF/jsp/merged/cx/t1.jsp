@@ -91,8 +91,7 @@
 					<li><input id="flight" type="text" name="flight" class=""
 						data-validate="required script symbol whitespace" /> <span
 						class="sp icon"></span> <label class="placeholder" for="flight">Flight
-							number </label> <label class="error-message" for="flight">Error
-							Message</label></li>
+							number </label> <label class="error-message" for="flight"></label></li>
 				</ul>
 				<div class="small">I agree the Free Wi-fi Terms & Conditions</div>
 				<div id="submit" class="btn primary">GET STARTED</div>
@@ -106,7 +105,7 @@
 				medical insurance, employee benefits, pension, and general
 				insurance. The life insurance and general insurance operating
 				entities have been assigned strong financial strength ratings by
-				international rating agencies — FWD Life Insurance Company
+				international rating agencies - FWD Life Insurance Company
 				(Bermuda) Limited is rated "A3" by Moody's and "A" by Fitch; and FWD
 				General Insurance Company Limited is rated "A" by Fitch.</p>
 			<p>FWD is focused on creating fresh customer experiences, with

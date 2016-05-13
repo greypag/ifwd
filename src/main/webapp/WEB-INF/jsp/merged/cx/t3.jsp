@@ -92,31 +92,31 @@
                                 <li>
                                     <input id="mobile" type="tel" name="mobile" data-validate="required script phone" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="mobile">Mobile Number  (country code + mobile number)</label>
+                                    <label class="placeholder" for="mobile">Mobile Number</label>
                                     <label class="error-message" for="mobile">Please enter a valid Mobile No.</label>
                                 </li>
                                 <li>
                                     <input id="email" type="email" name="email" data-validate="required script email" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="email">Email Address (Wi-fi Voucher Code will be sent to this email)</label>
+                                    <label class="placeholder" for="email">Email Address</label>
                                     <label class="error-message" for="email">Please enter your Email Address.</label>
                                 </li>
                                 <li>
                                     <input id="username" type="text" name="username" data-validate="required script username" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="username">Username (this will become your FWD eService login name)</label>
+                                    <label class="placeholder" for="username">Username</label>
                                     <label class="error-message" for="username">Username must be between 6 and 50 characters.</label>
                                 </li>
                                 <li>
                                     <input id="password" type="password" name="password" data-validate="required script password" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="password">Password (this will become your FWD login password)</label>
+                                    <label class="placeholder" for="password">Password</label>
                                     <label class="error-message" for="password">Password must be at least 8 characters and alphanumeric (both upper AND lower cases).</label>
                                 </li>
                                 <li>
                                     <input id="password_confirm" type="password" name="password_confirm" data-validate="required script confirm_password" />
                                     <span class="sp icon"></span>
-                                    <label class="placeholder" for="password_confirm">Confirm password (this will become your FWD login)</label>
+                                    <label class="placeholder" for="password_confirm">Confirm password</label>
                                     <label class="error-message" for="password_confirm">Please Confirm Password.</label>
                                 </li>
                             </ul>    
