@@ -490,7 +490,7 @@ var home_url = "<%=request.getContextPath()%>";
                             </div>
                             <div class="plan-selector-grid">
                                 <a href="javascript:void(0);" class="text-center btn-plan-selector" data-tab="eh-plan-d">
-                                    <span class="grid-head"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /></span>
+                                    <span class="grid-head"><fmt:message key="easyhealth.plan.intro.label.deluxe" bundle="${msg}" /></span>
                                     <span class="grid-desc"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price"></span> / <fmt:message key="easyhealth.plandetails.month" bundle="${msg}" /></span>
                                 </a>
                             </div>
