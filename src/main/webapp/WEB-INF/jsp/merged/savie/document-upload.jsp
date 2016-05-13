@@ -424,23 +424,25 @@ var languageP = "${language}";
 		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				ga('create', 'UA-60032236-1', 'auto');
-	            ga('require', 'ecommerce');
-	            ga('ecommerce:addTransaction', {
-	             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
-	             'revenue': '${saviePlanDetails.insuredAmount }', // Grand Total of single premium 
-	             'affiliation': 'Save', // Insurance type, e.g. Life
-	              'currency': 'HKD'
-	             });
-	            ga('ecommerce:addItem', {
-	                 'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required
-	                 'name': 'Savie SP online', // Product name. Required
-	                 'category': 'Savings', // Category or variation
-	                 'price': '${saviePlanDetails.insuredAmount }', // Unit price (this is the one off premium for SP)
-	                 'quantity': '1',
-	                 'currency': 'HKD'
-	               });
-	            ga('ecommerce:send');
+				if( ga ){
+					ga('create', 'UA-60032236-1', 'auto');
+		            ga('require', 'ecommerce');
+		            ga('ecommerce:addTransaction', {
+		             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
+		             'revenue': '${saviePlanDetails.insuredAmount }', // Grand Total of single premium 
+		             'affiliation': 'Save', // Insurance type, e.g. Life
+		              'currency': 'HKD'
+		             });
+		            ga('ecommerce:addItem', {
+		                 'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required
+		                 'name': 'Savie SP online', // Product name. Required
+		                 'category': 'Savings', // Category or variation
+		                 'price': '${saviePlanDetails.insuredAmount }', // Unit price (this is the one off premium for SP)
+		                 'quantity': '1',
+		                 'currency': 'HKD'
+		               });
+		            ga('ecommerce:send');
+		        }
 				
 				var language = "en";
 				if(msieversion()>0 && msieversion()<10) {
