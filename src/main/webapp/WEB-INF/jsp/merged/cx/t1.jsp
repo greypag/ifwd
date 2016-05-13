@@ -26,27 +26,52 @@
 <script
 	src="../resources/js/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#submit").on('click', function() {
-			$.ajax({
-				url : '../cx/action',
-				type : 'get',
-				data : {
-					"flight_num" : $("input[name='flight']").val(),
-					"step" : "get_flight"
-				},
-				error : function() {
-				},
-				success : function(data) {
-					if (data.errorMsg == null) {
-						window.location = "en/step2";
-					} else {
-						$(".error-message").html("Invalid Flight Number");
-					}
-				}
-			});
-		});
+	$(document).ready(function() {        
+		//$("#submit").on('click', function() {
+		//	$.ajax({
+		//		url : '../cx/action',
+		//		type : 'get',
+		//		data : {
+		//			"flight_num" : $("input[name='flight']").val(),
+		//			"step" : "get_flight"
+		//		},
+		//		error : function() {
+		//		},
+		//		success : function(data) {
+		//			if (data.errorMsg == null) {
+		//				window.location = "en/step2";
+		//			} else {
+		//				$(".error-message").html("Invalid Flight Number");
+		//			}
+		//		}
+		//	});
+		//});
 	});
+
+    function submitAction(){
+        $.ajax({
+            url : '../cx/action',
+            type : 'get',
+            data : {
+                "flight_num" : $("input[name='flight']").val(),
+                "step" : "get_flight"
+            },
+            error : function() {
+                $(".error-message").html("Invalid Flight Number");
+                $('#flight_number li').removeClass('ok').addClass('error');
+                $('#submit').removeClass('disabled');
+            },
+            success : function(data) {
+                if (data.errorMsg == null) {
+                    window.location = "en/step2";
+                } else {
+                    $(".error-message").html("Invalid Flight Number");
+                    $('#flight_number li').removeClass('ok').addClass('error');
+                    $('#submit').removeClass('disabled');
+                }
+            }
+        });
+    }
 </script>
 </head>
 
@@ -91,7 +116,7 @@
 					<li><input id="flight" type="text" name="flight" class=""
 						data-validate="required script symbol whitespace" /> <span
 						class="sp icon"></span> <label class="placeholder" for="flight">Flight
-							number </label> <label class="error-message" for="flight"></label></li>
+							number </label> <label class="error-message" for="flight">Please enter a flight number.</label></li>
 				</ul>
 				<div class="small">I agree the Free Wi-fi Terms & Conditions</div>
 				<div id="submit" class="btn primary">GET STARTED</div>

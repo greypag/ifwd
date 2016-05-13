@@ -24,26 +24,48 @@
 	<script src="../../resources/js/jquery.min.js"></script>
 	<script type="text/javascript">	
 	$(document).ready(function () {
-		$("#submit").on('click', function(){
-			$.ajax({     
-			    url:'../../cx/action',     
-			    type:'get',     
-			    data:{    
-			    	"name":$("input[name='name']").val(),
-			    	"email":$("input[name='email']").val(),
-			    	"mobile":$("input[name='mobile']").val(),
-			    	"username":$("input[name='username']").val(),
-			    	"password":$("input[name='password']").val(),
-			    	"step":"register"
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	window.location.href='step4';  
-			    }
-			});
-	    });
+		
+        //$("#submit").on('click', function(){
+		//	$.ajax({     
+		//	    url:'../../cx/action',     
+		//	    type:'get',     
+		//	    data:{    
+		//	    	"name":$("input[name='name']").val(),
+		//	    	"email":$("input[name='email']").val(),
+		//	    	"mobile":$("input[name='mobile']").val(),
+		//	    	"username":$("input[name='username']").val(),
+		//	    	"password":$("input[name='password']").val(),
+		//	    	"step":"register"
+		//   		},     
+		//	    error:function(){       
+		//	    },     
+		//	    success:function(data){
+		//	    	window.location.href='step4';  
+		//	    }
+		//	});
+	    //});
 	});
+
+    function submitAction(){
+        $.ajax({     
+            url:'../../cx/action',     
+            type:'get',     
+            data:{    
+                "name":$("input[name='name']").val(),
+                "email":$("input[name='email']").val(),
+                "mobile":$("input[name='mobile']").val(),
+                "username":$("input[name='username']").val(),
+                "password":$("input[name='password']").val(),
+                "step":"register"
+            },     
+            error:function(){       
+            },     
+            success:function(data){
+                window.location.href='step4';  
+            }
+        });
+    }
+
 	</script>        
 	</head>
 	<body class="en t3">
