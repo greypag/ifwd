@@ -5,7 +5,7 @@
 <head>
 	<dec:head />
 </head>
-<body>
+<body class="${pageClass}">
 	<dec:body />
 </body>
 </html>

@@ -187,37 +187,42 @@ public class ECommController extends BaseController {
 	}
 
 	@RequestMapping(value = {"/{lang}/cx"})
-	public ModelAndView getCxHomePage(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView getCxHomePage(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t1");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t1");
 	}
 
 	@RequestMapping(value = {"/{lang}/cx/step2"})
-	public ModelAndView getCxStep2(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView getCxStep2(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t2");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t2");
 	}
 
 	@RequestMapping(value = {"/{lang}/cx/step3"})
-	public ModelAndView getCxStep3(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView getCxStep3(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t3");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t3");
 	}
 
 	@RequestMapping(value = {"/{lang}/cx/step4"})
-	public ModelAndView getCxStep4(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView getCxStep4(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t4");		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t4");
 	}
 
 	@RequestMapping(value = {"/{lang}/cx/login"})
-	public ModelAndView getCxLogin(HttpServletRequest request,HttpServletResponse response) {
+	public ModelAndView getCxLogin(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t8");		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t8");
 	}
 

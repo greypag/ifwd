@@ -19,7 +19,28 @@
 <meta property="og:title" content="og title" />
 <meta property="og:image" content="og  image" />
 <meta property="og:description" content="og description" />
-        
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script type="text/javascript">	
+	$(document).ready(function () {
+		$("#submit").on('click', function(){
+			$.ajax({     
+			    url:'../../cx/action',     
+			    type:'get',     
+			    data:{    
+			    	"discount":$("input[name='discount']").val(),
+			    	"step":"get_promo"
+		   		},     
+			    error:function(){       
+			    },     
+			    success:function(data){
+				    if (data.errorMsg == null) {
+				    	window.location = "step3";  
+					}
+			    }
+			});
+	    });
+	});
+	</script>        
 	</head>
 	<body class="en t2">
         <header>
