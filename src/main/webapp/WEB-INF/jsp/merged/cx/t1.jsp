@@ -78,8 +78,8 @@
 			style="background-image: url('../resources/cx/images/header-image.jpg');">
 			<div class="shadow"></div>
 			<div class="text-wrap">
-				<h1>Free Wi-Fi from FWD</h1>
-				<p>Get free Wi-Fi for the entire flight now. (Up to 120MB)</p>
+				<h1>FREE Wi-Fi from FWD</h1>
+				<p>Get 1-hour free Wi-Fi for this flight now (up to 30 MB)!</p>
 			</div>
 		</div>
 		<div class="content-box flight">

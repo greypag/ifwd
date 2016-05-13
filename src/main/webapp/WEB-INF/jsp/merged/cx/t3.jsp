@@ -75,7 +75,7 @@
                     <div class="content-box">
                         <h2>Something about you</h2>
                         <div class="small">
-                            Existing members<a href="login" class="link">sign in</a> here
+                            Existing members<a href="login" class="link"> sign in </a> here
                             <br>
                             Please ensure you use a valid email address to allow you to re-login should your connection drops.
                         </div>   
@@ -135,7 +135,7 @@
                                             <label for="agreement" class="sp">
                                                 I have read and understood <a class="link" href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.<br>By submitting my personal information above I agree to receive FWD's WIFI Service Voucher Code, promotion code and other FWD offers in the future.
                                             </label>
-                                            <label class="error-message" for="agreement">Please read and agree the statement.</label>
+                                            <label class="error-message margin-top-40" for="agreement">Please read and agree the statement.</label>
 
                                         </li>
                                     </ul>
