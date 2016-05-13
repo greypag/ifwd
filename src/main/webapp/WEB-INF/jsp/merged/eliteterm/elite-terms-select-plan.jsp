@@ -761,42 +761,6 @@ var home_url = "<%=request.getContextPath()%>";
 													<p>
 														<fmt:message key="eliteTerms.selectPlan.Question2.copy"
 															bundle="${msg}" />
-													<div class="row et-disease-list">
-														<ul class="col-xs-12 col-md-6">
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span2" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span3" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span4" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
-														</ul>
-														<ul class="col-xs-12 col-md-6">
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
-															<li><span><fmt:message
-																		key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
-														</ul>
-													</div>
 													</p>
 												</div>
 												<div class="col-xs-12 col-md-4">
@@ -845,7 +809,37 @@ var home_url = "<%=request.getContextPath()%>";
 													<p>
 														<fmt:message key="eliteTerms.selectPlan.Question3.copy"
 															bundle="${msg}" />
-													</p>
+													</p>		
+													<div class="et-disease-list">
+														<ul class="col-xs-12 col-md-6">
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span2" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span3" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span4" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
+														</ul>
+														<ul class="col-xs-12 col-md-6">
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
+														</ul>
+													</div>
 												</div>
 												<div class="col-xs-12 col-md-4">
 													<div class="row">
