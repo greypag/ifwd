@@ -4836,6 +4836,37 @@ var home_url = "<%=request.getContextPath()%>";
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '9'){
+			  if (!$("#signature").find('canvas').length) {
+
+		            // determine signature pad height
+		            var $jSignatureCan = $('.jSignature');
+		            
+		            var sigHeight = '350px';
+		            if (getWidth() < 992) {
+		              sigHeight = '260px';
+		            }
+
+		            // Initialize signature area
+		            $("#signature").jSignature({
+		               height: sigHeight, 
+		               width: '100%',
+		               'decor-color': 'transparent',
+		            }).on('change', function(e) {
+		               var $self = $(this);
+		               
+		               if ($("#signature").jSignature('getData', 'native').length) {
+		                  $self.siblings('.correct-signature')
+		                        .removeClass('hide-element');
+
+		                  $('#signature-section .fwd-error-red .help-block').html('').css('display', 'none');
+
+		               } else {
+		                  $self.siblings('.correct-signature')
+		                        .addClass('hide-element');
+		               }
+		            });
+			  }
+			  
 			  backToStep(9);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-fourth-section').offset().top - stickyHeight) + 'px'
