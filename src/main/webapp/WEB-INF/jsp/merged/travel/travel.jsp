@@ -856,7 +856,7 @@ function getParameterByUrl(name){
 			  <b><fmt:message key="travel.main.other.benefit.desc10.part1_1" bundle="${msg}" /></b>
 			  <fmt:message key="travel.main.other.benefit.desc10.part1_2" bundle="${msg}" />
 			  <%--<fmt:message key="csl.simcard.link1" bundle="${msg}" />/${language}/<fmt:message key="csl.simcard.link2" bundle="${msg}" /> --%>
-			  <a href="<fmt:message key="csl.promo1.link" bundle="${msg}" />" target="_blank">
+			  <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" target="_blank">
 			    <fmt:message key="travel.main.other.benefit.desc10.part2" bundle="${msg}" />
 			  </a>
 			  <fmt:message key="travel.main.other.benefit.desc10.part3" bundle="${msg}" />
