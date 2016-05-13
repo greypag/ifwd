@@ -16,7 +16,7 @@
 	</decorator>
 
 	<decorator name="fwdcx" page="template_cx.jsp">
-		<pattern>/*/cx*</pattern>
+		<pattern>/cx*</pattern>
 	</decorator>
 
 	<decorator name="fwdagoda" page="template_agoda.jsp">

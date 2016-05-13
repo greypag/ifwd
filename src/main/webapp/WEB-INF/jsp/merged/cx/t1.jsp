@@ -24,7 +24,7 @@
 <meta property="og:image" content="og  image" />
 <meta property="og:description" content="og description" />
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	src="../resources/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#submit").on('click', function() {
@@ -39,7 +39,7 @@
 				},
 				success : function(data) {
 					if (data.errorMsg == null) {
-						window.location = "cx/step2";
+						window.location = "en/step2";
 					} else {
 						$(".error-message").html("Invalid Flight Number");
 					}

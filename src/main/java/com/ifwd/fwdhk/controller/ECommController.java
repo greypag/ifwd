@@ -186,7 +186,7 @@ public class ECommController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 
-	@RequestMapping(value = {"/{lang}/cx", "/{lang}/cx/"})
+	@RequestMapping(value = {"/cx/{lang}", "/cx/{lang}/"})
 	public ModelAndView getCxHomePage(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -194,7 +194,7 @@ public class ECommController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t1");
 	}
 
-	@RequestMapping(value = {"/{lang}/cx/step2", "/{lang}/cx/step2/"})
+	@RequestMapping(value = {"/cx/{lang}/step2", "/cx/{lang}/step2/"})
 	public ModelAndView getCxStep2(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -202,7 +202,7 @@ public class ECommController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t2");
 	}
 
-	@RequestMapping(value = {"/{lang}/cx/step3", "/{lang}/cx/step3/"})
+	@RequestMapping(value = {"/cx/{lang}/step3", "/cx/{lang}/step3/"})
 	public ModelAndView getCxStep3(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -210,7 +210,7 @@ public class ECommController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t3");
 	}
 
-	@RequestMapping(value = {"/{lang}/cx/step4", "/{lang}/cx/step4"})
+	@RequestMapping(value = {"/cx/{lang}/step4", "/cx/{lang}/step4/"})
 	public ModelAndView getCxStep4(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -218,7 +218,7 @@ public class ECommController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t4");
 	}
 
-	@RequestMapping(value = {"/{lang}/cx/login"})
+	@RequestMapping(value = {"/cx/{lang}/login"})
 	public ModelAndView getCxLogin(HttpServletRequest request,HttpServletResponse response, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
