@@ -46,7 +46,7 @@ public class EasyHealthPageFlowControl {
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("easyhealth-insurance")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("medical-insurance")){
 				referer = UserRestURIConstants.URL_EASYHEALTH;
 			} else {
 				referer = getEasyHealthPage(referer);
@@ -54,7 +54,7 @@ public class EasyHealthPageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("easyhealth-insurance")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("medical-insurance")){
 				current = UserRestURIConstants.URL_EASYHEALTH;
 			} else {
 				current = getEasyHealthPage(current);
@@ -104,11 +104,11 @@ public class EasyHealthPageFlowControl {
 
 		}
 
-		logger.debug("nextPageFlow : " + "easyhealth-insurance/"+to);
-		logger.debug("nextPageFlow2 : " + "easyhealth-insurance/"+to2);
+		logger.debug("nextPageFlow : " + "medical-insurance/"+to);
+		logger.debug("nextPageFlow2 : " + "medical-insurance/"+to2);
 
-		model.addAttribute("nextPageFlow", "easyhealth-insurance/"+to);
-		model.addAttribute("nextPageFlow2", "easyhealth-insurance/"+to2);
+		model.addAttribute("nextPageFlow", "medical-insurance/"+to);
+		model.addAttribute("nextPageFlow2", "medical-insurance/"+to2);
 
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 

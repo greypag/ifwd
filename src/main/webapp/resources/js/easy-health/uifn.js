@@ -1,5 +1,5 @@
 var contextPath = context;
-var getPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/getPremium';
+var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -338,7 +338,6 @@ function fillPlanData(json) {
         var pc = planCode[pi];
 
         //plan overview
-        $(".step2 .txt-type-" + pc).html(p.type);
         $(".step2 .plan-mca .txt-price-" + pc).html(priceFormat(p.monthlyPremium));
         $(".step2 .plan-dhc .txt-price-" + pc).html(priceFormat(p.dailyHospitalCash));
         $(".step2 .plan-icu .txt-price-" + pc).html(priceFormat(p.intensiveCareUnit));
@@ -346,13 +345,11 @@ function fillPlanData(json) {
         $(".step2 .plan-rop .txt-price-" + pc).html(priceFormat(p.refundPremium));
 
         //plan selector
-        $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
 
         //ferris wheel       
-        $(".step3 .eh-plan-" + pc + " .txt-type").html(p.type);
         $(".step3 .eh-plan-" + pc + " .txt-youpay-price .value").html(priceFormat(p.monthlyPremium));
         $(".step3 .eh-plan-" + pc + " .txt-price-hc .value").html(priceFormat(p.dailyHospitalCash));
         $(".step3 .eh-plan-" + pc + " .txt-price-icu .value").html(priceFormat(p.intensiveCareUnit));

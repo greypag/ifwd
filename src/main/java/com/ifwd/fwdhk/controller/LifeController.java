@@ -350,7 +350,7 @@ public class LifeController extends BaseController{
 			if(backSummary!=null && "Y".equals(backSummary)){
 				model.addAttribute("backSummary", backSummary);
 			}
-			if("easyhealth-insurance".equals(plan)){
+			if("medical-insurance".equals(plan)){
 				SavieFnaBean savieFna = new SavieFnaBean();
 				savieFna.setName(userDetails.getFullName());
 				savieFna.setUser_name(userDetails.getFullName());
