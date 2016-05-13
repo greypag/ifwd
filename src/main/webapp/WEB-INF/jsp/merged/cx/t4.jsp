@@ -60,7 +60,7 @@
                     Simply copy this code and then select <span class="highlight">"Redeem your voucher"</span> on the next screen.
                 </p>
                 <div class="row-space"></div>
-                <div class="btn primary next">Next</div> 
+                <div class="btn primary next"><a href="https://wifi.cathaypacific.com" target="_blank">Next</div> 
                 <div class="row-space"></div>
             </div>    
         </div>        
