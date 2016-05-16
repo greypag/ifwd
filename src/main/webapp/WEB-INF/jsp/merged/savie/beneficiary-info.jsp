@@ -840,13 +840,10 @@ var languageP = "${language}";
 									   max: 6,
 									   message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 									   },
-									/*
-									//$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keyup') to replace this validator
-									regexp: {
-										regexp: /^[\s\u4e00-\u9fa5]*$/,
-										message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
-									},
-									*/
+								  regexp: {
+									 regexp: /^[\s\u4e00-\u9fa5]*$/,
+									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
+								  },
 								  callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1033,13 +1030,10 @@ var languageP = "${language}";
 									max: 6,
 									message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 								},
-								/*
-								//$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keyup') to replace this validator
 								regexp: {
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								*/
 								callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1245,13 +1239,10 @@ var languageP = "${language}";
 			                        max: 6,
 			                        message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 			                    },
-								/*
-								//$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keyup') to replace this validator
 								regexp: {
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								*/
 								trigger: 'change keyup'
 							}
 						},
@@ -1468,29 +1459,13 @@ var languageP = "${language}";
 				});
 			}
 
-/*
-//'keypress' event not working on mobile, just keep this function for reference
-
-$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keypress', function (event) {
-	var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
-	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-	if (!regex.test(key)) {
-		event.preventDefault();
-		return false;
-	}
-});
-*/
-			function isChin(str){
-				 return /^[\u4e00-\u9fa5]+$/.test(str);
-			}
-			$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keyup', function (event) {
-				val_arr = $(this).val().split(''); //turn string to array
-				for(i = 0; i < val_arr.length; i++) {
-					if(!isChin(val_arr[i])){ //check each char is chinese or not
-						val_arr[i] = ''; //if the char is not chinese, remove it
-					}
+			$('[name="beneficaryChineseName1"],[name="beneficaryChineseName2"],[name="beneficaryChineseName3"]').bind('keypress', function (event) {
+				var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
+				var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+				if (!regex.test(key)) {
+					event.preventDefault();
+					return false;
 				}
-				$(this).val(val_arr.join('')); //turn array back to string
 			});
 			
 		});
