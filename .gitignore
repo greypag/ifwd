@@ -48,3 +48,7 @@ Servers/
 /src/main/webapp/WEB-INF/jsp/merged/homecare/.DS_Store
 /src/main/webapp/WEB-INF/jsp/merged/homecare/._.DS_Store
 src/main/webapp/resources/scss/
+
+src/main/webapp/resources/images/savie-regular/test
+src/main/webapp/resources/images/savie-regular/img_20160512
+src/main/webapp/resources/images/savie-regular/snapshot_*
