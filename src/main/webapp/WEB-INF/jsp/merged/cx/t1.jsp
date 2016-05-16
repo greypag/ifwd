@@ -53,7 +53,7 @@
             url : '../cx/action',
             type : 'get',
             data : {
-                "flight_num" : $("input[name='flight']").val(),
+                "flight_num" : $("input[name='flight']").val().toUpperCase(),
                 "step" : "get_flight"
             },
             error : function() {
