@@ -1102,7 +1102,7 @@ $('.chinese-input').bind('keypress', function (event) {
 			function isChin(str){
 				 return /^[\u4e00-\u9fa5]+$/.test(str);
 			}
-			$('.chinese-input').bind('keyup', function (event) {
+			$('.chinese-input').bind('keyup input', function (event) {
 				val_arr = $(this).val().split(''); //turn string to array
 				for(i = 0; i < val_arr.length; i++) {
 					if(!isChin(val_arr[i])){ //check each char is chinese or not
