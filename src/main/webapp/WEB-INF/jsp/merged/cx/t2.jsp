@@ -52,7 +52,6 @@
                     <div class="language">
                         <ul class="nav">
                             <li><a class="active" href="#" target="_top">EN</a></li>
-                            <li><a href="#" target="_top">中</a></li>
                         </ul>
                     </div>
                 </div>

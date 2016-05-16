@@ -84,7 +84,6 @@
 						<div class="language">
 							<ul class="nav">
 								<li><a class="active" href="#" target="_top">EN</a></li>
-								<li><a href="#" target="_top">中</a></li>
 							</ul>
 						</div>
 					</div>
@@ -104,7 +103,7 @@
 			<div class="shadow"></div>
 			<div class="text-wrap">
 				<h1>FREE Wi-Fi from FWD</h1>
-				<p>Get 1-hour free Wi-Fi for this flight now (up to 30 MB)!</p>
+				<p>Get 1-hour free Wi-Fi for this flight now!</p>
 			</div>
 		</div>
 		<div class="content-box flight">
