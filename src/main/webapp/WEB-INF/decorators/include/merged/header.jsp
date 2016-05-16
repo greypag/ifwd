@@ -660,11 +660,12 @@ function getStarted(){
 		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
 			                  <li class="nav-group no-padding">
 		                          <ul class="col-lg-12 col-md-12 no-padding">
-		                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></li>
+			                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></li>
 			                          <li class="menu-link">
 			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			                          <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a>
 			                          </li>
+			                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></li>
 			                          <li class="menu-link">
 			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			                          <a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
@@ -927,11 +928,14 @@ function getStarted(){
               <ul class="col-sm-12 dropdown-menu">
                 
                 <li class="menu-link-grp-title">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
 	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a></li>
-	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
 	                </ul>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></a>
+                    <ul class="col-sm-12 dropdown-menu">
+	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
+	                </ul>	                
                 </li>
                 <li class="menu-link-grp-title">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></a>
