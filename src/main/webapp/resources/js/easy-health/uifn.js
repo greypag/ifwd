@@ -171,6 +171,12 @@ $(document).ready(function() {
     $(".step-option .item").click(function (){
         checkSuggestionSelection();
     });
+    $(".step-option .btn-option-cancel").click(function (){
+        $(".step-option").fadeOut(function() {
+            $("body").scrollTo(".step3");
+            $(".step3, .sticky-help-wrapper").fadeIn();
+        });
+    });
     $(".step-option .btn-need-plan").click(function (){
         if($(this).hasClass("disabled-gray-btn")) return;
         var choices = $(".step-option .item.selected").length;
@@ -199,8 +205,8 @@ $(document).ready(function() {
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
         $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
-        
-    })
+
+    });
 });
 
 function changeSelection(item, selected, isAddSelected) {
