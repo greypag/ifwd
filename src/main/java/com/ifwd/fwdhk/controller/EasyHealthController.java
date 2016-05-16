@@ -99,8 +99,4 @@ public class EasyHealthController extends BaseController{
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
 	}
 	
-	@RequestMapping(value = {"/{lang}/medical-insurance/confirmation"})
-	public ModelAndView getEasyHealthConfirmation(Model model, HttpServletRequest request) {
-		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION);
-	}
 }

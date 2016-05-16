@@ -751,21 +751,21 @@ public class LifeController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
-	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
+	@RequestMapping(value = {"/{lang}/{plan}/confirmation"})
+	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
 			try {
@@ -791,10 +791,10 @@ public class LifeController extends BaseController{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		if(userDetails == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
 			try {
