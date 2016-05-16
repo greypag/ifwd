@@ -422,7 +422,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans4" bundle="${msg}" />
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_11_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans2" bundle="${msg}" />
                                         </a>
                                     </div>
                                     <div class="col-sm-3">
@@ -432,7 +432,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="col-sm-3">
                                         <a href="javascript:void(0);" class="item">
-                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans2" bundle="${msg}" />
+                                            <img src="<%=request.getContextPath()%>/resources/images/easy-health/p4_icon_09_off.png" class="img-responsive"><fmt:message key="easyhealth.guidance.q3.ans4" bundle="${msg}" />
                                         </a>
                                     </div>
                                 </div>
@@ -1425,24 +1425,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.18.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.19.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.20.content" bundle="${msg}" /></li>
-                                                                <li>
-                                                                    <fmt:message key="easyhealth.plandetails.exclusions.21.content" bundle="${msg}" />
-                                                                    <ol>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.22.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.23.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.24.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.25.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.26.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.27.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.28.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.29.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.30.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.31.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.32.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
-                                                                    </ol>
-                                                                </li>
-                                                            </ol>
+                                                            </ol>    
                                                             <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>
                                                             <ol>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.2.content" bundle="${msg}" /></li>
@@ -1467,6 +1450,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.18.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.19.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.20.content" bundle="${msg}" /></li>
+                                                            </ol>
+                                                            <ul>
                                                                 <li>
                                                                     <fmt:message key="easyhealth.plandetails.exclusions.21.content" bundle="${msg}" />
                                                                     <ol>
@@ -1484,24 +1469,8 @@ var home_url = "<%=request.getContextPath()%>";
                                                                         <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
                                                                     </ol>
                                                                 </li>
-                                                            </ol>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default pd-sf-sale-illustration-sample-panel">
-                                                    <div class="panel-heading" role="tab" id="pd-sf-claim-related">
-                                                        <h4 class="panel-title">
-                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" />
-                                    <span class="pull-right">
-                                       <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png">
-                                    </span>
-                                 </a>
-                              </h4>
-                                                    </div>
-                                                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
-                                                        <div class="panel-body">
+                                                            </ul>
+                                                            <p><fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" /></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.10.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.11.content" bundle="${msg}" /></p>
@@ -1516,7 +1485,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                                     <li><fmt:message key="easyhealth.plandetails.risk.18.content" bundle="${msg}" /></li>
                                                                 </ol>
                                                             </p>
-
+                                                            <br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1537,10 +1506,6 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
-                                                            <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
-                                                            <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
@@ -1550,6 +1515,10 @@ var home_url = "<%=request.getContextPath()%>";
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.6.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
                                                             </ul>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><fmt:message key="easyhealth.plandetails.remarks.12.content" bundle="${msg}" /></p>
                                                             <br>
