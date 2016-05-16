@@ -424,7 +424,7 @@ var languageP = "${language}";
 		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				if( ga ){
+				if( typeof ga !== 'undefined' ){
 					ga('create', 'UA-60032236-1', 'auto');
 		            ga('require', 'ecommerce');
 		            ga('ecommerce:addTransaction', {
