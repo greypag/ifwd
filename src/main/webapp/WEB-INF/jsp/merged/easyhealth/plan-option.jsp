@@ -1426,50 +1426,22 @@ var home_url = "<%=request.getContextPath()%>";
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.19.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.20.content" bundle="${msg}" /></li>
                                                             </ol>    
-                                                            <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>
+                                                            
+                                                            <p><fmt:message key="easyhealth.plandetails.exclusions.21.content" bundle="${msg}" /></p>
                                                             <ol>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.2.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.3.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.4.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.5.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.6.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.7.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.8.content" bundle="${msg}" />
-                                                                    <ol class="lower-roman">
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.9.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.10.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.11.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.12.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.13.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.14.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.15.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.16.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.17.content" bundle="${msg}" /></li>
-                                                                    </ol>
-                                                                </li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.18.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.19.content" bundle="${msg}" /></li>
-                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.20.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.22.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.23.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.24.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.25.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.26.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.27.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.28.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.29.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.30.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.31.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.32.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
                                                             </ol>
-                                                            <ul>
-                                                                <li>
-                                                                    <fmt:message key="easyhealth.plandetails.exclusions.21.content" bundle="${msg}" />
-                                                                    <ol>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.22.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.23.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.24.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.25.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.26.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.27.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.28.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.29.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.30.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.31.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.32.content" bundle="${msg}" /></li>
-                                                                        <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
-                                                                    </ol>
-                                                                </li>
-                                                            </ul>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" /></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.10.content" bundle="${msg}" /></p>
                                                             <br>
