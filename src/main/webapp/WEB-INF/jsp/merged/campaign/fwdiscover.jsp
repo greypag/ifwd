@@ -35,14 +35,14 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    cCurrent = cformat.parse("2016-05-30 12:00:00").getTime();
+    //cCurrent = cformat.parse("2016-05-20 12:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
-    String oneDayBeforeCountDown = "2016-05-30 11:59:59";
-    String specialCountDown = "2016-05-31 14:59:59";
-    String nextMonthCoutDown = "2016-06-30 14:59:59";
+    String specialOneDayCountDown = "2016-05-21 14:59:59";
+    String specialCountDown = "2016-05-30 23:59:59";
+    String nextCountDown = "2016-05-19 23:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
@@ -82,20 +82,18 @@
             	break;             	
     	}       
     } else {
-        countDownDate = nextMonthCoutDown;
-        countDownDD = "30";
-        countDownMM = "Jun";
-        if(cCurrent <= cformat.parse(specialCountDown).getTime()){
+        countDownDate = nextCountDown;
+        countDownDD = "20";
+        countDownMM = "May";
+        if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()){
         	isRegSpecial = true;
-    		countDownDate = oneDayBeforeCountDown;
-            countDownDD = "31";
+    		countDownDate = specialOneDayCountDown;
+            countDownDD = "21";
             countDownMM = "May";        	
-        	if(cCurrent <= cformat.parse(oneDayBeforeCountDown).getTime()){
-        		countDownDate = oneDayBeforeCountDown;
-                countDownDD = "30";
-                countDownMM = "May";
-        		offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword.oneDayBefore", lang);
-        	}
+        }else if((cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime())){
+    		countDownDate = specialCountDown;
+            countDownDD = "30";
+            countDownMM = "May";      	
         }
     	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
