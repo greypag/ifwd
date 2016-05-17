@@ -136,7 +136,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="form-group">
 								<div class="fld-wrapper">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" id="cardHolder" name="cardHolder">
+										<input class="mdl-textfield__input" type="text" id="cardHolder" name="cardHolder" data-chkAlphabetOnly="true">
 										<label class="mdl-textfield__label" for="cardHolder"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 									</div>
 								</div>
@@ -291,7 +291,7 @@ $(document).ready(function() {
 	 			  type : "POST",
 	 			  cache:false, 
 				  async:false, 
-	 			  url : context+"/ajax/easyhealth-insurance/putPaymentSession",
+	 			  url : context+"/ajax/medical-insurance/putPaymentSession",
 	 			  data : {creditCaredNo : creditCaredNo,
 	 					  expiryDate: expiryDate,
 	 					  cardHolderName: cardHolderName},

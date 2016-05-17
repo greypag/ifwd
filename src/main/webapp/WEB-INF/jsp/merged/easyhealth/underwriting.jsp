@@ -455,7 +455,7 @@ var nextPageFlow = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
         });*/
 		
 		$('#et-select-plan-go-homepage').on('click', function(e) {
-			window.location.href= contextPath+'/'+language+'/easyhealth-insurance';
+			window.location.href= contextPath+'/'+language+'/medical-insurance';
 		});
 	});
 </script>

@@ -58,26 +58,7 @@ public class AjaxEasyHealthController extends BaseController{
 	
 	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
-	/*@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/ajax/easyhealth-insurance/createLifePolicy"})
-	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			easyHealthService.createLifePolicy(request, session);
-			jsonObject.put("successMsg", "yes");
-		}
-		catch (ECOMMAPIException e) {
-			logger.info(e.getMessage());
-			jsonObject.put("errorMsg", e.getMessage());
-		}
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}*/
-	
-	@RequestMapping(value = {"/ajax/easyhealth-insurance/getPremium"})
+	@RequestMapping(value = {"/ajax/medical-insurance/getPremium"})
 	public void getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -93,7 +74,7 @@ public class AjaxEasyHealthController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/easyhealth-insurance/putPaymentSession"})
+	@RequestMapping(value = {"/ajax/medical-insurance/putPaymentSession"})
 	public void putPaymentSession(HttpServletRequest request,HttpServletResponse response) {
 		if (Methods.isXssAjax(request)) {
 			return;
@@ -107,7 +88,7 @@ public class AjaxEasyHealthController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/easyhealth-insurance/putPremium"})
+	@RequestMapping(value = {"/ajax/medical-insurance/putPremium"})
 	public void putPremium(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){

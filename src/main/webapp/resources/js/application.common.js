@@ -3,7 +3,8 @@ var application = application || {};
 
 application.common = {
 	dataAttributes:[
-		"data-keycheck-numOnly"
+		"data-keycheck-numOnly",
+		"data-keycheck-alphabetOnly"
 	],
 	init:function(){
 		
@@ -20,9 +21,13 @@ application.common = {
 			var d = $(this).data();
 
 			for(var i in d){
+				console.log(i);
 				switch(i){
 					case "keycheckNumonly":
 						$(this).on("keypress",that.chkNumberOnly);
+						break;
+					case "keycheckAlphabetonly":
+						$(this).on("keypress",that.chkAlphabetOnly);
 						break;
 				}
 			}
@@ -33,6 +38,17 @@ application.common = {
 			if (charCode > 31 && (charCode < 48 || charCode > 57))
 				return false;
 
+		return true;
+	},
+	chkAlphabetOnly:function(evt){
+		evt = (evt) ? evt : event;
+		var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+		if((evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39) || (evt.charCode == 0  && evt.keyCode==46)){
+			return true;
+		}
+		if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+			return false;
+		}
 		return true;
 	},
 

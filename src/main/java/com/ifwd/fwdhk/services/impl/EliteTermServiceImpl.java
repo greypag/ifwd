@@ -1089,5 +1089,50 @@ public class EliteTermServiceImpl implements EliteTermService {
 		etPolicyApplication.getApplicant().setCurrentEmployerName(request.getParameter("savieEmploymentBean.currentEmployerName"));
 		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		logger.info("putEmploymentInfoSession success");
-}
+    }
+	
+	public void putBeneficiaryInfoSession(HttpServletRequest request)throws ECOMMAPIException{
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		if(etPolicyApplication == null){
+			etPolicyApplication = new CreateEliteTermPolicyRequest();
+		}
+		etPolicyApplication.getApplicant().setBeneficiaryInfo(request.getParameter("beneficiary-info"));
+		if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info").equals("name-others-now")){
+			if(request.getParameter("savieBeneficiaryBean[0].firstName")!=null && request.getParameter("savieBeneficiaryBean[0].firstName")!=""){
+				etPolicyApplication.getApplicant().setFirstName1(request.getParameter("savieBeneficiaryBean[0].firstName"));
+				etPolicyApplication.getApplicant().setLastName1(request.getParameter("savieBeneficiaryBean[0].lastName"));
+				etPolicyApplication.getApplicant().setChineseName1(request.getParameter("savieBeneficiaryBean[0].chineseName"));
+				etPolicyApplication.getApplicant().setBeneficiaryHkidPassport1("beneficiaryHkidPassport[0]");
+				etPolicyApplication.getApplicant().setHkId1(request.getParameter("savieBeneficiaryBean[0].hkId"));
+				etPolicyApplication.getApplicant().setPassportNo1(request.getParameter("savieBeneficiaryBean[0].passportNo"));
+				etPolicyApplication.getApplicant().setGender1(request.getParameter("savieBeneficiaryBean[0].gender"));
+				etPolicyApplication.getApplicant().setRelationship1(request.getParameter("savieBeneficiaryBean[0].relationship"));
+				etPolicyApplication.getApplicant().setEntitlement1(request.getParameter("savieBeneficiaryBean[0].entitlement"));
+			}
+			if(request.getParameter("savieBeneficiaryBean[1].firstName")!=null && request.getParameter("savieBeneficiaryBean[1].firstName")!=""){
+				etPolicyApplication.getApplicant().setFirstName2(request.getParameter("savieBeneficiaryBean[1].firstName"));
+				etPolicyApplication.getApplicant().setLastName2(request.getParameter("savieBeneficiaryBean[1].lastName"));
+				etPolicyApplication.getApplicant().setChineseName2(request.getParameter("savieBeneficiaryBean[1].chineseName"));
+				etPolicyApplication.getApplicant().setBeneficiaryHkidPassport2("beneficiaryHkidPassport[1]");
+				etPolicyApplication.getApplicant().setHkId2(request.getParameter("savieBeneficiaryBean[1].hkId"));
+				etPolicyApplication.getApplicant().setPassportNo2(request.getParameter("savieBeneficiaryBean[1].passportNo"));
+				etPolicyApplication.getApplicant().setGender2(request.getParameter("savieBeneficiaryBean[1].gender"));
+				etPolicyApplication.getApplicant().setRelationship2(request.getParameter("savieBeneficiaryBean[1].relationship"));
+				etPolicyApplication.getApplicant().setEntitlement2(request.getParameter("savieBeneficiaryBean[1].entitlement"));
+			}
+			if(request.getParameter("savieBeneficiaryBean[2].firstName")!=null && request.getParameter("savieBeneficiaryBean[2].firstName")!=""){
+				etPolicyApplication.getApplicant().setFirstName3(request.getParameter("savieBeneficiaryBean[2].firstName"));
+				etPolicyApplication.getApplicant().setLastName3(request.getParameter("savieBeneficiaryBean[2].lastName"));
+				etPolicyApplication.getApplicant().setChineseName3(request.getParameter("savieBeneficiaryBean[2].chineseName"));
+				etPolicyApplication.getApplicant().setBeneficiaryHkidPassport3("beneficiaryHkidPassport[2]");
+				etPolicyApplication.getApplicant().setHkId3(request.getParameter("savieBeneficiaryBean[2].hkId"));
+				etPolicyApplication.getApplicant().setPassportNo3(request.getParameter("savieBeneficiaryBean[2].passportNo"));
+				etPolicyApplication.getApplicant().setGender3(request.getParameter("savieBeneficiaryBean[2].gender"));
+				etPolicyApplication.getApplicant().setRelationship3(request.getParameter("savieBeneficiaryBean[2].relationship"));
+				etPolicyApplication.getApplicant().setEntitlement3(request.getParameter("savieBeneficiaryBean[2].entitlement"));
+			}
+		}
+		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
+		logger.info("putBeneficiaryInfoSession success");
+    }
 }

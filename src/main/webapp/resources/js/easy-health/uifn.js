@@ -1,5 +1,5 @@
 var contextPath = context;
-var getPremiumApiLink = contextPath+'/ajax/easyhealth-insurance/getPremium';
+var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -54,8 +54,11 @@ $(document).ready(function() {
 
         if ($(this).hasClass("disabled-gray-btn")) return;
 
+        $("#loadingDiv").addClass("show");
+
         var dobStr = $('#plan-dob-datepicker').val();
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
+            $("#loadingDiv").removeClass("show");
             fillPlanData(data);
             //change step2 back btn img
             $(".step2 .btn-back-step1").attr("data-gender", genderNum);
@@ -66,8 +69,8 @@ $(document).ready(function() {
                 $(".step2").fadeIn();
             });
         }).fail(function() {
+            $("#loadingDiv").removeClass("show");
             alert("network error.");
-
         });
     });
 
@@ -168,6 +171,12 @@ $(document).ready(function() {
     $(".step-option .item").click(function (){
         checkSuggestionSelection();
     });
+    $(".step-option .btn-option-cancel").click(function (){
+        $(".step-option").fadeOut(function() {
+            $("body").scrollTo(".step3");
+            $(".step3, .sticky-help-wrapper").fadeIn();
+        });
+    });
     $(".step-option .btn-need-plan").click(function (){
         if($(this).hasClass("disabled-gray-btn")) return;
         var choices = $(".step-option .item.selected").length;
@@ -196,8 +205,8 @@ $(document).ready(function() {
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
         $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
-        
-    })
+
+    });
 });
 
 function changeSelection(item, selected, isAddSelected) {
@@ -335,7 +344,6 @@ function fillPlanData(json) {
         var pc = planCode[pi];
 
         //plan overview
-        $(".step2 .txt-type-" + pc).html(p.type);
         $(".step2 .plan-mca .txt-price-" + pc).html(priceFormat(p.monthlyPremium));
         $(".step2 .plan-dhc .txt-price-" + pc).html(priceFormat(p.dailyHospitalCash));
         $(".step2 .plan-icu .txt-price-" + pc).html(priceFormat(p.intensiveCareUnit));
@@ -343,21 +351,17 @@ function fillPlanData(json) {
         $(".step2 .plan-rop .txt-price-" + pc).html(priceFormat(p.refundPremium));
 
         //plan selector
-        $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
 
         //ferris wheel       
-        $(".step3 .eh-plan-" + pc + " .txt-type").html(p.type);
         $(".step3 .eh-plan-" + pc + " .txt-youpay-price .value").html(priceFormat(p.monthlyPremium));
         $(".step3 .eh-plan-" + pc + " .txt-price-hc .value").html(priceFormat(p.dailyHospitalCash));
         $(".step3 .eh-plan-" + pc + " .txt-price-icu .value").html(priceFormat(p.intensiveCareUnit));
         $(".step3 .eh-plan-" + pc + " .txt-price-id .value").html(priceFormat(p.infectiousDisease));
-        $(".step3 .eh-plan-" + pc + " .txt-price-db .value").html(priceFormat(p.deathBenefit));
-        $(".step3 .eh-plan-" + pc + " .txt-price-adb .value").html(priceFormat(p.accidentalDeathBenefit));
         $(".step3 .eh-plan-" + pc + " .txt-price-rop .value").html(priceFormat(p.refundPremium));
-        $(".step3 .eh-plan-" + pc + " .txt-price-yca .value").html(priceFormat(p.monthlyPremium * 12));
+        $(".step3 .eh-plan-" + pc + " .txt-price-yca").html(priceFormat(p.monthlyPremium * 12));
 
         //benefit
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-price-dhc").html(priceFormat(p.dailyHospitalCash));

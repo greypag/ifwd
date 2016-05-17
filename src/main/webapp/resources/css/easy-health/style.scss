@@ -53,6 +53,12 @@ ol.lower-roman {
             display: inline-block;
         }
     }
+    #loadingDiv{
+        display: none;
+        &.show{
+            display: block;
+        }
+    }
     .step1 {
         padding: 30px 0;
         .title {
@@ -777,7 +783,7 @@ ol.lower-roman {
                     }
                     > .txt-price {
                         color: #fd8224;
-                        font-size: 24px;
+                        font-size: 22px;
                         font-weight: bold;
                         text-align: center;
                     }
@@ -1045,7 +1051,7 @@ ol.lower-roman {
     .img-id,
     .img-icu {
         > .txt-price {
-            top: 49% !important;
+            top: 55% !important;
         }
     }
     .img-db,
@@ -1055,7 +1061,6 @@ ol.lower-roman {
             font-size: 19px !important;
         }
     }
-
     .easy-health .step3 .plan-refund .txt-15yr{
         img{display: block;margin: 0 auto;}
         font-size: 30px;
@@ -1088,6 +1093,9 @@ ol.lower-roman {
         .desc {
             display: none;
         }
+    }
+    .step2 table .icon-wrap{
+        width: 100%;
     }
 }
 
@@ -1143,11 +1151,12 @@ ol.lower-roman {
                     td,
                     th:first-child {
                         width: 9%;
-                        font-size: 15px;
+                        font-size: 24px;
                     }
                     th:first-child {
                         position: static;
                         padding-top: 6px;
+                        font-size: 14px !important;
                     }
                     th,
                     td {
@@ -1186,6 +1195,11 @@ ol.lower-roman {
                             background-color: #ccc;
                         }
                     }
+                    .plan-adb, .plan-db{
+                        .text{
+                            font-size: 16px;    
+                        }
+                    }
                 }
             }
         }
@@ -1206,6 +1220,7 @@ ol.lower-roman {
         .img-15,
         .img-adb,
         .img-db {
+            > .txt-price { font-size: 16px;}
             &:hover {
                 animation: scaleBall .2s forwards;
             }
@@ -1214,7 +1229,7 @@ ol.lower-roman {
         .img-id,
         .img-icu {
             > .txt-price {
-                top: 51% !important;
+                top: 56% !important;
             }
         }
         .img-15,
@@ -1265,9 +1280,9 @@ ol.lower-roman {
 
 
 /*====== Disable offline booking =====*/
-#on-of-holder{
-    margin: 0;
-    #step-online{
-        padding: 0 !important;
-    }
-}
+// #on-of-holder{
+//     margin: 0;
+//     #step-online{
+//         padding: 0 !important;
+//     }
+// }
