@@ -447,8 +447,8 @@ public class HomeCareServiceImpl implements HomeCareService {
 		applicant.put("email", userDetails.getEmailAddress());
 		applicant.put("mobileNo", userDetails.getMobileNo());
 		applicant.put("occupation", "");
-		applicant.put("optOut1", checkbox3);
-		applicant.put("optOut2",checkbox4);
+		applicant.put("optIn1", checkbox3);
+		applicant.put("optIn2",checkbox4);
 
 		parameters.put("applicant", applicant);
 

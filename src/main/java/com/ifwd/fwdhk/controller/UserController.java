@@ -622,8 +622,8 @@ public class UserController {
 			params.put("password", userDetails.getPassword());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("name", userDetails.getFullName());
-			params.put("optOut1", optOut1);
-			params.put("optOut2", optOut2);
+			params.put("optIn1", optOut1);
+			params.put("optIn2", optOut2);
 			
 			//added this for ajax sign up for those forms
 			if(servletRequest.getParameter("ajax") != null){
@@ -632,8 +632,8 @@ public class UserController {
 				params.put("email", servletRequest.getParameter("email"));
 				params.put("mobile", servletRequest.getParameter("mobile"));
 				params.put("name", servletRequest.getParameter("name"));
-				params.put("optOut1", servletRequest.getParameter("optIn1")!=null?"1":"0");
-				params.put("optOut2", servletRequest.getParameter("optIn2")!=null?"1":"0");
+				params.put("optIn1", servletRequest.getParameter("optIn1")!=null?"1":"0");
+				params.put("optIn2", servletRequest.getParameter("optIn2")!=null?"1":"0");
 			}
 			
 			logger.info("USER_JOIN_US Request " + JsonUtils.jsonPrint(params));

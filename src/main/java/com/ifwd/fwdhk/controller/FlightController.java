@@ -1369,8 +1369,8 @@ public class FlightController {
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
-		applicantJsonObj.put("optOut1", optOut1);
-		applicantJsonObj.put("optOut2", optOut2);
+		applicantJsonObj.put("optIn1", optOut1);
+		applicantJsonObj.put("optIn2", optOut2);
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName", name);
@@ -1730,8 +1730,8 @@ public class FlightController {
 			parameters = (JSONObject) session
 					.getAttribute("FlightResponseFrTrvl");
 			JSONObject applicant = (JSONObject) parameters.get("applicant");
-			applicant.put("optOut1", createFlightPolicy.getCheckbox3()==true?"1":"0");
-			applicant.put("optOut2", createFlightPolicy.getCheckbox4()==true?"1":"0");
+			applicant.put("optIn1", createFlightPolicy.getCheckbox3()==true?"1":"0");
+			applicant.put("optIn2", createFlightPolicy.getCheckbox4()==true?"1":"0");
 			parameters.put("applicant", applicant);
 			parameters.put("planCode", selectPlanName);
 		}
