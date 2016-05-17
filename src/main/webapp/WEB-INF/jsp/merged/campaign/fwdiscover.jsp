@@ -652,7 +652,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">100${count5}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate.speical" bundle="${msg}" />
