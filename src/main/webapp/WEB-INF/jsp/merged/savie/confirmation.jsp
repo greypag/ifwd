@@ -26,9 +26,9 @@
 	               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
 						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
-						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
+						<li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.category" bundle="${msg}" />':'Medical'} </a></li>
+				            <li class="divider"><i class="fa fa-play"></i></li>
+				            <li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" />':'EasyHealth Insurance Plan'}</a></li>
 						<li class="divider last"><i class="fa fa-play"></i></i></li>
 						<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
 	               </ol>
@@ -87,7 +87,9 @@
 	        		<div id="upload-later-confirmation-content">
 	        			<div class="row">
 	        				<div class="col-md-8" id="thankyou-message">
-	        					<h3 class="text-bold heading-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></h3>
+	        					<h3 class="text-bold heading-title">
+	        					${plan == 'savings-insurance' ? '<fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" />':'Thank you for your application for EasyHealth Insurance Plan'}
+	        					</h3>
 	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
 	        					<p id="success-purchase"><fmt:message key="information.successful.purchase.copy4" bundle="${msg}" /></p>
 	        					<!--<p><fmt:message key="info.successful.purchase.copy2" bundle="${msg}" /></p> -->
