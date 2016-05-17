@@ -810,7 +810,7 @@ var home_url = "<%=request.getContextPath()%>";
 														<fmt:message key="eliteTerms.selectPlan.Question3.copy"
 															bundle="${msg}" />
 													</p>		
-													<div class="et-disease-list">
+													<%--<div class="et-disease-list">
 														<ul class="col-xs-12 col-md-6">
 															<li><span><fmt:message
 																		key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
@@ -839,7 +839,7 @@ var home_url = "<%=request.getContextPath()%>";
 															<li><span><fmt:message
 																		key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
 														</ul>
-													</div>
+													</div> --%>
 												</div>
 												<div class="col-xs-12 col-md-4">
 													<div class="row">
