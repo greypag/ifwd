@@ -1651,8 +1651,9 @@ public class LifeServiceImpl implements LifeService {
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
-			applicant.put("optIn1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?"1":"0");
-			applicant.put("optIn2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?"1":"0");
+			applicant.put("optIn1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
+			applicant.put("optIn2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
+			
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("lastName")+" "+applicant.get("firstName"));

@@ -1,0 +1,188 @@
+.fwd-savie-wrapper .loginpopup,
+.loginpopup {
+  .loginpopup__modal-dialog {
+    height: 100%;
+    margin: auto;
+    .loginpopup__modal-dialog__modal-content {
+      padding: 0;
+      .loginpopup__modal-dialog__modal-content__close-wrapper {
+        height: 50px;
+        top: 0;
+        right: 0;
+        z-index: 9999999;
+        .close {
+          line-height: 50px;
+          position: absolute;
+          right: 15px;
+          vertical-align: middle;
+        }
+      }
+      .loginpopup__modal-dialog__modal-content__title-wrapper {
+        display: block !important;
+        background-color: #ebebeb;
+        color: #000;
+        display: block;
+        height: 50px;
+        left: 0;
+        line-height: 50px;
+        margin: 0 auto;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 999999;
+      }
+      .loginpopupext {
+        padding-top: 0;
+        /*top:-58px;*/
+        &.modal-dialog .modal-content {
+          height: auto;
+          padding: 0;
+        }
+        height: auto;
+        padding: 0;
+      }
+      .login-input {
+        height: 40px;
+        width: 100%;
+      }
+      .login-form {
+        padding: 20px 30px 30px 30px;
+        h4 {
+          margin: 0 0 10px 0;
+          display: block;
+        }
+        .form-control {
+          padding: 0 20px;
+        }
+        .form-group a {
+          display: block;
+          height: 30px;
+          line-height: 30px;
+          margin-left: 0;
+          text-align: right;
+          width: 100%;
+        }
+      }
+
+    }
+
+    .form-container {
+      padding:0;
+      /*margin-top:50px;*/
+    }
+
+    // &.loginpopupext {
+    //   margin-bottom: 90px;
+    // }
+  }// dividing point
+
+
+  .loginform-pop .form-group {
+    margin: 0;
+  }
+  .forgotPasswordForm, .forgotUserNameForm {
+    .form-group {
+      margin-top: 10px;
+    }
+    .login-form h4 {
+      margin-top: 0;
+    }
+  }
+  .login-form .form-group a {
+    &.forgotUserName, &.link-forgotPassword {
+      display: inline-block;
+      width: auto;
+      float: right;
+      padding-right: 5px;
+    }
+  }
+  .login-button-group .cta-gray {
+    margin-right: 10px;
+  }
+  .login-info,
+  .loginpopupext,
+  .modal-dialog,
+  .login-form,
+  .login-form-footer {
+    margin: auto;
+    width: 100% !important;
+    max-width: 414px !important;
+  }
+  .login-info {
+    // height:235px !important;
+    margin-top: 50px;
+    // padding:20px 30px;
+    padding: 0;
+    text-align: center;
+    float: none;
+    .heading-h4,
+    .heading-h5 {
+      display: block;
+      padding-bottom: 20px;
+    }
+  }
+  .login-info-savie {
+    // background-image:url(/fwdhk/resources/images/login/savie-mobile.png);
+    background-color: #16ab95;
+  }
+  .login-disclaimer{
+      display: block;
+      clear: both;
+  }
+  .login-form-footer {
+    position: relative;
+  }
+  .login-form,
+  .modal-content.plan-modal {
+    /*height:432px;*/
+    height: auto;
+  }
+}
+
+#errUserName, #errPass {
+  line-height: 1.8;
+  display: inline-block;
+}
+
+.savie-modal-wrapper {
+  .form-group, .login-button-group {
+    overflow: hidden;
+  }
+  .loginform-pop .login-error-wrapper {
+    float: left;
+    margin-left: 20px;
+    padding: 0;
+  }
+  .login-button-group .cta-confirm {
+    float: left;
+  }
+}
+
+.loginpopup {
+  .login-button-group {
+    margin:20px 0
+  }
+  // .loginpopupext {
+  //   .login-form-footer {
+  //     position: relative;
+  //   }
+  //   .title-wrapper {
+  //     position: absolute;
+  //   }
+  // }
+}
+
+.loginpopupext {
+  .loginform-pop, .forgotUserNameForm, .forgotPasswordForm {
+    display: block;
+  }
+}
+
+.loginform-pop {
+  .col-sm-12.col-md-6.left {
+    padding-right: 0;
+  }
+  #applyPartner {
+    margin-left: 0;
+  }
+}

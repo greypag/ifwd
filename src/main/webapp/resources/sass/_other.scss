@@ -1,0 +1,85 @@
+// This file is handle the styles which are currently existing in the main.css, but not in current development [Optional use]
+
+.center {
+	text-align: center;
+  h2 {
+  	font-size: 40px;
+  	margin-bottom: 30px;
+  	color: #f68a1d;
+  }
+  .landing_h2 {      //  screened on 20160517: applying flight.jsp, homecare.jsp
+  	font-size: 40px !important;
+  	margin-bottom: 30px !important;
+  	color: #f68a1d !important;
+  }
+}
+/**
+*	Start - screened on 20160517: no longer used, but commented for backup use
+**/
+// .show1 {display: block;}
+// .transparent-bg {background-color: transparent !important;margin-bottom: 0;}
+/**
+*	End - screened on 20160517: no longer used, but commented for backup use
+* -----------------------------------------------------------------------------------------------------
+**/
+/**
+*	Start - screened on 20160517: already proved in applying on the current jsp files, keep REMAIN in temp
+**/
+.hide1 {display: none;} // 11 files
+.topten {margin-top: -10px;} //  homecare-plan-details.jsp, workingholiday-plan-details.jsp, workingholiday-plan.jsp
+.top35 {margin-top: 35px;} // 10 files
+#middle {
+	/*background: #505759;*/
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 11;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+} // oversea-landing.jsp , flight.jsp, travel.jsp & workingholiday.jsp
+
+#middle h2 {
+	color: #fff;
+	font-size: 36px;
+	font-weight: 700;
+} // oversea-landing.jsp , flight.jsp, travel.jsp & workingholiday.jsp
+
+#middle h3 {
+	color: #fff;
+	line-height: 18px;
+	font-size: 18px;
+} // oversea-landing.jsp , flight.jsp, travel.jsp & workingholiday.jsp
+#middle .h3-i {
+	color: #fff;
+	font-style: italic;
+	margin-top: -8px;
+	/*line-height: 26.25px;
+    font-size: 24px;*/
+	line-height: 18px;
+	font-size: 18px;
+	font-weight: normal !important;
+} // oversea-landing.jsp , flight.jsp, travel.jsp & workingholiday.jsp
+.slide-form {
+	margin: 25px 0px 0 0;
+} // oversea-landing.jsp , flight.jsp, travel.jsp, homecare.jsp & workingholiday.jsp
+.h3-i2 {
+	color: #fff;
+	font-style: italic;
+	line-height: 26.25px;
+	font-size: 24px;
+	font-weight: normal !important;
+} // flight.jsp
+/**
+*	End - screened on 20160517: already proved in applying on the current jsp files, keep REMAIN in temp
+* -----------------------------------------------------------------------------------------------------
+**/
+/**
+*	Start - screened on 20160517: unknown status in applying, but suggest to REMAIN
+**/
+.float{overflow:hidden}
+.floatingbox {position: relative;}
+.bold {font-weight: bold;}
+.datepicker{line-height:24px!important}
+/**
+*	End - screened on 20160517: unknown status in applying, but suggest to REMAIN
+* -----------------------------------------------------------------------------------------------------
+**/

@@ -361,8 +361,8 @@ public class OverseaServiceImpl implements OverseaService {
 		applicant.put("mobileNo", applicantMobNo);
 		applicant.put("email", emailAddress);
 		applicant.put("dob", dob);
-		applicant.put("optIn1", planDetailsForm.getCheckbox3()==true?"1":"0");
-		applicant.put("optIn2", planDetailsForm.getCheckbox4()==true?"1":"0");
+		applicant.put("optIn1", planDetailsForm.getCheckbox3());
+		applicant.put("optIn2", planDetailsForm.getCheckbox4());
 		parameters.put("applicant", applicant);
 
 		JSONObject correspondenceAddress = new JSONObject();

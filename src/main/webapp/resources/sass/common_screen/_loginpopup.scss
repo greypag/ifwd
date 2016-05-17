@@ -1,0 +1,368 @@
+.fwd-savie-wrapper .loginpopup,
+.loginpopup {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  outline-color: transparent;
+  overflow: hidden;
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+  }
+  .login-button-group{
+    margin:20px 0
+  }
+  .modal-open {
+    overflow: auto;
+  }
+  .login-input {
+    border: 1px solid #ebebeb;
+    color:#9ba5a7 !important;
+    font-size:14px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    width:260px;
+    height:40px;
+    line-height: 14px;
+    display:inline;
+  }
+  .login-input-error,
+  .invalid-field {
+      border: 1px solid #e4002b !important;
+      color:#9ba5a7 !important;
+      font-size:14px;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+  }
+  .loginpopup__modal-dialog {
+    width: 428px !important;
+    input {
+      &::-webkit-input-placeholder {
+        font-size: 14px !important;
+      }
+      &:-moz-placeholder {
+        /* Firefox 18- */
+        font-size: 14px !important;
+        line-height: 14px;
+      }
+      &::-moz-placeholder {
+        /* Firefox 19+ */
+        font-size: 14px !important;
+        line-height: 14px;
+      }
+      &:-ms-input-placeholder {
+        font-size: 14px !important;
+      }
+    }
+    .loginpopup__modal-dialog__modal-content {
+      border: none;
+      padding: 0;
+      .login-info-savie .upper-overlay {
+        padding: 30px 50px 0 30px;
+      }
+      .loginpopupext {
+        .modal-content.plan-modal {
+          min-height: 380px;
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+        }
+        .login-info-savie img {
+          /*position: absolute;
+          bottom: 0;*/
+        }
+        .upper-overlay h4 {
+          margin-bottom: 10px;
+        }
+      }
+      .loginpopup__modal-dialog__modal-content__close-wrapper {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        top: 10px;
+        right: 20px;
+        z-index: 1;
+        .close {
+          opacity: 1;
+          filter: alpha(opacity = 100);
+          span {
+            color: #9ba5a7;
+          }
+        }
+      }
+      .loginpopup__modal-dialog__modal-content__title-wrapper {
+        display: none;
+      }
+    }
+  }
+  .login-form-footer {
+    // position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 428px;
+    background-color: #ebebeb;
+    height: 38px;
+    padding: 0 30px;
+    font-size: 14px;
+    z-index: 1;
+    h5 {
+      height: 38px;
+      line-height: 38px;
+      font-size: 14px;
+    }
+  }
+  .login-close-wrapper {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+  }
+  .login-disclaimer{
+  	line-height: 1.2;
+  	letter-spacing: 0px;
+  }
+}
+
+// .btn--cta ??
+// orginal name: .cta-font
+.cta-login-btn {
+  // orginal name: .cta-confirm
+  &.cta-login-btn--confirm {
+    padding: 10px 60px;
+  }
+  // orginal name: .cta-apply
+  &.cta-login-btn--apply {
+    padding: 10px 40px;
+  }
+  // orginal name: .cta-link
+  &.cta-login-btn--link {
+    padding: 10px 30px;
+  }
+  // orginal name: .cta-gray
+  &.cta-login-btn--gray {
+    background-color: #9ba5a7;
+    border: 1px #9ba5a7 solid;
+    border-bottom: 3px #676f70 solid;
+    &:hover {
+      background-color: #9ba5a7;
+      border: 1px #9ba5a7 solid;
+      border-bottom: 3px #676f70 solid;
+    }
+  }
+
+  // orginal name: .cta-orange
+  &.cta-login-btn--orange {
+    background-color: #ff8200;
+    border: 1px #ff8200 solid;
+    border-bottom: 3px #ff8200 solid;
+    &:hover {
+      background-color: #ff8200;
+      border: 1px #ff8200 solid;
+      border-bottom: 3px #ff8200 solid;
+    }
+  }
+
+  // orginal name: .cta-yellow
+  &.cta-login-btn--yellow {
+    background-color: #fdb714;
+    border: 1px #fdb714 solid;
+    border-bottom: 3px #cf9611 solid;
+    &:hover {
+      background-color: #fdb714;
+      border: 1px #fdb714 solid;
+      border-bottom: 3px #cf9611 solid;
+    }
+  }
+
+  // orginal name: .cta-gray, .cta-orange, .cta-yellow
+  &.cta-login-btn--gray,
+  &.cta-login-btn--orange,
+  &.cta-login-btn--yellow {
+    &:hover{
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+      filter: alpha(opacity = 90);
+      @include opacity(0.9)
+    }
+  }
+}
+
+_:-ms-fullscreen, :root .loginpopup .login-input {
+  line-height: 14px;
+}
+
+.loginform-pop .close {
+  position: absolute;
+  text-align: center;
+  top: 30px;
+  right: 30px;
+  span {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 22px !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+.login-form {
+  padding: 20px 30px 30px 30px;
+  .close {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 22px !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    span {
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      font-size: 22px !important;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+}
+
+.loginform-pop {
+  .login-error-wrapper {
+    display: inline;
+    padding-left: 20px;
+  }
+  overflow: hidden;
+}
+
+.forgotUserNameForm, .forgotPasswordForm {
+  overflow: hidden;
+}
+
+.loginpopupext {
+  .loginform-pop, .forgotUserNameForm, .forgotPasswordForm {
+    @extend %clearfix;
+    display: inline-block;
+  }
+}
+
+.login-disclaimer {
+  line-height: 1.2;
+  letter-spacing: 0px;
+}
+
+
+// -----------------------------------
+
+/* login page || login.jsp */
+.loginform-pop,
+.forgotUserNameForm,
+.forgotPasswordForm {
+  .col-sm-12 {
+    &.col-md-6.left,
+    &.col-md-12.left {
+      padding-right: 100px;
+    }
+  }
+  a {
+    &.forgotUserName,
+    &.link-forgotPassword {
+      text-decoration: none;
+      font-style: normal;
+    }
+  }
+  .form-control.gray-textbox {
+    font-size: 18px;
+    font-family: 'Calibri';
+    color: #000;
+    margin-top: 6px;
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    padding: 12px 15px 0 15px;
+    border-radius: 0;
+    border: 0 transparent;
+  }
+  .mdl-textfield__label {
+    padding-top: 5px;
+    font-size: 14px;
+    left: 0;
+    top: 10px;
+    padding-left: 15px;
+    font-family: 'Calibri-Bold';
+  }
+  .mdl-textfield {
+    &.is-focused label, &.is-dirty label {
+      color: #ff8200;
+      font-size: 12px;
+      top: 1px;
+    }
+    &.is-not-active label {
+      color: #ff8200;
+    }
+    input {
+      &:hover, &:focus {
+        border-bottom: 2px solid #Ff8200;
+      }
+    }
+    textarea {
+      &:hover, &:focus {
+        border-bottom: 2px solid #Ff8200;
+      }
+    }
+  }
+  .mdl-textfield__input {
+    &:focus {
+      transition: all 0.1s;
+      background-color: #ffffff;
+      outline: none;
+      outline-offset: 0;
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    }
+    &:hover {
+      outline: none;
+      outline-offset: 0;
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    }
+  }
+  .mdl-textfield label:after {
+    background-color: transparent;
+  }
+  textarea.form-control.gray-textbox {
+    height: 135px;
+  }
+  .next-btn {
+    padding: 20px 0 40px 0;
+    text-align: center;
+  }
+  .apply-btn {
+    background: #ffa500;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 37px;
+    border-radius: 4px !important;
+    border-bottom: 3px solid #c56501;
+  }
+  #applyPartner {
+    padding: 5px 90px;
+    font-size: 24px;
+    margin-left: -52px;
+  }
+}
+// ----------------------------------

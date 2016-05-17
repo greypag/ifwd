@@ -1647,8 +1647,8 @@ public class TravelController {
 		
 		applicantJsonObj.put("dob", dob);
 		applicantJsonObj.put("mobileNo", applicantMobNo);
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3()==true?"1":"0");
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4()==true?"1":"0");
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("email", emailAddress);
 
 		parameters.put("applicant", applicantJsonObj);

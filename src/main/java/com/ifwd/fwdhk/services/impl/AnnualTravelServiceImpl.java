@@ -1049,8 +1049,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		applicantJsonObj.put("mobileNo", applicantMobNo);
 		applicantJsonObj.put("email", emailAddress);
 		applicantJsonObj.put("dob", dob);
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3()==true?"1":"0");
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4()==true?"1":"0");
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 
 		parameters.put("applicant", applicantJsonObj);
 
