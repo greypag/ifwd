@@ -541,7 +541,7 @@ var languageP = "${language}";
 					}
 				}
 				
-				var employmentS = '${savieFna.employment_status }';
+				var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
 				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 					$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
 					$('#amountOfLiquidAssetsDiv').removeClass('hidden');

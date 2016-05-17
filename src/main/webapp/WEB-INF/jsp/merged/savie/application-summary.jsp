@@ -713,30 +713,30 @@ var language = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
 		$(document).ready(function() {
-         var employmentS = '${savieFna.employment_status }';
-         if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
-			$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
-			$('#amountOfLiquidAssetsDiv').removeClass('hidden');
-			$('#natureOfBusinessDiv').addClass('hidden');
-			$('#occupationDiv').addClass('hidden');
-			$('#employerNameDiv').addClass('hidden');
-			$('#monthlyPersonalIncomeDiv').addClass('hidden');
-			$('#otherOccupationDiv').addClass('hidden');
-		 }
-		 else{
-			$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
-			$('#amountOfLiquidAssetsDiv').addClass('hidden');
-			$('#natureOfBusinessDiv').removeClass('hidden');
-			$('#occupationDiv').removeClass('hidden');
-			$('#employerNameDiv').removeClass('hidden');
-			$('#monthlyPersonalIncomeDiv').removeClass('hidden');
-			if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
-				$('#otherOccupationDiv').removeClass('hidden');
-			}
-			else{
+			var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
+			if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
+				$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
+				$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+				$('#natureOfBusinessDiv').addClass('hidden');
+				$('#occupationDiv').addClass('hidden');
+				$('#employerNameDiv').addClass('hidden');
+				$('#monthlyPersonalIncomeDiv').addClass('hidden');
 				$('#otherOccupationDiv').addClass('hidden');
 			}
-		 }
+			else{
+				$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
+				$('#amountOfLiquidAssetsDiv').addClass('hidden');
+				$('#natureOfBusinessDiv').removeClass('hidden');
+				$('#occupationDiv').removeClass('hidden');
+				$('#employerNameDiv').removeClass('hidden');
+				$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+				if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
+					$('#otherOccupationDiv').removeClass('hidden');
+				}
+				else{
+					$('#otherOccupationDiv').addClass('hidden');
+				}
+			}
          
          
          
