@@ -1,0 +1,199 @@
+#fb-dialog-share {
+  display: none;
+}
+
+.footer-container__upper-footer-wrapper__link-wrapper--bottom-link {
+    width: 50%;
+    float: left;
+}
+.social-link {
+    margin-top: 20px;
+}
+.bottom-footer-wrapper {
+    text-align: center;
+}
+
+.mob-login-form-wrapper {
+	display: none;
+}
+
+  /**
+  * Start - In-progress
+  **/
+body {
+   /*padding-top: 35%;*/
+   padding-top: 50px;
+}
+.mobile-menu-V2 .wd2 {
+  margin:0;
+  width:100%;
+  text-align:left;
+  background-color: #061d29;
+}
+.mobile-menu-V2 .wd2>a#fwd-login {
+    font-size: 24px;
+    color: #fff;
+    background-color: #061d29;
+}
+#myDropdownMob .drop-width a,#myDropdownMob .drop-width li {
+    color: #fff !important;
+}
+.mobile-menu-V2 .wd2>a#fwd-login {
+  &:hover, &:focus{
+      background-color: #061d29;
+      color: #fff;
+  }
+}
+.navbar-default .navbar-toggle.mob-menu-btn .icon-bar {
+    background-color: #f68a1d;
+    width:40px;
+    height:6px;
+}
+.mobile-menu-V2 .navbar-nav>li.dropdown {
+    margin-left:0;
+    background-color: #f68a1d;
+}
+.mobile-menu-V2 .navbar-nav {
+    margin: 0 -15px;
+}
+.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a,
+.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:focus,
+.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:hover {
+   padding:12px 30px;
+   color: #fff;
+   background-color: #f68a1d;
+}
+.mobile-menu-V2 .navbar-nav>li.dropdown.border-bottom {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #fff;
+}
+.mobile-menu-V2 .navbar-nav>li.dropdown>a,
+.mobile-menu-V2 .navbar-nav>li.dropdown>a:focus {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #f68a1d;
+    padding:0;
+    line-height:1.2;
+}
+li.menu-link-grp-title>a,
+li.menu-link-grp-title>a:hover {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000 !important;
+    background-color: #f0f3f5 !important;
+}
+.mobile-menu-V2 {
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+.mobile-menu-V2 li.menu-link {
+    border-bottom:1px solid #f2f5f6;
+    background-color: #fff;
+}
+.mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link a {
+    font-size: 18px;
+    color: #ff8201;
+    background-color: #fff;
+    display: inline-block;
+    padding-left:25px !important;
+}
+.mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link {
+  &:hover {
+    a, span{
+        color: #9fb1b2;
+    }
+  }
+  span{
+    font-size: 12px;
+    color: #ff8201;
+    padding-left:25px;
+    &.dot-font{
+        padding-left: 0;
+    }
+  }
+}
+li.menu-link-grp-title>ul.dropdown-menu,li.link-btn>ul.dropdown-menu {
+    padding:0;
+}
+.mobile-menu-V2 .navbar-nav .open .dropdown-menu>li>a {
+    padding: 12px 30px;
+    line-height: 1.5;
+}
+.col-sm-12.nav.navbar-nav {
+    padding: 0;
+}
+.login-form {
+    top: 10;
+    z-index: 2000;
+}
+.logobox {
+   background-color:#222;
+   border:0;
+   height:50px;
+}
+a.navbar-brand>img {
+    padding: 10px 0;
+    margin-left: 30px;
+}
+.mob-login-form-wrapper {
+    display:none;
+}
+.mob-login-form-wrapper.open {
+    display:block;
+}
+.link-arrow {
+    margin-top:8px;
+    float:right;
+}
+.hidden-label {
+    display:none;
+}
+
+// -----------------------------
+
+.navbar-default {
+  .navbar-brand{
+	   height:50px;
+	}
+  .navbar-brand>img {
+    padding-top: 15px;
+    margin: 0 auto;
+  }
+  .mob-menu-btn.navbar-toggle:hover,
+  .mob-menu-btn.navbar-toggle:focus,
+  .navbar-toggle.mob-menu-btn {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    position: absolute;
+    vertical-align: middle;
+    z-index: 1;
+    display:block;
+    background-color: transparent;
+    border-color: transparent;
+    outline-color: transparent;
+    // margin: 7px 30px 0 0;
+  }
+  .navbar-toggle.mob-menu-btn .icon-bar {
+     background-color:#fff;
+     width:22px;
+     height:2px;
+  }
+  .navbar-toggle {
+	   padding:13px 30px;
+	}
+}
+.mob-lang-btn {
+  float: right;
+  position: absolute;
+  line-height: 50px;
+  height: 50px;
+  right:0;
+  z-index: 1;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+   margin-top:4px;
+}
