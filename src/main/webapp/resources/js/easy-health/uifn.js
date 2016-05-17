@@ -353,7 +353,6 @@ function fillPlanData(json) {
 
         //plan selector
         $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
-        $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
 
         //ferris wheel       
