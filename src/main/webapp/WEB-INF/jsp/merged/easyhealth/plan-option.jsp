@@ -87,11 +87,11 @@ var home_url = "<%=request.getContextPath()%>";
                                         <h5 class="text-center"><fmt:message key="label.gender" bundle="${msg}" />:</h5>
                                         <div class="selection-inner" id="gender-opt">
                                             <div class="row">
-                                                <div class="col-sm-6 col-xs-6 item" data-gender="0">
+                                                <div class="col-sm-6 col-xs-6 item" id="gender0" data-gender="0">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_male_off.png" class="img-responsive">
                                                     <p class="text-center"><fmt:message key="label.male2" bundle="${msg}" /></p>
                                                 </div>
-                                                <div class="col-sm-6 col-xs-6 item" data-gender="1">
+                                                <div class="col-sm-6 col-xs-6 item" id="gender1" data-gender="1">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_female_off.png" class="img-responsive">
                                                     <p class="text-center"><fmt:message key="label.female2" bundle="${msg}" /></p>
                                                 </div>
@@ -105,11 +105,11 @@ var home_url = "<%=request.getContextPath()%>";
                                         <h5 class="text-center"><fmt:message key="label.smoking.habit" bundle="${msg}" /></h5>
                                         <div class="selection-inner" id="smoker-opt">
                                             <div class="row">
-                                                <div class="col-sm-6 col-xs-6 item" data-smoker="1">
+                                                <div class="col-sm-6 col-xs-6 item" id="smoker1" data-smoker="1">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_smoker_off.png" class="img-responsive">
                                                     <p class="text-center"><fmt:message key="label.smoker" bundle="${msg}" /></p>
                                                 </div>
-                                                <div class="col-sm-6 col-xs-6 item" data-smoker="0">
+                                                <div class="col-sm-6 col-xs-6 item" id="smoker0" data-smoker="0">
                                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_select_nonsmoker_off.png" class="img-responsive">
                                                     <p class="text-center"><fmt:message key="label.non.smoker" bundle="${msg}" /></p>
                                                 </div>
@@ -123,7 +123,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <h5 class="text-center"><fmt:message key="label.dob" bundle="${msg}" />:</h5>
                                         <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->
                                         <div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-                                            <input  name="plan-dob" id="plan-dob-datepicker" readonly value="" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+                                            <input  name="plan-dob" id="plan-dob-datepicker" readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
                                             <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="row">
                         <div class="col-sm12">
                             <div class="text-center">
-                                <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn"><fmt:message key="button.plan.overview" bundle="${msg}" /></a>
+                                <a href="javascript:void(0);" class="eh-btn-plan-overview savie-common-btn disabled-gray-btn" id="eh-btn-plan-overview"><fmt:message key="button.plan.overview" bundle="${msg}" /></a>
                             </div>
                         </div>
                     </div>
@@ -305,16 +305,16 @@ var home_url = "<%=request.getContextPath()%>";
                                             <tr>
                                                 <th></th>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a" data-grp="t1"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-a" id="eh-plan-a" data-grp="t1"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b" data-grp="t2"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-b" id="eh-plan-b" data-grp="t2"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c" data-grp="t3"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-c" id="eh-plan-c" data-grp="t3"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d" data-grp="t4"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
+                                                    <a href="javascript:void(0);" class="eh-btn-tbl-detail savie-common-btn" data-tab="eh-plan-d" id="eh-plan-d" data-grp="t4"><fmt:message key="easyhealth.plan.button.basic" bundle="${msg}" /></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1793,7 +1793,28 @@ var home_url = "<%=request.getContextPath()%>";
         $("#offline-application-btn").click(function() {
             window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
         });
-
+        
+        if('${ehStep }' == '1'){
+        	if('${ehPlanDetail.gender }' == '0'){
+        		$("#gender0").click();
+        	}
+        	else{
+        		$("#gender1").click();
+        	}
+        	
+        	if('${ehPlanDetail.smoker }' == '0'){
+        		$("#smoker0").click();
+        	}
+        	else{
+        		$("#smoker1").click();
+        	}
+        	
+        	$("#eh-btn-plan-overview").click();
+        }
+        else if('${ehStep }' == '2'){
+        	$(".step1").hide();
+        	$("#"+'${pro }').click();
+        }
     })
 </script>
 <script src="<%=request.getContextPath()%>/resources/js/easy-health/tableHover.js"></script>

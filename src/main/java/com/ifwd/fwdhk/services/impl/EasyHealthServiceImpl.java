@@ -64,6 +64,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
 		request.getSession().setAttribute("ehPlanDetail", planDetail);
+		request.getSession().setAttribute("ehStep", "1");
 		
 		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
 		EasyHealthPremium easyHealthPremium = (EasyHealthPremium) net.sf.json.JSONObject.toBean(json, EasyHealthPremium.class);
@@ -268,6 +269,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("lifePolicy");
 		session.removeAttribute("type");
 		session.removeAttribute("ehPlanDetail");
+		session.removeAttribute("ehStep");
+		session.removeAttribute("pro");
 		logger.info("remove session");
 	}
 	
@@ -294,6 +297,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				}
 			}
 			request.getSession().setAttribute("selectPlan", selectPlan);
+			request.getSession().setAttribute("ehStep", "2");
+			request.getSession().setAttribute("pro", pro);
 		}
 	}
 }
