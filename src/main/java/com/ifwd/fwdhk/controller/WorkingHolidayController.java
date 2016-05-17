@@ -776,8 +776,8 @@ public class WorkingHolidayController {
 			
 		applicantJsonObj.put("email", planDetailsForm.getWhAppEmailAdd().toUpperCase());
 		applicantJsonObj.put("mobileNo", planDetailsForm.getWhAppMobileNO());
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3()==true?"1":"0");
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4()==true?"1":"0");
+		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
+		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
 		applicantJsonObj.put("dob", dob);
 		parameters.put("applicant", applicantJsonObj);
 		
