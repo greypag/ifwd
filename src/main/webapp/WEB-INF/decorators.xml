@@ -39,6 +39,10 @@
 		<pattern>/*/medical-insurance*</pattern>
 	</decorator>
 	
+	<decorator name="fwdpartner_test" page="template_become-our-partner_with_css_revamp_header_loginbox.jsp">
+		<pattern>/*/become-our-partner*</pattern>
+	</decorator>
+	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
 		<pattern>/content/**</pattern>
 		<pattern>/*</pattern>

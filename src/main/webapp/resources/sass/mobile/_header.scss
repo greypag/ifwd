@@ -1,7 +1,9 @@
+body {
+   padding-top: 50px !important; 
+}
 #fb-dialog-share {
   display: none;
 }
-
 .footer-container__upper-footer-wrapper__link-wrapper--bottom-link {
     width: 50%;
     float: left;
@@ -16,52 +18,44 @@
 .mob-login-form-wrapper {
 	display: none;
 }
-
-  /**
-  * Start - In-progress
-  **/
-body {
-   /*padding-top: 35%;*/
-   padding-top: 50px;
-}
-.mobile-menu-V2 .wd2 {
-  margin:0;
-  width:100%;
-  text-align:left;
-  background-color: #061d29;
-}
-.mobile-menu-V2 .wd2>a#fwd-login {
-    font-size: 24px;
-    color: #fff;
+.mobile-menu-V2 {
+  .wd2 {
+    margin:0;
+    width:100%;
+    text-align:left;
     background-color: #061d29;
+    &>a#fwd-login {
+      font-size: 24px;
+      color: #fff;
+      background-color: #061d29;
+      &:hover, &:focus{
+          background-color: #061d29;
+          color: #fff;
+      }
+    }
+  }
+  .navbar-nav {
+    margin: 0 -15px;
+    &>li.dropdown {
+        margin-left:0;
+        background-color: #f68a1d;
+    }
+    &>li.dropdown.link-btn>a,
+    &>li.dropdown.link-btn>a:focus,
+    &>li.dropdown.link-btn>a:hover {
+       padding:12px 30px;
+       color: #fff;
+       background-color: #f68a1d;
+    }
+  }
 }
 #myDropdownMob .drop-width a,#myDropdownMob .drop-width li {
     color: #fff !important;
-}
-.mobile-menu-V2 .wd2>a#fwd-login {
-  &:hover, &:focus{
-      background-color: #061d29;
-      color: #fff;
-  }
 }
 .navbar-default .navbar-toggle.mob-menu-btn .icon-bar {
     background-color: #f68a1d;
     width:40px;
     height:6px;
-}
-.mobile-menu-V2 .navbar-nav>li.dropdown {
-    margin-left:0;
-    background-color: #f68a1d;
-}
-.mobile-menu-V2 .navbar-nav {
-    margin: 0 -15px;
-}
-.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a,
-.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:focus,
-.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:hover {
-   padding:12px 30px;
-   color: #fff;
-   background-color: #f68a1d;
 }
 .mobile-menu-V2 .navbar-nav>li.dropdown.border-bottom {
     border-width: 0 0 2px 0;
@@ -196,4 +190,19 @@ a.navbar-brand>img {
 }
 .navbar-toggle .icon-bar+.icon-bar {
    margin-top:4px;
+}
+.navbar-header {
+  float: none;
+}
+.navbar-toggle {
+  display: inline;
+  width: 50px;
+  margin-top: 35px;
+}
+.btn-primary:hover, .btn-primary:active {
+  padding: 8px 20px;
+  background: #f6871e;
+  color: #fff;
+  border: none;
+  border: 1px solid #f6871e;
 }

@@ -31,7 +31,7 @@
  } else {
 	 langFlag = false;
  }
-%> 
+%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
@@ -54,13 +54,13 @@
 <meta property="og:description" content="${ogDescription}"/>
 <meta property="og:site_name" content="${ogSiteName}" />
 
-<!-- Twitter Card data -->     
+<!-- Twitter Card data -->
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
 <meta property="twitter:card" content="${ogImage}" />
 <meta property="twitter:image:src" content="${ogImage}" />
-     
- 
+
+
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <% String requestUri = request.getRequestURI(); %>
 
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/sass/main_purify.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css">
@@ -88,7 +88,9 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css" />
@@ -96,7 +98,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
-<% 
+<%
 if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith("FNA/review")
 		 || requestUri.endsWith("FNA/product-recommendation"))) {
 %>
@@ -109,12 +111,12 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
 <!--[if lt IE 8]>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">	
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">
 <![endif]-->
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-  <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">	
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/common-ie9.css">
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <script src="<%=request.getContextPath()%>/resources/js/elite-term/flashcanvas.js"></script>
@@ -149,10 +151,10 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 	    	warn: function() {}
 	  	};
 	}
-	
+
 	// global variables
 	var UILANGUAGE = '<%=session.getAttribute("language")%>';
-	
+
 </script>
 
 <!-- Start Visual Website Optimizer Asynchronous Code -->
@@ -185,11 +187,11 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			params[8]='product='; //For Live Tracking only
 			k_trackevent(params,'5198');
 		</script>
-	
+
 		<noscript>
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Step1&val=0.0&orderId=0&promoCode=Regis_Savie_Step1 ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
-		
+
 		<!--LightBox Pop Up-->
 		<script type=text/javascript>
 			var hostProtocol = (("https:" == document.location.protocol) ? "https" : "http");
@@ -209,7 +211,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			params[8]='product='; //For Live Tracking only
 			k_trackevent(params,'5198');
 		</script>
-		
+
 		<noscript>
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=0&promoCode=Regis_Savie ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
@@ -232,11 +234,11 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			params[8]='product='; //For Live Tracking only
 			k_trackevent(params,'5198');
 		</script>
-		
+
 		<noscript>
 			<img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration_Savie_Survey&val=0.0&orderId=0&promoCode=Regis_Savie_Survey ZH&valueCurrency=USD&GCID=&kw=&product=" width="1" height="1">
 		</noscript>
-		
+
 <dec:head />
 <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 </head>
@@ -247,11 +249,11 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<%
 	} else {
 	%>
-		<body class="chin">	
+		<body class="chin">
 	<%
 	}
 	%>
-	
+
 	<!--Google Code for SEO-->
 
 <noscript>
@@ -286,8 +288,8 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 			        hide: false,
 			        buttons: {
 			       		closer: true,
-			       		sticker: true	
-			       	},	
+			       		sticker: true
+			       	},
 			        stack: stack_bar_top
 			};
 	    new PNotify(opts);
@@ -298,7 +300,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<dec:body />
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
-	
+
 
 	<%-- <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
@@ -311,11 +313,11 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script> --%>
-	
+
 	<!--For form validation-->
 	<script src="<%=request.getContextPath()%>/resources/js/savie-2016/savie-online.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
-	
+
 
 	<script type="text/javascript">
 		window.status = "Done";

@@ -56,18 +56,9 @@
         format("svg");
     /* Legacy iOS */
 }
-::-webkit-input-placeholder {
-	font-family: Calibri, sans-serif !important;
-	font-size: 18px !important;
-}
-:-moz-placeholder { /* Firefox 18- */
-	font-family: Calibri, sans-serif !important;
-	font-size: 18px !important;
-}
-::-moz-placeholder { /* Firefox 19+ */
-	font-family: Calibri, sans-serif !important;
-	font-size: 18px !important;
-}
+::-webkit-input-placeholder,
+:-moz-placeholder, /* Firefox 18- */
+::-moz-placeholder, /* Firefox 19+ */
 :-ms-input-placeholder {
 	font-family: Calibri, sans-serif !important;
 	font-size: 18px !important;

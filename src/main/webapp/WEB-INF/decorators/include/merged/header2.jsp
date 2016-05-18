@@ -422,7 +422,7 @@ function getStarted(){
 													style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
 													src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 											</div>
-											<div id="login-err-msg" class="alert alert-danger login-err-msg"
+											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
 											<div class="form-container" >
 												<h2>
@@ -834,7 +834,7 @@ function getStarted(){
                             src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
                     </div>
                     <div id="login-err-msg"
-                        class="alert alert-danger col-xs-10 col-xs-offset-1 login-err-msg" role="alert"
+                        class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
                         style="display: none;"></div>
                     <div class="form-container">
                         <h2>
@@ -994,7 +994,7 @@ function getStarted(){
 				bundle="${msg}" /> </a>
 		<div class="dropdown-menu drop-width"
 			style="left: -32px; top: 105px; max-width: 300px;">
-			<form name="loginform" class="loginform2" id="loginform2">
+			<form name="loginform" id="loginform2">
 				<div class="login-form" style="position: relative;">
 					<div
 						style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
@@ -1003,7 +1003,7 @@ function getStarted(){
 							style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
 							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 					</div>
-					<div class="login-err-msg" id="login-err-msg"
+					<div id="login-err-msg"
 						class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
 						style="display: none;"></div>
 					<div class="form-container">
@@ -1142,7 +1142,7 @@ function getStarted(){
     <div id="myDropdownMob" class="modal-dialog">
         <form name="loginform" id="loginform2" method="post">
             <div class="login-form" style="position: absolute;">
-                <div class="login-err-msg" id="login-err-msg"
+                <div id="login-err-msg"
                     class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
                     style="display: none;"></div>
                 <div class="form-container">
@@ -1347,7 +1347,7 @@ $(function() {
     });
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
-<jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+<jsp:include page="/WEB-INF/jsp/merged/login2.jsp" />
 <%if (session.getAttribute("authenticate") == "true" && session.getAttribute("username") != null) {%>
 <jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
 <% } %>

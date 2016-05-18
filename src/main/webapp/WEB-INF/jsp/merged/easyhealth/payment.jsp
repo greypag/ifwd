@@ -258,7 +258,7 @@ var home_url = "<%=request.getContextPath()%>";
                     </div>
                 </div>
                 
-                <div class="col-xs-12">
+                <div class="col-xs-12" id="paymentErr">
                 	<div class="text-center">
                 		<span class="error-msg" id="paymentErMsg"><fmt:message key="payment.error.msg1" bundle="${msg}" /></span>
                 	</div>
