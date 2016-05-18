@@ -4,7 +4,8 @@ var application = application || {};
 application.common = {
 	dataAttributes:[
 		"data-keycheck-numOnly",
-		"data-keycheck-alphabetOnly"
+		"data-keycheck-alphabetOnly",
+		"data-blurcheck-replaceAlphabet"
 	],
 	init:function(){
 		
@@ -27,7 +28,10 @@ application.common = {
 						$(this).on("keypress",that.chkNumberOnly);
 						break;
 					case "keycheckAlphabetonly":
-						$(this).on("keypress",that.chkAlphabetOnly);
+						$(this).on("keydown",that.chkAlphabetOnly);
+						break;
+					case "blurcheckReplacealphabet":
+						$(this).on("blur",that.replaceAlphaEx2);
 						break;
 				}
 			}
@@ -50,6 +54,13 @@ application.common = {
 			return false;
 		}
 		return true;
+	},
+
+	replaceAlphaEx2:function(evt) {
+		var target = evt.currentTarget;
+		var string = target.value;
+		string = string.replace(/[^\sa-zA-Z.]/g, '');
+		target.value = string;
 	},
 
 	//Common Validator
