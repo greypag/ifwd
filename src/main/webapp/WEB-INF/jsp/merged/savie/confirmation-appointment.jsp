@@ -77,14 +77,14 @@ var language = "${language}";
 					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="label.savie.confirmation.success.title" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="text-bold policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></span>
-						<span class="policy-number">${accessCode }</span>
+						<span class="policy-number">${applicationNumber }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p><fmt:message key="info.savie.confirmation.success.copy" bundle="${msg}" /></p>
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="text-bold policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></p>
-						<p class="policy-number">${accessCode }</p>
+						<p class="policy-number">${applicationNumber }</p>
 					</div>
 				</div>
 				<hr>

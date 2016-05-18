@@ -3035,7 +3035,7 @@ public class LifeServiceImpl implements LifeService {
 		
 		JSONObject models = new JSONObject();
 		models.put("name", session.getAttribute("username"));
-		models.put("accessCode", session.getAttribute("accessCode"));
+		models.put("accessCode", session.getAttribute("applicationNumber"));
 		models.put("dateEn", preferredDate);
 		models.put("timeSlotEn", preferredTime);
 		models.put("centerEn", centerEn);
