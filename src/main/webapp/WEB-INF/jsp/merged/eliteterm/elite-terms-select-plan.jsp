@@ -4788,7 +4788,6 @@ var home_url = "<%=request.getContextPath()%>";
 			$("#own-estate-now").click();
 		}
 		
-		  alert('${etPageKey }');
 		  if('${etPageKey }' == '1'){
 			  backToStep(1);
 			  $('body, html').animate({
