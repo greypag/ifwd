@@ -284,7 +284,7 @@ $(document).ready(function() {
     	$('#paymentForm').bootstrapValidator('validate');
 		if($('#paymentForm').data('bootstrapValidator').isValid()){
 			//do something
-			var creditCaredNo = $('#securityCode').val();
+			var creditCaredNo = $('#cardNo').val();
  	 		 var expiryDate = $('#epMonth').val()+$('#epYear').val().substr(2, 2);
  	 		 var cardHolderName = $('#cardHolder').val();
 	 		  $.ajax({
