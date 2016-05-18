@@ -47,14 +47,20 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-xs-12">
 									<h4><fmt:message key="underwriting.question.q1" bundle="${msg}" /></h4>
 								</div>
-								<div class="col-xs-12 col-md-10">
+								<div class="col-xs-11">
 									<p><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></p>
 								</div>
-								<div class="col-xs-12 col-md-2">
-									<div class="radio-gp">
+								<div class="col-xs-1">
+									<div class="form-group">
+										<div class="checkbox">
+											<input type="checkbox" name="ehUnderWriting1" id="ehUnderWriting1" value="">
+											<label for="ehUnderWriting1">&nbsp;</label>
+										</div>
+									</div>
+									<!-- <div class="radio-gp">
 										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
 										<label class="radio-inline"><input type="radio" name="ehUnderWriting1" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
-									</div>
+									</div> -->
 								</div>
 								<div class="col-xs-12 col-md-12">
 									<span class="error-msg" id="ehUnderWriting1ErrMsg"></span>
@@ -64,15 +70,21 @@ var home_url = "<%=request.getContextPath()%>";
                                 <div class="col-xs-12">
                                     <h4><fmt:message key="underwriting.question.q2" bundle="${msg}" /></h4>
                                 </div>
-                                <div class="col-xs-12 col-md-10">
+                                <div class="col-xs-11">
                                     <p><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></p>
                                 </div>
-                                <div class="col-xs-12 col-md-2">
-                                    <div class="radio-gp">
+                                <div class="col-xs-1">
+                                	<div class="form-group">
+	                                	<div class="checkbox">
+											<input type="checkbox" name="ehUnderWriting2" id="ehUnderWriting2" value="">
+											<label for="ehUnderWriting2">&nbsp;</label>
+										</div>
+									</div>
+                                    <!-- <div class="radio-gp">
                                         <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
                                         <label class="radio-inline"><input type="radio" name="ehUnderWriting2" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-xs-12 col-md-12">
                                     <span class="error-msg" id="ehUnderWriting2ErrMsg"></span>
@@ -82,7 +94,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-xs-12">
 									<h4><fmt:message key="underwriting.question.q3" bundle="${msg}" /></h4>
 								</div>
-								<div class="col-xs-12 col-md-10">
+								<div class="col-xs-11 col-md-11">
 									<div class="row">
 										<div class="col-xs-12">
 											<p><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></p>
@@ -113,11 +125,17 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 									</div>
 								</div>
-								<div class="col-xs-12 col-md-2">
-									<div class="radio-gp">
+								<div class="col-xs-1 col-md-1">
+									<div class="form-group">
+										<div class="checkbox">
+											<input type="checkbox" name="ehUnderWriting3" id="ehUnderWriting3" value="">
+											<label for="ehUnderWriting3">&nbsp;</label>
+										</div>
+									</div>
+									<!-- <div class="radio-gp">
 										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="Yes"><fmt:message key="underwriting.option.yes" bundle="${msg}" /></label>
 										<label class="radio-inline"><input type="radio" name="ehUnderWriting3" value="No"><fmt:message key="underwriting.option.no" bundle="${msg}" /></label>
-									</div>
+									</div> -->
 								</div>
 								<div class="col-xs-12 col-md-12">
 									<span class="error-msg" id="ehUnderWriting3ErrMsg"></span>
@@ -131,7 +149,7 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 							<div class="btn-row text-center">
-								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
+								<a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
 							</div>
 					</div>
 				</div>
