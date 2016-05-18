@@ -86,9 +86,9 @@ public class CampaignServiceImpl implements CampaignService {
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
 		int[] indexs = {5, 6, 7, 8, 9};
-		indexs = new int[]{13};
 		
 		/* hotel voucher start */
+		/*
 	    if (request.getParameter("hid")!=null) {	  
 		    switch (Integer.parseInt(request.getParameter("hid").toString())) {
 			    case 14:
@@ -111,8 +111,22 @@ public class CampaignServiceImpl implements CampaignService {
 		            break;
 		    }
 	    }
+	    */
 	    /* hotel voucher end */
 		
+		/* savie voucher start */
+	    java.util.Calendar cal = java.util.Calendar.getInstance();
+	    cal.setTime(java.util.Calendar.getInstance().getTime());
+	    int month = cal.get(java.util.Calendar.MONTH);
+	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
+	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
+	    if (month == 4) {
+	    	if ((day == 21 && hour >= 15) || (day >= 22 && day <= 31) || (day == 31 && hour < 15) || request.getParameter("savie")!=null) {
+				indexs = new int[]{13};
+	    	}
+	    }
+		/* savie voucher end */
+	    
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;

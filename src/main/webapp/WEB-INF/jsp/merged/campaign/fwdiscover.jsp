@@ -87,7 +87,7 @@
         countDownMM = "May";
 
         //Special Offer Period
-        if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()){
+        if((cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()) || request.getParameter("savie")!=null){
         	isRegSpecial = true;
     		countDownDate = countDownDate_special;
             countDownDD = "21";
@@ -2215,6 +2215,13 @@
 				<%                		
                 	}
                 %>
+                <%
+	            	if (request.getParameter("savie")!=null) {
+				%>
+	            data : "savie=Y",                
+				<%                		
+	            	}
+	            %>                
                 success : function(data) {
                     $(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
                         $(this).html(data["count"+index]);
