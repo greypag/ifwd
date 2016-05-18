@@ -246,6 +246,15 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
       display: inline-block;
     }
   }
+  .form-group{
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      border: none;
+      display: block;
+      margin-top: 10px;
+      clear: both;
+  }
 }
 
 .loginform-pop {
@@ -277,5 +286,70 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotUserNameForm,
 .forgotPasswordForm {
   @include fwd_input_textarea;
+}
+
+.frm {
+  margin-right: 10%;
+}
+
+.login-form {
+  h2 {
+    color: #f68a1d;
+    font-size: 24px;
+    text-align: left;
+  }
+  h3 {
+    color: #f68a1d;
+    font-size: 18px;
+    text-align: left;
+    a {
+      color: #f68a1d;
+      font-size: 24px;
+      text-align: left;
+      margin-top: 10px !important;
+      text-decoration: underline;
+      &:hover {
+        color: #9fb1b2;
+        text-decoration: none;
+      }
+    }
+    span {
+      color: #000;
+      font-size: 14px;
+      text-align: left;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+  p {
+    color: #000;
+    font-size: 18px;
+    text-align: left;
+    font-weight: 300;
+    line-height: 20px;
+    margin-top: 22px;
+  }
+  h4 {
+    color: #061d2a;
+    font-size: 18px;
+    a {
+      color: #f68a1d;
+      font-size: 18px;
+      padding: 4px 0px;
+    }
+  }
+  .btn-box {
+    width: 100%;
+    text-align: left;
+    h3 {
+      padding: 12px 30px !important;
+      font-size: 24px;
+      line-height: 1.33;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 0px;
+      background-color: #f68a1d;
+    }
+  }
 }
 // ----------------------------------

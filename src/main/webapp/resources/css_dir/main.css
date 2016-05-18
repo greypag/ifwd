@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.4, last compiled on: 2016-05-18 14:50:05 +0800
+* FWD revamp v0.1.4, last compiled on: 2016-05-18 15:44:13 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -1414,28 +1414,38 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
+/* line 249, ../sass/common_screen/_loginpopup.scss */
+.login-form .form-group {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  display: block;
+  margin-top: 10px;
+  clear: both;
+}
 
-/* line 251, ../sass/common_screen/_loginpopup.scss */
+/* line 260, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop {
   overflow: hidden;
 }
-/* line 252, ../sass/common_screen/_loginpopup.scss */
+/* line 261, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .login-error-wrapper {
   display: inline;
   padding-left: 20px;
 }
 
-/* line 259, ../sass/common_screen/_loginpopup.scss */
+/* line 268, ../sass/common_screen/_loginpopup.scss */
 .forgotUserNameForm, .forgotPasswordForm {
   overflow: hidden;
 }
 
-/* line 264, ../sass/common_screen/_loginpopup.scss */
+/* line 273, ../sass/common_screen/_loginpopup.scss */
 .loginpopupext .loginform-pop, .loginpopupext .forgotUserNameForm, .loginpopupext .forgotPasswordForm {
   display: inline-block;
 }
 
-/* line 270, ../sass/common_screen/_loginpopup.scss */
+/* line 279, ../sass/common_screen/_loginpopup.scss */
 .login-disclaimer {
   line-height: 1.2;
   letter-spacing: 0px;
@@ -1579,6 +1589,80 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotUserNameForm .has-error .help-block,
 .forgotPasswordForm .has-error .help-block {
   color: #e4002b;
+}
+
+/* line 291, ../sass/common_screen/_loginpopup.scss */
+.frm {
+  margin-right: 10%;
+}
+
+/* line 296, ../sass/common_screen/_loginpopup.scss */
+.login-form h2 {
+  color: #f68a1d;
+  font-size: 24px;
+  text-align: left;
+}
+/* line 301, ../sass/common_screen/_loginpopup.scss */
+.login-form h3 {
+  color: #f68a1d;
+  font-size: 18px;
+  text-align: left;
+}
+/* line 305, ../sass/common_screen/_loginpopup.scss */
+.login-form h3 a {
+  color: #f68a1d;
+  font-size: 24px;
+  text-align: left;
+  margin-top: 10px !important;
+  text-decoration: underline;
+}
+/* line 311, ../sass/common_screen/_loginpopup.scss */
+.login-form h3 a:hover {
+  color: #9fb1b2;
+  text-decoration: none;
+}
+/* line 316, ../sass/common_screen/_loginpopup.scss */
+.login-form h3 span {
+  color: #000;
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
+  font-style: italic;
+}
+/* line 324, ../sass/common_screen/_loginpopup.scss */
+.login-form p {
+  color: #000;
+  font-size: 18px;
+  text-align: left;
+  font-weight: 300;
+  line-height: 20px;
+  margin-top: 22px;
+}
+/* line 332, ../sass/common_screen/_loginpopup.scss */
+.login-form h4 {
+  color: #061d2a;
+  font-size: 18px;
+}
+/* line 335, ../sass/common_screen/_loginpopup.scss */
+.login-form h4 a {
+  color: #f68a1d;
+  font-size: 18px;
+  padding: 4px 0px;
+}
+/* line 341, ../sass/common_screen/_loginpopup.scss */
+.login-form .btn-box {
+  width: 100%;
+  text-align: left;
+}
+/* line 344, ../sass/common_screen/_loginpopup.scss */
+.login-form .btn-box h3 {
+  padding: 12px 30px !important;
+  font-size: 24px;
+  line-height: 1.33;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0px;
+  background-color: #f68a1d;
 }
 
 /* line 2, ../sass/common_screen/_becomeOurPartner.scss */

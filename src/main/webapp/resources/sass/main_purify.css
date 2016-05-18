@@ -1536,91 +1536,6 @@ h3.btn-box-3 span {
 	padding: 0 10px;
 }
 
-.form-container {
-	padding: 2px 20px 20px;
-}
-/*********login form*********/
-
-/*.login-form a {
-color: #f68a1d;
-}*/
-.frm {
-	margin-right: 10%;
-}
-
-.login-form h2 {
-	color: #f68a1d;
-	font-size: 24px;
-	text-align: left;
-}
-
-.login-form h3 {
-	color: #f68a1d;
-	font-size: 18px;
-	text-align: left;
-}
-
-.login-form h3 a {
-	color: #f68a1d;
-	font-size: 24px;
-	text-align: left;
-	margin-top: 10px !important;
-	text-decoration: underline;
-}
-
-.login-form h3 a:hover {
-	color: #9fb1b2;
-	text-decoration: none;
-}
-
-.login-form h3 span {
-	color: #000;
-	font-size: 14px;
-	text-align: left;
-	font-weight: bold;
-	font-style: italic;
-}
-
-.login-form p {
-	color: #000;
-	font-size: 18px;
-	text-align: left;
-	font-weight: 300;
-	line-height: 20px;
-	margin-top: 22px;
-}
-
-.login-form h4 {
-	color: #061d2a;
-	font-size: 18px;
-}
-
-.login-form h4 a {
-	color: #f68a1d;
-	font-size: 18px;
-	padding: 4px 0px;
-}
-
-.login-form .btn-box {
-	width: 100%;
-	text-align: left;
-}
-
-.login-form .btn-box h3 {
-	padding: 12px 30px !important;
-	font-size: 24px;
-	line-height: 1.33;
-	font-weight: bold;
-	color: #fff;
-	margin-bottom: 0px;
-	background-color: #f68a1d;
-}
-
-.form-container {
-	padding: 2px 20px;
-}
-/*********end*login form*******/
-
 /*********Mob-loginform*********/
 
 /* .moblogin {
@@ -1761,9 +1676,6 @@ h4.margin-shift {
 	background-color: #f68a1d;
 }
 
-.form-container {
-	padding: 2px 20px;
-}
 /*********end*login form*******/
 .skill h2 {
 	margin-bottom: 25px;
