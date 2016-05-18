@@ -92,7 +92,6 @@ function emptyMembershipError(){
 $(function () {
 	
     /* scrolling code starts */
-	if (!isMobile){
 		var floatingbox = $('.floatingbox');
 	    
 	    if (floatingbox[0]){
@@ -118,7 +117,6 @@ $(function () {
 	        	}
 	        });
 	    }
-	}
     /* scrolling code ends */
     
 	/* payment seccode start*/
