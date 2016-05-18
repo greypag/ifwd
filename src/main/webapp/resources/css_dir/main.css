@@ -1,20 +1,19 @@
 /**
 *
-* FWD revamp v0.1.3 [ updated to 16/05/2016 (DD/MM/YYYY) ]
+* FWD revamp v0.1.4, last compiled on: 2016-05-18 12:12:12 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
-* Last CSS Compiled on: 2016-05-17 16:16:56 +0800
 *
 **/
-/* line 97, ../sass/_mixin.scss */
+/* line 91, ../sass/_mixin.scss */
 .loginpopupext .loginform-pop, .loginpopupext .forgotUserNameForm, .loginpopupext .forgotPasswordForm {
   *zoom: 1;
 }
-/* line 99, ../sass/_mixin.scss */
+/* line 93, ../sass/_mixin.scss */
 .loginpopupext .loginform-pop:before, .loginpopupext .forgotUserNameForm:before, .loginpopupext .forgotPasswordForm:before, .loginpopupext .loginform-pop:after, .loginpopupext .forgotUserNameForm:after, .loginpopupext .forgotPasswordForm:after {
   content: " ";
   display: table;
 }
-/* line 103, ../sass/_mixin.scss */
+/* line 97, ../sass/_mixin.scss */
 .loginpopupext .loginform-pop:after, .loginpopupext .forgotUserNameForm:after, .loginpopupext .forgotPasswordForm:after {
   clear: both;
 }
@@ -70,6 +69,9 @@ a {
   margin-bottom: 10px !important;
 }
 
+/**
+* Material Design Override - mainly for <input> & <textboard>
+**/
 @font-face {
   font-family: 'Foco-Regular';
   src: url("../font/Foco-Regular.otf");
@@ -118,252 +120,235 @@ a {
   /* Legacy iOS */
 }
 /* line 59, ../sass/base/_localize.scss */
-::-webkit-input-placeholder {
-  font-family: Calibri, sans-serif !important;
-  font-size: 18px !important;
-}
-
-/* line 63, ../sass/base/_localize.scss */
-:-moz-placeholder {
-  /* Firefox 18- */
-  font-family: Calibri, sans-serif !important;
-  font-size: 18px !important;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-::-moz-placeholder {
-  /* Firefox 19+ */
-  font-family: Calibri, sans-serif !important;
-  font-size: 18px !important;
-}
-
-/* line 71, ../sass/base/_localize.scss */
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
 :-ms-input-placeholder {
   font-family: Calibri, sans-serif !important;
   font-size: 18px !important;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-0 {
   padding: 0px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-10 {
   padding: 10px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-20 {
   padding: 20px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-30 {
   padding: 30px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-40 {
   padding: 40px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-50 {
   padding: 50px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-60 {
   padding: 60px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-70 {
   padding: 70px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-80 {
   padding: 80px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-90 {
   padding: 90px;
 }
 
-/* line 76, ../sass/base/_localize.scss */
+/* line 67, ../sass/base/_localize.scss */
 .pad-100 {
   padding: 100px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-0 {
   border: 0px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-10 {
   border: 10px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-20 {
   border: 20px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-30 {
   border: 30px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-40 {
   border: 40px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-50 {
   border: 50px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-60 {
   border: 60px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-70 {
   border: 70px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-80 {
   border: 80px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-90 {
   border: 90px;
 }
 
-/* line 81, ../sass/base/_localize.scss */
+/* line 72, ../sass/base/_localize.scss */
 .border-100 {
   border: 100px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-0 {
   margin: 0px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-10 {
   margin: 10px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-20 {
   margin: 20px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-30 {
   margin: 30px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-40 {
   margin: 40px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-50 {
   margin: 50px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-60 {
   margin: 60px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-70 {
   margin: 70px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-80 {
   margin: 80px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-90 {
   margin: 90px;
 }
 
-/* line 86, ../sass/base/_localize.scss */
+/* line 77, ../sass/base/_localize.scss */
 .margin-100 {
   margin: 100px;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-0 {
   opacity: 0;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-1 {
   opacity: 0.1;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-2 {
   opacity: 0.2;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-3 {
   opacity: 0.3;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-4 {
   opacity: 0.4;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-5 {
   opacity: 0.5;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-6 {
   opacity: 0.6;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-7 {
   opacity: 0.7;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-8 {
   opacity: 0.8;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-9 {
   opacity: 0.9;
 }
 
-/* line 91, ../sass/base/_localize.scss */
+/* line 82, ../sass/base/_localize.scss */
 .opac-10 {
   opacity: 1;
 }
 
-/* line 99, ../sass/base/_localize.scss */
+/* line 90, ../sass/base/_localize.scss */
 body {
   background: #fff;
   font-family: Calibri, sans-serif !important;
@@ -371,7 +356,7 @@ body {
   font-size: 16px;
 }
 
-/* line 105, ../sass/base/_localize.scss */
+/* line 96, ../sass/base/_localize.scss */
 h1 {
   font-size: 48px;
   color: #fff;
@@ -379,13 +364,13 @@ h1 {
   font-weight: 700;
 }
 
-/* line 106, ../sass/base/_localize.scss */
+/* line 97, ../sass/base/_localize.scss */
 h2 {
   font-weight: 700;
   font-size: 36px;
 }
 
-/* line 107, ../sass/base/_localize.scss */
+/* line 98, ../sass/base/_localize.scss */
 h3 {
   font-size: 30px;
   color: #787878;
@@ -393,28 +378,28 @@ h3 {
   line-height: 24px;
 }
 
-/* line 108, ../sass/base/_localize.scss */
+/* line 99, ../sass/base/_localize.scss */
 h4 {
   font-size: 24px;
 }
 
-/* line 109, ../sass/base/_localize.scss */
+/* line 100, ../sass/base/_localize.scss */
 h5 {
   font-size: 16px;
 }
 
-/* line 110, ../sass/base/_localize.scss */
+/* line 101, ../sass/base/_localize.scss */
 h6 {
   font-size: 14px;
 }
 
-/* line 111, ../sass/base/_localize.scss */
+/* line 102, ../sass/base/_localize.scss */
 hr {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
 }
 
-/* line 112, ../sass/base/_localize.scss */
+/* line 103, ../sass/base/_localize.scss */
 .heading-h1 {
   font-size: 36px;
   font-weight: 700;
@@ -422,7 +407,7 @@ hr {
   padding: 0;
 }
 
-/* line 113, ../sass/base/_localize.scss */
+/* line 104, ../sass/base/_localize.scss */
 .heading-h2 {
   font-size: 30px;
   font-weight: 700;
@@ -430,7 +415,7 @@ hr {
   padding: 0;
 }
 
-/* line 114, ../sass/base/_localize.scss */
+/* line 105, ../sass/base/_localize.scss */
 .heading-h3 {
   font-size: 24px;
   font-weight: 700;
@@ -438,7 +423,7 @@ hr {
   padding: 0;
 }
 
-/* line 115, ../sass/base/_localize.scss */
+/* line 106, ../sass/base/_localize.scss */
 .heading-h4 {
   font-size: 18px;
   font-weight: 700;
@@ -446,93 +431,93 @@ hr {
   padding: 0;
 }
 
-/* line 116, ../sass/base/_localize.scss */
+/* line 107, ../sass/base/_localize.scss */
 .heading-h5 {
   font-size: 14px;
   margin: 0;
   padding: 0;
 }
 
-/* line 117, ../sass/base/_localize.scss */
+/* line 108, ../sass/base/_localize.scss */
 .heading-h6 {
   font-size: 12px;
   margin: 0;
   padding: 0;
 }
 
-/* line 118, ../sass/base/_localize.scss */
+/* line 109, ../sass/base/_localize.scss */
 .color-orange {
   color: #ff8200 !important;
 }
 
-/* line 119, ../sass/base/_localize.scss */
+/* line 110, ../sass/base/_localize.scss */
 .color-red {
   color: #e4002b !important;
 }
 
-/* line 120, ../sass/base/_localize.scss */
+/* line 111, ../sass/base/_localize.scss */
 .color-yellow {
   color: #efdb714 !important;
 }
 
-/* line 121, ../sass/base/_localize.scss */
+/* line 112, ../sass/base/_localize.scss */
 .color-darkgray {
   color: #373a36 !important;
 }
 
-/* line 122, ../sass/base/_localize.scss */
+/* line 113, ../sass/base/_localize.scss */
 .color-deepdarkgray {
   color: #222 !important;
 }
 
-/* line 123, ../sass/base/_localize.scss */
+/* line 114, ../sass/base/_localize.scss */
 .color-gray {
   color: #505759 !important;
 }
 
-/* line 124, ../sass/base/_localize.scss */
+/* line 115, ../sass/base/_localize.scss */
 .color-lightgray {
   color: #9ba5a7 !important;
   color: #061d29 !important;
 }
 
-/* line 125, ../sass/base/_localize.scss */
+/* line 116, ../sass/base/_localize.scss */
 .color-darkblue {
   color: #061d29 !important;
 }
 
-/* line 126, ../sass/base/_localize.scss */
+/* line 117, ../sass/base/_localize.scss */
 .color-black {
   color: #000 !important;
 }
 
-/* line 127, ../sass/base/_localize.scss */
+/* line 118, ../sass/base/_localize.scss */
 .wd {
   width: 12%;
 }
 
-/* line 128, ../sass/base/_localize.scss */
+/* line 119, ../sass/base/_localize.scss */
 .wd2 {
   width: 100%;
   line-height: 32px;
 }
 
-/* line 129, ../sass/base/_localize.scss */
+/* line 120, ../sass/base/_localize.scss */
 .wd3 {
   width: 50%;
 }
 
-/* line 130, ../sass/base/_localize.scss */
+/* line 121, ../sass/base/_localize.scss */
 .wd4 {
   min-width: 43px !important;
 }
 
-/* line 131, ../sass/base/_localize.scss */
+/* line 122, ../sass/base/_localize.scss */
 .wd5 {
   width: 96%;
 }
 
-/* line 133, ../sass/base/_localize.scss */
+/* line 124, ../sass/base/_localize.scss */
 .cta-login-btn {
   padding: 10px 40px !important;
   font-size: 18px;
@@ -941,6 +926,162 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   padding: inherit !important;
 }
 
+/* line 2, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__upper-footer-wrapper {
+  padding: 30px 30px 30px 45px;
+}
+/* line 5, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__bottom-footer-wrapper {
+  background-color: #000000;
+}
+/* line 8, ../sass/common_screen/_footer.scss */
+.footer-container .contact-number {
+  font-size: 30px;
+  font-weight: bold;
+}
+/* line 12, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a,
+.footer-container .contact-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+/* line 17, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a {
+  display: block;
+  line-height: 2;
+  color: #9fb1b2;
+}
+/* line 21, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 26, ../sass/common_screen/_footer.scss */
+.footer-container .contact-number {
+  color: #f6871e !important;
+}
+
+/* line 31, ../sass/common_screen/_footer.scss */
+.footer .bottom-link a {
+  color: #f6871e !important;
+}
+
+/* line 35, ../sass/common_screen/_footer.scss */
+.footer-container {
+  background-color: #222222;
+}
+/* line 37, ../sass/common_screen/_footer.scss */
+.footer-container .contact-label {
+  color: #fff;
+}
+/* line 39, ../sass/common_screen/_footer.scss */
+.footer-container .contact-label a {
+  color: #fff;
+}
+
+/* line 45, ../sass/common_screen/_footer.scss */
+.contact-label {
+  line-height: 1;
+}
+/* line 47, ../sass/common_screen/_footer.scss */
+.contact-label .fa {
+  line-height: 1;
+  padding-left: 5px;
+}
+
+/* line 53, ../sass/common_screen/_footer.scss */
+.contact-number {
+  line-height: 1.3;
+}
+
+/* line 57, ../sass/common_screen/_footer.scss */
+.bottom-footer-link {
+  color: #ffffff;
+}
+
+/* line 61, ../sass/common_screen/_footer.scss */
+.bdr-curve {
+  border-radius: 0px !important;
+}
+
+/* line 67, ../sass/common_screen/_footer.scss */
+.footer-container .contact-number {
+  font-size: 30px;
+  font-weight: bold;
+}
+/* line 71, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a, .footer-container .contact-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+/* line 75, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a {
+  display: block;
+  line-height: 2;
+  color: #9fb1b2;
+}
+/* line 79, ../sass/common_screen/_footer.scss */
+.footer-container .bottom-link a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 84, ../sass/common_screen/_footer.scss */
+.footer-container .contact-number {
+  color: #f6871e !important;
+}
+
+/* line 89, ../sass/common_screen/_footer.scss */
+.footer .bottom-link a {
+  color: #f6871e !important;
+}
+
+/* line 93, ../sass/common_screen/_footer.scss */
+.footer-container {
+  background-color: #222222;
+}
+/* line 94, ../sass/common_screen/_footer.scss */
+.footer-container .contact-label {
+  color: #fff;
+}
+/* line 96, ../sass/common_screen/_footer.scss */
+.footer-container .contact-label a {
+  color: #fff;
+}
+
+/* line 103, ../sass/common_screen/_footer.scss */
+.bottom-footer-wrapper {
+  background-color: #000000;
+}
+
+/* line 107, ../sass/common_screen/_footer.scss */
+.upper-footer-wrapper {
+  padding: 30px 30px 30px 45px;
+}
+
+/* line 111, ../sass/common_screen/_footer.scss */
+.contact-label {
+  line-height: 1;
+}
+/* line 113, ../sass/common_screen/_footer.scss */
+.contact-label .fa {
+  line-height: 1;
+}
+
+/* line 118, ../sass/common_screen/_footer.scss */
+.contact-number {
+  line-height: 1.3;
+}
+
+/* line 122, ../sass/common_screen/_footer.scss */
+.contact-label .fa {
+  padding-left: 5px;
+}
+
+/* line 126, ../sass/common_screen/_footer.scss */
+.bottom-footer-link {
+  color: #ffffff;
+}
+
 /* line 1, ../sass/common_screen/_loginpopup.scss */
 .fwd-savie-wrapper .loginpopup,
 .loginpopup {
@@ -1122,75 +1263,86 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   line-height: 1.2;
   letter-spacing: 0px;
 }
+/* line 134, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .loginform2 .form-container,
+.loginpopup .loginform2 .form-container {
+  float: left;
+  width: 100%;
+}
+/* line 138, ../sass/common_screen/_loginpopup.scss */
+.fwd-savie-wrapper .loginpopup .loginform2 .login-err-msg,
+.loginpopup .loginform2 .login-err-msg {
+  white-space: normal;
+}
 
-/* line 140, ../sass/common_screen/_loginpopup.scss */
+/* line 147, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--confirm {
   padding: 10px 60px;
 }
-/* line 144, ../sass/common_screen/_loginpopup.scss */
+/* line 151, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--apply {
   padding: 10px 40px;
 }
-/* line 148, ../sass/common_screen/_loginpopup.scss */
+/* line 155, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--link {
   padding: 10px 30px;
 }
-/* line 152, ../sass/common_screen/_loginpopup.scss */
+/* line 159, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 156, ../sass/common_screen/_loginpopup.scss */
+/* line 163, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover {
   background-color: #9ba5a7;
   border: 1px #9ba5a7 solid;
   border-bottom: 3px #676f70 solid;
 }
-/* line 164, ../sass/common_screen/_loginpopup.scss */
+/* line 171, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 168, ../sass/common_screen/_loginpopup.scss */
+/* line 175, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--orange:hover {
   background-color: #ff8200;
   border: 1px #ff8200 solid;
   border-bottom: 3px #ff8200 solid;
 }
-/* line 176, ../sass/common_screen/_loginpopup.scss */
+/* line 183, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 180, ../sass/common_screen/_loginpopup.scss */
+/* line 187, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--yellow:hover {
   background-color: #fdb714;
   border: 1px #fdb714 solid;
   border-bottom: 3px #cf9611 solid;
 }
-/* line 191, ../sass/common_screen/_loginpopup.scss */
+/* line 198, ../sass/common_screen/_loginpopup.scss */
 .cta-login-btn.cta-login-btn--gray:hover, .cta-login-btn.cta-login-btn--orange:hover, .cta-login-btn.cta-login-btn--yellow:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
   opacity: 0.9;
 }
 
-/* line 199, ../sass/common_screen/_loginpopup.scss */
+/* line 206, ../sass/common_screen/_loginpopup.scss */
 _:-ms-fullscreen, :root .loginpopup .login-input {
   line-height: 14px;
 }
 
-/* line 203, ../sass/common_screen/_loginpopup.scss */
+/* line 210, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close {
   position: absolute;
   text-align: center;
   top: 30px;
   right: 30px;
 }
-/* line 208, ../sass/common_screen/_loginpopup.scss */
+/* line 215, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .close span {
   width: 22px;
   height: 22px;
@@ -1202,11 +1354,11 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   display: inline-block;
 }
 
-/* line 220, ../sass/common_screen/_loginpopup.scss */
+/* line 227, ../sass/common_screen/_loginpopup.scss */
 .login-form {
   padding: 20px 30px 30px 30px;
 }
-/* line 222, ../sass/common_screen/_loginpopup.scss */
+/* line 229, ../sass/common_screen/_loginpopup.scss */
 .login-form .close {
   width: 22px;
   height: 22px;
@@ -1217,7 +1369,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-align: center;
   display: inline-block;
 }
-/* line 231, ../sass/common_screen/_loginpopup.scss */
+/* line 238, ../sass/common_screen/_loginpopup.scss */
 .login-form .close span {
   width: 22px;
   height: 22px;
@@ -1229,42 +1381,33 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   display: inline-block;
 }
 
-/* line 244, ../sass/common_screen/_loginpopup.scss */
+/* line 251, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop {
   overflow: hidden;
 }
-/* line 245, ../sass/common_screen/_loginpopup.scss */
+/* line 252, ../sass/common_screen/_loginpopup.scss */
 .loginform-pop .login-error-wrapper {
   display: inline;
   padding-left: 20px;
 }
 
-/* line 252, ../sass/common_screen/_loginpopup.scss */
+/* line 259, ../sass/common_screen/_loginpopup.scss */
 .forgotUserNameForm, .forgotPasswordForm {
   overflow: hidden;
 }
 
-/* line 257, ../sass/common_screen/_loginpopup.scss */
+/* line 264, ../sass/common_screen/_loginpopup.scss */
 .loginpopupext .loginform-pop, .loginpopupext .forgotUserNameForm, .loginpopupext .forgotPasswordForm {
   display: inline-block;
 }
 
-/* line 263, ../sass/common_screen/_loginpopup.scss */
+/* line 270, ../sass/common_screen/_loginpopup.scss */
 .login-disclaimer {
   line-height: 1.2;
   letter-spacing: 0px;
 }
 
-/* login page || login.jsp */
-/* line 276, ../sass/common_screen/_loginpopup.scss */
-.loginform-pop .col-sm-12.col-md-6.left, .loginform-pop .col-sm-12.col-md-12.left,
-.forgotUserNameForm .col-sm-12.col-md-6.left,
-.forgotUserNameForm .col-sm-12.col-md-12.left,
-.forgotPasswordForm .col-sm-12.col-md-6.left,
-.forgotPasswordForm .col-sm-12.col-md-12.left {
-  padding-right: 100px;
-}
-/* line 282, ../sass/common_screen/_loginpopup.scss */
+/* line 54, ../sass/base/_override.scss */
 .loginform-pop a.forgotUserName, .loginform-pop a.link-forgotPassword,
 .forgotUserNameForm a.forgotUserName,
 .forgotUserNameForm a.link-forgotPassword,
@@ -1273,7 +1416,15 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-decoration: none;
   font-style: normal;
 }
-/* line 288, ../sass/common_screen/_loginpopup.scss */
+/* line 61, ../sass/base/_override.scss */
+.loginform-pop .col-sm-12.col-md-6.left, .loginform-pop .col-sm-12.col-md-12.left,
+.forgotUserNameForm .col-sm-12.col-md-6.left,
+.forgotUserNameForm .col-sm-12.col-md-12.left,
+.forgotPasswordForm .col-sm-12.col-md-6.left,
+.forgotPasswordForm .col-sm-12.col-md-12.left {
+  padding-right: 100px;
+}
+/* line 66, ../sass/base/_override.scss */
 .loginform-pop .form-control.gray-textbox,
 .forgotUserNameForm .form-control.gray-textbox,
 .forgotPasswordForm .form-control.gray-textbox {
@@ -1287,7 +1438,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 0;
   border: 0 transparent;
 }
-/* line 299, ../sass/common_screen/_loginpopup.scss */
+/* line 77, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield__label,
 .forgotUserNameForm .mdl-textfield__label,
 .forgotPasswordForm .mdl-textfield__label {
@@ -1298,7 +1449,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 308, ../sass/common_screen/_loginpopup.scss */
+/* line 86, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield.is-focused label, .loginform-pop .mdl-textfield.is-dirty label,
 .forgotUserNameForm .mdl-textfield.is-focused label,
 .forgotUserNameForm .mdl-textfield.is-dirty label,
@@ -1308,13 +1459,13 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   font-size: 12px;
   top: 1px;
 }
-/* line 313, ../sass/common_screen/_loginpopup.scss */
+/* line 91, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield.is-not-active label,
 .forgotUserNameForm .mdl-textfield.is-not-active label,
 .forgotPasswordForm .mdl-textfield.is-not-active label {
   color: #ff8200;
 }
-/* line 317, ../sass/common_screen/_loginpopup.scss */
+/* line 95, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield input:hover, .loginform-pop .mdl-textfield input:focus,
 .forgotUserNameForm .mdl-textfield input:hover,
 .forgotUserNameForm .mdl-textfield input:focus,
@@ -1322,7 +1473,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotPasswordForm .mdl-textfield input:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 322, ../sass/common_screen/_loginpopup.scss */
+/* line 100, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield textarea:hover, .loginform-pop .mdl-textfield textarea:focus,
 .forgotUserNameForm .mdl-textfield textarea:hover,
 .forgotUserNameForm .mdl-textfield textarea:focus,
@@ -1330,7 +1481,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotPasswordForm .mdl-textfield textarea:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 328, ../sass/common_screen/_loginpopup.scss */
+/* line 106, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield__input:focus,
 .forgotUserNameForm .mdl-textfield__input:focus,
 .forgotPasswordForm .mdl-textfield__input:focus {
@@ -1341,7 +1492,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 336, ../sass/common_screen/_loginpopup.scss */
+/* line 114, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield__input:hover,
 .forgotUserNameForm .mdl-textfield__input:hover,
 .forgotPasswordForm .mdl-textfield__input:hover {
@@ -1350,26 +1501,26 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 343, ../sass/common_screen/_loginpopup.scss */
+/* line 121, ../sass/base/_override.scss */
 .loginform-pop .mdl-textfield label:after,
 .forgotUserNameForm .mdl-textfield label:after,
 .forgotPasswordForm .mdl-textfield label:after {
   background-color: transparent;
 }
-/* line 346, ../sass/common_screen/_loginpopup.scss */
+/* line 124, ../sass/base/_override.scss */
 .loginform-pop textarea.form-control.gray-textbox,
 .forgotUserNameForm textarea.form-control.gray-textbox,
 .forgotPasswordForm textarea.form-control.gray-textbox {
   height: 135px;
 }
-/* line 349, ../sass/common_screen/_loginpopup.scss */
+/* line 127, ../sass/base/_override.scss */
 .loginform-pop .next-btn,
 .forgotUserNameForm .next-btn,
 .forgotPasswordForm .next-btn {
   padding: 20px 0 40px 0;
   text-align: center;
 }
-/* line 353, ../sass/common_screen/_loginpopup.scss */
+/* line 131, ../sass/base/_override.scss */
 .loginform-pop .apply-btn,
 .forgotUserNameForm .apply-btn,
 .forgotPasswordForm .apply-btn {
@@ -1381,13 +1532,175 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 4px !important;
   border-bottom: 3px solid #c56501;
 }
-/* line 362, ../sass/common_screen/_loginpopup.scss */
-.loginform-pop #applyPartner,
-.forgotUserNameForm #applyPartner,
-.forgotPasswordForm #applyPartner {
+/* line 140, ../sass/base/_override.scss */
+.loginform-pop .applyPartner,
+.forgotUserNameForm .applyPartner,
+.forgotPasswordForm .applyPartner {
   padding: 5px 90px;
   font-size: 24px;
   margin-left: -52px;
+}
+/* line 145, ../sass/base/_override.scss */
+.loginform-pop .has-error .help-block,
+.forgotUserNameForm .has-error .help-block,
+.forgotPasswordForm .has-error .help-block {
+  color: #e4002b;
+}
+
+/* line 2, ../sass/common_screen/_becomeOurPartner.scss */
+.becomePartnerForm {
+  overflow: hidden;
+}
+/* line 54, ../sass/base/_override.scss */
+.becomePartnerForm a.forgotUserName, .becomePartnerForm a.link-forgotPassword {
+  text-decoration: none;
+  font-style: normal;
+}
+/* line 61, ../sass/base/_override.scss */
+.becomePartnerForm .col-sm-12.col-md-6.left, .becomePartnerForm .col-sm-12.col-md-12.left {
+  padding-right: 100px;
+}
+/* line 66, ../sass/base/_override.scss */
+.becomePartnerForm .form-control.gray-textbox {
+  font-size: 18px;
+  font-family: 'Calibri';
+  color: #000;
+  margin-top: 6px;
+  background-color: #f1f3f5 !important;
+  box-shadow: inset 0 1px 1px transparent;
+  padding: 12px 15px 0 15px;
+  border-radius: 0;
+  border: 0 transparent;
+}
+/* line 77, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield__label {
+  padding-top: 5px;
+  font-size: 14px;
+  left: 0;
+  top: 10px;
+  padding-left: 15px;
+  font-family: 'Calibri-Bold';
+}
+/* line 86, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield.is-focused label, .becomePartnerForm .mdl-textfield.is-dirty label {
+  color: #ff8200;
+  font-size: 12px;
+  top: 1px;
+}
+/* line 91, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield.is-not-active label {
+  color: #ff8200;
+}
+/* line 95, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield input:hover, .becomePartnerForm .mdl-textfield input:focus {
+  border-bottom: 2px solid #Ff8200;
+}
+/* line 100, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield textarea:hover, .becomePartnerForm .mdl-textfield textarea:focus {
+  border-bottom: 2px solid #Ff8200;
+}
+/* line 106, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield__input:focus {
+  transition: all 0.1s;
+  background-color: #ffffff;
+  outline: none;
+  outline-offset: 0;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 1px transparent;
+}
+/* line 114, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield__input:hover {
+  outline: none;
+  outline-offset: 0;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 1px transparent;
+}
+/* line 121, ../sass/base/_override.scss */
+.becomePartnerForm .mdl-textfield label:after {
+  background-color: transparent;
+}
+/* line 124, ../sass/base/_override.scss */
+.becomePartnerForm textarea.form-control.gray-textbox {
+  height: 135px;
+}
+/* line 127, ../sass/base/_override.scss */
+.becomePartnerForm .next-btn {
+  padding: 20px 0 40px 0;
+  text-align: center;
+}
+/* line 131, ../sass/base/_override.scss */
+.becomePartnerForm .apply-btn {
+  background: #ffa500;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 37px;
+  border-radius: 4px !important;
+  border-bottom: 3px solid #c56501;
+}
+/* line 140, ../sass/base/_override.scss */
+.becomePartnerForm .applyPartner {
+  padding: 5px 90px;
+  font-size: 24px;
+  margin-left: -52px;
+}
+/* line 145, ../sass/base/_override.scss */
+.becomePartnerForm .has-error .help-block {
+  color: #e4002b;
+}
+
+/* line 7, ../sass/common_screen/_becomeOurPartner.scss */
+.partnership.container {
+  margin: 0 auto;
+}
+/* line 9, ../sass/common_screen/_becomeOurPartner.scss */
+.partnership.container .partner-headline-wrapper {
+  margin-bottom: 30px;
+}
+/* line 11, ../sass/common_screen/_becomeOurPartner.scss */
+.partnership.container .partner-headline-wrapper .headline-title, .partnership.container .partner-headline-wrapper .form-title {
+  font-size: 24px;
+  text-align: left;
+  color: #ff8200;
+  font-family: 'Calibri-Bold', Arial;
+}
+/* line 17, ../sass/common_screen/_becomeOurPartner.scss */
+.partnership.container .partner-headline-wrapper .form-title {
+  margin-top: 20px;
+}
+
+/* line 23, ../sass/common_screen/_becomeOurPartner.scss */
+body.chin .partner-headline-wrapper .headline-title {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif;
+}
+
+/* line 1, ../sass/common_screen/_faq.scss */
+.faq-answer__table, .faq-answer__table__cell {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+/* line 6, ../sass/common_screen/_faq.scss */
+.faq-answer__table {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* line 11, ../sass/common_screen/_faq.scss */
+.faq-answer__table__cell {
+  padding: 10px;
+}
+
+/* line 15, ../sass/common_screen/_faq.scss */
+.faq-answer__orderList {
+  padding-top: 20px;
+}
+
+/* line 19, ../sass/common_screen/_faq.scss */
+.faq-answer__orderList__listItem {
+  float: left;
+  width: 33.3%;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 991px) {
@@ -1417,76 +1730,66 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     display: none;
   }
 
-  /**
-  * Start - In-progress
-  **/
-  /* line 23, ../sass/mobile/_header.scss */
+  /* line 20, ../sass/mobile/_header.scss */
   body {
     /*padding-top: 35%;*/
     padding-top: 50px;
   }
 
-  /* line 27, ../sass/mobile/_header.scss */
+  /* line 25, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .wd2 {
     margin: 0;
     width: 100%;
     text-align: left;
     background-color: #061d29;
   }
-
-  /* line 33, ../sass/mobile/_header.scss */
+  /* line 30, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .wd2 > a#fwd-login {
     font-size: 24px;
     color: #fff;
     background-color: #061d29;
   }
-
-  /* line 38, ../sass/mobile/_header.scss */
-  #myDropdownMob .drop-width a, #myDropdownMob .drop-width li {
-    color: #fff !important;
-  }
-
-  /* line 42, ../sass/mobile/_header.scss */
+  /* line 34, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .wd2 > a#fwd-login:hover, .mobile-menu-V2 .wd2 > a#fwd-login:focus {
     background-color: #061d29;
     color: #fff;
   }
+  /* line 40, ../sass/mobile/_header.scss */
+  .mobile-menu-V2 .navbar-nav {
+    margin: 0 -15px;
+  }
+  /* line 42, ../sass/mobile/_header.scss */
+  .mobile-menu-V2 .navbar-nav > li.dropdown {
+    margin-left: 0;
+    background-color: #f68a1d;
+  }
+  /* line 46, ../sass/mobile/_header.scss */
+  .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a, .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a:focus, .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a:hover {
+    padding: 12px 30px;
+    color: #fff;
+    background-color: #f68a1d;
+  }
 
-  /* line 47, ../sass/mobile/_header.scss */
+  /* line 55, ../sass/mobile/_header.scss */
+  #myDropdownMob .drop-width a, #myDropdownMob .drop-width li {
+    color: #fff !important;
+  }
+
+  /* line 58, ../sass/mobile/_header.scss */
   .navbar-default .navbar-toggle.mob-menu-btn .icon-bar {
     background-color: #f68a1d;
     width: 40px;
     height: 6px;
   }
 
-  /* line 52, ../sass/mobile/_header.scss */
-  .mobile-menu-V2 .navbar-nav > li.dropdown {
-    margin-left: 0;
-    background-color: #f68a1d;
-  }
-
-  /* line 56, ../sass/mobile/_header.scss */
-  .mobile-menu-V2 .navbar-nav {
-    margin: 0 -15px;
-  }
-
-  /* line 59, ../sass/mobile/_header.scss */
-  .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a,
-  .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a:focus,
-  .mobile-menu-V2 .navbar-nav > li.dropdown.link-btn > a:hover {
-    padding: 12px 30px;
-    color: #fff;
-    background-color: #f68a1d;
-  }
-
-  /* line 66, ../sass/mobile/_header.scss */
+  /* line 63, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav > li.dropdown.border-bottom {
     border-width: 0 0 2px 0;
     border-style: solid;
     border-color: #fff;
   }
 
-  /* line 71, ../sass/mobile/_header.scss */
+  /* line 68, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav > li.dropdown > a,
   .mobile-menu-V2 .navbar-nav > li.dropdown > a:focus {
     font-size: 24px;
@@ -1497,7 +1800,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     line-height: 1.2;
   }
 
-  /* line 80, ../sass/mobile/_header.scss */
+  /* line 77, ../sass/mobile/_header.scss */
   li.menu-link-grp-title > a,
   li.menu-link-grp-title > a:hover {
     font-size: 18px;
@@ -1506,19 +1809,19 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     background-color: #f0f3f5 !important;
   }
 
-  /* line 87, ../sass/mobile/_header.scss */
+  /* line 84, ../sass/mobile/_header.scss */
   .mobile-menu-V2 {
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   }
 
-  /* line 91, ../sass/mobile/_header.scss */
+  /* line 88, ../sass/mobile/_header.scss */
   .mobile-menu-V2 li.menu-link {
     border-bottom: 1px solid #f2f5f6;
     background-color: #fff;
   }
 
-  /* line 95, ../sass/mobile/_header.scss */
+  /* line 92, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav .dropdown-menu > li.menu-link a {
     font-size: 18px;
     color: #ff8201;
@@ -1527,87 +1830,87 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     padding-left: 25px !important;
   }
 
-  /* line 104, ../sass/mobile/_header.scss */
+  /* line 101, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav .dropdown-menu > li.menu-link:hover a, .mobile-menu-V2 .navbar-nav .dropdown-menu > li.menu-link:hover span {
     color: #9fb1b2;
   }
-  /* line 108, ../sass/mobile/_header.scss */
+  /* line 105, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav .dropdown-menu > li.menu-link span {
     font-size: 12px;
     color: #ff8201;
     padding-left: 25px;
   }
-  /* line 112, ../sass/mobile/_header.scss */
+  /* line 109, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav .dropdown-menu > li.menu-link span.dot-font {
     padding-left: 0;
   }
 
-  /* line 117, ../sass/mobile/_header.scss */
+  /* line 114, ../sass/mobile/_header.scss */
   li.menu-link-grp-title > ul.dropdown-menu, li.link-btn > ul.dropdown-menu {
     padding: 0;
   }
 
-  /* line 120, ../sass/mobile/_header.scss */
+  /* line 117, ../sass/mobile/_header.scss */
   .mobile-menu-V2 .navbar-nav .open .dropdown-menu > li > a {
     padding: 12px 30px;
     line-height: 1.5;
   }
 
-  /* line 124, ../sass/mobile/_header.scss */
+  /* line 121, ../sass/mobile/_header.scss */
   .col-sm-12.nav.navbar-nav {
     padding: 0;
   }
 
-  /* line 127, ../sass/mobile/_header.scss */
+  /* line 124, ../sass/mobile/_header.scss */
   .login-form {
     top: 10;
     z-index: 2000;
   }
 
-  /* line 131, ../sass/mobile/_header.scss */
+  /* line 128, ../sass/mobile/_header.scss */
   .logobox {
     background-color: #222;
     border: 0;
     height: 50px;
   }
 
-  /* line 136, ../sass/mobile/_header.scss */
+  /* line 133, ../sass/mobile/_header.scss */
   a.navbar-brand > img {
     padding: 10px 0;
     margin-left: 30px;
   }
 
-  /* line 140, ../sass/mobile/_header.scss */
+  /* line 137, ../sass/mobile/_header.scss */
   .mob-login-form-wrapper {
     display: none;
   }
 
-  /* line 143, ../sass/mobile/_header.scss */
+  /* line 140, ../sass/mobile/_header.scss */
   .mob-login-form-wrapper.open {
     display: block;
   }
 
-  /* line 146, ../sass/mobile/_header.scss */
+  /* line 143, ../sass/mobile/_header.scss */
   .link-arrow {
     margin-top: 8px;
     float: right;
   }
 
-  /* line 150, ../sass/mobile/_header.scss */
+  /* line 147, ../sass/mobile/_header.scss */
   .hidden-label {
     display: none;
   }
 
-  /* line 157, ../sass/mobile/_header.scss */
+  /* line 154, ../sass/mobile/_header.scss */
   .navbar-default .navbar-brand {
     height: 50px;
   }
-  /* line 160, ../sass/mobile/_header.scss */
+  /* line 157, ../sass/mobile/_header.scss */
   .navbar-default .navbar-brand > img {
     padding-top: 15px;
     margin: 0 auto;
   }
-  /* line 164, ../sass/mobile/_header.scss */
+  /* line 161, ../sass/mobile/_header.scss */
   .navbar-default .mob-menu-btn.navbar-toggle:hover,
   .navbar-default .mob-menu-btn.navbar-toggle:focus,
   .navbar-default .navbar-toggle.mob-menu-btn {
@@ -1623,18 +1926,18 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     border-color: transparent;
     outline-color: transparent;
   }
-  /* line 180, ../sass/mobile/_header.scss */
+  /* line 177, ../sass/mobile/_header.scss */
   .navbar-default .navbar-toggle.mob-menu-btn .icon-bar {
     background-color: #fff;
     width: 22px;
     height: 2px;
   }
-  /* line 185, ../sass/mobile/_header.scss */
+  /* line 182, ../sass/mobile/_header.scss */
   .navbar-default .navbar-toggle {
     padding: 13px 30px;
   }
 
-  /* line 189, ../sass/mobile/_header.scss */
+  /* line 186, ../sass/mobile/_header.scss */
   .mob-lang-btn {
     float: right;
     position: absolute;
@@ -1644,9 +1947,30 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
     z-index: 1;
   }
 
-  /* line 197, ../sass/mobile/_header.scss */
+  /* line 194, ../sass/mobile/_header.scss */
   .navbar-toggle .icon-bar + .icon-bar {
     margin-top: 4px;
+  }
+
+  /* line 197, ../sass/mobile/_header.scss */
+  .navbar-header {
+    float: none;
+  }
+
+  /* line 200, ../sass/mobile/_header.scss */
+  .navbar-toggle {
+    display: inline;
+    width: 50px;
+    margin-top: 35px;
+  }
+
+  /* line 205, ../sass/mobile/_header.scss */
+  .btn-primary:hover, .btn-primary:active {
+    padding: 8px 20px;
+    background: #f6871e;
+    color: #fff;
+    border: none;
+    border: 1px solid #f6871e;
   }
 
   /* line 3, ../sass/mobile/_loginpopup.scss */
@@ -1870,6 +2194,32 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   .loginform-pop #applyPartner {
     margin-left: 0;
   }
+
+  /* line 2, ../sass/mobile/_becomeOurPartner.scss */
+  .partnership.container .partner-headline-wrapper {
+    text-align: center;
+  }
+  /* line 4, ../sass/mobile/_becomeOurPartner.scss */
+  .partnership.container .partner-headline-wrapper .headline-title, .partnership.container .partner-headline-wrapper .form-title {
+    text-align: center;
+  }
+  /* line 10, ../sass/mobile/_becomeOurPartner.scss */
+  .partnership.container .becomePartnerForm .col-sm-12.col-md-6.left {
+    padding-right: 0;
+  }
+  /* line 13, ../sass/mobile/_becomeOurPartner.scss */
+  .partnership.container .becomePartnerForm .success-msg {
+    text-align: center;
+  }
+  /* line 16, ../sass/mobile/_becomeOurPartner.scss */
+  .partnership.container .becomePartnerForm .applyPartner {
+    margin-left: 0;
+  }
+
+  /* line 1, ../sass/mobile/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 992px) {
   /* line 1, ../sass/desktop/_header.scss */
@@ -2079,5 +2429,12 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   /* line 17, ../sass/customize_screen/_loginpopup.scss */
   .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder #toBeCopied.promo-code-input {
     height: auto;
+  }
+}
+@media (max-width: 767px) {
+  /* line 2, ../sass/customize_screen/_faq.scss */
+  .faq-answer__orderList__listItem {
+    width: 100%;
+    clear: both;
   }
 }

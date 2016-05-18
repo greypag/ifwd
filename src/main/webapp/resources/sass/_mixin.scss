@@ -1,18 +1,12 @@
 // #Mixins below are for all SCSS files //
 @mixin bp-min($min...) {                  // How to use? @include bp-min { ... }
-  @media screen and (min-width: $min) {
-    @content;
-  }
+  @media screen and (min-width: $min) { @content; }
 }
 @mixin bp-max($max...) {                  // How to use? @include bp-max { ... }
-  @media screen and (max-width: $max) {
-    @content;
-  }
+  @media screen and (max-width: $max) { @content; }
 }
 @mixin bp-interim($min, $max) {            // How to use? @include bp-intrim { ... }
-  @media screen and (min-width: $min) and (max-width: $max) {
-    @content;
-  }
+  @media screen and (min-width: $min) and (max-width: $max) { @content; }
 }
 
 // #Mixins below are for the base_localize //

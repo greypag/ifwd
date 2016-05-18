@@ -1,0 +1,25 @@
+// refer to the /base/_override.scss
+.becomePartnerForm {
+  overflow: hidden;
+  @include fwd_input_textarea;
+}
+
+.partnership.container {
+  margin: 0 auto;
+  .partner-headline-wrapper {
+    margin-bottom: 30px;
+    .headline-title, .form-title {
+      font-size: 24px;
+      text-align: left;
+      color: #ff8200;
+      font-family: 'Calibri-Bold', Arial;
+    }
+    .form-title {
+      margin-top: 20px;
+    }
+  }
+}
+
+body.chin .partner-headline-wrapper .headline-title {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif;
+}

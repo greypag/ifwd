@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
@@ -40,8 +39,8 @@ $(window).bind("pageshow", function(event) {
 
 /*
 $( "#testajax" ).click(function() {
-  
-  
+
+
   $('#loading-overlay').modal({
 	   backdrop: 'static',
 	   keyboard: false
@@ -67,7 +66,7 @@ $.i18n.properties({
 });
 
 
-function fwdGetBundle(lang, key){ 
+function fwdGetBundle(lang, key){
 	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'['+key+']';
 }
 
@@ -90,7 +89,7 @@ function submitLoginForm(formID) {
 				url : "<%=request.getContextPath()%>/userLogin",
 				data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 				async : false,
-				success : function(data) {				
+				success : function(data) {
 					if (data.loginResult == 'success') {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
@@ -98,7 +97,7 @@ function submitLoginForm(formID) {
 						if(((window.location.href.length - window.location.href.indexOf("tc") <= 3)
 								|| (window.location.href.length - window.location.href.indexOf("en") <= 3)
 								|| (window.location.href.length - window.location.href.indexOf("home") <= 4))
-								&& $('#loginpopup #nav-bar-check').val() == 'false'){		
+								&& $('#loginpopup #nav-bar-check').val() == 'false'){
 							getStarted();
 							$("#fullName").html(data.fullName);
 							$("#fullName1").html(data.fullName);
@@ -110,8 +109,8 @@ function submitLoginForm(formID) {
 							saviePlanDetailsGoNext();
 						}
 						else if(window.location.href.indexOf("medical-insurance/plan-option")>0){
-							$('#loginpopup').modal('hide');       
-							$("#offline-online-modal").modal('show');       
+							$('#loginpopup').modal('hide');
+							$("#offline-online-modal").modal('show');
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;
@@ -253,31 +252,31 @@ function submitLoginForm(formID) {
 				}, 1000);
 
 	}
-	
-	
-	
+
+
+
 var nextPage;
 
 function getStarted(){
-		/* $.ajax({     
-		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-		    type:'get', 
-		    data:{    
+		/* $.ajax({
+		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
+		    type:'get',
+		    data:{
   	    	"planCode" : "SAVIE-SP"
-     		}, 
-		    error:function(){       
-		    },     
+     		},
+		    error:function(){
+		    },
 		    success:function(data){
 		    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 		    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
 		    	}else{ */
-		    		$.ajax({     
-		    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
-		    		    type:'get',     
-		    		    error:function(){       
-		    		    },     
+		    		$.ajax({
+		    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',
+		    		    type:'get',
+		    		    error:function(){
+		    		    },
 		    		    success:function(data){
 		    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
 		    		    		$('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
@@ -286,11 +285,11 @@ function getStarted(){
 		    		    		nextPage = data.nextPage;
 		    		    	}
 		    		    	else{
-		    		    		$.ajax({     
-					    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-					    		    type:'get',     
-					    		    error:function(){       
-					    		    },     
+		    		    		$.ajax({
+					    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
+					    		    type:'get',
+					    		    error:function(){
+					    		    },
 					    		    success:function(data){
 					    		    	if(data != null && data.errMsgs == null && data.name !=null){
 					    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
@@ -300,13 +299,13 @@ function getStarted(){
 					    		    	else{
 					    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
 					    		    	}
-					    		    }  
+					    		    }
 					    		});
 		    		    	}
-		    		    }  
+		    		    }
 		    		});
 		    	/* }
-		    }  
+		    }
 		}); */
 	}
 </script>
@@ -331,11 +330,11 @@ function getStarted(){
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
-		<div class="container ">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-5 col-md-5 pad-none">
+				<div class="col-lg-5 col-md-5 pad-0">
 					<ul class="nav navbar-nav lang-btn-grp">
- 							<li>
+ 							<li class="lang-btn-grp__item">
 								<%
 									String switchUrl = "";
 								    String langClass = "";
@@ -361,41 +360,41 @@ function getStarted(){
 										}
 									}
 								%>
-								<a class="lang <%=langClass%> pull-left" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
-							</li>					
-							<li><span class="top-livechat"><a class="livechat_button"><i class="fa fa-comments-o"></i></a></span></li>								 
-							<li>
-							<div class="top-number"><span class="callus"> <fmt:message key="header.hotline" bundle="${msg}" /></span>
+								<a class="lang lang-btn-grp__item__selector lang-btn-grp__item__selector--<%=langClass%> pull-left" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
+							</li>
+							<li class="lang-btn-grp__item"><span class="lang-btn-grp__item__top-livechat"><a class="lang-btn-grp__item__top-livechat__livechat_button"><i class="fa fa-comments-o"></i></a></span></li>
+							<li class="lang-btn-grp__item">
+							<div class="lang-btn-grp__item__top-number"><span class="lang-btn-grp__item__top-number__callus"> <fmt:message key="header.hotline" bundle="${msg}" /></span>
 							</div>
-							</li>      						 
- 					</ul>					
+							</li>
+ 					</ul>
 				</div>
 				<div class="col-lg-7 col-md-7">
-					<div class="collapse navbar-collapse navbar-right top-menu pad-none" id="headerLoginForm">
-						<ul class="nav navbar-nav">
-							<li class="active"><a
+					<div class="collapse navbar-collapse navbar-right top-menu pad-0" id="headerLoginForm">
+						<ul class="nav navbar-nav top-menu__navbar">
+							<li class="active top-menu__navbar__item"><a
 								href="<%=request.getContextPath()%>/${language}"><fmt:message
 										key="header.menu.home" bundle="${msg}" /></a></li>
-							<li><a
+							<li class="top-menu__navbar__item"><a
 								href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about"
 										bundle="${msg}" /></a></li>
-							<li class="active"><a
+							<li class="active top-menu__navbar__item"><a
 								href="<fmt:message key="header.menu.contactus.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.contactus"
 										bundle="${msg}" /></a></li></li>
 							<%
 								String username = (String) session.getAttribute("username");
-								//System.out.println("username " + username);   
+								//System.out.println("username " + username);
 								if (username == null) {
 							%>
-							<li><a
+							<li class="top-menu__navbar__item"><a
 								href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message
 										key="header.menu.join" bundle="${msg}" /></a></li>
 							<%
 								} else if (username.equals("*DIRECTGI")) {
 							%>
-							<li><a
+							<li class="top-menu__navbar__item"><a
 								href="${pageContext.request.contextPath}/${language}/joinus"><fmt:message
 										key="header.menu.join" bundle="${msg}" /></a></li>
 
@@ -407,13 +406,13 @@ function getStarted(){
 										|| session.getAttribute("username") == null) {
 							%>
 
-							<li class="dropdown login-btn margin-left1" id="myDropdown">
+							<li class="top-menu__navbar__item top-menu__navbar__item--login-btn dropdown margin-left1 " id="myDropdown">
 								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a> <!--  </a> -->
 
 
-								<div class="dropdown-menu drop-width">
+								<%--<div class="dropdown-menu drop-width">
 									<form name="loginform" id="loginform" method="post">
 										<div class="login-form">
 											<div
@@ -463,7 +462,7 @@ function getStarted(){
 														</button>
 													</div>
 													<h3
-														class="text-left col-lg-6 col-md-6 pad-none margin-none">
+														class="text-left col-lg-6 col-md-6 pad-0 margin-0">
 														<span> <fmt:message
 																key="header.login.registration.heading" bundle="${msg}" /></span><br>
 														<a
@@ -480,13 +479,13 @@ function getStarted(){
 											</div>
 										</div>
 									</form>
-								</div>
+								</div> --%>
 							</li>
 							<%
 								} else if (!"true".equals(session.getAttribute("authenticate")
 										.toString())) {
 							%>
-							<li class="dropdown login-btn margin-left1" id="myDropdown">
+							<li class="dropdown login-btn margin-left1 top-menu__navbar__item" id="myDropdown">
 								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a>
@@ -540,7 +539,7 @@ function getStarted(){
 														</button>
 													</div>
 													<h3
-														class="text-left col-lg-6 col-md-6 pad-none margin-none">
+														class="text-left col-lg-6 col-md-6 pad-0 margin-0">
 														<span> <fmt:message
 																key="header.login.registration.heading" bundle="${msg}" /></span><br>
 														<a
@@ -563,7 +562,7 @@ function getStarted(){
 							<%
 								} else {
 							%>
-							<li class="dropdown logout-btn margin-left1" id="myDropdown">
+							<li class="dropdown logout-btn margin-left1 top-menu__navbar__item" id="myDropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
 										key="header.login.welcome" bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
 									<i class="fa fa-caret-right"></i> </a>
@@ -593,7 +592,7 @@ function getStarted(){
 								}
 							%>
 
-							<li class="chatnow-btn"><a
+							<li class="top-menu__navbar__item top-menu__navbar__item--chatnow-btn"><a
 								href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><fmt:message
 										key="header.menu.chatnow" bundle="${msg}" /></a></li>
 						</ul>
@@ -613,7 +612,7 @@ function getStarted(){
 	%>
 
 	<nav class="navbar navbar-inverse">
-		<div class="container pad-none">
+		<div class="container pad-0">
 			<div class="navbar-header">
 				<a class="navbar-brand"
 					href="<%=request.getContextPath()%>/${language}"><img
@@ -623,30 +622,30 @@ function getStarted(){
 			<!--<div class="col-lg-8 col-md-7 pull-right">
 				<ul class="maintabs">
 					<li
-						class="col-lg-3 col-md-3 pad-none main-tab <%if (actionName.equals("Savie")) {%> active"<%}%>"><a
+						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Savie")) {%> active"<%}%>"><a
 						href="<%=request.getContextPath()%>/${language}/savings-insurance"
 						class="travel-and-home-tab"><fmt:message
 								key="header.product.savie.part1" bundle="${msg}" /> <fmt:message
 								key="header.product.savie.part2" bundle="${msg}" /></a>
 						<div class="special-offer"></div></li>
 					<li
-						class="col-lg-3 col-md-3 pad-none main-tab <%if (actionName.equals("WorkingHoliday")) {%> active <%}%>"><a
+						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("WorkingHoliday")) {%> active <%}%>"><a
 						href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
 						class="workingholiday-tab"><fmt:message
 								key="header.product.workingholiday" bundle="${msg}" /></a></li>
 					<li
-						class="col-lg-3 col-md-3 pad-none main-tab <%if (actionName.equals("Flight")) {%> active <%}%>"><a
+						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Flight")) {%> active <%}%>"><a
 						href="<%=request.getContextPath()%>/${language}/flight-insurance"
 						class="travel-and-home-tab"><fmt:message
 								key="header.product.flight" bundle="${msg}" /></a>
 						<div class="offer"></div></li>
 					<li
-						class="col-lg-3 col-md-3 pad-none main-tab <%if (actionName.equals("Travel")) {%> active <%}%>"><a
+						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Travel")) {%> active <%}%>"><a
 						href="<%=request.getContextPath()%>/${language}/travel-insurance"
 						class="travel-and-home-tab"><fmt:message
 								key="header.product.travel" bundle="${msg}" /></a></li>
 					<li
-						class="col-lg-3 col-md-3 pad-none main-tab ext_content <%if (actionName.equals("Homecare")) {%> active <%}%>"><a
+						class="col-lg-3 col-md-3 pad-0 main-tab ext_content <%if (actionName.equals("Homecare")) {%> active <%}%>"><a
 						href="<%=request.getContextPath()%>/${language}/home-insurance"
 						class="travel-and-home-tab"><fmt:message
 								key="header.product.home" bundle="${msg}" /></a></li>
@@ -655,23 +654,23 @@ function getStarted(){
 			</div>-->
             <div class="col-lg-8 col-md-7 pull-right">
                 <ul class="col-lg-7 col-md-10 maintabs menutab-V2 pull-right">
-                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
+                    <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
-		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
-			                  <li class="nav-group no-padding">
-		                          <ul class="col-lg-12 col-md-12 no-padding">
-			                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></li>
-			                          <li class="menu-link">
-			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			                          <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a>
-			                          </li>
-			                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></li>
-			                          <li class="menu-link">
-			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			                          <a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a>
-			                          </li>
-		                         </ul> 		                      
-			                  </li>
+		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab" style="word-break: normal; word-wrap: break-all">
+														<li class="nav-group no-padding">
+															<ul class="col-lg-12 col-md-12 no-padding">
+																<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}"/></li>
+																<li class="menu-link">
+																	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+																	<a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}"/></a>
+																</li>
+																<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}"/></li>
+																<li class="menu-link">
+																	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+																	<a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}"/></a>
+																</li>
+															</ul>
+														</li>
 	                          <li class="nav-group no-padding middle-group">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
@@ -679,17 +678,17 @@ function getStarted(){
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/overseas-study-insurance"><fmt:message key="header.product.type1.group2.linkname2" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
-	                             </ul>                            
+	                             </ul>
 	                          </li>
 	                          <li class="nav-group no-padding">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
-	                             </ul>                            
-	                          </li>                         		                  
-		                 </ul>                      
+	                             </ul>
+	                          </li>
+		                 </ul>
                     </li>
-                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown<%if (actionName.equals("Savie")) {%> active <%}%>">
+                    <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown<%if (actionName.equals("Savie")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
                         <ul class="col-lg-12 col-md-12 dropdown-menu one-column save-tab">
                           <li>
@@ -699,11 +698,11 @@ function getStarted(){
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a>
                                   </li>
-                             </ul>                            
+                             </ul>
                           </li>
-                         </ul>                      
+                         </ul>
                     </li>
-                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown enjoy<%if (actionName.equals("offers")) {%> active <%}%>">
+                    <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown enjoy<%if (actionName.equals("offers")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type3" bundle="${msg}" /></a>
                         <ul class="col-lg-12 col-md-12 dropdown-menu one-column enjoy-tab">
                           <li>
@@ -711,7 +710,7 @@ function getStarted(){
                                   <li class="menu-link">
                                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                       <a class="menu-link" href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
-                                  </li>  
+                                  </li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
@@ -719,11 +718,11 @@ function getStarted(){
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a>
-                                  </li>                              
-                             </ul>                            
+                                  </li>
+                             </ul>
                           </li>
-                         </ul>                      
-                    </li>                   
+                         </ul>
+                    </li>
                 </ul>
 
             </div>
@@ -737,7 +736,7 @@ function getStarted(){
 
 <!-- hidden navbar -->
 <!--<div class="navbar_hidden_content">
-	<div class="container pad-none">
+	<div class="container pad-0">
 		<div class="pull-right submenu_list">
 			<div class="product_type">
 				<div>Health Insurance</div>
@@ -770,7 +769,7 @@ function getStarted(){
 	style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"
 	id="test"></div>
 <!--Mobile-header-->
-<div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-0" role="navigation">
 <%-- 	<div class="mob-topbar">
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
@@ -787,7 +786,7 @@ function getStarted(){
 			<button type="button"
 				class="navbar-toggle mob-menu-btn col-xs-1 col-sm-1" data-toggle="collapse" data-target=".navbar-collapse">
 				<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
-				<span class="sr-only">Toggle navigation</span> 
+				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span> <span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
@@ -798,11 +797,11 @@ function getStarted(){
 				class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
-	    
-	
+
+
     <div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
-             <li class="pad-none col-sm-12 dropdown border-bottom">
+             <li class="pad-0 col-sm-12 dropdown border-bottom">
             <!-- <div
 		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 		        class="bmg_mobile_login_mask"
@@ -811,14 +810,14 @@ function getStarted(){
 		         <!--<div
                 style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
                 class="bmg_mobile_login_mask"
-                onclick="$('body').removeClass('modal-open');"></div>-->    
+                onclick="$('body').removeClass('modal-open');"></div>-->
         <%
             if (session.getAttribute("authenticate") == null
                     || !"true".equals(session.getAttribute("authenticate")
                             .toString())) {
         %>
-        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">       
-        <a class="dropdown-toggle color-wht log-to-acc"
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">
+        <a class="dropdown-toggle log-to-acc"
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
                 bundle="${msg}" /> </a>
@@ -874,7 +873,7 @@ function getStarted(){
                                 </button>
                             </div>
                             <h3
-                                class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+                                class="text-left col-lg-6 col-md-6  col-xs-6 pad-0 margin-0">
                                 <span> <fmt:message
                                         key="header.login.registration.heading" bundle="${msg}" /></span><br>
                                 <a href="${pageContext.request.contextPath}/${language}/joinus">
@@ -921,22 +920,22 @@ function getStarted(){
 
         <%
             }
-        %>             
+        %>
              </li>
-             <li class="pad-none col-sm-12 dropdown link-btn link-grp border-bottom fwd-header-navgation-menu">
+             <li class="pad-0 col-sm-12 dropdown link-btn link-grp border-bottom fwd-header-navgation-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
-                
-                <li class="menu-link-grp-title">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></a>
-                    <ul class="col-sm-12 dropdown-menu">
-	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a></li>
-	                </ul>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></a>
-                    <ul class="col-sm-12 dropdown-menu">
-	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
-	                </ul>	                
-                </li>
+
+								<li class="menu-link-grp-title">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></a>
+										<ul class="col-sm-12 dropdown-menu">
+											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a></li>
+									</ul>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></a>
+										<ul class="col-sm-12 dropdown-menu">
+											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
+									</ul>
+								</li>
                 <li class="menu-link-grp-title">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
@@ -949,30 +948,30 @@ function getStarted(){
 						<li class="menu-link-grp-title"><a
 							href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
 									key="header.product.type1.group3.title" bundle="${msg}" /></a></li>
-					</ul>              
-            </li>         
-            <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
+					</ul>
+            </li>
+            <li class="pad-0 col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
               <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
-            <li class="pad-none col-sm-12 dropdown link-btn border-bottom link-grp fwd-header-navgation-menu">
+            <li class="pad-0 col-sm-12 dropdown link-btn border-bottom link-grp fwd-header-navgation-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
-                   <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li> 
+                   <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li>
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a></li>
                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a></li>
-              </ul>              
+              </ul>
             </li>
-             <li class="pad-none col-sm-12 dropdown lang-grp">
+             <li class="pad-0 col-sm-12 dropdown lang-grp">
                 <ul>
  							<li>
  							<a class="lang menu-lang" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
-							</li>	                
+							</li>
                 </ul>
              </li>
           </ul>
         </div><!--/.nav-collapse -->
 </div>
-    
+
 <!--Mobile side-menu-->
 <!--<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
@@ -989,7 +988,7 @@ function getStarted(){
 					|| !"true".equals(session.getAttribute("authenticate")
 							.toString())) {
 		%>
-		<a href="#" class="dropdown-toggle color-wht log-to-acc"
+		<a href="#" class="dropdown-toggle log-to-acc"
 			id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i
 			class="fa fa-lock"></i> <fmt:message key="header.login.heading"
 				bundle="${msg}" /> </a>
@@ -1044,7 +1043,7 @@ function getStarted(){
 								</button>
 							</div>
 							<h3
-								class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+								class="text-left col-lg-6 col-md-6  col-xs-6 pad-0 margin-0">
 								<span> <fmt:message
 										key="header.login.registration.heading" bundle="${msg}" /></span><br>
 								<a href="${pageContext.request.contextPath}/${language}/joinus">
@@ -1129,7 +1128,7 @@ function getStarted(){
         style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 </div>
-<!-- 
+<!--
 <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
         class="bmg_mobile_login_mask"
@@ -1183,7 +1182,7 @@ function getStarted(){
                             </button>
                         </div>
                         <h3
-                            class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+                            class="text-left col-lg-6 col-md-6  col-xs-6 pad-0 margin-0">
                             <span> <fmt:message
                                     key="header.login.registration.heading" bundle="${msg}" /></span><br>
                             <a href="${pageContext.request.contextPath}/${language}/joinus">
@@ -1203,14 +1202,14 @@ function getStarted(){
 </div>
 <!--End Mobile header-->
 <!--/header-->
-<script>  
-$(function() {	
-	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {  
-	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){  
+<script>
+$(function() {
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){
 	        // Update '.change-this-class' to the class of your menu
 	        // Leave this empty, that's the magic sauce
 	    });
-	}	
+	}
     var pageControllerName = "<%=actionName%>";
     if(pageControllerName!=""){
     	pageControllerName = "#" + pageControllerName;
@@ -1235,13 +1234,13 @@ $(function() {
 	      $(this).find('.modal-content').css("margin-top", top);
 	    });
 	  }
-	
+
 	var iosChromeAlertMsg = [];
 	iosChromeAlertMsg[0] = '抱歉，你的瀏覽器現時未受支援。';
     iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
     iosChromeAlertMsg[2] = '關閉';
 
-    
+
     function offerMenuActive(){
     	var site_uri = window.location.pathname;
     	var uri_array = site_uri.split("/");
@@ -1257,10 +1256,10 @@ $(function() {
               $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.7);
             }
             else // Landscape
-            {               
+            {
                 $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
                 //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));
-            }			
+            }
 			$(window).on("orientationchange",function(){
                 if(window.orientation == 0 || window.orientation == 180) // Portrait
                 {
@@ -1270,23 +1269,23 @@ $(function() {
                 else // Landscape
                 {
                     $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
-                    //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));                    
-                }				
+                    //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));
+                }
 			});
 		}
         $('.livechat_button').on("click",function(){
         	//console.log("livechat clicked");
             $('#livechat-compact-container').show();
             $('#livechat-compact-container').css({
-                visibility: 'visible', 
-                opacity: 1 
+                visibility: 'visible',
+                opacity: 1
             });
             LC_API.open_chat_window();
         });
         $('.copyright .options li').click(function() {
             var link = $(this).attr('data-raw-value');
             window.open( link , '_blank');
-        });			
+        });
 		offerMenuActive();
 		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
@@ -1303,7 +1302,7 @@ $(function() {
 		    $(window).on('resize', centerModals);
 		}
 	});
-	
+
 	$('.navmenu').on('show.bs.offcanvas', function() {
 		$('#test').show();
 	});
@@ -1334,18 +1333,18 @@ $(function() {
     	});
     $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
         // Avoid following the href location when clicking
-        event.preventDefault(); 
+        event.preventDefault();
         // Avoid having the menu to close when clicking
-        event.stopPropagation(); 
+        event.stopPropagation();
         // Re-add .open to parent sub-menu item
         if($(this).parent().hasClass('open')){
             $(this).parent().removeClass('open');
-        }else{          
+        }else{
 	        $(this).parent().addClass('open');
 	        $(this).parent().siblings("li").removeClass('open');
 	        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
         }
-    }); 
+    });
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
 <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />

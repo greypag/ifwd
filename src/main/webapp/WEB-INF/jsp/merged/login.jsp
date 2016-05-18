@@ -15,7 +15,7 @@
 	    actionName = request.getAttribute("controller").toString();
 	}
 %>
-<div class="modal fade" id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade loginpopup" id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"
         class="login-ajax-loading">
@@ -23,9 +23,9 @@
             style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-left:-50px; margin-top: -50px;"
             src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
     </div>
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content plan-modal">
-		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+	<div class="modal-dialog modal-lg loginpopup__modal-dialog">
+		<div class="modal-content plan-modal loginpopup__modal-dialog__modal-content">
+		<div class="loginpopup__modal-dialog__modal-content__close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
 			<!-- 登入 -->
                 <%if(actionName== "SavieOnline" || request.getRequestURI().indexOf("/") == 0){%>
                 <div class="login-info hidden login-info-savie">
@@ -49,8 +49,8 @@
                     <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image.mobile" bundle="${msg}" />" alt="Saive" class="hidden-lg hidden-md img-responsive">
                 </div>
                 <%}%>
-        <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
-			<form name="loginform" id="loginform-pop" method="post">
+      <div class="loginpopup__modal-dialog__modal-content__title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
+			<form name="loginform" class="loginform-pop" id="loginform-pop" method="post">
 				<div class="login-form">
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
@@ -62,7 +62,7 @@
 								<input type="text" name="userName"
 								class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="headerUserName" onkeypress="return validationUsername(event);">
 							<!-- 忘記使用者名 -->
-								<a id="forgotUserName" class="heading-h6"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
+								<a id="forgotUserName" class="heading-h6 forgotUserName"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
 								<label class="mdl-textfield__label" for="headerUserName"><fmt:message key="header.login.username" bundle="${msg}" /></label>
 								<span id="errUserName" class="empHide color-red heading-h5"></span>
 							</div>
@@ -74,7 +74,7 @@
 								class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="headerPassword">
 							<label class="mdl-textfield__label" for="headerPassword"><fmt:message key="header.login.password" bundle="${msg}" /></label>
 							<!--忘記密碼 -->
-								<a id="link-forgotPassword" class="heading-h6"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
+								<a id="link-forgotPassword" class="heading-h6 link-forgotPassword"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
 								<span id="errPass" class="empHide color-red heading-h5"></span>
 							</div>
 						</div>
@@ -82,7 +82,7 @@
 						    <input id="fna-check" type="hidden" name="fna" value="false">
                             <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
-								class="cta-confirm cta-font cta-orange cta-padding-40">
+								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
                             <div class="login-error-wrapper">
@@ -117,7 +117,7 @@
 
 
 
-			<form name="forgotUserNameForm" id="forgotUserNameForm"
+			<form class="forgotUserNameForm" name="forgotUserNameForm" id="forgotUserNameForm"
 				action="forgotUserNameFields" method="post"
 				commandName="forgotUserName" style="display: none">
 
@@ -190,12 +190,12 @@
 
 						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
-								class="cta-confirm cta-font cta-gray cta-padding-40">
+								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 							<button type="button" onclick="getForgotUserName()"
-								class="cta-confirm cta-font cta-orange cta-padding-40">
+								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
 						</div>
@@ -265,7 +265,7 @@
 			<!-- ===================================================================================================== -->
 
 
-			<form name="forgotPasswordForm" id="forgotPasswordForm"
+			<form class="forgotPasswordForm" name="forgotPasswordForm" id="forgotPasswordForm"
 				action="forgotPassword" method="post"
 				commandName="forgotUserPassword" style="display: none">
 
@@ -391,13 +391,13 @@
 						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
-								class="cta-confirm cta-font cta-gray cta-padding-40">
+								class="cta-login-btn--confirm cta-login-btn--gray cta-login-btn">
 								<fmt:message key="header.login.back" bundle="${msg}" />
 							</button>
 
 
 							<button type="button" onclick="forgotUserPassword()"
-								class="cta-confirm cta-font cta-orange cta-padding-40">
+								class="cta-login-btn--confirm cta-login-btn--orange cta-login-btn">
 								<fmt:message key="member.registration.details.action"
 									bundle="${msg}" />
 							</button>
@@ -568,8 +568,8 @@
 <!-- Modal -->
 <div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup"
 	tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content plan-modal">
+	<div class="modal-dialog modal-lg loginpopup__modal-dialog">
+		<div class="modal-content plan-modal loginpopup__modal-dialog__modal-content">
 			<div class="modal-body">
 				<a class="close" aria-label="Close" data-dismiss="modal"><span
 					aria-hidden="true" style="font-size: 30px;">×</span></a>
@@ -585,8 +585,8 @@
 
 <div id="loading-overlay" class="modal fade bs-loading-modal-lg"
 	tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog modal-lg loading-dialog">
-		<div class="modal-content plan-modal loading-modal">
+	<div class="modal-dialog modal-lg loginpopup__modal-dialog loginpopup__modal-dialog--loading-dialog">
+		<div class="modal-content plan-modal loginpopup__modal__content loading-modal">
 			<img src="<%=request.getContextPath()%>/resources/images/loading.gif"
 				width="300" />
 		</div>
