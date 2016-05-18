@@ -45,7 +45,9 @@ $(document).ready(function() {
 
     var mh = 0;
 
-    alignChildHeight(".row-eq-height", "> [class^=col-]");
+    setTimeout(function (){
+        alignChildHeight(".row-eq-height", "> [class^=col-]");
+    },500);
 
 
 

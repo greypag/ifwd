@@ -1541,7 +1541,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                 </div>
                                 <!-- MODALS / LIGHTBOXES -->
-                                <div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
+                                <!--<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="row">
@@ -1610,7 +1610,7 @@ var home_url = "<%=request.getContextPath()%>";
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!--<div class="modal fade common-welcome-modal only-online" id="offline-online-modal" tabindex="-1" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
