@@ -100,7 +100,7 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
+    	if(cCurrent >= cStart  || cCurrent < cformat.parse("2016-05-20 00:00:00").getTime()/*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
             countDownDD = "15";
