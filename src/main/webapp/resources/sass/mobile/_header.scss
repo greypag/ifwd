@@ -1,7 +1,9 @@
+body {
+   padding-top: 50px !important; 
+}
 #fb-dialog-share {
   display: none;
 }
-
 .footer-container__upper-footer-wrapper__link-wrapper--bottom-link {
     width: 50%;
     float: left;
@@ -15,11 +17,6 @@
 
 .mob-login-form-wrapper {
 	display: none;
-}
-
-body {
-   /*padding-top: 35%;*/
-   padding-top: 50px;
 }
 .mobile-menu-V2 {
   .wd2 {

@@ -296,9 +296,9 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	}
 	</script>
 	
-	<%@ include file="include/merged/header.jsp"%>
+	<%@ include file="include/merged/header2.jsp"%>
 	<dec:body />
-	<%@ include file="include/merged/footer.jsp"%>
+	<%@ include file="include/merged/footer2.jsp"%>
 
 	<script type="text/javascript">
 		window.status = "Done";

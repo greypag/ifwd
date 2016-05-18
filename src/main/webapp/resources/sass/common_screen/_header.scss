@@ -1,3 +1,35 @@
+.header {
+  .top-bar a {
+    color: #ccc;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  .lang-btn-grp > li > a {
+    padding: 0;
+    line-height: 1;
+    margin: 11px 0;
+    font-size: 14px;
+  }
+  .top-bar {
+    .lang-btn-grp > li > a {
+      &.eng {
+        border-right: 2px solid #ccc;
+        padding-right: 10px;
+      }
+      &.chi {
+        padding-left: 10px;
+        font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+      }
+    }
+    .callus .hotline {
+      color: #f68b1f;
+    }
+    .livechat_button:hover {
+      cursor: pointer;
+    }
+  }
+}
 .chin {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
   .dot-font {
