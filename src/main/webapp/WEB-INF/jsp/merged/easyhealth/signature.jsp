@@ -31,9 +31,9 @@ var home_url = "<%=request.getContextPath()%>";
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
                <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Home</a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Save</a></li>
+               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Medical</a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Life Insureance Plan</a></li>
+               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">EasyHealth Insurance Plan</a></li>
                <li class="divider last"><i class="fa fa-play"></i></li>
                <li class="active-bc" id="et-active-bc-menu">Application</li>
            </ol>

@@ -35,9 +35,9 @@ var home_url = "<%=request.getContextPath()%>";
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
                <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Home</a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Save</a></li>
+               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Medical</a></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Life Insureance Plan</a></li>
+               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">EasyHealth Insurance Plan</a></li>
                <li class="divider last"><i class="fa fa-play"></i></li>
                <li class="active-bc" id="et-active-bc-menu">Application</li>
            </ol>
@@ -284,7 +284,7 @@ $(document).ready(function() {
     	$('#paymentForm').bootstrapValidator('validate');
 		if($('#paymentForm').data('bootstrapValidator').isValid()){
 			//do something
-			var creditCaredNo = $('#securityCode').val();
+			var creditCaredNo = $('#cardNo').val();
  	 		 var expiryDate = $('#epMonth').val()+$('#epYear').val().substr(2, 2);
  	 		 var cardHolderName = $('#cardHolder').val();
 	 		  $.ajax({

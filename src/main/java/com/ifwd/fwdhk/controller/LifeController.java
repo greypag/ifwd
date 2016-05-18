@@ -808,7 +808,7 @@ public class LifeController extends BaseController{
 				if(StringUtils.isEmpty(language)){
 					language = "tc";
 				}
-				String url = serverUrl + "/"+language+ plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
 				
 				models.put("uploadLink", url);
 				savieOnlineService.sendEmails(request, "uploadDocument", models);

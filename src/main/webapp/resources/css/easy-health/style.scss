@@ -783,7 +783,7 @@ ol.lower-roman {
                     }
                     > .txt-price {
                         color: #fd8224;
-                        font-size: 22px;
+                        font-size: 16px;
                         font-weight: bold;
                         text-align: center;
                     }
@@ -856,7 +856,7 @@ ol.lower-roman {
                     margin-top: -15px;
                 }
                 h5 {
-                    margin: 0;
+                    margin: 0 0 36px 0;
                     font-size: 18px;
                     font-weight: bold;
                 }
@@ -877,7 +877,7 @@ ol.lower-roman {
                     font-weight: bold;
                 }
                 p {
-                    font-size: 15px;
+                    font-size: 16px;
                     line-height: 1.2em;
                     margin: 0 auto;
                     @media screen and (min-width: 992px) {
@@ -913,9 +913,11 @@ ol.lower-roman {
                         color: #333;
                     }
                     .txt-ttl-benefit-price {
-                        font-size: 30px;
+                        font-size: 27px;
                         font-weight: bold;
                         color: #f7891c;
+                        display: inline-block;
+                        margin-top: 10px;
                     }
                     .txt-perday {
                         font-size: 15px;
@@ -927,6 +929,9 @@ ol.lower-roman {
         }
         .plan-banner {
             background-color: #cdcdcf;
+            .margin-center{
+                margin: 0 auto;
+            }
         }
         .plan-refund {
             background-color: #505759;
@@ -971,13 +976,18 @@ ol.lower-roman {
                 display: inline-block;
             }
             .txt-paidget {
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: bold;
                 margin-bottom: 5px;
             }
             .txt-paidget-price {
-                font-size: 18px;
+                font-size: 30px;
                 font-weight: bold;
+                border-radius: 4px;
+                padding: 8px;
+                &.txt-price-y15_102{
+                    background-color: #fcae15;
+                }
             }
             .highlight {
                 color: #fcae15;
@@ -1068,19 +1078,6 @@ ol.lower-roman {
     .row-eq-height {
         display: block;
     }
-
-    .box-paidget-wrap{
-        .vcenter{
-            display: block !important;
-            .right{
-                display: none !important;
-            }
-            .down{
-                margin: 0 auto 10px auto !important;
-                display: block !important;
-            }
-        }
-    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1117,6 +1114,26 @@ ol.lower-roman {
         .txt-price {
             top: 54%;
         }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .box-paidget-wrap{
+        .vcenter{
+            display: block !important;
+            .right{
+                display: none !important;
+            }
+            .down{
+                margin: 0 auto 10px auto !important;
+                display: block !important;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .step1 .col-sm-4{
+        width: 33%;
     }
 }
 
@@ -1280,9 +1297,9 @@ ol.lower-roman {
 
 
 /*====== Disable offline booking =====*/
-// #on-of-holder{
-//     margin: 0;
-//     #step-online{
-//         padding: 0 !important;
-//     }
-// }
+.only-online #on-of-holder{
+    margin: 0;
+    #step-online{
+        padding: 0 !important;
+    }
+}

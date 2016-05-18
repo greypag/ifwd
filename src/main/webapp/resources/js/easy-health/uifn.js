@@ -1,5 +1,6 @@
 var contextPath = context;
 var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
+var putPremiumApiLink = contextPath+'/ajax/medical-insurance/putPremium';
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -78,11 +79,11 @@ $(document).ready(function() {
         $(".eh-plan-tab").hide();
         $(".btn-plan-selector[data-tab='" + $(this).data("tab") + "']:first").trigger("click");
         
-        /*var pro = $(this).attr("data-tab");
+        var pro = $(this).attr("data-tab");
         $.post(putPremiumApiLink, { pro: pro }, function(data) {
         }).fail(function() {
             alert("network error.");
-        });*/
+        });
 
 
         $(".step2").fadeOut(function() {
@@ -352,7 +353,6 @@ function fillPlanData(json) {
 
         //plan selector
         $(".plan-selector-grid .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
-        $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-head").html(p.type);
         $(".plan-selector-m-wrap .btn-plan-selector[data-tab=eh-plan-" + pc + "] .grid-desc .txt-price").html(priceFormat(p.monthlyPremium));
 
         //ferris wheel       

@@ -31,9 +31,9 @@ var language = "${language}";
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
 					<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 					<li class="divider"><i class="fa fa-play"></i></li>
-					<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
-					<li class="divider"><i class="fa fa-play"></i></li>
-					<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
+					<li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.category" bundle="${msg}" />':'Medical'} </a></li>
+				            <li class="divider"><i class="fa fa-play"></i></li>
+				            <li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" />':'EasyHealth Insurance Plan'}</a></li>
 					<li class="divider last"><i class="fa fa-play"></i></li>
 					<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
                </ol>
@@ -713,30 +713,30 @@ var language = "${language}";
 					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
 		$(document).ready(function() {
-         var employmentS = '${savieFna.employment_status }';
-         if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
-			$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
-			$('#amountOfLiquidAssetsDiv').removeClass('hidden');
-			$('#natureOfBusinessDiv').addClass('hidden');
-			$('#occupationDiv').addClass('hidden');
-			$('#employerNameDiv').addClass('hidden');
-			$('#monthlyPersonalIncomeDiv').addClass('hidden');
-			$('#otherOccupationDiv').addClass('hidden');
-		 }
-		 else{
-			$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
-			$('#amountOfLiquidAssetsDiv').addClass('hidden');
-			$('#natureOfBusinessDiv').removeClass('hidden');
-			$('#occupationDiv').removeClass('hidden');
-			$('#employerNameDiv').removeClass('hidden');
-			$('#monthlyPersonalIncomeDiv').removeClass('hidden');
-			if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
-				$('#otherOccupationDiv').removeClass('hidden');
-			}
-			else{
+			var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
+			if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
+				$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
+				$('#amountOfLiquidAssetsDiv').removeClass('hidden');
+				$('#natureOfBusinessDiv').addClass('hidden');
+				$('#occupationDiv').addClass('hidden');
+				$('#employerNameDiv').addClass('hidden');
+				$('#monthlyPersonalIncomeDiv').addClass('hidden');
 				$('#otherOccupationDiv').addClass('hidden');
 			}
-		 }
+			else{
+				$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
+				$('#amountOfLiquidAssetsDiv').addClass('hidden');
+				$('#natureOfBusinessDiv').removeClass('hidden');
+				$('#occupationDiv').removeClass('hidden');
+				$('#employerNameDiv').removeClass('hidden');
+				$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+				if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
+					$('#otherOccupationDiv').removeClass('hidden');
+				}
+				else{
+					$('#otherOccupationDiv').addClass('hidden');
+				}
+			}
          
          
          

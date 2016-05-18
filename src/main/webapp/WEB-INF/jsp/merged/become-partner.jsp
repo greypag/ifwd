@@ -9,12 +9,10 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<<<<<<< HEAD
-<div align="center">
+<!-- <div align="center">
 <h1 style="color: black;">easy health become-partner page</h1>
 <a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
-</div>
-=======
+</div> -->
 <!--[if IE]>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
@@ -228,4 +226,3 @@ $(document).ready(function() {
 });
 
 </script>
->>>>>>> remotes/origin/fwdhk_1.14.002
