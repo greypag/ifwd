@@ -94,12 +94,13 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-xs-12">
 									<h4><fmt:message key="underwriting.question.q3" bundle="${msg}" /></h4>
 								</div>
+								 
 								<div class="col-xs-11 col-md-11">
 									<div class="row">
 										<div class="col-xs-12">
 											<p><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></p>
 										</div>
-										<div class="col-xs-12 col-md-6">
+										<!-- <div class="col-xs-12 col-md-6">
 											<ul>
 												<li><fmt:message key="underwriting.question.q3.sickness1" bundle="${msg}" /></li>
 												<li><fmt:message key="underwriting.question.q3.sickness2" bundle="${msg}" /></li>
@@ -122,7 +123,7 @@ var home_url = "<%=request.getContextPath()%>";
 												<li><fmt:message key="underwriting.question.q3.sickness15" bundle="${msg}" /></li>
 												<li><fmt:message key="underwriting.question.q3.sickness16" bundle="${msg}" /></li>
 											</ul>
-										</div>
+										</div>-->
 									</div>
 								</div>
 								<div class="col-xs-1 col-md-1">

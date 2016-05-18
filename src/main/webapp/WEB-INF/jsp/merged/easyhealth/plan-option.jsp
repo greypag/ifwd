@@ -1766,7 +1766,7 @@ var home_url = "<%=request.getContextPath()%>";
         
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
             if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-                $("#offline-online-modal").modal();
+                //$("#offline-online-modal").modal();
             }else{
                 $('#offline-online-modal').modal('hide');
                 $('.login-info').addClass('hidden');
