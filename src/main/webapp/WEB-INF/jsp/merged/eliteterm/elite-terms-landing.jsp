@@ -478,7 +478,7 @@
             </section>-->
             
             <a href="#" title="Get Quote" class="et-get-qoute hide-element hidden-md hidden-lg">
-               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/get-qoute.png" alt="get-qoute.png" />
+               <img src="<%=request.getContextPath()%><fmt:message key="elite.term.btn.get.qoute" bundle="${msg}" />" alt="get-qoute.png" />
             </a>
                               
          </div>
