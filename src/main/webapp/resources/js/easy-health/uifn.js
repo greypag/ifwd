@@ -5,7 +5,6 @@ var ehStep = ehStep;
 var ehPro = ehPro;
 
 window.onorientationchange = function (){
-
     alignChildHeight(".row-eq-height", "> [class^=col-]");
     alignChildHeight("#bought-modal", " .txt-box");
 }
@@ -174,7 +173,9 @@ $(document).ready(function() {
     $(".btn-back-step1").click(function() {
         $(".step2").fadeOut(function() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            $(".step1").fadeIn();
+            $(".step1").fadeIn(400, function (){
+                alignChildHeight(".row-eq-height", "> [class^=col-]");
+            });
         });
 
         $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
@@ -445,7 +446,7 @@ function getTableData(year, mca) {
 }
 
 function priceFormat(priceInt) {
-    return numberWithCommas(parseInt(priceInt));
+    return numberWithCommas(parseInt(Math.round(priceInt)));
 }
 
 function numberWithCommas(x) {
