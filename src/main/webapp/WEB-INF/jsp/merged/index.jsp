@@ -146,7 +146,7 @@ var languageP = "${language}";
 								<div role="tabpanel" class="fna-tab-content tab-pane active" id="navtabs-1">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
-											<span class="fa fa-commenting-o fa-3x"></span>
+											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-1.png" />
 										</div>
 										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.support.copy1" bundle="${msg}" /></p>
