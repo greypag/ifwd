@@ -11119,7 +11119,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 
 @media ( max-width : 991px) {
 	#fb-dialog-share{
-		display: none;
+		//display: none;
 	}
 }
 

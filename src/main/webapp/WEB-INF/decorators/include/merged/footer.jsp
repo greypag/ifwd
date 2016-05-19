@@ -153,12 +153,11 @@ $(function() {
 
     function fbShare(method,name,link,picture,description){
     	FB.ui({
-			method: method,
-			name: name,
-			link: link,
-			picture: picture,
-			description: description
-      	},
+  			method: method,
+  			display: 'iframe',
+  			href: link,
+        mobile_iframe: true
+      },
 		function(response) {
 			if (response && response.post_id) {
 				console.log('Post was published.'+ response);
