@@ -200,13 +200,13 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+//		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
-		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
+//		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
+//			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+//		}
 		else{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			
@@ -245,13 +245,13 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		//SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
-		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
+//		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
+//			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+//		}
 		else{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			
