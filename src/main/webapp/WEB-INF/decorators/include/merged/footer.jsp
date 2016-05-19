@@ -135,9 +135,45 @@ $(function() {
     ogUrl = (ogUrl=='')?defaultOg[UILANGUAGE]['url']:ogUrl;
     ogImg = (ogImg=='')?defaultOg[UILANGUAGE]['img']:ogImg;
 
-    $('#fb-dialog-share').click(function(e) {
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1684174765175679',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+    function fbShare(method,name,link,picture,description){
+    	FB.ui({
+			method: method,
+			name: name,
+			link: link,
+			picture: picture,
+			description: description
+      	},
+		function(response) {
+			if (response && response.post_id) {
+				console.log('Post was published.'+ response);
+			} else {
+				console.log('Post was not published.' + response);
+			}
+		});    
+    }
+    $('#fb-dialog-share').on("click",function(){
+    	fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
+    });    
+    
+/*     $('#fb-dialog-share').click(function(e) {
     	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
-    });
+    }); */
 
     /*
     function navbarLogoSticky(){
