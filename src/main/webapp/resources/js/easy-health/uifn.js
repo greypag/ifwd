@@ -1,6 +1,8 @@
 var contextPath = context;
 var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
 var putPremiumApiLink = contextPath+'/ajax/medical-insurance/putPremium';
+var ehStep = ehStep;
+var ehPro = ehPro;
 
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
@@ -71,6 +73,13 @@ $(document).ready(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 $(".step2").fadeIn();
             });
+            if(ehStep == '2'){
+            	$(".step2").hide();
+            	$.post(putPremiumApiLink, { pro: ehPro }, function(data) {
+                }).fail(function() {
+                    alert("network error.");
+                });
+        	}
         }).fail(function() {
             $("#loadingDiv").removeClass("show");
             alert("network error.");

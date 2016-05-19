@@ -14,6 +14,8 @@ var context = "${pageContext.request.contextPath}";
 var language = "${language}";
 var affiliate = "${affiliate}";
 var home_url = "<%=request.getContextPath()%>";
+var ehStep = '${ehStep }';
+var ehPro = '${pro }';
 </script>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/nouislider.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
@@ -1816,6 +1818,22 @@ var home_url = "<%=request.getContextPath()%>";
         	$("#eh-btn-plan-overview").click();
         }
         else if('${ehStep }' == '2'){
+        	if('${ehPlanDetail.gender }' == '0'){
+        		$("#gender0").click();
+        	}
+        	else{
+        		$("#gender1").click();
+        	}
+        	
+        	if('${ehPlanDetail.smoker }' == '0'){
+        		$("#smoker0").click();
+        	}
+        	else{
+        		$("#smoker1").click();
+        	}
+        	
+        	$("#eh-btn-plan-overview").click();
+        	
         	$(".step1").hide();
         	$("#"+'${pro }').click();
         }
