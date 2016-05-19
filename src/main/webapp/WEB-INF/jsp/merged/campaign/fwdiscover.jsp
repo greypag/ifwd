@@ -35,7 +35,7 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-05-20 12:00:00").getTime();
+    
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -100,7 +100,10 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart  || cCurrent < cformat.parse("2016-05-20 00:00:00").getTime()/*&& cCurrent < hotelcStart*/){
+    	if(cCurrent >= cStart  || 
+           (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
+           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime()) 
+           /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
             countDownDD = "15";
@@ -631,7 +634,7 @@
                 <%
                     if (isRegSpecial==true && isRegPromo==true) {
                 %>
-                    <div class="fwdiscover-plan">
+                    <div class="fwdiscover-plan <%=disableOfferClass%>">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero.jpg" class="img-responsive hidden-xs hidden-sm">
                         <div class="plan-details-box red-bg right">
@@ -639,7 +642,7 @@
                                 <div class="upper-desc">
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
@@ -1073,7 +1076,7 @@
                         <div class="modal-content">
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
-                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
 
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
@@ -2169,8 +2172,8 @@
                 success : function(data) {
                 	console.log(data);
                     $('.modal').modal('hide');
-                    var key = "Fanfare.offername"+data["index"];
-                    var tncKey = "Fanfare.offer.tnc"+data["index"];
+                    var key = "Fanfare.offername"+campaignId;
+                    var tncKey = "Fanfare.offer.tnc"+campaignId;
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
@@ -2246,7 +2249,7 @@
             }else if("9"==campaignId){
                 link="working-holiday-insurance?promo="+code;
             }else if("13"==campaignId){
-                link="savings-insurance";
+                link="savings-insurance?promo="+code;
             }
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);                      
@@ -2282,7 +2285,11 @@
             );
 
        });
-
+		function setPlanName(campaignId){
+            var planNameKey = "Fanfare.offername"+ campaignId;
+            var fmtPlanName = getBundle(getBundleLanguage, planNameKey);
+            $('#offer-details-promotion-code').find(".title:first").html(fmtPlanName);
+		}
         $(window).load(function () {
             $('#offer-announce').modal('show');
             if(msieversion() < 1) {
@@ -2291,7 +2298,7 @@
             $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
             if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
                 $('.modal').modal('hide');
-                $('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
+                //$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseId}" bundle="${msg}" />');
                 if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
                     $('#offer-details-promotion-code-error-sold').modal('show');
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
@@ -2303,6 +2310,7 @@
                     }else{
 	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 	                    $('#offer-details-promotion-code').modal('show');
+	                    setPlanName("${chooseId}");
 	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
                         setTnCLink("${chooseId}");
                     }
