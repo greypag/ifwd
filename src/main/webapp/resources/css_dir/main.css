@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.4, last compiled on: 2016-05-18 15:44:13 +0800
+* FWD revamp v0.1.4, last compiled on: 2016-05-19 15:08:45 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -18,12 +18,12 @@
   clear: both;
 }
 
-/* line 2, ../sass/base/_override.scss */
+/* line 2, ../sass/base/general/_override.scss */
 a {
   color: #f6871e;
 }
 
-/* line 6, ../sass/base/_override.scss */
+/* line 6, ../sass/base/general/_override.scss */
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
@@ -31,29 +31,29 @@ a {
   padding: 0px;
   padding-bottom: 0;
 }
-/* line 12, ../sass/base/_override.scss */
+/* line 12, ../sass/base/general/_override.scss */
 .navbar .navbar-brand {
   padding: 0;
   margin: 0;
 }
 
-/* line 18, ../sass/base/_override.scss */
+/* line 18, ../sass/base/general/_override.scss */
 .modal-content {
   border-radius: 0px;
 }
 
-/* line 23, ../sass/base/_override.scss */
+/* line 23, ../sass/base/general/_override.scss */
 .loginpopup .modal-dialog {
   height: 100%;
   margin: auto;
 }
 
-/* line 28, ../sass/base/_override.scss */
+/* line 28, ../sass/base/general/_override.scss */
 .invalid-field {
   border: 2px solid red !important;
 }
 
-/* line 33, ../sass/base/_override.scss */
+/* line 33, ../sass/base/general/_override.scss */
 .alert .alert-danger {
   background-color: #fff;
   border: 0;
@@ -62,16 +62,411 @@ a {
   font-size: 14px;
 }
 
-/* line 43, ../sass/base/_override.scss */
-.mdl-textfield {
-  width: 100% !important;
-  padding: 0 !important;
-  margin-bottom: 10px !important;
+/* line 1, ../sass/base/general/_localize.scss */
+:-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder {
+  font-family: Calibri, sans-serif !important;
+  font-size: 18px !important;
 }
 
-/**
-* Material Design Override - mainly for <input> & <textboard>
-**/
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-0 {
+  padding: 0px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-10 {
+  padding: 10px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-20 {
+  padding: 20px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-30 {
+  padding: 30px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-40 {
+  padding: 40px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-50 {
+  padding: 50px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-60 {
+  padding: 60px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-70 {
+  padding: 70px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-80 {
+  padding: 80px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-90 {
+  padding: 90px;
+}
+
+/* line 9, ../sass/base/general/_localize.scss */
+.pad-100 {
+  padding: 100px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-0 {
+  border: 0px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-10 {
+  border: 10px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-20 {
+  border: 20px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-30 {
+  border: 30px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-40 {
+  border: 40px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-50 {
+  border: 50px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-60 {
+  border: 60px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-70 {
+  border: 70px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-80 {
+  border: 80px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-90 {
+  border: 90px;
+}
+
+/* line 14, ../sass/base/general/_localize.scss */
+.border-100 {
+  border: 100px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-0 {
+  margin: 0px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-10 {
+  margin: 10px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-20 {
+  margin: 20px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-30 {
+  margin: 30px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-40 {
+  margin: 40px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-50 {
+  margin: 50px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-60 {
+  margin: 60px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-70 {
+  margin: 70px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-80 {
+  margin: 80px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-90 {
+  margin: 90px;
+}
+
+/* line 19, ../sass/base/general/_localize.scss */
+.margin-100 {
+  margin: 100px;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-0 {
+  opacity: 0;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-1 {
+  opacity: 0.1;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-2 {
+  opacity: 0.2;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-3 {
+  opacity: 0.3;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-4 {
+  opacity: 0.4;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-5 {
+  opacity: 0.5;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-6 {
+  opacity: 0.6;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-7 {
+  opacity: 0.7;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-8 {
+  opacity: 0.8;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-9 {
+  opacity: 0.9;
+}
+
+/* line 24, ../sass/base/general/_localize.scss */
+.opac-10 {
+  opacity: 1;
+}
+
+/* line 32, ../sass/base/general/_localize.scss */
+body {
+  background: #fff;
+  font-family: Calibri, sans-serif !important;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+/* line 38, ../sass/base/general/_localize.scss */
+h1 {
+  font-size: 48px;
+  color: #fff;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+/* line 39, ../sass/base/general/_localize.scss */
+h2 {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+/* line 40, ../sass/base/general/_localize.scss */
+h3 {
+  font-size: 30px;
+  color: #787878;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* line 41, ../sass/base/general/_localize.scss */
+h4 {
+  font-size: 24px;
+}
+
+/* line 42, ../sass/base/general/_localize.scss */
+h5 {
+  font-size: 16px;
+}
+
+/* line 43, ../sass/base/general/_localize.scss */
+h6 {
+  font-size: 14px;
+}
+
+/* line 44, ../sass/base/general/_localize.scss */
+hr {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #fff;
+}
+
+/* line 46, ../sass/base/general/_localize.scss */
+.heading-h1, .heading-h2, .heading-h3, .heading-h4 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 47, ../sass/base/general/_localize.scss */
+.heading-h5, .heading-h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 48, ../sass/base/general/_localize.scss */
+.heading-h1 {
+  font-size: 36px;
+}
+
+/* line 49, ../sass/base/general/_localize.scss */
+.heading-h2 {
+  font-size: 30px;
+}
+
+/* line 50, ../sass/base/general/_localize.scss */
+.heading-h3 {
+  font-size: 24px;
+}
+
+/* line 51, ../sass/base/general/_localize.scss */
+.heading-h4 {
+  font-size: 18px;
+}
+
+/* line 52, ../sass/base/general/_localize.scss */
+.heading-h5 {
+  font-size: 14px;
+}
+
+/* line 53, ../sass/base/general/_localize.scss */
+.heading-h6 {
+  font-size: 12px;
+}
+
+/* line 55, ../sass/base/general/_localize.scss */
+.color-orange {
+  color: #ff8200 !important;
+}
+
+/* line 56, ../sass/base/general/_localize.scss */
+.color-red {
+  color: #e4002b !important;
+}
+
+/* line 57, ../sass/base/general/_localize.scss */
+.color-yellow {
+  color: #efdb714 !important;
+}
+
+/* line 58, ../sass/base/general/_localize.scss */
+.color-darkgray {
+  color: #373a36 !important;
+}
+
+/* line 59, ../sass/base/general/_localize.scss */
+.color-deepdarkgray {
+  color: #222 !important;
+}
+
+/* line 60, ../sass/base/general/_localize.scss */
+.color-gray {
+  color: #505759 !important;
+}
+
+/* line 61, ../sass/base/general/_localize.scss */
+.color-lightgray {
+  color: #9ba5a7 !important;
+  color: #061d29 !important;
+}
+
+/* line 62, ../sass/base/general/_localize.scss */
+.color-darkblue {
+  color: #061d29 !important;
+}
+
+/* line 63, ../sass/base/general/_localize.scss */
+.color-black {
+  color: #000 !important;
+}
+
+/* line 64, ../sass/base/general/_localize.scss */
+.wd {
+  width: 12%;
+}
+
+/* line 65, ../sass/base/general/_localize.scss */
+.wd2 {
+  width: 100%;
+  line-height: 32px;
+}
+
+/* line 66, ../sass/base/general/_localize.scss */
+.wd3 {
+  width: 50%;
+}
+
+/* line 67, ../sass/base/general/_localize.scss */
+.wd4 {
+  min-width: 43px !important;
+}
+
+/* line 68, ../sass/base/general/_localize.scss */
+.wd5 {
+  width: 96%;
+}
+
+/* line 70, ../sass/base/general/_localize.scss */
+.cta-login-btn {
+  padding: 10px 40px !important;
+  font-size: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
 @font-face {
   font-family: 'Foco-Regular';
   src: url("../font/Foco-Regular.otf");
@@ -119,412 +514,9 @@ a {
   src: url("../fonts/Calibri-Light_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri-Light_gdi.woff") format("woff"), url("../fonts/Calibri-Light_gdi.ttf") format("truetype"), url("../fonts/Calibri-Light_gdi.svg#svgFontName") format("svg");
   /* Legacy iOS */
 }
-/* line 59, ../sass/base/_localize.scss */
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-  font-family: Calibri, sans-serif !important;
-  font-size: 18px !important;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-0 {
-  padding: 0px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-10 {
-  padding: 10px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-20 {
-  padding: 20px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-30 {
-  padding: 30px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-40 {
-  padding: 40px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-50 {
-  padding: 50px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-60 {
-  padding: 60px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-70 {
-  padding: 70px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-80 {
-  padding: 80px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-90 {
-  padding: 90px;
-}
-
-/* line 67, ../sass/base/_localize.scss */
-.pad-100 {
-  padding: 100px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-0 {
-  border: 0px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-10 {
-  border: 10px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-20 {
-  border: 20px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-30 {
-  border: 30px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-40 {
-  border: 40px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-50 {
-  border: 50px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-60 {
-  border: 60px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-70 {
-  border: 70px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-80 {
-  border: 80px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-90 {
-  border: 90px;
-}
-
-/* line 72, ../sass/base/_localize.scss */
-.border-100 {
-  border: 100px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-0 {
-  margin: 0px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-10 {
-  margin: 10px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-20 {
-  margin: 20px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-30 {
-  margin: 30px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-40 {
-  margin: 40px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-50 {
-  margin: 50px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-60 {
-  margin: 60px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-70 {
-  margin: 70px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-80 {
-  margin: 80px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-90 {
-  margin: 90px;
-}
-
-/* line 77, ../sass/base/_localize.scss */
-.margin-100 {
-  margin: 100px;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-0 {
-  opacity: 0;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-1 {
-  opacity: 0.1;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-2 {
-  opacity: 0.2;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-3 {
-  opacity: 0.3;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-4 {
-  opacity: 0.4;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-5 {
-  opacity: 0.5;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-6 {
-  opacity: 0.6;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-7 {
-  opacity: 0.7;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-8 {
-  opacity: 0.8;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-9 {
-  opacity: 0.9;
-}
-
-/* line 82, ../sass/base/_localize.scss */
-.opac-10 {
-  opacity: 1;
-}
-
-/* line 90, ../sass/base/_localize.scss */
-body {
-  background: #fff;
-  font-family: Calibri, sans-serif !important;
-  line-height: 22px;
-  font-size: 16px;
-}
-
-/* line 96, ../sass/base/_localize.scss */
-h1 {
-  font-size: 48px;
-  color: #fff;
-  line-height: 48px;
-  font-weight: 700;
-}
-
-/* line 97, ../sass/base/_localize.scss */
-h2 {
-  font-weight: 700;
-  font-size: 36px;
-}
-
-/* line 98, ../sass/base/_localize.scss */
-h3 {
-  font-size: 30px;
-  color: #787878;
-  font-weight: 400;
-  line-height: 24px;
-}
-
-/* line 99, ../sass/base/_localize.scss */
-h4 {
-  font-size: 24px;
-}
-
-/* line 100, ../sass/base/_localize.scss */
-h5 {
-  font-size: 16px;
-}
-
-/* line 101, ../sass/base/_localize.scss */
-h6 {
-  font-size: 14px;
-}
-
-/* line 102, ../sass/base/_localize.scss */
-hr {
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #fff;
-}
-
-/* line 103, ../sass/base/_localize.scss */
-.heading-h1 {
-  font-size: 36px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 104, ../sass/base/_localize.scss */
-.heading-h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 105, ../sass/base/_localize.scss */
-.heading-h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 106, ../sass/base/_localize.scss */
-.heading-h4 {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 107, ../sass/base/_localize.scss */
-.heading-h5 {
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 108, ../sass/base/_localize.scss */
-.heading-h6 {
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 109, ../sass/base/_localize.scss */
-.color-orange {
-  color: #ff8200 !important;
-}
-
-/* line 110, ../sass/base/_localize.scss */
-.color-red {
-  color: #e4002b !important;
-}
-
-/* line 111, ../sass/base/_localize.scss */
-.color-yellow {
-  color: #efdb714 !important;
-}
-
-/* line 112, ../sass/base/_localize.scss */
-.color-darkgray {
-  color: #373a36 !important;
-}
-
-/* line 113, ../sass/base/_localize.scss */
-.color-deepdarkgray {
-  color: #222 !important;
-}
-
-/* line 114, ../sass/base/_localize.scss */
-.color-gray {
-  color: #505759 !important;
-}
-
-/* line 115, ../sass/base/_localize.scss */
-.color-lightgray {
-  color: #9ba5a7 !important;
-  color: #061d29 !important;
-}
-
-/* line 116, ../sass/base/_localize.scss */
-.color-darkblue {
-  color: #061d29 !important;
-}
-
-/* line 117, ../sass/base/_localize.scss */
-.color-black {
-  color: #000 !important;
-}
-
-/* line 118, ../sass/base/_localize.scss */
-.wd {
-  width: 12%;
-}
-
-/* line 119, ../sass/base/_localize.scss */
-.wd2 {
-  width: 100%;
-  line-height: 32px;
-}
-
-/* line 120, ../sass/base/_localize.scss */
-.wd3 {
-  width: 50%;
-}
-
-/* line 121, ../sass/base/_localize.scss */
-.wd4 {
-  min-width: 43px !important;
-}
-
-/* line 122, ../sass/base/_localize.scss */
-.wd5 {
-  width: 96%;
-}
-
-/* line 124, ../sass/base/_localize.scss */
-.cta-login-btn {
-  padding: 10px 40px !important;
-  font-size: 18px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #ffffff;
+/* line 2, ../sass/base/_button.scss */
+.btn .btn--bdr-curve-0 {
+  border-radius: 0px !important;
 }
 
 /* line 3, ../sass/_other.scss */
@@ -960,160 +952,89 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
   padding: inherit !important;
 }
 
-/* line 2, ../sass/common_screen/_footer.scss */
-.footer-container .footer-container__upper-footer-wrapper {
+/* line 1, ../sass/common_screen/_footer.scss */
+.footer-container {
+  background-color: #222222;
+}
+/* line 4, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper {
   padding: 30px 30px 30px 45px;
 }
-/* line 5, ../sass/common_screen/_footer.scss */
-.footer-container .footer-container__bottom-footer-wrapper {
-  background-color: #000000;
-}
-/* line 8, ../sass/common_screen/_footer.scss */
-.footer-container .contact-number {
-  font-size: 30px;
+/* line 7, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact .footer-container__top-wrapper__contact__wrapper {
+  font-size: 18px;
   font-weight: bold;
+  line-height: 1;
+  color: #fff;
 }
 /* line 12, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a,
-.footer-container .contact-label {
-  font-size: 18px;
-  font-weight: bold;
-}
-/* line 17, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a {
-  display: block;
-  line-height: 2;
-  color: #9fb1b2;
-}
-/* line 21, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-/* line 26, ../sass/common_screen/_footer.scss */
-.footer-container .contact-number {
-  color: #f6871e !important;
-}
-
-/* line 31, ../sass/common_screen/_footer.scss */
-.footer .bottom-link a {
-  color: #f6871e !important;
-}
-
-/* line 35, ../sass/common_screen/_footer.scss */
-.footer-container {
-  background-color: #222222;
-}
-/* line 37, ../sass/common_screen/_footer.scss */
-.footer-container .contact-label {
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact .footer-container__top-wrapper__contact__wrapper a {
   color: #fff;
 }
-/* line 39, ../sass/common_screen/_footer.scss */
-.footer-container .contact-label a {
-  color: #fff;
-}
-
-/* line 45, ../sass/common_screen/_footer.scss */
-.contact-label {
-  line-height: 1;
-}
-/* line 47, ../sass/common_screen/_footer.scss */
-.contact-label .fa {
+/* line 14, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact .footer-container__top-wrapper__contact__wrapper a .fa {
   line-height: 1;
   padding-left: 5px;
 }
-
-/* line 53, ../sass/common_screen/_footer.scss */
-.contact-number {
-  line-height: 1.3;
-}
-
-/* line 57, ../sass/common_screen/_footer.scss */
-.bottom-footer-link {
-  color: #ffffff;
-}
-
-/* line 61, ../sass/common_screen/_footer.scss */
-.bdr-curve {
-  border-radius: 0px !important;
-}
-
-/* line 67, ../sass/common_screen/_footer.scss */
-.footer-container .contact-number {
+/* line 20, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact .footer-container__top-wrapper__contact__number-wrapper {
   font-size: 30px;
   font-weight: bold;
+  line-height: 1.3;
+  color: #f6871e !important;
 }
-/* line 71, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a, .footer-container .contact-label {
+/* line 28, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper {
   font-size: 18px;
-  font-weight: bold;
-}
-/* line 75, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a {
-  display: block;
   line-height: 2;
   color: #9fb1b2;
 }
-/* line 79, ../sass/common_screen/_footer.scss */
-.footer-container .bottom-link a:hover {
+/* line 32, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper a {
+  font-weight: bold;
+  display: block;
+  color: #9fb1b2;
+}
+/* line 36, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper a:hover {
   color: #fff;
   text-decoration: underline;
 }
-/* line 84, ../sass/common_screen/_footer.scss */
-.footer-container .contact-number {
-  color: #f6871e !important;
+/* line 45, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link .footer-container__top-wrapper__social-link__wrapper a {
+  font-size: 25px;
+  color: #9fb1b2;
+  padding-right: 18px;
 }
-
-/* line 89, ../sass/common_screen/_footer.scss */
-.footer .bottom-link a {
-  color: #f6871e !important;
+/* line 49, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link .footer-container__top-wrapper__social-link__wrapper a:hover {
+  font-size: 25px;
+  color: #f6871e;
 }
-
-/* line 93, ../sass/common_screen/_footer.scss */
-.footer-container {
-  background-color: #222222;
-}
-/* line 94, ../sass/common_screen/_footer.scss */
-.footer-container .contact-label {
-  color: #fff;
-}
-/* line 96, ../sass/common_screen/_footer.scss */
-.footer-container .contact-label a {
-  color: #fff;
-}
-
-/* line 103, ../sass/common_screen/_footer.scss */
-.bottom-footer-wrapper {
+/* line 58, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__btm-wrapper {
+  padding: 20px 90px;
   background-color: #000000;
 }
-
-/* line 107, ../sass/common_screen/_footer.scss */
-.upper-footer-wrapper {
-  padding: 30px 30px 30px 45px;
-}
-
-/* line 111, ../sass/common_screen/_footer.scss */
-.contact-label {
-  line-height: 1;
-}
-/* line 113, ../sass/common_screen/_footer.scss */
-.contact-label .fa {
-  line-height: 1;
-}
-
-/* line 118, ../sass/common_screen/_footer.scss */
-.contact-number {
-  line-height: 1.3;
-}
-
-/* line 122, ../sass/common_screen/_footer.scss */
-.contact-label .fa {
-  padding-left: 5px;
-}
-
-/* line 126, ../sass/common_screen/_footer.scss */
-.bottom-footer-link {
+/* line 61, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__btm-wrapper a {
+  font-size: 14px;
+  line-height: 18px;
   color: #ffffff;
+}
+/* line 65, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__btm-wrapper a:hover {
+  color: #9fb1b2;
+}
+/* line 69, ../sass/common_screen/_footer.scss */
+.footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* line 81, ../sass/common_screen/_footer.scss */
+.timeout-modal .timeout-modal__dialog .timeout-modal__dialog__content .timeout-modal__dialog__content__body {
+  color: #fc6d08;
 }
 
 /* line 1, ../sass/common_screen/_loginpopup.scss */
@@ -1451,7 +1372,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   letter-spacing: 0px;
 }
 
-/* line 54, ../sass/base/_override.scss */
+/* line 4, ../sass/base/_input_textarea.scss */
 .loginform-pop a.forgotUserName, .loginform-pop a.link-forgotPassword,
 .forgotUserNameForm a.forgotUserName,
 .forgotUserNameForm a.link-forgotPassword,
@@ -1460,7 +1381,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   text-decoration: none;
   font-style: normal;
 }
-/* line 61, ../sass/base/_override.scss */
+/* line 11, ../sass/base/_input_textarea.scss */
 .loginform-pop .col-sm-12.col-md-6.left, .loginform-pop .col-sm-12.col-md-12.left,
 .forgotUserNameForm .col-sm-12.col-md-6.left,
 .forgotUserNameForm .col-sm-12.col-md-12.left,
@@ -1468,7 +1389,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotPasswordForm .col-sm-12.col-md-12.left {
   padding-right: 100px;
 }
-/* line 66, ../sass/base/_override.scss */
+/* line 16, ../sass/base/_input_textarea.scss */
 .loginform-pop .form-control.gray-textbox,
 .forgotUserNameForm .form-control.gray-textbox,
 .forgotPasswordForm .form-control.gray-textbox {
@@ -1482,7 +1403,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 0;
   border: 0 transparent;
 }
-/* line 77, ../sass/base/_override.scss */
+/* line 27, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield__label,
 .forgotUserNameForm .mdl-textfield__label,
 .forgotPasswordForm .mdl-textfield__label {
@@ -1493,7 +1414,15 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 86, ../sass/base/_override.scss */
+/* line 35, ../sass/base/_input_textarea.scss */
+.loginform-pop .mdl-textfield,
+.forgotUserNameForm .mdl-textfield,
+.forgotPasswordForm .mdl-textfield {
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+}
+/* line 39, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield.is-focused label, .loginform-pop .mdl-textfield.is-dirty label,
 .forgotUserNameForm .mdl-textfield.is-focused label,
 .forgotUserNameForm .mdl-textfield.is-dirty label,
@@ -1503,13 +1432,13 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   font-size: 12px;
   top: 1px;
 }
-/* line 91, ../sass/base/_override.scss */
+/* line 44, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield.is-not-active label,
 .forgotUserNameForm .mdl-textfield.is-not-active label,
 .forgotPasswordForm .mdl-textfield.is-not-active label {
   color: #ff8200;
 }
-/* line 95, ../sass/base/_override.scss */
+/* line 48, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield input:hover, .loginform-pop .mdl-textfield input:focus,
 .forgotUserNameForm .mdl-textfield input:hover,
 .forgotUserNameForm .mdl-textfield input:focus,
@@ -1517,7 +1446,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotPasswordForm .mdl-textfield input:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 100, ../sass/base/_override.scss */
+/* line 53, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield textarea:hover, .loginform-pop .mdl-textfield textarea:focus,
 .forgotUserNameForm .mdl-textfield textarea:hover,
 .forgotUserNameForm .mdl-textfield textarea:focus,
@@ -1525,7 +1454,13 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .forgotPasswordForm .mdl-textfield textarea:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 106, ../sass/base/_override.scss */
+/* line 57, ../sass/base/_input_textarea.scss */
+.loginform-pop .mdl-textfield label:after,
+.forgotUserNameForm .mdl-textfield label:after,
+.forgotPasswordForm .mdl-textfield label:after {
+  background-color: transparent;
+}
+/* line 62, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield__input:focus,
 .forgotUserNameForm .mdl-textfield__input:focus,
 .forgotPasswordForm .mdl-textfield__input:focus {
@@ -1536,7 +1471,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 114, ../sass/base/_override.scss */
+/* line 70, ../sass/base/_input_textarea.scss */
 .loginform-pop .mdl-textfield__input:hover,
 .forgotUserNameForm .mdl-textfield__input:hover,
 .forgotPasswordForm .mdl-textfield__input:hover {
@@ -1545,26 +1480,20 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 121, ../sass/base/_override.scss */
-.loginform-pop .mdl-textfield label:after,
-.forgotUserNameForm .mdl-textfield label:after,
-.forgotPasswordForm .mdl-textfield label:after {
-  background-color: transparent;
-}
-/* line 124, ../sass/base/_override.scss */
+/* line 77, ../sass/base/_input_textarea.scss */
 .loginform-pop textarea.form-control.gray-textbox,
 .forgotUserNameForm textarea.form-control.gray-textbox,
 .forgotPasswordForm textarea.form-control.gray-textbox {
   height: 135px;
 }
-/* line 127, ../sass/base/_override.scss */
+/* line 80, ../sass/base/_input_textarea.scss */
 .loginform-pop .next-btn,
 .forgotUserNameForm .next-btn,
 .forgotPasswordForm .next-btn {
   padding: 20px 0 40px 0;
   text-align: center;
 }
-/* line 131, ../sass/base/_override.scss */
+/* line 84, ../sass/base/_input_textarea.scss */
 .loginform-pop .apply-btn,
 .forgotUserNameForm .apply-btn,
 .forgotPasswordForm .apply-btn {
@@ -1576,15 +1505,15 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 4px !important;
   border-bottom: 3px solid #c56501;
 }
-/* line 140, ../sass/base/_override.scss */
-.loginform-pop .applyPartner,
-.forgotUserNameForm .applyPartner,
-.forgotPasswordForm .applyPartner {
+/* line 92, ../sass/base/_input_textarea.scss */
+.loginform-pop .apply-btn#applyPartner,
+.forgotUserNameForm .apply-btn#applyPartner,
+.forgotPasswordForm .apply-btn#applyPartner {
   padding: 5px 90px;
   font-size: 24px;
   margin-left: -52px;
 }
-/* line 145, ../sass/base/_override.scss */
+/* line 98, ../sass/base/_input_textarea.scss */
 .loginform-pop .has-error .help-block,
 .forgotUserNameForm .has-error .help-block,
 .forgotPasswordForm .has-error .help-block {
@@ -1669,16 +1598,16 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
 .becomePartnerForm {
   overflow: hidden;
 }
-/* line 54, ../sass/base/_override.scss */
+/* line 4, ../sass/base/_input_textarea.scss */
 .becomePartnerForm a.forgotUserName, .becomePartnerForm a.link-forgotPassword {
   text-decoration: none;
   font-style: normal;
 }
-/* line 61, ../sass/base/_override.scss */
+/* line 11, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .col-sm-12.col-md-6.left, .becomePartnerForm .col-sm-12.col-md-12.left {
   padding-right: 100px;
 }
-/* line 66, ../sass/base/_override.scss */
+/* line 16, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .form-control.gray-textbox {
   font-size: 18px;
   font-family: 'Calibri';
@@ -1690,7 +1619,7 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 0;
   border: 0 transparent;
 }
-/* line 77, ../sass/base/_override.scss */
+/* line 27, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield__label {
   padding-top: 5px;
   font-size: 14px;
@@ -1699,25 +1628,35 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 86, ../sass/base/_override.scss */
+/* line 35, ../sass/base/_input_textarea.scss */
+.becomePartnerForm .mdl-textfield {
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+}
+/* line 39, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield.is-focused label, .becomePartnerForm .mdl-textfield.is-dirty label {
   color: #ff8200;
   font-size: 12px;
   top: 1px;
 }
-/* line 91, ../sass/base/_override.scss */
+/* line 44, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield.is-not-active label {
   color: #ff8200;
 }
-/* line 95, ../sass/base/_override.scss */
+/* line 48, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield input:hover, .becomePartnerForm .mdl-textfield input:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 100, ../sass/base/_override.scss */
+/* line 53, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield textarea:hover, .becomePartnerForm .mdl-textfield textarea:focus {
   border-bottom: 2px solid #Ff8200;
 }
-/* line 106, ../sass/base/_override.scss */
+/* line 57, ../sass/base/_input_textarea.scss */
+.becomePartnerForm .mdl-textfield label:after {
+  background-color: transparent;
+}
+/* line 62, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield__input:focus {
   transition: all 0.1s;
   background-color: #ffffff;
@@ -1726,27 +1665,23 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 114, ../sass/base/_override.scss */
+/* line 70, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .mdl-textfield__input:hover {
   outline: none;
   outline-offset: 0;
   -webkit-appearance: none;
   box-shadow: inset 0 1px 1px transparent;
 }
-/* line 121, ../sass/base/_override.scss */
-.becomePartnerForm .mdl-textfield label:after {
-  background-color: transparent;
-}
-/* line 124, ../sass/base/_override.scss */
+/* line 77, ../sass/base/_input_textarea.scss */
 .becomePartnerForm textarea.form-control.gray-textbox {
   height: 135px;
 }
-/* line 127, ../sass/base/_override.scss */
+/* line 80, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .next-btn {
   padding: 20px 0 40px 0;
   text-align: center;
 }
-/* line 131, ../sass/base/_override.scss */
+/* line 84, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .apply-btn {
   background: #ffa500;
   color: #FFF;
@@ -1756,13 +1691,13 @@ _:-ms-fullscreen, :root .loginpopup .login-input {
   border-radius: 4px !important;
   border-bottom: 3px solid #c56501;
 }
-/* line 140, ../sass/base/_override.scss */
-.becomePartnerForm .applyPartner {
+/* line 92, ../sass/base/_input_textarea.scss */
+.becomePartnerForm .apply-btn#applyPartner {
   padding: 5px 90px;
   font-size: 24px;
   margin-left: -52px;
 }
-/* line 145, ../sass/base/_override.scss */
+/* line 98, ../sass/base/_input_textarea.scss */
 .becomePartnerForm .has-error .help-block {
   color: #e4002b;
 }
@@ -2088,6 +2023,24 @@ body.chin .partner-headline-wrapper .headline-title {
     color: #fff;
     border: none;
     border: 1px solid #f6871e;
+  }
+
+  /* line 7, ../sass/mobile/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper {
+    width: 50%;
+    float: left;
+  }
+  /* line 13, ../sass/mobile/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link .footer-container__top-wrapper__social-link__wrapper {
+    margin-top: 20px;
+  }
+  /* line 19, ../sass/mobile/_footer.scss */
+  .footer-container .footer-container__btm-wrapper {
+    text-align: center;
+  }
+  /* line 21, ../sass/mobile/_footer.scss */
+  .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
+    width: auto;
   }
 
   /* line 3, ../sass/mobile/_loginpopup.scss */
@@ -2446,6 +2399,50 @@ body.chin .partner-headline-wrapper .headline-title {
     top: 30px;
   }
 
+  /* line 3, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper {
+    margin: 0 auto;
+    padding: 30px 15px;
+  }
+  /* line 6, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__contact {
+    margin-right: 100px;
+    display: inline-block;
+    float: left;
+  }
+  /* line 11, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link {
+    display: inline-block;
+    float: left;
+  }
+  /* line 14, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper {
+    float: left;
+    margin-right: 50px;
+  }
+  /* line 17, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__link .footer-container__top-wrapper__link__wrapper a {
+    display: block;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  /* line 24, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__top-wrapper .footer-container__top-wrapper__social-link {
+    float: right;
+  }
+  /* line 33, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
+    margin: 0 auto;
+  }
+  /* line 35, ../sass/desktop/_footer.scss */
+  .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link .footer-container__btm-wrapper__link__copy-right {
+    padding-top: 5px;
+    float: right;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
   /* line 1, ../sass/desktop/_loginpopup.scss */
   #errUserName, #errPass {
     display: block;
@@ -2479,6 +2476,12 @@ body.chin .partner-headline-wrapper .headline-title {
   .forgotPasswordForm .modal-dialog.loginpopup__modal-dialog .loginpopupext .login-info-savie img {
     /*position: absolute;
     bottom: 0;*/
+  }
+
+  /* line 25, ../sass/desktop/_loginpopup.scss */
+  .loginpopup .loginpopupext .upper-overlay .heading-h4,
+  .loginpopup .loginpopupext .upper-overlay .heading-h5 {
+    line-height: 1.3;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {

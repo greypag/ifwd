@@ -1,0 +1,89 @@
+:-webkit-input-placeholder,
+:-moz-placeholder, /* Firefox 18- */
+::-moz-placeholder, /* Firefox 19+ */
+:-ms-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
+}
+@for $i from 0 through 10 {
+  .pad-#{$i*10} {
+    @include padding(#{$i*10}px);
+  }
+}
+@for $i from 0 through 10 {
+  .border-#{$i*10} {
+    @include border(#{$i*10}px);
+  }
+}
+@for $i from 0 through 10 {
+  .margin-#{$i*10} {
+    @include margin(#{$i*10}px);
+  }
+}
+@for $i from 0 through 10 {
+  .opac-#{$i} {
+    @if $i==0 {
+      @include opacity(0);
+    } @else {
+      @include opacity(#{$i/10});
+    }
+  }
+}
+body {
+  background: #fff;
+  font-family: Calibri, sans-serif !important;
+  line-height: 22px;
+  font-size: 16px;
+}
+h1{font-size:48px;color:#fff;line-height:48px;font-weight:700}
+h2{font-weight:700;font-size:36px}
+h3{font-size:30px;color:#787878;font-weight:400;line-height:24px}
+h4{font-size:24px}
+h5{font-size:16px}
+h6{font-size:14px}
+hr{border-top:1px solid #e5e5e5;border-bottom:1px solid #fff}
+
+%heading-h1-4 {font-weight:700;margin:0;padding:0}
+%heading-h5-6 {margin:0;padding:0}
+.heading-h1{font-size:36px;@extend %heading-h1-4}
+.heading-h2{font-size:30px;@extend %heading-h1-4}
+.heading-h3{font-size:24px;@extend %heading-h1-4}
+.heading-h4{font-size:18px;@extend %heading-h1-4}
+.heading-h5{font-size:14px;@extend %heading-h5-6}
+.heading-h6{font-size:12px;@extend %heading-h5-6}
+
+.color-orange{color:#ff8200!important}
+.color-red{color:#e4002b!important}
+.color-yellow{color:#efdb714!important}
+.color-darkgray{color:#373a36!important}
+.color-deepdarkgray{color:#222!important}
+.color-gray{color:#505759!important}
+.color-lightgray{color:#9ba5a7!important;color:#061d29!important}
+.color-darkblue{color:#061d29!important}
+.color-black{color:#000!important}
+.wd{width:12%}
+.wd2{width:100%;line-height:32px}
+.wd3{width:50%}
+.wd4{min-width:43px!important}
+.wd5{width:96%}
+// orginal name: .cta-padding-40
+.cta-login-btn {
+  padding: 10px 40px !important;
+	font-size: 18px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #ffffff;
+}
+
+// ----------- Pls Ignore ---------- sample code for reference
+// -webkit-transition: color 300ms, background-color 300ms;
+// -moz-transition: color 300ms, background-color 300ms;
+// -o-transition: color 300ms, background-color 300ms;
+// transition: color 300ms, background-color 300ms;
+
+// @for $i from 1 through 20 {
+//   span:nth-child(#{$i}) {
+//     // your Styles here
+//   }
+// }

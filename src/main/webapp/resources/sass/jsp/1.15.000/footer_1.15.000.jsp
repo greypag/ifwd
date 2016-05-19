@@ -36,32 +36,35 @@
 
 <!--mob bottom-->
 <div class="footer-container">
-    <div class="upper-footer-wrapper container">
-	    <div class="bottom-contact-wrapper">
-	        <div class="contact-label">
-	           <a href="<fmt:message key="footer.menu.contactus.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.contactus" bundle="${msg}" /><i class="fa fa-caret-right" aria-hidden="true"></i></a><br/><br/>
+    <div class="footer-container__top-wrapper container">
+	    <div class="footer-container__top-wrapper__contact">
+	        <div class="footer-container__top-wrapper__contact__wrapper">
+	           <a href="<fmt:message key="footer.menu.contactus.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.contactus" bundle="${msg}" />
+              <i class="fa fa-caret-right" aria-hidden="true"></i>
+              </a>
+              <br/><br/>
 	           <fmt:message key="footer.hotline.part1" bundle="${msg}" />
 	        </div>
-	        <a class="contact-number" href="tel:31233123"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></a>
+	        <a class="footer-container__top-wrapper__contact__number-wrapper" href="tel:31233123"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></a>
 	    </div>
-	    <div class="bottom-link-wrapper">
-	       <div class="bottom-link">
+	    <div class="footer-container__top-wrapper__link">
+	       <div class="footer-container__top-wrapper__link__wrapper">
 	           <a href="<fmt:message key="footer.product.type1.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
 	           <a href="<fmt:message key="footer.product.type2.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
 	           <a href="<fmt:message key="footer.product.type3.link" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3" bundle="${msg}" /></a>
 	       </div>
-	       <div class="bottom-link">
+	       <div class="footer-container__top-wrapper__link__wrapper">
 	           <a href="<fmt:message key="footer.menu.support.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.support" bundle="${msg}" /></a>
 	           <a id="faqProductLink" href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a>
 	           <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>
 	       </div>
-	       <div class="bottom-link">
+	       <div class="footer-container__top-wrapper__link__wrapper">
 	           <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partner.link" bundle="${msg}" />"><fmt:message key="footer.menu.partner" bundle="${msg}" /></a>
 	       </div>
 	       <div class="clearfix"></div>
 	    </div>
-        <div class="social-link-wrapper">
-           <div class="social-link">
+        <div class="footer-container__top-wrapper__social-link">
+           <div class="footer-container__top-wrapper__social-link__wrapper">
 	           <a id="fb-dialog-share" href="javascript:void(0);" onclick="return false;" target="_blank"><i class="fa fa-share-alt"></i></a>
 	           <a href="<fmt:message key="footer.facebook.link" bundle="${msg}" />" target="_blank"><i class="fa fa-facebook-official"></i></a>
 	           <a href="<fmt:message key="footer.youtube.link" bundle="${msg}" />" target="_blank"><i class="fa fa-youtube-play"></i></a>
@@ -70,12 +73,12 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="bottom-footer-wrapper">
-        <div class="bottom-footer-link container">
+    <div class="footer-container__btm-wrapper">
+        <div class="footer-container__btm-wrapper__link container">
 		    <a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a> |
 		    <a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a> |
 		    <a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a>
-		    <div class="copy-right"><fmt:message key="footer.copyright" bundle="${msg}" /></div>
+		    <div class="footer-container__btm-wrapper__link__copy-right"><fmt:message key="footer.copyright" bundle="${msg}" /></div>
 		    <div class="clearfix"></div>
 	    </div>
     </div>
@@ -84,16 +87,16 @@
 <!--/mob bottom-->
 
 <!-- Timeout Modal -->
-<div id="timeout-modal" class="modal fade fwd-generic-modal timeout" role="dialog" data-keyboard="false" data-backdrop="static">
-  <div class="modal-dialog">
-      <div class="modal-content" align="center">
-        <div class="modal-body form-container" style="color:#fc6d08">
+<div id="timeout-modal" class="modal fade timeout-modal" role="dialog" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog timeout-modal__dialog">
+      <div class="modal-content timeout-modal__dialog__content" align="center">
+        <div class="modal-body form-container timeout-modal__dialog__content__body" style="">
            <div class="row">
               <h2><fmt:message key="error.timeout.message" bundle="${msg}" /></h2>
            </div>
            <div class="row">
-              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">
-                 <button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="timeout-btn" data-dismiss="modal"><fmt:message key="error.timeout.button" bundle="${msg}" /></button>
+              <div class="col-lg-6 col-md-6">
+                 <button type="button" class="btn btn-primary btn-lg btn--bdr-curve-0 next wd5" id="timeout-btn" data-dismiss="modal"><fmt:message key="error.timeout.button" bundle="${msg}" /></button>
               </div>
            </div>
         </div>

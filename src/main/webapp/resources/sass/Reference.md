@@ -2,9 +2,9 @@
 > Object Oriented CSS
 > [CSS] 認識OOCSS
 > BEM 101
-> MindBEMding – getting your head ’round BEM syntax
-> ( https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization )
-
+> MindBEMding – getting your head ’round BEM syntax https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+> Organizing CSS & Sass in Rails http://www.mattboldt.com/organizing-css-and-sass-rails/
+> How to structure a Sass project http://thesassway.com/beginner/how-to-structure-a-sass-project
 ## fwdhk_cssguide provided by Rex So
 ```
   https://vendor_hk@bitbucket.org/fwdhkeCommerce/fwdhk_cssguide.git

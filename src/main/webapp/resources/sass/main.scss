@@ -8,8 +8,13 @@
 // @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
 @import "variable";         // #Define all scss variables
 @import "mixin";            // #Contains all kinds of @mixin & @funct
-@import "base/override";    // #Overwrite the Bootstrap, Material Design or other CSS frameworks.
-@import "base/localize";    // #Localize the internal css applying for ALL SCREENs and THEMEs, e.g. block properties / font
+
+@import "base/general/override";    // #Overwrite the Bootstrap, Material Design or other CSS frameworks.
+@import "base/general/localize";    // #Localize the internal css applying for ALL SCREENs and THEMEs, e.g. block properties / font
+@import "base/font";
+@import "base/input_textarea";
+@import "base/button";
+
 @import "other";            // #Insert the styles which are currently existing in the main.css, but not in current development [Optional use]
 
 // #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
@@ -29,7 +34,7 @@
 
 @media screen and #{$desktop} {
   @import "desktop/header";
-  // @import "desktop/footer";
+  @import "desktop/footer";
   @import "desktop/loginpopup";
 }
 

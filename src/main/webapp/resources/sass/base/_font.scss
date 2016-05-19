@@ -1,0 +1,58 @@
+@font-face {
+	font-family: 'Foco-Regular';
+	src: url('../font/Foco-Regular.otf');
+	src: url('../font/Foco-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Foco-bold';
+	src: url('../font/Foco-Bold.otf');
+	src: url('../font/Foco-Bold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Foco_Lt';
+	src: url('../font/Foco_lt.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Foco_It';
+	src: url('../font/Foco_It.ttf');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+    font-family: 'Calibri';
+    src: url("../fonts/Calibri_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Calibri_gdi.woff") format("woff"),
+        url("../fonts/Calibri_gdi.ttf") format("truetype"),
+        url("../fonts/Calibri_gdi.svg#svgFontName") format("svg");
+    /* Legacy iOS */
+}
+@font-face {
+    font-family: 'Calibri-Bold';
+    src: url("../fonts/Calibri-Bold_gdi.eot");
+    /* IE9 Com@media screen and (min-width: 768px) and (max-width: 991px) {pat Modes */
+    src: url("../fonts/Calibri-Bold_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../fonts/Calibri-Bold_gdi.woff")
+        format("woff"), url("../fonts/Calibri-Bold_gdi.ttf")
+        format("truetype"), url("../fonts/Calibri-Bold_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
+}
+@font-face {
+    font-family: 'Calibri-Light';
+    src: url("../fonts/Calibri-Light_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Calibri-Light_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../fonts/Calibri-Light_gdi.woff")
+        format("woff"), url("../fonts/Calibri-Light_gdi.ttf")
+        format("truetype"), url("../fonts/Calibri-Light_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
+}
