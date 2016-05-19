@@ -74,6 +74,24 @@ function getBundle(lang, key){
 	return fwdGetBundle(lang,key);
 }
 
+function putPremium(){
+    var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
+    $.ajax({
+          type : "post",
+          cache:false, 
+          async:false, 
+          url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
+          data : {pro : pro},
+          success : function(data) {
+             window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+          },
+          error:function(){
+              console.log('error');   
+          }
+    });
+}
+
+
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
 		"left":"0px",
@@ -110,7 +128,7 @@ function submitLoginForm(formID) {
 						}
 						else if(window.location.href.indexOf("medical-insurance/plan-option")>0){
 							$('#loginpopup').modal('hide');
-							$("#offline-online-modal").modal('show');
+							putPremium();
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;

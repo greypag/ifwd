@@ -1768,7 +1768,7 @@ var ehPro = '${pro }';
         
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
             if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-                //$("#offline-online-modal").modal();
+            	putPremium();
             }else{
                 $('#offline-online-modal').modal('hide');
                 $('.login-info').addClass('hidden');
@@ -1779,7 +1779,7 @@ var ehPro = '${pro }';
             }
         });
 
-        $("#online-application-btn").click(function() {
+        function putPremium(){
             var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
             $.ajax({
                   type : "post",
@@ -1794,11 +1794,7 @@ var ehPro = '${pro }';
                       console.log('error');   
                   }
             });
-        });
-
-        $("#offline-application-btn").click(function() {
-            window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-        });
+        }
         
         if('${ehStep }' == '1'){
         	if('${ehPlanDetail.gender }' == '0'){
