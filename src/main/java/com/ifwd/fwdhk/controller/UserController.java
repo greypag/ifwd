@@ -318,6 +318,7 @@ public class UserController {
 						String type7 = WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request));
 						String type8 = WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request));
 						String type9 = WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request));
+						String type10 = WebServiceUtils.getMessage("eservice.product.type10", UserRestURIConstants.getLanaguage(request));
 						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
 						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
 						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
@@ -356,6 +357,10 @@ public class UserController {
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type9);
 							}
+							else if("HEH2".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type10);
+							}
+							
 							
 							if("Z".equalsIgnoreCase(entity.getStatus())){
 								entity.setStatus(inforce);
@@ -418,7 +423,64 @@ public class UserController {
 										past_life.add(entity);
 									}
 								}
-							}else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
+							}
+							else if("HEH2".equals(entity.getPlanCode())) {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
+										active_life.add(entity);
+				 					}else {
+				 						if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
+										past_life.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									if(entity.getPlanName().equals("定期壽險")){
+										entity.setPlanName("EasyHealth Insurance Plan");
+									}
+
+									if("PENDING".equals(entity.getStatus())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(pending);
+										}
+										pending_life.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(active);
+										}
+										active_life.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										if("false".equals(entity.getDocumentUploaded())) {
+											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+											entity.setStatus("<a href=\"" + url + "\">"
+												+ docNow + "</a>");
+										}else {
+											entity.setStatus(past);
+										}
+										past_life.add(entity);
+									}
+								}
+							}
+							else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
 										if("false".equals(entity.getDocumentUploaded())) {
