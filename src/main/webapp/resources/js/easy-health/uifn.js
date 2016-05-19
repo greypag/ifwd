@@ -4,6 +4,12 @@ var putPremiumApiLink = contextPath+'/ajax/medical-insurance/putPremium';
 var ehStep = ehStep;
 var ehPro = ehPro;
 
+window.onorientationchange = function (){
+
+    alignChildHeight(".row-eq-height", "> [class^=col-]");
+    alignChildHeight("#bought-modal", " .txt-box");
+}
+
 $(document).ready(function() {
     $(".selection-inner .item").on("click", function() {
         changeSelection($(this).parents(".selection-inner").find(".selected"), false);
@@ -238,6 +244,7 @@ function changeSelection(item, selected, isAddSelected) {
 function alignChildHeight(sel, child) {
     max = 0;
     $(sel).find(child).each(function() {
+        $(this).css("height", "auto");
         c_height = parseInt($(this).height());
         if (c_height > max) {
             max = c_height;
