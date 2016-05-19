@@ -35,7 +35,7 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-05-22 12:00:00").getTime();
+    cCurrent = cformat.parse("2016-05-22 12:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -2169,8 +2169,8 @@
                 success : function(data) {
                 	console.log(data);
                     $('.modal').modal('hide');
-                    var key = "Fanfare.offername"+data["index"];
-                    var tncKey = "Fanfare.offer.tnc"+data["index"];
+                    var key = "Fanfare.offername"+campaignId;
+                    var tncKey = "Fanfare.offer.tnc"+campaignId;
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
@@ -2239,7 +2239,7 @@
             }else if("9"==campaignId){
                 link="working-holiday-insurance?promo="+code;
             }else if("13"==campaignId){
-                link="savings-insurance";
+                link="savings-insurance?promo="+code;
             }
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);                      
@@ -2275,7 +2275,11 @@
             );
 
        });
-
+		function setPlanName(campaignId){
+            var planNameKey = "Fanfare.offername"+ campaignId;
+            var fmtPlanName = getBundle(getBundleLanguage, planNameKey);
+            $('#offer-details-promotion-code').find(".title:first").html(fmtPlanName);
+		}
         $(window).load(function () {
             $('#offer-announce').modal('show');
             if(msieversion() < 1) {
@@ -2284,9 +2288,7 @@
             $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
             if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
                 $('.modal').modal('hide');
-                console.log("ID:${chooseId}");
-                console.log("Index:${chooseIndex}");
-                $('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
+                //$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseId}" bundle="${msg}" />');
                 if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
                     $('#offer-details-promotion-code-error-sold').modal('show');
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
@@ -2298,6 +2300,7 @@
                     }else{
 	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 	                    $('#offer-details-promotion-code').modal('show');
+	                    setPlanName("${chooseId}");
 	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
                         setTnCLink("${chooseId}");
                     }
