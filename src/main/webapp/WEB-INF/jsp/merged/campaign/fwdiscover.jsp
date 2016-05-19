@@ -100,7 +100,7 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart  || cCurrent < cformat.parse("2016-05-20 00:00:00").getTime()/*&& cCurrent < hotelcStart*/){
+    	if(cCurrent >= cStart  || cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()/*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
             countDownDD = "15";
@@ -631,7 +631,7 @@
                 <%
                     if (isRegSpecial==true && isRegPromo==true) {
                 %>
-                    <div class="fwdiscover-plan">
+                    <div class="fwdiscover-plan <%=disableOfferClass%>">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero.jpg" class="img-responsive hidden-xs hidden-sm">
                         <div class="plan-details-box red-bg right">
