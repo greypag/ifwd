@@ -569,7 +569,7 @@ var ehPro = '${pro }';
                                             <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
-                                                <p class="txt-type text-center"></p>
+                                                <p class="txt-type text-center"><fmt:message key="easyhealth.plan.intro.label.basic" bundle="${msg}" /></p>
                                                 <div class="desc text-center">
                                                     <div class="moneyIcon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
@@ -680,11 +680,11 @@ var ehPro = '${pro }';
                         </div>
                     </div>
                     <div class="plan-banner">
-                        <div class="container">
+                        <div class="container-liquid">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive visible-md visible-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.jpg" class="img-responsive hidden-md hidden-lg margin-center">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
                                 </div>
                             </div>
                         </div>
@@ -775,7 +775,7 @@ var ehPro = '${pro }';
                                             <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
-                                                <p class="txt-type text-center"></p>
+                                                <p class="txt-type text-center"><fmt:message key="easyhealth.plan.intro.label.plus" bundle="${msg}" /></p>
                                                 <div class="desc text-center">
                                                     <div class="moneyIcon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
@@ -884,11 +884,11 @@ var ehPro = '${pro }';
                         </div>
                     </div>
                     <div class="plan-banner">
-                        <div class="container">
+                        <div class="container-liquid">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive visible-md visible-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.jpg" class="img-responsive hidden-md hidden-lg margin-center">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
                                 </div>
                             </div>
                         </div>
@@ -979,7 +979,7 @@ var ehPro = '${pro }';
                                             <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
-                                                <p class="txt-type text-center"></p>
+                                                <p class="txt-type text-center"><fmt:message key="easyhealth.plan.intro.label.advanced" bundle="${msg}" /></p>
                                                 <div class="desc text-center">
                                                     <div class="moneyIcon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
@@ -1087,11 +1087,11 @@ var ehPro = '${pro }';
                         </div>
                     </div>
                     <div class="plan-banner">
-                        <div class="container">
+                        <div class="container-liquid">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive visible-md visible-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.jpg" class="img-responsive hidden-md hidden-lg margin-center">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
                                 </div>
                             </div>
                         </div>
@@ -1182,7 +1182,7 @@ var ehPro = '${pro }';
                                             <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_border_${language}.png" class="img-responsive img-big-border visible-md visible-lg">
                                             <div class="img-big-circle col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-0">
                                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_main.png" class="img-responsive pic">
-                                                <p class="txt-type text-center"></p>
+                                                <p class="txt-type text-center"><fmt:message key="easyhealth.plan.intro.label.deluxe" bundle="${msg}" /></p>
                                                 <div class="desc text-center">
                                                     <div class="moneyIcon">
                                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_benefit_moneyIcon.png" class="img-bag">
@@ -1290,11 +1290,11 @@ var ehPro = '${pro }';
                         </div>
                     </div>
                     <div class="plan-banner">
-                        <div class="container">
+                        <div class="container-liquid">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.png" class="img-responsive visible-md visible-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.jpg" class="img-responsive hidden-md hidden-lg margin-center">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
                                 </div>
                             </div>
                         </div>
