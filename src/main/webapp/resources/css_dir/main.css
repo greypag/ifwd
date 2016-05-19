@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.4, last compiled on: 2016-05-19 15:08:45 +0800
+* FWD revamp v0.1.4, last compiled on: 2016-05-19 23:51:32 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -1760,11 +1760,6 @@ body.chin .partner-headline-wrapper .headline-title {
   /* line 1, ../sass/mobile/_header.scss */
   body {
     padding-top: 50px !important;
-  }
-
-  /* line 4, ../sass/mobile/_header.scss */
-  #fb-dialog-share {
-    display: none;
   }
 
   /* line 7, ../sass/mobile/_header.scss */
