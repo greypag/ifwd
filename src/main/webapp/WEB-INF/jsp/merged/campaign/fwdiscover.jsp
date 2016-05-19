@@ -35,7 +35,7 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-05-20 12:00:00").getTime();
+    //cCurrent = cformat.parse("2016-05-22 12:00:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -2284,6 +2284,8 @@
             $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
             if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
                 $('.modal').modal('hide');
+                console.log("ID:${chooseId}");
+                console.log("Index:${chooseIndex}");
                 $('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
                 if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
                     $('#offer-details-promotion-code-error-sold').modal('show');
