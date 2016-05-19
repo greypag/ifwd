@@ -746,9 +746,9 @@ public class SavieOnlineController extends BaseController{
 		String userName = (String)request.getSession().getAttribute("username");
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		
-		String applicationFormJpgName = (String) request.getParameter("applicationFormJpgName");
-		String fnaFormJpgName = (String) request.getParameter("fnaFormJpgName");
-		String salesIllustrationJpgName = (String) request.getParameter("salesIllustrationJpgName");
+		String applicationFormJpgName = (String) request.getSession().getAttribute("applicationFormJpgName");
+		String fnaFormJpgName = (String) request.getSession().getAttribute("fnaFormJpgName");
+		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
 		
 		if(StringUtils.isNotEmpty(policyNumber)){
 			try {
