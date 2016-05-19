@@ -65,6 +65,11 @@ public class EasyHealthController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/plan-option"})
 	public ModelAndView getEasyHealthPlanOption(Model model, HttpServletRequest request, HttpSession httpSession) {
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+			request.getSession().setAttribute("ehStep", "1");
+		}
 		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION);
 	}
 	

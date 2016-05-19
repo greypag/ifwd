@@ -1599,7 +1599,8 @@ var ehPro = '${pro }';
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="text-center">
-                                    <a href="javascript:void(0);" class="savie-common-btn" id="btnLoginApply"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a>
+                                    <c:if test="${backSummary == 'Y'}"><a href="javascript:void(0);" class="savie-common-btn" id="backSummary"><fmt:message key="button.back.summary" bundle="${msg}" /></a></c:if>
+                                    <c:if test="${backSummary != 'Y'}"><a href="javascript:void(0);" class="savie-common-btn" id="btnLoginApply"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a></c:if>
                                 </div>
                             </div>
                         </div>
@@ -1639,6 +1640,10 @@ var ehPro = '${pro }';
                 $('#loginpopup').modal('show');         
             }
         });
+        
+        $("#backSummary").click(function() {
+            putPremium();
+        });
 
         function putPremium(){
             var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
@@ -1649,7 +1654,12 @@ var ehPro = '${pro }';
                   url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
                   data : {pro : pro},
                   success : function(data) {
-                     window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+                	 if('${backSummary}'=="Y"){
+						 window.location = '<%=request.getContextPath()%>/${language}/medical-insurance/application-summary';
+					 }
+                	 else{
+                		 window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+                	 }
                   },
                   error:function(){
                       console.log('error');   

@@ -550,7 +550,7 @@ var languageP = "${language}";
 				  type : "POST",
 				  async:false, 
 				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclarationSaveforLater",
-				  data: $("#declarationForm").serialize()+"&type="+2,
+				  data: $("#declarationForm").serialize()+"&type="+1,
 				  success : function(data) {
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 						  $('#save-and-continue-batch5-modal').modal('hide');
