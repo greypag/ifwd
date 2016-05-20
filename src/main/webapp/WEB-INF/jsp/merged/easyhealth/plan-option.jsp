@@ -1636,7 +1636,7 @@ var ehPro = '${pro }';
 				    cache:false, 
 				    async:false, 
 				    data:{    
-		    	    	"planCode" : "HEH2"
+		    	    	"planCode" : "HEH1"
 		       		}, 
 				    error:function(){       
 				    },     
@@ -1646,7 +1646,45 @@ var ehPro = '${pro }';
 				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 				    		$('#prev-savie-app-modal').modal('show');
 				    	}else{
-				    		putPremium();
+				    		$.ajax({     
+							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+							    type:'get',
+							    cache:false, 
+							    async:false, 
+							    data:{    
+					    	    	"planCode" : "HEH2"
+					       		}, 
+							    error:function(){       
+							    },     
+							    success:function(data){
+							    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+								    	$('#loginpopup').modal('hide');
+							    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+							    		$('#prev-savie-app-modal').modal('show');
+							    	}else{
+							    		$.ajax({     
+										    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+										    type:'get',
+										    cache:false, 
+										    async:false, 
+										    data:{    
+								    	    	"planCode" : "HEH3"
+								       		}, 
+										    error:function(){       
+										    },     
+										    success:function(data){
+										    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+											    	$('#loginpopup').modal('hide');
+										    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+										    		$('#prev-savie-app-modal').modal('show');
+										    	}else{
+										    		putPremium();
+										    	}
+										    }  
+										});
+							    	}
+							    }  
+							});
 				    	}
 				    }  
 				});
