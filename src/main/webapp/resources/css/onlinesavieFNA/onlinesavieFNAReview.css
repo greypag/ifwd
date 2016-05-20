@@ -158,8 +158,7 @@
   #FNAReview .review-box .option .checkbox label::after {
     left: auto;
     right: -4px; }
-  #FNAReview .review-box .option input[type="text"],
-  #FNAReview .review-box .option input[type="tel"] {
+  #FNAReview .review-box .option input[type="text"]{
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #666;
@@ -300,8 +299,7 @@
       right: -20px; }
     #FNAReview .review-box .option .checkbox label::after {
       right: -20px; }
-    #FNAReview .review-box .option input[type="text"],
-    #FNAReview .review-box .option input[type="tel"] {
+    #FNAReview .review-box .option input[type="text"]{
       font-size: 18px;
       width: 180px; }
     #FNAReview .review-box .btn-action .btn {
@@ -354,8 +352,7 @@
       */ }
       #FNAReview .review-box .option label {
         font-size: 14px; }
-      #FNAReview .review-box .option input[type="text"],
-      #FNAReview .review-box .option input[type="tel"] {
+      #FNAReview .review-box .option input[type="text"]{
         font-size: 14px;
         width: 150px; }
     #FNAReview .review-box .btn-action .btn {

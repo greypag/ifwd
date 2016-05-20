@@ -630,7 +630,7 @@
       .game-fna .step6 .cont .q4d h4, .game-fna .step6 .cont .q4d p {
         padding-left: 15px; }
       .game-fna .step6 .cont .q4d input {
-        width: 80px;
+        width: 100px;
         margin-left: 5px;
         line-height: 14px; }
       .game-fna .step6 .cont .q4d .fna-error-box {
@@ -1395,7 +1395,7 @@
           padding-top: 15%; }
       .game-fna-wrapper .game-fna .step6 .cont input[type="text"] {
         border: 1px solid #58595b;
-        width: 33%; }
+        width: 45%; }
     .game-fna-wrapper .game-fna .step7 {
       background: none; }
       .game-fna-wrapper .game-fna .step7 .cont .inner-cont {

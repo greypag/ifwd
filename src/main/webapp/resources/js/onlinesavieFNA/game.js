@@ -296,17 +296,18 @@ var fnaSavieGame = {
 			});
 		});
 
-		$(".game-fna").find("input[type=text], input[type=tel]").keyup(function(e){
+		$(".game-fna").find("input[type=text]").keyup(function(e){
 			var formField = $(this).data("frmFld");
 			var dataType = $(this).data("type");
 
 			//check datatype (string,int)
 			if(dataType == "int"){
 				
-				var input = this.value;
-				input = input.replace(/\D/g, ''); //remove invalid characters
-				input = input.replace(/\b0(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
-				var val = parseInt(input,10);
+				var val = parseInt(this.value.replace(/\D/g, ''),10);
+				//var input = this.value;
+				//input = input.replace(/\D/g, ''); //remove invalid characters
+				//input = input.replace(/\b0(?:0*(0\.\d+)|0+)/g, '$1'); //remove padding 0
+				//var val = parseInt(input,10);
 
 				if(isNaN(val)){
 					val = "";
@@ -319,16 +320,16 @@ var fnaSavieGame = {
 				}
 
 				val = val.toString();
-				this.value = val;
+				//this.value = val;
 
-				//this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 
 			that.postData[formField] = ($(this).val() == "") ? null : (dataType == "int")? parseInt(val,10):  $(this).val();
 
 		});
 
-		$(".game-fna").find("input[type=text], input[type=tel]").blur(function(){
+		$(".game-fna").find("input[type=text]").blur(function(){
 			$(this).trigger("keyup");
 		});
 
