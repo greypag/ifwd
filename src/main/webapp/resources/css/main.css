@@ -11807,6 +11807,15 @@ body.chin .partner-headline-wrapper .headline-title{
     font-size: 24px;
     margin-left: -52px;
 }
+#business-partners-container img.agoda_logo {
+    margin-top: 15px;
+}
+#business-partners-container img.club_logo {
+    margin-top: 30px;
+}
+#business-partners-container img.csl_logo {
+    transform: none;
+}
 @media (max-width: 991px){
 	#forgotUserNameForm .col-sm-12.col-md-6.left{
 		padding-right: 0;
