@@ -1740,6 +1740,11 @@ var ehPro = '${pro }';
         	}
         	
         	$("#eh-btn-plan-overview").click();
+        	
+        	if('${pro }' != null && '${pro }' != ''){
+                var className = $("#"+'${pro }').attr("data-grp");
+                $("." + className).addClass("highlight");
+        	}
         }
         else if('${ehStep }' == '2'){
         	if('${ehPlanDetail.gender }' == '0'){
