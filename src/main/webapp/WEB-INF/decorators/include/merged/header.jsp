@@ -128,7 +128,26 @@ function submitLoginForm(formID) {
 						}
 						else if(window.location.href.indexOf("medical-insurance/plan-option")>0){
 							$('#loginpopup').modal('hide');
-							putPremium();
+							$.ajax({     
+							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+							    type:'get',
+							    cache:false, 
+							    async:false, 
+							    data:{    
+					    	    	"planCode" : "HEH2"
+					       		}, 
+							    error:function(){       
+							    },     
+							    success:function(data){
+							    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+								    	$('#loginpopup').modal('hide');
+							    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+							    		$('#prev-savie-app-modal').modal('show');
+							    	}else{
+							    		putPremium();
+							    	}
+							    }  
+							});
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;
