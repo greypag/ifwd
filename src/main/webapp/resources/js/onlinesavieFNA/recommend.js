@@ -674,7 +674,7 @@ var FNArecommendation = {
 							}else if(prod_data.product_code=='UTLS') {
 								prod.find(".UTLS").css("display","block");
 							}
-							else if(prod_data.product_code=='HEH1' || rod_data.product_code=='HEH2' || rod_data.product_code=='HEH3') {
+							else if(prod_data.product_code=='HEH1' || prod_data.product_code=='HEH2' || prod_data.product_code=='HEH3') {
 								prod.find(".HEH").css("display","block");
 							}
 							else{
