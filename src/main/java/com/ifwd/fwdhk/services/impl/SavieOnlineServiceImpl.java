@@ -2528,6 +2528,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());
 			
+			if(policyApplication.getResumeViewPage().endsWith("personal-details")){
+				request.getSession().setAttribute("fatcaYes", "fatcaYes");   
+			}
 			if(policyApplication.getResumeViewPage().endsWith("declaration")){
 				request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
 			}
