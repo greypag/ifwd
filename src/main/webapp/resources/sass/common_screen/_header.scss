@@ -121,7 +121,7 @@
 				font-size: 14px;
 			}
 			.lang-btn-grp__item__selector--eng {
-				border-right: 2px solid #ccc;
+				// border-right: 2px solid #ccc;
 				padding-right: 10px;
 			}
 			.lang-btn-grp__item__selector--chi {
@@ -130,11 +130,14 @@
 			}
 			.lang-btn-grp__item__top-livechat {
 			  margin:0 20px;
-				.lang-btn-grp__item__top-livechat__livechat_button{
+				.lang-btn-grp__item__top-livechat__livechat_button {
 					font-size: 14px;
 					&:hover {
 						cursor: pointer;
 					}
+          .fa.fa-comments-o {
+            font-size: 18px;
+          }
 				}
 			}
 			.lang-btn-grp__item__top-number {

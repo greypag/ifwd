@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-05-19 17:22:25 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-05-20 10:25:51 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -788,7 +788,6 @@ hr {
 }
 /* line 123, ../sass/common_screen/_header.scss */
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__selector--eng {
-  border-right: 2px solid #ccc;
   padding-right: 10px;
 }
 /* line 127, ../sass/common_screen/_header.scss */
@@ -808,7 +807,11 @@ hr {
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-livechat .lang-btn-grp__item__top-livechat__livechat_button:hover {
   cursor: pointer;
 }
-/* line 140, ../sass/common_screen/_header.scss */
+/* line 138, ../sass/common_screen/_header.scss */
+.top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-livechat .lang-btn-grp__item__top-livechat__livechat_button .fa.fa-comments-o {
+  font-size: 18px;
+}
+/* line 143, ../sass/common_screen/_header.scss */
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-number {
   line-height: 40px;
   padding: 0 !important;
@@ -817,42 +820,42 @@ hr {
   font-size: 14px;
   line-height: 24px;
 }
-/* line 147, ../sass/common_screen/_header.scss */
+/* line 150, ../sass/common_screen/_header.scss */
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-number a {
   color: #fefdf8;
 }
-/* line 150, ../sass/common_screen/_header.scss */
+/* line 153, ../sass/common_screen/_header.scss */
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-number p {
   margin: 0;
 }
-/* line 154, ../sass/common_screen/_header.scss */
+/* line 157, ../sass/common_screen/_header.scss */
 .top-bar .lang-btn-grp .lang-btn-grp__item .lang-btn-grp__item__top-number .lang-btn-grp__item__top-number__callus .hotline {
   color: #f68b1f;
 }
-/* line 162, ../sass/common_screen/_header.scss */
+/* line 165, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar {
   /* ul */
 }
-/* line 163, ../sass/common_screen/_header.scss */
+/* line 166, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar .top-menu__navbar__item {
   /* li */
 }
-/* line 164, ../sass/common_screen/_header.scss */
+/* line 167, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar .top-menu__navbar__item a {
   line-height: 40px;
   padding: 0 8px;
 }
-/* line 168, ../sass/common_screen/_header.scss */
+/* line 171, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar .top-menu__navbar__item.top-menu__navbar__item--chatnow-btn {
   font-weight: bold;
   background-color: #373a36;
   margin-left: 5px;
 }
-/* line 172, ../sass/common_screen/_header.scss */
+/* line 175, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar .top-menu__navbar__item.top-menu__navbar__item--chatnow-btn .livechat_button {
   color: #ccc;
 }
-/* line 176, ../sass/common_screen/_header.scss */
+/* line 179, ../sass/common_screen/_header.scss */
 .top-bar .top-menu .top-menu__navbar .top-menu__navbar__item.top-menu__navbar__item--login-btn {
   background-color: #000;
   font-weight: bold;
@@ -861,7 +864,7 @@ hr {
   margin-left: 10px;
 }
 
-/* line 188, ../sass/common_screen/_header.scss */
+/* line 191, ../sass/common_screen/_header.scss */
 .protect-save-enjoy-tab {
   text-transform: uppercase;
   top: 47px;
@@ -871,7 +874,7 @@ hr {
 }
 
 /*main menu css*/
-/* line 197, ../sass/common_screen/_header.scss */
+/* line 200, ../sass/common_screen/_header.scss */
 .main-tab {
   font-size: 18px;
   line-height: 18px;
@@ -882,15 +885,15 @@ hr {
   display: inline-block;
 }
 
-/* line 207, ../sass/common_screen/_header.scss */
+/* line 210, ../sass/common_screen/_header.scss */
 ul.maintabs {
   list-style-type: none;
 }
-/* line 209, ../sass/common_screen/_header.scss */
+/* line 212, ../sass/common_screen/_header.scss */
 ul.maintabs li {
   display: inline-block;
 }
-/* line 211, ../sass/common_screen/_header.scss */
+/* line 214, ../sass/common_screen/_header.scss */
 ul.maintabs li:hover span, ul.maintabs li:hover a {
   color: #fff;
   -webkit-transition: color 300ms, background-color 300ms;
@@ -899,55 +902,55 @@ ul.maintabs li:hover span, ul.maintabs li:hover a {
   -o-transition: color 300ms, background-color 300ms;
   transition: color 300ms, background-color 300ms;
 }
-/* line 218, ../sass/common_screen/_header.scss */
+/* line 221, ../sass/common_screen/_header.scss */
 ul.maintabs li.active a span {
   color: #fff !important;
   background-color: #f68a1d;
 }
-/* line 224, ../sass/common_screen/_header.scss */
+/* line 227, ../sass/common_screen/_header.scss */
 ul.maintabs li a {
   display: inline-block;
   color: #9fb1b2;
 }
-/* line 227, ../sass/common_screen/_header.scss */
+/* line 230, ../sass/common_screen/_header.scss */
 ul.maintabs li a:hover {
   color: #fff;
 }
-/* line 234, ../sass/common_screen/_header.scss */
+/* line 237, ../sass/common_screen/_header.scss */
 ul.maintabs.menutab-V2 li.dropdown:hover {
   color: #fff;
   background-color: #f68a1d;
 }
 
-/* line 242, ../sass/common_screen/_header.scss */
+/* line 245, ../sass/common_screen/_header.scss */
 .menu-lang {
   color: #fff;
 }
 
-/* line 247, ../sass/common_screen/_header.scss */
+/* line 250, ../sass/common_screen/_header.scss */
 .lang-grp ul {
   margin: 0 auto;
   padding: 0;
   text-align: center;
   width: 50%;
 }
-/* line 253, ../sass/common_screen/_header.scss */
+/* line 256, ../sass/common_screen/_header.scss */
 .lang-grp li {
   list-style: none;
   display: inline-block;
   padding: 12px 0;
 }
-/* line 257, ../sass/common_screen/_header.scss */
+/* line 260, ../sass/common_screen/_header.scss */
 .lang-grp li a {
   padding: 0 12px;
   border-right: solid 2px #ccc;
 }
-/* line 261, ../sass/common_screen/_header.scss */
+/* line 264, ../sass/common_screen/_header.scss */
 .lang-grp li:last-child a {
   border-right: none;
 }
 
-/* line 268, ../sass/common_screen/_header.scss */
+/* line 271, ../sass/common_screen/_header.scss */
 .fwd-savie-wrapper .modal.fade.loginpopup .modal-dialog .modal-content {
   padding: inherit !important;
 }
@@ -1013,26 +1016,27 @@ ul.maintabs.menutab-V2 li.dropdown:hover {
 }
 /* line 58, ../sass/common_screen/_footer.scss */
 .footer-container .footer-container__btm-wrapper {
-  padding: 20px 90px;
+  padding: 20px 0;
+  margin: 0 auto;
   background-color: #000000;
 }
-/* line 61, ../sass/common_screen/_footer.scss */
+/* line 62, ../sass/common_screen/_footer.scss */
 .footer-container .footer-container__btm-wrapper a {
   font-size: 14px;
   line-height: 18px;
   color: #ffffff;
 }
-/* line 65, ../sass/common_screen/_footer.scss */
+/* line 66, ../sass/common_screen/_footer.scss */
 .footer-container .footer-container__btm-wrapper a:hover {
   color: #9fb1b2;
 }
-/* line 69, ../sass/common_screen/_footer.scss */
+/* line 70, ../sass/common_screen/_footer.scss */
 .footer-container .footer-container__btm-wrapper .footer-container__btm-wrapper__link {
   color: #ffffff;
   font-size: 16px;
 }
 
-/* line 81, ../sass/common_screen/_footer.scss */
+/* line 82, ../sass/common_screen/_footer.scss */
 .timeout-modal .timeout-modal__dialog .timeout-modal__dialog__content .timeout-modal__dialog__content__body {
   color: #fc6d08;
 }
