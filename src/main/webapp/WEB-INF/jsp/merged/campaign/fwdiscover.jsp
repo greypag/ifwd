@@ -35,7 +35,7 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    cCurrent = cformat.parse("2016-05-22 12:00:00").getTime();
+    
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
@@ -100,7 +100,10 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart  || cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()/*&& cCurrent < hotelcStart*/){
+    	if(cCurrent >= cStart  || 
+           (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
+           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime()) 
+           /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
             countDownDD = "15";
@@ -639,7 +642,7 @@
                                 <div class="upper-desc">
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
@@ -1073,7 +1076,7 @@
                         <div class="modal-content">
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
-                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
 
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
