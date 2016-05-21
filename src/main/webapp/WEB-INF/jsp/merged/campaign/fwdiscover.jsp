@@ -1073,7 +1073,7 @@
                         <div class="modal-content">
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
-                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
 
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
