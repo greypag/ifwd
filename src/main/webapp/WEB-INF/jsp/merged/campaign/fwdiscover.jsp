@@ -35,7 +35,7 @@
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    cCurrent = cformat.parse("2016-05-22 12:00:00").getTime();
+    
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
