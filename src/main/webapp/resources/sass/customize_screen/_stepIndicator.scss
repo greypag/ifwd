@@ -1,0 +1,37 @@
+@include bp-min(420px) {
+	.stepIndicator--numberOnly{
+	
+		.stepIndicator__item{
+			width: 17.9%;
+
+			&--last{
+				width: 23px;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+@include bp-max(419px) {
+	.stepIndicator--numberOnly{
+	
+		.stepIndicator__item{
+			width: 17.11%;
+
+			&--last{
+				width: 23px;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+@include bp-max(1069px){
+	.stepIndicator{
+		font-size: 16px;
+	}
+
+	.stepIndicator__divider{
+		padding: 0;
+	}
+}

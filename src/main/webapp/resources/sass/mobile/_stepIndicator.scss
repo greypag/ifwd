@@ -1,0 +1,49 @@
+
+.stepIndicator{
+	width: 100%;
+}
+
+.stepIndicator--mobile{
+
+	.stepIndicator__container{
+		color: white;
+		background-color: #061d29;
+	}
+}
+
+.stepIndicator.sticky-bar{
+	position: fixed;
+	margin: 0;
+}
+
+.stepIndicator__arrow{
+	
+	display: table-cell;
+	vertical-align: middle;
+
+	padding: 5px 0 0 20px;
+    
+    font-size: 18px;
+    
+    & a{
+    	color: #ffffff;
+    }
+}
+
+.stepIndicator__content{
+	
+	display: table-cell;
+	padding: 14px 20px;
+	
+	font-size: 18px;
+}
+
+.stepIndicator__stepof{
+	
+	position: absolute;
+    top: 16px;
+    right: 30px;
+    
+    color: #9ba5a7;
+    font-size: 14px;
+}

@@ -127,12 +127,15 @@ public class LifeController extends BaseController{
 		HttpSession httpSession = request.getSession();
 		String current = request.getServletPath();
 		String OG_META_KEY = "";
+		String plan = "";
 		if(current.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_RP)) {
 			httpSession.setAttribute("savieType", "RP");
 			OG_META_KEY = UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM;
+			plan = "savie_rp";
 		}else {
 			httpSession.setAttribute("savieType", "SP");
 			OG_META_KEY = UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM;
+			plan = "savie_sp";
 		}
 		Date date = new Date();
 		Calendar startDOB = new GregorianCalendar();
@@ -185,7 +188,7 @@ public class LifeController extends BaseController{
 			defaultDOB.add(defaultDOB.YEAR, -18);
 		}
 		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-		return SavieOnlinePageFlowControl.pageFlow("",model,request, OG_META_KEY);
+		return SavieOnlinePageFlowControl.pageFlow(plan,model,request, OG_META_KEY);
 	}
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
