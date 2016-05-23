@@ -877,3 +877,23 @@ function stickApplicationOrangeBar() {
 $(window).bind('scroll', function() {
 	stickApplicationOrangeBar();
 });
+
+function validateSimpleChinese(str,idStr){
+	$.ajax({
+    	url:contextPath+'/ajax/validateSimpleChinese',     
+    	type:'get',    
+    	data:{ "str" : str },
+    	success:function(data){
+    	    if(data!=null && data.errorMsg != null && data.errorMsg != ''){
+    	    	$('#'+idStr).html(data.errorMsg);
+    	    	$('#'+idStr).show();
+    	    }
+    	    else{
+    	    	$('#'+idStr).html("");
+    	    	$('#'+idStr).hide();
+    	    }
+        },
+		error:function(){
+		}
+    });
+}

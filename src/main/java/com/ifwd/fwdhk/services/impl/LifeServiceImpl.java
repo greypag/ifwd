@@ -3618,4 +3618,10 @@ public class LifeServiceImpl implements LifeService {
 			e.printStackTrace();
 		}				
 	}
+	
+	public void validateSimpleChinese(String str,HttpServletRequest request) throws Exception{
+		if(ZHConverter.hasSimpleChinese(str)) {
+			throw new Exception("Some input information contains simplified Chinese");
+		}
+	}
 }
