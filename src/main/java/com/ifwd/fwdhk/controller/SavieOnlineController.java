@@ -839,7 +839,11 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(documentUploadYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -876,7 +880,19 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		String applicationFormJpgName = (String) request.getSession().getAttribute("applicationFormJpgName");
+		String fnaFormJpgName = (String) request.getSession().getAttribute("fnaFormJpgName");
+		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(applicationFormJpgName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(fnaFormJpgName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(salesIllustrationJpgName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -901,7 +917,11 @@ public class SavieOnlineController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(lifeBeneficaryInfo == null || lifeBeneficaryInfo.getIsOwnEstate() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
