@@ -224,6 +224,14 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jPDFImages.jar</systemPath>
          </dependency>
+         <dependency>
+            <groupId>chinese</groupId>
+            <artifactId>chinese</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/chinese.jar</systemPath>
+         </dependency>
+         
 <dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>

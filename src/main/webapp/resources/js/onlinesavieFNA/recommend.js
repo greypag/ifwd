@@ -673,7 +673,11 @@ var FNArecommendation = {
 								prod.find(".KSTR").css("display","block");
 							}else if(prod_data.product_code=='UTLS') {
 								prod.find(".UTLS").css("display","block");
-							}else{
+							}
+							else if(prod_data.product_code=='HEH1' || prod_data.product_code=='HEH2' || prod_data.product_code=='HEH3') {
+								prod.find(".HEH").css("display","block");
+							}
+							else{
 								prod.find(".fna-btn-call-details").css("display","block");
 							}
 

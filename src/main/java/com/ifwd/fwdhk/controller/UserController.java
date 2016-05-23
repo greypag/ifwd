@@ -357,7 +357,7 @@ public class UserController {
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type9);
 							}
-							else if("HEH2".equalsIgnoreCase(entity.getPlanCode())) {
+							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type10);
 							}
 							
@@ -424,7 +424,7 @@ public class UserController {
 									}
 								}
 							}
-							else if("HEH2".equals(entity.getPlanCode())) {
+							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
 										if("false".equals(entity.getDocumentUploaded())) {

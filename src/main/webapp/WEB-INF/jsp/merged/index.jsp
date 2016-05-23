@@ -72,6 +72,7 @@ var languageP = "${language}";
 									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.oversea.study" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>

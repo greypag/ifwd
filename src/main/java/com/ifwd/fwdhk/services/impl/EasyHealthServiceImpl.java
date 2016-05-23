@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
+import com.ifwd.ecomm.chinese.ZHConverter;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -78,6 +79,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
+		StringBuffer inputMsg = new StringBuffer();
+		
 		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) session.getAttribute("selectPlan");
 		String planCode = "";
 		String[] strArray = {"eh-plan-a","eh-plan-b","eh-plan-c", "eh-plan-d"};
@@ -93,6 +96,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
+			inputMsg.append(lifePersonalDetails.getChineseName());
 			applicant.put("dob", lifePersonalDetails.getDob());
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
@@ -110,6 +114,12 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
 				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
 				permanentAddress.put("line4", lifePersonalDetails.getPermanetAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getPermanetAddress1());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress2());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress3());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress4());
+				
 				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict().split("-")[0]:"");
 			applicant.put("permanentAddress", permanentAddress);
 				
@@ -118,6 +128,12 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
 				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
 				residentialAddress.put("line4", lifePersonalDetails.getResidentialAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getResidentialAddress1());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress2());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress3());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress4());
+				
 				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict().split("-")[0]:"");
 			applicant.put("residentialAddress", residentialAddress);
 				
@@ -126,6 +142,12 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
 				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
 				correspondenceAddress.put("line4", lifePersonalDetails.getCorrespondenceAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress1());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress2());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress3());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress4());
+				
 				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[0]:"");
 			applicant.put("correspondenceAddress", correspondenceAddress);
 				
@@ -157,6 +179,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 						beneficiarie1.put("firstName", applicant.get("firstName"));
 						beneficiarie1.put("lastName", applicant.get("lastName"));
 						beneficiarie1.put("chineseName", applicant.get("chineseName"));
+						inputMsg.append(applicant.get("chineseName"));
 						beneficiarie1.put("hkId", applicant.get("hkId"));
 						beneficiarie1.put("passport", applicant.get("passport"));
 						beneficiarie1.put("gender", applicant.get("gender"));
@@ -169,6 +192,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
 							beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
 							beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName1());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport1())){
 								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1().toUpperCase());
 								beneficiarie1.put("passport", "");
@@ -186,6 +210,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
 							beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
 							beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName2());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
 								beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
 								beneficiarie2.put("passport", "");
@@ -203,6 +228,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 							beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
 							beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
 							beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName3());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
 								beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
 								beneficiarie3.put("passport", "");
@@ -233,12 +259,19 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
-		lifePolicy = connector.createLifePolicy(parameters, header);
-		if(!lifePolicy.hasError()){
-			request.getSession().setAttribute("lifePolicy", lifePolicy);
+		
+		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+			logger.info("Some input information contains simplified Chinese");
+			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
 		else{
-			throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
+			lifePolicy = connector.createLifePolicy(parameters, header);
+			if(!lifePolicy.hasError()){
+				request.getSession().setAttribute("lifePolicy", lifePolicy);
+			}
+			else{
+				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
+			}
 		}
 		return lifePolicy;
 	}
