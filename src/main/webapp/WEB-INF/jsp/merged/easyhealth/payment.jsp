@@ -297,11 +297,17 @@ $(document).ready(function() {
 	 					  cardHolderName: cardHolderName},
 	 			  success : function(data) {
                      console.log($("#gateway").val());
-                     $("#paymentForm").attr('action', $("#gateway").val());
-                     //$("#paymentForm").submit();
-                     document.getElementById('paymentForm').submit();
+                     if($("#gateway").val() != ""){
+                    	 $("#paymentForm").attr('action', $("#gateway").val());
+                    	 document.getElementById('paymentForm').submit();
+                     }else {
+                    	 showPaymentErrMsg();
+                     }
+                     //$("#paymentForm").attr('action', $("#gateway").val());
+                     //document.getElementById('paymentForm').submit();
 	 			  },
 	 			  error:function(){
+	 				 showPaymentErrMsg();
 	 			      console.log('error');   
 	 		      }
  		      });
