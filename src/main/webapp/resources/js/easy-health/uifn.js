@@ -226,6 +226,9 @@ $(document).ready(function() {
         $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
 
     });
+
+    //auto make tnc checkbox checked if there is "backSummary" parameter
+    setTNCChecked(getParameterByName("backSummary") === "Y");
 });
 
 function changeSelection(item, selected, isAddSelected) {
@@ -457,4 +460,36 @@ function pad(n, width, z) {
   z = z || '0';
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function isTNCChecked(){
+    var tnc$ = $("#cbTNC");
+    var errMsg$ = $("#cbTNCErrMsg");
+    var isTNCChecked = tnc$.is(':checked');
+
+    //force to scroll to tnc checkbox
+    $("html, body").animate({ scrollTop: tnc$.offset().top }, "slow");
+
+    if(!isTNCChecked) errMsg$.html(errMsg$.attr("data-txt"));
+    else errMsg$.html("");
+
+    return isTNCChecked;
+}
+
+function setTNCChecked(isChecked){
+    var tnc$ = $("#cbTNC");
+    var errMsg$ = $("#cbTNCErrMsg");
+
+    errMsg$.html("");
+    tnc$.prop("checked", isChecked);
 }

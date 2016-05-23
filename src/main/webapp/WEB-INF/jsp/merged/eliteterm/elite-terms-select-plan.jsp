@@ -953,7 +953,7 @@ var home_url = "<%=request.getContextPath()%>";
 												id="savieApplicantBean.chineseName"
 												name="savieApplicantBean.chineseName" type="text" value="${etPolicyApplication.applicant.chineseName }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />"
-												value=""> <span class="error-msg"
+												value="" onblur="validateSimpleChinese(this.value,'savieApplicantBeanchineseNameMsg');"> <span class="error-msg"
 												id="savieApplicantBeanchineseNameMsg"></span>
 										</div>
 									</div>
@@ -2078,9 +2078,10 @@ var home_url = "<%=request.getContextPath()%>";
 												type="text" autocomplete="off"
 												id="savieBeneficiaryBean[0].chineseName"
 												name="savieBeneficiaryBean[0].chineseName" value="${etPolicyApplication.applicant.chineseName1 }"
-												class="form-control gray-textbox form-textbox"
+												class="form-control gray-textbox form-textbox" onblur="validateSimpleChinese(this.value,'beneficiaryChineseNameMessage0');"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />">
 											<span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
+											<span class="error-msg" id="beneficiaryChineseNameMessage0"></span>
 											<span class="dup-error-msg hidden"
 												id="duplicate-chinese-name[0]"><fmt:message
 													key="eliteTerms.selectPlan.Duplicate.Chinese.Name"

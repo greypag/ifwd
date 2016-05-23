@@ -20,6 +20,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
+import com.ifwd.ecomm.chinese.ZHConverter;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
@@ -67,6 +68,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication = new CreateEliteTermPolicyRequest();
 		}		
 		CreateEliteTermPolicyResponse apiReturn = null;
+		StringBuffer inputMsg = new StringBuffer();
 		try {
 			final Map<String,String> header = headerUtil.getHeader1(request);
 			
@@ -80,6 +82,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setLastName(applicant.getString("lastName"));
 			applicant.put("chineseName", request.getParameter("savieApplicantBean.chineseName"));
 			etPolicyApplication.getApplicant().setChineseName(applicant.getString("chineseName"));
+			inputMsg.append(applicant.getString("chineseName"));
 			String[] dob = request.getParameter("dob").toString().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			etPolicyApplication.getApplicant().setDob(applicant.getString("dob"));
@@ -105,6 +108,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			permanentAddress.put("line2", request.getParameter("savieApplicantBean.permanentAddress2"));
 			permanentAddress.put("line3", request.getParameter("savieApplicantBean.permanentAddress3"));
 			permanentAddress.put("line4", request.getParameter("savieApplicantBean.permanentAddress")!=null?request.getParameter("savieApplicantBean.permanentAddress").split("-")[0]:"");
+			
+			inputMsg.append(request.getParameter("savieApplicantBean.permanentAddress1"));
+			inputMsg.append(request.getParameter("savieApplicantBean.permanentAddress2"));
+			inputMsg.append(request.getParameter("savieApplicantBean.permanentAddress3"));
+			inputMsg.append(request.getParameter("savieApplicantBean.permanentAddress4"));
+			
 			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddress")!=null?request.getParameter("savieApplicantBean.permanentAddress").split("-")[0]:"");
 			applicant.put("permanentAddress", permanentAddress);
 			JSONObject residentialAddress = new JSONObject();
@@ -122,6 +131,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 				residentialAddress.put("line4", permanentAddress.get("line4"));
 				residentialAddress.put("district", permanentAddress.get("district"));
 			}
+			
+			inputMsg.append(residentialAddress.getString("line1"));
+			inputMsg.append(residentialAddress.getString("line2"));
+			inputMsg.append(residentialAddress.getString("line3"));
+			inputMsg.append(residentialAddress.getString("line4"));
+			
 			applicant.put("residentialAddress", residentialAddress);
 			JSONObject correspondenceAddress = new JSONObject();
 			if(request.getParameter("savieApplicantBean.addressIsSame") != null && request.getParameter("savieApplicantBean.addressIsSame").equals("true")){
@@ -138,6 +153,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 				correspondenceAddress.put("line4", residentialAddress.get("line4"));
 				correspondenceAddress.put("district", residentialAddress.get("district"));
 			}
+			
+			inputMsg.append(correspondenceAddress.getString("line1"));
+			inputMsg.append(correspondenceAddress.getString("line2"));
+			inputMsg.append(correspondenceAddress.getString("line3"));
+			inputMsg.append(correspondenceAddress.getString("line4"));
+			
 			applicant.put("correspondenceAddress", correspondenceAddress);
 			JSONObject employmentStatus = new JSONObject();
 			employmentStatus.put("employmentStatus", request.getParameter("savieEmploymentBean.employmentStatus")!=null?request.getParameter("savieEmploymentBean.employmentStatus").split("-")[0]:"");
@@ -168,6 +189,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					beneficiarie1.put("firstName", request.getParameter("savieBeneficiaryBean[0].firstName"));
 					beneficiarie1.put("lastName", request.getParameter("savieBeneficiaryBean[0].lastName"));
 					beneficiarie1.put("chineseName", request.getParameter("savieBeneficiaryBean[0].chineseName"));
+					inputMsg.append(beneficiarie1.getString("chineseName"));
 					beneficiarie1.put("hkId", request.getParameter("savieBeneficiaryBean[0].hkId"));
 					beneficiarie1.put("passport", request.getParameter("savieBeneficiaryBean[0].passportNo"));
 					beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
@@ -179,6 +201,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					beneficiarie2.put("firstName", request.getParameter("savieBeneficiaryBean[1].firstName"));
 					beneficiarie2.put("lastName", request.getParameter("savieBeneficiaryBean[1].lastName"));
 					beneficiarie2.put("chineseName", request.getParameter("savieBeneficiaryBean[1].chineseName"));
+					inputMsg.append(beneficiarie2.getString("chineseName"));
 					beneficiarie2.put("hkId", request.getParameter("savieBeneficiaryBean[1].hkId"));
 					beneficiarie2.put("passport", request.getParameter("savieBeneficiaryBean[1].passportNo"));
 					beneficiarie2.put("gender", request.getParameter("savieBeneficiaryBean[1].gender"));
@@ -190,6 +213,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					beneficiarie3.put("firstName", request.getParameter("savieBeneficiaryBean[2].firstName"));
 					beneficiarie3.put("lastName", request.getParameter("savieBeneficiaryBean[2].lastName"));
 					beneficiarie3.put("chineseName", request.getParameter("savieBeneficiaryBean[2].chineseName"));
+					inputMsg.append(beneficiarie3.getString("chineseName"));
 					beneficiarie3.put("hkId", request.getParameter("savieBeneficiaryBean[2].hkId"));
 					beneficiarie3.put("passport", request.getParameter("savieBeneficiaryBean[2].passportNo"));
 					beneficiarie3.put("gender", request.getParameter("savieBeneficiaryBean[2].gender"));
@@ -202,6 +226,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("firstName", applicant.getString("firstName"));
 				beneficiarie1.put("lastName", applicant.getString("lastName"));
 				beneficiarie1.put("chineseName", applicant.getString("chineseName"));
+				inputMsg.append(beneficiarie1.getString("chineseName"));
 				beneficiarie1.put("hkId", applicant.getString("hkId"));
 				beneficiarie1.put("passport", applicant.getString("passport"));
 				beneficiarie1.put("gender", applicant.getString("gender"));
@@ -222,7 +247,16 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("insuredAmount", etPolicyApplication.getAmount());
 			parameters.put("referralCode", eliteTermPremium.getPromoCode()!=null?eliteTermPremium.getPromoCode():"");
 			logger.info(parameters.toString());
-			apiReturn = connector.createEliteTermPolicy(parameters, header);
+			
+			if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+				String[] errMsgs = new String[]{"Some input information contains simplified Chinese"};
+				apiReturn.setErrMsgs(errMsgs);
+				logger.info(errMsgs[0]);
+			}
+			else{
+				apiReturn = connector.createEliteTermPolicy(parameters, header);
+			}
+			
 			request.getSession().setAttribute("eliteTermPolicy", apiReturn);
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		}catch(Exception e){

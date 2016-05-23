@@ -141,10 +141,11 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" autocomplete="off" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" onblur="validateSimpleChinese(this.value,'beneficiaryChineseNameErMsg0');" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg0"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[0]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -280,10 +281,11 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" autocomplete="off" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" onblur="validateSimpleChinese(this.value,'beneficiaryChineseNameErMsg1');" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[1]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg1"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[1]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -419,10 +421,11 @@ var languageP = "${language}";
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" autocomplete="off" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" autocomplete="off" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" onblur="validateSimpleChinese(this.value,'beneficiaryChineseNameErMsg2');" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[2]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg2"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[2]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
