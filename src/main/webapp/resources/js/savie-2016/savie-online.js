@@ -107,20 +107,20 @@ $(document).ready(function() {
 	if ($('#own-estate-id').is(':checked')) {
 		$('#beneficiary-contents').addClass('hidden');
 		$('.add-on-beneficiary').addClass('hidden');
-		$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+		//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 	}
 	$('#own-estate-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').addClass('hidden');
 			$('.add-on-beneficiary').addClass('hidden');
-			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+			//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 		}
 	});
 	$('#name-others-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').removeClass('hidden');
 			$('.add-on-beneficiary').removeClass('hidden');
-			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-modal');
+			//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-modal');
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').resetForm(true);
 		}
 	});

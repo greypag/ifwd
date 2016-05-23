@@ -612,7 +612,7 @@ var languageP = "${language}";
 				$("#own-estate-id").click();
 				$('#beneficiary-contents').addClass('hidden');
 				$('.add-on-beneficiary').addClass('hidden');
-				$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+				//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 			}
 
 			//init next button text
@@ -720,8 +720,30 @@ var languageP = "${language}";
 				$('.selectDiv .gray-dropdown').removeClass('ie-select');
 			}
 			
+			var form1Valid = true;
+			var form2Valid = true;
+			$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+			if(isBeneficiary2Hidden()!="hidden"){
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+				$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
+				form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
+			}
+	        if(isBeneficiary3Hidden()!="hidden"){
+	        	$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+	        	$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
+	        	$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
+	                form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
+	        }
+			
 			$('#bf-save-and-con-later').on('click', function (e) {
-				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
+				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
+					$('#save-and-continue-batch5-modal').modal('show');
+				}
+				else{
+					$('#save-and-continue-modal').modal('show');
+				}
+				
+				/* if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
 					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
 				}
 				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
@@ -729,7 +751,7 @@ var languageP = "${language}";
 				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 				   $('#save-and-continue-batch5-modal').modal('show');           
 				} else {
-					$('#save-and-continue-modal').modal('show');
+					
 				}
 				// second form
 				if($('#beneficiary-info-form\\[1\\]').length == 0) {
@@ -750,24 +772,9 @@ var languageP = "${language}";
 				   $('#save-and-continue-batch5-modal').modal('show');           
 				} else {
 					$('#save-and-continue-modal').modal('show');
-				}
+				} */
          });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function() {
- 				var form1Valid = true;
-				var form2Valid = true;
-				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-				if(isBeneficiary2Hidden()!="hidden"){
-					$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-					$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
-					form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
-				}
-            if(isBeneficiary3Hidden()!="hidden"){
-            	$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-            	$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
-            	$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
-                    form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
-            }
-				//if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
 				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
 					$("#errorMsg").html("");
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
