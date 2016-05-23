@@ -191,6 +191,9 @@ var languageP = "${language}";
 						<span style="" class="caret"></span><p>TOP</p>
 					</div>
 				</a> -->
+				<div class="content-disclaimer">
+					<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+				</div>
 				<div class="read-blog text-center fwd-container-limit">
 					<div class="blog-img-container hidden-lg hidden-md">
 						<img class="img-responsive blog-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1-mobile.jpg" />

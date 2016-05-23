@@ -11846,3 +11846,14 @@ body.chin .partner-headline-wrapper .headline-title{
 	font-size: 18px;
 }	
 }
+
+.content-disclaimer{
+	margin: 30px auto;
+	line-height: 15px;
+	font-size: 14px;
+	width: 80%;
+}
+
+.content-disclaimer a{
+	color: #ff8200;
+}

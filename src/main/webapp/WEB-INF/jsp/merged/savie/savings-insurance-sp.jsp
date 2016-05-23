@@ -486,7 +486,11 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-				
+			
+			<div class="content-disclaimer">
+				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+			</div>
+
 				<!-- OUR BLOG -->
 				<div class="blog">
 					<div class="hidden-md hidden-lg">

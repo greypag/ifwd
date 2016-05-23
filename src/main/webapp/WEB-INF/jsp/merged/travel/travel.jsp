@@ -1062,6 +1062,10 @@ function getParameterByUrl(name){
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
 
+<div class="content-disclaimer">
+   <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+</div>
+            
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs">
   <div class="container"> 

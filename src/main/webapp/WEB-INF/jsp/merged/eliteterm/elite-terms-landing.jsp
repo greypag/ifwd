@@ -325,7 +325,7 @@
                   </div>
                </div>
             </section>
-            
+
             <!-- 
                FEATURES PLAN MOBILE VERSION 
             -->
@@ -386,6 +386,10 @@
                </div>
             </section>
             
+            <div class="content-disclaimer">
+               <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+            </div>
+            
             <!-- TESTIMONIALS DESKTOP -->
 			
 			<!--
@@ -423,7 +427,7 @@
                   </div>
                </div>
             </section>
-            
+
             <!-- TESTIMONIALS MOBILE 
             <section id="et-testimonials-mob" class="hidden-lg hidden-md" data-ride="carousel" data-interval="false">
                <div class="carousel slide">
