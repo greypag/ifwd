@@ -4878,112 +4878,108 @@ var home_url = "<%=request.getContextPath()%>";
 		if($("#add-beneficiary-1").length > 0) {
 			var firstName_person02 = "${etPolicyApplication.applicant.firstName2}";
 			var firstName_person03 = "${etPolicyApplication.applicant.firstName3}";
-			console.log(firstName_person02);
-			console.log(firstName_person03);
 			if(firstName_person02!=''){
-				console.log('hihi');
 				$("#add-beneficiary-button-2").trigger('click');
 			}
 			if(firstName_person03!=''){
-				console.log('yiyi');
 				$("#add-beneficiary-button-3").trigger('click');
 			}
 		}
 	});
 	
-	
-			$("#add-beneficiary-button-2").click(function(){
-				$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
+$("#add-beneficiary-button-2").click(function(){
+	$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
 
-				addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
+	addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
 
-				$('#remove-beneficiary\\[1\\]').click(function(){
-					$('#remove-beneficiary\\[1\\]').parents('form').remove();
-					$('#beneficiary1').removeClass('hidden');
+	$('#remove-beneficiary\\[1\\]').click(function(){
+		$('#remove-beneficiary\\[1\\]').parents('form').remove();
+		$('#beneficiary1').removeClass('hidden');
 
-					$('#beneficiaryInfoForm\\[0\\]')
-						 .data('bootstrapValidator')
-						 .updateStatus('savieBeneficiaryBean[0].entitlement', 'NOT_VALIDATED')
-						 .validateField('savieBeneficiaryBean[0].entitlement');
-				});
+		$('#beneficiaryInfoForm\\[0\\]')
+			 .data('bootstrapValidator')
+			 .updateStatus('savieBeneficiaryBean[0].entitlement', 'NOT_VALIDATED')
+			 .validateField('savieBeneficiaryBean[0].entitlement');
+//remove session of 2nd person here
+	});
 
-				//BENEFICIARY DROP-DOWN PASSPORT/HKID
-				$('#beneficiaryHkidPassport\\[1\\]').on('change', function() {
+	//BENEFICIARY DROP-DOWN PASSPORT/HKID
+	$('#beneficiaryHkidPassport\\[1\\]').on('change', function() {
 
-					if($(this).val()==="Passport") {
-						$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
-						$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');
+		if($(this).val()==="Passport") {
+			$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
+			$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');
 
-						$('#bnfPassportMessage\\[1\\]').removeClass('hidden');
-						$('#hkidOrPassportMessage\\[1\\]').addClass('hidden');
-						$('#duplicate-beneficiaries\\[1\\]').addClass('hidden');
-					}
-					else {
-						$('#savieBeneficiaryBean\\[1\\]\\.hkId').removeClass('hidden');
-						$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
+			$('#bnfPassportMessage\\[1\\]').removeClass('hidden');
+			$('#hkidOrPassportMessage\\[1\\]').addClass('hidden');
+			$('#duplicate-beneficiaries\\[1\\]').addClass('hidden');
+		}
+		else {
+			$('#savieBeneficiaryBean\\[1\\]\\.hkId').removeClass('hidden');
+			$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
 
-						$('#hkidOrPassportMessage\\[1\\]').removeClass('hidden');
-						$('#bnfPassportMessage\\[1\\]').addClass('hidden');
-						$('#duplicate-beneficiariesPAssport\\[1\\]').addClass('hidden');
-					}
-				});
-				// Select list color
-				$('#beneficiaryInfoForm\\[1\\] select').on('change', function(){
-					if( $(this).val() ){
-						$(this).css('color', '#000');
-					} else {
-						$(this).css('color', '#ccc');
-					}
-				});
+			$('#hkidOrPassportMessage\\[1\\]').removeClass('hidden');
+			$('#bnfPassportMessage\\[1\\]').addClass('hidden');
+			$('#duplicate-beneficiariesPAssport\\[1\\]').addClass('hidden');
+		}
+	});
+	// Select list color
+	$('#beneficiaryInfoForm\\[1\\] select').on('change', function(){
+		if( $(this).val() ){
+			$(this).css('color', '#000');
+		} else {
+			$(this).css('color', '#ccc');
+		}
+	});
 
-				// Initialize placeholder
-				$('#beneficiaryInfoForm\\[1\\] input').placeholder();
-			});
-			
-			$("#add-beneficiary-button-3").click(function(){
-				$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
+	// Initialize placeholder
+	$('#beneficiaryInfoForm\\[1\\] input').placeholder();
+});
 
-					addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
+$("#add-beneficiary-button-3").click(function(){
+	$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
 
-					$('#remove-beneficiary\\[2\\]').click(function(){
-						$('#remove-beneficiary\\[2\\]').parents('form').remove();
-							$('#beneficiary2').removeClass('hidden');
+		addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
 
-					});
+		$('#remove-beneficiary\\[2\\]').click(function(){
+			$('#remove-beneficiary\\[2\\]').parents('form').remove();
+				$('#beneficiary2').removeClass('hidden');
+//remove session of 3rd person here
+		});
 
-					//BENEFICIARY DROP-DOWN PASSPORT/HKID
-					$('#beneficiaryHkidPassport\\[2\\]').on('change', function() {
+		//BENEFICIARY DROP-DOWN PASSPORT/HKID
+		$('#beneficiaryHkidPassport\\[2\\]').on('change', function() {
 
-						if($(this).val()==="Passport") {
-							$('#savieBeneficiaryBean\\[2\\]\\.hkId').addClass('hidden');
-							$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');
+			if($(this).val()==="Passport") {
+				$('#savieBeneficiaryBean\\[2\\]\\.hkId').addClass('hidden');
+				$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');
 
-							$('#bnfPassportMessage\\[2\\]').removeClass('hidden');
-							$('#hkidOrPassportMessage\\[2\\]').addClass('hidden');
-							$('#duplicate-beneficiaries\\[2\\]').addClass('hidden');
-						}
-						else {
-							$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
-							$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
+				$('#bnfPassportMessage\\[2\\]').removeClass('hidden');
+				$('#hkidOrPassportMessage\\[2\\]').addClass('hidden');
+				$('#duplicate-beneficiaries\\[2\\]').addClass('hidden');
+			}
+			else {
+				$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
+				$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
 
-							$('#hkidOrPassportMessage\\[2\\]').removeClass('hidden');
-							$('#bnfPassportMessage\\[2\\]').addClass('hidden');
-							$('#duplicate-beneficiariesPAssport\\[2\\]').addClass('hidden');
-						}
-					});
+				$('#hkidOrPassportMessage\\[2\\]').removeClass('hidden');
+				$('#bnfPassportMessage\\[2\\]').addClass('hidden');
+				$('#duplicate-beneficiariesPAssport\\[2\\]').addClass('hidden');
+			}
+		});
 
-					// Select list color
-					$('#beneficiaryInfoForm\\[2\\] select').on('change', function(){
-						if( $(this).val() ){
-							$(this).css('color', '#000');
-						} else {
-							$(this).css('color', '#ccc');
-						}
-					});
+		// Select list color
+		$('#beneficiaryInfoForm\\[2\\] select').on('change', function(){
+			if( $(this).val() ){
+				$(this).css('color', '#000');
+			} else {
+				$(this).css('color', '#ccc');
+			}
+		});
 
-					// Initialize placeholder
-					$('#beneficiaryInfoForm\\[2\\] input').placeholder();
-			});
+		// Initialize placeholder
+		$('#beneficiaryInfoForm\\[2\\] input').placeholder();
+});
 			
 function addFormBeneficiary (counter) {
 	var fm_label_beneficiary	= fmTranslation('beneficiary.lable.beneficiary');
