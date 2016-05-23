@@ -24,17 +24,16 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
 	<!-- Breadcrumb Component Start-->
-
-	    <c:set var="breadcrumbItems" value="" /> 
+	    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
 		<c:set var="breadcrumbActive" value="0" />
 
-	    <c:if test="${planIndex == 'easy_health'}">
+	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
 	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
 			</c:set>
 	    	<c:set var="breadcrumbActive">3</c:set>
 	    </c:if>
-	    <c:if test="${planIndex == 'savie_sp' || planIndex == 'savie_rp' || planIndex == 'savie_online'}">
+	    <c:if test="${planIndex == 'savings-insurance'}">
 	    	<c:set var="breadcrumbItems">
 	    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
 	    	</c:set>
@@ -52,18 +51,18 @@ var home_url = "<%=request.getContextPath()%>";
 
      	<!-- StepIndicator Component Start-->
 
-     	<c:set var="stepItems" value="" /> 
+     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
 		<c:set var="stepActive" value="0" />
 
-		<c:if test="${planIndex == 'easy_health'}">
+		<c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="stepItems">
 	    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
 			</c:set>
 	    	<c:set var="stepActive">1</c:set>
 	    </c:if>
-	    <c:if test="${planIndex == 'savie_sp' || planIndex == 'savie_rp' || planIndex == 'savie_online'}">
+	    <c:if test="${planIndex == 'savings-insurance'}">
 	    	<c:set var="stepItems">
-	    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+	    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
 	    	</c:set>
 	    	<c:set var="stepActive">1</c:set>
 	    </c:if>
@@ -75,7 +74,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	</jsp:include>
 	     <!--</div>-->
 
-		<!-- StepIndicator Component Start-->
+		<!-- StepIndicator Component End-->
 
 
 	<!-- Application Content Start -->

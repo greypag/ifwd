@@ -26,69 +26,58 @@ var language = "${language}";
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">			
 
-         <div class="fwd-container container-fluid breadcrumbs">
-            <div class="breadcrumb-container">
-               <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-					<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-					<li class="divider"><i class="fa fa-play"></i></li>
-					<li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.category" bundle="${msg}" />':'Medical'} </a></li>
-				            <li class="divider"><i class="fa fa-play"></i></li>
-				            <li><a href="#">${plan == 'savings-insurance' ? '<fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" />':'EasyHealth Insurance Plan'}</a></li>
-					<li class="divider last"><i class="fa fa-play"></i></li>
-					<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
-               </ol>
-            </div>
-         </div>
-         <!-- STEPS -->
-         <div class="container-fluid fwd-full-container browse-holder">
-            <div class="application-page-header et-header-browse sticky-mobile-header">
-               <div class="browse-container">
-                  <div class="row reset-margin hidden-xs hidden-sm">
-                     <ul class="common-steps-list nav nav-pills six-steps">
-                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
-                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
-                     </ul>
-                 </div>
-               </div>  
-               <div class="et-mobile-header-info hidden-md hidden-lg">
-                  <div class="clearfix">
-                     <div class="pull-left">
-                        <div class="et-back-arrow">
-                           <a href="#" class="back-arrow-link">
-                              <span class="icon-arrow-left2 arrow-left"></span>
-                           </a>
-                        </div>
-                        <div class="et-header-tex">
-                           <h3 id=""><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></h3>
-                        </div>
-                     </div>
-                     <span id="step-of">3 out of 6</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-			<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-         <div class="step-indicator-container clearfix">
-                  <ul class="common-step-indicator six-steps nav nav-pills">
-                     <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-                     <li><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-                     <li><a href="#" class="active"><span class="step-no">3</span></a></li>
-                     <li><a href="#"><span class="step-no">4</span></a></li>
-                     <li><a href="#"><span class="step-no">5</span></a></li>
-                     <li id="last-step"><a href="#"><span class="step-no">6</span></a></li>
-                 </ul>
-                 <div class="step-line"></div>
-            </div>
-        </div>
+        <!-- Breadcrumb Component Start-->
+
+		    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+			<c:set var="breadcrumbActive" value="0" />
+
+		    <c:if test="${planIndex == 'medical-insurance'}">
+		    	<c:set var="breadcrumbItems">
+		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+				</c:set>
+		    	<c:set var="breadcrumbActive">3</c:set>
+		    </c:if>
+		    <c:if test="${planIndex == 'savings-insurance'}">
+		    	<c:set var="breadcrumbItems">
+		    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
+		    	</c:set>
+		    	<c:set var="breadcrumbActive">3</c:set>
+		    </c:if>
+
+		    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+			</jsp:include>
+
+		<!-- Breadcrumb Component End-->
+
+		<!-- StepIndicator Component Start-->
+
+	     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+			<c:set var="stepActive" value="0" />
+
+			<c:if test="${planIndex == 'medical-insurance'}">
+		    	<c:set var="stepItems">
+		    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+				</c:set>
+		    	<c:set var="stepActive">1</c:set>
+		    </c:if>
+		    <c:if test="${planIndex == 'savings-insurance'}">
+		    	<c:set var="stepItems">
+		    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
+		    	</c:set>
+		    	<c:set var="stepActive">2</c:set>
+		    </c:if>
+
+		     <!--<div class="container-fluid fwd-full-container browse-holder">-->
+		        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+		        	<jsp:param name="stepItems" value="${stepItems}"/>
+	    			<jsp:param name="stepActive" value="${stepActive}"/>
+		    	</jsp:include>
+		     <!--</div>-->
+
+		<!-- StepIndicator Component End-->
+
          <div class="container-fluid fwd-container savie-application-summary headerStick">
             <h5 class="title"><fmt:message key="label.summary2" bundle="${msg}" /></h5>
             <div class="summary-section clearfix">

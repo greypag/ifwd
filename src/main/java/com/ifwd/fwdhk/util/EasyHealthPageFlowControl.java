@@ -43,7 +43,7 @@ public class EasyHealthPageFlowControl {
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
 
-		model.addAttribute("planIndex", "easy_health"); //Plan Name
+		model.addAttribute("planIndex", "medical-insurance"); //Plan Name
 		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");

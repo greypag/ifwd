@@ -55,8 +55,6 @@
 
 .stepIndicator__divider{
 	
-	padding-left: 6px;
-	padding-right: 6px;
 	display: inline-block;
 	float: left;
 
@@ -69,6 +67,7 @@
 .stepIndicator__number{
 
 	width: 24px;
+	height: 24px;
 	margin-right: 10px;
 	display: inline-block;
 
@@ -96,6 +95,8 @@
 }
 
 .stepIndicator__content{
+
+	font-size: 18px;
 
 	&--active{
 		color: #ff8200;

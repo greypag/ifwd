@@ -121,9 +121,9 @@
       Boolean isActive = false;
       Boolean isCompleted = false;
       Boolean isLast = false;
-      String activeCls = "";
-      String completedCls = "";
-      String lastCls = "";
+      String itemCls = "";
+      String numCls = "";
+      String content = "";
 
       String template_item ="";
       String template_icon ="<i class=\"fa fa-check\"></i>";
@@ -148,19 +148,21 @@
          isCompleted = (i<stepActive)?true:false;
          isLast = (i==stepList.length-1)?true:false;
 
-         activeCls = "stepIndicator__number--active";
-         completedCls = "stepIndicator__number--completed";
-         lastCls = "stepIndicator__item--last";
-
          if( isCompleted ){
-            output += String.format(template_item, "", completedCls, template_icon);
-         } else if ( isActive ){
-            output += String.format(template_item, "", activeCls, String.format(template_number, i+1));
-         } else if ( isLast ){
-            output += String.format(template_item, lastCls, "", String.format(template_number, i+1));
+            numCls = "stepIndicator__number--completed";
+            content = template_icon;
+         } else if( isActive ){
+            numCls = "stepIndicator__number--active";
+            content = String.format(template_number, i+1);
          } else {
-            output += String.format(template_item, "", "", String.format(template_number, i+1));
+            numCls = "";
+            content = String.format(template_number, i+1);
          }
+         
+         itemCls = (isLast)?"stepIndicator__item--last":"";
+
+
+         output += String.format(template_item, itemCls, numCls, content);
       }
 
       output += "</ul>";

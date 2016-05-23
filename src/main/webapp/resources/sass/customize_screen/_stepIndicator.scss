@@ -26,12 +26,18 @@
 	}
 }
 
-@include bp-max(1069px){
+@include bp-interim(992px,1069px){
 	.stepIndicator{
 		font-size: 16px;
 	}
 
+	.stepIndicator__content{
+		font-size: 16px;
+	}
+}
+
+@include bp-min(1200px){
 	.stepIndicator__divider{
-		padding: 0;
+		padding-left: 6px;
 	}
 }
