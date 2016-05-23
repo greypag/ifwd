@@ -771,7 +771,12 @@ public class LifeController extends BaseController{
 			try {
 				JSONObject models = new JSONObject();
 				models.put("name", request.getSession().getAttribute("username"));
-				savieOnlineService.sendEmails(request, "savieComplete", models);
+				
+				if("medical-insurance".equals(plan)) {
+					savieOnlineService.sendEmails(request, "rophiComplete", models);
+				}else {
+					savieOnlineService.sendEmails(request, "savieComplete", models);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.info(e.getMessage());
@@ -811,7 +816,12 @@ public class LifeController extends BaseController{
 				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
 				
 				models.put("uploadLink", url);
-				savieOnlineService.sendEmails(request, "uploadDocument", models);
+				
+				if("medical-insurance".equals(plan)) {
+					savieOnlineService.sendEmails(request, "rophiUploadDocument", models);
+				}else {
+					savieOnlineService.sendEmails(request, "uploadDocument", models);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.info(e.getMessage());
