@@ -31,6 +31,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 
+import com.ifwd.ecomm.chinese.ZHConverter;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
@@ -1597,12 +1598,15 @@ public class LifeServiceImpl implements LifeService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
+		StringBuffer inputMsg = new StringBuffer();
+		
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "SAVIE-SP");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
+			inputMsg.append(lifePersonalDetails.getChineseName());
 			String[] dob = lifePersonalDetails.getDob().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
@@ -1621,6 +1625,12 @@ public class LifeServiceImpl implements LifeService {
 				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
 				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
 				permanentAddress.put("line4", lifePersonalDetails.getPermanetAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getPermanetAddress1());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress2());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress3());
+				inputMsg.append(lifePersonalDetails.getPermanetAddress4());
+				
 				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict().split("-")[0]:"");
 			applicant.put("permanentAddress", permanentAddress);
 				
@@ -1629,6 +1639,13 @@ public class LifeServiceImpl implements LifeService {
 				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
 				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
 				residentialAddress.put("line4", lifePersonalDetails.getResidentialAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getResidentialAddress1());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress2());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress3());
+				inputMsg.append(lifePersonalDetails.getResidentialAddress4());
+				
+				
 				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict().split("-")[0]:"");
 			applicant.put("residentialAddress", residentialAddress);
 				
@@ -1637,6 +1654,12 @@ public class LifeServiceImpl implements LifeService {
 				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
 				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
 				correspondenceAddress.put("line4", lifePersonalDetails.getCorrespondenceAddress4());
+				
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress1());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress2());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress3());
+				inputMsg.append(lifePersonalDetails.getCorrespondenceAddress4());
+				
 				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[0]:"");
 			applicant.put("correspondenceAddress", correspondenceAddress);
 				
@@ -1668,6 +1691,7 @@ public class LifeServiceImpl implements LifeService {
 						beneficiarie1.put("firstName", applicant.get("firstName"));
 						beneficiarie1.put("lastName", applicant.get("lastName"));
 						beneficiarie1.put("chineseName", applicant.get("chineseName"));
+						inputMsg.append(applicant.get("chineseName"));
 						beneficiarie1.put("hkId", applicant.get("hkId"));
 						beneficiarie1.put("passport", applicant.get("passport"));
 						beneficiarie1.put("gender", applicant.get("gender"));
@@ -1680,6 +1704,7 @@ public class LifeServiceImpl implements LifeService {
 							beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
 							beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
 							beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName1());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport1())){
 								beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1().toUpperCase());
 								beneficiarie1.put("passport", "");
@@ -1697,6 +1722,7 @@ public class LifeServiceImpl implements LifeService {
 							beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
 							beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
 							beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName2());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport2())){
 								beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2().toUpperCase());
 								beneficiarie2.put("passport", "");
@@ -1714,6 +1740,7 @@ public class LifeServiceImpl implements LifeService {
 							beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
 							beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
 							beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+							inputMsg.append(lifeBeneficaryInfo.getBeneficaryChineseName3());
 							if("hkid".equals(lifeBeneficaryInfo.getBeneficiaryHkidPassport3())){
 								beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3().toUpperCase());
 								beneficiarie3.put("passport", "");
@@ -1744,12 +1771,19 @@ public class LifeServiceImpl implements LifeService {
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
-		lifePolicy = connector.createLifePolicy(parameters, header);
-		if(!lifePolicy.hasError()){
-			request.getSession().setAttribute("lifePolicy", lifePolicy);
+		
+		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+			logger.info("Some input information contains simplified Chinese");
+			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
 		else{
-			throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
+			lifePolicy = connector.createLifePolicy(parameters, header);
+			if(!lifePolicy.hasError()){
+				request.getSession().setAttribute("lifePolicy", lifePolicy);
+			}
+			else{
+				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
+			}
 		}
 		return lifePolicy;
 	}
