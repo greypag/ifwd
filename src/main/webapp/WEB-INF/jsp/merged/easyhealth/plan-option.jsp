@@ -1707,7 +1707,11 @@ var ehPro = '${pro }';
             }
         });
         
-        $("#backSummary").click(function() {
+        $("#backSummary, .btn-apply").click(function() {
+            //### start TNC check
+            if(!isTNCChecked()) return;
+            //### end TNC check
+
             putPremium();
         });
 
