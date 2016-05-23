@@ -458,3 +458,17 @@ function pad(n, width, z) {
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
+
+function isTNCChecked(){
+    var tnc$ = $("#cbTNC");
+    var errMsg$ = $("#cbTNCErrMsg");
+    var isTNCChecked = tnc$.is(':checked');
+
+    //force to scroll to tnc checkbox
+    $("html, body").animate({ scrollTop: tnc$.offset().top }, "slow");
+
+    if(!isTNCChecked) errMsg$.html(errMsg$.attr("data-txt"));
+    else errMsg$.html("");
+
+    return isTNCChecked;
+}

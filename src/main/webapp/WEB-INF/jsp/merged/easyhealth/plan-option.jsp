@@ -1539,7 +1539,12 @@ var ehPro = '${pro }';
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-xs-12">
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="easyhealth.plandetails.tnc.1.content" bundle="${msg}" /><a href="#" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.2.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.3.content" bundle="${msg}" /><a href="#" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.4.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.5.content" bundle="${msg}" /></label>
+                                            </div>
+                                            <span class="error-msg" id="cbTNCErrMsg" data-txt='<fmt:message key="easyhealth.plandetails.tnc.err.content" bundle="${msg}" />'></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- MODALS / LIGHTBOXES -->
@@ -1629,6 +1634,10 @@ var ehPro = '${pro }';
         }).css('cursor', 'default');
         
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
+            //### start TNC check
+            if(!isTNCChecked()) return;
+            //### end TNC check
+
             if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
             	$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
