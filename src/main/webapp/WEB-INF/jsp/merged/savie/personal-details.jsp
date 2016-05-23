@@ -837,8 +837,6 @@ var languageP = "${language}";
 						  }
 					   }
 					},
-					/*
-					//$('.chinese-input').bind('keyup') to replace this validator
 					'chineseName': {
 					   container: '#chineseNameErMsg',
 						 validators: {			                   
@@ -849,7 +847,6 @@ var languageP = "${language}";
 			                    }			             
 			                }
 					},
-					*/
 					'dob': {
 					   container: '#so-calendar-dob-msg',
 					   validators: {
@@ -1081,36 +1078,20 @@ var languageP = "${language}";
 			  }).on('error.form.bv', function(e) {
 			  });
 			}
-/*
-//'keypress' event not working on mobile, just keep this function for reference
-
-$('.chinese-input').bind('keypress', function (event) {
-	var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
-	var key = !event.charCode ? event.which : event.charCode;
-	var keyChar = String.fromCharCode(key);
-	
-	//Allow backspace for FF;
-	if( key == 8 ) {
-		return true;
-	}
-	if (!regex.test(keyChar)) {
-		event.preventDefault();
-		return false;
-	}
-});
-*/
-			function isChin(str){
-				 return /^[\u4e00-\u9fa5]+$/.test(str);
-			}
-			$('.chinese-input').bind('keyup', function (event) {
-				val_arr = $(this).val().split(''); //turn string to array
-				for(i = 0; i < val_arr.length; i++) {
-					if(!isChin(val_arr[i])){ //check each char is chinese or not
-						val_arr[i] = ''; //if the char is not chinese, remove it
-					}
+			
+			$('.chinese-input').bind('keypress', function (event) {
+				var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
+				var key = !event.charCode ? event.which : event.charCode;
+				var keyChar = String.fromCharCode(key);
+				
+				//Allow backspace for FF;
+				if( key == 8 ) {
+					return true;
 				}
-				console.log(val_arr.join(''));
-				$(this).val(val_arr.join('')); //turn array back to string
+				if (!regex.test(keyChar)) {
+					event.preventDefault();
+					return false;
+				}
 			});
 		</script>
 	</body>
