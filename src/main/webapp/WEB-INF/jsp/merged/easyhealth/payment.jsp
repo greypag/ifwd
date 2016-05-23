@@ -228,7 +228,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/paydollar-icon.png" alt="">
 		                		</div>
-		                		<p><fmt:message key="payment.paydollar.copy" bundle="${msg}" /></p>
+		                		<p><fmt:message key="home.action.paydollar" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 		                <div class="col-xs-12 col-md-4">
@@ -236,7 +236,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 			                		<img src="<%=request.getContextPath()%>/resources/images/elite-terms/verifiedbyvisa-icon.png" alt="">
 			                	</div>
-		                		<p><fmt:message key="payment.visa.copy" bundle="${msg}" /></p>
+		                		<p><fmt:message key="home.action.visa" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 		                <div class="col-xs-12 col-md-4">
@@ -244,7 +244,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                		<div class="ico-wrapper">
 		                			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-icon.png" alt="">
 		                		</div>
-		                		<p><fmt:message key="payment.master.copy" bundle="${msg}" /></p>
+		                		<p><fmt:message key="home.action.master" bundle="${msg}" /></p>
 		                	</div>
 		                </div>
 	                </div>

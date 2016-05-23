@@ -98,7 +98,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <span class="error-msg" id="signatureError"></span>
                             <div id="correct-signature" class="correct-signature hidden">
                                 <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png">
-                                <span>Correct</span>
+                                <span><fmt:message key="payment.label.correct.signature" bundle="${msg}" /></span>
                             </div>
                             <a class="text-bold btn btn-confirm btn-app" id="btn-signature-next"><fmt:message key="button.proceed.to.payment" bundle="${msg}" /></a>
                         </div>
