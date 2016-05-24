@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-05-24 10:06:11 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-05-24 10:58:57 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -1924,44 +1924,52 @@ body.chin .partner-headline-wrapper .headline-title {
     border: 0;
     height: 50px;
   }
+  /* line 131, ../sass/mobile/_header.scss */
+  .logobox .mobile-menu-V2 .dropdown .dropdown-menu {
+    display: none;
+  }
+  /* line 134, ../sass/mobile/_header.scss */
+  .logobox .mobile-menu-V2 .dropdown.open .dropdown-menu {
+    display: block;
+  }
 
-  /* line 130, ../sass/mobile/_header.scss */
+  /* line 140, ../sass/mobile/_header.scss */
   a.navbar-brand > img {
     padding: 10px 0;
     margin-left: 30px;
   }
 
-  /* line 134, ../sass/mobile/_header.scss */
+  /* line 144, ../sass/mobile/_header.scss */
   .mob-login-form-wrapper {
     display: none;
   }
 
-  /* line 137, ../sass/mobile/_header.scss */
+  /* line 147, ../sass/mobile/_header.scss */
   .mob-login-form-wrapper.open {
     display: block;
   }
 
-  /* line 140, ../sass/mobile/_header.scss */
+  /* line 150, ../sass/mobile/_header.scss */
   .link-arrow {
     margin-top: 8px;
     float: right;
   }
 
-  /* line 144, ../sass/mobile/_header.scss */
+  /* line 154, ../sass/mobile/_header.scss */
   .hidden-label {
     display: none;
   }
 
-  /* line 151, ../sass/mobile/_header.scss */
+  /* line 161, ../sass/mobile/_header.scss */
   .navbar-default .navbar-brand {
     height: 50px;
   }
-  /* line 154, ../sass/mobile/_header.scss */
+  /* line 164, ../sass/mobile/_header.scss */
   .navbar-default .navbar-brand > img {
     padding-top: 15px;
     margin: 0 auto;
   }
-  /* line 158, ../sass/mobile/_header.scss */
+  /* line 168, ../sass/mobile/_header.scss */
   .navbar-default .mob-menu-btn.navbar-toggle:hover,
   .navbar-default .mob-menu-btn.navbar-toggle:focus,
   .navbar-default .navbar-toggle.mob-menu-btn {
@@ -1977,18 +1985,18 @@ body.chin .partner-headline-wrapper .headline-title {
     border-color: transparent;
     outline-color: transparent;
   }
-  /* line 174, ../sass/mobile/_header.scss */
+  /* line 184, ../sass/mobile/_header.scss */
   .navbar-default .navbar-toggle.mob-menu-btn .icon-bar {
     background-color: #fff;
     width: 22px;
     height: 2px;
   }
-  /* line 179, ../sass/mobile/_header.scss */
+  /* line 189, ../sass/mobile/_header.scss */
   .navbar-default .navbar-toggle {
     padding: 13px 30px;
   }
 
-  /* line 183, ../sass/mobile/_header.scss */
+  /* line 193, ../sass/mobile/_header.scss */
   .mob-lang-btn {
     float: right;
     position: absolute;
@@ -1998,24 +2006,24 @@ body.chin .partner-headline-wrapper .headline-title {
     z-index: 1;
   }
 
-  /* line 191, ../sass/mobile/_header.scss */
+  /* line 201, ../sass/mobile/_header.scss */
   .navbar-toggle .icon-bar + .icon-bar {
     margin-top: 4px;
   }
 
-  /* line 194, ../sass/mobile/_header.scss */
+  /* line 204, ../sass/mobile/_header.scss */
   .navbar-header {
     float: none;
   }
 
-  /* line 197, ../sass/mobile/_header.scss */
+  /* line 207, ../sass/mobile/_header.scss */
   .navbar-toggle {
     display: inline;
     width: 50px;
     margin-top: 35px;
   }
 
-  /* line 202, ../sass/mobile/_header.scss */
+  /* line 212, ../sass/mobile/_header.scss */
   .btn-primary:hover, .btn-primary:active {
     padding: 8px 20px;
     background: #f6871e;

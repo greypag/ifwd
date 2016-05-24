@@ -1427,6 +1427,102 @@ var home_url = "<%=request.getContextPath()%>";
 
 								</div>
 							</div>
+							<%--<!-- ------- Start | The Club | member ID grapping --------  -->
+							<div style="right: 50%;left: 50%;">
+								<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
+	                                <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()--%>/resources/images/partner_theclub.png" height="12" /> <fmt:message key="club.membership.confirm" bundle="${msg}" /></a></label>  
+	                        <%--    </div>
+	                            <span class="text-red" id="errClubMemberID"></span>
+	                            <div class="form-group" style="margin-top: 0; margin-bottom: 20; display: none;">
+	                                <div class="input-group" style="display: inital; width: 100%;">
+										<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display: inline-block; width: 100%;" onfocus="placeholderOnFocus(this,'The Club Membership Number');" onblur="placeholderOnBlur(this,'The Club Membership Number');" value="The Club Membership Number">
+									</div>
+	                            </div>
+	                            <div class="travel-italic workingholiday-getpromocode" style="font-size: 14px;">
+									<a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg" style="color: #f68a1d; text-decoration: underline;"><i>How do I get THE CLUB membership?</i></a>
+								</div>
+							</div>
+							<script>
+							$(document).ready(function() {
+								$('#the-club-member-toggle').on('change', function() {
+						            if ($(this).is(':checked')) {
+						                $('#theClubMembershipNo').closest('.form-group').show();
+						            } else {
+						                $('#theClubMembershipNo').closest('.form-group').hide();
+						            }
+						        }).change();
+								function sendEmail() {
+							        $('.proSuccess').addClass('hide');
+							        if (get_promo_val()) {
+							        	console.log($("#sendmailofpromocode form").serialize())
+							            $.ajax({
+							                type : "POST",
+							                url : "<%=request.getContextPath()%>/ajax/annualTravel/sendEmail/send",
+							                data : $("#sendmailofpromocode form").serialize(),
+							                async : false,
+							                success : function(data) {
+							                    if (data == 'success') {
+							                        $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+							                    } else {
+							                    	console.log(data)
+							                        $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+							                    }
+							                },
+							                error : function() {
+							                }
+							            });
+							        }
+							        return false;
+							    }
+							});
+							</script>
+							<!--Get promotion code popup-->
+							<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+							  <div class="modal-dialog modal-lg">
+						            <div class="modal-content plan-modal">
+						                <div class="login-form" id="sendmailofpromocode">
+						                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+						                     <span aria-hidden="true" style="font-size:30px;">×</span>
+						                   </a>
+						                </div>
+						                <form>
+						                    <div class="form-container">
+						                        <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+						                        <div class="alert alert-success hide proSuccess"></div>
+						                        <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
+						                        <div class="form-group">
+						                            <input type="email" class="form-control" placeholder=""
+						                                name="emailToSendPromoCode" id="emailToSendPromoCode">
+						                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
+						                        </div>
+						                        <span id="errPromoEmail" class="text-red"></span> <br>
+						                        <div class="row">
+						                            <div class="col-lg-6 col-md-6">
+						                                
+						                                <button type="submit" onclick="return sendEmail()"
+						                                    class="bdr-curve btn btn-primary btn-lg wd5">
+						                                    <fmt:message key="promotion.get.code.action" bundle="${msg}" />
+						                                </button>
+						                            </div>
+						                            <div class="col-md-2">
+						                                <br>
+						                            </div>
+						                            <div class="col-lg-4 col-md-4">
+						                            </div>
+						                            <br> <br>
+						                            <div class="col-lg-12 col-md-12">
+						                                <p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
+						                            </div>
+						                        </div>
+						                    </div>
+						                </form>
+						                </div>
+						                          
+						            </div>
+						        </div>
+							</div>
+							<!--/ Get promotion code popup-->
+							<!-- ------- End | The Club | member ID grapping --------  --> --%>
 							<div class="next-btn">
 								<button id="et-personal-info-next" class="btn next pi">
 									<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />

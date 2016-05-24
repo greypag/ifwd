@@ -1,5 +1,5 @@
 body {
-   padding-top: 50px !important; 
+   padding-top: 50px !important;
 }
 #fb-dialog-share {
   //display: none;
@@ -126,7 +126,17 @@ li.menu-link-grp-title>ul.dropdown-menu,li.link-btn>ul.dropdown-menu {
    background-color:#222;
    border:0;
    height:50px;
-}
+   .mobile-menu-V2 {
+     .dropdown {
+       .dropdown-menu {
+         display: none;
+       }
+       &.open .dropdown-menu {
+         display: block;
+       }
+     }
+   }
+ }
 a.navbar-brand>img {
     padding: 10px 0;
     margin-left: 30px;
