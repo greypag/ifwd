@@ -1455,10 +1455,10 @@
                             <div class="terms-and-condition offer-details">
                                 <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li id="offer-details-note1"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+                                    <li id="offer-details-note2"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+                                    <li id="offer-details-note3"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+                                    <li id="offer-details-note4"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
                                  </ul>
                             </div>
 
@@ -2184,8 +2184,11 @@
                             $('.promo-code-holder .code').html(data["promoCode"]);
                             $('#offer-details-promotion-code').modal('show');
                             $('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
-                            $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);                        
-                            setPlanLink(campaignId, data["promoCode"]);                         
+                            $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
+
+                            setTnCNote(campaignId);
+
+                            setPlanLink(campaignId, data["promoCode"]);
                         }
                     }else if(data["result"]=="duplicated") {
                         $('#offer-details-promotion-code-error-once').modal('show');
@@ -2264,6 +2267,22 @@
             $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
         }
 
+        function setTnCNote(campaignId) {
+            
+            if(campaignId == "13"){
+                var tncKey1 = "info.fanfare.offer"+ campaignId + ".part1";
+                var tncKey2 = "info.fanfare.offer"+ campaignId + ".part2";
+                var tncKey3 = "info.fanfare.offer"+ campaignId + ".part3";
+                var fmtTnc1 = getBundle(getBundleLanguage, tncKey1);
+                var fmtTnc2 = getBundle(getBundleLanguage, tncKey2);
+                var fmtTnc3 = getBundle(getBundleLanguage, tncKey3);
+            
+                $('#offer-details-promotion-code #offer-details-note1').html(fmtTnc1);
+                $('#offer-details-promotion-code #offer-details-note2').html(fmtTnc2);
+                $('#offer-details-promotion-code #offer-details-note3').html(fmtTnc3);
+            }
+        }
+
         $("#countdown")
            .countdown("<%=countDownDate%>", function(event) {
            //.countdown("2016/02/16", function(event) {
@@ -2312,6 +2331,7 @@
 	                    $('#offer-details-promotion-code').modal('show');
 	                    setPlanName("${chooseId}");
 	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
+                        setTnCNote("${chooseId}");
                         setTnCLink("${chooseId}");
                     }
                 }
