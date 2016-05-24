@@ -982,9 +982,10 @@
 /*modal*/
 .fwdiscover-modal .modal-content {
     border: 6px solid #fa8200;
-    max-width: 600px;
+    max-width: 550px;
     margin: 20% auto 0;
     padding-top: 56px !important;
+    z-index:4;
 }
 
 @media ( min-width : 992px) {
