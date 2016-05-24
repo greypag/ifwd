@@ -78,15 +78,15 @@ function putPremium(){
     var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
     $.ajax({
           type : "post",
-          cache:false, 
-          async:false, 
+          cache:false,
+          async:false,
           url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
           data : {pro : pro},
           success : function(data) {
              window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
           },
           error:function(){
-              console.log('error');   
+              console.log('error');
           }
     });
 }
@@ -128,48 +128,48 @@ function submitLoginForm(formID) {
 						}
 						else if(window.location.href.indexOf("medical-insurance/plan-option")>0){
 							$('#loginpopup').modal('hide');
-							$.ajax({     
-							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+							$.ajax({
+							    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
 							    type:'get',
-							    cache:false, 
-							    async:false, 
-							    data:{    
+							    cache:false,
+							    async:false,
+							    data:{
 					    	    	"planCode" : "HEH1"
-					       		}, 
-							    error:function(){       
-							    },     
+					       		},
+							    error:function(){
+							    },
 							    success:function(data){
 							    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 								    	$('#loginpopup').modal('hide');
 							    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 							    		$('#prev-savie-app-modal').modal('show');
 							    	}else{
-							    		$.ajax({     
-										    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+							    		$.ajax({
+										    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
 										    type:'get',
-										    cache:false, 
-										    async:false, 
-										    data:{    
+										    cache:false,
+										    async:false,
+										    data:{
 								    	    	"planCode" : "HEH2"
-								       		}, 
-										    error:function(){       
-										    },     
+								       		},
+										    error:function(){
+										    },
 										    success:function(data){
 										    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 											    	$('#loginpopup').modal('hide');
 										    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 										    		$('#prev-savie-app-modal').modal('show');
 										    	}else{
-										    		$.ajax({     
-													    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+										    		$.ajax({
+													    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
 													    type:'get',
-													    cache:false, 
-													    async:false, 
-													    data:{    
+													    cache:false,
+													    async:false,
+													    data:{
 											    	    	"planCode" : "HEH3"
-											       		}, 
-													    error:function(){       
-													    },     
+											       		},
+													    error:function(){
+													    },
 													    success:function(data){
 													    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 														    	$('#loginpopup').modal('hide');
@@ -178,13 +178,13 @@ function submitLoginForm(formID) {
 													    	}else{
 													    		putPremium();
 													    	}
-													    }  
+													    }
 													});
 										    	}
-										    }  
+										    }
 										});
 							    	}
-							    }  
+							    }
 							});
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
@@ -784,7 +784,7 @@ function getStarted(){
                               <ul class="col-lg-12 col-md-12 no-padding">
                                   <li class="menu-link">
                                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                      <a class="menu-link" href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
+	                                      <a class="menu-link" href="<%=request.getContextPath()%>/${language}/fwdiscover"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
                                   </li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>

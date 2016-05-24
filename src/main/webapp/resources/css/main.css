@@ -11155,10 +11155,10 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 }
 @media screen and (max-width: 991px){
 	/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
-	div.mobile-menu-V2 .navbar-nav>li.dropdown:hover ul.dropdown-menu{
+	div.mobile-menu-V2 .navbar-nav>li.dropdown.fwd-header-navgation-menu:hover ul.dropdown-menu{
 	   display: none;
 	}
-    div.mobile-menu-V2 .navbar-nav>li.dropdown.open:hover ul.dropdown-menu{
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.open.fwd-header-navgation-menu:hover ul.dropdown-menu{
        display: block;
     }
     /* End fix conflict */
