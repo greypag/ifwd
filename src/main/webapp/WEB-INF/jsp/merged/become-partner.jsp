@@ -17,10 +17,7 @@
     <!--/.container-->
     <!--  Become partner form start -->
     <div class="partnership container">
-        <div align="center">
-          <h1 style="color: black;">easy health become-partner page</h1>
-          <a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
-        </div>
+        
         <div class="partner-headline-wrapper">
             <h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
