@@ -1155,7 +1155,7 @@ h6 {
   			width: 97%;*/
 }
 /* line 689, ../sass/partials/savie/_common.scss */
-.so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label {
+.so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label .so-mdl-textfield.is-dirty input:valid+label {
   color: #ff8200 !important;
   top: 1px !important;
   font-size: 12px;
