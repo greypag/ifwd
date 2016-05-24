@@ -28,8 +28,8 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-06-15 11:59:59").getTime();
-    //cCurrent =  cformat.parse("2016-06-01 14:59:59").getTime();
+    long cStart = cformat.parse("2016-06-30 14:59:59").getTime();
+    //cCurrent =  cformat.parse("2016-06-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
@@ -41,7 +41,7 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-05-31 14:59:59";
+    String countDownDate_regular = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
@@ -83,8 +83,8 @@
     } else {
         //Regular Offer Period
         countDownDate = countDownDate_regular;
-        countDownDD = "31";
-        countDownMM = "May";
+        countDownDD = "30";
+        countDownMM = "June";
 
         //Special Offer Period
         if((cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()) || request.getParameter("savie")!=null){
@@ -100,9 +100,9 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart  || 
+    	if(cCurrent >= cStart  /* || 
            (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
-           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime()) 
+           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime())  */
            /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
@@ -110,7 +110,6 @@
             countDownMM = "May";*/    		
     	}
     }
-
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
@@ -634,7 +633,7 @@
                 <%
                     if (isRegSpecial==true && isRegPromo==true) {
                 %>
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
+                    <div class="fwdiscover-plan">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero.jpg" class="img-responsive hidden-xs hidden-sm">
                         <div class="plan-details-box red-bg right">
