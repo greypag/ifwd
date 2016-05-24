@@ -3171,10 +3171,15 @@ public class LifeServiceImpl implements LifeService {
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
 			template = "savie\\saveLater.html";
-		}
-		else if("payment".equals(action)) {
+		}else if("payment".equals(action)) {
 			subject = "payment";
 			template = "savie\\payment.html";
+		}else if("rophiComplete".equals(action)) {
+			subject = "FWD Medical Insurance Plan - Complete | 您的網上富衛医疗保险申請已完成！";
+			template = "rophi\\rophiComplete.html";
+		}else if("rophiUploadDocument".equals(action)) {
+			subject = "FWD Medical Insurance Plan – Document Upload | 富衛医疗保险 – 上載檔案";
+			template = "rophi\\uploadDocument.html";
 		}
 		
 		JSONObject parameters = new JSONObject();

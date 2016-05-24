@@ -4874,5 +4874,266 @@ var home_url = "<%=request.getContextPath()%>";
 		          scrollTop: ($('#et-application-fourth-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
+
+		if($("#add-beneficiary-1").length > 0) {
+			var firstName_person02 = "${etPolicyApplication.applicant.firstName2}";
+			var firstName_person03 = "${etPolicyApplication.applicant.firstName3}";
+			if(firstName_person02!=''){
+				$("#add-beneficiary-button-2").trigger('click');
+			}
+			if(firstName_person03!=''){
+				$("#add-beneficiary-button-3").trigger('click');
+			}
+		}
 	});
+	
+$("#add-beneficiary-button-2").click(function(){
+	$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
+
+	addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
+
+	$('#remove-beneficiary\\[1\\]').click(function(){
+		$('#remove-beneficiary\\[1\\]').parents('form').remove();
+		$('#beneficiary1').removeClass('hidden');
+
+		$('#beneficiaryInfoForm\\[0\\]')
+			 .data('bootstrapValidator')
+			 .updateStatus('savieBeneficiaryBean[0].entitlement', 'NOT_VALIDATED')
+			 .validateField('savieBeneficiaryBean[0].entitlement');
+//remove session of 2nd person here
+	});
+
+	//BENEFICIARY DROP-DOWN PASSPORT/HKID
+	$('#beneficiaryHkidPassport\\[1\\]').on('change', function() {
+
+		if($(this).val()==="Passport") {
+			$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
+			$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');
+
+			$('#bnfPassportMessage\\[1\\]').removeClass('hidden');
+			$('#hkidOrPassportMessage\\[1\\]').addClass('hidden');
+			$('#duplicate-beneficiaries\\[1\\]').addClass('hidden');
+		}
+		else {
+			$('#savieBeneficiaryBean\\[1\\]\\.hkId').removeClass('hidden');
+			$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
+
+			$('#hkidOrPassportMessage\\[1\\]').removeClass('hidden');
+			$('#bnfPassportMessage\\[1\\]').addClass('hidden');
+			$('#duplicate-beneficiariesPAssport\\[1\\]').addClass('hidden');
+		}
+	});
+	// Select list color
+	$('#beneficiaryInfoForm\\[1\\] select').on('change', function(){
+		if( $(this).val() ){
+			$(this).css('color', '#000');
+		} else {
+			$(this).css('color', '#ccc');
+		}
+	});
+
+	// Initialize placeholder
+	$('#beneficiaryInfoForm\\[1\\] input').placeholder();
+});
+
+$("#add-beneficiary-button-3").click(function(){
+	$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
+
+		addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
+
+		$('#remove-beneficiary\\[2\\]').click(function(){
+			$('#remove-beneficiary\\[2\\]').parents('form').remove();
+				$('#beneficiary2').removeClass('hidden');
+//remove session of 3rd person here
+		});
+
+		//BENEFICIARY DROP-DOWN PASSPORT/HKID
+		$('#beneficiaryHkidPassport\\[2\\]').on('change', function() {
+
+			if($(this).val()==="Passport") {
+				$('#savieBeneficiaryBean\\[2\\]\\.hkId').addClass('hidden');
+				$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');
+
+				$('#bnfPassportMessage\\[2\\]').removeClass('hidden');
+				$('#hkidOrPassportMessage\\[2\\]').addClass('hidden');
+				$('#duplicate-beneficiaries\\[2\\]').addClass('hidden');
+			}
+			else {
+				$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
+				$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
+
+				$('#hkidOrPassportMessage\\[2\\]').removeClass('hidden');
+				$('#bnfPassportMessage\\[2\\]').addClass('hidden');
+				$('#duplicate-beneficiariesPAssport\\[2\\]').addClass('hidden');
+			}
+		});
+
+		// Select list color
+		$('#beneficiaryInfoForm\\[2\\] select').on('change', function(){
+			if( $(this).val() ){
+				$(this).css('color', '#000');
+			} else {
+				$(this).css('color', '#ccc');
+			}
+		});
+
+		// Initialize placeholder
+		$('#beneficiaryInfoForm\\[2\\] input').placeholder();
+});
+			
+function addFormBeneficiary (counter) {
+	var fm_label_beneficiary	= fmTranslation('beneficiary.lable.beneficiary');
+	var fm_label_beneficiary_p2	= fmTranslation('beneficiary.lable.beneficiary.p2');
+	var fm_label_beneficiary_p3	= fmTranslation('beneficiary.lable.beneficiary.p3');
+	var fm_label_eng_name	= fmTranslation('beneficiary.lable.eng.name');
+	var fm_label_given_name	= fmTranslation('beneficiary.lable.given.name');
+	var fm_label_last_name	= fmTranslation('beneficiary.lable.last.name');
+	var fm_label_chi_name	= fmTranslation('beneficiary.lable.chi.name');
+	var fm_label_hkid_passport = fmTranslation('beneficiary.lable.hkid.and.passport');
+	var fm_label_gender	= fmTranslation('beneficiary.label.gender');
+	var fm_label_relationship	= fmTranslation('beneficiary.label.relationship');
+	var fm_label_entitlement	= fmTranslation('beneficiary.label.entitlement');
+	var fm_label_optional	= fmTranslation('beneficiary.label.optional');
+	var fm_placeholder_eng_name	= fmTranslation('beneficiary.placeholder.eng.name');
+	var fm_placeholder_given_name	= fmTranslation('beneficiary.placeholder.given.name');
+	var fm_placeholder_last_name	= fmTranslation('beneficiary.placeholder.last.name');
+	var fm_placeholder_chi_name	= fmTranslation('beneficiary.placeholder.chi.name');
+	var fm_placeholder_hkid	= fmTranslation('beneficiary.placeholder.hkid');
+	var fm_placeholder_passport	= fmTranslation('beneficiary.placeholder.passport');
+	var fm_option_hkid = fmTranslation('beneficiary.option.hkid');
+	var fm_option_passport = fmTranslation('beneficiary.option.passport');
+	var fm_option_male	= fmTranslation('beneficiary.option.male');
+	var fm_option_female	= fmTranslation('beneficiary.option.female');
+	var fm_option_select	= fmTranslation('beneficiary.option.select');
+	var fm_action_remove	= fmTranslation('beneficiary.action.remove');
+	var fm_error_dup_eng_name	= fmTranslation('beneficiary.error.duplicate.english.name');
+	var fm_error_dup_chi_name	= fmTranslation('beneficiary.error.duplicate.chinese.name');
+	var fm_error_dup_hkid	= fmTranslation('beneficiary.error.duplicate.hkid');
+	var fm_error_dup_passport	= fmTranslation('beneficiary.error.duplicate.passport');
+	
+	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
+
+	var counterPlus = parseInt(counter)+1;
+	var fm_counter_label = (counterPlus==2)?fm_label_beneficiary_p2:fm_label_beneficiary_p3;
+	
+	var firstName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.firstName2}":"${etPolicyApplication.applicant.firstName3}";
+	var lastName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.lastName2}":"${etPolicyApplication.applicant.lastName3}";
+	var chineseName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.chineseName2}":"${etPolicyApplication.applicant.chineseName3}";
+	var beneficiaryHkidPassport_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.beneficiaryHkidPassport2}":"${etPolicyApplication.applicant.beneficiaryHkidPassport3}";
+	var hkId_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.hkId2}":"${etPolicyApplication.applicant.hkId3}";
+	var passportNo_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.passportNo2}":"${etPolicyApplication.applicant.passportNo3}";
+	var gender_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.gender2}":"${etPolicyApplication.applicant.gender3}";
+	var relationship_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.relationship2}":"${etPolicyApplication.applicant.relationship3}";
+	var entitlement_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.entitlement2}":"${etPolicyApplication.applicant.entitlement3}";
+	
+	console.log('firstName_if_exist: '+firstName_if_exist);
+	console.log('lastName_if_exist: '+lastName_if_exist);
+	console.log('chineseName_if_exist: '+chineseName_if_exist);
+	console.log('beneficiaryHkidPassport_if_exist: '+beneficiaryHkidPassport_if_exist);
+	console.log('hkId_if_exist: '+hkId_if_exist);
+	console.log('passportNo_if_exist: '+passportNo_if_exist);
+	console.log('gender_if_exist: '+gender_if_exist);
+	console.log('relationship_if_exist: '+relationship_if_exist);
+	console.log('entitlement_if_exist: '+entitlement_if_exist);
+
+	var beneficiaryHkidPassport00001 = "${etPolicyApplication.applicant.beneficiaryHkidPassport1}";
+	console.log('beneficiaryHkidPassport00001: '+beneficiaryHkidPassport00001);
+
+	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
+
+	$('<div class="form-group beneficiary-info-row" >'
+		+'<h3 class="mobile-desc hidden-md hidden-lg">' + fm_label_beneficiary + ' <span>' + fm_counter_label + '</span></h3>'
+		+ '<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">' + fm_label_eng_name + '</label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].fullName" hidden>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].firstName" name="savieBeneficiaryBean['+counter+'].firstName" value="'+firstName_if_exist+'" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="' + fm_label_given_name + '" maxlength="25">'
+		+ '<span class="error-msg" id="beneficiaryFnameMessage['+counter+']"></span>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].lastName" name="savieBeneficiaryBean['+counter+'].lastName" value="'+lastName_if_exist+'" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="' + fm_label_last_name + '" maxlength="25">'
+		+ '<span class="error-msg" id="beneficiaryLnameMessage['+counter+']"></span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-english-name['+counter+']">' + fm_error_dup_eng_name + '</span>'
+		+ '</div>'
+
+		+ '<div class="form-group beneficiary-info-row">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">' + fm_label_chi_name + ' <span class="optional">' + fm_label_optional + '</span></label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" value="'+chineseName_if_exist+'" class="form-control gray-textbox form-textbox" placeholder="' + fm_placeholder_chi_name + '">'
+		+ '<span class="error-msg" id="beneficiaryChineseNameMessage['+counter+']"></span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">' + fm_error_dup_chi_name + '</span>'
+		+ '</div>'
+
+		+'<div class="form-group beneficiary-info-row">'
+		+'<label for="savieBeneficiaryBean['+counter+'].hkId">' + fm_label_hkid_passport + '</label>'
+		+'<div class="clearfix et-hkid-pass">'
+		+'<div class="pull-left select">'
+		+'<div class="selectDiv">'
+		+'<span class="icon-chevron-thin-down orange-caret"></span>'
+		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<option disabled value="" '+((beneficiaryHkidPassport_if_exist!='HKID' && beneficiaryHkidPassport_if_exist!='Passport')?'selected="selected"':'') +'>' + fm_option_select + '</option>'
+		+'<option value="HKID" '+(beneficiaryHkidPassport_if_exist=='HKID'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>'
+		+'<option value="Passport" '+(beneficiaryHkidPassport_if_exist=='Passport'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>'
+//		+'<option selected value="HKID">' + fm_option_hkid + '</option>'
+//		+'<option value="Passport">' + fm_option_passport + '</option>'
+		+'</select>'
+		+'</div>'
+		+'</div>'
+		+'<div class="pull-left input">'
+		+'<input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
+		+'<input class="form-control gray-textbox capitalize hidden" type="text" autocomplete="off" placeholder="' + fm_placeholder_passport + '" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="'+passportNo_if_exist+'">'
+		+'</div>'
+		+'</div>'
+		+'<span class="error-msg" id="bnfPassportMessage['+counter+']"></span>'
+		+'<span class="error-msg" id="hkidOrPassportMessage['+counter+']"></span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">' + fm_error_dup_hkid + '</span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport['+counter+']">' + fm_error_dup_passport + '</span>'
+		+'</div>'
+
+		+ '<div class="beneficiary-info-row">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].gender">' + fm_label_gender + '</label>'
+		+ '<div id="gender-'+counter+'" class="clearfix radio-buttons">'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="M" id="male-'+counter+'" '+(gender_if_exist == 'M' ? 'checked="checked"':'')+'>'
+		+ '<label for="male-'+counter+'" class="male" >'
+		+ '<span class="hidden-lg hidden-md">' + fm_option_male + '</span>'
+		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
+		+ '</label>'
+		/*+ '<label for="male-'+counter+'" id="male-label-'+counter+'" class="et-bene-radio pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</label>'*/
+		+ '<span id="male-label-'+counter+'" class="pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</span>'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="F" id="female-'+counter+'" '+(gender_if_exist == 'F' ? 'checked="checked"':'')+'>'
+		+ '<label for="female-'+counter+'" class="female">'
+		+ '<span class="hidden-lg hidden-md">' + fm_option_female + '</span>'
+		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
+		+ '</label>'
+		/*+ '<label for="female-'+counter+'" id="female-label-'+counter+'" class="et-bene-radio pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</label>'*/
+		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</span>'
+		+ '</div>'
+		+ '</div>'
+
+		+ '<div class="form-group beneficiary-info-row relationship">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].relationship">' + fm_label_relationship + '</label>'
+		+ '<div class="selectBeneficiary">'
+		+ '<span class="icon-chevron-thin-down orange-caret"></span>'
+		+ '<select class="form-control gray-dropdown"  id="savieBeneficiaryBean['+counter+'].relationship" name="savieBeneficiaryBean['+counter+'].relationship" data-style="application-select">'
+		+ '<option selected disabled value="">- Please select -</option>'
+		+ '<option value="father">Father</option>'
+		+ '<option value="mother">Mother</option>'
+		+ '</select>'
+		+ '</div>'
+		+ '	<span class="error-msg" id="relationshipMessage['+counter+']"></span>'
+		+ '</div>'
+
+		+ '<div class="form-group beneficiary-info-row entitle">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">' + fm_label_entitlement + '</label>'
+		+ '<input type="tel" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="'+entitlement_if_exist+'">'
+		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
+		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
+		+ '</div>'
+		).appendTo("#add-beneficiary-"+counter+" .content");
+
+	$("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").empty();
+	$("#savieBeneficiaryBean\\[0\\]\\.relationship option").each(function () {
+        var txt = $(this).text();
+        var val = $(this).val();
+        $("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").append("<option value='"+val+"' "+(relationship_if_exist.substr(0, relationship_if_exist.indexOf('-'))==val.substr(0, val.indexOf('-'))?'selected="selected"':'') +">"+txt+"</option>");
+    });
+
+	changeColorRadioButtonLabel (counter);
+}
 </script>

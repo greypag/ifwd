@@ -48,7 +48,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<h4><fmt:message key="underwriting.question.q1" bundle="${msg}" /></h4>
 								</div>
 								<div class="col-xs-11">
-									<p><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></p>
+									<p><label for="ehUnderWriting1"><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></label></p>
 								</div>
 								<div class="col-xs-1">
 									<div class="form-group">
@@ -71,7 +71,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <h4><fmt:message key="underwriting.question.q2" bundle="${msg}" /></h4>
                                 </div>
                                 <div class="col-xs-11">
-                                    <p><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></p>
+                                    <p><label for="ehUnderWriting2"><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></label></p>
                                 </div>
                                 <div class="col-xs-1">
                                 	<div class="form-group">
@@ -98,7 +98,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-xs-11 col-md-11">
 									<div class="row">
 										<div class="col-xs-12">
-											<p><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></p>
+											<p><label for="ehUnderWriting3"><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></label></p>
 										</div>
 										<!-- <div class="col-xs-12 col-md-6">
 											<ul>

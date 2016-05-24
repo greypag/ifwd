@@ -9972,10 +9972,10 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 .lang-grp li:last-child a {
     border-right: none;
 }
-.logobox .mobile-menu-V2 .dropdown-menu {
+.logobox .mobile-menu-V2 .dropdown .dropdown-menu {
     display: none;
 }
-.logobox .mobile-menu-V2 .open .dropdown-menu {
+.logobox .mobile-menu-V2 .dropdown.open .dropdown-menu {
     display: block;
 }
 /*/menu language btn add 160314*/
