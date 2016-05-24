@@ -1566,7 +1566,7 @@ var ehPro = '${pro }';
                                             <h4 class="text-center welcome-msg">Welcome back to Savie Insurance Plan!<span id="fullName1" class="hidden"></span></h4>
                                             <p class="text-center description-msg">Unfortunately, each member is only permitted to make one application. Should you have any queries, please do not hesitate to call our Customer Hotline on 3123 3123.</p>
                                             <center>
-                                                <button class="btn savie-common-btn" id="make-appointment-btn">Back to home</button>
+                                                <button class="btn savie-common-btn" id="back-home">Back to home</button>
                                             </center>
                                         </div>
                                     </div>
@@ -1779,6 +1779,10 @@ var ehPro = '${pro }';
         	$(".step1").hide();
         	$("#"+'${pro }').click();
         }
+        
+        $("#back-home").click(function() {
+        	window.location = '<%=request.getContextPath()%>/${language}/medical-insurance';
+        });
     })
 </script>
 <script src="<%=request.getContextPath()%>/resources/js/easy-health/tableHover.js"></script>
