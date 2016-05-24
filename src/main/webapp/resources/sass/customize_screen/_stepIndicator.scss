@@ -1,0 +1,43 @@
+@include bp-min(420px) {
+	.stepIndicator--numberOnly{
+	
+		.stepIndicator__item{
+			width: 17.9%;
+
+			&--last{
+				width: 23px;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+@include bp-max(419px) {
+	.stepIndicator--numberOnly{
+	
+		.stepIndicator__item{
+			width: 17.11%;
+
+			&--last{
+				width: 23px;
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+@include bp-interim(992px,1069px){
+	.stepIndicator{
+		font-size: 16px;
+	}
+
+	.stepIndicator__content{
+		font-size: 16px;
+	}
+}
+
+@include bp-min(1200px){
+	.stepIndicator__divider{
+		padding-left: 6px;
+	}
+}

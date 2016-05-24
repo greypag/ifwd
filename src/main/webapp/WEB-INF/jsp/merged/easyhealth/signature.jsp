@@ -26,61 +26,41 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.signature.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
-    <div class="fwd-container container-fluid breadcrumbs">
-        <div class="breadcrumb-container">
-           <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Home</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Medical</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">EasyHealth Insurance Plan</a></li>
-               <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
-           </ol>
-        </div>
-     </div>
-     <div class="savie-online-container app-pg-ctnr" id="eh-app-signature">
-     <div class="container-fluid fwd-full-container browse-holder">
-        <div class="application-page-header et-header-browse">
-           <div class="browse-container">
-              <div class="row reset-margin hidden-xs hidden-sm">
-                 <ul class="common-steps-list six-steps nav nav-pills">
-                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">1</span><fmt:message key="stepindicator.selectplan" bundle="${msg}" /></button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span><fmt:message key="stepindicator.application.summary.declaration" bundle="${msg}" /></button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.sign" bundle="${msg}" /></button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.payment" bundle="${msg}" /></button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.upload.document" bundle="${msg}" /></button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button></li>
-                 </ul>
-             </div>
-           </div>  
-           <div class="et-mobile-header-info hidden-md hidden-lg">
-              <div class="clearfix">
-                 <div class="et-back-arrow">
-                    <a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#" class="back-arrow-link">
-                       <span class="icon-arrow-left2 arrow-left"></span>
-                    </a>
-                 </div>
-                 <div class="et-header-tex">
-                    <h3 id="">簽署</h3>
-                 </div>
-              </div>
-              <span id="step-of">4 out of 5</span>
-           </div>
-        </div>
-     </div>
-	
-	<!-- Application Content Start -->
-	<div class="app-pg-cont">
-		<form id="ef-form-payment">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12 col-md-12">
+  
+  <!-- Breadcrumb Component Start-->
+
+      <c:set var="breadcrumbItems">
+          breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+      </c:set>
+        <c:set var="breadcrumbActive">3</c:set>
+      
+      <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+        <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+        <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+    </jsp:include>
+
+  <!-- Breadcrumb Component End-->
+
+  <!-- StepIndicator Component Start-->
+
+      <c:set var="stepItems">
+          stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+      </c:set>
+      <c:set var="stepActive">2</c:set>
+      
+      <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+        <jsp:param name="stepItems" value="${stepItems}"/>
+        <jsp:param name="stepActive" value="${stepActive}"/>
+      </jsp:include>
+
+  <!-- StepIndicator Component End-->
+    
+    <!-- Application Content Start -->
+    <div class="app-pg-cont">
+        <form id="ef-form-payment">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
                     <h3 class="heading-title"><fmt:message key="signature.title" bundle="${msg}" /></h3>
                      <p><fmt:message key="signature.description" bundle="${msg}" /></p>
                      <form action="">

@@ -1,4 +1,4 @@
-﻿﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -23,19 +23,60 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comp/breadcrumb.css">
-    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-    	<jsp:param name="productName" value="easyHealth"/>
-    	<jsp:param name="activeBreadcrumb" value="2"/>
-	</jsp:include>
+	<!-- Breadcrumb Component Start-->
+	    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+		<c:set var="breadcrumbActive" value="0" />
+
+	    <c:if test="${planIndex == 'medical-insurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+			</c:set>
+	    	<c:set var="breadcrumbActive">3</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'savings-insurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
+	    	</c:set>
+	    	<c:set var="breadcrumbActive">3</c:set>
+	    </c:if>
+
+	    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+	    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+		</jsp:include>
+
+	<!-- Breadcrumb Component End-->
 
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
 
-     	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comp/step-indicator.css">
-	     <div class="container-fluid fwd-full-container browse-holder">
-	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp" />
-	     </div>
-	
+     	<!-- StepIndicator Component Start-->
+
+     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+		<c:set var="stepActive" value="0" />
+
+		<c:if test="${planIndex == 'medical-insurance'}">
+	    	<c:set var="stepItems">
+	    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+			</c:set>
+	    	<c:set var="stepActive">1</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'savings-insurance'}">
+	    	<c:set var="stepItems">
+	    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
+	    	</c:set>
+	    	<c:set var="stepActive">1</c:set>
+	    </c:if>
+
+	     <!--<div class="container-fluid fwd-full-container browse-holder">-->
+	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+	        	<jsp:param name="stepItems" value="${stepItems}"/>
+    			<jsp:param name="stepActive" value="${stepActive}"/>
+	    	</jsp:include>
+	     <!--</div>-->
+
+		<!-- StepIndicator Component End-->
+
+
 	<!-- Application Content Start -->
 		<div class="app-pg-cont">
 			<form id="ef-form-underwriting">

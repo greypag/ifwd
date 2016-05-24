@@ -98,7 +98,7 @@ public class LifeController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM);
+		return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/single-premium"})
@@ -119,7 +119,7 @@ public class LifeController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM);
+		return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-rp", "/{lang}/savings-insurance/plan-details-sp"})
@@ -127,12 +127,15 @@ public class LifeController extends BaseController{
 		HttpSession httpSession = request.getSession();
 		String current = request.getServletPath();
 		String OG_META_KEY = "";
+		String plan = "";
 		if(current.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS_RP)) {
 			httpSession.setAttribute("savieType", "RP");
 			OG_META_KEY = UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_REGULAR_PREMIUM;
+			plan = "savings-insurance";
 		}else {
 			httpSession.setAttribute("savieType", "SP");
 			OG_META_KEY = UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM;
+			plan = "savings-insurance";
 		}
 		Date date = new Date();
 		Calendar startDOB = new GregorianCalendar();
@@ -185,7 +188,7 @@ public class LifeController extends BaseController{
 			defaultDOB.add(defaultDOB.YEAR, -18);
 		}
 		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-		return SavieOnlinePageFlowControl.pageFlow("",model,request, OG_META_KEY);
+		return SavieOnlinePageFlowControl.pageFlow(plan,model,request, OG_META_KEY);
 	}
 	
 	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
@@ -223,7 +226,7 @@ public class LifeController extends BaseController{
 			if(request.getSession().getAttribute("savieFna")!=null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/FNA/review");
 			} else {
-				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
+				return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
 			}
 		}
 		
@@ -256,7 +259,7 @@ public class LifeController extends BaseController{
 			model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
 			model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
 
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 		}
 	}
 	
@@ -279,7 +282,7 @@ public class LifeController extends BaseController{
 			model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
 			model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
 			model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 		}
 	}
 	
@@ -303,7 +306,7 @@ public class LifeController extends BaseController{
 				logger.info(e.getMessage(),e);
 				request.getSession().setAttribute("errorMsg", e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
 		}
 	}
 	
@@ -624,7 +627,7 @@ public class LifeController extends BaseController{
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
-				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
+				return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 			}else {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 						+ "/savings-insurance");
@@ -692,7 +695,7 @@ public class LifeController extends BaseController{
 				logger.info(e.getMessage());
 				request.getSession().setAttribute("errorMsg", e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE);
 		}
 	}
 	
@@ -781,7 +784,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 		}
 	}
 	
@@ -826,7 +829,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 		}
 	}
 	
@@ -854,7 +857,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
 		}
 	}
 	
@@ -878,7 +881,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
 		}
 	}
 	
@@ -900,7 +903,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP);
 		}
 	}
 	
@@ -922,7 +925,7 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP);
+			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP);
 		}
 	}
 	
@@ -945,7 +948,7 @@ public class LifeController extends BaseController{
 				} catch (Exception e) {
 					logger.info(e.getMessage());
 				}
-				return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER);
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER);
 			}else {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan+"/plan-details");
 			}
