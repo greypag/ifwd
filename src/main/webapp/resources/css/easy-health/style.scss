@@ -267,16 +267,16 @@ ol.lower-roman {
                     font-size: 16px;
                     text-align: left;
                     &.t1 {
-                        background-color: #007e4d;
+                        background-color: #008856;
                     }
                     &.t2 {
-                        background-color: #ff7b80;
+                        background-color: #ff868b;
                     }
                     &.t3 {
-                        background-color: #ff7119;
+                        background-color: #ff7d1b;
                     }
                     &.t4 {
-                        background-color: #1389a1;
+                        background-color: #1394aa;
                     }
                     &.head {
                         text-align: center;
@@ -512,12 +512,16 @@ ol.lower-roman {
             }
         }
         .box-15yr-policy {
-            margin: 0 auto;
+            margin: 0 auto 15px auto;
             text-align: left;
             max-width: 390px;
             position: relative;
             margin-top: 20px;
             margin-top: 10px;
+            &+p{
+                color: #fcae15;
+                margin: 10px auto;
+            }
             .lbl15yr-policy-top{
                 font-size: 20px;
                 font-weight: bold;
@@ -805,7 +809,7 @@ ol.lower-roman {
                 .img-big-border {}
                 .img-id {
                     @media screen and (min-width: 992px) {
-                        left: -2%;
+                        left: -4%;
                         top: -6%;
                     }
                 }
@@ -817,25 +821,25 @@ ol.lower-roman {
                 }
                 .img-hc {
                     @media screen and (min-width: 992px) {
-                        left: -19%;
+                        left: -23%;
                         bottom: 30%;
                     }
                 }
                 .img-15 {
                     @media screen and (min-width: 992px) {
-                        right: -19%;
+                        right: -21%;
                         bottom: 30%;
                     }
                 }
                 .img-db {
                     @media screen and (min-width: 992px) {
-                        left: -2%;
+                        left: -5%;
                         bottom: -8%;
                     }
                 }
                 .img-adb {
                     @media screen and (min-width: 992px) {
-                        right: -2%;
+                        right: -3%;
                         bottom: -8%;
                     }
                 }
@@ -875,6 +879,8 @@ ol.lower-roman {
                     color: #fff;
                     font-size: 24px;
                     font-weight: bold;
+                    display: inline-block;
+                    margin-bottom: 10px;
                 }
                 p {
                     font-size: 16px;
@@ -963,30 +969,41 @@ ol.lower-roman {
                 font-size: 16px;
                 margin-bottom: 10px;
             }
-            .box-paidget-wrap{
-                padding: 10px;
-                margin: 0 auto 0 auto; 
-                border-radius: 4px;
-                max-width: 390px;
-                .after15-text{
-                    margin: 10px 0;
-                }
-            }
-            .box-paidget {
-                display: inline-block;
-            }
             .txt-paidget {
                 font-size: 20px;
                 font-weight: bold;
                 margin-bottom: 5px;
+            }
+            .box-paidget-wrap{
+                max-width: 390px;
+                margin: 0 auto;
             }
             .txt-paidget-price {
                 font-size: 30px;
                 font-weight: bold;
                 border-radius: 4px;
                 padding: 8px;
+                display: inline-block;
+                &.txt-price-y15{
+                    background: #fff;
+                    color: #fcae15;
+                    margin-bottom: 20px;
+                    &:after{
+                        content: "";
+                        background: url(../../images/easy-health/p3_s4_table_arrow.png);
+                        display: inline-block;
+                        width: 46px;
+                        height: 20px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                    }
+                }
                 &.txt-price-y15_102{
                     background-color: #fcae15;
+                    margin-bottom: 30px;
                 }
             }
             .highlight {
@@ -1024,12 +1041,12 @@ ol.lower-roman {
 }
 
 .row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: stretch;
+    // display: -webkit-box;
+    // display: -webkit-flex;
+    // display: -ms-flexbox;
+    // display: flex;
+    // flex-flow: row wrap;
+    // align-items: stretch;
 }
 
 .mbsc-mobiscroll .dwwr {
@@ -1078,6 +1095,12 @@ ol.lower-roman {
     .row-eq-height {
         display: block;
     }
+    .easy-health .step3 .plan-refund .txt-paidget{
+        font-size: 18px;
+    }
+    .easy-health .step3 .plan-refund .txt-paidget-price{
+        font-size: 26px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1110,27 +1133,26 @@ ol.lower-roman {
             }
         }
     }
-    .step3 {
-        .txt-price {
-            top: 54%;
+    .easy-health .step3 .plan-detail .plan-detail-desc{
+        .img-hc,
+        .img-id,
+        .img-icu,
+        .img-15,
+        .img-adb,
+        .img-db {
+            .txt-price {
+                top: 54%;
+                font-size: 24px;
+            }
+        }
+        .img-15{
+            .txt-price{
+                top: 63%;
+            }
         }
     }
 }
 
-@media screen and (max-width: 460px) {
-    .box-paidget-wrap{
-        .vcenter{
-            display: block !important;
-            .right{
-                display: none !important;
-            }
-            .down{
-                margin: 0 auto 10px auto !important;
-                display: block !important;
-            }
-        }
-    }
-}
 @media screen and (min-width: 768px) {
     .step1 .col-sm-4{
         width: 33%;
@@ -1210,7 +1232,11 @@ ol.lower-roman {
                         &.t3,
                         &.t4 {
                             background-color: #ccc;
+                            &.head{
+                                background-color: #3a3a3a;
+                            }
                         }
+
                     }
                     .plan-adb, .plan-db{
                         .text{
@@ -1237,7 +1263,7 @@ ol.lower-roman {
         .img-15,
         .img-adb,
         .img-db {
-            > .txt-price { font-size: 16px;}
+            > .txt-price { font-size: 16px !important;}
             &:hover {
                 animation: scaleBall .2s forwards;
             }

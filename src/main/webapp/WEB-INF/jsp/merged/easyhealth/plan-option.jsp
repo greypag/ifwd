@@ -21,8 +21,8 @@ var ehPro = '${pro }';
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/style.css">
-        <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
-        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
+        <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
+        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/nouislider.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/jquery-ui.effect.core.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/uifn.js"></script>
@@ -123,11 +123,13 @@ var ehPro = '${pro }';
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
                                         <h5 class="text-center"><fmt:message key="label.dob" bundle="${msg}" />:</h5>
-                                        <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->
-                                        <div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-                                            <input  name="plan-dob" id="plan-dob-datepicker" readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+                                        <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->	
+                                        <!--<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">		
+                                            <!-- <input  name="plan-dob" id="plan-dob-datepicker" readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
+                                            <input id="dob" placeholder="Please Select..." />
                                             <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-                                        </div>
+                                        </div> -->
+                                        <input id="dob" name="plan-dob" placeholder="Please Select ..." readonly>
                                     </div>
                                 </div>
                                 <div class="clearfix visible-xs"></div>
@@ -732,19 +734,22 @@ var ehPro = '${pro }';
                                             </div>
                                         </div>
                                         <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
+                                        
                                         <div class="box-paidget-wrap">
-                                            <div class="box-paidget">
+                                            <div class="col-xs-4">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
+                                            </div>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget vcenter">
-                                                <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
-                                                <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
+
+                                            <div class="col-xs-4">
+                                                <p class="txt-paidget highlight"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget">
-                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -937,18 +942,20 @@ var ehPro = '${pro }';
                                         </div>
                                         <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
-                                            <div class="box-paidget">
+                                            <div class="col-xs-4">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
+                                            </div>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget vcenter">
-                                                <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
-                                                <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
+
+                                            <div class="col-xs-4">
+                                                <p class="txt-paidget highlight"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget">
-                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1140,18 +1147,20 @@ var ehPro = '${pro }';
                                         </div>
                                         <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
-                                            <div class="box-paidget">
+                                            <div class="col-xs-4">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
+                                            </div>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget vcenter">
-                                                <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
-                                                <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
+
+                                            <div class="col-xs-4">
+                                                <p class="txt-paidget highlight"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget">
-                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1343,18 +1352,20 @@ var ehPro = '${pro }';
                                         </div>
                                         <p><fmt:message key="easyhealth.plandetails.infographic2.after15.text" bundle="${msg}" /></p>
                                         <div class="box-paidget-wrap">
-                                            <div class="box-paidget">
+                                            <div class="col-xs-4">
                                                 <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text4" bundle="${msg}" /> </p>
+                                            </div>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget vcenter">
-                                                <img class="right" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow.png">
-                                                <img class="down" src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s4_arrow_down.png">
+
+                                            <div class="col-xs-4">
+                                                <p class="txt-paidget highlight"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
                                             </div>
-                                            <div class="box-paidget">
-                                                <p class="txt-paidget"><fmt:message key="easyhealth.plandetails.infographic2.text5" bundle="${msg}" /></p>
+                                            <div class="col-xs-8">
                                                 <p class="txt-paidget-price txt-price-y15_102"><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="value"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></p>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1392,7 +1403,7 @@ var ehPro = '${pro }';
                                  </a>
                               </h4>
                                                     </div>
-                                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
+                                                    <div id="collapseOne" class="panel-collapse in" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
                                                             <p><b><fmt:message key="easyhealth.plandetails.risk.1.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.2.content" bundle="${msg}" /></p>
@@ -1624,14 +1635,23 @@ var ehPro = '${pro }';
         dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
         dob_start_date.setDate(dob_start_date.getDate()+1);
         
-        $('#plan-dob-datepicker').datepicker({
-            format: "yyyy-mm-dd",
-            startView: "decade",
-            startDate: dob_start_date,
-            endDate: dob_end_date,
-            autoclose: true,
-            startView: 2
-        }).css('cursor', 'default');
+        // $('#plan-dob-datepicker').datepicker({
+        //     format: "yyyy-mm-dd",
+        //     startView: "decade",
+        //     startDate: dob_start_date,
+        //     endDate: dob_end_date,
+        //     autoclose: true,
+        //     startView: 2
+        // }).css('cursor', 'default');
+
+        $('#calendarTime-demo').mobiscroll().calendar({
+            theme: "mobiscroll",        // Specify theme like: theme: 'ios' or omit setting to use default
+            lang: "zh",      // Specify language like: lang: 'pl' or omit setting to use default
+            display: $('#display').val(),    // Specify display mode like: display: 'bottom' or omit setting to use default
+            mode: "inline",          // More info about mode: https://docs.mobiscroll.com/2-17-2/calendar#!opt-mode
+            controls: ['calendar', 'time'],  // More info about controls: https://docs.mobiscroll.com/2-17-2/calendar#!opt-controls
+            mode: 'mixed'                    // More info about mode: https://docs.mobiscroll.com/2-17-2/calendar#!opt-mode
+        });
         
         $("#btnLoginApply, .plan-detail-desc .btn-apply").click(function() {
             //### start TNC check
