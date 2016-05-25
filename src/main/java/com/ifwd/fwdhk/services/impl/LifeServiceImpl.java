@@ -3175,10 +3175,11 @@ public class LifeServiceImpl implements LifeService {
 			subject = "payment";
 			template = "savie\\payment.html";
 		}else if("rophiComplete".equals(action)) {
-			subject = "FWD Medical Insurance Plan - Complete | 您的網上富衛医疗保险申請已完成！";
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "FWD Medical Insurance Plan - Complete - " + lifePolicy.getPolicyNo() + " | 您的網上富衛醫療保險申請已完成！ - " + lifePolicy.getPolicyNo();
 			template = "rophi\\rophiComplete.html";
 		}else if("rophiUploadDocument".equals(action)) {
-			subject = "FWD Medical Insurance Plan – Document Upload | 富衛医疗保险 – 上載檔案";
+			subject = "FWD Medical Insurance Plan – Document Upload | 富衛醫療保險 – 上載檔案";
 			template = "rophi\\uploadDocument.html";
 		}
 		
