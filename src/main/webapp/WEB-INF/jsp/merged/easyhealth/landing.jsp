@@ -154,7 +154,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                 </div>
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-7.png">
                                     <span><fmt:message key="benfit.group4.easyhealth" bundle="${msg}" /></span>
                                     <div class="hidden-benefits benefits-content">
                                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png" />
@@ -246,7 +246,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                 </div>
                                                 <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-4">
                                                     <div class="benefits-content clearfix">
-                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-6.png">
+                                                        <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-7.png">
                                                         <div class="info">
                                                             <h3><fmt:message key="benfit.group4.title.easyhealth" bundle="${msg}" /></h3>
                                                             <p><fmt:message key="benfit.group4.copy.easyhealth" bundle="${msg}" /></p>

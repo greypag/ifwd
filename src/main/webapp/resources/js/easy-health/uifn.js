@@ -40,14 +40,17 @@ $(document).ready(function() {
 
     var currYear = new Date().getFullYear();
 
-    $('#dob').mobiscroll().date({
+
+    $('#dob').mobiscroll().calendar({
         dateOrder: 'ddMyy',
-        dateFormat: 'dd-mm-yy',
         display: 'inline',
         showLabel: true,
         mode: 'scroller',
+        controls: ['date'],
         layout: 'liquid',
-        minWidth: 40
+        minWidth: 40,
+        minDate: new Date(1959, 7, 14),
+        dateFormat: 'yyyy-mm-dd'
     });
 
     var mh = 0;
@@ -66,7 +69,7 @@ $(document).ready(function() {
 
         $("#loadingDiv").addClass("show");
 
-        var dobStr = $('#plan-dob-datepicker').val();
+        var dobStr = $('#dob').val();
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
             $("#loadingDiv").removeClass("show");
             fillPlanData(data);
@@ -185,7 +188,7 @@ $(document).ready(function() {
     });
 
 
-    $("#plan-dob-datepicker").change(checkStepSelection);
+    $("#dob").change(checkStepSelection);
 
     $(".step-option .item").click(function (){
         checkSuggestionSelection();
@@ -343,7 +346,7 @@ function showSuggestionModal() {
 function checkStepSelection() {
     var totalSelectedOpt = $(".step1 .item.selected").length;
 
-    if (totalSelectedOpt === 2 && !!$("#plan-dob-datepicker").val()) {
+    if (totalSelectedOpt === 2 && !!$("#dob").val()) {
         $(".step1 .eh-btn-plan-overview").removeClass("disabled-gray-btn");
     }
 }
@@ -493,3 +496,41 @@ function setTNCChecked(isChecked){
     errMsg$.html("");
     tnc$.prop("checked", isChecked);
 }
+
+
+$(function(){    
+    // Bind a handler for ALL hash/state changes
+    $.History.bind(function(state){
+        // Update the current element to indicate which state we are now on
+        $current.text('Our current state is: ['+state+']');
+        // Update the page's title with our current state on the end
+        document.title = document_title + ' | ' + state;
+    });
+    
+    // Bind a handler for state: apricots
+    $.History.bind('#123',function(state){
+        // Update Menu
+        updateMenu(state);
+        // Show apricots tab, hide the other tabs
+        $tabs.hide();
+        $apricots.stop(true,true).fadeIn(200);
+    });
+
+    // Bind a handler for state: bananas
+    $.History.bind('#456',function(state){
+        // Update Menu
+        updateMenu(state);
+        // Show bananas tab, hide the other tabs
+        $tabs.hide();
+        $bananas.stop(true,true).fadeIn(200);
+    });
+    
+    // Bind a handler for state: coconuts
+    $.History.bind('#789',function(state){
+        // Update Menu
+        updateMenu(state);
+        // Show coconuts tab, hide the other tabs
+        $tabs.hide();
+        $coconuts.stop(true,true).fadeIn(200);
+    });
+});

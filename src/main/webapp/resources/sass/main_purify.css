@@ -9972,12 +9972,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 .lang-grp li:last-child a {
     border-right: none;
 }
-.logobox .mobile-menu-V2 .dropdown .dropdown-menu {
-    display: none;
-}
-.logobox .mobile-menu-V2 .dropdown.open .dropdown-menu {
-    display: block;
-}
+
 /*/menu language btn add 160314*/
 /* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
 #myDropdown.dropdown:hover .dropdown-menu{
