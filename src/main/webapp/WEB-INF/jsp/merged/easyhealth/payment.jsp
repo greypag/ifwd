@@ -44,7 +44,7 @@ var home_url = "<%=request.getContextPath()%>";
 		</jsp:include>
 
 	<!-- Breadcrumb Component End-->
-
+ 
 	<!-- StepIndicator Component Start-->
 
     	<c:set var="stepItems">
@@ -58,6 +58,8 @@ var home_url = "<%=request.getContextPath()%>";
     	</jsp:include>
 
 	<!-- StepIndicator Component End-->
+	
+	<div class="savie-online-container app-pg-ctnr" id="eh-app-payment">
 	
 	<!-- Application Content Start -->
 	<div class="app-pg-cont">

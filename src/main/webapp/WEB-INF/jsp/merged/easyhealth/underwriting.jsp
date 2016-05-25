@@ -18,8 +18,6 @@ var home_url = "<%=request.getContextPath()%>";
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/application.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/easyhealth-application.css">
-     <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
- <%--   <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script> --%>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
@@ -191,7 +189,7 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 							<div class="btn-row text-center">
-								<a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
+								<a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-btn-underwriting-next"><fmt:message key="button.next" bundle="${msg}" /></a>
 							</div>
 					</div>
 				</div>
