@@ -1574,10 +1574,10 @@ var ehPro = '${pro }';
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
-                                            <h4 class="text-center welcome-msg">Welcome back to Savie Insurance Plan!<span id="fullName1" class="hidden"></span></h4>
-                                            <p class="text-center description-msg">Unfortunately, each member is only permitted to make one application. Should you have any queries, please do not hesitate to call our Customer Hotline on 3123 3123.</p>
+                                            <h4 class="text-center welcome-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" /><span id="fullName1" class="hidden"></span></h4>
+                                            <p class="text-center description-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" /></p>
                                             <center>
-                                                <button class="btn savie-common-btn" id="back-home">Back to home</button>
+                                                <button class="btn savie-common-btn" id="back-home"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
                                             </center>
                                         </div>
                                     </div>
