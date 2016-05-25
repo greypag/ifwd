@@ -55,6 +55,8 @@ var home_url = "<%=request.getContextPath()%>";
 
   <!-- StepIndicator Component End-->
     
+    <div class="savie-online-container app-pg-ctnr" id="eh-app-signature">
+    
     <!-- Application Content Start -->
     <div class="app-pg-cont">
         <form id="ef-form-payment">
