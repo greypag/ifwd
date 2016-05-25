@@ -46,7 +46,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.quote.easyhealth" bundle="${msg}" /></button>
                         </div>                      
                     <div class="savie-product text-bold">
-                        <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="label.brochure" bundle="${msg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
+                        <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
                     </div>
                     </div>
                 </form>
