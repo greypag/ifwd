@@ -25692,34 +25692,42 @@ label.et-bene-radio,#et-application-second-section label,
         padding-top: 5px;
     }
 
-#et-select-plan-go-homepage {
-	color: #fff;
-	background: #ff8200;
-	font-size: 24px;
-	font-family: 'Calibri-Bold';
-	padding: 7px 40px;
-	margin-bottom: 50px;
-}
-#et-select-plan-go-homepage:hover, #et-select-plan-go-homepage:focus
-	{
-	background: #fff;
-	color: #ff8200;
-	border: 1px solid #ff8200;
-	-webkit-transition: background 0.1s ease-in;
-	-moz-transition: background 0.1s ease-in;
-	-ms-transition: background 0.1s ease-in;
-	-o-transition: background 0.1s ease-in;
-	transition: background 0.1s ease-in;
-	background 0.1s ease-in;
-	-o-transition: background 0.1s ease-in;
-	transition: background 0.1s ease-in;
-}
+	#et-select-plan-go-homepage {
+		color: #fff;
+		background: #ff8200;
+		font-size: 24px;
+		font-family: 'Calibri-Bold';
+		padding: 7px 40px;
+		margin-bottom: 50px;
+	}
+	#et-select-plan-go-homepage:hover, #et-select-plan-go-homepage:focus
+		{
+		background: #fff;
+		color: #ff8200;
+		border: 1px solid #ff8200;
+		-webkit-transition: background 0.1s ease-in;
+		-moz-transition: background 0.1s ease-in;
+		-ms-transition: background 0.1s ease-in;
+		-o-transition: background 0.1s ease-in;
+		transition: background 0.1s ease-in;
+		background 0.1s ease-in;
+		-o-transition: background 0.1s ease-in;
+		transition: background 0.1s ease-in;
+	}
 
 
-.fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .radio-buttons label.et-bene-radio{
-    position: inherit;
-    color: #061d2a;
-    margin-top: -2px;
-    padding-top: 0;
-    border: 0;	
+	.fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .radio-buttons label.et-bene-radio{
+	    position: inherit;
+	    color: #061d2a;
+	    margin-top: -2px;
+	    padding-top: 0;
+	    border: 0;	
+	}
+}
+
+@media ( min-width : 992px) {
+	/* #2482 - Upload later button width */
+	.button--full {
+	    width: 100% !important;
+	  }
 }
