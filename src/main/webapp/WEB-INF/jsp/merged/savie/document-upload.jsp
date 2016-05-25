@@ -381,8 +381,8 @@ var languageP = "${language}";
 		              <h2 id="error-to-home-modal-errorMessage">Unexpected Error</h2>  
 		           </div>
 		           <div class="row">
-		              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">		                 
-	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="error-to-home-btn" data-dismiss="modal">
+		              <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 fwd-orange-btn-center-wrapper">		                 
+	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5 button--full" id="error-to-home-btn" data-dismiss="modal">
 	                 		<fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" />
 	                 	</button>
 	                 	<script>
