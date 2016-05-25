@@ -100,9 +100,9 @@ $(document).ready(function(){
 
 	function validateUnderWriting(radio){
 		
-		var allNo = $('input[name="ehUnderWriting1"]:checked').val() == "No"
-			 		&& $('input[name="ehUnderWriting2"]:checked').val() == "No"
-			 		&& $('input[name="ehUnderWriting3"]:checked').val() == "No";
+		var allNo = $('input[name="ehUnderWriting1"]').prop('checked')
+			 		&& $('input[name="ehUnderWriting2"]').prop('checked')
+			 		&& $('input[name="ehUnderWriting3"]').prop('checked')
 
 		if(radio){
 			 if($('input[name="'+ radio+'"]:checked').val() == "Yes"){

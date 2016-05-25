@@ -115,7 +115,7 @@
     .app-pg-ctnr .fld-wrapper .mdl-select {
       position: relative; }
       .app-pg-ctnr .fld-wrapper .mdl-select:after {
-        background: url("../../images/orange-caret.png") no-repeat;
+        background: url("/asset/orange-caret.png") no-repeat;
         background-size: contain;
         content: '';
         position: absolute;
@@ -125,7 +125,15 @@
         top: 20px;
         z-index: 10; }
       .app-pg-ctnr .fld-wrapper .mdl-select.is-focused:after {
-        background: url("../../images/orange-caret-inv.png") no-repeat;
+        background: url("/asset/orange-caret-inv.png") no-repeat;
         background-size: contain; }
+
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline {
+  color: black; }
 
 /*# sourceMappingURL=application.css.map */
