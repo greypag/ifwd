@@ -3,6 +3,10 @@ var getPremiumApiLink = contextPath+'/ajax/medical-insurance/getPremium';
 var putPremiumApiLink = contextPath+'/ajax/medical-insurance/putPremium';
 var ehStep = ehStep;
 var ehPro = ehPro;
+var actionBtn = null;
+var getPremiumApiLinkCalled = false;
+
+window.location.hash = "";
 
 window.onorientationchange = function (){
     alignChildHeight(".row-eq-height", "> [class^=col-]");
@@ -65,12 +69,17 @@ $(document).ready(function() {
         var genderNum = $("#gender-opt .item.selected").attr("data-gender");
         var smokerNum = $("#smoker-opt .item.selected").attr("data-smoker");
 
+        if($("#dob").val() != "" && !!genderNum && !!smokerNum){
+            $(this).removeClass("disabled-gray-btn");
+        }
+
         if ($(this).hasClass("disabled-gray-btn")) return;
 
         $("#loadingDiv").addClass("show");
 
         var dobStr = $('#dob').val();
         $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
+            getPremiumApiLinkCalled = true;
             $("#loadingDiv").removeClass("show");
             fillPlanData(data);
             //change step2 back btn img
@@ -80,6 +89,12 @@ $(document).ready(function() {
             $(".step1").fadeOut(function() {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 $(".step2").fadeIn();
+                window.location.hash = "#"+hash_aryStage[1];
+
+                if(actionBtn){
+                    $(actionBtn).click();
+                    actionBtn = null;   
+                }
             });
             if(ehStep == '2'){
             	$(".step2").hide();
@@ -94,7 +109,12 @@ $(document).ready(function() {
         });
     });
 
-    $(".eh-btn-tbl-detail").click(function() {
+    $(".eh-btn-tbl-detail").click(function(e) {
+
+        if(!getPremiumApiLinkCalled){
+            actionBtn = $(e.currentTarget);
+            return;
+        }
         $(".eh-plan-tab").hide();
         $(".btn-plan-selector[data-tab='" + $(this).data("tab") + "']:first").trigger("click");
         
@@ -104,15 +124,16 @@ $(document).ready(function() {
             alert("network error.");
         });
 
+        window.location.hash = "#" + hash_aryStage[2];
 
-        $(".step2").fadeOut(function() {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            $(".step3, .sticky-help-wrapper").fadeIn(800, function() {
-                stickerOffsetTop = $(".sticky-help-wrapper").offset().top;
-                $(window).scroll();
-            });
+        // $(".step2").fadeOut(function() {
+        //     $("html, body").animate({ scrollTop: 0 }, "slow");
+        //     $(".step3, .sticky-help-wrapper").fadeIn(800, function() {
+        //         stickerOffsetTop = $(".sticky-help-wrapper").offset().top;
+        //         $(window).scroll();
+        //     });
 
-        });
+        // });
     });
 
     $(".plan-selector-m .btn-show-more, .plan-selector-m .btn-plan-selector, .plan-selector-m .btn-plan-back").click(function() {
@@ -143,10 +164,11 @@ $(document).ready(function() {
     });
 
     $(".btn-plan-back").click(function() {
-        $(".step3").fadeOut(function() {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            $(".step2").fadeIn();
-        });
+        // $(".step3").fadeOut(function() {
+        //     $("html, body").animate({ scrollTop: 0 }, "slow");
+        //     $(".step2").fadeIn();
+        // });
+        window.location.hash = "#"+ hash_aryStage[1];
     });
 
     $(".sticky-help-wrapper").click(function() {
@@ -174,17 +196,13 @@ $(document).ready(function() {
     });
 
     $(".btn-back-step1").click(function() {
-        $(".step2").fadeOut(function() {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            $(".step1").fadeIn(400, function (){
-                alignChildHeight(".row-eq-height", "> [class^=col-]");
-            });
-        });
-
-        $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
-        $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
-        $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
-        $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
+        // $(".step2").fadeOut(function() {
+        //     $("html, body").animate({ scrollTop: 0 }, "slow");
+        //     $(".step1").fadeIn(400, function (){
+        //         alignChildHeight(".row-eq-height", "> [class^=col-]");
+        //     });
+        // });
+        window.location.hash = "";
     });
 
 
@@ -497,40 +515,66 @@ function setTNCChecked(isChecked){
     tnc$.prop("checked", isChecked);
 }
 
-
+var hash_aryStage = [
+    "about-me",
+    "plan-overview",
+    "plan-details"
+]
 $(function(){    
     // Bind a handler for ALL hash/state changes
-    $.History.bind(function(state){
-        // Update the current element to indicate which state we are now on
-        $current.text('Our current state is: ['+state+']');
-        // Update the page's title with our current state on the end
-        document.title = document_title + ' | ' + state;
-    });
+    // $.History.bind(function(state){
+    //     // Update the current element to indicate which state we are now on
+    //     $current.text('Our current state is: ['+state+']');
+    //     // Update the page's title with our current state on the end
+    //     document.title = document_title + ' | ' + state;
+    // });
+    var cur = null;
     
-    // Bind a handler for state: apricots
-    $.History.bind('#123',function(state){
-        // Update Menu
-        updateMenu(state);
-        // Show apricots tab, hide the other tabs
-        $tabs.hide();
-        $apricots.stop(true,true).fadeIn(200);
+
+    $.History.bind('',function(state){
+        if(cur == hash_aryStage[1]){
+            //reserve animation
+            $(".step2").stop(true, true).hide();
+            $(".step1").stop(true, true).fadeIn(function (){alignChildHeight(".row-eq-height", "> [class^=col-]");});
+        }
+
+        cur = "about-me";
+        console.log("about-me");
+        
     });
 
-    // Bind a handler for state: bananas
-    $.History.bind('#456',function(state){
-        // Update Menu
-        updateMenu(state);
-        // Show bananas tab, hide the other tabs
-        $tabs.hide();
-        $bananas.stop(true,true).fadeIn(200);
+
+    $.History.bind(hash_aryStage[1],function(state){
+        if(cur == hash_aryStage[2]){
+            //reserve animation
+            $(".step3").stop(true, true).hide();
+            $(".step2").stop(true, true).fadeIn();
+
+            $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
+        }
+        if(cur == hash_aryStage[0]){
+            $(".step1").stop(true, true).hide();
+            $(".step2").stop(true, true).fadeIn();   
+        }
+
+        cur = hash_aryStage[1];
+        console.log(hash_aryStage[1]);
     });
     
-    // Bind a handler for state: coconuts
-    $.History.bind('#789',function(state){
-        // Update Menu
-        updateMenu(state);
-        // Show coconuts tab, hide the other tabs
-        $tabs.hide();
-        $coconuts.stop(true,true).fadeIn(200);
+    $.History.bind(hash_aryStage[2],function(state){
+        if(cur == hash_aryStage[1] || cur == null){
+            $(".step2").stop(true, true).hide();
+            $(".step3").stop(true, true).fadeIn(function (){
+                stickerOffsetTop = $(".sticky-help-wrapper").offset().top;
+                $(window).scroll();
+            });   
+        }
+
+
+        cur = hash_aryStage[2];
+        console.log(hash_aryStage[2]);
     });
 });
