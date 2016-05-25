@@ -1005,7 +1005,7 @@ function getStarted(){
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
 	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a></li>
-	                </ul>
+	                	</ul>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
 	                    <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /></a></li>
@@ -1020,14 +1020,28 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
-						<li class="menu-link-grp-title"><a
-							href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
-									key="header.product.type1.group3.title" bundle="${msg}" /></a></li>
+						<li class="menu-link-grp-title">
+							<a href="<%=request.getContextPath()%>/${language}/home-insurance">
+								<fmt:message key="header.product.type1.group3.title" bundle="${msg}" />
+							</a>
+							<ul class="col-sm-12 dropdown-menu">
+								<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
+						 	</ul>
+						</li>
 					</ul>
             </li>
-            <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
-              <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
-            </li>
+            <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu"> <%-- Saving Insurance --%>
+							<%-- <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a> --%>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+							<ul class="col-sm-12 dropdown-menu">
+								<li class="menu-link-grp-title">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type2.group1.title" bundle="${msg}" /></a>
+										<ul class="col-sm-12 dropdown-menu">
+											<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a></li>
+										</ul>
+	            	</li>
+							</ul>
+						</li>
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom link-grp fwd-header-navgation-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
