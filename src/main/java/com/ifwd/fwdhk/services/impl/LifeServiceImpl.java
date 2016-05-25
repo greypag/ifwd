@@ -3157,7 +3157,8 @@ public class LifeServiceImpl implements LifeService {
 			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
 			template = "savie\\payLater.html";
 		}else if("uploadDocument".equals(action)) {
-			subject = "FWD Savie Insurance Plan – Document Upload | 富衛Savie自助息 – 上載檔案";
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "FWD Savie Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "savie\\uploadDocument.html";
 		}else if("savieComplete".equals(action)) {
 			subject = "FWD Savie Insurance Plan - Complete | 您的網上富衛自助息申請已完成！";
@@ -3176,10 +3177,11 @@ public class LifeServiceImpl implements LifeService {
 			template = "savie\\payment.html";
 		}else if("rophiComplete".equals(action)) {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
-			subject = "FWD Medical Insurance Plan - Complete - " + lifePolicy.getPolicyNo() + " | 您的網上富衛醫療保險申請已完成！ - " + lifePolicy.getPolicyNo();
+			subject = "FWD Medical Insurance Plan - Complete [" + lifePolicy.getPolicyNo() + "] | 您的網上富衛醫療保險申請已完成！ [" + lifePolicy.getPolicyNo() + "]";
 			template = "rophi\\rophiComplete.html";
 		}else if("rophiUploadDocument".equals(action)) {
-			subject = "FWD Medical Insurance Plan – Document Upload | 富衛醫療保險 – 上載檔案";
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
+			subject = "FWD Medical Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛醫療保險 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "rophi\\uploadDocument.html";
 		}
 		
