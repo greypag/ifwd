@@ -187,22 +187,21 @@ $(document).ready(function(){
 						notEmpty:{
 							message:'Please enter name printed on credit card.'
 							//message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
-						}/*,
+						},
 						callback:{
-							message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer service at 3123 3123 for more details.",
+							message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer hotline at 3123 3123 for more details.",
 							//message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
 							callback:function(e){
-								if($("#ccName").data("bv.result.notEmpty") === "INVALID"){
+								if($("#cardHolder").data("bv.result.notEmpty") === "INVALID"){
 									return true
 								}
-
-								if(application.common.validateCardHolder($("#appFirstName"),$("#appLastName"),$("#ccName"))){
+								if(application.common.validateCardHolder($("#appFirstName"),$("#appLastName"),$("#cardHolder"))){
 									return true;
 								}else{
 									return false;
 								}
 							}
-						}*/
+						}
 					}
 				},
 				securityCode: {
