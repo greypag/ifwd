@@ -79,7 +79,12 @@
 	        			<div class="row">
 	        				<div class="col-md-8" id="thankyou-message">
 	        					<h3 class="text-bold heading-title">
-	        					${plan == 'savings-insurance' ? '<fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" />':'Thank you for your application for EasyHealth Insurance Plan'}
+		        					<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.confirmation.success.purchase.savie.copy1" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.confirmation.success.purchase.easyhealth.copy1" bundle="${msg}" />
+	        						</c:if>
 	        					</h3>
 	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
 	        					<p id="success-purchase"><fmt:message key="information.successful.purchase.copy4" bundle="${msg}" /></p>
