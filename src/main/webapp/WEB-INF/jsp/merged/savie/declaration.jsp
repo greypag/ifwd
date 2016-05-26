@@ -179,8 +179,10 @@ var languageP = "${language}";
 						
 						<div class="replacement-declarations">
 							<p><b><fmt:message key="label.declaration.policyreplacement.confirm" bundle="${msg}" /></b></p>
-							<p><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></p>
-							<p><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></p>
+							<ol class="list list--lower-roman">
+								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></li>
+								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></li>
+							</ol>
 							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
 						</div>
 					</div>
@@ -196,7 +198,11 @@ var languageP = "${language}";
 							<p class="chkboxText"><fmt:message key="declaration.cancellation.copy1" bundle="${msg}" /></p>
 						</div>
 						<p id="chkCancellationErMsg" class="err-msg hidden" style="margin-bottom: 15px;"><fmt:message key="error.cancellation.policy.not.checked" bundle="${msg}" /></p>
+					</div>
+
+					<div class="cstm-panel">
 						<p><b><fmt:message key="declaration.residency.declaration.title" bundle="${msg}" /></b></p>
+						<hr>
 						<p><fmt:message key="declaration.residency.declaration.copy" bundle="${msg}" /></p>
 						<div class="radio-group clearfix">
 						   <div class="radio-button-group">

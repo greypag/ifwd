@@ -25732,3 +25732,15 @@ label.et-bene-radio,#et-application-second-section label,
 	    width: 100% !important;
 	  }
 }
+
+.list{
+	padding: 0 25px;
+}
+
+.list--lower-roman{
+	list-style: lower-roman;
+}
+
+.list__item{
+	margin-bottom: 10px;
+}
