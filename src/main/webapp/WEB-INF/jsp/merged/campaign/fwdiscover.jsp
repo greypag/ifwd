@@ -41,7 +41,8 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-06-30 14:59:59";
+    String countDownDate_regular = "2016-05-31 14:59:59";
+    String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
@@ -83,8 +84,8 @@
     } else {
         //Regular Offer Period
         countDownDate = countDownDate_regular;
-        countDownDD = "30";
-        countDownMM = "June";
+        countDownDD = "31";
+        countDownMM = "May";
 
         //Special Offer Period
         if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime() && request.getParameter("regular")==null){
@@ -92,11 +93,16 @@
     		countDownDate = countDownDate_special;
             countDownDD = "21";
             countDownMM = "May";        	
-        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime() && request.getParameter("regular")==null){
+        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-31 14:59:59").getTime() && request.getParameter("regular")==null){
             isRegSpecial = true;
             countDownDate = countDownDate_regular;
             countDownDD = "31";
             countDownMM = "May";
+        }else if(cCurrent >= cformat.parse("2016-05-31 15:00:00").getTime() && cCurrent <= cformat.parse("2016-06-31 14:59:59").getTime() && request.getParameter("regular")==null){
+            isRegSpecial = true;
+            countDownDate = countDownDate_regular2;
+            countDownDD = "30";
+            countDownMM = "June";
         }
 
         //Regular Offer ends Period
