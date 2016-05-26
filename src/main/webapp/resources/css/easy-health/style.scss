@@ -1257,6 +1257,20 @@ ol.lower-roman {
             }
         }
     }
+
+    body.chin .easy-health .step3 {
+        .img-icu {
+            > .txt-price {
+                top: 49% !important;
+            }
+        }
+        .img-id {
+            > .txt-price {
+                top: 53% !important;
+            }
+        }
+    }
+
     .plan-detail {
         min-height: 550px;
     }

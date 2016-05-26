@@ -1787,7 +1787,7 @@ var ehPro = '${pro }';
         		$("#gender0").click();
         	}
         	else{
-        		$("#gender1").click();
+        		$("#gender1").click();	
         	}
         	
         	if('${ehPlanDetail.smoker }' == '0'){
