@@ -87,12 +87,12 @@
         countDownMM = "June";
 
         //Special Offer Period
-        if((cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()) || request.getParameter("savie")!=null){
+        if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime() && request.getParameter("regular")==null){
         	isRegSpecial = true;
     		countDownDate = countDownDate_special;
             countDownDD = "21";
             countDownMM = "May";        	
-        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime()){
+        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime() && request.getParameter("regular")==null){
             isRegSpecial = true;
             countDownDate = countDownDate_regular;
             countDownDD = "31";
@@ -100,7 +100,7 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart  /* || 
+    	if(cCurrent >= cStart /* || 
            (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
            (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime())  */
            /*&& cCurrent < hotelcStart*/){
