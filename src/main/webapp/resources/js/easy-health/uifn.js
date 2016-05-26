@@ -53,7 +53,7 @@ $(document).ready(function() {
         controls: ['date'],
         layout: 'liquid',
         minWidth: 40,
-        minDate: new Date(nowDT.getFullYear() - 59, nowDT.getMonth(), nowDT.getDate()+1),
+        minDate: new Date(nowDT.getFullYear() - 60, nowDT.getMonth(), nowDT.getDate()+1),
         maxDate: new Date(nowDT.getFullYear() - 18, nowDT.getMonth(), nowDT.getDate()),
         dateFormat: 'yyyy-mm-dd'
     });
