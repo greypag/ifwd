@@ -86,7 +86,7 @@ var languageP = "${language}";
 	  						<button type="button" class="text-bold btn savie-common-btn" id="no-btn"><fmt:message key="button.no" bundle="${msg}" /></button>
 	  					</div>
 	  					<div id="condition-holder" class="clearfix pull-right">
-	  						<p><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
+	  						<p id="no-btn-call-hotline"><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
 	  					</div>
 	  				</div>
 		        </div>	

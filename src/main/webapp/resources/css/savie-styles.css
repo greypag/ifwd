@@ -9744,4 +9744,7 @@ select::-ms-value {
 	cursor: pointer;
 }
 
+#no-btn-call-hotline{
+	min-width:160px;
+}
 
