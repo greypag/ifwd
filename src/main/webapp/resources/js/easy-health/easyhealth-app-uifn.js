@@ -10,10 +10,10 @@ $(document).ready(function(){
 					container:'#ehUnderWriting1ErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select'
+							message:' '
 						},
 						callback:{
-							message:'',
+							message:' ',
 							callback:function(){
 								return validateUnderWriting("ehUnderWriting1")
 							}
@@ -24,10 +24,10 @@ $(document).ready(function(){
 					container:'#ehUnderWriting2ErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select'
+							message:' '
 						},
 						callback:{
-							message:'',
+							message:' ',
 							callback:function(){
 								return validateUnderWriting("ehUnderWriting2")
 							}
@@ -38,10 +38,10 @@ $(document).ready(function(){
 					container:'#ehUnderWriting3ErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select'
+							message:' '
 						},
 						callback:{
-							message:'',
+							message:' ',
 							callback:function(){
 								return validateUnderWriting("ehUnderWriting2")
 							}
@@ -52,10 +52,10 @@ $(document).ready(function(){
 					container:'#ehUnderWriting4ErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please read and accept'
+							message:' '
 						},
 						callback:{
-							message:'',
+							message:' ',
 							callback:validateUnderWriting
 						}
 					}
