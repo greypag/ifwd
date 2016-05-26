@@ -54,7 +54,6 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 
 	@Override
 	public JSONObject getPremium(EasyHealthPlanDetailBean planDetail,HttpServletRequest request) throws ECOMMAPIException{
-		logger.info(planDetail.getGender().equals("0")?"M":"F");
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.GET_EASYHEALTH_PREMIUM);
 		url.append("?dob=");
@@ -80,6 +79,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
+		EasyHealthPlanDetailBean planDetail = (EasyHealthPlanDetailBean) session.getAttribute("ehPlanDetail");
 		
 		StringBuffer inputMsg = new StringBuffer();
 		
@@ -163,7 +163,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[0]:"");
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
-			applicant.put("smoke", false);
+			applicant.put("smoke", "1".equals(planDetail.getSmoker())?true:false);
 			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():false);
 			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():false);
 			
