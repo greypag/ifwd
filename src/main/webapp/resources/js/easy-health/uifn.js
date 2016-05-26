@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     var currYear = new Date().getFullYear();
 
-
+    var nowDT = new Date();
     $('#dob').mobiscroll().calendar({
         dateOrder: 'ddMyy',
         display: 'inline',
@@ -53,7 +53,8 @@ $(document).ready(function() {
         controls: ['date'],
         layout: 'liquid',
         minWidth: 40,
-        minDate: new Date(1959, 7, 14),
+        minDate: new Date(nowDT.getFullYear() - 59, nowDT.getMonth(), nowDT.getDate()+1),
+        maxDate: new Date(nowDT.getFullYear() - 18, nowDT.getMonth(), nowDT.getDate()),
         dateFormat: 'yyyy-mm-dd'
     });
 
