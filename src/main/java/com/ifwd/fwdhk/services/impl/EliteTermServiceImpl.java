@@ -30,6 +30,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -60,6 +61,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse eliteTermPremium = (GetEliteTermPremiumResponse) request.getSession().getAttribute("eliteTermPremium");
+		EliteTermPlanDetailBean etPlanDetail = (EliteTermPlanDetailBean) request.getSession().getAttribute("etPlanDetail");
+		
 		if (eliteTermPremium == null) {
 			throw new ECOMMAPIException("session expired");
 		}
@@ -170,7 +173,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			employmentStatus.put("amountOtherSource", request.getParameter("savieEmploymentBean.sourceOfIncome")!=null?request.getParameter("savieEmploymentBean.sourceOfIncome").split("-")[0]:"");
 			employmentStatus.put("employerName", request.getParameter("savieEmploymentBean.currentEmployerName"));
 			applicant.put("employmentStatus", employmentStatus);
-			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
+			applicant.put("smoke", etPlanDetail.getSmoke());
 			applicant.put("optOut1", (request.getParameter("isMarketingInfo")!=null&&!request.getParameter("isMarketingInfo").equals(""))?request.getParameter("isMarketingInfo"):"false");
 			applicant.put("optOut2", (request.getParameter("isPersonalData")!=null&&!request.getParameter("isPersonalData").equals(""))?request.getParameter("isPersonalData"):"false");
 			
@@ -365,11 +368,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 	}
 	
 	@Override
-	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request)throws ECOMMAPIException{
+	public GetEliteTermPremiumResponse getEliteTermPremium(EliteTermPlanDetailBean etPlanDetail,HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse apiReturn = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader1(request);
-			apiReturn = connector.getEliteTermPremium(request, header);
+			apiReturn = connector.getEliteTermPremium(etPlanDetail, header);
+			request.getSession().setAttribute("etPlanDetail", etPlanDetail);
 			request.getSession().setAttribute("eliteTermPremium", apiReturn);
 			request.getSession().removeAttribute("sendEmailOrNot");
 		}catch(Exception e){

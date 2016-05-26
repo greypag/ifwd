@@ -46,6 +46,7 @@ import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
 
 @Component
 public class ECommWsConnector {
@@ -146,20 +147,20 @@ public class ECommWsConnector {
 	
 	
 	
-	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request,final Map<String,String> header)throws ECOMMAPIException{
+	public GetEliteTermPremiumResponse getEliteTermPremium(EliteTermPlanDetailBean etPlanDetail,final Map<String,String> header)throws ECOMMAPIException{
 		StringBuffer url = new StringBuffer();
-		String[] dob = request.getParameter("dob").toString().split("-");
+		String[] dob = etPlanDetail.getDob().split("-");
 		url.append(UserRestURIConstants.GET_ELITE_TERM_PREMIUM);
 		url.append("?dob=");
 		url.append(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append("&gender=");
-		url.append(request.getParameter("gender"));
+		url.append(etPlanDetail.getGender());
 		url.append("&smoke=");
-		url.append(request.getParameter("smoke"));
+		url.append(etPlanDetail.getSmoke());
 		url.append("&insuredAmount=");
-		url.append(request.getParameter("insuredAmount"));
+		url.append(etPlanDetail.getInsuredAmount());
 		url.append("&referralCode=");
-		url.append(request.getParameter("referralCode"));
+		url.append(etPlanDetail.getReferralCode());
 		url.append("&planCode=ET");
 		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetEliteTermPremiumResponse.class,header);
 	}
