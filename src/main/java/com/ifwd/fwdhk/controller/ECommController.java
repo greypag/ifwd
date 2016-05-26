@@ -271,7 +271,7 @@ public class ECommController extends BaseController {
 
 		/* savie voucher */
 	    if (month == 4) {
-	    	if ((day == 21 && hour >= 15) || (day >= 22 && day <= 31) || (day == 31 && hour < 15) || request.getParameter("savie")!=null) {
+	    	if ((day == 21 && hour >= 15) || (day >= 22 && day < 31) || (day == 31 && hour < 15) || request.getParameter("savie")!=null) {
 				indexs = new int[]{13};
 	    	}
 	    }	    	   
@@ -375,31 +375,31 @@ public class ECommController extends BaseController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;

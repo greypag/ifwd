@@ -121,7 +121,7 @@ public class CampaignServiceImpl implements CampaignService {
 	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
 	    if (month == 4) {
-	    	if ((day == 21 && hour >= 15) || (day >= 22 && day <= 31) || (day == 31 && hour < 15) || request.getParameter("savie")!=null) {
+	    	if ((day == 21 && hour >= 15) || (day >= 22 && day < 31) || (day == 31 && hour < 15) || request.getParameter("savie")!=null) {
 				indexs = new int[]{13};
 	    	}
 	    }
