@@ -33,6 +33,8 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.life.LifePaymentBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
@@ -75,33 +77,64 @@ public class EasyHealthController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/underwriting"})
 	public ModelAndView getEasyHealthUnderwriting(Model model, HttpServletRequest request, HttpSession httpSession) {
-		model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
-		model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
-		model.addAttribute("etCsContactPreferredTimeSlotEN", InitApplicationMessage.etCsContactPreferredTimeSlotEN);
-		model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
-		model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
-		model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
-		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING);
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		EasyHealthPremiumSelectPlan selectPlan = (EasyHealthPremiumSelectPlan) request.getSession().getAttribute("selectPlan");
+		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
+		}
+		else if(selectPlan == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
+		}
+		else{
+			model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
+			model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
+			model.addAttribute("etCsContactPreferredTimeSlotEN", InitApplicationMessage.etCsContactPreferredTimeSlotEN);
+			model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
+			model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
+			model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
+			request.getSession().setAttribute("underwritingYes", "underwritingYes");
+			return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING);
+		}
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/signature"})
 	public ModelAndView getEasyHealthSignature(Model model, HttpServletRequest request,HttpSession session) {
-		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		try {
-			easyHealthService.createLifePolicy(request, request.getSession());
-		} catch (ECOMMAPIException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
+		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
 		}
-		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
+		else if(lifeDeclaration == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
+		}
+		else{
+			model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
+			try {
+				easyHealthService.createLifePolicy(request, request.getSession());
+			} catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
+			return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_SIGNATURE);
+		}
 	}
 	
 	@RequestMapping(value = {"/{lang}/medical-insurance/payment"})
 	public ModelAndView getEasyHealthPayment(Model model, HttpServletRequest request) {
-		String path = request.getRequestURL().toString();
-		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
-		model.addAttribute("failurePath", path);
-		return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
+		}
+		else if(lifePolicy == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/medical-insurance");
+		}
+		else{
+			String path = request.getRequestURL().toString();
+			model.addAttribute("successUrl", path.replace("payment", "document-upload"));
+			model.addAttribute("failurePath", path);
+			return EasyHealthPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PAYMENT);
+		}
 	}
 	
 }

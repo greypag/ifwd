@@ -76,8 +76,8 @@ var home_url = "<%=request.getContextPath()%>";
         <input type="hidden" name="remark" value="">
         <input type="hidden" name="pMethod" id="pMethod" value="Master">
         <input type="hidden" id="emailAddress" name="emailAddress" value="273128396@qq.com"> 
-        <input type="hidden" id="appFirstName" value="testing"> 
-        <input type="hidden" id="appLastName" value="card"> 
+        <input type="hidden" id="appFirstName" value="${userDetails.firstName }"> 
+        <input type="hidden" id="appLastName" value="${userDetails.lastName }"> 
 		<input type="hidden" name="referenceNo" value="${lifePolicy.policyNo}">
 		<input type="hidden" id="gateway" name="gateway" value="${lifePolicy.paymentGateway}"/>
 		

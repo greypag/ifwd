@@ -87,7 +87,7 @@ var ehPro = '${pro }';
                             <div class="row row-eq-height">
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
-                                        <h5 class="text-center"><fmt:message key="label.gender" bundle="${msg}" />:</h5>
+                                        <h5 class="text-center"><fmt:message key="label.gender" bundle="${msg}" /></h5>
                                         <div class="selection-inner" id="gender-opt">
                                             <div class="row">
                                                 <div class="col-sm-6 col-xs-6 item" id="gender0" data-gender="0">
@@ -123,7 +123,7 @@ var ehPro = '${pro }';
                                 <div class="clearfix visible-xs"></div>
                                 <div class="col-sm-4 col-xs-12 selectionBox">
                                     <div class="selection-grid">
-                                        <h5 class="text-center"><fmt:message key="label.dob" bundle="${msg}" />:</h5>
+                                        <h5 class="text-center"><fmt:message key="label.dob" bundle="${msg}" /></h5>
                                         <!-- <input id="dob" name="dob" placeholder="Please Select ..." readonly> -->	
                                         <!--<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">		
                                             <!-- <input  name="plan-dob" id="plan-dob-datepicker" readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }" placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
@@ -1417,6 +1417,77 @@ var ehPro = '${pro }';
                                                             <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.risk.7.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.8.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <table class="tbl-esr">
+                                                              <tr>
+                                                                <th><fmt:message key="easyhealth.plandetails.risk.8_1.content" bundle="${msg}" /></th>
+                                                                <th><fmt:message key="easyhealth.plandetails.risk.8_2.content" bundle="${msg}" /></th>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>1</td>
+                                                                <td>0%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>2</td>
+                                                                <td>0%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>3</td>
+                                                                <td>0%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>4</td>
+                                                                <td>0%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>5</td>
+                                                                <td>0%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>6</td>
+                                                                <td>10%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>7</td>
+                                                                <td>20%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>8</td>
+                                                                <td>30%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>9</td>
+                                                                <td>40%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>10</td>
+                                                                <td>50%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>11</td>
+                                                                <td>60%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>12</td>
+                                                                <td>70%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>13</td>
+                                                                <td>80%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>14</td>
+                                                                <td>90%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>15</td>
+                                                                <td>100%</td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td><fmt:message key="easyhealth.plandetails.infographic2.maturity" bundle="${msg}" /></td>
+                                                                <td>102%</td>
+                                                              </tr>
+                                                            </table>
                                                             <br>
                                                             <p><fmt:message key="easyhealth.plandetails.exclusions.sub.heading" bundle="${msg}" /></p>
                                                             <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>

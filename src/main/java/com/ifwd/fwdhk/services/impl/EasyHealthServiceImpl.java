@@ -309,6 +309,10 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("ehPlanDetail");
 		session.removeAttribute("ehStep");
 		session.removeAttribute("pro");
+		session.removeAttribute("underwritingYes");
+		session.removeAttribute("fatcaYes");
+		session.removeAttribute("applicationSummaryYes");
+		session.removeAttribute("documentUploadYes");
 		logger.info("remove session");
 	}
 	
@@ -332,6 +336,23 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 					selectPlan.setInfectiousDisease(plans.get(i).get("infectiousDisease").toString());
 					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
 					selectPlan.setSelectPlan(pro);
+					if("0".equals(i)){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-基本計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+					}
+					if("1".equals(i)){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-附加計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+					}
+					if("2".equals(i)){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-高級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+					}
+					if("3".equals(i)){
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-豪華計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+					}
+					
 				}
 			}
 			request.getSession().setAttribute("selectPlan", selectPlan);
