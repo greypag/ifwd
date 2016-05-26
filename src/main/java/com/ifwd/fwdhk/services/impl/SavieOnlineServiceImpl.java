@@ -1227,7 +1227,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        		}
 	        		allGroupName += groupNames.get(allGroups[a]);
 	            }
-	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3a", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
 	        }
 	        String[] group = productGroups.split(",");
 	        String notMatchGrp = "";
@@ -1249,7 +1249,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	        		}
 	            	allObjName += objectiveNames.get(allObj[a]);
 	            }
-	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3b", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
 	        }
 	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
 	        	if (case3aMsg.equals(case3bMsg)){
