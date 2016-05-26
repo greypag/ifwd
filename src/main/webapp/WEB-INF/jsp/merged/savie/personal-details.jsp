@@ -134,7 +134,7 @@ var languageP = "${language}";
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label" id="personal-info-label"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
+										  <label class="mdl-textfield__label cstm-dropdown-label" id="personal-info"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></label>
                                           <select class="form-control gray-dropdown" name="tmpPlaceOfBirth" id="tmpPlaceOfBirth">
                                              <option value="" selected="selected" disabled="disabled"><fmt:message key="placeholder.place.of.Birth" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
@@ -151,7 +151,7 @@ var languageP = "${language}";
 													</enhance:out>
 												</c:forEach>
 											</c:if>
-                                          </select>
+                                         
                                           
                                           <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${placeOfBirthEN}">
@@ -163,6 +163,7 @@ var languageP = "${language}";
 													<c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}"><c:set var="placeOfBirthCode" value="${list.itemCode }"/></c:if>
 												</c:forEach>
 											</c:if>
+											 </select>
                                           <input type="hidden" id="placeOfBirth" name="placeOfBirth" value="${placeOfBirthCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
