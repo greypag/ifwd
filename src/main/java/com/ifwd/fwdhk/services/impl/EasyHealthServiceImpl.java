@@ -309,6 +309,10 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("ehPlanDetail");
 		session.removeAttribute("ehStep");
 		session.removeAttribute("pro");
+		session.removeAttribute("underwritingYes");
+		session.removeAttribute("fatcaYes");
+		session.removeAttribute("applicationSummaryYes");
+		session.removeAttribute("documentUploadYes");
 		logger.info("remove session");
 	}
 	
