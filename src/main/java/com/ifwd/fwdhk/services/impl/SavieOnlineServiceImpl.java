@@ -663,7 +663,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
     	    	attributeList.add(new PdfAttribute("beneficiaryEnglishName1", "Own Estate"));
     	    }
     	    
-    	    //attributeList.add(new PdfAttribute("entitlement1", "100"));
+    	    attributeList.add(new PdfAttribute("entitlement1", "100"));
 	    }
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
