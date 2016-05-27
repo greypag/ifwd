@@ -126,11 +126,11 @@ $(document).ready(function(){
 			//Do something
 			$("#correct-signature").removeClass("hidden");
 		}else if(response.error === 1){
-			$("#signatureError").html($("<small/>").text("Please sign in the grey area."));
-			//$("#signatureError").html($("<small/>").text(getBundle(getBundleLanguage, "error.signature.empty")));
+			//$("#signatureError").html($("<small/>").text("Please sign in the grey area."));
+			$("#signatureError").html($("<small/>").text(getBundle(getBundleLanguage, "error.signature.empty")));
 		}else if(response.error === 2){
-			$("#signatureError").html($("<small/>").text("Signature file's size exceeds limit. Please clear the signature to retry again."));
-			//$("#signatureError").html($("<small/>").text(getBundle(getBundleLanguage, "error.signature.size")));
+			//$("#signatureError").html($("<small/>").text("Signature file's size exceeds limit. Please clear the signature to retry again."));
+			$("#signatureError").html($("<small/>").text(getBundle(getBundleLanguage, "error.signature.size")));
 		}
 
 		return response;
@@ -148,12 +148,12 @@ $(document).ready(function(){
 					container:'#ccNumberErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please enter your credit card number.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
+							//message:'Please enter your credit card number.'
+							message:getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
 						},
 						callback:{
-							message:"Please enter your credit card number.",
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"),
+							//message:"Please enter your credit card number.",
+							message:getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"),
 							callback:function(e){
 								if($("#ccNumber").data("bv.result.notEmpty") === "INVALID"){
 									return true
@@ -185,12 +185,12 @@ $(document).ready(function(){
 					container:'#cardHolderErrMsg',
 					validators: {
 						notEmpty:{
-							message:'Please enter name printed on credit card.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
+							//message:'Please enter name printed on credit card.'
+							message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
 						},
 						callback:{
-							message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer hotline at 3123 3123 for more details.",
-							//message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
+							//message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer hotline at 3123 3123 for more details.",
+							message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
 							callback:function(e){
 								if($("#cardHolder").data("bv.result.notEmpty") === "INVALID"){
 									return true
@@ -208,8 +208,8 @@ $(document).ready(function(){
 					container:'#securityCodeErrMsg',
 					validators: {
 						notEmpty:{
-							message:'Please enter security code on credit card.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.cvv.notNull.message")
+							//message:'Please enter security code on credit card.'
+							message:getBundle(getBundleLanguage, "applicant.creditcard.cvv.notNull.message")
 						},
 						cvv: {
 							creditCardField: 'ccNumber',
@@ -221,8 +221,8 @@ $(document).ready(function(){
 					container:'#epMonthErrMsg',
 					validators: {
 						notEmpty:{
-							message:"Please specify your credit card's expiry month."
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message")
+							//message:"Please specify your credit card's expiry month."
+							message:getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message")
 						}
 					}
 				},
@@ -230,8 +230,8 @@ $(document).ready(function(){
 					container:'#epYearErrMsg',
 					validators: {
 						notEmpty:{
-							message:"Please specify your credit card's expiry year."
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message")
+							//message:"Please specify your credit card's expiry year."
+							message:getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message")
 						}
 					}
 				},
@@ -239,8 +239,8 @@ $(document).ready(function(){
 					container:'#cbTNCErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please read and accept the Payment Authorization.'
-							//message:getBundle(getBundleLanguage, "payment.tnc.notChecked.message")
+							//message:'Please read and accept the Payment Authorization.'
+							message:getBundle(getBundleLanguage, "payment.tnc.notChecked.message")
 						}
 					}
 				}				

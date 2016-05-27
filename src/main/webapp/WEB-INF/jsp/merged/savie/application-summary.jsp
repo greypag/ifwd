@@ -84,14 +84,16 @@ var language = "${language}";
                <c:if test="${plan == 'savings-insurance'}"><c:set var="backPlanUrl" value="plan-details-sp"/></c:if>
                <c:if test="${plan == 'medical-insurance'}"><c:set var="backPlanUrl" value="plan-option"/></c:if>
                <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
-               <div class="desktop-left">
-                  <div class="form-group application-summ">
-							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
-							</div>
+					<div class="form-group application-summ">
+						<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
+							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
+							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
+							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
 						</div>
-                  <div class="form-group application-summ">
+					</div>
+					<div class="desktop-left">
+						<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" readonly="readonly" />
 								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>

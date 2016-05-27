@@ -104,7 +104,7 @@ var languageP = "${language}";
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" onblur="validateSimpleChinese(this.value,'chineseNameErMsg');" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" autocomplete="off" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" id="personal-info-label" for="chineseName"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -322,17 +322,17 @@ var languageP = "${language}";
                                  <div class="clearfix form-group has-error">
 									<span class="warning-note"><fmt:message key="placeholder.permanent.warning" bundle="${msg}" /></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'permanentAddErMsg');"/>
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" autocomplete="off" maxlength="29"/>
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1"><fmt:message key="placeholder.peraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'permanentAdd2ErMsg');"/>
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" autocomplete="off" maxlength="29"/>
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2"><fmt:message key="placeholder.peraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" autocomplete="off" maxlength="19" onblur="validateSimpleChinese(this.value,'permanentAdd2ErMsg');"/>
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" autocomplete="off" maxlength="19"/>
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3"><fmt:message key="placeholder.peraddress.line3" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="permanentAdd3ErMsg"></span>
@@ -390,17 +390,17 @@ var languageP = "${language}";
                                  </div>
                                  <div class="clearfix form-group has-error hidden" id="diffToPermanentShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'residentialAddErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1"><fmt:message key="placeholder.resaddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'residentialAdd2ErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2"><fmt:message key="placeholder.resaddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="residentialAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" autocomplete="off" maxlength="19" onblur="validateSimpleChinese(this.value,'residentialAdd3ErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" autocomplete="off" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3"><fmt:message key="placeholder.resaddress.line3" bundle="${msg}" /></label>
                                     </div>
                                     <span class="error-msg" id="residentialAdd3ErMsg"></span>
@@ -458,17 +458,17 @@ var languageP = "${language}";
                                  </div>
 								 <div class="clearfix form-group has-error hidden" id="diffToResidentialShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'correspondenceAddErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1"><fmt:message key="placeholder.coraddress.line1" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" autocomplete="off" maxlength="29" onblur="validateSimpleChinese(this.value,'correspondenceAdd2ErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" autocomplete="off" maxlength="29" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2"><fmt:message key="placeholder.coraddress.line2" bundle="${msg}" /></label>
 									</div>
 									<span class="error-msg" id="correspondenceAdd2ErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" autocomplete="off" maxlength="19" onblur="validateSimpleChinese(this.value,'correspondenceAdd3ErMsg');" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential residential-chinese-input" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" autocomplete="off" maxlength="19" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.coraddress.line3" bundle="${msg}" /></label>
                                     </div>
                                     <span class="error-msg" id="correspondenceAdd3ErMsg"></span>
@@ -846,7 +846,18 @@ var languageP = "${language}";
 			                        //regexp: /^[\s\u4e00-\u9eff]*$/,
 											regexp: /^[\s\u4e00-\u9fa5]*$/,
 			                        message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
-			                    }			             
+			                    },
+			                    remote:{
+			                    	message: 'Some input information contains simplified Chinese',
+				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
+				                	type: "get",
+				                	dataType: "json",
+				                	data: {
+				                		str: function() {
+				                	        return $("#chineseName").val();
+				                	    }
+				                	}
+				                }
 			                }
 					},
 					'dob': {
@@ -914,7 +925,7 @@ var languageP = "${language}";
 						  stringLength: {
 							  min: 8,
 							  max: 8,
-							  message: "Please enter an 8-digit Tel No."
+							  message: '<fmt:message key="error.residential.no.length" bundle="${msg}" />'
 						   },
 						   regexp: {
 							  regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,
