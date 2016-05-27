@@ -710,9 +710,10 @@ public class AjaxLifeController extends BaseController{
 		}
 		try {
 			savieOnlineService.validateSimpleChinese(str, request);
+			jsonObject.put("valid",true);
 		}
 		catch (Exception e) {
-			jsonObject.put("errorMsg", e.getMessage());
+			jsonObject.put("valid", false);
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
