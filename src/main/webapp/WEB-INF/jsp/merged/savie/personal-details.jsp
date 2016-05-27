@@ -914,7 +914,7 @@ var languageP = "${language}";
 						  stringLength: {
 							  min: 8,
 							  max: 8,
-							  message: "Please enter an 8-digit Tel No."
+							  message: '<fmt:message key="error.residential.no.length" bundle="${msg}" />'
 						   },
 						   regexp: {
 							  regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,

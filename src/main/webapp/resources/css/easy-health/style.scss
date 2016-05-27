@@ -516,8 +516,11 @@ ol.lower-roman {
             text-align: left;
             max-width: 390px;
             position: relative;
-            margin-top: 20px;
+            margin-bottom: 10px;
             margin-top: 10px;
+            &+p{
+                color: #fcae15;
+            }
             .lbl15yr-policy-top{
                 font-size: 20px;
                 font-weight: bold;
@@ -1005,7 +1008,7 @@ ol.lower-roman {
                 &.txt-price-y15_102{
                     background-color: #fcae15;
                     color: #fff;
-
+                    margin-bottom: 30px;
                 }
             }
             .highlight {
@@ -1206,34 +1209,39 @@ table.tbl-esr{
                         padding-top: 6px;
                         font-size: 14px !important;
                     }
+                    th,td{
+                        &.head{
+                            background-color: #373a36  !important;
+                        }
+                    }
                     th,
                     td {
                         &.t1:hover,
                         &.t1.highlight {
                             background-color: #19a382;
                             &.head {
-                                background-color: #007e4d;
+                                background-color: #007e4d !important;
                             }
                         }
                         &.t2:hover,
                         &.t2.highlight {
                             background-color: #ffafbf;
                             &.head {
-                                background-color: #ff7b80;
+                                background-color: #ff7b80 !important;
                             }
                         }
                         &.t3:hover,
                         &.t3.highlight {
                             background-color: #ff9d66;
                             &.head {
-                                background-color: #ff7119;
+                                background-color: #ff7119 !important;
                             }
                         }
                         &.t4:hover,
                         &.t4.highlight {
                             background-color: #66c6c7;
                             &.head {
-                                background-color: #1389a1;
+                                background-color: #1389a1 !important;
                             }
                         }
                         &.t1,
@@ -1298,6 +1306,11 @@ table.tbl-esr{
         .img-id {
             > .txt-price {
                 top: 53% !important;
+            }
+        }
+        .img-hc {
+            > .txt-price {
+                top: 52% !important;
             }
         }
     }
