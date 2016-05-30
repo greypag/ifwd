@@ -222,14 +222,10 @@ var home_url = "<%=request.getContextPath()%>";
 
 							<div class="col-md-4 col-xs-12">
 								<h4 class="et-dob-txt">
-									<fmt:message key="eliteTerms.selectPlan.Your.date.of.birth"
-										bundle="${msg}" />
+									<fmt:message key="eliteTerms.selectPlan.Your.date.of.birth" bundle="${msg}" />
 								</h4>
-								<div id="et-select-plan-date"
-									class="selectDiv et-select-plan-date">
-									<input type="text" class="date et-ays-datepicker"
-										name="et-select-plan-date" id="et-select-plan-date-input"
-										placeholder="DD-MM-YYYY" readonly="">
+								<div id="et-select-plan-date" class="selectDiv et-select-plan-date">
+									<input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="">
 								</div>
 								<span class="err-msg" id="et-ays-datepicker-message"></span>
 								<div class="et-broken-line et-padding hidden-md hidden-lg"></div>

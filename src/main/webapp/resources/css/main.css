@@ -11877,11 +11877,11 @@ body.chin .partner-headline-wrapper .headline-title{
 }
 
 /* eliteTermsInsuredInfoForm || elite-terms-select-plan.jsp */
-#eliteTermsInsuredInfoForm .col-sm-12.col-md-6.left, 
+#eliteTermsInsuredInfoForm .col-sm-12.col-md-6.left,
 #eliteTermsInsuredInfoForm .col-sm-12.col-md-12.left {
 	padding-right: 100px;
 }
-#eliteTermsInsuredInfoForm .col-sm-12.col-md-6.left #forgotUserName, 
+#eliteTermsInsuredInfoForm .col-sm-12.col-md-6.left #forgotUserName,
 #eliteTermsInsuredInfoForm .col-sm-12.col-md-6.left #link-forgotPassword {
 	text-decoration: none;
 	font-style: normal;
@@ -11967,4 +11967,12 @@ body.chin .partner-headline-wrapper .headline-title{
 	#eliteTermsInsuredInfoForm #applyPartner{
 		margin-left: 0;
 	}
+}
+.selectDiv.et-confimation-vulnerable-customer-day
+{
+	margin-top: 10px;
+	max-width: 220px;
+	background: #f1f3f5 url("../images/1fna-cal.png") no-repeat 7px 0px;
+	width: 100%;
+	margin-bottom: 20px;
 }
