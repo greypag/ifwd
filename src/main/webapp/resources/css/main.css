@@ -11968,11 +11968,14 @@ body.chin .partner-headline-wrapper .headline-title{
 		margin-left: 0;
 	}
 }
-.selectDiv.et-confimation-vulnerable-customer-day
-{
-	margin-top: 10px;
-	max-width: 220px;
-	background: #f1f3f5 url("../images/1fna-cal.png") no-repeat 7px 0px;
-	width: 100%;
+.selectDiv.et-confimation-vulnerable-customer-day {
+	background: #ededed url("../images/1fna-cal.png") no-repeat 7px 0px;
 	margin-bottom: 20px;
+}
+.selectDiv.et-confimation-vulnerable-customer-day .date.et-ays-datepicker {
+	padding-left: 60px;
+	width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 6px 12px 6px 50px;
 }

@@ -10,6 +10,9 @@
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
@@ -102,21 +105,46 @@ var languageP = "${language}";
 									<div class="detail">
                      <p><fmt:message key="eliteTerms.confirmation.Your.application.is.part3" bundle="${msg}" />
                   </div>
+
 									<div class="agent-container">
 										<form action="" method="POST" class="form-horizontal" id="et-confimation-vulnerable-customer-form">
-	                     <div class="form-group row">
-													<div class="col-xs-5 col-md-5 col-sm-12 selectDiv et-confimation-vulnerable-customer-day" id="et-confimation-vulnerable-customer-day">
-														<input type="text" class="date et-ays-datepicker" name="et-vulnerable-customer-preferred-day" id="et-vulnerable-customer-preferred-day" placeholder="DD-MM-YYYY" readonly="" data-bv-field="et-vulnerable-customer-preferred-day">
+	                     <div class="form-group">
+													<div class="col-xs-5 col-md-5 col-sm-12" id="et-confimation-vulnerable-customer-day">
+														<div class='input-group date' id='datetimepicker10'>
+															 <input type='text' class="form-control" />
+															 <span class="input-group-addon">
+																	 <span class="glyphicon glyphicon-calendar">
+																	 </span>
+															 </span>
+														</div>
+														<script type="text/javascript">
+												        $(function () {
+												            $('#datetimepicker10').datetimepicker({
+												                viewMode: 'years',
+												                format: 'DD/MM/YYYY'
+												            });
+												        });
+												    </script>
 														<span class="err-msg" id="et-ays-datepicker-message"></span>
 													</div>
-													<%--<div id="et-select-plan-date" class="selectDiv et-select-plan-date col-xs-5 col-md-5 col-sm-12">
-														<input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="">
-													</div>--%>
-													<span class="err-msg" id="et-ays-datepicker-message"></span>
 													<div class="col-xs-5 col-md-5 col-sm-12 et-vulnerable-customer-preferred-time et-confimation-vulnerable-customer-form">
-	                           <input type="time" name="preferred-time" id="preferred-time" autocomplete="off" />
-														 <span id="errPromoEmail" class="text-red"></span>
+														<%-- <input type="time" name="preferred-time" id="preferred-time" autocomplete="off" /> --%>
+						                <div class='input-group date' id='datetimepicker3'>
+						                    <input type='text' class="form-control" name="preferred-time" id="preferred-time" autocomplete="off"/>
+						                    <span class="input-group-addon">
+						                        <span class="glyphicon glyphicon-time"></span>
+						                    </span>
+						                </div>
+	 									        <script type="text/javascript">
+																$(function () {
+	 									                $('#datetimepicker3').datetimepicker({
+	 									                    format: 'LT'
+	 									                });
+																});
+	 									        </script>
+														<span id="errPromoEmail" class="text-red"></span>
 	                        </div>
+
 	                        <div class="col-xs-2 col-md-2 et-submit">
 	                           <button type="button" value="Submit" class="btn" id="et-confirmation-submit-vulnerable-customer"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
 	                        </div>
