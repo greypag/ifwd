@@ -99,7 +99,7 @@
             countDownDD = "31";
             countDownMM = "May";
         }else if(cCurrent >= cformat.parse("2016-05-31 15:00:00").getTime() && cCurrent <= cformat.parse("2016-06-31 14:59:59").getTime() && request.getParameter("regular")==null){
-            isRegSpecial = true;
+            isRegSpecial = false;
             countDownDate = countDownDate_regular2;
             countDownDD = "30";
             countDownMM = "June";
