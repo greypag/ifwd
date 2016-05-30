@@ -3629,7 +3629,7 @@ public class LifeServiceImpl implements LifeService {
 	
 	public void validateSimpleChinese(String str,HttpServletRequest request) throws Exception{
 		if(ZHConverter.hasSimpleChinese(str)) {
-			throw new Exception("Some input information contains simplified Chinese");
+			throw new Exception("hasSimpleChinese");
 		}
 	}
 }

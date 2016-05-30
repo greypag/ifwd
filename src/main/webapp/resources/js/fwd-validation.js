@@ -1,3 +1,4 @@
+var contextPath = context;
 var beneficiarySelection1 = $( "#beneficiaryHkidPassport\\[0\\] option:selected" ).text();
 
 $(function() {
@@ -725,7 +726,18 @@ $(function() {
 					regexp: {
 						regexp: /^[^a-zA-Z0-9]*$/,
 						message: 'Please input your Chinese name.'
-					}
+					},
+					remote:{
+                    	message: 'Some input information contains simplified Chinese',
+	                	url: contextPath+"/ajax/validateSimpleChinese",
+	                	type: "get",
+	                	dataType: "json",
+	                	data: {
+	                		str: function() {
+	                	        return $("#savieBeneficiaryBean\\[0\\]\\.chineseName").val();
+	                	    }
+	                	}
+	                }
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{
