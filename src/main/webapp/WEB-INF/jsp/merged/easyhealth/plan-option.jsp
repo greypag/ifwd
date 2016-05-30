@@ -684,7 +684,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -891,7 +891,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -1096,7 +1096,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -1301,7 +1301,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">

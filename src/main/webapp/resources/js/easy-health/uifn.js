@@ -172,7 +172,7 @@ $(document).ready(function() {
         window.location.hash = "#"+ hash_aryStage[1];
     });
 
-    $(".sticky-help-wrapper").click(function() {
+    $(".sticky-help-wrapper img").click(function() {
         $(this).fadeOut();
 
         $(".movingBgL").animate({

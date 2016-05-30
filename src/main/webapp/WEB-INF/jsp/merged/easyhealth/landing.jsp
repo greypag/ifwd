@@ -47,6 +47,7 @@ var home_url = "<%=request.getContextPath()%>";
                         </div>                      
                     <div class="savie-product text-bold">
                         <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
+                        <a href="javascript:void(0);" id="cta_filler"></a>
                     </div>
                     </div>
                 </form>
