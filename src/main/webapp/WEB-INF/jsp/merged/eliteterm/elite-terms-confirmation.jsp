@@ -109,11 +109,11 @@ var languageP = "${language}";
 									<div class="agent-container">
 										<form action="" method="POST" class="form-horizontal" id="et-confimation-vulnerable-customer-form">
 	                     <div class="form-group">
-													<div class="col-xs-5 col-md-5 col-sm-12" id="et-confimation-vulnerable-customer-day">
+													<div class="col-xs-5 col-md-5 col-sm-12">
 														<div class='input-group date' id='datetimepicker10'>
-															 <input type='text' class="form-control" />
-															 <span class="input-group-addon">
-																	 <span class="glyphicon glyphicon-calendar">
+															 <input type='text' class="form-control" id="et-confimation-vulnerable-customer-date" placeholder="<fmt:message key='eliteTerms.confirmation.date' bundle='${msg}' />"/>
+															 <span class="input-group-addon" style="border: 0; border-radius: 0;">
+																	 <span class="glyphicon glyphicon-chevron-down">
 																	 </span>
 															 </span>
 														</div>
@@ -128,11 +128,10 @@ var languageP = "${language}";
 														<span class="err-msg" id="et-ays-datepicker-message"></span>
 													</div>
 													<div class="col-xs-5 col-md-5 col-sm-12 et-vulnerable-customer-preferred-time et-confimation-vulnerable-customer-form">
-														<%-- <input type="time" name="preferred-time" id="preferred-time" autocomplete="off" /> --%>
 						                <div class='input-group date' id='datetimepicker3'>
-						                    <input type='text' class="form-control" name="preferred-time" id="preferred-time" autocomplete="off"/>
-						                    <span class="input-group-addon">
-						                        <span class="glyphicon glyphicon-time"></span>
+						                    <input type='text' class="form-control" name="preferred-time" id="et-confimation-vulnerable-customer-time" autocomplete="off"  placeholder="<fmt:message key='eliteTerms.confirmation.time' bundle='${msg}' />"/>
+						                    <span class="input-group-addon" style="border: 0; border-radius: 0;">
+						                        <span class="glyphicon glyphicon-chevron-down"></span>
 						                    </span>
 						                </div>
 	 									        <script type="text/javascript">
@@ -151,7 +150,72 @@ var languageP = "${language}";
 	                     </div>
 	                  </form>
 									</div>
+								<script>
+								//about preferredDay
+								$(document).on('change', '#et-confimation-vulnerable-customer-date', function(e) {
+									 if($('#et-confimation-vulnerable-customer-date').val()!="") {
+											$('#eliteTermsAboutYourselfForm')
+											.data('bootstrapValidator')
+											.updateStatus('et-select-plan-date','VALID');
+									 }
+								});
+								$(document).on('change', '#et-confimation-vulnerable-customer-tim', function(e) {
+									 if($('#et-confimation-vulnerable-customer-tim').val()!="") {
+											$('#eliteTermsAboutYourselfForm')
+											.data('bootstrapValidator')
+											.updateStatus('et-select-plan-time','VALID');
+									 }
+								});
+								//ABout yourself validation
+								$('#eliteTermsAboutYourselfForm').bootstrapValidator({
+									 excluded: [],
+									 fields: {
+											"et-select-plan-date": {
+												 container: '#et-ays-datepicker-message',
+												 validators: {
+														notEmpty: {
+															 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />'
+														},
+														callback: {
+															 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />',
+															 callback: function(value, validator) {
+																	return value !== document.getElementById('et-confimation-vulnerable-customer-date').getAttribute('placeholder');
+															 }
+														}
+												 }
+											}
+									 }
+								}).on('success.form.bv', function(e) {
+									 e.preventDefault();
+									 var $form = $(this);
 
+									 var $planOption = $('#et-plan-option-section');
+
+									 $('#et-btn-ay-self').removeClass('et-pad-bot-50');
+									 $('#et-about-yoursel-section').removeAttr('style');
+									 $planOption.removeClass('hide-element');
+
+									 if(getWidth()>=992){
+											$('.et-collapse-link[aria-expanded="true"]').parent()
+												 .next()
+												 .find('.et-panel-body')
+												 .jScrollPane({showArrows: true});
+									 }
+
+									 $('body, html').animate({
+											scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+									 }, 500);
+
+									 // Store plan detail data
+									 if ($('#et-gender-male').prop('checked')) {
+											planDetailData.gender = 'Male';
+									 } else if ($('#et-gender-female').prop('checked')) {
+											planDetailData.gender = 'Female';
+									 }
+
+									 planDetailData.dob = $planDate.val();
+								});
+								</script>
 					</div>
 
 
