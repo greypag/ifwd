@@ -56,6 +56,9 @@ public class SavieOnlinePageFlowControl {
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
 
+		model.addAttribute("planIndex", "savie_online"); //Plan Name
+		model.addAttribute("pageIndex", key); // Page Index
+
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		if (referer != null) {

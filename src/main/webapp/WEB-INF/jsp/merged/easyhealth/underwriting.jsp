@@ -23,10 +23,9 @@ var home_url = "<%=request.getContextPath()%>";
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comp/breadcrumb.css">
     <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
-    	<jsp:param name="productName" value="easyHealth"/>
-    	<jsp:param name="activeBreadcrumb" value="2"/>
+    	<jsp:param name="planIndex" value="${planIndex}"/>
+    	<jsp:param name="pageIndex" value="${pageIndex}"/>
 	</jsp:include>
 
      <div class="savie-online-container app-pg-ctnr" id="eh-app-underwriting">
