@@ -255,6 +255,7 @@ public class ECommController extends BaseController {
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
 		int[] indexs = {5, 6, 7, 8, 9};
+		
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
@@ -267,8 +268,17 @@ public class ECommController extends BaseController {
 	    int month = cal.get(java.util.Calendar.MONTH);
 	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
-	    
+
+	    /*
+	    if (month == 4) {
+	    	if ((day == 21 && hour > 15) || (day <= 31) || (day == 31 && hour <= 15) || request.getParameter("savie")!=null) {
+				indexs = new int[]{13};
+	    	}
+	    }
+	    */
+	    indexs = new int[]{13};
 	    int hotelVoucherCampaignId = -1;
+/*
 	    if (month == 3 && day <= 30) {
 	        if (day == 20) {
 	        	if (hour >= 15) {
@@ -310,10 +320,11 @@ public class ECommController extends BaseController {
 	        	}
 	        }
 	    }
-	    
 	    if (request.getParameter("hid")!=null) {
 	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
-	    }
+	    }	    
+*/
+
 	    if (hotelVoucherCampaignId != -1) {
 		    switch(hotelVoucherCampaignId) {
 			    case 14:
