@@ -109,7 +109,14 @@ var languageP = "${language}";
 									<div class="agent-container">
 										<form action="" method="POST" class="form-horizontal" id="et-confimation-vulnerable-customer-form">
 	                     <div class="form-group">
-													<div class="col-xs-5 col-md-5 col-sm-12">
+											 	<!-- Hidden field 1: policy id
+												Hidden field 2: Applicant ‘Last name’
+												Hidden field 3: Applicant ‘Given name’
+												Hidden field 4: Insurance product name
+												Hidden field 5: timestamp of the submission -->
+													<input type="hidden" name="eliteTermPolicy.policyNo" value="${eliteTermPolicy.policyNo }" />
+													<%-- <pre>${eliteTermPolicy.policyNo }</pre> --%>
+													<div class="col-xs-5 col-md-5 col-sm-5 col-xs-12">
 														<div class='input-group date' id='datetimepicker10'>
 															 <input type='text' class="form-control" id="et-confimation-vulnerable-customer-date" placeholder="<fmt:message key='eliteTerms.confirmation.date' bundle='${msg}' />"/>
 															 <span class="input-group-addon" style="border: 0; border-radius: 0;">
@@ -127,7 +134,7 @@ var languageP = "${language}";
 												    </script>
 														<span class="err-msg" id="et-ays-datepicker-message"></span>
 													</div>
-													<div class="col-xs-5 col-md-5 col-sm-12 et-vulnerable-customer-preferred-time et-confimation-vulnerable-customer-form">
+													<div class="col-xs-5 col-md-5 col-sm-5 col-xs-12 et-vulnerable-customer-preferred-time et-confimation-vulnerable-customer-form">
 						                <div class='input-group date' id='datetimepicker3'>
 						                    <input type='text' class="form-control" name="preferred-time" id="et-confimation-vulnerable-customer-time" autocomplete="off"  placeholder="<fmt:message key='eliteTerms.confirmation.time' bundle='${msg}' />"/>
 						                    <span class="input-group-addon" style="border: 0; border-radius: 0;">
@@ -144,7 +151,7 @@ var languageP = "${language}";
 														<span id="errPromoEmail" class="text-red"></span>
 	                        </div>
 
-	                        <div class="col-xs-2 col-md-2 et-submit">
+	                        <div class="col-xs-2 col-md-2 col-sm-2 col-xs-12 et-submit">
 	                           <button type="button" value="Submit" class="btn" id="et-confirmation-submit-vulnerable-customer"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
 	                        </div>
 	                     </div>

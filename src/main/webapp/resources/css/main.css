@@ -11968,6 +11968,8 @@ body.chin .partner-headline-wrapper .headline-title{
 		margin-left: 0;
 	}
 }
+
+// for eliteTermsInsuredInfoForm
 .selectDiv.et-confimation-vulnerable-customer-day {
 	background: #ededed url("../images/1fna-cal.png") no-repeat 7px 0px;
 	margin-bottom: 20px;
@@ -11978,4 +11980,26 @@ body.chin .partner-headline-wrapper .headline-title{
   border: 0;
   background: transparent;
   padding: 6px 12px 6px 50px;
+}
+/*.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top .table-condensed .picker-switch,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top .table-condensed .next,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top .table-condensed .prev*/
+.bootstrap-datetimepicker-widget {
+	/*color: #555;*/
+	background-color: #eee;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .timepicker-picker .table-condensed,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .timepicker-picker .table-condensed {
+	font-size: 12px;
+	padding: 0px;
+  text-align: center;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .datepicker .datepicker-days .day,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .datepicker .datepicker-days .day.new,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .datepicker .datepicker-months .month,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .datepicker .datepicker-years .year,
+.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .datepicker .datepicker-days .dow, {
+	font-size: 12px;
+	padding: 0px;
+  text-align: center;
 }
