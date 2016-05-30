@@ -40,9 +40,8 @@
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
-    String specialOneDayCountDown = "2016-05-21 14:59:59";
-    String specialCountDown = "2016-05-30 23:59:59";
-    String nextCountDown = "2016-05-19 23:59:59";
+    String countDownDate_special = "2016-05-21 14:59:59";
+    String countDownDate_regular = "2016-05-31 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
@@ -82,19 +81,25 @@
             	break;             	
     	}       
     } else {
-        countDownDate = nextCountDown;
-        countDownDD = "20";
+        //Regular Offer Period
+        countDownDate = countDownDate_regular;
+        countDownDD = "31";
         countDownMM = "May";
+
+        //Special Offer Period
         if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime()){
         	isRegSpecial = true;
-    		countDownDate = specialOneDayCountDown;
+    		countDownDate = countDownDate_special;
             countDownDD = "21";
             countDownMM = "May";        	
-        }else if((cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime())){
-    		countDownDate = specialCountDown;
-            countDownDD = "30";
-            countDownMM = "May";      	
+        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-30 23:59:59").getTime()){
+            isRegSpecial = true;
+            countDownDate = countDownDate_regular;
+            countDownDD = "31";
+            countDownMM = "May";
         }
+
+        //Regular Offer ends Period
     	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
