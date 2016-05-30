@@ -1179,6 +1179,7 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 									</div>
 								</div>
+
 								<div class="col-sm-12 col-md-6 right">
 									<div class="clearfix form-group has-error">
 										<div class="left-desktop right-description">
@@ -1210,9 +1211,9 @@ var home_url = "<%=request.getContextPath()%>";
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.permanentAddressCountry" id="savieApplicantBean.permanentAddressCountry">
                                              <option selected disabled value="">Country</option>
                                              <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
+                                             <option value="Australia">Australia</option>
+                                             <option value="Canada">Canada</option>
+                                             <option value="France">France</option>
                                              <option value="Germany">Germany</option>
                                           </select>
                                        </div>
@@ -1304,12 +1305,12 @@ var home_url = "<%=request.getContextPath()%>";
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.residentialDistrictCountry" id="savieApplicantBean.residentialDistrictCountry">
                                              <option selected disabled value="">Country</option>
                                              <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
-                                             <option value="Germany">Germany</option>    
+                                             <option value="Australia">Australia</option>
+                                             <option value="Canada">Canada</option>
+                                             <option value="France">France</option>
+                                             <option value="Germany">Germany</option>
                                           </select>
-                                       </div> 
+                                       </div>
                                        <span class="error-msg" id="residentialDistrictCountryMessage"></span> -->
 											<div class="selectDiv et-district-wrapper">
 												<span class="icon-chevron-thin-down orange-caret"></span> <select
@@ -1373,7 +1374,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input
 												class="form-control gray-textbox  correspondence-address"
 												autocomplete="off" maxlength="29"
-												id="savieApplicantBean.correspondenceAdress1" 
+												id="savieApplicantBean.correspondenceAdress1"
 												name="savieApplicantBean.correspondenceAdress1" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage1"></span> <input
@@ -1394,10 +1395,10 @@ var home_url = "<%=request.getContextPath()%>";
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrictCountry" id="savieApplicantBean.correspondenceDistrictCountry">
                                              <option selected disabled value="">Country</option>
                                              <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
-                                             <option value="Germany">Germany</option>    
+                                             <option value="Australia">Australia</option>
+                                             <option value="Canada">Canada</option>
+                                             <option value="France">France</option>
+                                             <option value="Germany">Germany</option>
                                           </select>
                                        </div>
                                        <span class="error-msg" id="correspondenceCountryMessage"></span> -->
@@ -1431,6 +1432,130 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 
 								</div>
+
+
+								<%-- 2016memberID - start --%>
+								<div class="col-sm-12 col-md-12">
+									<hr>
+								</div>
+								<div class="col-sm-12 col-md-6">
+									<script>
+										$(document).ready(function() {
+											$('#the-club-member-toggle').on('change', function() {
+												if ($(this).is(':checked')) {
+													$('#theClubMembershipNo').closest('.form-group').show();
+												} else {
+													$('#theClubMembershipNo').closest('.form-group').hide();
+												}
+											}).change();
+										});
+									</script>
+									<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
+										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" />
+										<label for="the-club-member-toggle">
+											<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
+												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
+												<fmt:message key="club.membership.confirm" bundle="${msg}" />
+											</a>
+										</label>
+									</div>
+
+									<div class="clearfix form-group has-error">
+										<div class="left-desktop right-description">
+											<label for="theClubMembershipNo" class="application-page-input-text et-input-label"></label>
+										</div>
+										<div class="left-desktop text-box">
+											<%--errMsgs--%>
+											<span class="text-red" id="errClubMemberID"></span>
+											<%--inputBox--%>
+											<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
+												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+												<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+											</div>
+											<%--links--%>
+											<div class="getclubmembership" style="font-size: 14px;">
+												<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">
+													<i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<%--<div class="form-group" style="margin-top: 0px; margin-bottom: 20px; display: none;">
+										<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
+											<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+											<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+										</div>
+									</div>--%>
+									<!-- The Club Membership popup -->
+									<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
+										role="dialog" aria-hidden="true" style="display: none;">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content plan-modal">
+												<div class="login-form">
+													<div style="overflow: hidden;">
+														<a id="getPromotionClose" class="close" aria-label="Close"
+															data-dismiss="modal"> <span aria-hidden="true"
+															style="font-size: 30px;">×</span>
+														</a>
+													</div>
+													<div class="form-container">
+														<div class="row">
+															<div class="col-xs-12">
+																<p>
+																	<fmt:message key="homecare.club.membership.pop.up"
+																		bundle="${msg}" />
+																</p>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-xs-12">
+																<p>
+																	<a
+																		href="<fmt:message key="theclub.register.link" bundle="${msg}" />"
+																		target="_blank"><fmt:message key="club.membership.join"
+																			bundle="${msg}" /></a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/ The Club Membership popup -->
+									<script>
+									function chkClubMember() {
+										$(".errDue").html('');
+										var flag = true;
+										var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
+										var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
+										if (the_club_member_check_box) {
+												if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+														$("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+														document.getElementById("theClubMembershipNo").focus();
+														$("#theClubMembershipNo").addClass("invalid-field");
+
+														flag = false;
+												}else if (the_club_membership_no != ""){
+														if(/^8/.test(the_club_membership_no) == false){
+																$("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" />") ;
+																document.getElementById("theClubMembershipNo").focus();
+																$("#theClubMembershipNo").addClass("invalid-field");
+																flag = false;
+														}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
+																$("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+																document.getElementById("theClubMembershipNo").focus();
+																$("#theClubMembershipNo").addClass("invalid-field");
+																flag = false;
+														}
+												}
+										}
+										return flag;
+								}
+								</script>
+								</div>
+								<%-- 2016memberID - end --%>
+
 							</div>
 							<div class="next-btn">
 								<button id="et-personal-info-next" class="btn next pi">
@@ -2496,7 +2621,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
 						<div class="clearfix declaration application-declaration">
@@ -2511,7 +2636,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
 						<div class="clearfix declaration application-declaration">
@@ -2543,7 +2668,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
                     </label>
@@ -2798,6 +2923,14 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</h4>
 									<p class="info" id="etaspi-corr-add"></p>
+								</div>
+								<div class="clearfix info-holder-below">
+									<h4 class="info-label">
+										<fmt:message
+											key="club.membership.number"
+											bundle="${msg}" />
+									</h4>
+									<p class="info" id="etaspi-clubmember-id"></p>
 								</div>
 							</div>
 							<!-- PERSONAL INFO END -->
@@ -3447,7 +3580,7 @@ var home_url = "<%=request.getContextPath()%>";
 </div>
 <!-- END Application Wrapper -->
 <!--
-            MODAL SECTION 
+            MODAL SECTION
          -->
 <!-- GET PROMOTION CODE MODAL -->
 <div id="get-promotion-code-popup" class="modal fade login-modal"
@@ -3665,9 +3798,9 @@ var home_url = "<%=request.getContextPath()%>";
                   <div class="modal-header">
                      <h4 class="modal-title">Your request has been successfully submitted.</h4>
                   </div>
-                     
+
                   <div class="modal-body"></div>
-                  
+
                   <div class="modal-footer">
                      <a href="/" title="Back to homepage" class="btn-block">Back to homepage</a>
                      <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
@@ -3770,7 +3903,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!--END OF CUSTOMER SERVICE MODAL--> --%>
 
 <!-- FOOTER -->
@@ -3778,7 +3911,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 <!-- JS INCLUDES -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Include all compiled plugins (below), or include individual files as needed 
+<!-- Include all compiled plugins (below), or include individual files as needed
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>-->
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
@@ -3825,33 +3958,33 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
-	function msieversionCheck() { 
+	function msieversionCheck() {
 	    var ua = window.navigator.userAgent;
 	    var msie = ua.indexOf ( "MSIE " );
 	    var trident = ua.indexOf('Trident/'); // IE11
 	    var edge = ua.indexOf('Edge/'); // IE12
-	
+
 	   //if ( msie > 0 )      // If Internet Explorer, return version number
 	   //   return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
 	   //else                 // If another browser, return 0
 	   //   return 0
-	
+
 	    if (msie > 0) {
 	        // IE 10 or older => return version number
 	        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
 	    }
-	
+
 	    if (trident > 0) {
 	        // IE 11 => return version number
 	        var rv = ua.indexOf('rv:');
 	        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
 	    }
-	
+
 	    if (edge > 0) {
 	       // IE 12 => return version number
 	       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
 	    }
-	
+
 	    return 0;
 	}
 	$('#et-medi-question-4-text').on('click', function(e) {
@@ -3864,7 +3997,7 @@ var home_url = "<%=request.getContextPath()%>";
 			$('#et-medical-dec-next').prop('disabled', true);
 		}
 	});
-	
+
 	$('.checkbox-description').on('click', function(e) {
 		if($(this).parent().find(':checkbox').prop('checked')==false) {
 			$(this).parent().find(':checkbox').prop('checked',true);
@@ -3873,73 +4006,79 @@ var home_url = "<%=request.getContextPath()%>";
 			$(this).parent().find(':checkbox').prop('checked',false);
 		}
 	});
-		
+
 	$('#et-btn-before-start').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
   	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
 	});
-	
+
 	$('#et-btn-ay-self').on('click', function(e) {
 		  ga('create', 'UA-60032236-1', 'auto');
-		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
+		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');
     });
-	
+
 	$('#promocode-hidden-button button').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4');
 	});
-	
+
 	$('#et-brn-proceed-to-application').on('click', function(e) {
   	  	ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5'); 
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5');
 	});
-	
+
 	$('#et-medical-dec-next').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
-        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6'); 
+        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6');
 	});
-	
+
 	$('#et-employment-info-next').on('click', function(e) {
 		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8'); 
+		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8');
 	});
-	
+
 	$('#et-beneficiary-info-next').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
-        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9'); 
+        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9');
 	});
-	
-	$('#et-app-sum-proceed-btn').on('click', function(e) { 
+
+	$('#et-app-sum-proceed-btn').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
-  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10'); 
+  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10');
 	});
-	
+
 	$('#et-confirm-and-sign-btn').on('click', function(e) {
 		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11'); 
+		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11');
 	});
-	
+
 	$('#et-signature-proceed-btn').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
-		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12'); 
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12');
 	});
-      
+
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');
       });
 
   		//applicant dob
-  		$(document).on('click', '#et-personal-info-next', function(e) {  			
+  		$(document).on('click', '#et-personal-info-next', function(e) {
+
   			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
   				$('#eliteTermsInsuredInfoForm')
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');
   			}
-  			
+				if ( chkClubMember() ) {
+					console.log("true");
+				} else {
+					console.log("false");
+				}
+
   			ga('create', 'UA-60032236-1', 'auto');
-            ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7'); 
-  			
+            ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7');
+
   			/*
          setTimeout(function(){
 	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
@@ -3947,22 +4086,23 @@ var home_url = "<%=request.getContextPath()%>";
 	  			    .data('bootstrapValidator')
 	  			    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
 	            }
-	  			
+
 	  			if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
 	  			    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
 	            }
-	  			
+
 	  			if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
 	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
 	            }
+
     		}, 300);
          */
   		});
-  		
+
   		$('.et-app-sum-edit').on('click', function(e) {
   			$('#et-plan-option-section').removeClass('hide-element');
   		});
@@ -4013,31 +4153,31 @@ var home_url = "<%=request.getContextPath()%>";
       }).on('success.form.bv', function(e) {
          e.preventDefault();
          var $form = $(this);
- 
+
          var $planOption = $('#et-plan-option-section');
 
          $('#et-btn-ay-self').removeClass('et-pad-bot-50');
          $('#et-about-yoursel-section').removeAttr('style');
          $planOption.removeClass('hide-element');
-         
+
          if(getWidth()>=992){
             $('.et-collapse-link[aria-expanded="true"]').parent()
                .next()
                .find('.et-panel-body')
                .jScrollPane({showArrows: true});
          }
-         
+
          $('body, html').animate({
             scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
          }, 500);
-         
+
          // Store plan detail data
          if ($('#et-gender-male').prop('checked')) {
             planDetailData.gender = 'Male';
          } else if ($('#et-gender-female').prop('checked')) {
             planDetailData.gender = 'Female';
          }
-         
+
          planDetailData.dob = $planDate.val();
       });
       $(document).ready(function() {
@@ -4054,7 +4194,7 @@ var home_url = "<%=request.getContextPath()%>";
     	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
     		  $("#et-smoker-no").click();
     	  }
-    	  
+
     	  if('${etPolicyApplication.promocode }'!=''){
     		  $('#et-dis-promo-amount').removeClass('hidden');
     		// Application PromoCode
@@ -4062,7 +4202,7 @@ var home_url = "<%=request.getContextPath()%>";
     	  }
     	  else{
     		  $('#et-dis-promo-amount').addClass('hidden');
-    		  
+
     		  $('#etaspd-monthly-premium').find('span.extra-years-remarks').addClass('hidden');
     		  $('#etaspd-monthly-premium-extra-years').addClass('hidden');
     	  }
@@ -4119,7 +4259,7 @@ var home_url = "<%=request.getContextPath()%>";
                } else{
                   $('#R2').slider('setValue', curr_insured_amt);
                }
-            } 
+            }
          });
         $('#R2').on('change', resetCalculatedAmt);
 
@@ -4140,7 +4280,7 @@ var home_url = "<%=request.getContextPath()%>";
          }
 
       });
-  
+
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
 		    	  $.ajax({
@@ -4156,7 +4296,7 @@ var home_url = "<%=request.getContextPath()%>";
 		 			  success : function(data) {
 		 			  }
 	 		      });
-		    	  
+
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 	    	    	 var $appInfo = $('#et-application-first-section');
 	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
@@ -4165,7 +4305,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                  .css('margin-bottom', '190px');
 			         $aboutYourselfSec.addClass('hide-element');
 			         $etPlanOptionSec.addClass('hide-element');
-			         
+
 			         $('body, html').animate({
 			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 			         }, 500);
@@ -4180,7 +4320,7 @@ var home_url = "<%=request.getContextPath()%>";
 					$('#loginpopup').modal('show');
 				 }
 		      });
-		      
+
 		      $('#et-medical-dec-next').on('click', function(e) {
 		    	  var $hideMedicalDec = $('#et-medical-declaration');
 		    	  var $etAppInfoSec = $('#et-application-info-section');
@@ -4188,52 +4328,52 @@ var home_url = "<%=request.getContextPath()%>";
 
 		    	  $hideMedicalDec.addClass('hide-element');
 		    	  $etAppPageDiv.addClass('hide-element');
-		    	  
+
 		    	  $('body, html').animate({
 		            scrollTop: ($etAppInfoSec.offset().top - stickyHeight) + 'px'
 		         }, 500);
 		      });
-		      
-		      // Hiding Plan Option		      
+
+		      // Hiding Plan Option
 		      $('.et-gender-main-div input[type=radio]').change(function(){
 		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
-		    	  
+
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
 			      });
 		      });
-		      
+
 		      // Datepicker
 		      $('#et-select-plan-date-input').datepicker().on("input change", function (e) {
 		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
-		    	  
+
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
 			      });
 				});
-		      
-		      
+
+
 		      $('#edit-birthday').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.addClass('hide-element');
 		      });
-		      
-		      
+
+
 		      $('#edit-gender').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.addClass('hide-element');
 		      });
-		      
+
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.removeClass('hide-element');
 		      });
-		      
-		     
-		      
-            //cannot apply modal 
+
+
+
+            //cannot apply modal
            /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
                   $('#et-cust-serv-form')
@@ -4262,7 +4402,7 @@ var home_url = "<%=request.getContextPath()%>";
 	            	}
             	}, 100);
             });
-            
+
             $(document).on('change', '#eliteTermsInsuredInfoForm .residential-address.optional-field', function(e) {
             	setTimeout(function(){
 	            	if(($('#savieApplicantBean\\.residentialAdress2').val()!='' || $('#savieApplicantBean\\.residentialAdress3').val()!='') && ($('#savieApplicantBean\\.residentialAdress2').val()!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder') || $('#savieApplicantBean\\.residentialAdress3').val()!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder'))) {
@@ -4277,7 +4417,7 @@ var home_url = "<%=request.getContextPath()%>";
 	            	}
             	}, 100);
             });
-            
+
             $(document).on('change', '#eliteTermsInsuredInfoForm .correspondence-address.optional-field', function(e) {
             	setTimeout(function(){
 	            	if(($('#savieApplicantBean\\.correspondenceAdress2').val()!='' || $('#savieApplicantBean\\.correspondenceAdress3').val()!='') && ($('#savieApplicantBean\\.correspondenceAdress2').val()!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder') || $('#savieApplicantBean\\.correspondenceAdress3').val()!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder'))) {
@@ -4305,7 +4445,7 @@ var home_url = "<%=request.getContextPath()%>";
 	            		}
            			}, 100);
             	});
-            	
+
             	$(document).on('change', '#et-cust-serv-form #tel', function(e) {
            			setTimeout(function(){
 	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val()) {
@@ -4315,7 +4455,7 @@ var home_url = "<%=request.getContextPath()%>";
 	            		}
            			}, 100);
             	});
-            	
+
             	$(document).on('change', '#savieApplicantBean\\.permanentAddress1', function(e) {
 	            	setTimeout(function(){
 	    	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
@@ -4325,7 +4465,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	            }
 	            	}, 300);
             	});
-            	
+
             	$(document).on('change', '#savieApplicantBean\\.residentialAdress1', function(e) {
 	            	setTimeout(function(){
 	            		if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
@@ -4335,7 +4475,7 @@ var home_url = "<%=request.getContextPath()%>";
 	    	            }
 	            	}, 300);
             	});
-				
+
             	$(document).on('change', '#savieApplicantBean\\.correspondenceAdress1', function(e) {
 	            	setTimeout(function(){
 	            		if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
@@ -4345,7 +4485,17 @@ var home_url = "<%=request.getContextPath()%>";
 	    	            }
 	            	}, 300);
             	});
-    	  			
+
+							$(document).on('change', '#theClubMembershipNo', function(e) {
+	            	setTimeout(function(){
+	            		if($('#theClubMembershipNo').val()!='' || $('#theClubMembershipNo').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
+	    	  				$('#eliteTermsInsuredInfoForm')
+	    	  			    .data('bootstrapValidator')
+	    	  			    .updateStatus('theClubMembershipNo','VALID');
+	    	            }
+	            	}, 300);
+            	});
+
             }
             */
             // ^ bootstrap validation
@@ -4417,14 +4567,14 @@ var home_url = "<%=request.getContextPath()%>";
                                    return {
                                        valid: false,
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }                          
+                                   }
                                }
-                               
+
                               // Remove Email Error message as well
                               $('#et-cust-serv-form')
                                    .data('bootstrapValidator')
                                    .updateStatus('email','VALID');
-                              
+
                               return true;
                            }
                         }
@@ -4450,10 +4600,10 @@ var home_url = "<%=request.getContextPath()%>";
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
                   var $form = $(this);
-          
-                   $('.modal').modal('hide');
-                   
-                     var name = $('#name').val();
+
+                  $('.modal').modal('hide');
+
+                  var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
 	               	var preferredDay = $('#day').val();
@@ -4461,13 +4611,13 @@ var home_url = "<%=request.getContextPath()%>";
 	               	var enquiryType = $('#enquiry').val();
 	               	var channel = $("#channel").val();
 	               	var product = "eliteterm";
-	               	
+
 	               	if(name ==null){
 	               		console.log("data error");
 	               	}
 	               	else{
 	               		$.get(contextPath+'/ajax/eliteTerm/contactCs',
-	               		{ 
+	               		{
 	               			name : name,
 	               			email : email,
 	               			mobile : mobile,
@@ -4493,10 +4643,10 @@ var home_url = "<%=request.getContextPath()%>";
 
             function getAge(year, month, day)
             {
-                var now = new Date()    
+                var now = new Date()
                 var age = now.getFullYear() - year
-                var mdif = now.getMonth() - month + 1 //0=jan    
-                
+                var mdif = now.getMonth() - month + 1 //0=jan
+
                 if(mdif < 0)
                 {
                     --age
@@ -4504,15 +4654,15 @@ var home_url = "<%=request.getContextPath()%>";
                 else if(mdif == 0)
                 {
                     var ddif = now.getDate() - day
-                    
+
                     if(ddif < 0)
                     {
                         --age
                     }
                 }
                 return age
-            }            
-                        
+            }
+
             function isEmailEmpty(number) {
                var isNotEmpty = false;
                var pref = number.split("");
@@ -4523,7 +4673,7 @@ var home_url = "<%=request.getContextPath()%>";
                }
                return isNotEmpty;
             }
-            
+
             function getPromoteCode() {
             	if(validate_promo_val()){
             		$.ajax({
@@ -4875,7 +5025,7 @@ var home_url = "<%=request.getContextPath()%>";
 							});
 		}
 		/*$.get(contextPath+'/ajax/savie/application/getOccupation',
-		{ 
+		{
 			value : value,
 			language : language
 		},
