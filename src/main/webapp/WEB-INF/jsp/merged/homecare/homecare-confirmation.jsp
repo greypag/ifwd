@@ -3,7 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-datetimepicker.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.min.js"></script>
+<jsp:useBean id="now" class="java.util.Date" />
 <%@page import="com.ifwd.fwdhk.util.Constants"%>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -42,7 +45,7 @@
   String key_row4col2 = "home.referral.benefits." + userType + ".table.row4.col2";
   String key_row4col3 = "home.referral.benefits." + userType + ".table.row4.col3";
   String key_row4col4 = "home.referral.benefits." + userType + ".table.row4.col4";
-  
+
   String key_row6col1 = "home.referral.benefits." + userType + ".table.row6.col1";
   String key_row6col2 = "home.referral.benefits." + userType + ".table.row6.col2";
   String key_row6col3 = "home.referral.benefits." + userType + ".table.row6.col3";
@@ -54,7 +57,7 @@
   String key_disclaimer2Part3 = "home.referral.benefits." + userType + ".disclaimer2.part3";
   String key_disclaimer3Part1 = "home.referral.benefits." + userType + ".disclaimer3.part1";
   String key_disclaimer3Part2 = "home.referral.benefits." + userType + ".disclaimer3.part2";
-  String key_disclaimer3Part3 = "home.referral.benefits." + userType + ".disclaimer3.part3";  
+  String key_disclaimer3Part3 = "home.referral.benefits." + userType + ".disclaimer3.part3";
 %>
 
 <!DOCTYPE html>
@@ -77,7 +80,7 @@
 
 
 
-	
+
 </head>
 <body>
 
@@ -137,7 +140,7 @@
                         <li class="active "><i class="fa fa-caret-right"></i>
                         <fmt:message key="home.breadcrumb1.item6" bundle="${msg}" />
                         </li>
-                    </ol>					
+                    </ol>
 					<c:if test="${not empty errormsg}">
 						<div id="confirm-error-msg" class="alert alert-danger hide"
 							role="alert">${errormsg}</div>
@@ -213,7 +216,7 @@
 						                        </tbody>
 						                    </table>
 					                    </div>
-					                    
+
 					                    <div class="hidden-md hidden-lg margin-bottom-10">
 					                       <div style="margin-top:15px;margin-bottom:15px;">
 						                        <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></h4>
@@ -227,7 +230,7 @@
 	                                                </div>
 	                                                <div class="clearfix"></div>
 	                                            </div>
-	                                            
+
 	                                            <div class="confirmation-table-margin">
 	                                                <div class="col-sm-12 col-xs-12">
 	                                                    <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -237,7 +240,7 @@
 	                                                </div>
 	                                                <div class="clearfix"></div>
 	                                            </div>
-	                                            
+
 	                                            <div class="confirmation-table-margin">
 	                                                <div class="col-sm-12 col-xs-12">
 	                                                    <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -248,7 +251,7 @@
 	                                                <div class="clearfix"></div>
 	                                            </div>
 	                                            <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-	                                            
+
 	                                            <div class="confirmation-table-margin">
 	                                                <div class="col-sm-12 col-xs-12">
 	                                                    <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -258,7 +261,7 @@
 	                                                </div>
 	                                                <div class="clearfix"></div>
 	                                            </div>
-	                                            
+
 	                                            <div class="confirmation-table-margin">
 	                                                <div class="col-sm-12 col-xs-12">
 	                                                    <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -268,7 +271,7 @@
 	                                                </div>
 	                                                <div class="clearfix"></div>
 	                                            </div>
-	                                            
+
 	                                            <div class="confirmation-table-margin">
 	                                                <div class="col-sm-12 col-xs-12">
 	                                                    <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -280,7 +283,7 @@
 	                                            </div>
 	                                            <div style="border: 1px solid #f68a1d;width: 100%;"></div>
                                             </div>
-                                            
+
                                             <div style="margin-top:15px;margin-bottom:15px;">
                                                 <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong></h4>
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
@@ -293,7 +296,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -303,7 +306,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -314,7 +317,7 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
-                                                
+
 <%--                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -324,7 +327,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -334,7 +337,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -345,7 +348,7 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -355,7 +358,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -365,7 +368,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                
+
                                                 <div class="confirmation-table-margin">
                                                     <div class="col-sm-12 col-xs-12">
                                                         <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -378,7 +381,7 @@
                                                 <div style="border: 1px solid #f5f5f5;width: 100%;"></div> --%>
                                             </div>
                                         </div>
-					                    
+
 					                    <div class="disclaimer">
 					                      <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
 					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
@@ -403,7 +406,7 @@
 	                                            </tbody>
 	                                        </table>
                                         </div>
-					                   
+
 				                        <div class="hidden-md hidden-lg margin-bottom-10">
 					                        <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 						                    <div class="confirmation-table-margin">
@@ -416,7 +419,7 @@
 						                        <div class="clearfix"></div>
 						                    </div>
 						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-						                    
+
 						                    <div class="confirmation-table-margin">
 						                        <div class="col-sm-12 col-xs-12">
 						                            <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -427,7 +430,7 @@
 						                        <div class="clearfix"></div>
 						                    </div>
 						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-						                    
+
 						                    <div class="confirmation-table-margin">
 						                        <div class="col-sm-12 col-xs-12">
 						                            <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -438,7 +441,7 @@
 						                        <div class="clearfix"></div>
 						                    </div>
 						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-						                    
+
 						                    <div class="confirmation-table-margin">
 						                        <div class="col-sm-12 col-xs-12">
 						                            <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -450,13 +453,148 @@
 						                    </div>
 						                    <div style="border: 1px solid #f68a1d;width: 100%;"></div>
 					                    </div>
-					              <% } %>                    
+					              <% } %>
 					              </div>
-					              </div>
-					            <!-- END Referral Code Table -->	
+					            </div>
+					            <!-- END Referral Code Table -->
 							</div>
+
+              <!-- 20160530 -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
+                <hr>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
+              <div class="col-sm-12 pad-none">
+  						  <div style="width:80%;margin-left:10%">
+  							<h3 class="bmg-confirmation-h3"><fmt:message key="home.confirmation.Your.application.is.part1" bundle="${msg}" /></h3>
+                </div>
+              </div>
+
+              <div class="col-sm-12 pad-none">
+  						  <div style="width:80%;margin-left:10%">
+              <div class="agent-container hc-confimation-vulnerable-customer-form">
+                <form action="" method="POST" class="form-horizontal" id="hc-confimation-vulnerable-customer-form">
+                   <div class="form-group">
+                    <%-- Hidden field 1: policy id
+                    Hidden field 2: Applicant ‘Last name’
+                    Hidden field 3: Applicant ‘Given name’
+                    Hidden field 4: Insurance product name
+                    Hidden field 5: timestamp of the submission --%>
+                      <input type="hidden" name="userDetails.policyNo" value="${userDetails.policyNo }" />
+                      <input type="hidden" name="userDetails.lastName" value="${userDetails.lastName }" />
+                      <input type="hidden" name="userDetails.firstName" value="${userDetails.firstName }" />
+                      <input type="hidden" name="userDetails.insuranceProductName" value="${userDetails.insuranceProductName }" />
+                      <input type="hidden" name="userDetails.timestamp" value="<fmt:formatDate type="both" value="${now}" />" />
+                      <%-- <pre>${userDetails.policyNo }</pre> --%>
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+                        <div class='input-group date' id='datetimepicker10'>
+                           <input type='text' class="form-control" id="hc-confimation-vulnerable-customer-date" placeholder="<fmt:message key='home.confirmation.date' bundle='${msg}' />"/>
+                           <span class="input-group-addon" style="border: 0; border-radius: 0;">
+                               <span class="glyphicon glyphicon-chevron-down">
+                               </span>
+                           </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker10').datetimepicker({
+                                    viewMode: 'years',
+                                    format: 'DD-MM-YYYY'
+                                });
+                            });
+                        </script>
+                        <span class="err-msg" id="hc-ays-datepicker-message"></span>
+                      </div>
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6 hc-vulnerable-customer-preferred-time hc-confimation-vulnerable-customer-form">
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input type='text' class="form-control" name="preferred-time" id="hc-confimation-vulnerable-customer-time" autocomplete="off"  placeholder="<fmt:message key='home.confirmation.time' bundle='${msg}' />"/>
+                            <span class="input-group-addon" style="border: 0; border-radius: 0;">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </span>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker3').datetimepicker({
+                                    format: 'LT'
+                                });
+                            });
+                        </script>
+                        <span id="errPromoEmail" class="text-red"></span>
+                      </div>
+
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 hc-submit">
+                         <button type="button" value="Submit" class="btn" id="hc-confirmation-submit-vulnerable-customer"><fmt:message key="home.confirmation.Submit" bundle="${msg}" /></button>
+                      </div>
+                   </div>
+                </form>
+              </div>
+              </div>
+              </div>
+            <script>
+            //about preferredDay
+            // $(document).on('change', '#hc-confimation-vulnerable-customer-date', function(e) {
+            //    if($('#hc-confimation-vulnerable-customer-date').val()!="") {
+            //       $('#hc-confimation-vulnerable-customer-form')
+            //       .data('bootstrapValidator')
+            //       .updateStatus('hc-select-plan-date','VALID');
+            //    }
+            // });
+            // $(document).on('change', '#hc-confimation-vulnerable-customer-tim', function(e) {
+            //    if($('#hc-confimation-vulnerable-customer-tim').val()!="") {
+            //       $('#hc-confimation-vulnerable-customer-form')
+            //       .data('bootstrapValidator')
+            //       .updateStatus('hc-select-plan-time','VALID');
+            //    }
+            // });
+            // //ABout yourself validation
+            // $('#hc-confimation-vulnerable-customer-form').bootstrapValidator({
+            //    excluded: [],
+            //    fields: {
+            //       "hc-select-plan-date": {
+            //          container: '#hc-ays-datepicker-message',
+            //          validators: {
+            //             notEmpty: {
+            //                message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />'
+            //             },
+            //             callback: {
+            //                message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />',
+            //                callback: function(value, validator) {
+            //                   return value !== document.getElementById('hc-confimation-vulnerable-customer-date').getAttribute('placeholder');
+            //                }
+            //             }
+            //          }
+            //       }
+            //    }
+            // }).on('success.form.bv', function(e) {
+            //    e.preventDefault();
+            //    var $form = $(this);
+            //
+            //    var $planOption = $('#hc-plan-option-section');
+            //
+            //    $('#hc-btn-ay-self').removeClass('hc-pad-bot-50');
+            //    $('#hc-about-yoursel-section').removeAttr('style');
+            //    $planOption.removeClass('hide-element');
+            //
+            //    if(getWidth()>=992){
+            //       $('.hc-collapse-link[aria-expanded="true"]').parent()
+            //          .next()
+            //          .find('.hc-panel-body')
+            //          .jScrollPane({showArrows: true});
+            //    }
+            //
+            //    $('body, html').animate({
+            //       scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+            //    }, 500);
+            //
+            // });
+            </script>
+          </div>
+          </div>
+          <!-- 20160530 -->
+
+
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
-						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">								
+						     <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
 								<div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
 								<div class="col-lg-12 col-md-12 hidden-xs hidden-sm">
 						            <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-right:15px;">
@@ -473,19 +611,19 @@
                                     <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
                                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="link.copy.mobile" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                                 </div>
-                                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
+                                <div class="col-md-5 col-sm-12 col-xs-12 pad-none">
                                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>-->
-                                    
+
                                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
-                                    
+
                                     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance/sharing/" data-title="iFWD"></div>
                                 </div>
 				                <div class="clearfix"></div>
 				                </div>
 							</div>
-							
-							<!-- 
-							
+
+							<!--
+
 							<div class="clearfix"></div>
 							<br>
 							<div class="h4-2 margin-left">
@@ -496,13 +634,13 @@
 					         	<div class="col-lg-6 col-md-6 col-sm-7 col-xs-12 pad-none">
 					         		<div class=" wht-bg1 text-center referral-url"><a class=" h4-5-b " id="toBeCopied" href="" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></a></div>
 					            </div>
-					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none"> 
+					            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 pad-none">
 						        	<div class="copy-link pull-left" id="d_clip_button" title="Copy Link" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute"><fmt:message key="home.confirmation.copy" bundle="${msg}" /></div>
 						        	<!-/- <button type="button" id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button> -/->
 					                <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance/sharing/" data-title="iFWD"></div>
 					           	</div>
 					         </div>
-					         
+
 							<div class="clearfix"></div>
 							<br>
 							<div class="col-lg-12 col-md-12 travel-b">
@@ -520,16 +658,16 @@
 								</div>
 								-/->
 							</div>
-							
+
 							 -->
-							
-							
-							
+
+
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					
-					
+
+
 					<div class="container pad-none hidden-xs hidden-sm travel-homecare" style="margin-top:30px;">
 			            <div class="row-fluid">
 			              <div class="center " style="visibility: visible;">
@@ -537,7 +675,7 @@
 			                  <img src="<%=request.getContextPath()%>/resources/images/t-care.png" alt=""> </div>
 			                <div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
 			                  <div>
-			                    <h4 class="center-h2"><fmt:message key="home.confirmation.other.heading" bundle="${msg}" /></h4>                  
+			                    <h4 class="center-h2"><fmt:message key="home.confirmation.other.heading" bundle="${msg}" /></h4>
 			                    <div class="h2-32" style="margin-top:30px;">
 			                      <strong><fmt:message key="home.confirmation.other.subheading" bundle="${msg}" /></strong>
 			                    </div>
@@ -547,7 +685,7 @@
 			                    <fmt:message key="home.confirmation.other.quote" bundle="${msg}" /></a>
 			                  </div>
 			                </div>
-			              </div>  
+			              </div>
 			            </div>
 			          </div>
 				</form>
@@ -573,7 +711,7 @@
    if ('${language}'==='en'){
 	   params[4]='promoCode=Regis_Home EN_Sc';
    } else {
-	   params[4]='promoCode=Regis_Home ZH_Sc';   
+	   params[4]='promoCode=Regis_Home ZH_Sc';
    }
    params[5]='valueCurrency=USD';
    params[6]='GCID='; //For Live Tracking only

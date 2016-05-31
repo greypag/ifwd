@@ -11988,6 +11988,21 @@ body.chin .partner-headline-wrapper .headline-title{
 	/*color: #555;*/
 	background-color: #eee;
 }
+
+.agent-container.hc-confimation-vulnerable-customer-form .form-group input {
+	background: #ededed;
+}
+.agent-container.hc-confimation-vulnerable-customer-form .form-group .hc-submit button {
+	margin-top: 0;
+	border: 1px solid #ff8200;
+	width: 100%;
+	height: 50px;
+	background-color: #fff;
+	color: #ff8200;
+	font-size: 18px;
+	font-family: 'Calibri-bold';
+}
+
 /*.bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .timepicker-picker .table-condensed,
 .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour .timepicker-picker .table-condensed {
 	font-size: 12px;
@@ -12002,4 +12017,14 @@ body.chin .partner-headline-wrapper .headline-title{
 	font-size: 12px;
 	padding: 0px;
   text-align: center;
+}*/
+
+/* for home-insurance/confirmation */
+/*@media ( min-width : 992px) {
+	// line 107, ../sass/partials/_et-confirmation.scss
+	#etConfirm .et-submit button {
+		font-size: 24px;
+		max-width: 125px;
+		margin-left: 0px;
+	}
 }*/

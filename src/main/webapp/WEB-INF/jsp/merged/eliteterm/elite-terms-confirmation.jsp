@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="now" class="java.util.Date" />
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -109,32 +110,16 @@ var languageP = "${language}";
 									<div class="agent-container">
 										<form action="" method="POST" class="form-horizontal" id="et-confimation-vulnerable-customer-form">
 	                     <div class="form-group">
-											 	<!-- Hidden field 1: policy id
+											 	<%-- Hidden field 1: policy id
 												Hidden field 2: Applicant ‘Last name’
 												Hidden field 3: Applicant ‘Given name’
 												Hidden field 4: Insurance product name
-												Hidden field 5: timestamp of the submission -->
+												Hidden field 5: timestamp of the submission --%>
 													<input type="hidden" name="eliteTermPolicy.policyNo" value="${eliteTermPolicy.policyNo }" />
 													<input type="hidden" name="eliteTermPolicy.lastName" value="${eliteTermPolicy.lastName }" />
 													<input type="hidden" name="eliteTermPolicy.firstName" value="${eliteTermPolicy.firstName }" />
 													<input type="hidden" name="eliteTermPolicy.insuranceProductName" value="${eliteTermPolicy.insuranceProductName }" />
-													<script type="text/javascript">
-														function getDate()
-														{
-														    var currentTimestamp = new Date();
-														    var dd = currentTimestamp.getDate();
-														    var mm = currentTimestamp.getMonth()+1; //January is 0!
-														    var yyyy = currentTimestamp.getFullYear();
-														    if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm}
-														    currentTimestamp = yyyy+""+mm+""+dd;
-
-														    document.getElementById("currentTimestamp").value = currentTimestamp;
-														}
-
-														//call getDate() when loading the page
-														getDate();
-													</script>
-													<input type="hidden" name="eliteTermPolicy.timestamp" id="currentTimestamp" />
+													<input type="hidden" name="eliteTermPolicy.timestamp" value="<fmt:formatDate type="both" value="${now}" />" />
 													<%-- <pre>${eliteTermPolicy.policyNo }</pre> --%>
 													<div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
 														<div class='input-group date' id='datetimepicker10'>
@@ -148,7 +133,7 @@ var languageP = "${language}";
 												        $(function () {
 												            $('#datetimepicker10').datetimepicker({
 												                viewMode: 'years',
-												                format: 'DD/MM/YYYY'
+												                format: 'DD-MM-YYYY'
 												            });
 												        });
 												    </script>
@@ -194,54 +179,54 @@ var languageP = "${language}";
 									 }
 								});
 								//ABout yourself validation
-								$('#eliteTermsAboutYourselfForm').bootstrapValidator({
-									 excluded: [],
-									 fields: {
-											"et-select-plan-date": {
-												 container: '#et-ays-datepicker-message',
-												 validators: {
-														notEmpty: {
-															 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />'
-														},
-														callback: {
-															 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />',
-															 callback: function(value, validator) {
-																	return value !== document.getElementById('et-confimation-vulnerable-customer-date').getAttribute('placeholder');
-															 }
-														}
-												 }
-											}
-									 }
-								}).on('success.form.bv', function(e) {
-									 e.preventDefault();
-									 var $form = $(this);
-
-									 var $planOption = $('#et-plan-option-section');
-
-									 $('#et-btn-ay-self').removeClass('et-pad-bot-50');
-									 $('#et-about-yoursel-section').removeAttr('style');
-									 $planOption.removeClass('hide-element');
-
-									 if(getWidth()>=992){
-											$('.et-collapse-link[aria-expanded="true"]').parent()
-												 .next()
-												 .find('.et-panel-body')
-												 .jScrollPane({showArrows: true});
-									 }
-
-									 $('body, html').animate({
-											scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
-									 }, 500);
-
-									 // Store plan detail data
-									 if ($('#et-gender-male').prop('checked')) {
-											planDetailData.gender = 'Male';
-									 } else if ($('#et-gender-female').prop('checked')) {
-											planDetailData.gender = 'Female';
-									 }
-
-									 planDetailData.dob = $planDate.val();
-								});
+								// $('#eliteTermsAboutYourselfForm').bootstrapValidator({
+								// 	 excluded: [],
+								// 	 fields: {
+								// 			"et-select-plan-date": {
+								// 				 container: '#et-ays-datepicker-message',
+								// 				 validators: {
+								// 						notEmpty: {
+								// 							 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />'
+								// 						},
+								// 						callback: {
+								// 							 message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />',
+								// 							 callback: function(value, validator) {
+								// 									return value !== document.getElementById('et-confimation-vulnerable-customer-date').getAttribute('placeholder');
+								// 							 }
+								// 						}
+								// 				 }
+								// 			}
+								// 	 }
+								// }).on('success.form.bv', function(e) {
+								// 	 e.preventDefault();
+								// 	 var $form = $(this);
+								//
+								// 	 var $planOption = $('#et-plan-option-section');
+								//
+								// 	 $('#et-btn-ay-self').removeClass('et-pad-bot-50');
+								// 	 $('#et-about-yoursel-section').removeAttr('style');
+								// 	 $planOption.removeClass('hide-element');
+								//
+								// 	 if(getWidth()>=992){
+								// 			$('.et-collapse-link[aria-expanded="true"]').parent()
+								// 				 .next()
+								// 				 .find('.et-panel-body')
+								// 				 .jScrollPane({showArrows: true});
+								// 	 }
+								//
+								// 	 $('body, html').animate({
+								// 			scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+								// 	 }, 500);
+								//
+								// 	 // Store plan detail data
+								// 	 if ($('#et-gender-male').prop('checked')) {
+								// 			planDetailData.gender = 'Male';
+								// 	 } else if ($('#et-gender-female').prop('checked')) {
+								// 			planDetailData.gender = 'Female';
+								// 	 }
+								//
+								// 	 planDetailData.dob = $planDate.val();
+								// });
 								</script>
 					</div>
 
