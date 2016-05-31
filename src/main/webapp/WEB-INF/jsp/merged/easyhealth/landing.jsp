@@ -36,8 +36,8 @@ var home_url = "<%=request.getContextPath()%>";
     <div class="savie-regular-container savie-regular-landing rp-only">
         <div class="whole-banner">
             <div class="page-banner">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile_${language}.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop_${language}.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
                 <div class="fwd-container-limit">
                 
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/${nextPageFlow}" method="post">
