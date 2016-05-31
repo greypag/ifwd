@@ -285,6 +285,25 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD = "elite.terms.document-upload";
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION = "elite.terms.confirmation";
 	
+	/* Page Flow Control For Home Liability */
+	public static final String URL_HOME_LIABILITY_LANDING = "home-liability-insurance";
+	public static final String URL_HOME_LIABILITY_QUOTE = "quote";
+	public static final String URL_HOME_LIABILITY_USER_DETAILS = "user-details";
+	public static final String URL_HOME_LIABILITY_SUMMARY = "summary";
+	public static final String URL_HOME_LIABILITY_CONFIRMATION = "confirmation-ga";
+	
+	public static final String PAGE_HOME_LIABILITY_LANDING = "home-liability-landing";
+	public static final String PAGE_HOME_LIABILITY_QUOTE = "home-liability-plan";
+	public static final String PAGE_HOME_LIABILITY_USER_DETAILS = "home-liability-application";
+	public static final String PAGE_HOME_LIABILITY_SUMMARY = "home-liability-summary";
+	public static final String PAGE_HOME_LIABILITY_CONFIRMATION = "home-liability-confirmation";
+	
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_LANDING = "home.liability.landing";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_QUOTE = "home.liability.plan";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS = "home.liability.application";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY = "home.liability.summary";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION = "home.liability.confirmation";
+	
 	/* Page Flow Control For savie online */
 	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";
 	public static final String URL_SAVIEONLINE_REGULAR_PREMIUM = "regular-premium";

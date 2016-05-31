@@ -1,0 +1,919 @@
+@charset "utf-8";
+
+.app-pg-ctnr{
+	.app-pg-cont{
+		max-width:980px;
+	}
+}
+
+.dw-bubble.mbsc-mobiscroll {
+    .dwwr {
+        border: 1px solid #ccc;
+        color: #333;
+    }
+    .dwl {
+        color: #333;
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+    .dwwol {
+        border-top: 1px solid #f99502;
+        border-bottom: 1px solid #f99502;
+    }
+    .dw-li {
+        font-size: 18px;
+    }
+
+    .dwb{
+    	color:#f99502;
+    }
+}
+
+/* Well... i have no idea why copy and paste from original and layout got broken */
+.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content{
+	padding:0;
+}
+
+#ehome-app-screening{
+
+	.app-pg-cont{
+		margin-bottom: 0;
+	}
+	background:url(../../images/easy-home/screening_bg.jpg) no-repeat center center;
+	.screening-wrapper{
+		p {font-size:16px;margin-bottom:20px;}
+		margin-bottom: 30px;
+		min-height:500px;
+		
+		.screening-cont{
+			h2{
+				color:#ff8200;
+			}
+
+
+		}
+		.screening-block{
+			padding:20px 0;
+			max-width: 440px;
+			background-color:#fff;
+			margin:0 auto 20px;
+		}
+
+		.checkbox{
+			label{
+				padding-left:0;
+			}
+			span{
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			i{
+				margin-right:10px;
+				font-style: normal;
+				opacity: 0;
+				animation:popOut ease-in .3s normal;
+				font-size:22px;
+			}
+
+			.on{
+				i:first-child{
+					opacity: 0;
+				}
+
+				i:last-child{
+					opacity: 1;
+				}
+			}
+
+			.off{
+				i:first-child{
+					opacity: 1;
+				}
+
+				i:last-child{
+					opacity: 0;
+				}
+
+			}
+		}
+		.checkbox-slider--b input+span:before{
+			box-shadow:none;
+		}		
+		.checkbox-slider--b input+span:after{
+		}
+
+		.checkbox-slider--b span+i{
+			margin-left:10px;
+			margin-right:0;
+		}
+	}
+	.eh-btn-next{
+		width:90%;
+		max-width: 400px;
+		display: inline-block;
+		font-size:22px;
+	}
+}
+#ehome-app-selectplan{
+	background-color:#f5f5f5;
+	margin-bottom: 0;
+
+	p, ul{font-size:16px;}
+
+	
+	.container-fluid{
+		padding-left:0;
+		padding-right:0;
+
+		.row{
+			margin-right:0;
+			margin-left:0;
+		}
+	}
+	.app-pg-cont{
+		margin-bottom: 0;
+	}
+	
+	.app-selectplan-tab{
+
+		[class*="col-"] {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.app-selectplan-tab-head{
+			background-color:#fd8d29;
+			position: relative;
+
+			
+
+			.img-hero{
+				float:left;
+			}
+
+			.app-hero-panel-cont{
+				float:left;
+				padding:10px;
+			}
+
+			h2{
+				color:#fff;
+				margin:5px 0 0;
+				font-size:18px;
+				line-height: 18px;
+
+				span{font-size:14px;}
+			}
+			p {font-size:18px;color:#fff;}
+
+			.btn-select-plan{
+				padding:10px 3%;
+				margin-left:10px;
+				text-align:right;
+
+				position: absolute;
+				top:10px;
+				right:10px;
+
+			}
+
+			
+		}
+
+		.app-selectplan-tab-head.planb{
+			background-color:inherit;
+
+			.planb1{
+				position: relative;
+				background-color:#fff;
+				height:147px;
+
+				&.first{
+					margin-right:5px;
+				}
+
+				&.last{
+					margin-left:5px;
+				}
+
+				h2, p{
+					color:#fd8d29;
+				}
+
+				.btn-select-plan{
+					background-color: #fd8d29;
+    				color: #fff;
+    				position: static;
+				}
+
+				.txt-selected{
+					display: none;
+				}
+
+				.txt-pselect{
+					display: block;
+				}
+
+				&.selected{
+					background-color:#fd8d29;
+
+					h2, p{
+						color:#fff;
+					}
+
+					.btn-select-plan{
+						background-color: #fff;
+						color: #ff8200;
+					}
+
+					.txt-selected{
+						display: block;
+					}
+
+					.txt-pselect{
+						display: none;
+					}
+				}
+			}
+		}
+
+		.app-selectplan-tab-body{
+			.tabs-left{
+				background:url(../../images/easy-home/bg-selectplan-tab.jpg) repeat-y;
+				background-size: 100% 2px;
+				padding-left:0;
+				min-height:470px;
+				margin-bottom: 0;
+				li{
+					list-style: none;
+					position: relative;
+					padding:20px 0;
+					border-bottom:1px solid #fff;
+
+					a{color:#505759;padding:0 10px;font-size: 18px;position: relative;}
+
+					a i{
+						font-size:32px;
+						
+						display:inline-block;
+						position: absolute;
+						top:-5px;
+					}
+
+					a span{
+						margin-left:35px;
+						display:inline-block;
+					}
+
+					&.active{
+
+						a{color:#fd8224;}
+
+						&:after{
+							position: absolute;
+							top:0;
+							bottom:0;
+							margin:auto;
+							right:0;
+							content:"";
+							width: 0;
+							height: 0;
+							border-style: solid;
+							border-width: 10px 10px 10px 0;
+							border-color: transparent #ffffff transparent transparent;
+						}
+
+					}
+				}
+			}
+
+			.tab-content{
+				background-color:#fff;
+				font-size: 14px;
+				min-height:470px;
+				h4{
+					color:#fd8224;
+					margin-top:0;
+					font-family: focoregular;
+				}
+
+				table{
+					
+					width: 100%;
+				}
+
+				ul{padding-left:20px;}
+
+				#homecarePremium, .table-in-tab{
+					td,th{
+						border:1px solid #ddd;
+						padding:5px;
+					}
+
+					.thbg{
+						background-color: #f68a1d;
+					}
+
+					th{
+						color:#fff;
+					}
+				}
+			}
+
+			.easy-home-toggle{
+				display: none;
+			}
+		}
+	}
+
+	.disclaimer{
+		font-size:15px;
+		margin:10px 0 20px;
+	}
+
+	.btn-row{
+		padding-bottom:10px;
+	}
+}
+
+#ehome-app-application, #ehome-app-summary{
+
+	/* .container-fluid{
+		padding-left: 15px;
+	    	padding-right: 15px;
+	} */
+	/* background-color:#f5f5f5; */
+	.app-pg-cont{
+		
+
+		.insured-addr-more{
+			display: none;
+		}
+
+		.ctrl-insured-addr{
+			.fld-label{
+				margin-top:8px;
+			}
+			
+		}
+
+		.cb-toggle{
+			text-align: center;
+		}
+
+		.checkbox-slider--b{
+			display: inline-block;
+			padding:0;
+			margin:8px 0 0;
+
+			label{
+				padding-left:0;
+			}
+			span{
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			i{
+				margin-right:10px;
+				font-style: normal;
+				opacity: 0;
+				animation:popOut ease-in .3s normal;
+			}
+
+			.on{
+				i:first-child{
+					opacity: 0;
+				}
+
+				i:last-child{
+					opacity: 1;
+				}
+			}
+
+			.off{
+				i:first-child{
+					opacity: 1;
+				}
+
+				i:last-child{
+					opacity: 0;
+				}
+
+			}
+		}
+			
+
+		.checkbox-slider--b input+span:before{
+			box-shadow:none;
+		}		
+		.checkbox-slider--b input+span:after{
+		}
+
+		.checkbox-slider--b span+i{
+			margin-left:10px;
+			margin-right:0;
+		}
+
+		.error-msg{
+			margin-left:15px;
+		}
+
+		.ctrl-insured-addr{
+			background-color:inherit;
+		}
+
+		.has-success .checkbox, .has-error .checkbox{
+			color:inherit;
+		}
+
+		.checkbox.grey{
+			color:#999;
+		}
+	}
+}
+
+#ehome-app-summary{
+	.app-pg-cont{
+		.fld-wrapper{
+		 	 .fld-label{
+		 	 	color:#ff8200;
+		 	 }
+		 }
+
+		 h3{
+		 	.btn-edit{
+		 		font-size:16px;
+		 		color:#666;
+		 		margin-left:10px;
+		 	}
+		 }
+
+		.cardtype{
+			span {
+				opacity: .26;
+
+				&.detected{
+					opacity: 1;
+				}
+			};
+
+		}
+
+		font-size:16px;
+		.tbl-summary{
+
+			color:#505759;
+			.row{
+				/* padding-top:15px;
+				padding-bottom:15px;
+				border-bottom:1px #aeaeae solid;
+				margin-right: 15px;
+				margin-left: 15px; */
+
+				> [class*="col-"] {
+					
+				}
+			}
+
+			.lbl{
+				font-weight: bold;
+			}
+
+			.val{
+				padding-left:20px;
+				display: inline-block;
+			}
+		}
+
+		.amount-due{
+			background-color:#fd8224;
+			color:#fff;
+
+
+			.lbl-wrapper{
+				
+
+				&:before{
+					content:"";
+					display: inline-block;
+					vertical-align: middle;
+					height: 100%;
+				}
+
+				.lbl{
+					display: inline-block;
+					vertical-align: middle;
+					font-weight:bold;
+				}
+				
+			}
+
+			.xl{
+				font-size:42px;
+				font-weight: bold;
+				line-height: 2em;
+				padding-left:20px;
+			}
+		}
+
+		.payment-wrapper{
+			.card-type-wrapper{
+				height:56px;
+				border-bottom:1px #999 solid;
+
+				.card-type{
+					padding-top:15px;
+					padding-left:15px;
+					font-weight:bold;
+					display: inline-block;
+					
+				}
+				img{
+					margin-left:15px ;
+					display: inline-block;
+				}
+			}
+
+			.error-msg {
+				margin-left: 15px;
+			}
+
+			.exp-wrapper{
+
+
+				
+			}
+		}
+
+		.exp-wrapper{
+			min-height:56px;
+			border-bottom:1px #999 solid;
+			.form-group{
+				border-bottom: none;
+				float:right;
+				min-width: 80px;
+				
+				.mdl-select{
+					
+					&:before{
+						content:'';
+						height:10px;
+						width:1px;
+						border-left:1px #999 solid;
+						position: absolute;
+						bottom:3px;
+						left:0;
+
+					}
+					&:after{
+						content:none;
+					}
+				}
+			}
+
+			.main-lbl{
+				padding-top:15px;
+				padding-left:15px;
+				font-weight:bold;
+				display: inline-block;
+				float:left;
+
+
+			}
+
+			#expErrMsg{
+				.help-block:first-child{
+					margin-top: 20px;
+				}
+			}
+
+			.form-group{
+				.error-msg{
+					display: none !important;
+				}
+			}
+		}
+
+		.checkbox{
+			.error-msg {
+				margin-left: 5px;
+			}
+		}
+
+		.sec-code{
+			background:url(../../images/icon-card.png) no-repeat right top;
+			
+			.fld-wrapper{
+				background:inherit;
+			}
+
+		}
+
+		.fld-wrapper .mdl-textfield, .fld-wrapper .mdl-select{
+			
+
+			&.is-focused, &.is-dirty{
+				.mdl-textfield__label{
+					font-size: 12px
+				}
+			}
+		}
+	}
+}
+
+#ehome-app-confirmation{
+	background-color:#f5f5f5;
+	.app-pg-cont{
+
+		.btn-app{
+				background-color:#fcae15;
+			}
+	
+		.thanks-panel{
+			padding-bottom:20px;
+
+			.toemail{
+				color:#ff7705;
+			}
+			.txt-policy{
+				font-size:16px;
+				display: block;
+			}
+			.policy-num{
+				font-size:24px;
+			}
+
+			p{margin-bottom:15px;}
+
+		}
+		
+
+		.cont-block{
+			background-color:#fff;
+			margin-bottom:20px;
+			padding-bottom:10px;
+
+			h4{
+				font-size:18px;
+				color:#fd801d;
+			}
+		}
+
+		.also-like-grid{
+			
+			.img-responsive{
+				width:100%;
+			}
+			p{min-height:80px;line-height: 1.3em;}
+
+			h5{
+				font-size:18px;
+				margin:15px 0;
+			}
+		}
+
+		.partner-grid{
+			min-height:100px;
+			.img-wrapper{
+				float:left;
+				overflow: hidden;
+				margin-right: 5px;
+			}
+
+			.cont-wrapper{
+				
+			}
+		}
+
+		.btn-app{
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+
+		.addthis_32x32_style .at-icon-wrapper, .addthis_32x32_style .at-icon{
+			width:60px !important;
+			height:60px !important;
+		}
+
+		.share-panel{
+			position: relative;
+			margin-bottom:10px;
+
+			#toBeCopied{
+				background-color: #f5f5f5;
+				padding: 18px;
+				text-align: left;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			.btn-copy{
+				/* position: absolute;
+				right:0;
+				top:6px; */
+				margin-top:20px;
+			}
+
+
+		}
+
+		.also-like-grid{
+			margin-bottom:20px;
+		}
+
+		
+
+	}
+	
+}
+
+@media (min-width: 992px){
+
+	#ehome-app-selectplan{
+		 .app-selectplan-tab{
+		 	 .app-selectplan-tab-head{
+				
+				.app-hero-panel-cont{
+					height:100%;
+				}
+
+		 	 	h2{
+		 	 		font-size:36px;
+		 	 		line-height: 36px;
+
+		 	 		span{font-size:28px;}
+		 	 	}
+
+		 	 }
+		 }
+	}
+
+	#ehome-app-application{
+		.app-pg-cont{
+			.cb-toggle{
+				text-align: right;
+
+				.checkbox{
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+			
+	#ehome-app-summary{
+		 .app-pg-cont{
+		 	 
+
+		 	 .amount-due{
+				.lbl-wrapper{
+					height: 84px;
+				}
+		 	 }
+		 }
+	}
+
+	#ehome-app-confirmation{
+		.app-pg-cont{
+			.also-like-grid{
+				margin-bottom:5px;
+			}
+		}
+	}
+	
+}
+
+@media(min-width:767px){
+	#ehome-app-selectplan{
+		 .app-selectplan-tab{
+		 	 .app-selectplan-tab-head.planb {
+				
+				.planb1{
+			 	 	.btn-select-plan{
+						position: absolute;
+						top:auto;
+						bottom:10px;
+						right:10px;
+					}
+				}
+		 	 }
+		 }
+	}
+}
+
+
+
+/* ET Customer Service Form */
+#cannot-apply-modal .modal-body form p.notice{
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+#et-cust-serv-form .btn {
+    border: solid 1px #ff8200;
+    background: #ff8200;
+    color: white;
+    font-size: 24px; 
+}
+
+#cannot-apply-modal .modal-header button{
+	top: -10px;
+}
+
+@media(max-width: 767px){
+	#cannot-apply-modal .modal-body form .input-items .error-msg,
+	#customer-service-modal .modal-body form .input-items .error-msg {
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+
+
+	#ehome-app-selectplan{
+		margin:0 10px;
+		
+		.app-selectplan-tab{
+			.app-selectplan-tab-head{
+				.img-hero{
+					display: none;
+				}	
+			} 
+			.app-selectplan-tab-body{
+				.col-xs-3{
+					width:18%;
+					
+				}
+				.col-xs-9{
+					width:82%;
+				}
+				.tabs-left{
+					li{
+						padding:10px 0;
+						a span{display: none;}
+						a i {
+							position: static;
+						}
+					}
+				}
+
+			}
+		}
+		
+	}
+}
+
+/* Modal Box Tel/Mobile field*/
+
+#cannot-apply-modal .modal-body form input[type="tel"],
+#cannot-apply-modal .modal-body form input[type="email"],
+#customer-service-modal .modal-body form input[type="tel"],
+#customer-service-modal .modal-body form input[type="email"]{
+	margin-top: -3px;
+	background-color: #e8eaea;
+	border: none;
+	box-shadow: none;
+	height: 40px;
+	font-size: 18px;
+	padding: 6px 20px;
+	border-radius: 0;
+}
+
+@media ( min-width : 992px) {
+	#cannot-apply-modal .modal-body form input[type="tel"],
+	#cannot-apply-modal .modal-body form input[type="email"],
+	#customer-service-modal .modal-body form input[type="tel"],
+	#customer-service-modal .modal-body form input[type="email"]{
+		width: 60%;
+		float: left;
+	}
+}
+
+#cannot-apply-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#cannot-apply-modal .modal-body form input[type="email"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="email"] :-ms-input-placeholder{
+	color: #9a9a9a;
+}
+
+@font-face {
+    font-family: focoblack;
+    src: url(../../fonts/CircularPro-Black.otf) format('opentype'), url(../../fonts/CircularPro-Black.ttf) format('truetype'), url(../../fonts/CircularPro-Black.woff) format('woff');
+    font-weight: bolder;
+    font-style: normal
+}
+@font-face {
+    font-family: focobold;
+    src: url(../../fonts/CircularPro-Bold.otf) format('opentype'), url(../../fonts/CircularPro-Bold.ttf) format('truetype'), url(../../fonts/CircularPro-Bold.woff) format('woff');
+    font-weight: 700;
+    font-style: normal
+}
+@font-face {
+    font-family: focoregular;
+    src: url(../../fonts/CircularPro-Book.otf) format('opentype'), url(../../fonts/CircularPro-Book.ttf) format('truetype'), url(../../fonts/CircularPro-Book.woff) format('woff');
+    font-weight: 400;
+    font-style: normal
+}
