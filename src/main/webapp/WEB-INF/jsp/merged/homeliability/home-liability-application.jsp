@@ -4,11 +4,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/application.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-application.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/icon-font.css">
-
-
+<div class="fwd-savie-wrapper">
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -905,4 +901,13 @@
 
 		
     </div>
+</div>
 
+<%-- <script type="text/javascript">
+$(document).ready(function() {
+	$(".eh-btn-next").click(function() {
+		window.location="<%=request.getContextPath()%>/${language}/home-liability-insurance/summary";
+	});
+});
+</script>
+ --%>

@@ -262,7 +262,7 @@ margin-bottom: 9px; */
       background: url("../../resources/images/orange-caret-inv.png") no-repeat;
       background-size: contain; }
   .app-pg-ctnr .fld-wrapper .mdl-date {
-    background: url(../images/ico-date.png) no-repeat right 10px top 14px; }
+    background: url(../../images/ico-date.png) no-repeat right 10px top 14px; }
 .app-pg-ctnr .checkbox-slider--b input:checked + span:before {
   background: #ff8201; }
 .app-pg-ctnr .checkbox-slider--b label:before {
