@@ -7470,10 +7470,11 @@ h6.so-h6 {
 }
 /* line 15, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper p,
-#declaration-page .declaration-content-wrapper ol li {
+#declaration-page .declaration-content-wrapper ol li,
+#declaration-page .declaration-content-wrapper ul li {
   color: #373a36;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
 }
 /* line 22, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper hr {
