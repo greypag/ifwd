@@ -259,7 +259,7 @@ margin-bottom: 9px; */
       top: 20px;
       z-index: 10; }
     .app-pg-ctnr .fld-wrapper .mdl-select.is-focused:after {
-      background: url("../../resources/images/orange-caret-inv.png") no-repeat;
+      background: url("../../images/orange-caret-inv.png") no-repeat;
       background-size: contain; }
   .app-pg-ctnr .fld-wrapper .mdl-date {
     background: url(../../images/ico-date.png) no-repeat right 10px top 14px; }

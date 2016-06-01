@@ -2,8 +2,8 @@ package com.ifwd.fwdhk.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.message.ECommConnector;
-import com.ifwd.fwdhk.message.MessageResponse;
+import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @SuppressWarnings("rawtypes")
@@ -41,7 +41,10 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> maritalStatusesEN;	
 	public static List<OptionItemDesc> maritalStatusesCN;
 	
-	
+	public static LinkedHashMap<String, String> netFloorAreaEN;
+	public static LinkedHashMap<String, String> netFloorAreaCN;
+	public static List<DistrictBean> districtEN;
+	public static List<DistrictBean> districtCN;
 	public static List<OptionItemDesc> savieDistrictEN;
 	public static List<OptionItemDesc> savieDistrictCN;
 	public static List<OptionItemDesc> employmentStatusEN;
@@ -187,6 +190,46 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("maritalStatusesCN : " + maritalStatusesCN);
 
+		try {
+			netFloorAreaEN = commonUtils.getNetFloorArea("EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("netFloorAreaEN : " + netFloorAreaEN);
+		
+		try {
+			netFloorAreaCN = commonUtils.getNetFloorArea("CN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("netFloorAreaCN : " + netFloorAreaCN);
+		
+		try {
+			districtEN = commonUtils.getDistrict("EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("districtEN : " + districtEN);
+		
+		try {
+			districtCN = commonUtils.getDistrict("CN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("districtCN : " + districtCN);
+		
 		try {
 			savieDistrictEN = commonUtils.getOptionItemDescList("savieDistrict","EN",type);
 		} catch (Exception e) {
