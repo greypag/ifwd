@@ -185,6 +185,14 @@ var languageP = "${language}";
 							</ol>
 							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
 						</div>
+
+						<div style="margin-top: 20px;">
+						  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
+							<ul class="list-unstyled">
+								<li><fmt:message key="declaration.policyreplacement.copy7" bundle="${msg}" /></li>
+								<li><fmt:message key="declaration.policyreplacement.copy8" bundle="${msg}" /></li>
+							</ul>
+						</div>
 					</div>
 					
 					<div class="cstm-panel">
