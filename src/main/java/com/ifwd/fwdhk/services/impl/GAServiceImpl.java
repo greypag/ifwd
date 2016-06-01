@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.services.impl;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.LocalDate;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +18,22 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.ifwd.ecomm.chinese.ZHConverter;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.ga.HomeCareUwQuestionsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
+import com.ifwd.fwdhk.model.HomeCareQuetionaries;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
+import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
+import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -150,4 +163,23 @@ public class GAServiceImpl implements GAService {
 		}
 		
 	}
+	
+	//public HomeCareUwQuestionsResponse getHomeCareUwQuestions(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		/*final Map<String,String> header = headerUtil.getHeader1(request);
+		HomeCareUwQuestionsResponse homeCareUwQuestions = new CreateEliteTermPolicyResponse();
+		
+		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+			logger.info("Some input information contains simplified Chinese");
+			throw new ECOMMAPIException("Some input information contains simplified Chinese");
+		}
+		else{
+			lifePolicy = connector.createLifePolicy(parameters, header);
+			if(!lifePolicy.hasError()){
+				request.getSession().setAttribute("lifePolicy", lifePolicy);
+			}
+			else{
+				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
+			}
+		}*/
+	//}
 }

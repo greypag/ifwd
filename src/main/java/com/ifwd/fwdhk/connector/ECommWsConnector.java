@@ -39,6 +39,7 @@ import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
+import com.ifwd.fwdhk.connector.response.ga.HomeCareUwQuestionsResponse;
 import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
@@ -143,6 +144,10 @@ public class ECommWsConnector {
 	
 	public BaseResponse finalizeLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.FINALIZE_LIFE_POLICY,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public HomeCareUwQuestionsResponse getHomeCareUwQuestions(final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.GET_HOME_CARE_UW_QUESTIONS,HttpMethod.GET,null,HomeCareUwQuestionsResponse.class,header);
 	}
 	
 	

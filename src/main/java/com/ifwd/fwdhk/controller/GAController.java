@@ -26,10 +26,18 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/quote"})
+	@RequestMapping(value = {"/{lang}/{plan}/screening"})
+	public ModelAndView getScreening(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SCREENING);
+		}
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+	}
+	
+	@RequestMapping(value = {"/{lang}/{plan}/select-plan"})
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
-			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_QUOTE);
+			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}

@@ -1,12 +1,53 @@
 var application = application || {};
 
+/*
+Create new restriction and strict event
+1) Add new data attribute
+2) Add new pattern
+3) Add new function
+*/
 
 application.common = {
 	dataAttributes:[
-		"data-keycheck-numOnly",
-		"data-keycheck-alphabetOnly",
-		"data-blurcheck-replaceAlphabet"
+		"data-keyblock-alphabet",
+		"data-keyblock-num",
+		"data-keyblock-alphabet-num-space-dash"
 	],
+
+	pattern:{
+		Alphabet : /^[a-zA-Z\s]*$/,
+		Num : /^[0-9]*$/,
+		Email : /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
+		Mobileno:/^1[0-9]{10}$|^[5689][0-9]{7}$/,
+		AlphabetNumSpaceDash : /^[a-zA-Z0-9\s\-]*$/
+	},
+
+	stripPattern:{
+		Alphabet : /[^a-zA-Z]/g,
+		Num : /[^0-9]/g,
+		Space : /[^\s]/g,
+
+		AlphabetNum : /[^a-zA-Z0-9]/g,
+		AlphabetNumSpace : /[^a-zA-Z0-9\s]/g,
+		AlphabetNumSpaceDash : /[^a-zA-Z0-9\s\-]/g,
+		AlphabetNumSpaceDot:/[^\sa-zA-Z.]/g
+
+	},
+
+	validate :function(str,pattern){
+
+		var that = this;
+		var result = false;
+
+		if(!that.pattern[pattern]){
+			console.log("missing pattern",pattern);
+			return false;
+		}else{
+			return that.pattern[pattern].test(str);
+		}
+
+	},
+
 	init:function(){
 		
 		var that = this;
@@ -21,46 +62,65 @@ application.common = {
 		inputs.each(function(){
 			var d = $(this).data();
 
-			for(var i in d){
-				console.log(i);
-				switch(i){
-					case "keycheckNumonly":
-						$(this).on("keypress",that.chkNumberOnly);
-						break;
-					case "keycheckAlphabetonly":
-						$(this).on("keydown",that.chkAlphabetOnly);
-						break;
-					case "blurcheckReplacealphabet":
-						$(this).on("blur",that.replaceAlphaEx2);
-						break;
+			for(var sEvt in d){
+
+				sEvt = (typeof sEvt === 'string') ? sEvt:null;
+
+
+				if(sEvt != null){
+
+					$(this).on("keypress",function(evt){
+						return that.keyblock(evt,sEvt.replace("keyblock",""));
+					});
+				
+					$(this).on("blur",function(evt){
+						return that.keystrip(evt,sEvt.replace("keyblock",""));
+					});
 				}
 			}
 		});
 	},
-	chkNumberOnly:function(evt){
-		var charCode = (evt.which) ? evt.which : event.keyCode
-			if (charCode > 31 && (charCode < 48 || charCode > 57))
-				return false;
 
-		return true;
+	add:function(){
+
 	},
-	chkAlphabetOnly:function(evt){
-		evt = (evt) ? evt : event;
-		var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
-		if((evt.charCode == 0 && evt.keyCode==37) || (evt.charCode == 0  && evt.keyCode==39) || (evt.charCode == 0  && evt.keyCode==46)){
-			return true;
-		}
-		if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+
+	keyblock:function(evt,s){
+
+		var that = this;
+		
+		//check existed function or pattern
+		if(typeof that[s] == "function"){
+			return that[s](evt);
+		}else if(that.pattern[s]){
+			var charCode = (evt.which) ? evt.which : event.keyCode;
+			var keychar = String.fromCharCode(charCode);
+			return that.pattern[s].test(keychar);
+		}else{
+			console.log("missing custom function or pattern");
 			return false;
 		}
-		return true;
+
+		
 	},
 
-	replaceAlphaEx2:function(evt) {
-		var target = evt.currentTarget;
-		var string = target.value;
-		string = string.replace(/[^\sa-zA-Z.]/g, '');
-		target.value = string;
+	keystrip:function(evt,s){
+		var that = this;
+
+		//check existed function or pattern
+		if(typeof that[s] == "function"){
+			that[s](evt);
+		}else if(that.stripPattern[s] ){
+			var target = evt.currentTarget;
+			var string = target.value;
+			string = string.replace(that.stripPattern[s], '');
+			target.value = string;
+		}else{
+			console.log("missing custom function or pattern");
+		}
+
+
+		
 	},
 
 	//Common Validator

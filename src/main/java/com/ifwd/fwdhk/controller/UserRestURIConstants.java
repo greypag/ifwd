@@ -159,6 +159,9 @@ public class UserRestURIConstants {
 	public static final String SEND_TEMPLATE_EMAIL = "/messages/template/email";
 	public static final String SAVIE_CONTACT_CS = SERVICE_URL + "/member/cs/contact";
 	public static final String BECOME_PARTNER = "/leads/partnership/register";
+	
+	/*API For GA*/
+	public static final String GET_HOME_CARE_UW_QUESTIONS = "/gi/homeCare/uwQuestions";
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
@@ -287,19 +290,22 @@ public class UserRestURIConstants {
 	
 	/* Page Flow Control For Home Liability */
 	public static final String URL_HOME_LIABILITY_LANDING = "home-liability-insurance";
-	public static final String URL_HOME_LIABILITY_QUOTE = "quote";
+	public static final String URL_HOME_LIABILITY_SCREENING = "screening";
+	public static final String URL_HOME_LIABILITY_SELECT_PLAN = "select-plan";
 	public static final String URL_HOME_LIABILITY_USER_DETAILS = "user-details";
 	public static final String URL_HOME_LIABILITY_SUMMARY = "summary";
 	public static final String URL_HOME_LIABILITY_CONFIRMATION = "confirmation-ga";
 	
 	public static final String PAGE_HOME_LIABILITY_LANDING = "home-liability-landing";
-	public static final String PAGE_HOME_LIABILITY_QUOTE = "home-liability-plan";
+	public static final String PAGE_HOME_LIABILITY_SCREENING = "home-liability-screening";
+	public static final String PAGE_HOME_LIABILITY_SELECT_PLAN = "home-liability-select-plan";
 	public static final String PAGE_HOME_LIABILITY_USER_DETAILS = "home-liability-application";
 	public static final String PAGE_HOME_LIABILITY_SUMMARY = "home-liability-summary";
 	public static final String PAGE_HOME_LIABILITY_CONFIRMATION = "home-liability-confirmation";
 	
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_LANDING = "home.liability.landing";
-	public static final String PAGE_PROPERTIES_HOME_LIABILITY_QUOTE = "home.liability.plan";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SCREENING = "home.liability.screening";
+	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN = "home.liability.select.plan";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS = "home.liability.application";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY = "home.liability.summary";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION = "home.liability.confirmation";

@@ -21,42 +21,62 @@
   padding: 0; }
 
 #ehome-app-screening {
-  background: url(../../images/easy-home/screening_bg.jpg) no-repeat center center; }
+  background-color: #f6f6f6;
+  /* background:url(../../images/easy-home/screening_bg.jpg) no-repeat center center; */ }
   #ehome-app-screening .app-pg-cont {
     margin-bottom: 0; }
+  #ehome-app-screening h2 {
+    color: #ff8200;
+    text-align: center; }
   #ehome-app-screening .screening-wrapper {
-    margin-bottom: 30px;
+    margin: auto;
     min-height: 500px; }
     #ehome-app-screening .screening-wrapper p {
-      font-size: 16px;
-      margin-bottom: 20px; }
-    #ehome-app-screening .screening-wrapper .screening-cont h2 {
-      color: #ff8200; }
+      font-size: 20px;
+      margin-bottom: 10px; }
+    #ehome-app-screening .screening-wrapper .img-hero {
+      float: left;
+      width: 390px;
+      margin: 0; }
+    #ehome-app-screening .screening-wrapper .screening-cont {
+      margin: 0 0 0 390px;
+      width: auto;
+      min-height: 420px;
+      background-color: #fff; }
     #ehome-app-screening .screening-wrapper .screening-block {
-      padding: 20px 0;
-      max-width: 440px;
-      background-color: #fff;
-      margin: 0 auto 20px; }
-    #ehome-app-screening .screening-wrapper .checkbox label {
-      padding-left: 0; }
-    #ehome-app-screening .screening-wrapper .checkbox span {
-      position: relative;
-      display: inline-block;
-      vertical-align: top; }
-    #ehome-app-screening .screening-wrapper .checkbox i {
-      margin-right: 10px;
-      font-style: normal;
-      opacity: 0;
-      animation: popOut ease-in .3s normal;
-      font-size: 22px; }
-    #ehome-app-screening .screening-wrapper .checkbox .on i:first-child {
-      opacity: 0; }
-    #ehome-app-screening .screening-wrapper .checkbox .on i:last-child {
-      opacity: 1; }
-    #ehome-app-screening .screening-wrapper .checkbox .off i:first-child {
-      opacity: 1; }
-    #ehome-app-screening .screening-wrapper .checkbox .off i:last-child {
-      opacity: 0; }
+      padding: 20px 0 10px;
+      margin: 0 20px;
+      border-bottom: 1px solid #e7e7e7; }
+      #ehome-app-screening .screening-wrapper .screening-block:last-child {
+        border-bottom: none; }
+      #ehome-app-screening .screening-wrapper .screening-block p {
+        font-weight: bold; }
+      #ehome-app-screening .screening-wrapper .screening-block span {
+        font-size: 16px;
+        color: #adadad; }
+    #ehome-app-screening .screening-wrapper .checkbox {
+      padding-left: 0;
+      margin: 0; }
+      #ehome-app-screening .screening-wrapper .checkbox label {
+        padding-left: 0; }
+      #ehome-app-screening .screening-wrapper .checkbox span {
+        position: relative;
+        display: inline-block;
+        vertical-align: top; }
+      #ehome-app-screening .screening-wrapper .checkbox i {
+        margin-right: 10px;
+        font-style: normal;
+        opacity: 0;
+        animation: popOut ease-in .3s normal;
+        font-size: 22px; }
+      #ehome-app-screening .screening-wrapper .checkbox .on i:first-child {
+        opacity: 0.4; }
+      #ehome-app-screening .screening-wrapper .checkbox .on i:last-child {
+        opacity: 1; }
+      #ehome-app-screening .screening-wrapper .checkbox .off i:first-child {
+        opacity: 1; }
+      #ehome-app-screening .screening-wrapper .checkbox .off i:last-child {
+        opacity: 0.4; }
     #ehome-app-screening .screening-wrapper .checkbox-slider--b input + span:before {
       box-shadow: none; }
     #ehome-app-screening .screening-wrapper .checkbox-slider--b span + i {
@@ -88,10 +108,11 @@
     background-color: #fd8d29;
     position: relative; }
     #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head .img-hero {
-      float: left; }
-    #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head .app-hero-panel-cont {
       float: left;
-      padding: 10px; }
+      padding-right: 10px; }
+    #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head .app-hero-panel-cont {
+      padding: 10px;
+      position: relative; }
     #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head h2 {
       color: #fff;
       margin: 5px 0 0;
@@ -107,39 +128,57 @@
       margin-left: 10px;
       text-align: right;
       position: absolute;
-      top: 10px;
+      bottom: 10px;
       right: 10px; }
   #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb {
     background-color: inherit; }
     #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 {
       position: relative;
       background-color: #fff;
-      height: 147px; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.first {
-        margin-right: 5px; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.last {
-        margin-left: 5px; }
+      height: 140px;
+      margin-right: 295px; }
       #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 h2, #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 p {
-        color: #fd8d29; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .btn-select-plan {
+        color: #fff; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 > div {
+        height: 100%; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont {
+        float: left;
+        width: 100%;
+        padding: 0;
+        position: relative;
         background-color: #fd8d29;
-        color: #fff;
-        position: static; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .txt-selected {
-        display: none; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .txt-pselect {
-        display: block; }
-      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected {
-        background-color: #fd8d29; }
-        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected h2, #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected p {
-          color: #fff; }
-        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected .btn-select-plan {
+        margin-right: auto; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont h2 {
+          padding-top: 25px;
+          font-size: 36px;
+          line-height: 36px; }
+          #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont h2 span {
+            font-size: 36px; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont .btn-select-plan {
+          background-color: #f65e1b; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 {
+        background: url(../../images/easy-home/plan_upgrade_bg.png) left center no-repeat #f65e1b;
+        float: right;
+        height: 100%;
+        width: 295px;
+        margin-right: -295px;
+        padding-top: 20px; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 h3 {
+          color: #fd8224;
           background-color: #fff;
-          color: #ff8200; }
-        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected .txt-selected {
-          display: block; }
-        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1.selected .txt-pselect {
-          display: none; }
+          display: inline-block;
+          padding: 2px 10px;
+          margin: 0;
+          font-size: 18px; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 h2 {
+          font-size: 20px;
+          margin: 5px 0;
+          line-height: 36px; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 .btn-select-plan {
+          position: static;
+          background-color: #fbbe16; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .btn-select-plan {
+        padding: 5px 10px; }
   #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-body .tabs-left {
     background: url(../../images/easy-home/bg-selectplan-tab.jpg) repeat-y;
     background-size: 100% 2px;
@@ -429,6 +468,50 @@
     top: auto;
     bottom: 10px;
     right: 10px; } }
+@media (max-width: 767px) {
+  #ehome-app-screening .screening-wrapper .img-responsive {
+    width: 100%;
+    margin-bottom: 10px; }
+  #ehome-app-screening .screening-wrapper .screening-cont {
+    margin: 0;
+    width: auto;
+    min-height: initial; }
+  #ehome-app-screening .eh-btn-next {
+    margin-bottom: 10px; }
+
+  #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 {
+    height: auto;
+    margin-right: 0; }
+    #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont {
+      float: none;
+      width: 100%;
+      height: 140px;
+      padding: 0;
+      position: relative;
+      background-color: #fd8d29;
+      margin-right: auto;
+      padding-left: 10px; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont h2 {
+        padding-top: 25px;
+        font-size: 36px;
+        line-height: 36px; }
+        #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont h2 span {
+          font-size: 36px; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont .btn-select-plan {
+        background-color: #f65e1b; }
+    #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 {
+      background: url(../../images/easy-home/plan_upgrade_mobile_bg.png) center top no-repeat #f65e1b;
+      background-size: 100px 47px;
+      float: none;
+      width: 100%;
+      height: 140px;
+      margin-right: 0;
+      padding: 35px 10px 0; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 .text-center {
+        text-align: left; }
+      #ehome-app-selectplan .app-selectplan-tab .app-selectplan-tab-head.planb .planb1 .app-hero-panel-cont2 .btn-select-plan {
+        position: absolute;
+        background-color: #fbbe16; } }
 /* ET Customer Service Form */
 #cannot-apply-modal .modal-body form p.notice {
   margin-top: 20px;

@@ -71,7 +71,7 @@ public class HomeLiabilityPageFlowControl {
 
 		if (current != null) {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase(plan)){
-				
+				current = UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
 			} else {
 				current = getHomeLiabilityPage(current);
 			}
@@ -87,10 +87,14 @@ public class HomeLiabilityPageFlowControl {
 		switch (current) {
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING:
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_QUOTE;
+			to = UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING;
+			break;
+			
+		case UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING:
+			to = UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN;
 			break;
 
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_QUOTE: 
+		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
 			to = UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS;
 			break;
 			
@@ -133,9 +137,11 @@ public class HomeLiabilityPageFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_LANDING)) {
 			return UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
 		}
-		
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_QUOTE)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_QUOTE;
+		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_SCREENING)) {
+			return UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING;
+		}
+		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_SELECT_PLAN)) {
+			return UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN;
 		}
 		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS)) {
 			return UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS;
