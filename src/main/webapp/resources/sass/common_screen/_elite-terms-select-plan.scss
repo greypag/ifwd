@@ -1,0 +1,5 @@
+// refer to the /base/_override.scss
+#eliteTermsInsuredInfoForm {
+  overflow: hidden;
+  @include fwd_input_textarea;
+}

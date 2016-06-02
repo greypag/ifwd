@@ -189,7 +189,7 @@ var FNAQuestion ={
 		}, {
 		  "id": "q4_b",
 		  "num": "4b",
-		  "title": "<fmt:message key="fna.question.q4b" bundle="${msg}" />  <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span>",
+		  "title": "<fmt:message key="fna.question.q4b" bundle="${msg}" />  <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span><br><br><fmt:message key="fna.question.q4b.type" bundle="${msg}" />",
 		  "option": [{
 		    "id": 0,
 		    "title": "<fmt:message key="fna.question.q4b.option1" bundle="${msg}" />",

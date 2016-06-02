@@ -267,16 +267,16 @@ ol.lower-roman {
                     font-size: 16px;
                     text-align: left;
                     &.t1 {
-                        background-color: #007e4d;
+                        background-color: #1bb366;
                     }
                     &.t2 {
-                        background-color: #ff7b80;
+                        background-color: #25b8c8;
                     }
                     &.t3 {
-                        background-color: #ff7119;
+                        background-color: #f99138;
                     }
                     &.t4 {
-                        background-color: #1389a1;
+                        background-color: #e1032c;
                     }
                     &.head {
                         text-align: center;
@@ -288,16 +288,16 @@ ol.lower-roman {
                     text-align: center;
                     font-size: 17px;
                     &.t1 {
-                        background-color: #19a382;
+                        background-color: #1fbe9e;
                     }
                     &.t2 {
-                        background-color: #ffafbf;
+                        background-color: #67ccd8;
                     }
                     &.t3 {
-                        background-color: #ff9d66;
+                        background-color: #fcaa46;
                     }
                     &.t4 {
-                        background-color: #66c6c7;
+                        background-color: #f03b5e;
                     }
                 }
             }
@@ -572,18 +572,18 @@ ol.lower-roman {
                 .img-building {
                     position: absolute;
                     z-index: 2;
-                    top: 140px;
+                    top: 129px;
                     left: 0;
                 }
                 .img-bed {
                     position: absolute;
-                    top: 115px;
-                    left: -70px;
+                    top: 158px;
+                    left: -30px;
                     z-index: 5;
                 }
                 .img-bg {
                     position: absolute;
-                    top: 40px;
+                    top: -16px;
                     left: -50px;
                 }
             }
@@ -595,20 +595,20 @@ ol.lower-roman {
                 // background: url(../../images/easy-health/p3_plan_B_bg.png) no-repeat;
                 // background-position: top 0 right 40px;
                 .img-building {
-                    margin-top: 130px;
+                    margin-top: 150px;
                     position: absolute;
                     z-index: 2;
                 }
                 .img-bed {
                     position: absolute;
-                    top: 130px;
+                    top: 110px;
                     left: 70px;
                     z-index: 5;
                 }
                 //110px
                 .img-bg {
                     position: absolute;
-                    top: 0;
+                    top: -14px;
                     left: 3px;
                 }
             }
@@ -620,21 +620,21 @@ ol.lower-roman {
                 // background: url(../../images/easy-health/p3_plan_C_bg.png) no-repeat;
                 // background-position: top 30px right 0px;
                 .img-building {
-                    margin-top: 100px;
+                    margin-top: 138px;
                     margin-left: 10px;
                     position: absolute;
                     z-index: 2;
                 }
                 .img-bed {
                     position: absolute;
-                    top: 145px;
-                    left: 0;
+                    top: 183px;
+                    left: 130px;
                     z-index: 5;
                 }
                 .img-bg {
                     position: absolute;
-                    top: 30px;
-                    left: 170px;
+                    top: 12px;
+                    left: 10px;
                 }
             }
         }
@@ -645,19 +645,19 @@ ol.lower-roman {
                 // background: url(../../images/easy-health/p3_plan_D_bg.png) no-repeat;
                 // background-position: top 0 right 40px;
                 .img-building {
-                    margin-top: 70px;
+                    margin-top: 74px;
                     position: absolute;
                     z-index: 2;
                 }
                 .img-bed {
                     position: absolute;
-                    top: 145px;
-                    left: 0;
+                    top: 205px;
+                    left: 40px;
                     z-index: 5;
                 }
                 .img-bg {
                     position: absolute;
-                    top: 0;
+                    top: -23px;
                     right: 40px;
                 }
             }
@@ -878,6 +878,8 @@ ol.lower-roman {
                     color: #fff;
                     font-size: 24px;
                     font-weight: bold;
+                    margin-bottom: 10px;
+                    display: inline-block;
                 }
                 p {
                     font-size: 16px;
@@ -1046,12 +1048,12 @@ ol.lower-roman {
 }
 
 .row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: stretch;
+//     display: -webkit-box;
+//     display: -webkit-flex;
+//     display: -ms-flexbox;
+//     display: flex;
+//     flex-flow: row wrap;
+//     align-items: stretch;
 }
 
 .mbsc-mobiscroll .dwwr {
@@ -1212,36 +1214,37 @@ table.tbl-esr{
                     th,td{
                         &.head{
                             background-color: #373a36  !important;
+                            font-weight: bold;
                         }
                     }
                     th,
                     td {
                         &.t1:hover,
                         &.t1.highlight {
-                            background-color: #19a382;
+                            background-color: #1fbe9e;
                             &.head {
-                                background-color: #007e4d !important;
+                                background-color: #1bb366 !important;
                             }
                         }
                         &.t2:hover,
                         &.t2.highlight {
-                            background-color: #ffafbf;
+                            background-color: #67ccd8;
                             &.head {
-                                background-color: #ff7b80 !important;
+                                background-color: #25b8c8 !important;
                             }
                         }
                         &.t3:hover,
                         &.t3.highlight {
-                            background-color: #ff9d66;
+                            background-color: #fcaa46;
                             &.head {
-                                background-color: #ff7119 !important;
+                                background-color: #f99138 !important;
                             }
                         }
                         &.t4:hover,
                         &.t4.highlight {
-                            background-color: #66c6c7;
+                            background-color: #f03b5e;
                             &.head {
-                                background-color: #1389a1 !important;
+                                background-color: #e1032c !important;
                             }
                         }
                         &.t1,
