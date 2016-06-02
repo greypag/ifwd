@@ -534,6 +534,11 @@ $(function(){
 
     $.History.bind('',function(state){
         if(cur == hash_aryStage[1]){
+            $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
+
             //reserve animation
             $(".step2").stop(true, true).hide();
             $(".step1").stop(true, true).fadeIn(function (){alignChildHeight(".row-eq-height", "> [class^=col-]");});
@@ -550,11 +555,6 @@ $(function(){
             //reserve animation
             $(".step3").stop(true, true).hide();
             $(".step2").stop(true, true).fadeIn();
-
-            $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
         }
         if(cur == hash_aryStage[0]){
             $(".step1").stop(true, true).hide();

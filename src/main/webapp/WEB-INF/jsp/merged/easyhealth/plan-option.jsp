@@ -1843,8 +1843,8 @@ var ehPro = '${pro }';
         	else{
         		$("#smoker1").click();
         	}
-        	
-            $('#dob').mobiscroll('setVal', new Date($("dob").val()));
+
+            $('#dob').mobiscroll('setVal', new Date($("#dob").val()));
         	
         	$("#eh-btn-plan-overview").click();
         	
@@ -1868,7 +1868,7 @@ var ehPro = '${pro }';
         		$("#smoker1").click();
         	}
         	
-        	$('#dob').mobiscroll('setVal', new Date($("dob").val()));
+        	$('#dob').mobiscroll('setVal', new Date($("#dob").val()));
 
         	$("#eh-btn-plan-overview").click();
         	
