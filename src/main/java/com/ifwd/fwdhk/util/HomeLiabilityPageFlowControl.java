@@ -87,15 +87,15 @@ public class HomeLiabilityPageFlowControl {
 		switch (current) {
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING:
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING;
+			to = UserRestURIConstants.URL_HOME_LIABILITY_SCREENING;
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING:
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN;
+			to = UserRestURIConstants.URL_HOME_LIABILITY_SELECT_PLAN;
 			break;
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS;
+			to = UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS;
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS: 

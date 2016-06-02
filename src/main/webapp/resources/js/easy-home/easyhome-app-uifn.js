@@ -1,3 +1,5 @@
+var language = language;
+var nextPage = nextPage;
 $(document).ready(function(){
 
 
@@ -73,7 +75,8 @@ $(document).ready(function(){
 			//oldHome
 
 			if(allNo){
-				alert("implement screening logic in here");
+				window.location = contextPath+"/"+language+'/home-liability-insurance/'+nextPage;
+				//alert("implement screening logic in here");
 			}else{
 				$("#oldHome").modal("show");
 				centerModals($("#oldHome"));
