@@ -4,7 +4,11 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+
+
+
 
 
 
@@ -22,9 +26,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.api.controller.RestServiceImpl;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @Component
@@ -75,6 +81,94 @@ public class CommonUtils {
 
 	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type) {
 		return getOptionItemDescList(param, language, type, null);
+	}
+	
+	public LinkedHashMap<String, String> getNetFloorArea(String language, String type) {
+		String url = UserRestURIConstants.HOMECARE_GET_NET_FLOOR_AREA
+				+ "?itemTable=NetFloorArea";
+
+		RestServiceDao restService = new RestServiceImpl();
+		LinkedHashMap<String, String> mapNetFloorArea = new LinkedHashMap<String, String>();
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", getToken(type));
+		header.put("language", WebServiceUtils.transformLanaguage(language));
+
+		JSONObject jsonResponseNetFloorArea = restService.consumeApi(
+				HttpMethod.GET, url, header, null);
+
+		logger.info("HOMECARE_GET_NET_FLOOR_AREA Response" + jsonResponseNetFloorArea);
+		if (jsonResponseNetFloorArea.get("errMsgs") == null) {
+			JSONArray jsonNetFloorAreaArray = (JSONArray) jsonResponseNetFloorArea
+					.get("optionItemDesc");
+
+			for (int i = 0; i < jsonNetFloorAreaArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonNetFloorAreaArray.get(i);
+				mapNetFloorArea.put(JsonUtils.checkJsonObjNull(obj, "itemCode"),
+						JsonUtils.checkJsonObjNull(obj, "itemDesc"));
+			}
+		}
+		return mapNetFloorArea;
+	}
+	
+	public List<DistrictBean> getDistrict(String language, String type) {
+		String Url = UserRestURIConstants.HOMECARE_GET_DISTRICT;
+		String UrlTerritory = UserRestURIConstants.HOMECARE_GET_TERRITORY_DISTRICT;
+		
+		RestServiceDao restService = new RestServiceImpl();
+		List<DistrictBean> districtList = new ArrayList<DistrictBean>();
+		
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+
+		header.put("userName", "*DIRECTGI");
+		header.put("token", getToken(type));
+		header.put("language", WebServiceUtils.transformLanaguage(language));
+
+		JSONObject jsonResponseDistrict = restService.consumeApi(
+				HttpMethod.GET, Url, header, null);
+		logger.info("HOMECARE_GET_DISTRICT Response " + jsonResponseDistrict);
+		JSONObject jsonResponseTerritory = restService.consumeApi(
+				HttpMethod.GET, UrlTerritory, header, null);		
+		logger.info("HOMECARE_GET_TERRITORY_DISTRICT Response " + jsonResponseTerritory);
+		if (jsonResponseDistrict.get("errMsgs") == null) {
+			JSONArray jsonDistrictArray = (JSONArray) jsonResponseDistrict.get("optionItemDesc");
+			for (int i = 0; i < jsonDistrictArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonDistrictArray.get(i);
+				
+				DistrictBean district = new DistrictBean();
+				
+				district.setCode(JsonUtils.checkJsonObjNull(obj, "itemCode"));
+				// area or territory
+				district.setArea(this.getArea(jsonResponseTerritory, district.getCode()));				
+				district.setDescription(JsonUtils.checkJsonObjNull(obj, "itemDesc"));
+
+				districtList.add(district);
+			}			
+		}
+
+		return districtList;
+	}
+	
+	private String getArea(JSONObject jsonResponseTerritory, String districtCode){		
+		if(jsonResponseTerritory != null){
+			JSONArray jsonTerritoryArray;
+			if (jsonResponseTerritory.get("errMsgs") == null) {
+				jsonTerritoryArray = (JSONArray) jsonResponseTerritory.get("optionItemDesc");
+				for (int j = 0; j < jsonTerritoryArray.size(); j++) {
+					JSONObject objTerritory = (JSONObject) jsonTerritoryArray.get(j);
+					
+					String[] districts = JsonUtils.checkJsonObjNull(objTerritory, "itemDesc").split(";");
+					for(int k= 0; k < districts.length; k++){
+						if(districtCode.equalsIgnoreCase(districts[k])){
+							return JsonUtils.checkJsonObjNull(objTerritory, "itemCode");
+						}						
+					}
+				}					
+			}
+		}
+		return null;
 	}
 	
 	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type, HttpServletRequest request) {

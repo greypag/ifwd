@@ -154,7 +154,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Full name (same as ID document)</p>
-                                    <p class="fld-val">KIN</p>
+                                    <p class="fld-val">${userDetails.fullName}</p>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Date of birth</p>
-                                    <p class="fld-val">01-01-1919</p>
+                                    <p class="fld-val">${userDetails.dob}</p>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">HKID/Passport number</p>
-                                    <p class="fld-val">A1234567</p>
+                                    <p class="fld-val">${userDetails.hkid != "" ? userDetails.hkid : userDetails.passport}</p>
                                 </div>
                             </div>                            
                         </div>
@@ -184,7 +184,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Mobile no.</p>
-                                    <p class="fld-val">98765432</p>
+                                    <p class="fld-val">${userDetails.mobileNo }</p>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Email address</p>
-                                    <p class="fld-val">test@test.com</p>
+                                    <p class="fld-val">${userDetails.emailAddress }</p>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Room</p>
-                                    <p class="fld-val">ROOM A</p>
+                                    <p class="fld-val">${homeCareDetails.applicantRoom }</p>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Floor</p>
-                                    <p class="fld-val">2/F</p>
+                                    <p class="fld-val">${homeCareDetails.applicantFloor }</p>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Block</p>
-                                    <p class="fld-val">Block C</p>
+                                    <p class="fld-val">${homeCareDetails.applicantBlock }</p>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Building</p>
-                                    <p class="fld-val">THREE BUILDING</p>
+                                    <p class="fld-val">${homeCareDetails.applicantBuilding }</p>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +248,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Estate</p>
-                                    <p class="fld-val">FOUR ESTATE</p>
+                                    <p class="fld-val">${homeCareDetails.applicantEstate }</p>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Street No.</p>
-                                    <p class="fld-val">5 </p>
+                                    <p class="fld-val">${homeCareDetails.applicantStreetNo } </p>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +270,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Street Name</p>
-                                    <p class="fld-val">SIX ROAD</p>
+                                    <p class="fld-val">${homeCareDetails.applicantStreetName }</p>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">District</p>
-                                    <p class="fld-val">Central</p>
+                                    <p class="fld-val">${homeCareDetails.applicantDistrict }</p>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +291,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Area</p>
-                                    <p class="fld-val">Hong Kong</p>
+                                    <p class="fld-val">${homeCareDetails.applicantArea }</p>
                                 </div>
                             </div>
                         </div>
@@ -313,7 +313,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Room</p>
-                                    <p class="fld-val">ROOM A</p>
+                                    <p class="fld-val">${homeCareDetails.aRoom }</p>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Floor</p>
-                                    <p class="fld-val">2/F</p>
+                                    <p class="fld-val">${homeCareDetails.aFloor }</p>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Block</p>
-                                    <p class="fld-val">Block C</p>
+                                    <p class="fld-val">${homeCareDetails.aBlock }</p>
                                 </div>
                             </div>
                         </div>
@@ -343,7 +343,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Building</p>
-                                    <p class="fld-val">THREE BUILDING</p>
+                                    <p class="fld-val">${homeCareDetails.aBuilding }</p>
                                 </div>
                             </div>
                         </div>
@@ -352,7 +352,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Estate</p>
-                                    <p class="fld-val">FOUR ESTATE</p>
+                                    <p class="fld-val">${homeCareDetails.aEstate }</p>
                                 </div>
                             </div>
                         </div>
@@ -365,7 +365,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Street No.</p>
-                                    <p class="fld-val">5 </p>
+                                    <p class="fld-val">${homeCareDetails.aStreetNo } </p>
                                 </div>
                             </div>
                         </div>
@@ -374,7 +374,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Street Name</p>
-                                    <p class="fld-val">SIX ROAD</p>
+                                    <p class="fld-val">${homeCareDetails.aStreetName }</p>
                                 </div>
                             </div>
                         </div>
@@ -386,7 +386,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">District</p>
-                                    <p class="fld-val">Central</p>
+                                    <p class="fld-val">${homeCareDetails.aDistrict }</p>
                                 </div>
                             </div>
                         </div>
@@ -395,7 +395,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Area</p>
-                                    <p class="fld-val">Hong Kong</p>
+                                    <p class="fld-val">${homeCareDetails.aArea }</p>
                                 </div>
                             </div>
                         </div>

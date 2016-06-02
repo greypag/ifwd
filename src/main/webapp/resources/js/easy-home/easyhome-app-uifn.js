@@ -1,4 +1,5 @@
-var language = language;
+var contextPath = context;
+var lang = UILANGUAGE;
 var nextPage = nextPage;
 $(document).ready(function(){
 
@@ -75,7 +76,7 @@ $(document).ready(function(){
 			//oldHome
 
 			if(allNo){
-				window.location = contextPath+"/"+language+'/home-liability-insurance/'+nextPage;
+				window.location = contextPath+"/"+lang+'/home-liability-insurance/'+nextPage;
 				//alert("implement screening logic in here");
 			}else{
 				$("#oldHome").modal("show");
@@ -241,9 +242,9 @@ $(document).ready(function(){
 							message:'Please enter your mobile no. or email address.',
 							callback:function(a,b){
 
-								var isEmpty = $.trim($("#mobileNo").val()) == "";
-								var isValidMobile = application.common.validate($("#mobileNo").val(),"Mobileno");
-								var errElm = $("#mobileNo").parents(".form-group").find("small[data-bv-validator='callback']");
+								var isEmpty = $.trim($("#inputMobileNo").val()) == "";
+								var isValidMobile = application.common.validate($("#inputMobileNo").val(),"Mobileno");
+								var errElm = $("#inputMobileNo").parents(".form-group").find("small[data-bv-validator='callback']");
 							
 								if($.trim($("#emailAddress").val()) != ""){
 									if(isEmpty || isValidMobile){
@@ -664,7 +665,24 @@ $(document).ready(function(){
 			$('#ef-form-application').bootstrapValidator('validate');
 			if($('#ef-form-application').data('bootstrapValidator').isValid()){
 				//do something
-				alert("implement application logic in here");
+				var noAccountInfo = $.trim($("#userName").val()) == "" && $.trim($("#password").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
+				if(noAccountInfo) {
+					
+				}
+				$.ajax({
+					type: "POST",
+					url:contextPath+'/ajax/homeliability/processSummary',
+					data: $('#ef-form-application').serialize(),
+					success:function(data){
+						if(data.errMsgs == null) {
+							window.location= contextPath + "/" + lang + "/home-liability-insurance/summary";
+						}else {
+							console.log('processSummary : ' + data.errMsgs);
+						}
+					}
+				});
+				
+				//alert("implement application logic in here");
 			}
 		});
 

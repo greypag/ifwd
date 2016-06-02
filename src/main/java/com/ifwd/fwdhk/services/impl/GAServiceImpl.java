@@ -27,14 +27,13 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.HomeCareQuetionaries;
+import com.ifwd.fwdhk.model.UserDetails;import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
 import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.services.GAService;
+import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
@@ -61,7 +60,7 @@ public class GAServiceImpl implements GAService {
 	@Autowired
 	protected ClientBrowserUtil clientBrowserUtil;
 	
-	public String processSummary(HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception{
+	public CreatePolicy createPolicy(HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession();
 		String referralCode = (String)session.getAttribute("referralCode");
 		String theClubMembershipNo = (String)session.getAttribute("theClubMembershipNo");
@@ -76,25 +75,35 @@ public class GAServiceImpl implements GAService {
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
-		String dob = DateApi.formatString(WebServiceUtils.getParameterValue("applicantDob", session, request));
+		String dob = DateApi.formatString(WebServiceUtils.getParameterValue("dob", session, request));
 		Date effectiveDate = DateApi.formatDate(homeCareDetails.getEffectiveDate());
 		LocalDate date = new LocalDate(effectiveDate);
 		String edate = date.toString();
 		
+		UserDetails userDetails = new UserDetails();
+		if ("appHkid".equalsIgnoreCase(passportORhkid)) {
+			userDetails.setHkid(hkId);
+			userDetails.setPassport("");
+		} else {
+			userDetails.setHkid("");
+			userDetails.setPassport(hkId);
+		}
+		userDetails.setFullName(applicantName);
+		userDetails.setEmailAddress(emailAddress);
+		userDetails.setMobileNo(mobileNo);
+		userDetails.setDob(WebServiceUtils.getParameterValue("dob", session, request));
+		session.setAttribute("userDetails", userDetails);
+		
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
-		parameters.put("planCode", homeCareDetails.getPlanCode());
-
-		
-
+		//parameters.put("planCode", homeCareDetails.getPlanCode());
+		parameters.put("planCode", "EasyHomeCare");
 		parameters.put("correspondenceAddress", correspondenceAddress);
-
 		applicant.put("name", applicantName);
 		applicant.put("gender", "M");
-
 		applicant.put("dob", dob);
 
-		if(passportORhkid.equalsIgnoreCase("appHkid")) {
+		if("appHkid".equalsIgnoreCase(passportORhkid)) {
 			applicant.put("hkId", hkId);
 			applicant.put("passport", "");
 		}else {
@@ -105,8 +114,8 @@ public class GAServiceImpl implements GAService {
 		applicant.put("email", emailAddress);
 		applicant.put("mobileNo", mobileNo);
 		applicant.put("occupation", "");
-		applicant.put("optIn1", homeCareDetails.getCheckbox1());
-		applicant.put("optIn2", homeCareDetails.getCheckbox2());
+		applicant.put("optIn1", homeCareDetails.getCheckbox3());
+		applicant.put("optIn2", homeCareDetails.getCheckbox4());
 
 		parameters.put("applicant", applicant);
 
@@ -120,7 +129,6 @@ public class GAServiceImpl implements GAService {
 		correspondenceAddress.put("district", homeCareDetails.getApplicantDistrict());
 		correspondenceAddress.put("area", homeCareDetails.getApplicantArea());
 
-
 		insuredAddress.put("room", homeCareDetails.getaRoom());
 		insuredAddress.put("floor", homeCareDetails.getaFloor());
 		insuredAddress.put("block", homeCareDetails.getaBlock());
@@ -133,17 +141,16 @@ public class GAServiceImpl implements GAService {
 		
 		parameters.put("insuredAddress", insuredAddress);
 		parameters.put("referralCode", referralCode);
-		
 		parameters.put("externalParty", StringUtils.isEmpty(theClubMembershipNo) ? "" : "THE CLUB");
 		parameters.put("externalPartyCode", theClubMembershipNo);
 		
 		Map<String, String> header = headerUtil.getHeader(request);
-		logger.info("HOMECARE_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+		logger.info("HOME_LIABILITY_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 		JSONObject responsObject = restService
 				.consumeApi(HttpMethod.PUT,
 						UserRestURIConstants.HOMECARE_CREATE_POLICY, header,
 						parameters);
-		logger.info("HOMECARE_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
+		logger.info("HOME_LIABILITY_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 		CreatePolicy createPolicy = new CreatePolicy();
 		if (responsObject.get("errMsgs") == null) {
@@ -156,12 +163,31 @@ public class GAServiceImpl implements GAService {
 			createPolicy.setPaymentType(JsonUtils.checkJsonObjNull(responsObject, "paymentType"));
 			createPolicy.setLang(JsonUtils.checkJsonObjNull(responsObject, "lang"));
 			session.setAttribute("createPolicy", createPolicy);
-			return "success";
+			session.setAttribute("homeCareDetails", homeCareDetails);
 		} else {
-			//createPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
-			return responsObject.get("errMsgs").toString();
+			createPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
 		}
+		return createPolicy;
+	}
+	
+	public JSONObject confirmPolicy(CreatePolicy createPolicy,
+			HttpServletResponse response, HttpServletRequest request)
+			throws Exception {
+		HttpSession session = request.getSession();
+		JSONObject confirmPolicyParameter = new JSONObject();
 		
+		confirmPolicyParameter.put("referenceNo", createPolicy.getReferenceNo());
+		Map<String, String> header = headerUtil.getHeader(request);
+		logger.info("HOMECARE_CONFIRM_POLICY Requset" + confirmPolicyParameter);
+		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
+				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
+				confirmPolicyParameter);
+		logger.info("HOMECARE_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		createPolicy.setSecureHash(JsonUtils.checkJsonObjNull(jsonResponse, "secureHash"));
+		createPolicy.setTransactionNo(JsonUtils.checkJsonObjNull(jsonResponse, "transactionNumber"));
+		createPolicy.setTransactionDate(JsonUtils.checkJsonObjNull(jsonResponse, "transactionDate"));
+		session.setAttribute("createPolicy", createPolicy);
+		return jsonResponse;
 	}
 	
 	//public HomeCareUwQuestionsResponse getHomeCareUwQuestions(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{

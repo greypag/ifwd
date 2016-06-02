@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<script type="text/javascript">
+var context = "<%=request.getContextPath()%>";
+</script>
 
 <div class="fwd-savie-wrapper">
     <div class="fwd-container container-fluid breadcrumbs">
@@ -217,7 +220,7 @@
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="tel" id="mobileNo" name="mobileNo"  maxlength="8">
+                                            <input class="mdl-textfield__input" type="tel" id="inputMobileNo" name="mobileNo"  maxlength="8">
                                             <label class="mdl-textfield__label" for="mobileNo">Mobile number</label>
                                         </div>
                                         
@@ -791,7 +794,7 @@
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-date">
-                                            <input class="mdl-textfield__input mobiscroll-date" type="text" id="effectdate" name="effectdate">
+                                            <input class="mdl-textfield__input mobiscroll-date" type="text" id="effectdate" name="effectiveDate">
                                             <label class="mdl-textfield__label" for="effectdate">Effective date of coverage</label>
                                         </div>
                                         
@@ -811,20 +814,20 @@
                 <div class="col-xs-12 col-md-12">
                     <div class="form-group no-border">
                         <div class="checkbox">
-                            <input type="checkbox" name="declarration" id="declarration" value=""><label for="declarration">I have read and understood the policy provisions and declare that:<br>i. the particulars and statements given above are, to the best of my knowledge and belief, true and complete;<br>ii. the Home is constructed from bricks, stone or concrete with concrete roof and occupied by me and my family as private dwelling; <br>iii. I or my family member living with me have not sustained any loss during the last three years from any of the risks now proposed for insurance; or been refused renewal by any insurer;<br>iv. this application shall be the basis of the contract between me and FWD General Insurance Company Limited;<br>v. this Proposal Form is applied for at HKSAR, in case of fraud or misrepresentation, the policy may be declared void.</label>
+                            <input type="checkbox" name="checkbox1" id="declarration"><label for="declarration">I have read and understood the policy provisions and declare that:<br>i. the particulars and statements given above are, to the best of my knowledge and belief, true and complete;<br>ii. the Home is constructed from bricks, stone or concrete with concrete roof and occupied by me and my family as private dwelling; <br>iii. I or my family member living with me have not sustained any loss during the last three years from any of the risks now proposed for insurance; or been refused renewal by any insurer;<br>iv. this application shall be the basis of the contract between me and FWD General Insurance Company Limited;<br>v. this Proposal Form is applied for at HKSAR, in case of fraud or misrepresentation, the policy may be declared void.</label>
                             <span class="error-msg" id="declarrationErrMsg"></span>
                         </div>
                         <div class="checkbox sep">
-                            <input type="checkbox" name="declarration2" id="declarration2" value=""><label for="declarration2">I have read and understood Personal Information Collection Statement and agree to be bound by the same.</label>
+                            <input type="checkbox" name="checkbox2" id="declarration2"><label for="declarration2">I have read and understood Personal Information Collection Statement and agree to be bound by the same.</label>
                             <span class="error-msg" id="declarration2ErrMsg"></span>
                         </div>
                         <hr>
                         <div class="checkbox grey">
-                            <input type="checkbox" name="donotWishDirectMarketing" id="donotWishDirectMarketing" value=""><label for="donotWishDirectMarketing">If you do NOT wish FWD General Insurance Company Limited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:<br>Please do not send direct marketing information to me.</label>
+                            <input type="checkbox" name="checkbox3" id="donotWishDirectMarketing"><label for="donotWishDirectMarketing">If you do NOT wish FWD General Insurance Company Limited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:<br>Please do not send direct marketing information to me.</label>
                             
                         </div>
                         <div class="checkbox grey">
-                            <input type="checkbox" name="donotDisclose" id="donotDisclose" value=""><label for="donotDisclose">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label>
+                            <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label>
                             
                         </div>
                     </div>
