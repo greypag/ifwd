@@ -516,14 +516,14 @@ var languageP = "${language}";
 			var getpath =  "<%=request.getContextPath()%>";
 		
 			$(document).ready(function () {
-				if('${plan }' == 'savings-insurance'){
+				if('${plan }' == 'savings-insurance' ||'${backSummary}' == 'Y'){
 					setSelectReadonly('tmpEmploymentStatus', true);
 					setSelectReadonly('tmpBusinessNature', true);
 					setSelectReadonly('tmpOccupation', true);
 					setSelectReadonly('tmpEducationLevel', true);
 					setSelectReadonly('tmpLiquidAssetsAmount', true);
 					setInputReadonly('other-occupation', true);
-					if('${fn:length(monthlyPersonalIncomeCN)}' == '1'){
+					if('${fn:length(monthlyPersonalIncomeCN)}' == '1' ||'${backSummary}' == 'Y'){
 						setSelectReadonly('tmpMonthlyPersonalIncome', true);
 					}
 					if('${fn:length(etAmountOtherSourceEN)}' == '1'){
