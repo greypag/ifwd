@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
+import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxHomeLiabilityController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxHomeLiabilityController.class);
@@ -47,5 +50,22 @@ public class AjaxHomeLiabilityController extends BaseController{
 			e.printStackTrace();
 		}
 		ajaxReturn(response, result);
+	}
+	
+	@RequestMapping(value = {"/ajax/homeliability/getHomeCareQuote"})
+	public void getHomeCareQuote(HttpServletRequest request,HttpServletResponse response,HttpSession session){
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			gaService.getHomeCareQuote(request, session);
+			jsonObject.put("successMsg", "successfully");
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
 	}
 }

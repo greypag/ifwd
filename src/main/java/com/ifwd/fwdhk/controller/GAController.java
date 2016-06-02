@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.HomeLiabilityPageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.sun.org.apache.bcel.internal.generic.LNEG;
@@ -24,8 +26,6 @@ import com.sun.org.apache.bcel.internal.generic.LNEG;
 public class GAController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
-	
-
 	
 	@RequestMapping(value = {"/{lang}/{plan}"})
 	public ModelAndView getInsurance(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {

@@ -64,7 +64,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Easy HomeCare</p>
-                            <p class="fld-val">Standard cover, Annual</p>
+                            <p class="fld-val"></p>
                             </div>
                         </div>                        
                     </li>
@@ -72,7 +72,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
-                            <p class="fld-val"><span class="txt-promote-code">-</span></p>
+                            <p class="fld-val"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
                     </li>
@@ -88,7 +88,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$420.00</p>
+                            <p class="fld-val">HK$${planQuote.grossPremium }</p>
                             </div>
                         </div>
                     </li>
@@ -96,12 +96,12 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$0.00</p>
+                            <p class="fld-val">HK$${planQuote.discountAmount }</p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">420.00</span><span class="txt-hkd-suffix"></span></p>
+                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -515,8 +515,42 @@ For a complete explanation of the terms and conditions, please call our Customer
     </div>
 
 </div>
+
+<form name="selectPlanForm" id="selectPlanForm" method="post">
+	<input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
+	<input type="hidden" name="grossPremium" id="grossPremium" value="${planQuote.grossPremium}"/> 
+	<input type="hidden" name="discountAmount" id="discountAmount" value="${planQuote.discountAmount}"/> 
+	<input type="hidden" name="totalDue" id="totalDue" value="${planQuote.totalDue}"/> 
+	<input type="hidden" name="referralCode" id="referralCode" value="${planQuote.referralCode}"/> 
+	<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
+	<input type="hidden" name="answer1" value="N"/> 
+	<input type="hidden" name="answer2" value="N"/>
+</form>
+
 <script>
 $("#eh-select-plan-next").on("click",function(){
-	window.location = '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}';
+	$.ajax({
+        type : "get",
+        cache:false, 
+        async:false, 
+        url : '${pageContext.request.contextPath}/ajax/homeliability/getHomeCareQuote',
+        data : {
+	        	referralCode : $("#promoCode").val(),
+	        	answer1 : "N",
+	        	answer2 : "N"
+	           },
+        success : function(data) {
+	      	if(data !=null && data.errorMsg ==null){
+	      		$("#selectPlanForm").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
+           	    document.getElementById('selectPlanForm').submit();
+			}
+	      	else{
+	      		console.log(data.errorMsg); 
+	      	}
+        },
+        error:function(){
+            console.log('error');   
+        }
+  });
 });
 </script>

@@ -27,6 +27,7 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
+import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;import com.ifwd.fwdhk.model.HomeCareQuetionaries;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
@@ -34,6 +35,8 @@ import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;import com.ifwd.fwdhk.services.GAService;
+import com.ifwd.fwdhk.services.HomeCareService;
+import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
@@ -190,22 +193,70 @@ public class GAServiceImpl implements GAService {
 		return jsonResponse;
 	}
 	
-	//public HomeCareUwQuestionsResponse getHomeCareUwQuestions(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
-		/*final Map<String,String> header = headerUtil.getHeader1(request);
-		HomeCareUwQuestionsResponse homeCareUwQuestions = new CreateEliteTermPolicyResponse();
+	public void getHomeCareQuote(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		HomeQuoteBean quoteDetails = new HomeQuoteBean();
+		String referralCode = request.getParameter("referralCode");
+		String answer1 = request.getParameter("answer1");
+		String answer2 = request.getParameter("answer2");
 		
-		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
-			logger.info("Some input information contains simplified Chinese");
-			throw new ECOMMAPIException("Some input information contains simplified Chinese");
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.HOMECARE_GET_QUOTE);
+		url.append("?planCode=EasyHomeCare");
+		url.append("&referralCode=");
+		url.append(referralCode);
+		url.append("&room&floor&block=block1&building=building1&estate=estate1&streetNo&streetName&district&area");
+		url.append("&answer1=");
+		url.append(answer1);
+		url.append("&answer2=");
+		url.append(answer2);
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = new JSONObject();
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
+		if(responseJsonObj.get("errMsgs") == null){
+			JSONObject priceInfo = new JSONObject();
+			priceInfo = (JSONObject) responseJsonObj.get("priceInfo");
+			
+			quoteDetails.setDiscountPercentage(priceInfo.get("discountPercentage").toString());
+			quoteDetails.setTotalDue(priceInfo.get("totalDue").toString());
+			quoteDetails.setGrossPremium(priceInfo.get("grossPremium").toString());
+			quoteDetails.setTotalNetPremium(priceInfo.get("totalNetPremium").toString());
+			quoteDetails.setDiscountAmount(priceInfo.get("discountAmount").toString());
+			quoteDetails.setReferralCode(responseJsonObj.get("referralCode")!=null?responseJsonObj.get("referralCode").toString():"");
+			quoteDetails.setReferralName(responseJsonObj.get("referralName")!=null?responseJsonObj.get("referralName").toString():"");
+			quoteDetails.setPlanCode(responseJsonObj.get("planCode").toString());
+			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
+			
+			session.setAttribute("referralCode", quoteDetails.getReferralCode());
+			session.setAttribute("planQuote", quoteDetails);
+		} 
+		else if(responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")){
+			JSONObject priceInfo = new JSONObject();
+			priceInfo = (JSONObject) responseJsonObj.get("priceInfo");
+			
+			quoteDetails.setDiscountPercentage(priceInfo.get("discountPercentage").toString());
+			quoteDetails.setTotalDue(priceInfo.get("totalDue").toString());
+			quoteDetails.setGrossPremium(priceInfo.get("grossPremium").toString());
+			quoteDetails.setTotalNetPremium(priceInfo.get("totalNetPremium").toString());
+			quoteDetails.setDiscountAmount(priceInfo.get("discountAmount").toString());
+			quoteDetails.setReferralCode("");
+			quoteDetails.setReferralName("");
+			quoteDetails.setPlanCode(responseJsonObj.get("planCode").toString());
+			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
+			
+			session.setAttribute("referralCode", "");
+			session.setAttribute("planQuote", quoteDetails);
 		}
-		else{
-			lifePolicy = connector.createLifePolicy(parameters, header);
-			if(!lifePolicy.hasError()){
-				request.getSession().setAttribute("lifePolicy", lifePolicy);
-			}
-			else{
-				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
-			}
-		}*/
-	//}
+		else {
+			quoteDetails.setErrormsg(responseJsonObj.get("errMsgs").toString());
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+	}
+	
+	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
+		if (obj.get(checkByStr) != null) {
+			return obj.get(checkByStr).toString();
+		} else {
+			return "null";
+		}
+	}
 }

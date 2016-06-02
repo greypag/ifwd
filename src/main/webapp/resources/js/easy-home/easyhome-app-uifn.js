@@ -76,7 +76,28 @@ $(document).ready(function(){
 			//oldHome
 
 			if(allNo){
-				window.location = contextPath+"/"+lang+'/home-liability-insurance/'+nextPage;
+				$.ajax({
+			        type : "get",
+			        cache:false, 
+			        async:false, 
+			        url : contextPath+'/ajax/homeliability/getHomeCareQuote',
+			        data : {
+				        	referralCode : "",
+				        	answer1 : "N",
+				        	answer2 : "N"
+				           },
+			        success : function(data) {
+				      	if(data !=null && data.errorMsg ==null){
+				      		window.location = contextPath+"/"+lang+'/home-liability-insurance/'+nextPage;
+						}
+				      	else{
+				      		console.log(data.errorMsg); 
+				      	}
+			        },
+			        error:function(){
+			            console.log('error');   
+			        }
+			  });
 				//alert("implement screening logic in here");
 			}else{
 				$("#oldHome").modal("show");
