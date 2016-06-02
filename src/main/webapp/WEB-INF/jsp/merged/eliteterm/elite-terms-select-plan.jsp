@@ -2402,6 +2402,19 @@ var home_url = "<%=request.getContextPath()%>";
 									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 									bundle="${msg}" />
 							</p>
+							<div style="margin-top:20px;">
+								<p><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks3"
+									bundle="${msg}" /></p>
+								<ul class="list-unstyled">
+									<li><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks4"
+									bundle="${msg}" /></li>
+									<li><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks5"
+									bundle="${msg}" /></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 
@@ -3286,6 +3299,19 @@ var home_url = "<%=request.getContextPath()%>";
 											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 											bundle="${msg}" />
 									</p>
+									<div style="margin-top:20px;">
+										<p><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks3"
+											bundle="${msg}" /></p>
+										<ul class="list-unstyled">
+											<li><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks4"
+											bundle="${msg}" /></li>
+											<li><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks5"
+											bundle="${msg}" /></li>
+										</ul>
+									</div>
 								</div>
 
 								<div class="clearfix info-holder-below">
