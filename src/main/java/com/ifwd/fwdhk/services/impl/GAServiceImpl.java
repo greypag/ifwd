@@ -212,7 +212,7 @@ public class GAServiceImpl implements GAService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
-		if(responseJsonObj.get("errMsgs") == null){
+		if(responseJsonObj.get("errMsgs") == null || responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")){
 			JSONObject priceInfo = new JSONObject();
 			priceInfo = (JSONObject) responseJsonObj.get("priceInfo");
 			
@@ -229,23 +229,6 @@ public class GAServiceImpl implements GAService {
 			session.setAttribute("referralCode", quoteDetails.getReferralCode());
 			session.setAttribute("planQuote", quoteDetails);
 		} 
-		else if(responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")){
-			JSONObject priceInfo = new JSONObject();
-			priceInfo = (JSONObject) responseJsonObj.get("priceInfo");
-			
-			quoteDetails.setDiscountPercentage(priceInfo.get("discountPercentage").toString());
-			quoteDetails.setTotalDue(priceInfo.get("totalDue").toString());
-			quoteDetails.setGrossPremium(priceInfo.get("grossPremium").toString());
-			quoteDetails.setTotalNetPremium(priceInfo.get("totalNetPremium").toString());
-			quoteDetails.setDiscountAmount(priceInfo.get("discountAmount").toString());
-			quoteDetails.setReferralCode("");
-			quoteDetails.setReferralName("");
-			quoteDetails.setPlanCode(responseJsonObj.get("planCode").toString());
-			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
-			
-			session.setAttribute("referralCode", "");
-			session.setAttribute("planQuote", quoteDetails);
-		}
 		else {
 			quoteDetails.setErrormsg(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
