@@ -758,12 +758,9 @@ var home_url = "<%=request.getContextPath()%>";
 												<div class="col-xs-12 col-md-4">
 													<div class="row">
 														<div class="col-xs-6 et-pad-right-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-yes"
-																data-current-target="et-medi-question-2"
-																data-next-target="et-medi-question-3" title="Yes"
-																data-toggle="modal" data-target="#cannot-apply-modal"
-																onclick="getCsChannel('ETMD2');"><fmt:message
-																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+															<a href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="Yes" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD2');">
+																<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+															</a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
 															<a href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
