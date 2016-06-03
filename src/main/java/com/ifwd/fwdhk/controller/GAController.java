@@ -75,6 +75,7 @@ public class GAController extends BaseController{
 		HttpSession session = request.getSession();
 		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
 		session.setAttribute("theClubMembershipNo", theClubMembershipNo);
+		model.addAttribute("theClubMembershipNo", theClubMembershipNo);
 		
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
@@ -139,6 +140,10 @@ public class GAController extends BaseController{
 			model.addAttribute("homeCareDetails", homeCareDetails);
 			model.addAttribute("path", path.replace("summary", "confirmation-ga?utm_nooverride=1"));
 			model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+			
+			String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+			model.addAttribute("theClubMembershipNo", theClubMembershipNo);
+			model.addAttribute("homeQuoteDetails", homeQuoteDetails);
 			
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY);
 		}

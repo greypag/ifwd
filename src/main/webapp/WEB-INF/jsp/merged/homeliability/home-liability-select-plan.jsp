@@ -145,7 +145,7 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
-     <form id="ef-form-selectplan">
+     <form id="ef-form-selectplan" method="post">
      <div class="app-pg-cont">
         <div class="container-fluid">
             <div class="row app-selectplan-tab">
@@ -417,7 +417,7 @@ For a complete explanation of the terms and conditions, please call our Customer
 			<input type="hidden" name="grossPremium" id="grossPremium" value="${planQuote.grossPremium}"/> 
 			<input type="hidden" name="discountAmount" id="discountAmount" value="${planQuote.discountAmount}"/> 
 			<input type="hidden" name="totalDue" id="totalDue" value="${planQuote.totalDue}"/> 
-			<input type="hidden" name="referralCode" id="referralCode" value="${planQuote.referralCode}"/> 
+			<%-- <input type="hidden" name="referralCode" id="referralCode" value="${planQuote.referralCode}"/> --%> 
 			<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
 			<input type="hidden" name="answer1" value="N"/> 
 			<input type="hidden" name="answer2" value="N"/>
