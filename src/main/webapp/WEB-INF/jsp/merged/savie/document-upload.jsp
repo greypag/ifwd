@@ -476,7 +476,7 @@ var languageP = "${language}";
 
                 if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
                 	errorMessageType = 'NOT_AUTHENTICATED';
-                } else if( policyUserName != userName ){
+                } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
                 	errorMessageType = 'UNMATCHED_USERNAME';
                 }
 
