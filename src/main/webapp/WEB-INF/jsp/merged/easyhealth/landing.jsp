@@ -5,6 +5,7 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -57,7 +58,7 @@ var home_url = "<%=request.getContextPath()%>";
                         
         <div class="payment-mode">
            
-            <p class="availability-notice text-center"><fmt:message key="label.product.statement.easyhealth" bundle="${msg}" /><span></span>
+            <p class="availability-notice text-center"><s:message code="label.product.statement.easyhealth"/><span></span>
             </p>
 
             <!-- <h5 class="hidden-sm hidden-xs product-options text-center">
@@ -68,27 +69,27 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="fwd-container-limit">
                 <div class="usp row">
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title1.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-flexible.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
-                            <p><fmt:message key="usp.copy1.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title1.easyhealth"/></h5>
+                            <p><s:message code="usp.copy1.easyhealth"/></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title2.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-protection.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
-                            <p class="padded"><fmt:message key="usp.copy2.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title2.easyhealth"/></h5>
+                            <p class="padded"><s:message code="usp.copy2.easyhealth"/></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title3.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-save.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
-                            <p class="padded"><fmt:message key="usp.copy3.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title3.easyhealth"/></h5>
+                            <p class="padded"><s:message code="usp.copy3.easyhealth"/></p>
                         </div>
                     </div>
                 </div>
