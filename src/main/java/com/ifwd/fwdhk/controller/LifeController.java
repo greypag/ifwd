@@ -751,7 +751,7 @@ public class LifeController extends BaseController{
 				lifePolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 		}else{
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
