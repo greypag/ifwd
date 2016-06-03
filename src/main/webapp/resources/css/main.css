@@ -11962,7 +11962,8 @@ body.chin .partner-headline-wrapper .headline-title{
 	}
 }
 
-/* soInsuredInfoForm || savie/personal-details.jsp */
+/* soInsuredInfoForm || savie/personal-details.jsp
+Be caution: <select> have customed made */
 #soInsuredInfoForm .col-sm-12.col-md-6.left,
 #soInsuredInfoForm .col-sm-12.col-md-12.left {
 	padding-right: 100px;
@@ -11988,13 +11989,22 @@ body.chin .partner-headline-wrapper .headline-title{
     border-radius: 0;
     border: 0 transparent;
 }
-#soInsuredInfoForm .mdl-textfield__label{
+#soInsuredInfoForm .mdl-textfield__label {
     padding-top: 5px;
     font-size: 14px;
     left: 0;
     top: 10px;
     padding-left: 15px;
     font-family: 'Calibri-Bold';
+}
+#soInsuredInfoForm .mdl-textfield__label.mdl-textfield__label--select-box {
+	padding-top: 5px;
+	font-size: 14px;
+	left: 0;
+	/*Be caution: <select> have customed made*/
+	top: 0;
+	padding-left: 15px;
+	font-family: 'Calibri-Bold';
 }
 #soInsuredInfoForm .mdl-textfield.is-focused label,
 #soInsuredInfoForm .mdl-textfield.is-dirty label{
