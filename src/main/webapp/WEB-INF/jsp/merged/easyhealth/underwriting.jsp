@@ -65,12 +65,11 @@ var home_url = "<%=request.getContextPath()%>";
 	    	<c:set var="stepActive">1</c:set>
 	    </c:if>
 
-	     <!--<div class="container-fluid fwd-full-container browse-holder">-->
-	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
-	        	<jsp:param name="stepItems" value="${stepItems}"/>
-    			<jsp:param name="stepActive" value="${stepActive}"/>
-	    	</jsp:include>
-	     <!--</div>-->
+	    
+	    <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+	       	<jsp:param name="stepItems" value="${stepItems}"/>
+    		<jsp:param name="stepActive" value="${stepActive}"/>
+	    </jsp:include>
 
 		<!-- StepIndicator Component End-->
 
