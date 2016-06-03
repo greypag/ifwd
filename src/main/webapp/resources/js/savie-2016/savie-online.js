@@ -1675,10 +1675,14 @@ function setSelectReadonly(elementId, isReadonly) {
 		elem.removeAttr('disabled', 'disabled');
 		elem.removeClass('readonly-field');
 	}
-	
 	if(elem.val() != '' && elem.val() != null) {
-		elem.parent('.selectDiv').addClass('is-not-active');
+		setStyleOfIsNotActive(elementId);
 	}
+}
+
+function setStyleOfIsNotActive(elementId){
+	var elem = $('#' + elementId);
+	elem.parent('.selectDiv').addClass('is-not-active');
 }
 
 function sendEmailForSaveLater(key) {

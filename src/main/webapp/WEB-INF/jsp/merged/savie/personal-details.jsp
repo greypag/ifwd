@@ -779,6 +779,15 @@ $(document).ready(function () {
 	if ('${plan }' == 'savings-insurance') {
 		setSelectReadonly('tmpMaritalStatus', true);
 	}
+	
+	if ('${plan }' == 'medical-insurance' && '${backSummary}' == "Y") {
+		setStyleOfIsNotActive('hkId');
+		setStyleOfIsNotActive('tmpPlaceOfBirth');
+		setStyleOfIsNotActive('tmpNationality');
+		setStyleOfIsNotActive('tmpMaritalStatus');
+		setStyleOfIsNotActive('permanentAddress1');
+		setStyleOfIsNotActive('tmpPermanentDistrict');
+	}
 
 	if ('${lifePersonalDetails.permanetAddress1}' != '') {
 		if ($('.res-additional').hasClass('hidden')) {

@@ -516,19 +516,28 @@ var languageP = "${language}";
 			var getpath =  "<%=request.getContextPath()%>";
 		
 			$(document).ready(function () {
-				if('${plan }' == 'savings-insurance' ||'${backSummary}' == 'Y'){
+				if('${plan }' == 'savings-insurance'){
 					setSelectReadonly('tmpEmploymentStatus', true);
 					setSelectReadonly('tmpBusinessNature', true);
 					setSelectReadonly('tmpOccupation', true);
 					setSelectReadonly('tmpEducationLevel', true);
 					setSelectReadonly('tmpLiquidAssetsAmount', true);
 					setInputReadonly('other-occupation', true);
-					if('${fn:length(monthlyPersonalIncomeCN)}' == '1' ||'${backSummary}' == 'Y'){
+					if('${fn:length(monthlyPersonalIncomeCN)}' == '1'){
 						setSelectReadonly('tmpMonthlyPersonalIncome', true);
 					}
 					if('${fn:length(etAmountOtherSourceEN)}' == '1'){
 						setSelectReadonly('tmpOtherIncomeAmount', true);
 					}
+				}else if('${plan }' == 'medical-insurance'){
+					setStyleOfIsNotActive('tmpEmploymentStatus');
+					setStyleOfIsNotActive('tmpBusinessNature');
+					setStyleOfIsNotActive('tmpOccupation');
+					setStyleOfIsNotActive('tmpEducationLevel');
+					setStyleOfIsNotActive('tmpLiquidAssetsAmount');
+					setStyleOfIsNotActive('other-occupation');
+					setStyleOfIsNotActive('tmpMonthlyPersonalIncome');
+					setStyleOfIsNotActive('tmpOtherIncomeAmount');
 				}
 				
 				var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
