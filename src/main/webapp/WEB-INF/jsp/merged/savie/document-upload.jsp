@@ -33,9 +33,9 @@ var languageP = "${language}";
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
-			    	<c:set var="breadcrumbActive">3</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
@@ -470,36 +470,37 @@ var languageP = "${language}";
 		    		});
 				}
 				var errorMessageType = "${errorMessageType}";
+				var userName = "${username}";
+                var policyUserName = "${policyUserName}";
+                var authenticate = "${authenticate}";
+
+                if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
+                	errorMessageType = 'NOT_AUTHENTICATED';
+                } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
+                	errorMessageType = 'UNMATCHED_USERNAME';
+                }
+
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
-            		if(errorMessageType == 'alreadyUploaded'){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
-            		}else if(errorMessageType == 'UrlExpired' ){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
-            		}else{
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
-            		}
-                	$('#error-to-home-modal').modal('show');
-            	}else{
-            		var userName = "${username}";
-                	var policyUserName = "${policyUserName}";
-                	if(policyUserName != null && policyUserName != ''){
-        				$('#et-upload-now').hide();
-        				$('#et-upload-later').hide();
-        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
-            				$('#loginpopup').find(".close").hide(); 
-            				$('#loginpopup').find(".text-left").hide(); 
-        				}
-    				}
-    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-    					$('#loginpopup').modal('show');
-    				}else{
-    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
-    						$('#error-to-home-modal').modal('show'); 
-    				         
-    					}
-    				}
+
+            		if(errorMessageType == 'NOT_AUTHENTICATED'){
+            			//force login
+	            		$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+	            		$('#loginpopup').find(".close").hide(); 
+	           			$('#loginpopup').find(".text-left").hide(); 
+            			$('#loginpopup').modal('show');
+
+            		} else {
+            			if(errorMessageType == 'UNMATCHED_USERNAME'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+	            		}else if(errorMessageType == 'alreadyUploaded'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+	            		}else if(errorMessageType == 'UrlExpired' ){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+	            		}else{
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+	            		}
+	                	$('#error-to-home-modal').modal('show');
+	                }
             	}
 				
 				// Toggle passport

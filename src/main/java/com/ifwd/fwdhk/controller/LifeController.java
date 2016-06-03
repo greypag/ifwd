@@ -741,14 +741,17 @@ public class LifeController extends BaseController{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(!savieOnlineService.checkIsDocumentUpload(request,policyNumber)){
-				String policyUserName = savieOnlineService.getPolicyUserName(request,policyNumber);
+
+			//For checking against username at frontend. Ideal case is backend handle the username checking and return an unmatched_username error to frontend.
+			String policyUserName = savieOnlineService.getPolicyUserName(request,policyNumber);
 				request.getSession().setAttribute("policyUserName", policyUserName);
+
+			if(!savieOnlineService.checkIsDocumentUpload(request,policyNumber)){
 				CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 				lifePolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 		}else{
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);

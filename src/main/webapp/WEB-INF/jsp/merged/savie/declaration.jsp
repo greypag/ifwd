@@ -24,9 +24,9 @@ var languageP = "${language}";
 
 	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
-	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 			</c:set>
-	    	<c:set var="breadcrumbActive">3</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
 	    </c:if>
 	    <c:if test="${planIndex == 'savings-insurance'}">
 	    	<c:set var="breadcrumbItems">
@@ -184,6 +184,14 @@ var languageP = "${language}";
 								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></li>
 							</ol>
 							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
+						</div>
+
+						<div style="margin-top: 20px;">
+						  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
+							<ul class="list-unstyled">
+								<li><fmt:message key="declaration.policyreplacement.copy7" bundle="${msg}" /></li>
+								<li><fmt:message key="declaration.policyreplacement.copy8" bundle="${msg}" /></li>
+							</ul>
 						</div>
 					</div>
 					

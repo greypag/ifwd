@@ -33,9 +33,9 @@ var language = "${language}";
 
 		    <c:if test="${planIndex == 'medical-insurance'}">
 		    	<c:set var="breadcrumbItems">
-		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 				</c:set>
-		    	<c:set var="breadcrumbActive">3</c:set>
+		    	<c:set var="breadcrumbActive">4</c:set>
 		    </c:if>
 		    <c:if test="${planIndex == 'savings-insurance'}">
 		    	<c:set var="breadcrumbItems">
@@ -640,7 +640,8 @@ var language = "${language}";
             </c:if>
 
             <div class="text-center clearfix">
-               <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
+					<button id="next-wait-btn" type="button" class="btn savie-common-btn" data-wait="10" disabled></button>
+               <button id="next-btn" class="btn savie-common-btn hide" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
                 <c:if test="${plan == 'savings-insurance'}">
                    <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
                	   <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span></a>
@@ -800,6 +801,26 @@ var language = "${language}";
 			setSelectReadonly('tmpBankName', true);
 			setInputReadonly('accountNo', true);
 			setSelectReadonly('tmpBranchName', true);
+			
+			
+			// Set timer for confirm and sign button
+			var $next_btn = $('#next-btn');
+			var $next_wait_btn = $('#next-wait-btn');
+			var waitSecond = 0;
+			if (waitSecond <= 0) {
+				waitSecond = parseInt($next_wait_btn.data('wait'), 8);
+				$next_wait_btn.text('(' + waitSecond + ')');
+				var waitInterval = setInterval(function(){
+					waitSecond--;
+					$next_wait_btn.text('(' + waitSecond + ')');
+					if (waitSecond <= 0) {
+						$next_wait_btn.addClass('hide');
+						$next_btn.removeClass('hide');
+						clearInterval(waitInterval);
+					};
+				}, 1000);
+			}
+			
 		});
 		
 		$('.save-exit-btn1').click(function() {

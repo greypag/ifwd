@@ -34,9 +34,9 @@ var languageP = "${language}";
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
-			    	<c:set var="breadcrumbActive">3</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
@@ -529,6 +529,15 @@ var languageP = "${language}";
 					if('${fn:length(etAmountOtherSourceEN)}' == '1'){
 						setSelectReadonly('tmpOtherIncomeAmount', true);
 					}
+				}else if('${plan }' == 'medical-insurance'){
+					setStyleOfIsNotActive('tmpEmploymentStatus');
+					setStyleOfIsNotActive('tmpBusinessNature');
+					setStyleOfIsNotActive('tmpOccupation');
+					setStyleOfIsNotActive('tmpEducationLevel');
+					setStyleOfIsNotActive('tmpLiquidAssetsAmount');
+					setStyleOfIsNotActive('other-occupation');
+					setStyleOfIsNotActive('tmpMonthlyPersonalIncome');
+					setStyleOfIsNotActive('tmpOtherIncomeAmount');
 				}
 				
 				var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';

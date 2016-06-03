@@ -17,7 +17,7 @@ perventRedirect=true;
 $(document).ready(function(){
     $('#cardNo1').payment('formatCardNumber');
     $('#cardNo1').keyup(function() {
-        var replaceSpace = $(this).val(); 
+        var replaceSpace = $(this).val();
         var result = replaceSpace.replace(/\s/g,'');
         $("#cardnumber").val(result);
     });
@@ -86,7 +86,7 @@ $(document).ready(function(){
                                 bundle="${msg}" /></li>
                     <li class="active "><i class="fa fa-caret-right"></i> <fmt:message
                             key="home.breadcrumb1.item5" bundle="${msg}" /></li>
-                </ol>				
+                </ol>
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 				    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
                        <div class="row summary-row">
@@ -94,7 +94,7 @@ $(document).ready(function(){
                             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
                                 <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
                             </div>
-                            <!-- 
+                            <!--
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
                                     <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
@@ -140,15 +140,15 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc5.part1" bundle="${msg}" /><br/><fmt:message key="home.summary.plansummary.desc5.part2" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <c:if test="${homeCareDetails.applicantRoom != ''}">
-	                                                Room/Flat ${homeCareDetails.applicantRoom}, 
+	                                                Room/Flat ${homeCareDetails.applicantRoom},
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.applicantFloor != ''}">
-	                                                Floor ${homeCareDetails.applicantFloor}, 
+	                                                Floor ${homeCareDetails.applicantFloor},
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.applicantBlock != ''}">
-	                                                Block ${homeCareDetails.applicantBlock}, 
+	                                                Block ${homeCareDetails.applicantBlock},
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.applicantBuilding != ''}">
 	                                                ${homeCareDetails.applicantBuilding},
 	                                            </c:if>
@@ -156,14 +156,14 @@ $(document).ready(function(){
 	                                            <c:if test="${homeCareDetails.applicantEstate != ''}">
 	                                                ${homeCareDetails.applicantEstate},
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.applicantStreetNo != ''}">
-	                                                ${homeCareDetails.applicantStreetNo} 
+	                                                ${homeCareDetails.applicantStreetNo}
 	                                            </c:if>
 	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
 	                                                ${homeCareDetails.applicantStreetName}
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.applicantDistrictDesc != ''}">
 	                                                ${homeCareDetails.applicantDistrictDesc},
 	                                            </c:if>
@@ -176,15 +176,15 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc6" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <c:if test="${homeCareDetails.aRoom != ''}">
-	                                                Room/Flat ${homeCareDetails.aRoom}, 
+	                                                Room/Flat ${homeCareDetails.aRoom},
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aFloor != ''}">
-	                                                Floor ${homeCareDetails.aFloor}, 
+	                                                Floor ${homeCareDetails.aFloor},
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aBlock != ''}">
-	                                                Block ${homeCareDetails.aBlock}, 
+	                                                Block ${homeCareDetails.aBlock},
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.aBuilding != ''}">
 	                                                ${homeCareDetails.aBuilding},
 	                                            </c:if>
@@ -192,14 +192,14 @@ $(document).ready(function(){
 	                                            <c:if test="${homeCareDetails.aEstate != ''}">
 	                                                ${homeCareDetails.aEstate},
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.aStreetNo != ''}">
-	                                                ${homeCareDetails.aStreetNo} 
+	                                                ${homeCareDetails.aStreetNo}
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
 	                                                ${homeCareDetails.aStreetName}
 	                                            </c:if>
-	                                            
+
 	                                            <c:if test="${homeCareDetails.aDistrictDesc != ''}">
 	                                                ${homeCareDetails.aDistrictDesc},
 	                                            </c:if>
@@ -227,12 +227,17 @@ $(document).ready(function(){
 	                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.originalamount" bundle="${msg}" /></div>
 	                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.dollar" bundle="${msg}" /> <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getGrossPremium()))%></div>
 	                                    </div>
+                                      <div class="row summary-row">
+                                          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="club.membership.number" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
+                                          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails}</div>
+                                      </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span>
                                             </div>
                                         </div>
+
 	                                </div>
 	                                <div class="clearfix"></div>
                                 </div>
@@ -240,7 +245,7 @@ $(document).ready(function(){
 				            <div class="clearfix"></div>
 				            </div>
 						</div>
-						
+
 
 
 					</div>
@@ -252,7 +257,7 @@ $(document).ready(function(){
 					type="hidden" name="orderRef"
 					value="${confirm.transactionNo}"> <input
 					type="hidden" name="currCode"
-					value="${createdPolicy.currCode}"> 
+					value="${createdPolicy.currCode}">
 					<input type="hidden" name="remark" value="${referralCode.trim()}">
 					<input type="hidden" name="successUrl" value="${path}"> <input
 					type="hidden" name="failUrl" value="${failurePath}"> <input
@@ -264,9 +269,9 @@ $(document).ready(function(){
 						//payLang = payLang.substring(0, 1);
 						if (session.getAttribute("language").equals("tc"))
 							payLang = "c";
-						else 
+						else
 							payLang = "e";
-						
+
 						//System.out.println("getLanguage" + session.getAttribute("language"));
 						//System.out.println("payLang" + payLang);
 					%>
@@ -297,14 +302,14 @@ $(document).ready(function(){
 						   </c:choose>
                        </span>
 					</div>
-					
-					
-					
-					
-					
-					
-					
-					
+
+
+
+
+
+
+
+
 					<div class="col-xs-12 pad-none">
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
@@ -320,17 +325,17 @@ $(document).ready(function(){
                                 <label class="control-label h4-5">Payment Method</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
-                                <label class="radio-inline">                            
+                                <label class="radio-inline">
                                  <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
-                                </label>    
-                                <label class="radio-inline">        
-                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
                                 </label>
-                                
+                                <label class="radio-inline">
+                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard
+                                </label>
+
                                 <!-- <input type="radio" name="pMethod" value="Diners">Diners
                                     Club <input type="radio" name="pMethod" value="JCB">JCB
                                     <input type="radio" name="pMethod" value="AMEX">AMEX
-                                    
+
                                     -->
                             </div>
                             <div class="clearfix"></div>
@@ -432,10 +437,10 @@ $(document).ready(function(){
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    
-                    
-                    
-                    
+
+
+
+
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
@@ -446,7 +451,7 @@ $(document).ready(function(){
 
                         <span id="errchk2" class="error-msg"></span>
                         <div class="clearfix"></div>
-                        
+
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-left">
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
@@ -455,7 +460,7 @@ $(document).ready(function(){
 <!--                                 <a id="button_confirm" onclick="perventRedirect=false;confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');" -->
 <%--                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a> --%>
 
-								
+
 								<c:choose>
 	<c:when test="${language=='en'}">
 <a id="button_confirm" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');confirmHomeCarePayment('paymentForm', 'gateway', 'paymentForm');"
@@ -466,20 +471,20 @@ $(document).ready(function(){
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
 </c:otherwise>
 </c:choose>
-								
-								
-								
+
+
+
                             </div>
                         </div>
                             <div class="clearfix"></div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <hr class="summary-hr"/>
-                        
-                        
-                        
+
+
+
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="paydollar-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
@@ -512,33 +517,33 @@ $(document).ready(function(){
                         </div>
                         <br/>
                         <br/>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					<!-- 
-					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!--
+
 					<table class="travel-tb">
 						<tbody>
 
@@ -577,7 +582,7 @@ $(document).ready(function(){
 										<!-- <input id="cardnumber" name="cardNo" type="text"
 											class="input-block-level" maxlength="16" data-min="16"
 											title="" placeholder="Credit card number"
-											onkeyup="validatecardnumber(this.value)" onkeypress="return isNumeric(event)" 
+											onkeyup="validatecardnumber(this.value)" onkeypress="return isNumeric(event)"
 											onBlur="chkValidCreditCard(this, 'errcardno');"
 											 /> -\->
 										<input id="cardnumber" name="cardNo" type="text"
@@ -621,16 +626,16 @@ $(document).ready(function(){
 										<!-\- 										<option VALUE="2018">2018</option> -\->
 										<!-\- 										<option VALUE="2019">2019</option> -\->
 										<!-\- 										<option VALUE="2020">2020</option> -\->
-										
+
 										<!-\- 										<option VALUE="2021">2021</option> -\->
 										<!-\- 										<option VALUE="2022">2022</option> -\->
 										<!-\- 										<option VALUE="2023">2023</option> -\->
 										<!-\- 										<option VALUE="2024">2024</option> -\->
 										<!-\- 										<option VALUE="2025">2025</option> -\->
-										
-										
-										
-										
+
+
+
+
 										<c:forEach begin="0" end="10" varStatus="loop">
 											<c:set var="currentYear" value="${year + loop.index}" />
 											<option value="${currentYear}">${currentYear}</option>
@@ -711,7 +716,7 @@ $(document).ready(function(){
 						</div>
 						<span id="errchk2" class="error-msg"></span>-\->
 						<div class="clearfix"></div>
-						
+
 						<!-\- old buttons
 						<div class="hidden-sm hidden-xs pad-none">
 							<a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details"
@@ -724,9 +729,9 @@ $(document).ready(function(){
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
 	                            <!-\- <a href="<%=request.getContextPath()%>/${language}/home-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
-	                                <fmt:message key="home.summary.action.back" bundle="${msg}" /> 
+	                                <fmt:message key="home.summary.action.back" bundle="${msg}" />
 	                            </a> -\->
-	                            
+
 	                            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="home.summary.action.back" bundle="${msg}" /> </a>
 	                        </div>
 	                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
@@ -734,12 +739,12 @@ $(document).ready(function(){
 	                                class="bdr-curve btn btn-primary nxt-btn"><fmt:message key="home.summary.action.confirmPayment" bundle="${msg}" /></a>
 	                        </div>
                         </div>
-						
-						
-						
-						<!-\- 
-						
-						
+
+
+
+						<!-\-
+
+
 						<br> <br>
 						<div class="pad-none hidden-md hidden-lg">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -772,8 +777,8 @@ $(document).ready(function(){
                               <fmt:message key="travel.action.paydollar" bundle="${msg}" />
                             </div>
                         </div>-\->
-                        
-                        
+
+
                         <hr class="summary-hr"/>
                         <div id="paydoller-wrap" class="declaration-content margin-left-small float">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
@@ -804,13 +809,13 @@ $(document).ready(function(){
 
 					</div>
 					 -->
-					
-					
-					
-					
-					
-					
-					
+
+
+
+
+
+
+
                     </div>
 				</div>
 			</form>
@@ -836,7 +841,7 @@ $(document).ready(function(){
  			$('#PaymentingDiv').show();
  	        $("#button_confirm").hide();
  			pay = true;
- 			
+
  			var geteWayUrl = $('#gateway').val();
  			console.log($("#paymentForm").serialize());
  			$.ajax({
@@ -858,14 +863,14 @@ $(document).ready(function(){
 				}
 			});
 		}else{
-			$('#PaymentingDiv').hide();	
+			$('#PaymentingDiv').hide();
 			$("#button_confirm").show();
 		}
 
 	}
 
  	var enablePayment=true;
- 	
+
  	var clicked = false;
  	function confirmHomeCarePayment(form, gatewayUrlId, paymentFormId) {
  		if(enablePayment){
@@ -873,11 +878,11 @@ $(document).ready(function(){
             $("#PaymentingDiv").show();
 	 		if (payValid() && clicked === false) {
 	 			clicked = true;
-	 			
+
 	 			var gatewayUrlId = '#' + gatewayUrlId;
 	 			var paymentFormId = '#' + paymentFormId;
 	 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
-	 			
+
 	 			var geteWayUrl = $(gatewayUrlId).val();
 	 			console.log($(paymentFormId).serialize());
 	 			$.ajax({
@@ -900,11 +905,11 @@ $(document).ready(function(){
 	                                $('#paymentErrorPopup').modal('show');
 	                                return false;
 	                            }
-	 	 							
+
 	 						}
 	 					});
 	 			return true;
-	 		}else{           
+	 		}else{
 	            $("#PaymentingDiv").hide();
 	            enablePayment=true;
 	            return false;
@@ -914,7 +919,7 @@ $(document).ready(function(){
  	}
 
 
-	
+
 
 	function BackMe() {
 		window.history.back();

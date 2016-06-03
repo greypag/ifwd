@@ -684,7 +684,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -891,7 +891,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -1096,7 +1096,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -1301,7 +1301,7 @@ var ehPro = '${pro }';
                     </div>
                     <div class="plan-banner">
                         <div class="container-liquid">
-                            <div class="row">
+                            <div class="row row-no-padding no-margin">
                                 <div class="col-sm-12">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_${language}.jpg" class="img-responsive visible-md visible-lg">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/p3_s3_death_m_${language}.png" class="img-responsive hidden-md hidden-lg margin-center">
@@ -1567,6 +1567,10 @@ var ehPro = '${pro }';
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
+                                                            <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
@@ -1577,10 +1581,8 @@ var ehPro = '${pro }';
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
                                                             </ul>
                                                             <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
-                                                            <br>
-                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
-                                                            <br>
+                                                            
+                                                            
                                                             <p><fmt:message key="easyhealth.plandetails.remarks.12.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><fmt:message key="easyhealth.plandetails.remarks.13.content" bundle="${msg}" /></p>
@@ -1624,9 +1626,10 @@ var ehPro = '${pro }';
                                         </div>
                                         <div class="col-xs-12">
                                             <div class="checkbox">
-                                                <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="easyhealth.plandetails.tnc.1.content" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.2.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.3.content" bundle="${msg}" /></label>
+                                                <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="easyhealth.plandetails.tnc.1.content" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.easyhealth" bundle="${msg}" />" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.2.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.3.content" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.4.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.5.content" bundle="${msg}" /></label>
+
                                             </div>
-                                            <span class="error-msg" id="cbTNCErrMsg" data-txt='<fmt:message key="easyhealth.plandetails.tnc.err.content" bundle="${msg}" />'></span>
+                                            <span class="error-msg" id="cbTNCErrMsg" data-txt='<fmt:message key="easyhealth. plandetails.tnc.err.content" bundle="${msg}" />'></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1843,8 +1846,8 @@ var ehPro = '${pro }';
         	else{
         		$("#smoker1").click();
         	}
-        	
-            $('#dob').mobiscroll('setVal', new Date($("dob").val()));
+
+            $('#dob').mobiscroll('setVal', new Date($("#dob").val()));
         	
         	$("#eh-btn-plan-overview").click();
         	
@@ -1868,7 +1871,7 @@ var ehPro = '${pro }';
         		$("#smoker1").click();
         	}
         	
-        	$('#dob').mobiscroll('setVal', new Date($("dob").val()));
+        	$('#dob').mobiscroll('setVal', new Date($("#dob").val()));
 
         	$("#eh-btn-plan-overview").click();
         	

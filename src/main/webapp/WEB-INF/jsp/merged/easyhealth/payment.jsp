@@ -32,9 +32,9 @@ var home_url = "<%=request.getContextPath()%>";
     <!-- Breadcrumb Component Start-->
   
     	<c:set var="breadcrumbItems">
-    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 		</c:set>
-    	<c:set var="breadcrumbActive">3</c:set>
+    	<c:set var="breadcrumbActive">4</c:set>
 	    
 	    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
 	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
@@ -179,7 +179,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="form-group">
 										<div class="fld-wrapper">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" id="securityCode" name="securityCode" data-keycheck-numOnly="true" maxlength="3">
+												<input class="mdl-textfield__input" type="password" id="securityCode" name="securityCode" data-keycheck-numOnly="true" maxlength="3">
 												<label class="mdl-textfield__label" for="securityCode"><fmt:message key="payment.security.code" bundle="${msg}" /></label>
 											</div>
 										</div>

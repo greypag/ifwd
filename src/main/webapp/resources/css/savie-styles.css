@@ -7470,10 +7470,11 @@ h6.so-h6 {
 }
 /* line 15, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper p,
-#declaration-page .declaration-content-wrapper ol li {
+#declaration-page .declaration-content-wrapper ol li,
+#declaration-page .declaration-content-wrapper ul li {
   color: #373a36;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
 }
 /* line 22, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper hr {
@@ -9766,3 +9767,15 @@ select::-ms-value {
 	color: #ff8200 !important;
     top: 1px !important;
 }
+
+/*add on 20160603*/
+#applicant-info-page #soInsuredInfoForm .selectDiv.is-not-active .mdl-textfield__label.cstm-dropdown-label{
+	top: 1px;
+	padding-top: 0;
+}
+#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled]{
+	cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+}
+    

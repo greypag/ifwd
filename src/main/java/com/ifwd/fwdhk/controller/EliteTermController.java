@@ -175,9 +175,12 @@ public class EliteTermController extends BaseController{
 			String policyNumber = (String) request.getParameter("policyNumber");
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
-				if(!eliteTermService.checkIsDocumentUpload(request,policyNumber)){
-					String userName = eliteTermService.getPolicyUserName(request,policyNumber);
+
+				//For checking against username at frontend. Ideal case is backend handle the username checking and return an unmatched_username error to frontend.
+				String userName = eliteTermService.getPolicyUserName(request,policyNumber);
 					request.getSession().setAttribute("policyUserName", userName);
+
+				if(!eliteTermService.checkIsDocumentUpload(request,policyNumber)){
 					CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
 					eliteTermPolicy.setPolicyNo(policyNumber);
 					request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
