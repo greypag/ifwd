@@ -9773,3 +9773,9 @@ select::-ms-value {
 	top: 1px;
 	padding-top: 0;
 }
+#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled]{
+	cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+}
+    
