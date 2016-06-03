@@ -2135,6 +2135,7 @@ var home_url = "<%=request.getContextPath()%>";
 													bundle="${msg}" /></span>
 										</h3>
 										<div class="form-group has-error beneficiary-info-row">
+											<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"> &nbsp;</div></div>
 											<label for="savieBeneficiaryBean[0].firstName"><fmt:message
 													key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></label>
 											<input type="text" autocomplete="off"

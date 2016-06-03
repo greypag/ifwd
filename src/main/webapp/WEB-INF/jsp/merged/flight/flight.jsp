@@ -246,7 +246,7 @@ $(document).ready(function() {
                           <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
                          </label> 
                       </div>
-                      <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
+                      <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
