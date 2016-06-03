@@ -35,15 +35,15 @@ public class AjaxHomeLiabilityController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/homeliability/processSummary"})
 	public void getQuote(@ModelAttribute("ef-form-application") HomeCareDetailsBean homeCareDetails,
-			HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		JSONObject result = new JSONObject();
 		try {
-			CreatePolicy createPolicy = gaService.createPolicy(homeCareDetails, response, request);
-			if(createPolicy.getErrMsgs() == null) {
-				result = gaService.confirmPolicy(createPolicy, response, request);
+			CreatePolicy createdPolicy = gaService.createPolicy(homeCareDetails, response, request);
+			if(createdPolicy.getErrMsgs() == null) {
+				result = gaService.confirmPolicy(createdPolicy.getReferenceNo(), response, request);
 				
 			}else {
-				result.put("errMsgs", createPolicy.getErrMsgs());
+				result.put("errMsgs", createdPolicy.getErrMsgs());
 			}
 			
 		} catch (Exception e) {
@@ -51,7 +51,20 @@ public class AjaxHomeLiabilityController extends BaseController{
 		}
 		ajaxReturn(response, result);
 	}
-	
+	@RequestMapping(value = {"/ajax/homeliability/submitPolicy"})
+	public void getSubmitPolicy(HttpServletRequest request,HttpServletResponse response,
+			HttpSession session) {
+		JSONObject result = new JSONObject();
+		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
+		String referenceNo = request.getParameter("referenceNo");
+		try {
+			result = gaService.SubmitPolicy(referenceNo, response, request, session);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ajaxReturn(response, result);
+	}
+
 	@RequestMapping(value = {"/ajax/homeliability/getHomeCareQuote"})
 	public void getHomeCareQuote(HttpServletRequest request,HttpServletResponse response,HttpSession session){
 		JSONObject jsonObject = new JSONObject();

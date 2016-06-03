@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page import="java.util.*"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
@@ -233,7 +235,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="email" id="emailAddress" name="emailAddress" maxlength="50">
+                                            <input class="mdl-textfield__input" type="email" id="inputEmail" name="emailAddress" maxlength="50">
                                             <label class="mdl-textfield__label" for="emailAddress">Email address</label>
                                         </div>
                                         
@@ -356,116 +358,20 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
+                                        
                                         <select id="applicantDistrict" name="applicantDistrict">
                                             <option value="" disabled selected></option>
-                                            <option value="AD">ABERDEEN</option>
-                                            <option value="A1">ADMIRALTY</option>
-                                            <option value="AL">AP LEI CHAU</option>
-                                            <option value="BH">BEACON HILL</option>
-                                            <option value="CB">CAUSEWAY BAY</option>
-                                            <option value="CD">CENTRAL DISTRICT</option>
-                                            <option value="CK">CHA KWO LING</option>
-                                            <option value="CW">CHAI WAN</option>
-                                            <option value="CL">CHEK LAP KOK</option>
-                                            <option value="CC">CHEUNG CHAU</option>
-                                            <option value="CS">CHEUNG SHA WAN</option>
-                                            <option value="CH">CHOI HUNG</option>
-                                            <option value="CY">CHUK YUEN</option>
-                                            <option value="C1">CHUNG HOM KOK</option>
-                                            <option value="DW">DEEP WATER BAY</option>
-                                            <option value="DH">DIAMOND HILL</option>
-                                            <option value="FL">FANLING</option>
-                                            <option value="FN">FEI NGO SHAN</option>
-                                            <option value="FT">FO TAN</option>
-                                            <option value="HV">HAPPY VALLEY</option>
-                                            <option value="HF">HENG FA CHUEN</option>
-                                            <option value="HM">HO MAN TIN</option>
-                                            <option value="HH">HUNGHOM</option>
-                                            <option value="IE">ISLAND EAST</option>
-                                            <option value="IS">ISLAND SOUTH</option>
-                                            <option value="JL">JARDINE'S LOOKOUT</option>
-                                            <option value="J1">JORDAN</option>
-                                            <option value="K5">KAM TIN</option>
-                                            <option value="K3">KENNEDY TOWN</option>
-                                            <option value="KB">KOWLOON BAY</option>
-                                            <option value="K1">KOWLOON CITY</option>
-                                            <option value="K2">KOWLOON TONG</option>
-                                            <option value="KC">KWAI CHUNG</option>
-                                            <option value="K4">KWAI FONG</option>
-                                            <option value="K6">KWU TUNG</option>
-                                            <option value="KT">KWUN TONG</option>
-                                            <option value="LC">LAI CHI KOK</option>
-                                            <option value="LT">LAM TIN</option>
-                                            <option value="LM">LAMMA ISLAND</option>
-                                            <option value="LI">LANTAU ISLAND</option>
-                                            <option value="LY">LEI YU MUN</option>
-                                            <option value="LF">LOK FU</option>
-                                            <option value="MO">MA ON SHAN</option>
-                                            <option value="MT">MA TAU WAI</option>
-                                            <option value="MW">MA WAN</option>
-                                            <option value="MF">MEI FOO</option>
-                                            <option value="ML">MID-LEVELS</option>
-                                            <option value="MK">MONGKOK</option>
-                                            <option value="N1">NGAU CHI WAN</option>
-                                            <option value="NK">NGAU TAU KOK</option>
-                                            <option value="NP">NORTH POINT</option>
-                                            <option value="PK">PEAK</option>
-                                            <option value="PC">PENG CHAU</option>
-                                            <option value="PS">PING SHAN</option>
-                                            <option value="PF">POK FU LAM</option>
-                                            <option value="PR">PRINCE EDWARD</option>
-                                            <option value="QB">QUARRY BAY</option>
-                                            <option value="RB">REPULSE BAY</option>
-                                            <option value="SK">SAI KUNG</option>
-                                            <option value="SA">SAI WAN HO</option>
-                                            <option value="SY">SAI YING PUN</option>
-                                            <option value="S2">SAN PO KONG</option>
-                                            <option value="SM">SAU MAU PING</option>
-                                            <option value="S7">SHA TAU KOK</option>
-                                            <option value="ST">SHA TIN</option>
-                                            <option value="SP">SHAM SHUI PO</option>
-                                            <option value="S3">SHAM TSENG</option>
-                                            <option value="SH">SHAU KEI WAN</option>
-                                            <option value="S1">SHEK KIP MEI</option>
-                                            <option value="S8">SHEK KONG</option>
-                                            <option value="SO">SHEK O</option>
-                                            <option value="S4">SHEK TONG TSUI</option>
-                                            <option value="SS">SHEUNG SHUI</option>
-                                            <option value="SW">SHEUNG WAN</option>
-                                            <option value="S6">SIU LAM</option>
-                                            <option value="SI">SIU SAI WAN</option>
-                                            <option value="SU">SO UK</option>
-                                            <option value="SL">STANLEY</option>
-                                            <option value="TH">TAI HANG</option>
-                                            <option value="TK">TAI KOK TSUI</option>
-                                            <option value="T3">TAI KOO SHING</option>
-                                            <option value="TP">TAI PO</option>
-                                            <option value="TT">TAI TAM</option>
-                                            <option value="T4">TAI WAI</option>
-                                            <option value="T7">THE PEAK</option>
-                                            <option value="T5">TIN HAU</option>
-                                            <option value="T2">TIN SHUI WAI</option>
-                                            <option value="T9">TIN WAN</option>
-                                            <option value="TU">TING KAU</option>
-                                            <option value="TO">TO KWA WAN</option>
-                                            <option value="T6">TSEUNG KWAN O</option>
-                                            <option value="TS">TSIM SHA TSUI</option>
-                                            <option value="T8">TSING LUNG TAU</option>
-                                            <option value="TY">TSING YI</option>
-                                            <option value="TW">TSUEN WAN</option>
-                                            <option value="T1">TSZ WAN SHAN</option>
-                                            <option value="TM">TUEN MUN</option>
-                                            <option value="TC">TUNG CHUNG</option>
-                                            <option value="WC">WAN CHAI</option>
-                                            <option value="WH">WANG TAU HOM</option>
-                                            <option value="WD">WESTERN DISTRICT</option>
-                                            <option value="WO">WONG CHUK HANG</option>
-                                            <option value="WT">WONG TAI SIN</option>
-                                            <option value="YM">YAU MA TEI</option>
-                                            <option value="YT">YAU TONG</option>
-                                            <option value="YC">YAU YAT CHUEN</option>
-                                            <option value="YL">YUEN LONG</option>
+                                            <c:forEach
+                                                var="district" items="${districtList}">
+                                                <option
+                                                    value="${district.code}">
+                                                    <c:out
+                                                        value="${district.description}" />
+                                                </option>
+                                            </c:forEach>
                                         </select>
+                                        
+                                        
                                         <label class="mdl-textfield__label" for="applicantDistrict">District</label>
                                     </div>
                                     
@@ -629,113 +535,14 @@ var context = "<%=request.getContextPath()%>";
                                     <div class="mdl-select">
                                         <select id="aDistrict" name="aDistrict">
                                             <option value="" disabled selected></option>
-                                            <option value="AD">ABERDEEN</option>
-                                            <option value="A1">ADMIRALTY</option>
-                                            <option value="AL">AP LEI CHAU</option>
-                                            <option value="BH">BEACON HILL</option>
-                                            <option value="CB">CAUSEWAY BAY</option>
-                                            <option value="CD">CENTRAL DISTRICT</option>
-                                            <option value="CK">CHA KWO LING</option>
-                                            <option value="CW">CHAI WAN</option>
-                                            <option value="CL">CHEK LAP KOK</option>
-                                            <option value="CC">CHEUNG CHAU</option>
-                                            <option value="CS">CHEUNG SHA WAN</option>
-                                            <option value="CH">CHOI HUNG</option>
-                                            <option value="CY">CHUK YUEN</option>
-                                            <option value="C1">CHUNG HOM KOK</option>
-                                            <option value="DW">DEEP WATER BAY</option>
-                                            <option value="DH">DIAMOND HILL</option>
-                                            <option value="FL">FANLING</option>
-                                            <option value="FN">FEI NGO SHAN</option>
-                                            <option value="FT">FO TAN</option>
-                                            <option value="HV">HAPPY VALLEY</option>
-                                            <option value="HF">HENG FA CHUEN</option>
-                                            <option value="HM">HO MAN TIN</option>
-                                            <option value="HH">HUNGHOM</option>
-                                            <option value="IE">ISLAND EAST</option>
-                                            <option value="IS">ISLAND SOUTH</option>
-                                            <option value="JL">JARDINE'S LOOKOUT</option>
-                                            <option value="J1">JORDAN</option>
-                                            <option value="K5">KAM TIN</option>
-                                            <option value="K3">KENNEDY TOWN</option>
-                                            <option value="KB">KOWLOON BAY</option>
-                                            <option value="K1">KOWLOON CITY</option>
-                                            <option value="K2">KOWLOON TONG</option>
-                                            <option value="KC">KWAI CHUNG</option>
-                                            <option value="K4">KWAI FONG</option>
-                                            <option value="K6">KWU TUNG</option>
-                                            <option value="KT">KWUN TONG</option>
-                                            <option value="LC">LAI CHI KOK</option>
-                                            <option value="LT">LAM TIN</option>
-                                            <option value="LM">LAMMA ISLAND</option>
-                                            <option value="LI">LANTAU ISLAND</option>
-                                            <option value="LY">LEI YU MUN</option>
-                                            <option value="LF">LOK FU</option>
-                                            <option value="MO">MA ON SHAN</option>
-                                            <option value="MT">MA TAU WAI</option>
-                                            <option value="MW">MA WAN</option>
-                                            <option value="MF">MEI FOO</option>
-                                            <option value="ML">MID-LEVELS</option>
-                                            <option value="MK">MONGKOK</option>
-                                            <option value="N1">NGAU CHI WAN</option>
-                                            <option value="NK">NGAU TAU KOK</option>
-                                            <option value="NP">NORTH POINT</option>
-                                            <option value="PK">PEAK</option>
-                                            <option value="PC">PENG CHAU</option>
-                                            <option value="PS">PING SHAN</option>
-                                            <option value="PF">POK FU LAM</option>
-                                            <option value="PR">PRINCE EDWARD</option>
-                                            <option value="QB">QUARRY BAY</option>
-                                            <option value="RB">REPULSE BAY</option>
-                                            <option value="SK">SAI KUNG</option>
-                                            <option value="SA">SAI WAN HO</option>
-                                            <option value="SY">SAI YING PUN</option>
-                                            <option value="S2">SAN PO KONG</option>
-                                            <option value="SM">SAU MAU PING</option>
-                                            <option value="S7">SHA TAU KOK</option>
-                                            <option value="ST">SHA TIN</option>
-                                            <option value="SP">SHAM SHUI PO</option>
-                                            <option value="S3">SHAM TSENG</option>
-                                            <option value="SH">SHAU KEI WAN</option>
-                                            <option value="S1">SHEK KIP MEI</option>
-                                            <option value="S8">SHEK KONG</option>
-                                            <option value="SO">SHEK O</option>
-                                            <option value="S4">SHEK TONG TSUI</option>
-                                            <option value="SS">SHEUNG SHUI</option>
-                                            <option value="SW">SHEUNG WAN</option>
-                                            <option value="S6">SIU LAM</option>
-                                            <option value="SI">SIU SAI WAN</option>
-                                            <option value="SU">SO UK</option>
-                                            <option value="SL">STANLEY</option>
-                                            <option value="TH">TAI HANG</option>
-                                            <option value="TK">TAI KOK TSUI</option>
-                                            <option value="T3">TAI KOO SHING</option>
-                                            <option value="TP">TAI PO</option>
-                                            <option value="TT">TAI TAM</option>
-                                            <option value="T4">TAI WAI</option>
-                                            <option value="T7">THE PEAK</option>
-                                            <option value="T5">TIN HAU</option>
-                                            <option value="T2">TIN SHUI WAI</option>
-                                            <option value="T9">TIN WAN</option>
-                                            <option value="TU">TING KAU</option>
-                                            <option value="TO">TO KWA WAN</option>
-                                            <option value="T6">TSEUNG KWAN O</option>
-                                            <option value="TS">TSIM SHA TSUI</option>
-                                            <option value="T8">TSING LUNG TAU</option>
-                                            <option value="TY">TSING YI</option>
-                                            <option value="TW">TSUEN WAN</option>
-                                            <option value="T1">TSZ WAN SHAN</option>
-                                            <option value="TM">TUEN MUN</option>
-                                            <option value="TC">TUNG CHUNG</option>
-                                            <option value="WC">WAN CHAI</option>
-                                            <option value="WH">WANG TAU HOM</option>
-                                            <option value="WD">WESTERN DISTRICT</option>
-                                            <option value="WO">WONG CHUK HANG</option>
-                                            <option value="WT">WONG TAI SIN</option>
-                                            <option value="YM">YAU MA TEI</option>
-                                            <option value="YT">YAU TONG</option>
-                                            <option value="YC">YAU YAT CHUEN</option>
-                                            <option value="YL">YUEN LONG</option>
+                                            <c:forEach
+                                                var="district" items="${districtList}">
+                                                <option
+                                                    value="${district.code}">
+                                                    <c:out
+                                                        value="${district.description}" />
+                                                </option>
+                                            </c:forEach>
                                         </select>
                                         <label class="mdl-textfield__label" for="aDistrict">District</label>
                                     </div>
@@ -777,10 +584,11 @@ var context = "<%=request.getContextPath()%>";
                                     <div class="mdl-select">
                                         <select id="netFloorArea" name="netFloorArea">
                                             <option value="" disabled selected></option>
-                                            <option value="EEHCFLOORAREAA01">Less than 500</option>
-                                            <option value="EEHCFLOORAREAA02">500-700</option>
-                                            <option value="EEHCFLOORAREAA03">701-850</option>
-                                            <option value="EEHCFLOORAREAA04">851-1000</option>
+                                            <c:forEach var="floorAreaList" items="${mapNetFloorArea}">
+                                                <option value="${floorAreaList.key}">
+                                                    <c:out value="${floorAreaList.value}" />
+                                                </option>
+                                            </c:forEach>
                                         </select>
                                         <label class="mdl-textfield__label" for="netFloorArea">Net floor Area (square feet)</label>
                                     </div>
@@ -849,7 +657,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="userName" name="userName" maxlength="50">
+                                        <input class="mdl-textfield__input" type="text" id="cUserName" name="userName" maxlength="50">
                                         <label class="mdl-textfield__label" for="userName">Choose username</label>
                                     </div>
                                     
@@ -865,7 +673,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="password" id="password" name="password">
+                                            <input class="mdl-textfield__input" type="password" id="cPassword" name="password">
                                             <label class="mdl-textfield__label" for="password">Choose password</label>
                                         </div>
                                         
@@ -898,6 +706,11 @@ var context = "<%=request.getContextPath()%>";
             </div>
             
         </div>
+        <input type="hidden" name="totalDue" value="${ homeQuoteDetails.totalDue}">
+	    <input type="hidden" name="grossPremium" value="${ homeQuoteDetails.grossPremium}">
+		<input type="hidden" name="planCode" value="${ homeQuoteDetails.planCode}">
+		<input type="hidden" name="answer1" value="${answer1}">
+		<input type="hidden" name="answer2" value="${answer2}">
         </form>
     </div>
     <!-- Main Content End-->

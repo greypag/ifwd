@@ -1,7 +1,9 @@
 package com.ifwd.fwdhk.services.impl;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.joda.time.LocalDate;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,30 +19,22 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.ifwd.ecomm.chinese.ZHConverter;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.api.controller.RestServiceImpl;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
-import com.ifwd.fwdhk.connector.response.ga.HomeCareUwQuestionsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
-import com.ifwd.fwdhk.model.UserDetails;import com.ifwd.fwdhk.model.HomeCareQuetionaries;
-import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
-import com.ifwd.fwdhk.model.easyhealth.EasyHealthPremiumSelectPlan;
-import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
-import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;import com.ifwd.fwdhk.services.GAService;
-import com.ifwd.fwdhk.services.HomeCareService;
-import com.ifwd.fwdhk.services.HomeCareServiceImpl;
+import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
@@ -95,7 +88,7 @@ public class GAServiceImpl implements GAService {
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setMobileNo(mobileNo);
 		userDetails.setDob(WebServiceUtils.getParameterValue("dob", session, request));
-		session.setAttribute("userDetails", userDetails);
+		session.setAttribute("applicantDetails", userDetails);
 		
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
@@ -155,44 +148,143 @@ public class GAServiceImpl implements GAService {
 						parameters);
 		logger.info("HOME_LIABILITY_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
-		CreatePolicy createPolicy = new CreatePolicy();
+		CreatePolicy createdPolicy = new CreatePolicy();
 		if (responsObject.get("errMsgs") == null) {
-			createPolicy.setReferralCode(JsonUtils.checkJsonObjNull(responsObject, "referralCode"));
-			createPolicy.setReferenceNo(JsonUtils.checkJsonObjNull(responsObject, "referenceNo"));
-			createPolicy.setPlanCode(JsonUtils.checkJsonObjNull(responsObject, "planCode"));
-			createPolicy.setPaymentGateway(JsonUtils.checkJsonObjNull(responsObject, "paymentGateway"));
-			createPolicy.setMerchantId(JsonUtils.checkJsonObjNull(responsObject, "merchantId"));
-			createPolicy.setCurrCode(JsonUtils.checkJsonObjNull(responsObject, "currCode"));
-			createPolicy.setPaymentType(JsonUtils.checkJsonObjNull(responsObject, "paymentType"));
-			createPolicy.setLang(JsonUtils.checkJsonObjNull(responsObject, "lang"));
-			session.setAttribute("createPolicy", createPolicy);
+			createdPolicy.setReferralCode(JsonUtils.checkJsonObjNull(responsObject, "referralCode"));
+			createdPolicy.setReferenceNo(JsonUtils.checkJsonObjNull(responsObject, "referenceNo"));
+			createdPolicy.setPlanCode(JsonUtils.checkJsonObjNull(responsObject, "planCode"));
+			createdPolicy.setPaymentGateway(JsonUtils.checkJsonObjNull(responsObject, "paymentGateway"));
+			createdPolicy.setMerchantId(JsonUtils.checkJsonObjNull(responsObject, "merchantId"));
+			createdPolicy.setCurrCode(JsonUtils.checkJsonObjNull(responsObject, "currCode"));
+			createdPolicy.setPaymentType(JsonUtils.checkJsonObjNull(responsObject, "paymentType"));
+			createdPolicy.setLang(JsonUtils.checkJsonObjNull(responsObject, "lang"));
+			session.setAttribute("createdPolicy", createdPolicy);
 			session.setAttribute("homeCareDetails", homeCareDetails);
 		} else {
-			createPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
+			createdPolicy.setErrMsgs(responsObject.get("errMsgs").toString());
 		}
-		return createPolicy;
+		return createdPolicy;
 	}
 	
-	public JSONObject confirmPolicy(CreatePolicy createPolicy,
+	public JSONObject confirmPolicy(String referenceNo,
 			HttpServletResponse response, HttpServletRequest request)
 			throws Exception {
 		HttpSession session = request.getSession();
 		JSONObject confirmPolicyParameter = new JSONObject();
 		
-		confirmPolicyParameter.put("referenceNo", createPolicy.getReferenceNo());
+		confirmPolicyParameter.put("referenceNo", referenceNo);
 		Map<String, String> header = headerUtil.getHeader(request);
 		logger.info("HOMECARE_CONFIRM_POLICY Requset" + confirmPolicyParameter);
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
 				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
 				confirmPolicyParameter);
 		logger.info("HOMECARE_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
-		createPolicy.setSecureHash(JsonUtils.checkJsonObjNull(jsonResponse, "secureHash"));
-		createPolicy.setTransactionNo(JsonUtils.checkJsonObjNull(jsonResponse, "transactionNumber"));
-		createPolicy.setTransactionDate(JsonUtils.checkJsonObjNull(jsonResponse, "transactionDate"));
-		session.setAttribute("createPolicy", createPolicy);
+		
+		CreatePolicy confirm = new CreatePolicy();
+		confirm.setSecureHash(JsonUtils.checkJsonObjNull(jsonResponse, "secureHash"));
+		confirm.setTransactionNo(JsonUtils.checkJsonObjNull(jsonResponse, "transactionNumber"));
+		confirm.setTransactionDate(JsonUtils.checkJsonObjNull(jsonResponse, "transactionDate"));
+		session.setAttribute("confirm", confirm);
+		session.setAttribute("HomeCareReferenceNo", referenceNo);
+		session.setAttribute("HomeCareTransactionDate", confirm.getTransactionDate());
+		session.setAttribute("transNo", confirm.getTransactionNo());
 		return jsonResponse;
 	}
 	
+	public JSONObject SubmitPolicy(String referenceNo,
+			HttpServletResponse response, HttpServletRequest request, HttpSession session) {
+		JSONObject result = new JSONObject();
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		Map<String, String> header = headerUtil.getHeader(request);
+		
+		logger.info("HOMECARE_SUBMIT_POLICY Request" + JsonUtils.jsonPrint(submitPolicy));
+		JSONObject jsonResponse = restService.consumeApi(
+				HttpMethod.POST,
+				UserRestURIConstants.HOMECARE_SUBMIT_POLICY, header,
+				submitPolicy);
+		
+		logger.info("HOMECARE_SUBMIT_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		
+		if (JsonUtils.checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (JsonUtils.checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				try {
+					String cardNo = request.getParameter("cardNo");
+					session.setAttribute("HomeCareCreditCardNo", Methods.encryptStr(cardNo));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				session.setAttribute("HomeCareCardexpiryDate", String.format("%02d", Integer.parseInt(request.getParameter("epMonth"))) + request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				result.put("errMsgs", null);
+				
+			} else {
+				result.put("errMsgs", "policyNo is null");
+			}
+		} else {
+			result.put("errMsgs", JsonUtils.checkJsonObjNull(jsonResponse, "errMsgs"));
+		}
+		return result;
+	}
+	
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,
+			String referenceNo, String transactionNumber,
+			String transactionDate, String creditCardNo, String expiryDate,
+			String emailId, String language, String paymentFail) throws Exception {
+		if (paymentFail.equals("1")) {
+			RestServiceDao restService = new RestServiceImpl();
+			CreatePolicy finalizeObject = new CreatePolicy();
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", userName);
+			header.put("token", token);
+			JSONObject parameters = new JSONObject();
+			parameters.put("referenceNo", referenceNo);
+			parameters.put("transactionNumber", transactionNumber);
+			parameters.put("transactionDate", transactionDate);
+			parameters.put("creditCardNo", creditCardNo);
+			parameters.put("expiryDate", expiryDate);
+			parameters.put("paymentFail", "1");
+			
+			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					parameters);
+			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+			return null;
+		} else {
+		
+			RestServiceDao restService = new RestServiceImpl();
+			CreatePolicy finalizeObject = new CreatePolicy();
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", userName);
+			header.put("token", token);
+			JSONObject parameters = new JSONObject();
+			parameters.put("paymentFail", "0");
+			parameters.put("referenceNo", referenceNo);
+			parameters.put("transactionNumber", transactionNumber);
+			parameters.put("transactionDate", transactionDate);
+			parameters.put("creditCardNo", creditCardNo);
+			parameters.put("expiryDate", expiryDate);
+			
+			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					parameters);
+			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+	
+			if (apiResponsObject.get("errMsgs") == null) {
+				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
+				finalizeObject.setReferralCode(referenceNo);
+			} else {
+				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
+			}
+			
+			return finalizeObject;
+		}
+	}
+
 	public void getHomeCareQuote(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
 		String referralCode = request.getParameter("referralCode");

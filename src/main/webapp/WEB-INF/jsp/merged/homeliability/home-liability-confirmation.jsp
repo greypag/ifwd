@@ -95,10 +95,10 @@
 
                     <div class="thanks-panel">
                         <h4>Thank you!</h4>
-                        <p>You have successfully completed your purchase of Easy HomeCare insurance with FWD. An email will be sent to <strong class="toemail">test@test.com</strong> with the details of your policy.</p>
+                        <p>You have successfully completed your purchase of Easy HomeCare insurance with FWD. An email will be sent to <strong class="toemail">${emailID}</strong> with the details of your policy.</p>
                         <div class="text-center">
                             <p class="span">Policy Number</p>
-                            <p class="policy-num">80EE0002929</p>
+                            <p class="policy-num">${policyNo}</p>
                         </div>
                     </div>
                 </div>                    

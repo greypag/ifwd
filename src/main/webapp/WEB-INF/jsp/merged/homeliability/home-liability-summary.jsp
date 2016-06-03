@@ -1,8 +1,13 @@
 ﻿<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeCareDetailsBean"%>
+
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<script type="text/javascript">
+var context = "<%=request.getContextPath()%>";
+</script>
 
 <div class="fwd-savie-wrapper">
     <div class="fwd-container container-fluid breadcrumbs">
@@ -139,7 +144,7 @@
         </div>
     </div>
      <div class="app-pg-cont">
-        <form id="ef-form-summary">
+        <form id="ef-form-summary" name="paymentForm" method="post">
         <div class="container-fluid">
 
             <div class="row form-block">
@@ -505,7 +510,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="ccNumber" data-keyblock-num="true" maxlength="19">
+                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="cardNo" data-keyblock-num="true" maxlength="19">
                                         <label class="mdl-textfield__label" for="ccNumber">Credit card number</label>
                                     </div>
                                     
@@ -515,7 +520,7 @@
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="ccName" name="ccName">
+                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder">
                                         <label class="mdl-textfield__label" for="ccName">Cardholder’s Name</label>
                                     </div>
                                 </div>
@@ -530,7 +535,7 @@
                                     <div class="form-group">
                                         <div class="fld-wrapper">
                                             <div class="mdl-select">
-                                                <select id="expMonth" name="expMonth">
+                                                <select id="expMonth" name="epMonth">
                                                     <option value="" disabled selected></option>
                                                     <option value="01">01</option>
                                                     <option value="02">02</option>
@@ -556,7 +561,7 @@
                                     <div class="form-group">
                                         <div class="fld-wrapper">
                                             <div class="mdl-select">
-                                                <select id="expYear" name="expYear">
+                                                <select id="expYear" name="epYear">
                                                     <option value="" disabled selected></option>
                                                     <option value="2016">2016</option>
                                                     <option value="2017">2017</option>
@@ -582,7 +587,7 @@
                                     <div class="form-group">
                                         <div class="fld-wrapper">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="cvvNumber" data-keyblock-num="true" maxlength="3">
+                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3">
                                                 <label class="mdl-textfield__label" for="cvvNumber">Security Code</label>
                                             </div>
                                         </div>
@@ -614,10 +619,37 @@
 
             <div class="btn-row text-center">
                 <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-                <a href="javascript:void(0);" class="btn-app eh-btn-next">Next</a>
+                <%
+                    HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
+                %>
+                <c:choose>
+					<c:when test="${language=='en'}">
+		                <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+					</c:when>
+			        <c:otherwise>
+			            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+					</c:otherwise>
+				</c:choose>
             </div>
 
         </div>
+        <input type="hidden" id="pMethod" name="pMethod" value="">
+        <input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress}">
+        <input type="hidden" name="referenceNo" value="${createdPolicy.referenceNo}">
+        <input type="hidden" name="merchantId" value="${createdPolicy.merchantId}">
+        <input type="hidden" name="currCode" value="${createdPolicy.currCode}">
+        <input type="hidden" name="payType" value="${createdPolicy.paymentType}">
+        <input type="hidden" id="gateway" name="gateway" value="${createdPolicy.paymentGateway}">
+        <input type="hidden" name="orderRef" value="${confirm.transactionNo}">
+        <input type="hidden" name="secureHash" value="${confirm.secureHash}">
+        <input type="hidden" name="amount" value="${totalDue.trim()}">
+        <input type="hidden" name="remark" value="${referralCode.trim()}">
+        <input type="hidden" name="successUrl" value="${path}">
+        <input type="hidden" name="failUrl" value="${failurePath}">
+        <input type="hidden" name="errorUrl" value="${failurePath}">
+        <input type="hidden" name="lang" value="C">
+        <input type="hidden" id="transactionDate" name="transactionDate" value="${effectiveDate}">
+        
         </form>
     </div>
     <!--<div class="container-fluid summary-bottom-bar">

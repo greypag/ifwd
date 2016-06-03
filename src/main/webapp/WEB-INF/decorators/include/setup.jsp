@@ -23,7 +23,7 @@ if(request.getRequestURI().indexOf("/home-liability-insurance")>0) {
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/application.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-application.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/icon-font.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/titatoggle-dist-min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/titatoggle-dist-min.css">
 
 <!--Mobiscroll css -->
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll/mobiscroll.animation.css" rel="stylesheet" type="text/css" />

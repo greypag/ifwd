@@ -13,6 +13,8 @@ import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 public interface GAService {
 	
 	public CreatePolicy createPolicy(HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception;
-	public JSONObject confirmPolicy(CreatePolicy createPolicy, HttpServletResponse response, HttpServletRequest request) throws Exception;
+	public JSONObject confirmPolicy(String referenceNo, HttpServletResponse response, HttpServletRequest request) throws Exception;
+	public JSONObject SubmitPolicy(String referenceNo, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception;
+	public CreatePolicy finalizeHomeCarePolicy(String userName, String token, String referenceNo, String transactionNumber, String transactionDate, String creditCardNo, String expiryDate, String emailId, String language, String paymentFail) throws Exception;
 	public void getHomeCareQuote(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 }

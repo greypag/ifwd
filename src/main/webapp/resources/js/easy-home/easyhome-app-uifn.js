@@ -267,7 +267,7 @@ $(document).ready(function(){
 								var isValidMobile = application.common.validate($("#inputMobileNo").val(),"Mobileno");
 								var errElm = $("#inputMobileNo").parents(".form-group").find("small[data-bv-validator='callback']");
 							
-								if($.trim($("#emailAddress").val()) != ""){
+								if($.trim($("#inputEmail").val()) != ""){
 									if(isEmpty || isValidMobile){
 										return true;
 									}else{
@@ -291,7 +291,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				emailAddress:{
+				inputEmail:{
 					container:'#emailAddressErrMsg',
 					validators:{
 						notEmpty:{
@@ -576,7 +576,7 @@ $(document).ready(function(){
 
 
 				//Create FWD Account
-				userName:{
+				cUserName:{
 					container:'#userNameErrMsg',
 					validators:{
 						callback:{
@@ -586,20 +586,21 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED').bootstrapValidator('validateField', "password")
 								.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED').bootstrapValidator('validateField', "Confirm-Password");*/
 
-								var noAccountInfo = $.trim($("#userName").val()) == "" && $.trim($("#password").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
+								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 
 								if(noAccountInfo){
 									return true;
 								}else{
-									var isValid = isValidUsername($.trim($("#userName").val()));
+									alert()
+									var isValid = isValidUsername($.trim($("#cUserName").val()));
 									if(isValid == true){
-										$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
+										/*$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'cPassword', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
 
 										return true;
 									}else{
-										$("#userName").parents(".form-group").find("small[data-bv-validator='callback']").text(isValid);
+										$("#cUserName").parents(".form-group").find("small[data-bv-validator='callback']").text(isValid);
 										return false;
 									}
 								}
@@ -609,7 +610,7 @@ $(document).ready(function(){
 					}
 				},
 
-				password:{
+				cPassword:{
 					container:'#passwordErrMsg',
 					validators:{
 						callback:{
@@ -619,20 +620,20 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED').bootstrapValidator('validateField', "userName")
 								.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED').bootstrapValidator('validateField', "Confirm-Password");*/
 
-								var noAccountInfo = $.trim($("#userName").val()) == "" && $.trim($("#password").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
+								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 								if(noAccountInfo){
 									return true;
 								}else{
 
-									var isValid = isValidPassword($.trim($("#password").val()));
+									var isValid = isValidPassword($.trim($("#cPassword").val()));
 									if(isValid == true){
-										$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
+										/*$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'cUserName', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
 										
 										return true;
 									}else{
-										$("#password").parents(".form-group").find("small[data-bv-validator='callback']").text(isValid);
+										$("#cPassword").parents(".form-group").find("small[data-bv-validator='callback']").text(isValid);
 										return false;
 									}
 								}
@@ -652,16 +653,16 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED').bootstrapValidator('validateField', "userName")
 								.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED').bootstrapValidator('validateField', "password");*/
 
-								var noAccountInfo = $.trim($("#userName").val()) == "" && $.trim($("#password").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
+								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 								if(noAccountInfo){
 									return true;
 								}else{
 									
-									var isValid = passMatch($.trim($("#password").val()),$.trim($("#Confirm-Password").val()));
+									var isValid = passMatch($.trim($("#cPassword").val()),$.trim($("#Confirm-Password").val()));
 									if(isValid == true){
-										$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED');
+										/*$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'cUserName', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'cPassword', 'NOT_VALIDATED');*/
 
 										return true;
 									}else{
@@ -680,34 +681,65 @@ $(document).ready(function(){
 
 			}
 
-		});
+		})
 
 		$(".eh-btn-next").on("click",function(){
 			$('#ef-form-application').bootstrapValidator('validate');
 			if($('#ef-form-application').data('bootstrapValidator').isValid()){
 				//do something
-				var noAccountInfo = $.trim($("#userName").val()) == "" && $.trim($("#password").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
-				if(noAccountInfo) {
-					
-				}
-				$.ajax({
-					type: "POST",
-					url:contextPath+'/ajax/homeliability/processSummary',
-					data: $('#ef-form-application').serialize(),
-					success:function(data){
-						if(data.errMsgs == null) {
-							window.location= contextPath + "/" + lang + "/home-liability-insurance/summary";
-						}else {
-							console.log('processSummary : ' + data.errMsgs);
-						}
+				var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
+				if(!noAccountInfo) {
+					var optIn1 = "false";
+					var optIn2 = "false";
+			        if($('#donotWishDirectMarketing').is(':checked')){
+			            optIn1 = "true";    
+			        }
+					if($('#donotDisclose').is(':checked')){
+						optIn2 = "true";    
 					}
-				});
-				
-				//alert("implement application logic in here");
+					var password = $("#cPassword").val();
+					var mobile = $("#inputMobileNo").val();
+					var name = $("#applicantName").val();
+					var userName = $("#cUserName").val();
+					var email = $("#inputEmail").val();
+					
+			        $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+					
+			        $.ajax({
+		                type : 'POST',
+		                url : contextPath + '/' + lang + '/joinus',
+		                data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+		                async : false,
+		                success : function(data) {
+	                    	if (data == 'success') {
+	                        	document.getElementById("cUserName").value = "";
+	                       	    document.getElementById("cPassword").value = "";
+	                       	    document.getElementById("Confirm-Password").value = "";
+	                        	$('#ef-form-application').submit();
+	                            return;                            
+	                        } else {
+	                        	console.log(data);
+	                        	$('#loading-overlay').modal('hide');
+	                        	
+								if (data == 'This username already in use, please try again') {
+								    //$('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+								} else if (data == 'email address and mobile no. already registered') {
+								    //$('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+								} else {
+								    //$('.error-hide').html(data);
+								}
+	                            return;
+	                        } 
+	                    },
+	                    error : function(xhr, status, error) {
+	                    	$('#loading-overlay').modal('hide');
+	                    }
+	                });
+				}else {
+					$('#ef-form-application').submit();
+				}
 			}
 		});
-
-
 	}
 
 
@@ -717,7 +749,7 @@ $(document).ready(function(){
 
 		$("#ef-form-summary").bootstrapValidator({
 			fields:{
-				ccNumber:{
+				cardNo:{
 					container:'#ccNumberErrMsg',
 					validators:{
 						notEmpty:{
@@ -737,6 +769,11 @@ $(document).ready(function(){
 								if(cardtype != ""){
 									if($.payment.validateCardNumber($("#ccNumber").val())){
 										$(".cardtype").find("span."+cardtype).addClass("detected");
+										if(cardtype == "mastercard"){
+											$("#pMethod").val("Master");
+										}else {
+											$("#pMethod").val("VISA");
+										}
 										return true;
 									}else{
 										return false;
@@ -753,7 +790,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				ccName:{
+				cardHolder:{
 					container:'#ccNameErrMsg',
 					validators: {
 						notEmpty:{
@@ -768,16 +805,18 @@ $(document).ready(function(){
 									return true
 								}
 
-								if(application.common.validateCardHolder($("#appFirstName"),$("#appLastName"),$("#ccName"))){
+								//no appFirstName and appLastName
+								/*if(application.common.validateCardHolder($("#appFirstName"),$("#appLastName"),$("#ccName"))){
 									return true;
 								}else{
 									return false;
-								}
+								}*/
+								return true;
 							}
 						}
 					}
 				},
-				cvvNumber: {
+				securityCode: {
 					container:'#cvvNumberErrMsg',
 					validators: {
 						notEmpty:{
@@ -790,7 +829,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				expMonth:{
+				epMonth:{
 					container:'#expMonthErrMsg',
 					validators: {
 						notEmpty:{
@@ -813,7 +852,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				expYear:{
+				epYear:{
 					container:'#expYearErrMsg',
 					validators: {
 						notEmpty:{
@@ -849,13 +888,55 @@ $(document).ready(function(){
 		})
 
 		$(".eh-btn-next").on("click",function(){
-			$('#ef-form-summary').bootstrapValidator('validate');
-			if($('#ef-form-summary').data('bootstrapValidator').isValid()){
+			/*$('#ef-form-summary').bootstrapValidator('validate');
+			if($('#ef-form-summary').data('bootstrapValidator').isValid()){*/
 				//do something
-				alert("implement summary logic in here");
-			}
+				
+	 			var form = $("#ef-form-summary");
+	 			var geteWayUrl = $('#gateway').val();
+	 			$.ajax({
+					type : "POST",
+					url : contextPath + "/ajax/homeliability/submitPolicy",
+					data : form.serialize(),
+					async : false,
+					success : function(data) {
+						clicked = false;
+                    //$("#PaymentingDiv").hide();
+						if (data.errMsgs == null) {
+							setTimeout(function(){
+								$("#ef-form-summary").attr('action', geteWayUrl);
+							    document.getElementById('ef-form-summary').submit();
+							}, 3000);
+						} else {
+							console.log(data.errMsgs);
+							enablePayment=true;
+							return false;
+						}
+					}
+				});
+				//alert("implement summary logic in here");
+			//}
 		});
 	}
+	
+	$("#ef-form-application").submit(function(e){
+		$.ajax({
+			type: "POST",
+			url:contextPath+'/ajax/homeliability/processSummary',
+			data: $('#ef-form-application').serialize(),
+			success:function(data){
+				if(data.errMsgs == null) {
+					window.location= contextPath + "/" + lang + "/home-liability-insurance/summary";
+					return true;
+				}else {
+					console.log('processSummary : ' + data.errMsgs);
+					return false;
+				}
+			}
+		});
+		//alert("implement application logic in here");
+	}); 
+	
 });
 
 
