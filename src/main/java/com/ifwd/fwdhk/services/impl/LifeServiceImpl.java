@@ -3263,7 +3263,7 @@ public class LifeServiceImpl implements LifeService {
 		for(Object obj : policy) {
 			JSONObject entity = (JSONObject)obj;
 			String documentType = entity != null ? (String)entity.get("documentType") : "";
-			if("proof".equals(documentType) || "passport".equals(documentType) || "passport".equals(documentType)) {
+			if("proof".equals(documentType) || "passport".equals(documentType) || "hkid".equals(documentType)) {
 				request.getSession().setAttribute("errorMessageType", "alreadyUploaded");
 				return true;
 			}
