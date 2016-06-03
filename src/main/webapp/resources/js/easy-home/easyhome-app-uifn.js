@@ -888,6 +888,7 @@ $(document).ready(function(){
 		})
 
 		$(".eh-btn-next").on("click",function(){
+			$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 			/*$('#ef-form-summary').bootstrapValidator('validate');
 			if($('#ef-form-summary').data('bootstrapValidator').isValid()){*/
 				//do something
@@ -908,6 +909,7 @@ $(document).ready(function(){
 							    document.getElementById('ef-form-summary').submit();
 							}, 3000);
 						} else {
+							$('#loading-overlay').modal('hide');
 							console.log(data.errMsgs);
 							enablePayment=true;
 							return false;

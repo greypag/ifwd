@@ -109,7 +109,7 @@
                     <h4>Share your promotion code now to earn discounts and rewards!</h4>
                     <div class="text-center share-panel">
                         
-                        <div class="text-center" id="toBeCopied" contenteditable="true">https://uat-ecom.i.fwd.com.hk/en/home-insurance?promo=ECHOME</div>
+                        <div class="text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
                         <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs">Press "Ctrl+c" to copy</span><span class="boxMessage hidden-md hidden-lg">Long press to copy</span> <span class="boxDownArrow"></span> </div>
                         <a href="javascript:void(0);" class="btn-app btn-copy" onclick="autoSelect('toBeCopied');">Copy Link</a>
                     </div>

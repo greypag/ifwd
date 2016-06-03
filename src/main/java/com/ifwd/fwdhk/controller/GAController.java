@@ -73,12 +73,8 @@ public class GAController extends BaseController{
 	public ModelAndView getUserDetails(@PathVariable("plan") String plan, 
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
-		/*homeQuoteDetails = new HomeQuoteBean();
-		homeQuoteDetails.setDiscountAmount("0.0");
-		homeQuoteDetails.setGrossPremium("420.0");
-		homeQuoteDetails.setPlanCode("EasyHomeCare");
-		homeQuoteDetails.setTotalDue("420.0");*/
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		session.setAttribute("theClubMembershipNo", theClubMembershipNo);
 		
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {

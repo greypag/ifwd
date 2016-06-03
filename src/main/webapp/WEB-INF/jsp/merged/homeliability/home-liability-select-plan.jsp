@@ -145,8 +145,8 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
+     <form id="ef-form-selectplan">
      <div class="app-pg-cont">
-        <form id="ef-form-selectplan">
         <div class="container-fluid">
             <div class="row app-selectplan-tab">
                 <div class="col-xs-12 col-md-12">
@@ -413,7 +413,15 @@ var nextPage = "${nextPageFlow}";
 For a complete explanation of the terms and conditions, please call our Customer Hotline at<nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
 
         </div>
-        </form>
+	        <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
+			<input type="hidden" name="grossPremium" id="grossPremium" value="${planQuote.grossPremium}"/> 
+			<input type="hidden" name="discountAmount" id="discountAmount" value="${planQuote.discountAmount}"/> 
+			<input type="hidden" name="totalDue" id="totalDue" value="${planQuote.totalDue}"/> 
+			<input type="hidden" name="referralCode" id="referralCode" value="${planQuote.referralCode}"/> 
+			<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
+			<input type="hidden" name="answer1" value="N"/> 
+			<input type="hidden" name="answer2" value="N"/>
+        
     </div>
     <div class="container-fluid summary-bottom-bar">
         <div class="summary-bottom-bar-container">
@@ -441,6 +449,7 @@ For a complete explanation of the terms and conditions, please call our Customer
             </div>
         </div>
     </div>
+    </form>
     <div class="app-pg-cont">
         <div class="container-fluid">
             <div class="row">
@@ -514,18 +523,6 @@ For a complete explanation of the terms and conditions, please call our Customer
 
     </div>
 
-</div>
-
-<form name="selectPlanForm" id="selectPlanForm" method="post">
-	<input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
-	<input type="hidden" name="grossPremium" id="grossPremium" value="${planQuote.grossPremium}"/> 
-	<input type="hidden" name="discountAmount" id="discountAmount" value="${planQuote.discountAmount}"/> 
-	<input type="hidden" name="totalDue" id="totalDue" value="${planQuote.totalDue}"/> 
-	<input type="hidden" name="referralCode" id="referralCode" value="${planQuote.referralCode}"/> 
-	<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
-	<input type="hidden" name="answer1" value="N"/> 
-	<input type="hidden" name="answer2" value="N"/>
-</form>
 
 <script>
 $("#eh-select-plan-next").on("click",function(){
@@ -541,8 +538,8 @@ $("#eh-select-plan-next").on("click",function(){
 	           },
         success : function(data) {
 	      	if(data !=null && data.errorMsg ==null){
-	      		$("#selectPlanForm").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
-           	    document.getElementById('selectPlanForm').submit();
+	      		$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
+           	    document.getElementById('ef-form-selectplan').submit();
 			}
 	      	else{
 	      		console.log(data.errorMsg); 
