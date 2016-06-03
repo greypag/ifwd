@@ -9767,3 +9767,9 @@ select::-ms-value {
 	color: #ff8200 !important;
     top: 1px !important;
 }
+
+/*add on 20160603*/
+#applicant-info-page #soInsuredInfoForm .selectDiv.is-not-active .mdl-textfield__label.cstm-dropdown-label{
+	top: 1px;
+	padding-top: 0;
+}
