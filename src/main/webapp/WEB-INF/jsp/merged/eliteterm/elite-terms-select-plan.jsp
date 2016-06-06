@@ -2672,7 +2672,27 @@ var home_url = "<%=request.getContextPath()%>";
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
+							<div class="checkboxBubble" style="display: block;">
+                            	<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
+                        	</div>
 						</div>
+						<script type="text/javascript">
+                        function showBubble(){
+                            if($("#marketing-info-check").prop('checked') || $("#personal-data-check").prop("checked")) {
+                                $(".checkboxBubble").fadeIn();
+                            }else{
+                                $(".checkboxBubble").fadeOut();
+                            }
+                        }
+                        
+                        $("#marketing-info-check").change(function() {
+                            showBubble();
+                        });
+                        
+                        $("#personal-data-check").change(function() {
+                            showBubble();
+                        });
+                        </script>
 					</form>
 
 					<div class="row et-proceed-btn-wrapper">
