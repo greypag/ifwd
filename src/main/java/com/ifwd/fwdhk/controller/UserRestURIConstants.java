@@ -103,6 +103,18 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_TERRITORY = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritory";
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
+	/*API For Easy home Modules*/
+	public static final String EASYHOME_GET_QUOTE = SERVICE_URL + "/gi/home/easyHome/quote";
+	public static final String EASYHOME_CREATE_POLICY = SERVICE_URL + "/gi/home/easyHome/policies";
+	public static final String EASYHOME_CONFIRM_POLICY = SERVICE_URL + "/gi/home/easyHome/payments/make";
+	public static final String EASYHOME_FINALIZE_POLICY = SERVICE_URL + "/gi/home/easyHome/policies";
+	
+	/*API For Home liability Modules*/
+	public static final String HOMELIABILITY_GET_QUOTE = SERVICE_URL + "/gi/home/homeLiability/quote";
+	public static final String HOMELIABILITY_CREATE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	public static final String HOMELIABILITY_CONFIRM_POLICY = SERVICE_URL + "/gi/home/homeLiability/payments/make";
+	public static final String HOMELIABILITY_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	
 	/*API For Savie*/
 	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
@@ -309,6 +321,19 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS = "home.liability.application";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY = "home.liability.summary";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION = "home.liability.confirmation";
+	
+	/* Page Flow Control For Home Care */
+	public static final String URL_HOME_CARE_LANDING = "home-insurance";
+	public static final String URL_HOME_CARE_SCREENING = "screening";
+	public static final String URL_HOME_CARE_SELECT_PLAN = "select-plan";
+	
+	public static final String PAGE_HOME_CARE_LANDING = "homecare";
+	public static final String PAGE_HOME_CARE_SCREENING = "homecare-screening";
+	public static final String PAGE_HOME_CARE_SELECT_PLAN = "homecare-select-plan";
+	
+	public static final String PAGE_PROPERTIES_HOME_CARE_LANDING = "homecare.landing";
+	public static final String PAGE_PROPERTIES_HOME_CARE_SCREENING = "homecare.screening";
+	public static final String PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN = "homecare.select.plan";
 	
 	/* Page Flow Control For savie online */
 	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";

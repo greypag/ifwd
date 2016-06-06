@@ -141,12 +141,12 @@ public class GAServiceImpl implements GAService {
 		parameters.put("externalPartyCode", theClubMembershipNo);
 		
 		Map<String, String> header = headerUtil.getHeader(request);
-		logger.info("HOME_LIABILITY_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+		logger.info("HOMELIABILITY_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 		JSONObject responsObject = restService
 				.consumeApi(HttpMethod.PUT,
-						UserRestURIConstants.HOMECARE_CREATE_POLICY, header,
+						UserRestURIConstants.HOMELIABILITY_CREATE_POLICY, header,
 						parameters);
-		logger.info("HOME_LIABILITY_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
+		logger.info("HOMELIABILITY_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 		CreatePolicy createdPolicy = new CreatePolicy();
 		if (responsObject.get("errMsgs") == null) {
@@ -174,17 +174,18 @@ public class GAServiceImpl implements GAService {
 		
 		confirmPolicyParameter.put("referenceNo", referenceNo);
 		Map<String, String> header = headerUtil.getHeader(request);
-		logger.info("HOMECARE_CONFIRM_POLICY Requset" + confirmPolicyParameter);
+		logger.info("HOMELIABILITY_CONFIRM_POLICY Requset" + confirmPolicyParameter);
 		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-				UserRestURIConstants.HOMECARE_CONFIRM_POLICY, header,
+				UserRestURIConstants.HOMELIABILITY_CONFIRM_POLICY, header,
 				confirmPolicyParameter);
-		logger.info("HOMECARE_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		logger.info("HOMELIABILITY_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
 		
 		CreatePolicy confirm = new CreatePolicy();
 		confirm.setSecureHash(JsonUtils.checkJsonObjNull(jsonResponse, "secureHash"));
 		confirm.setTransactionNo(JsonUtils.checkJsonObjNull(jsonResponse, "transactionNumber"));
 		confirm.setTransactionDate(JsonUtils.checkJsonObjNull(jsonResponse, "transactionDate"));
 		session.setAttribute("confirm", confirm);
+		session.setAttribute("HomeCareTransactionNo", confirm.getTransactionNo());
 		session.setAttribute("HomeCareReferenceNo", referenceNo);
 		session.setAttribute("HomeCareTransactionDate", confirm.getTransactionDate());
 		session.setAttribute("transNo", confirm.getTransactionNo());
@@ -246,11 +247,11 @@ public class GAServiceImpl implements GAService {
 			parameters.put("expiryDate", expiryDate);
 			parameters.put("paymentFail", "1");
 			
-			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			logger.info("HOMELIABILITY_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY, header,
 					parameters);
-			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+			logger.info("HOMELIABILITY_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 			return null;
 		} else {
 		
@@ -268,11 +269,11 @@ public class GAServiceImpl implements GAService {
 			parameters.put("creditCardNo", creditCardNo);
 			parameters.put("expiryDate", expiryDate);
 			
-			logger.info("HOMECARE_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			logger.info("HOMELIABILITY_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.HOMECARE_FINALIZE_POLICY, header,
+					UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY, header,
 					parameters);
-			logger.info("HOMECARE_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+			logger.info("HOMELIABILITY_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 	
 			if (apiResponsObject.get("errMsgs") == null) {
 				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
@@ -292,7 +293,7 @@ public class GAServiceImpl implements GAService {
 		String answer2 = request.getParameter("answer2");
 		
 		StringBuffer url = new StringBuffer();
-		url.append(UserRestURIConstants.HOMECARE_GET_QUOTE);
+		url.append(UserRestURIConstants.HOMELIABILITY_GET_QUOTE);
 		url.append("?planCode=EasyHomeCare");
 		url.append("&referralCode=");
 		url.append(referralCode);

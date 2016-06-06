@@ -55,7 +55,6 @@ public class AjaxHomeLiabilityController extends BaseController{
 	public void getSubmitPolicy(HttpServletRequest request,HttpServletResponse response,
 			HttpSession session) {
 		JSONObject result = new JSONObject();
-		session.setAttribute("HomeCareTransactionNo", request.getParameter("orderRef"));
 		String referenceNo = request.getParameter("referenceNo");
 		try {
 			result = gaService.SubmitPolicy(referenceNo, response, request, session);

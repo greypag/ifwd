@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
-public class HomeLiabilityPageFlowControl {
-	private final static Logger logger = LoggerFactory.getLogger(HomeLiabilityPageFlowControl.class);
+public class HomeCarePageFlowControl {
+	private final static Logger logger = LoggerFactory.getLogger(HomeCarePageFlowControl.class);
 
 	public static ModelAndView pageFlow(String plan,Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 		
-		UserRestURIConstants.setController("HomeLiability");
+		UserRestURIConstants.setController("HomeCare");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
@@ -65,15 +65,15 @@ public class HomeLiabilityPageFlowControl {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase(plan)){
 				
 			} else {
-				referer = getHomeLiabilityPage(referer);
+				referer = getHomeCarePage(referer);
 			}
 		}
 
 		if (current != null) {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase(plan)){
-				current = UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
+				current = UserRestURIConstants.PAGE_HOME_CARE_LANDING;
 			} else {
-				current = getHomeLiabilityPage(current);
+				current = getHomeCarePage(current);
 			}
 		}
 
@@ -86,32 +86,12 @@ public class HomeLiabilityPageFlowControl {
 
 		switch (current) {
 
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING:
-			to = UserRestURIConstants.URL_HOME_LIABILITY_SCREENING;
-			break;
-			
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING:
-			to = UserRestURIConstants.URL_HOME_LIABILITY_SELECT_PLAN;
-			break;
-
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
-			to = UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS;
-			to2 = UserRestURIConstants.URL_HOME_CARE_SELECT_PLAN;
-			break;
-			
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS: 
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_SUMMARY;
-			break;
-			
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_SUMMARY: 
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_CONFIRMATION;
-			break;
-			
-		case UserRestURIConstants.PAGE_HOME_LIABILITY_CONFIRMATION: 
+		case UserRestURIConstants.PAGE_HOME_CARE_LANDING:
+			to = UserRestURIConstants.PAGE_HOME_CARE_SELECT_PLAN;
 			break;
 			
 		default:
-			to = UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
+			to = UserRestURIConstants.PAGE_HOME_CARE_LANDING;
 
 		}
 
@@ -122,8 +102,8 @@ public class HomeLiabilityPageFlowControl {
 		model.addAttribute("nextPageFlow2", to2);
 
 		String filePath = "";
-		if("home-liability-insurance".equals(plan)) {
-			filePath = "homeliability/";
+		if("home-insurance".equals(plan)) {
+			filePath = "homecare/";
 		}
 		
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
@@ -134,26 +114,13 @@ public class HomeLiabilityPageFlowControl {
 
 	}
 	
-	public static String getHomeLiabilityPage(String url){	
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_LANDING)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
+	public static String getHomeCarePage(String url){	
+		if(url.endsWith(UserRestURIConstants.URL_HOME_CARE_LANDING)) {
+			return UserRestURIConstants.PAGE_HOME_CARE_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_SCREENING)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING;
+		if(url.endsWith(UserRestURIConstants.URL_HOME_CARE_SELECT_PLAN)) {
+			return UserRestURIConstants.PAGE_HOME_CARE_SELECT_PLAN;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_SELECT_PLAN)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_SUMMARY)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_SUMMARY;
-		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_LIABILITY_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_HOME_LIABILITY_CONFIRMATION;
-		}
-		
 		return "";
 	}
 }

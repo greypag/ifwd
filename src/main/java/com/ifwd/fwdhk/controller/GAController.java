@@ -32,6 +32,7 @@ import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HomeCarePageFlowControl;
 import com.ifwd.fwdhk.util.HomeLiabilityPageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
@@ -65,6 +66,8 @@ public class GAController extends BaseController{
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
+		}else if(UserRestURIConstants.URL_HOME_CARE_LANDING.equals(plan)){
+			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
@@ -135,6 +138,26 @@ public class GAController extends BaseController{
 			String endDate = f.format(date.getTime());
 			String path = request.getRequestURL().toString();
 			
+			Map<String, String> areaList;
+			List<DistrictBean> districtList;
+			Map<String, String> mapNetFloorArea;
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if(lang.equals("tc")) {
+				areaList = InitApplicationMessage.areaCN;
+				districtList = InitApplicationMessage.districtCN;
+				mapNetFloorArea = InitApplicationMessage.netFloorAreaCN;
+			}else {
+				areaList = InitApplicationMessage.areaEN;
+				districtList = InitApplicationMessage.districtEN;
+				mapNetFloorArea = InitApplicationMessage.netFloorAreaEN;
+			}
+			homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getApplicantDistrict()));
+			homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getApplicantArea()));
+			homeCareDetails.setaDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getaDistrict()));
+			homeCareDetails.setaAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getaArea()));
+			
+			homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(mapNetFloorArea, homeCareDetails.getNetFloorArea()));
+			
 			model.addAttribute("effectiveDate", DateApi.pickDate1(homeCareDetails.getEffectiveDate()));
 			model.addAttribute("effectiveEndDate", endDate);
 			model.addAttribute("homeCareDetails", homeCareDetails);
@@ -159,27 +182,36 @@ public class GAController extends BaseController{
 			String requestNo = (String) session.getAttribute("HomeCareTransactionNo");
 			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
 			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
-			String paymentFail = "0";
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
 			
-			if (creditCardNo !=null) {
-				try {
-					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}else {
-				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
-				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
-			}
 			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
 			String userName = (String) session.getAttribute("username");
 			String token = (String) session.getAttribute("token");
 			String emailId = (String) session.getAttribute("emailAddress");
 			String email = (String) session.getAttribute("emailAddress");
+			
+			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+			
+			String paymentFail = "0";
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			if("0.0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
+				creditCardNo = "0000000000000000";
+				expiryDate = "122030";
+			}else {
+				if (creditCardNo !=null) {
+					try {
+						creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}else {
+					model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+					model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
+					return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
+				}
+			}
 			
 			if(org.apache.commons.lang.StringUtils.isAllLowerCase(referenceNo) ||
 					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionNumber) ||

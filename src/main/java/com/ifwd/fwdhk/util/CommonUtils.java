@@ -13,6 +13,7 @@ import java.util.List;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -81,6 +82,34 @@ public class CommonUtils {
 
 	public List<OptionItemDesc> getOptionItemDescList(String param,String language, String type) {
 		return getOptionItemDescList(param, language, type, null);
+	}
+	
+	public LinkedHashMap<String, String> getArea(String language, String type) {
+		String url = UserRestURIConstants.HOMECARE_GET_TERRITORY;
+
+		RestServiceDao restService = new RestServiceImpl();
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", getToken(type));
+		header.put("language", UserRestURIConstants.getWSLang(language));
+
+		JSONObject jsonResponseArea = restService.consumeApi(
+				HttpMethod.GET, url, header, null);
+		logger.info("HOMECARE_GET_TERRITORY Response " + jsonResponseArea);
+		if (jsonResponseArea.get("errMsgs") == null) {
+			JSONArray jsonAreaArray = (JSONArray) jsonResponseArea
+					.get("optionItemDesc");
+
+			for (int i = 0; i < jsonAreaArray.size(); i++) {
+				JSONObject obj = (JSONObject) jsonAreaArray.get(i);
+				map.put(JsonUtils.checkJsonObjNull(obj, "itemCode"),
+						JsonUtils.checkJsonObjNull(obj, "itemDesc"));
+			}			
+		}
+
+		return map;
 	}
 	
 	public LinkedHashMap<String, String> getNetFloorArea(String language, String type) {
