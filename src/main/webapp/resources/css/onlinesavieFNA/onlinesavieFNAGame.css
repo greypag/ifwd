@@ -1561,3 +1561,6 @@
     background-color: #eee; } }
 
 /*# sourceMappingURL=onlinesavieFNAGame.css.map */
+
+/*Custom Safari only CSS*/
+_::-webkit-full-page-media, _:future, :root .game-fna .step2 .cont .fna-radio-gp .fna-radio-btn { width: 24.5%; }
