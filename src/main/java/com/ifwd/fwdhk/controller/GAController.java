@@ -32,6 +32,7 @@ import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HomeCarePageFlowControl;
 import com.ifwd.fwdhk.util.HomeLiabilityPageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
@@ -65,6 +66,9 @@ public class GAController extends BaseController{
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
+		}
+		else if(UserRestURIConstants.URL_HOME_CARE_LANDING.equals(plan)){
+			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
