@@ -576,7 +576,7 @@ $(document).ready(function(){
 
 
 				//Create FWD Account
-				cUserName:{
+				userName:{
 					container:'#userNameErrMsg',
 					validators:{
 						callback:{
@@ -591,12 +591,11 @@ $(document).ready(function(){
 								if(noAccountInfo){
 									return true;
 								}else{
-									alert()
 									var isValid = isValidUsername($.trim($("#cUserName").val()));
 									if(isValid == true){
-										/*$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'cPassword', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
+										$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
 
 										return true;
 									}else{
@@ -610,7 +609,7 @@ $(document).ready(function(){
 					}
 				},
 
-				cPassword:{
+				password:{
 					container:'#passwordErrMsg',
 					validators:{
 						callback:{
@@ -627,9 +626,9 @@ $(document).ready(function(){
 
 									var isValid = isValidPassword($.trim($("#cPassword").val()));
 									if(isValid == true){
-										/*$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'cUserName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
+										$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
 										
 										return true;
 									}else{
@@ -660,9 +659,9 @@ $(document).ready(function(){
 									
 									var isValid = passMatch($.trim($("#cPassword").val()),$.trim($("#Confirm-Password").val()));
 									if(isValid == true){
-										/*$("#ef-form-application")
-										.bootstrapValidator('updateStatus', 'cUserName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'cPassword', 'NOT_VALIDATED');*/
+										$("#ef-form-application")
+										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
+										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED');
 
 										return true;
 									}else{
@@ -687,6 +686,7 @@ $(document).ready(function(){
 			$('#ef-form-application').bootstrapValidator('validate');
 			if($('#ef-form-application').data('bootstrapValidator').isValid()){
 				//do something
+				$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 				var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 				if(!noAccountInfo) {
 					var optIn1 = "false";
@@ -703,7 +703,6 @@ $(document).ready(function(){
 					var userName = $("#cUserName").val();
 					var email = $("#inputEmail").val();
 					
-			        $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 					
 			        $.ajax({
 		                type : 'POST',
@@ -823,10 +822,10 @@ $(document).ready(function(){
 							message:'Please enter security code on credit card.'
 							//message:getBundle(getBundleLanguage, "applicant.creditcard.cvv.notNull.message")
 						},
-						cvv: {
+						/*cvv: {
 							creditCardField: 'ccNumber',
 							message: 'Your security code is invalid.'
-						}
+						}*/
 					}
 				},
 				epMonth:{
@@ -888,11 +887,11 @@ $(document).ready(function(){
 		})
 
 		$(".eh-btn-next").on("click",function(){
-			$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-			/*$('#ef-form-summary').bootstrapValidator('validate');
-			if($('#ef-form-summary').data('bootstrapValidator').isValid()){*/
+			$('#ef-form-summary').bootstrapValidator('validate');
+			if($('#ef-form-summary').data('bootstrapValidator').isValid()){
 				//do something
 				
+				$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 	 			var form = $("#ef-form-summary");
 	 			var geteWayUrl = $('#gateway').val();
 	 			$.ajax({
@@ -917,7 +916,7 @@ $(document).ready(function(){
 					}
 				});
 				//alert("implement summary logic in here");
-			//}
+			}
 		});
 	}
 	
@@ -931,6 +930,7 @@ $(document).ready(function(){
 					window.location= contextPath + "/" + lang + "/home-liability-insurance/summary";
 					return true;
 				}else {
+					$('#loading-overlay').modal('hide');
 					console.log('processSummary : ' + data.errMsgs);
 					return false;
 				}
