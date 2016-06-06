@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -99,10 +100,10 @@ var home_url = "<%=request.getContextPath()%>";
 	        </div>
      				
      		<ul class="availability-notice" style="padding-left: 10px;">
-  				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_4"/></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_5"/></li>
             <%--<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li> --%>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_7"/></li>
   			</ul>
 
        		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">

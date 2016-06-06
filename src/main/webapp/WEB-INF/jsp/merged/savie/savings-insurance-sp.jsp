@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
@@ -118,15 +120,15 @@ var home_url = "<%=request.getContextPath()%>";
 	        		</div>
 
        				<ul class="availability-notice" style="padding-left: 10px;">
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_0" bundle="${msg}" /></li>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_1" bundle="${msg}" /></li>
+		  				<li><s:message code="product.detail.savie.remark.copy1_0"/></li>
+		  				<li><s:message code="product.detail.savie.remark.copy1_1"/></li>
 		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_2_1" bundle="${msg}" />
 		  					<ul class="availability-notice inner">
 		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_a" bundle="${msg}" />
 		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_b" bundle="${msg}" />		
 		  					</ul>
 		  				</li>--%>
-		  				<li><fmt:message key="product.detail.savie.remark.copy1_3" bundle="${msg}" /></li>
+		  				<li><s:message code="product.detail.savie.remark.copy1_3"/></li>
 		  			</ul>
        				
 				</div>
