@@ -999,7 +999,7 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox capitalize"
+											<input class="form-control gray-textbox capitalize placeholder-lower"
 												autocomplete="off" id="savieApplicantBean.hkId"
 												name="savieApplicantBean.hkId" type="text" value="${etPolicyApplication.applicant.hkId }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
@@ -1111,7 +1111,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" class="form-control gray-textbox"
 												name="savieApplicantBean.residentialTelNo"
 												id="savieApplicantBean.residentialTelNo" value="${etPolicyApplication.applicant.residentialTelNo }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"
+												placeholder="<fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" />"
 												maxlength="8" /> <span class="error-msg" id="resTelMessage"></span>
 										</div>
 									</div>
@@ -2684,11 +2684,11 @@ var home_url = "<%=request.getContextPath()%>";
                                 $(".checkboxBubble").fadeOut();
                             }
                         }
-                        
+
                         $("#marketing-info-check").change(function() {
                             showBubble();
                         });
-                        
+
                         $("#personal-data-check").change(function() {
                             showBubble();
                         });
@@ -5198,7 +5198,7 @@ function addFormBeneficiary (counter) {
 		+'</div>'
 		+'</div>'
 		+'<div class="pull-left input">'
-		+'<input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
+		+'<input class="form-control gray-textbox capitalize placeholder-lower" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
 		+'<input class="form-control gray-textbox capitalize hidden" type="text" autocomplete="off" placeholder="' + fm_placeholder_passport + '" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="'+passportNo_if_exist+'">'
 		+'</div>'
 		+'</div>'

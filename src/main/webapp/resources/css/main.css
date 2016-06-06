@@ -12064,3 +12064,22 @@ Be caution: <select> have customed made */
 		margin-left: 0;
 	}
 }
+
+.capitalize {
+	text-transform: uppercase;
+}
+.capitalize.placeholder-lower:placeholder-shown  {
+  text-transform: none;
+} 
+.capitalize.placeholder-lower::-webkit-input-placeholder  {
+  text-transform: none;
+}
+.capitalize.placeholder-lower::-moz-placeholder {
+  text-transform: none;
+}
+.capitalize.placeholder-lower:-ms-input-placeholder  {
+  text-transform: none;
+}
+.capitalize.placeholder-lower:-moz-placeholder {
+  text-transform: none;
+}
