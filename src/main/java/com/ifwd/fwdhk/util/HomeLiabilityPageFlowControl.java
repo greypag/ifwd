@@ -96,6 +96,7 @@ public class HomeLiabilityPageFlowControl {
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
 			to = UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS;
+			to2 = UserRestURIConstants.URL_HOME_CARE_SELECT_PLAN;
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS: 

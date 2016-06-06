@@ -163,7 +163,7 @@ var nextPage = "${nextPageFlow}";
                                     <div class="text-center">
                                         <h3>Upgrade for total care</h3>
                                         <h2>Easy HomeCare</h2>
-                                        <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability">Upgrade now</a>
+                                        <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update">Upgrade now</a>
                                     </div>
                                 </div>
                                 <div style="clear:both;"></div>
@@ -549,5 +549,9 @@ $("#eh-select-plan-next").on("click",function(){
             console.log('error');   
         }
   });
+});
+
+$("#home-liability-update").on("click",function(){
+	window.location = '<%=request.getContextPath()%>/${language}/home-insurance/${nextPageFlow2}';
 });
 </script>
