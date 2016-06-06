@@ -33,7 +33,7 @@
     <!-- End of LiveChat code -->
   </c:otherwise>
 </c:choose>
-
+<link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 <!--mob bottom-->
 <div class="footer-container">
     <div class="footer-container__top-wrapper container">
@@ -104,6 +104,20 @@
   </div>
 </div>
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
 <script>
 $(function() {
     $('input, textarea').placeholder();
@@ -153,28 +167,47 @@ $(function() {
     }
     $(window).scroll(navbarLogoSticky);
     */
-    
+    ////Notification Start////
+    var ieversion = msieversion();
+	 if(ieversion !=0 && ieversion <=9)
+    show_stack_bar_top('<fmt:message key="system.errorbox.ie.title" bundle="${msg}" />','<fmt:message key="system.errorbox.ie.content" bundle="${msg}" />');
+	////Notificaiton End////
 
 });
+
+function show_stack_bar_top(titleToShown,message) {
+	var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+    new PNotify({
+        title: titleToShown,
+        text: message,
+        addclass: "stack-bar-top error-box",
+        cornerclass: "",
+        width: "100%",
+		height: "15%",
+        hide: false,
+        buttons: {
+       		closer: true,
+       		sticker: true
+       	},
+       stack: stack_bar_top
+	});
+}
+
+function msieversion() {
+	   var ua = window.navigator.userAgent
+	   var msie = ua.indexOf ( "MSIE " )
+
+	   if ( msie > 0 )      // If Internet Explorer, return version number
+	      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+	   else                 // If another browser, return 0
+	      return 0
+}
 
 $('#timeout-btn').on('click', function(e) {
   window.location.href= contextPath+'/'+language;
 });
 
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 
 <!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script> -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>

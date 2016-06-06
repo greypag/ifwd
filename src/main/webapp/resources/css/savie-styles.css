@@ -7590,8 +7590,8 @@ h6.so-h6 {
 }
 /* line 123, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav {
-  max-height: 315px;
-  overflow-y: scroll;
+/*   max-height: 315px; */
+/*   overflow-y: scroll; */
   padding: 20px;
   background-color: #f1f3f5;
 }
