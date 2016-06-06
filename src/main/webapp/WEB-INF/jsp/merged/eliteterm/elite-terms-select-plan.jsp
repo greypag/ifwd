@@ -1406,7 +1406,7 @@ var home_url = "<%=request.getContextPath()%>";
 										});
 									</script>
 									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
-										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" />
+										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 										<label for="the-club-member-toggle">
 											<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
