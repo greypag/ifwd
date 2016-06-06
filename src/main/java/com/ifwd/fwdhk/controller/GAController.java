@@ -66,8 +66,7 @@ public class GAController extends BaseController{
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
-		}
-		else if(UserRestURIConstants.URL_HOME_CARE_LANDING.equals(plan)){
+		}else if(UserRestURIConstants.URL_HOME_CARE_LANDING.equals(plan)){
 			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
@@ -138,6 +137,26 @@ public class GAController extends BaseController{
 			date.add(Calendar.DATE, -1);
 			String endDate = f.format(date.getTime());
 			String path = request.getRequestURL().toString();
+			
+			Map<String, String> areaList;
+			List<DistrictBean> districtList;
+			Map<String, String> mapNetFloorArea;
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if(lang.equals("tc")) {
+				areaList = InitApplicationMessage.areaCN;
+				districtList = InitApplicationMessage.districtCN;
+				mapNetFloorArea = InitApplicationMessage.netFloorAreaCN;
+			}else {
+				areaList = InitApplicationMessage.areaEN;
+				districtList = InitApplicationMessage.districtEN;
+				mapNetFloorArea = InitApplicationMessage.netFloorAreaEN;
+			}
+			homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getApplicantDistrict()));
+			homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getApplicantArea()));
+			homeCareDetails.setaDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getaDistrict()));
+			homeCareDetails.setaAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getaArea()));
+			
+			homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(mapNetFloorArea, homeCareDetails.getNetFloorArea()));
 			
 			model.addAttribute("effectiveDate", DateApi.pickDate1(homeCareDetails.getEffectiveDate()));
 			model.addAttribute("effectiveEndDate", endDate);

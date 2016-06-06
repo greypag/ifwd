@@ -41,6 +41,8 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> maritalStatusesEN;	
 	public static List<OptionItemDesc> maritalStatusesCN;
 	
+	public static LinkedHashMap<String, String> areaEN;
+	public static LinkedHashMap<String, String> areaCN;
 	public static LinkedHashMap<String, String> netFloorAreaEN;
 	public static LinkedHashMap<String, String> netFloorAreaCN;
 	public static List<DistrictBean> districtEN;
@@ -190,6 +192,26 @@ public class InitApplicationMessage implements ApplicationListener{
 		}
 		logger.info("maritalStatusesCN : " + maritalStatusesCN);
 
+		try {
+			areaEN = commonUtils.getArea("EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("areaEN : " + areaEN);
+		
+		try {
+			areaCN = commonUtils.getArea("CN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("areaCN : " + areaCN);
+		
 		try {
 			netFloorAreaEN = commonUtils.getNetFloorArea("EN",type);
 		} catch (Exception e) {

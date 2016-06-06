@@ -287,7 +287,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">District</p>
-                                    <p class="fld-val">${homeCareDetails.applicantDistrict }</p>
+                                    <p class="fld-val">${homeCareDetails.applicantDistrictDesc }</p>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +296,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Area</p>
-                                    <p class="fld-val">${homeCareDetails.applicantArea }</p>
+                                    <p class="fld-val">${homeCareDetails.applicantAreaDesc }</p>
                                 </div>
                             </div>
                         </div>
@@ -391,7 +391,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">District</p>
-                                    <p class="fld-val">${homeCareDetails.aDistrict }</p>
+                                    <p class="fld-val">${homeCareDetails.aDistrictDesc }</p>
                                 </div>
                             </div>
                         </div>
@@ -400,7 +400,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Area</p>
-                                    <p class="fld-val">${homeCareDetails.aArea }</p>
+                                    <p class="fld-val">${homeCareDetails.aAreaDesc }</p>
                                 </div>
                             </div>
                         </div>
@@ -431,7 +431,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Net floor Area (square feet)</p>
-                                    <p class="fld-val">500-700</p>
+                                    <p class="fld-val">${homeCareDetails.netFloorAreaDesc }</p>
                                 </div>
                             </div>
                         </div>
@@ -443,7 +443,7 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Effective date of coverage</p>
-                                    <p class="fld-val">19-05-2016</p>
+                                    <p class="fld-val">${homeCareDetails.effectiveDate }</p>
                                 </div>
                             </div>
                         </div>
