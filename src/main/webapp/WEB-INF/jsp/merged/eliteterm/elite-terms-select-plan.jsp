@@ -3261,7 +3261,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
-											<li><img
+											<%-- <li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
 											<li><img
@@ -3269,7 +3269,7 @@ var home_url = "<%=request.getContextPath()%>";
 														key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
-														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
+														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li> --%>
 										</ul>
 									</div>
 								</div>
