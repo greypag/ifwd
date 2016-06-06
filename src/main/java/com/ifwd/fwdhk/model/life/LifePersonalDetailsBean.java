@@ -62,6 +62,8 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String correspondenceAddressDistrictEnName;
 	private String correspondenceAddressDistrictCnName;
 	private String type;
+	private String hasTheClubMembershipNo;
+	private String theClubMembershipNo;
 	
 	public void validate(String language) throws ValidateExceptions {
 		if(this.martialStatus!=null && !"".equals(this.martialStatus)){
@@ -661,6 +663,22 @@ public class LifePersonalDetailsBean implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getHasTheClubMembershipNo() {
+		return hasTheClubMembershipNo;
+	}
+
+	public void setHasTheClubMembershipNo(String hasTheClubMembershipNo) {
+		this.hasTheClubMembershipNo = hasTheClubMembershipNo;
+	}
+
+	public String getTheClubMembershipNo() {
+		return theClubMembershipNo;
+	}
+
+	public void setTheClubMembershipNo(String theClubMembershipNo) {
+		this.theClubMembershipNo = theClubMembershipNo;
 	}
 	
 }
