@@ -260,6 +260,15 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", "100000");
 		parameters.put("referralCode", "");
+		
+		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
+			parameters.put("externalParty", "THE CLUB");
+			parameters.put("externalPartyCode", lifePersonalDetails.getTheClubMembershipNo());
+		}
+		else{
+			parameters.put("externalParty", "");
+			parameters.put("externalPartyCode", "");
+		}
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);

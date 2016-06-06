@@ -1767,6 +1767,15 @@ public class LifeServiceImpl implements LifeService {
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
 		parameters.put("referralCode", saviePlanDetails.getPromoCode());
+		
+		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
+			parameters.put("externalParty", "THE CLUB");
+			parameters.put("externalPartyCode", lifePersonalDetails.getTheClubMembershipNo());
+		}
+		else{
+			parameters.put("externalParty", "");
+			parameters.put("externalPartyCode", "");
+		}
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
