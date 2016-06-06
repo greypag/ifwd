@@ -107,12 +107,12 @@ public class UserRestURIConstants {
 	public static final String EASYHOME_GET_QUOTE = SERVICE_URL + "/gi/home/easyHome/quote";
 	public static final String EASYHOME_CREATE_POLICY = SERVICE_URL + "/gi/home/easyHome/policies";
 	public static final String EASYHOME_CONFIRM_POLICY = SERVICE_URL + "/gi/home/easyHome/payments/make";
-	public static final String EASYHOME_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	public static final String EASYHOME_FINALIZE_POLICY = SERVICE_URL + "/gi/home/easyHome/policies";
 	
 	/*API For Home liability Modules*/
 	public static final String HOMELIABILITY_GET_QUOTE = SERVICE_URL + "/gi/home/homeLiability/quote";
 	public static final String HOMELIABILITY_CREATE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
-	public static final String HOMELIABILITY_CONFIRM_POLICY = SERVICE_URL + "/gi/home/easyHome/payments/make";
+	public static final String HOMELIABILITY_CONFIRM_POLICY = SERVICE_URL + "/gi/home/homeLiability/payments/make";
 	public static final String HOMELIABILITY_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
 	
 	/*API For Savie*/

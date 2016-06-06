@@ -101,7 +101,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Promote Code</p>
-                                        <p class="fld-val"><span class="txt-promote-code">-</span></p>
+                                        <p class="fld-val"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -109,7 +109,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">The Club Member</p>
-                                        <p class="fld-val"><span class="txt-theclub-member">-</span></p>
+                                        <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -117,7 +117,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Original price</p>
-                                        <p class="fld-val">HK$420.00</p>
+                                        <p class="fld-val">HK$${homeQuoteDetails.grossPremium }</p>
                                     </div>
                                 </div>
                             </li>
@@ -125,7 +125,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Discount</p>
-                                        <p class="fld-val">HK$0.00</p>
+                                        <p class="fld-val">HK$${homeQuoteDetails.discountAmount }</p>
                                     </div>
                                 </div>
                             </li>
@@ -133,7 +133,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Amount due</p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">420.00</span></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -456,7 +456,7 @@ var context = "<%=request.getContextPath()%>";
                              <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Original Amount</p>
-                                    <p class="fld-val">HK$ 420.00</p>
+                                    <p class="fld-val">HK$ ${homeQuoteDetails.grossPremium }</p>
                                 </div>
                             </div>
                         </div>
@@ -465,7 +465,7 @@ var context = "<%=request.getContextPath()%>";
                              <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label">Discount</p>
-                                    <p class="fld-val">HK$ 0.00</p>
+                                    <p class="fld-val">HK$ ${homeQuoteDetails.discountAmount }</p>
                                 </div>
                             </div>
                         </div>
@@ -483,156 +483,158 @@ var context = "<%=request.getContextPath()%>";
                         </div>
 
                         <div class="col-xs-12 col-md-10">
-                            <span class="val xl">HK$ 420.00</span>
+                            <span class="val xl">HK$ ${homeQuoteDetails.totalDue }</span>
                         </div>
                     </div>
                 </div>
                 
             </div>
 
-
-            <div class="row form-block payment-wrapper">
-                <div class="col-xs-12">
-                    <h3 class="heading-title">Payment Details</h3>
-                </div>
-                    
-                <div class="col-xs-12">
-                    <div class="row">
-
-                        <div class="col-xs-12 col-md-6">
-                            
-                            <div class="form-group">
-                                <div class="fld-wrapper">
-                                    <p class="fld-label">Card type</p>
-                                    <p class="fld-val cardtype"><span class="visa">Visa</span>&nbsp;/&nbsp;<span class="mastercard">Master</span></p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="fld-wrapper">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="cardNo" data-keyblock-num="true" maxlength="19">
-                                        <label class="mdl-textfield__label" for="ccNumber">Credit card number</label>
-                                    </div>
-                                    
-                                </div>
-                                <span class="error-msg" id="ccNumberErrMsg"></span>
-                            </div>
-                            <div class="form-group">
-                                <div class="fld-wrapper">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder">
-                                        <label class="mdl-textfield__label" for="ccName">Cardholder’s Name</label>
-                                    </div>
-                                </div>
-                                <span class="error-msg" id="ccNameErrMsg"></span>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-md-6">
-                            
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="form-group">
-                                        <div class="fld-wrapper">
-                                            <div class="mdl-select">
-                                                <select id="expMonth" name="epMonth">
-                                                    <option value="" disabled selected></option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                </select>
-                                                <label class="mdl-textfield__label" for="ccName">Expiry Month</label>
-                                            </div>
-                                            
-                                        </div>
-                                        <span class="error-msg" id="expMonthErrMsg"></span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="form-group">
-                                        <div class="fld-wrapper">
-                                            <div class="mdl-select">
-                                                <select id="expYear" name="epYear">
-                                                    <option value="" disabled selected></option>
-                                                    <option value="2016">2016</option>
-                                                    <option value="2017">2017</option>
-                                                    <option value="2018">2018</option>
-                                                    <option value="2019">2019</option>
-                                                    <option value="2020">2020</option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2022">2022</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2024">2024</option>
-                                                    <option value="2025">2025</option>
-                                                </select>
-                                                <label class="mdl-textfield__label" for="ccName">Expiry Year</label>
-
-                                            </div>
-                                        </div>
-                                        <span class="error-msg" id="expYearErrMsg"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-9 col-md-9">
-                                    <div class="form-group">
-                                        <div class="fld-wrapper">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3">
-                                                <label class="mdl-textfield__label" for="cvvNumber">Security Code</label>
-                                            </div>
-                                        </div>
-                                        <span class="error-msg" id="cvvNumberErrMsg"></span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-3 col-md-3">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/cvv-logo.png" alt="" class="img-responsive">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                        <div class="form-group no-border">
-                        <div class="checkbox">
-                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
-                            <span class="error-msg" id="cbTNCErrMsg"></span>
-                        </div>
-
-                            
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-
-            <div class="btn-row text-center">
-                <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-                <%
-                    HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
-                %>
-                <c:choose>
-					<c:when test="${language=='en'}">
-		                <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
-					</c:when>
-			        <c:otherwise>
-			            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
-					</c:otherwise>
-				</c:choose>
-            </div>
-
-        </div>
+			<fmt:formatNumber var="quoteTotal" value="${homeQuoteDetails.totalDue}" pattern="#"/>
+			<c:choose>
+				<c:when test="${quoteTotal<=0}">
+		        	<div class="row form-block payment-wrapper">
+			            <div class="btn-row text-center">
+			                <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
+			                <a href="<%=request.getContextPath()%>/${language}/home-liability-insurance/confirmation-ga" class="btn-app">Next</a>
+			            </div>
+		        	</div>
+				</c:when>
+				<c:otherwise>
+		            <div class="row form-block payment-wrapper">
+		                <div class="col-xs-12">
+		                    <h3 class="heading-title">Payment Details</h3>
+		                </div>
+		                    
+		                <div class="col-xs-12">
+		                    <div class="row">
+		
+		                        <div class="col-xs-12 col-md-6">
+		                            
+		                            <div class="form-group">
+		                                <div class="fld-wrapper">
+		                                    <p class="fld-label">Card type</p>
+		                                    <p class="fld-val cardtype"><span class="visa">Visa</span>&nbsp;/&nbsp;<span class="mastercard">Master</span></p>
+		                                </div>
+		                            </div>
+		                            <div class="form-group">
+		                                <div class="fld-wrapper">
+		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="cardNo" data-keyblock-num="true" maxlength="19">
+		                                        <label class="mdl-textfield__label" for="ccNumber">Credit card number</label>
+		                                    </div>
+		                                    
+		                                </div>
+		                                <span class="error-msg" id="ccNumberErrMsg"></span>
+		                            </div>
+		                            <div class="form-group">
+		                                <div class="fld-wrapper">
+		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder">
+		                                        <label class="mdl-textfield__label" for="ccName">Cardholder’s Name</label>
+		                                    </div>
+		                                </div>
+		                                <span class="error-msg" id="ccNameErrMsg"></span>
+		                            </div>
+		                        </div>
+		
+		                        <div class="col-xs-12 col-md-6">
+		                            
+		                            <div class="row">
+		                                <div class="col-xs-6">
+		                                    <div class="form-group">
+		                                        <div class="fld-wrapper">
+		                                            <div class="mdl-select">
+		                                                <select id="expMonth" name="epMonth">
+		                                                    <option value="" disabled selected></option>
+		                                                    <c:forEach begin="0" end="10" varStatus="loop">
+						                                        <c:set var="currentYear" value="${year + loop.index}" />
+						                                        <option value="${currentYear}">${currentYear}</option>
+						                                    </c:forEach>
+		                                                </select>
+		                                                <label class="mdl-textfield__label" for="ccName">Expiry Month</label>
+		                                            </div>
+		                                            
+		                                        </div>
+		                                        <span class="error-msg" id="expMonthErrMsg"></span>
+		                                    </div>
+		                                </div>
+		                                <div class="col-xs-6">
+		                                    <div class="form-group">
+		                                        <div class="fld-wrapper">
+		                                            <div class="mdl-select">
+		                                                <select id="expYear" name="epYear">
+		                                                    <option value="" disabled selected></option>
+		                                                    <option value="2016">2016</option>
+		                                                    <option value="2017">2017</option>
+		                                                    <option value="2018">2018</option>
+		                                                    <option value="2019">2019</option>
+		                                                    <option value="2020">2020</option>
+		                                                    <option value="2021">2021</option>
+		                                                    <option value="2022">2022</option>
+		                                                    <option value="2023">2023</option>
+		                                                    <option value="2024">2024</option>
+		                                                    <option value="2025">2025</option>
+		                                                </select>
+		                                                <label class="mdl-textfield__label" for="ccName">Expiry Year</label>
+		
+		                                            </div>
+		                                        </div>
+		                                        <span class="error-msg" id="expYearErrMsg"></span>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="row">
+		                                <div class="col-xs-9 col-md-9">
+		                                    <div class="form-group">
+		                                        <div class="fld-wrapper">
+		                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3">
+		                                                <label class="mdl-textfield__label" for="cvvNumber">Security Code</label>
+		                                            </div>
+		                                        </div>
+		                                        <span class="error-msg" id="cvvNumberErrMsg"></span>
+		                                    </div>
+		                                </div>
+		                                <div class="col-xs-3 col-md-3">
+		                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/cvv-logo.png" alt="" class="img-responsive">
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		
+		                    <div class="row">
+		                        <div class="col-xs-12">
+			                        <div class="form-group no-border">
+				                        <div class="checkbox">
+				                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
+				                            <span class="error-msg" id="cbTNCErrMsg"></span>
+				                        </div>
+			
+			                            
+			                        </div>
+		                    	</div>
+		
+		                	</div>
+		                
+		            	</div>
+			            <div class="btn-row text-center">
+			                <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
+			                <%
+			                    HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
+			                %>
+			                <c:choose>
+								<c:when test="${language=='en'}">
+					                <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+								</c:when>
+						        <c:otherwise>
+						            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+								</c:otherwise>
+							</c:choose>
+			            </div>	
+		        	</div>
+                </c:otherwise>
+			</c:choose>
         <input type="hidden" id="pMethod" name="pMethod" value="">
         <input type="hidden" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress}">
         <input type="hidden" name="referenceNo" value="${createdPolicy.referenceNo}">

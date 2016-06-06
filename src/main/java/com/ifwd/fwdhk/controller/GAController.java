@@ -163,27 +163,36 @@ public class GAController extends BaseController{
 			String requestNo = (String) session.getAttribute("HomeCareTransactionNo");
 			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
 			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
-			String paymentFail = "0";
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
 			
-			if (creditCardNo !=null) {
-				try {
-					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}else {
-				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
-				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
-			}
 			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
 			String userName = (String) session.getAttribute("username");
 			String token = (String) session.getAttribute("token");
 			String emailId = (String) session.getAttribute("emailAddress");
 			String email = (String) session.getAttribute("emailAddress");
+			
+			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+			
+			String paymentFail = "0";
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			if("0.0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
+				creditCardNo = "0000000000000000";
+				expiryDate = "122030";
+			}else {
+				if (creditCardNo !=null) {
+					try {
+						creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}else {
+					model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+					model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
+					return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
+				}
+			}
 			
 			if(org.apache.commons.lang.StringUtils.isAllLowerCase(referenceNo) ||
 					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionNumber) ||
