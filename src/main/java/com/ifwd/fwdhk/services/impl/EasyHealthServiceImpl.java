@@ -341,7 +341,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
 					}
 					if(1 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-附加計劃");
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-升級計劃");
 						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
 					}
 					if(2 == i){
