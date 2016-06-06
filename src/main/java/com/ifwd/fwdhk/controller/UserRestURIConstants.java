@@ -103,6 +103,18 @@ public class UserRestURIConstants {
 	public static final String HOMECARE_GET_TERRITORY = SERVICE_URL + "/option/itemDesc?itemTable=HKTerritory";
 	public static final String HOMECARE_GET_NET_FLOOR_AREA = SERVICE_URL + "/option/itemDesc";
 	
+	/*API For Easy home Modules*/
+	public static final String EASYHOME_GET_QUOTE = SERVICE_URL + "/gi/home/easyHome/quote";
+	public static final String EASYHOME_CREATE_POLICY = SERVICE_URL + "/gi/home/easyHome/policies";
+	public static final String EASYHOME_CONFIRM_POLICY = SERVICE_URL + "/gi/home/easyHome/payments/make";
+	public static final String EASYHOME_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	
+	/*API For Home liability Modules*/
+	public static final String HOMELIABILITY_GET_QUOTE = SERVICE_URL + "/gi/home/homeLiability/quote";
+	public static final String HOMELIABILITY_CREATE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	public static final String HOMELIABILITY_CONFIRM_POLICY = SERVICE_URL + "/gi/home/easyHome/payments/make";
+	public static final String HOMELIABILITY_FINALIZE_POLICY = SERVICE_URL + "/gi/home/homeLiability/policies";
+	
 	/*API For Savie*/
 	public static final String SAVIE_PLAN_DETAIL = "/savie/planDetails";
 	public static final String SAVIE_CREATE_POLICIES = SERVICE_URL + "/savie/policies";
