@@ -11868,3 +11868,22 @@ body.chin .partner-headline-wrapper .headline-title{
 	}
 }
 /* BEM Naming for faq page End 20160513 */
+
+/* tag and go non sass */
+.paymentType.radio+.paymentType.radio{
+	margin: 0;
+}
+.paymentType{
+	float:left;
+	margin: 0;
+}
+.paymentType--first{
+	margin-right: 20px;
+}
+.paymentType input.paymentType__btn{
+	padding: 0;
+}
+.img-payment__tagAndGo{
+	width: 60px;
+	height: 60px;
+}
