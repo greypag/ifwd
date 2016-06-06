@@ -130,7 +130,7 @@ var ehPro = '${pro }';
                                             <input id="dob" placeholder="Please Select..." />
                                             <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                         </div> -->
-                                        <input id="dob" name="plan-dob" placeholder="Please Select ..." readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }">
+                                        <input id="dob" name="plan-dob" placeholder='<fmt:message key="label.dob.select" bundle="${msg}" />' readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }">
                                     </div>
                                 </div>
                                 <div class="clearfix visible-xs"></div>

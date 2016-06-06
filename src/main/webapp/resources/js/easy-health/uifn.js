@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     var nowDT = new Date();
     $('#dob').mobiscroll().calendar({
-        dateOrder: 'ddMyy',
+        dateOrder: 'yyMdd',
         display: 'inline',
         showLabel: true,
         mode: 'scroller',
