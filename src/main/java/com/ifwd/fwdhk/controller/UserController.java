@@ -367,169 +367,102 @@ public class UserController {
 							}
 							
 							if("ET".equals(entity.getPlanCode())) {
-								if("GI".equals(entity.getPolicyType())) {
-									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-				 					}else {
-				 						if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
-									}
-								}else if("Life".equals(entity.getPolicyType())) {
+								// Change Elite Term Plan Name. Temp Solution. Please Update Database
+								if(entity.getPlanName().equals("定期壽險")){
+									entity.setPlanName("智理想定期保障計劃");
+								}
 
-									// Change Elite Term Plan Name. Temp Solution. Please Update Database
-									if(entity.getPlanName().equals("定期壽險")){
-										entity.setPlanName("智理想定期保障計劃");
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(pending);
 									}
-
-									if("PENDING".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(pending);
-										}
-										pending_life.add(entity);
-									}else if("ACTIVE".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-									}else if("PAST".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
+									pending_life.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
 									}
+									active_life.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_life.add(entity);
 								}
 							}
 							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
-								if("GI".equals(entity.getPolicyType())) {
-									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-				 					}else {
-				 						if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
-									}
-								}else if("Life".equals(entity.getPolicyType())) {
-									if(entity.getPlanName().equals("定期壽險")){
-										entity.setPlanName("EasyHealth Insurance Plan");
-									}
+								if(entity.getPlanName().equals("定期壽險")){
+									entity.setPlanName("EasyHealth Insurance Plan");
+								}
 
-									if("PENDING".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(pending);
-										}
-										pending_life.add(entity);
-									}else if("ACTIVE".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-									}else if("PAST".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(pending);
 									}
+									pending_life.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
+									}
+									active_life.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_life.add(entity);
 								}
 							}
 							else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
-								if("GI".equals(entity.getPolicyType())) {
-									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_saving.add(entity);
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
 									}else {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_saving.add(entity);
+										entity.setStatus(pending);
 									}
-								}else if("Life".equals(entity.getPolicyType())) {
-									if("PENDING".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(pending);
-										}
-										pending_saving.add(entity);
-									}else if("ACTIVE".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_saving.add(entity);
-									}else if("PAST".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_saving.add(entity);
+									pending_saving.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
 									}
+									active_saving.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_saving.add(entity);
 								}
 							}else if("EasyHomeCare".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {

@@ -999,7 +999,7 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox capitalize"
+											<input class="form-control gray-textbox capitalize placeholder-lower"
 												autocomplete="off" id="savieApplicantBean.hkId"
 												name="savieApplicantBean.hkId" type="text" value="${etPolicyApplication.applicant.hkId }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
@@ -1111,7 +1111,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" class="form-control gray-textbox"
 												name="savieApplicantBean.residentialTelNo"
 												id="savieApplicantBean.residentialTelNo" value="${etPolicyApplication.applicant.residentialTelNo }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"
+												placeholder="<fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" />"
 												maxlength="8" /> <span class="error-msg" id="resTelMessage"></span>
 										</div>
 									</div>
@@ -1406,7 +1406,7 @@ var home_url = "<%=request.getContextPath()%>";
 										});
 									</script>
 									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
-										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" />
+										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 										<label for="the-club-member-toggle">
 											<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
@@ -2672,7 +2672,27 @@ var home_url = "<%=request.getContextPath()%>";
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
+							<div class="checkboxBubble" style="display: block;">
+                            	<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
+                        	</div>
 						</div>
+						<script type="text/javascript">
+                        function showBubble(){
+                            if($("#marketing-info-check").prop('checked') || $("#personal-data-check").prop("checked")) {
+                                $(".checkboxBubble").fadeIn();
+                            }else{
+                                $(".checkboxBubble").fadeOut();
+                            }
+                        }
+
+                        $("#marketing-info-check").change(function() {
+                            showBubble();
+                        });
+
+                        $("#personal-data-check").change(function() {
+                            showBubble();
+                        });
+                        </script>
 					</form>
 
 					<div class="row et-proceed-btn-wrapper">
@@ -3241,7 +3261,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
-											<li><img
+											<%-- <li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
 											<li><img
@@ -3249,7 +3269,7 @@ var home_url = "<%=request.getContextPath()%>";
 														key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
-														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
+														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li> --%>
 										</ul>
 									</div>
 								</div>
@@ -5178,7 +5198,7 @@ function addFormBeneficiary (counter) {
 		+'</div>'
 		+'</div>'
 		+'<div class="pull-left input">'
-		+'<input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
+		+'<input class="form-control gray-textbox capitalize placeholder-lower" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
 		+'<input class="form-control gray-textbox capitalize hidden" type="text" autocomplete="off" placeholder="' + fm_placeholder_passport + '" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="'+passportNo_if_exist+'">'
 		+'</div>'
 		+'</div>'

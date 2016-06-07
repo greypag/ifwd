@@ -249,6 +249,15 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("payment", payment);
 			parameters.put("insuredAmount", etPolicyApplication.getAmount());
 			parameters.put("referralCode", eliteTermPremium.getPromoCode()!=null?eliteTermPremium.getPromoCode():"");
+			
+			if(!"None".equals(request.getParameter("hasTheClubMembershipNo"))){
+				parameters.put("externalParty", "THE CLUB");
+				parameters.put("externalPartyCode", request.getParameter("theClubMembershipNo"));
+			}
+			else{
+				parameters.put("externalParty", "");
+				parameters.put("externalPartyCode", "");
+			}
 			logger.info(parameters.toString());
 			
 			if(ZHConverter.hasSimpleChinese(inputMsg.toString())){

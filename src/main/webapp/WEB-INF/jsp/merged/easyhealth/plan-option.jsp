@@ -130,7 +130,7 @@ var ehPro = '${pro }';
                                             <input id="dob" placeholder="Please Select..." />
                                             <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                         </div> -->
-                                        <input id="dob" name="plan-dob" placeholder="Please Select ..." readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }">
+                                        <input id="dob" name="plan-dob" placeholder='<fmt:message key="label.dob.select" bundle="${msg}" />' readonly value="${ehPlanDetail.dob!=null ? ehPlanDetail.dob:'' }">
                                     </div>
                                 </div>
                                 <div class="clearfix visible-xs"></div>
@@ -1629,7 +1629,7 @@ var ehPro = '${pro }';
                                                 <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="easyhealth.plandetails.tnc.1.content" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.easyhealth" bundle="${msg}" />" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.2.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.3.content" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank" class="sub-link"><fmt:message key="easyhealth.plandetails.tnc.4.content" bundle="${msg}" /></a><fmt:message key="easyhealth.plandetails.tnc.5.content" bundle="${msg}" /></label>
 
                                             </div>
-                                            <span class="error-msg" id="cbTNCErrMsg" data-txt='<fmt:message key="easyhealth. plandetails.tnc.err.content" bundle="${msg}" />'></span>
+                                            <span class="error-msg" id="cbTNCErrMsg" data-txt='<fmt:message key="easyhealth.plandetails.tnc.err.content" bundle="${msg}" />'></span>
                                         </div>
                                     </div>
                                 </div>

@@ -861,9 +861,12 @@ public class LifeController extends BaseController{
 				if(StringUtils.isEmpty(language)){
 					language = "tc";
 				}
-				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String encodePolicyNum = new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber=" + encodePolicyNum;
 				
 				models.put("uploadLink", url);
+				models.put("uploadEnLink", serverUrl + "/en/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
+				models.put("uploadTcLink", serverUrl + "/tc/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
 				
 				if("medical-insurance".equals(plan)) {
 					savieOnlineService.sendEmails(request, "rophiUploadDocument", models);

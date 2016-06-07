@@ -36,7 +36,7 @@
 
 				<c:if test="${planIndex == 'medical-insurance'}">
 					<c:set var="breadcrumbItems">
-						breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+						breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
 					<c:set var="breadcrumbActive">3</c:set>
 				</c:if>
@@ -587,7 +587,7 @@ maxlength="19"/>
 		});
 	</script>
 	<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
-		<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" />
+		<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 		<label for="the-club-member-toggle">
 			<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 				<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />

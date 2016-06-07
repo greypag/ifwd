@@ -260,6 +260,15 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", "100000");
 		parameters.put("referralCode", "");
+		
+		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
+			parameters.put("externalParty", "THE CLUB");
+			parameters.put("externalPartyCode", lifePersonalDetails.getTheClubMembershipNo());
+		}
+		else{
+			parameters.put("externalParty", "");
+			parameters.put("externalPartyCode", "");
+		}
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
@@ -341,7 +350,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
 					}
 					if(1 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-附加計劃");
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-升級計劃");
 						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
 					}
 					if(2 == i){
