@@ -102,7 +102,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data"><p class="info-data">${list.status}</p></p>													
+															<p class="info-data"><p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p></p>													
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -157,7 +157,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data">${list.status}</p>												
+															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -204,7 +204,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
@@ -212,7 +212,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>											
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -259,7 +259,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
@@ -267,7 +267,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>											
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>											
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -323,7 +323,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data">${list.status}</p>	
+															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>	
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -378,7 +378,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data">${list.status}</p>												
+															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -425,7 +425,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
@@ -433,7 +433,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data">${list.status}</p>												
+															<p class="info-data"><enhance:out escapeXml="false">${list.status}</enhance:out></p>												
 														</div>
 													</div>
 	                                            </c:forEach>
@@ -480,7 +480,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-6 col-md-2 visible-md visible-lg mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status.visit.customer.service" bundle="${msg}" /></h4>
-															<p class="info-data pls-visit">${list.status}</p>
+															<p class="info-data pls-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>
 														</div>											
 														<div class="col-xs-6 col-md-2 mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.insured.amount" bundle="${msg}" /></h4>
@@ -488,7 +488,7 @@ var languageP = "${language}";
 														</div>
 														<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
 															<h4 class="visible-xs visible-sm info-head"><fmt:message key="label.status" bundle="${msg}" /></h4>
-															<p class="info-data please-visit">${list.status}</p>												
+															<p class="info-data please-visit"><enhance:out escapeXml="false">${list.status}</enhance:out></p>												
 														</div>
 													</div>
 	                                            </c:forEach>

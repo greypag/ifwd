@@ -319,6 +319,9 @@ public class UserController {
 						String type8 = WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request));
 						String type9 = WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request));
 						String type10 = WebServiceUtils.getMessage("eservice.product.type10", UserRestURIConstants.getLanaguage(request));
+						String type11 = WebServiceUtils.getMessage("eservice.product.type11", UserRestURIConstants.getLanaguage(request));
+						String type12 = WebServiceUtils.getMessage("eservice.product.type12", UserRestURIConstants.getLanaguage(request));
+						String type13 = WebServiceUtils.getMessage("eservice.product.type13", UserRestURIConstants.getLanaguage(request));
 						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
 						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
 						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
@@ -357,9 +360,20 @@ public class UserController {
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type9);
 							}
-							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
+							else if("HEH1".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type10);
 							}
+							else if("HEH2".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type11);
+							}
+							else if("HEH3".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type12);
+							}
+							else if("HEH4".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type13);
+							}
+							
+							
 							
 							
 							if("Z".equalsIgnoreCase(entity.getStatus())){
