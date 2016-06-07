@@ -35,21 +35,18 @@ import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.life.LifePaymentBean;
 import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.ProductRecommendation;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
 
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
-import com.ifwd.fwdhk.services.SavieOnlineService;
 
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
-import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+
+
 
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
@@ -360,9 +357,9 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if(salesIllustrationJpgName == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
-		}
+//		else if(salesIllustrationJpgName == null){
+//			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+//		}
 		else if("medical-insurance".equals(plan) && underwritingYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
@@ -759,6 +756,8 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		
+		
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
@@ -848,7 +847,7 @@ public class LifeController extends BaseController{
 				catch (Exception e) {
 				}
 				if("savings-insurance".equals(plan)){
-					JSONObject jsonObject = new JSONObject();
+					
 					try {
 						savieOnlineService.uploadSavieOnlineDocument(request);
 					}
