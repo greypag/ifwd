@@ -96,7 +96,7 @@ var language = "${language}";
 						<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" readonly="readonly" />
-								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>
+								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance' && language == 'tc'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
 							</div>
 						</div>
                </div>
@@ -115,7 +115,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below clearfix">
-               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><c:choose><c:when test="${planIndex == 'medical-insurance' && language == 'tc'}"><fmt:message key="label.medical.personalinfo" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="label.personalinfo" bundle="${msg}" /></c:otherwise></c:choose> <a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
