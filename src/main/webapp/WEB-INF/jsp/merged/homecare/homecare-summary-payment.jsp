@@ -156,14 +156,17 @@ $(document).ready(function(){
 	                                            <c:if test="${homeCareDetails.applicantEstate != ''}">
 	                                                ${homeCareDetails.applicantEstate},
 	                                            </c:if>
-
-	                                            <c:if test="${homeCareDetails.applicantStreetNo != ''}">
-	                                                ${homeCareDetails.applicantStreetNo}
-	                                            </c:if>
-	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
-	                                                ${homeCareDetails.applicantStreetName}
-	                                            </c:if>
-
+	                                            <c:choose>
+		                                            <c:when test="${homeCareDetails.applicantStreetNo != '' && homeCareDetails.applicantStreetName !=''}">
+		                                                ${homeCareDetails.applicantStreetNo} ${homeCareDetails.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${homeCareDetails.applicantStreetNo == '' && homeCareDetails.applicantStreetName !=''}">
+		                                                ${homeCareDetails.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${homeCareDetails.applicantStreetNo != '' && homeCareDetails.applicantStreetName ==''}">
+		                                                ${homeCareDetails.applicantStreetNo},
+		                                            </c:when>		                                            
+	                                            </c:choose>
 	                                            <c:if test="${homeCareDetails.applicantDistrictDesc != ''}">
 	                                                ${homeCareDetails.applicantDistrictDesc},
 	                                            </c:if>
@@ -192,14 +195,17 @@ $(document).ready(function(){
 	                                            <c:if test="${homeCareDetails.aEstate != ''}">
 	                                                ${homeCareDetails.aEstate},
 	                                            </c:if>
-
-	                                            <c:if test="${homeCareDetails.aStreetNo != ''}">
-	                                                ${homeCareDetails.aStreetNo}
-	                                            </c:if>
-	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
-	                                                ${homeCareDetails.aStreetName}
-	                                            </c:if>
-
+	                                            <c:choose>
+		                                            <c:when test="${homeCareDetails.applicantStreetNo != '' && homeCareDetails.applicantStreetName !=''}">
+		                                                ${homeCareDetails.applicantStreetNo} ${homeCareDetails.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${homeCareDetails.applicantStreetNo == '' && homeCareDetails.applicantStreetName !=''}">
+		                                                ${homeCareDetails.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${homeCareDetails.applicantStreetNo != '' && homeCareDetails.applicantStreetName ==''}">
+		                                                ${homeCareDetails.applicantStreetNo},
+		                                            </c:when>		                                            
+	                                            </c:choose>
 	                                            <c:if test="${homeCareDetails.aDistrictDesc != ''}">
 	                                                ${homeCareDetails.aDistrictDesc},
 	                                            </c:if>
@@ -227,10 +233,6 @@ $(document).ready(function(){
 	                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.originalamount" bundle="${msg}" /></div>
 	                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.dollar" bundle="${msg}" /> <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getGrossPremium()))%></div>
 	                                    </div>
-                                      <div class="row summary-row">
-                                          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="club.membership.number" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
-                                          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails}</div>
-                                      </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
