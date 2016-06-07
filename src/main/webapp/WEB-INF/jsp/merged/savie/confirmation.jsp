@@ -80,14 +80,21 @@
 	        				<div class="col-md-8" id="thankyou-message">
 	        					<h3 class="text-bold heading-title">
 		        					<c:if test="${planIndex == 'savings-insurance'}">
-	        							<fmt:message key="msg.confirmation.success.purchase.savie.copy1" bundle="${msg}" />
+	        							<fmt:message key="msg.confirmation.complete.savie.copy1" bundle="${msg}" />
 	        						</c:if>
 		        					<c:if test="${planIndex == 'medical-insurance'}">
-	        							<fmt:message key="msg.confirmation.success.purchase.easyhealth.copy1" bundle="${msg}" />
+	        							<fmt:message key="msg.confirmation.complete.easyhealth.copy1" bundle="${msg}" />
 	        						</c:if>
 	        					</h3>
 	        					<h3 class="text-bold visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
-	        					<p id="success-purchase"><fmt:message key="information.successful.purchase.copy4" bundle="${msg}" /></p>
+	        					<p id="success-purchase">
+	        						<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.confirmation.complete.savie.copy2" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.confirmation.complete.easyhealth.copy2" bundle="${msg}" />
+	        						</c:if>
+	        					</p>
 	        					<!--<p><fmt:message key="info.successful.purchase.copy2" bundle="${msg}" /></p> -->
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>

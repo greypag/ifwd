@@ -6,9 +6,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session"/>
-<fmt:setLocale value="<%=session.getAttribute(\" uiLocale\")%>"/>
-<fmt:setBundle basename="messages" var="msg"/>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <script type="text/javascript">
 	var context = "${pageContext.request.contextPath}";
@@ -633,7 +633,7 @@ maxlength="19"/>
 					<div style="overflow: hidden;">
 						<a id="getPromotionClose" class="close" aria-label="Close"
 							data-dismiss="modal"> <span aria-hidden="true"
-							style="font-size: 30px;">×</span>
+							style="font-size: 30px;">ï¿½</span>
 						</a>
 					</div>
 					<div class="form-container">
