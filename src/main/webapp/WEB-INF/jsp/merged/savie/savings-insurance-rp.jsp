@@ -10,6 +10,7 @@
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/savie-discount.css" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -104,6 +105,258 @@ var home_url = "<%=request.getContextPath()%>";
 	        			</ul>
 	        		</div>
 	        </div>
+	        
+	        <!-- Savie Discount Start -->
+		        	<div class="spd-wrapper">
+		        		<div class="text-center">	
+		        			<p class="txt-discount">And a chance to get as high as <span>HK$10,000</span> premium discount<br class="visible-xs"/><br class="visible-xs"/><a href="#spd-wrapper-inner-anchor" class="btn-spd-start">Be The Winner</a> </p>
+		        		</div>
+		        		<div id="spd-wrapper-inner-anchor"></div>	
+		        		<div class="spd-wrapper-inner">
+			        		<div class="hkid-search text-center">
+			        			<label>Enter your HKID Card Number：</label>
+			        			<div class="input-wrapper">
+			        				<form id="form-hkid">
+			        					<input type="text" id="input-hkid" autocomplete="off"><br>
+			        					<span class="hkid-err-msg text-red"></span>
+			        					<span>FWD will NOT store your HKID </span>
+			        				</form>
+			        			</div>
+			        			<button class="btn-spd btn-hkid-submit">Check My Number</button>
+			        		</div>
+			        		<p class="won-msg text-center">Congratulations!<br>You can receive the following Savie premium discount</p>
+			        		<p class="loss-msg text-center">Sigh<br>too bad you can’t choose your own HKID Card Number</p>
+			        		
+			        		
+			        		<table class="tbl-spd hidden-xs">
+			        			<tr>
+			        				<th>Total number of occurrences of &quot;1&quot; and &quot;2&quot; and &quot;3&quot; in the HKID Card Number</th>
+			        				<td class="b1">1</td>
+			        				<td class="b2">2</td>
+			        				<td class="b3">3</td>
+			        				<td class="b4">4</td>
+			        				<td class="b5">5</td>
+			        				<td class="b6">6</td>
+			        				<td class="b7">7</td>
+			        			</tr>
+			        			<tr>
+			        				<th>For One-off Premium Plan &gt;= HK$ 200,000</th>
+			        				<td class="b1">HK$ 500</td>
+			        				<td class="b2">HK$ 800</td>
+			        				<td class="b3">HK$ 1,000</td>
+			        				<td class="b4">HK$ 3,000</td>
+			        				<td class="b5">HK$ 5,000</td>
+			        				<td class="b6">HK$ 7,000</td>
+			        				<td class="b7">HK$ 10,000</td>
+			        			</tr>
+			        			<tr>
+			        				<th>For One-off Premium Plan &lt; HK$ 200,000 </th>
+			        				<td class="b1">HK$ 300</td>
+			        				<td class="b2">HK$ 500</td>
+			        				<td class="b3">HK$ 700</td>
+			        				<td class="b4">HK$ 2,000</td>
+			        				<td class="b5">HK$ 3,000</td>
+			        				<td class="b6">HK$ 5,000</td>
+			        				<td class="b7">HK$ 10,000</td>
+			        			</tr>
+			        			<tr>
+			        				<th>For Monthly Regular Contribution Plan</th>
+			        				<td class="b1">HK$ 200</td>
+			        				<td class="b2">HK$ 400</td>
+			        				<td class="b3">HK$ 600</td>
+			        				<td class="b4">HK$ 1,000</td>
+			        				<td class="b5">HK$ 2,000</td>
+			        				<td class="b6">HK$ 3,000<sup>*</sup></td>
+			        				<td class="b7">HK$ 10,000<sup>*</sup></td>
+			        			</tr>
+			        		</table>
+			        		<div class="tbl-spd-mobile visible-xs clearfix">
+					            <div class="sticky-header">
+					                <table>
+					                    <tr>
+					                        <th>Total number of occurrences of "1" and "2" and "3" in the HKID Card Number</th>
+					                    </tr>
+					                    <tr>
+					                        <th>One-off Premium ≥ HK$ 200,000</th>
+					                    </tr>
+					                    <tr>
+					                        <th>One-off Premium &lt; HK$ 200,000</th>
+					                    </tr>
+					                    <tr>
+					                    	<th>For Monthly Regular Contribution Plan</th>
+					                    </tr>
+					                </table>
+					            </div>
+								<div class="sticky-btns">
+									<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+									<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</div>
+					            <div class="overflow-body">
+					            	
+					                <table>
+					                    <tr>
+					                        <td class="b1">1</td>
+					                        <td class="b2">2</td>
+					                        <td class="b3">3</td>
+					                        <td class="b4">4</td>
+					                        <td class="b5">5</td>
+					                        <td class="b6">6</td>
+					                        <td class="b7">7</td>
+					                    </tr>
+					                    <tr>
+					                        <td class="b1">HK$ 500</td>
+					                        <td class="b2">HK$ 800</td>
+					                        <td class="b3">HK$ 1,000</td>
+					                        <td class="b4">HK$ 3,000</td>
+					                        <td class="b5">HK$ 5,000</td>
+					                        <td class="b6">HK$ 7,000</td>
+					                        <td class="b7">HK$ 10,000</td>
+					                    </tr>
+					                    <tr>
+					                    	<td class="b1">HK$ 300</td>
+					        				<td class="b2">HK$ 500</td>
+					        				<td class="b3">HK$ 700</td>
+					        				<td class="b4">HK$ 2,000</td>
+					        				<td class="b5">HK$ 3,000</td>
+					        				<td class="b6">HK$ 5,000</td>
+					        				<td class="b7">HK$ 10,000</td>
+					                    </tr>
+					                    <tr>
+					                        <td class="b1">HK$ 200</td>
+					                        <td class="b2">HK$ 400</td>
+					                        <td class="b3">HK$ 600</td>
+					                        <td class="b4">HK$ 1,000</td>
+					                        <td class="b5">HK$ 2,000</td>
+					                        <td class="b6">HK$ 3,000<sup>*</sup></td>
+					                        <td class="b7">HK$ 10,000<sup>*</sup></td>
+					                    </tr>
+					                </table>
+					            </div>
+					        </div>
+			        		<p class="remarks">* If the first initial payment paid (which equivalent to the first 2 months’ regular contribution) for the Monthly Regular Contribution Plan (“the First Initial Payment”) is less than the Premium Discount, the applicant can only enjoy the Premium Discount not more than the First Initial Payment.</p>
+			        		<div class="text-center pans">
+			        			<div class="won-panel">
+			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next">Next</a>
+			        			</div>
+			        			<div>
+			        				<p class="share-msg">Share with your friends</p>
+			        				<a href="javascript:void(0);" class="btn-spd btn-spd-share">Share</a>
+			        			</div>
+			        		</div>
+			        		<ul>
+			        			<li class="remarks">To enjoy this Promotion, you must make an appointment to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess your suitability for Savie. Once it is confirmed that Savie meets your objective(s) and need(s), you must present your HKID card proving your eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by your personal cheque, or direct debit through your bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
+			        			<li class="remarks">Please refer to the <a href="javascript:void(0);" class="btn-spd-tnc">Terms &amp; Conditions</a>.</li>
+			        		</ul>
+		        		</div>
+		        		
+		        	</div>
+		        	
+		        	<!--  Savie Discount Modal Start -->
+		        	
+		        	<div class="modal fade" role="dialog" aria-labelledby="spdModal" id="spdModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h2>Watch out! Savie premium discount is only for offline application. Online application cannot entitle the discount</h2>
+									
+								</div>
+								<div class="modal-body">
+									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_web_${language}.png" class="hidden-xs img-responsive" />
+									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_mobile_${language}.png" class="visible-xs img-responsive" />
+								</div>
+								<div class="modal-footer">								
+									<div class="bottom-section text-center">
+										<button type="button" class="btn btn-spd-start" data-dismiss="modal">Start</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal fade" role="dialog" aria-labelledby="tncModal" id="tncModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h2>Savie HKID Card Promotion Terms and Conditions:</h2>
+									
+								</div>
+								<div class="modal-body">
+									<ul>
+										<li>This Promotion for the “Savie” Insurance Plan (“Savie”) underwritten by FWD Life Insurance Company (Bermuda) Limited (“FWD”) will be offered between 15 June 2016 and 14 July 2016 (both dates inclusive) (“Promotion Period”) and the application for Savie must be submitted within the Promotion Period.</li>
+										<li>Savie applicants with Hong Kong Permanent Identity Card (“HKID Card”) containing “1” or “2” or “3” are eligible for this Promotion, subject to these terms and conditions. The premium discount is determined by the total number of occurrences of digit “1” and “2” and “3” in the HKID Card number, in accordance to the following table:
+											<table>
+												<tr>
+													<td rowspan="3" class="col-1">Total number of occurrences of “1” and “2” and “3” in the HKID Card Number(e.g. HKID Card number “A123456(3)” – the total number  is 4).</td>
+													<td colspan="3" class="col-3">Premium Discount</td>
+												</tr>
+												<tr>
+													<td colspan="2" class="col-2">For One-off Premium Plan</td>
+													<td rowspan="2" class="col-2">For Monthly Regular Contribution Plan</td>
+												</tr>
+												<tr>
+													<td class="col-1">≥ HK$ 200,000</td>
+													<td class="col-1">&lt; HK$ 200,000</td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>HK$ 500</td>
+													<td>HK$ 300</td>
+													<td>HK$ 200</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>HK$ 800</td>
+													<td>HK$ 500</td>
+													<td>HK$ 400</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>HK$ 1,000</td>
+													<td>HK$ 700</td>
+													<td>HK$ 600</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>HK$ 3,000</td>
+													<td>HK$ 2,000</td>
+													<td>HK$ 1,000</td>
+												</tr>	
+												<tr>
+													<td>5</td>
+													<td>HK$ 5,000</td>
+													<td>HK$ 3,000</td>
+													<td>HK$ 2,000</td>
+												</tr>
+												<tr>
+													<td>6</td>
+													<td>HK$ 7,000</td>
+													<td>HK$ 5,000</td>
+													<td>HK$ 3,000*</td>
+												</tr>	
+												<tr>
+													<td>7</td>
+													<td>HK$ 10,000</td>
+													<td>HK$ 10,000</td>
+													<td>HK$ 10,000*</td>
+												</tr>
+											</table>
+										</li>
+										<li>To enjoy this Promotion, applicant must make an appointment through https://i.fwd.com.hk/en/savings-insurance to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess his/her suitability for Savie. Once it is confirmed that Savie meets applicant’s objective(s) and need(s), applicant must present his/her HKID card proving his/her eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by applicant’s personal cheque, or direct debit through the applicant’s bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
+										<li>Each HKID Card Holder can enjoy this Promotion once only.</li>
+										<li>The application date of Savie is based on the record of FWD.</li>
+										<li>This Promotion is not redeemable for cash and cannot be used in conjunction with other promotional offers or discounts.	</li>
+										<li>Savie is subject to its terms and conditions. FWD has the right to reject any application, and its decision in relation to disputes that may arise from this Promotion will be final and conclusive. </li>
+										<li>FWD reserves the right to amend these terms and conditions of this Promotion or discontinue this promotion at any time without prior notice.</li>
+										<li>In the event of any inconsistency between the Chinese and English versions of these terms and conditions, the English version shall prevail.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+		        	<!--  Savie Discount Modal End -->
+		        	<!-- Savie Discount End -->
      				
      		<ul class="availability-notice" style="padding-left: 10px;">
   				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
@@ -666,6 +919,7 @@ var home_url = "<%=request.getContextPath()%>";
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.loadImages.1.1.0.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/index.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/savie/savie-discount.js"></script>
 
 <!-- video Modal -->
 <div id="vModal" class="vModal modal fade">
