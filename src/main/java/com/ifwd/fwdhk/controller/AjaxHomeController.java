@@ -21,8 +21,8 @@ import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
-public class AjaxHomeLiabilityController extends BaseController{
-	private final static Logger logger = LoggerFactory.getLogger(AjaxHomeLiabilityController.class);
+public class AjaxHomeController extends BaseController{
+	private final static Logger logger = LoggerFactory.getLogger(AjaxHomeController.class);
 	
 	@Autowired
 	private RestServiceDao restService;

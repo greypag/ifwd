@@ -92,8 +92,7 @@ public class GAServiceImpl implements GAService {
 		
 		parameters.put("commencementDate", edate);
 		parameters.put("netFloorArea", homeCareDetails.getNetFloorArea());
-		//parameters.put("planCode", homeCareDetails.getPlanCode());
-		parameters.put("planCode", "EasyHomeCare");
+		parameters.put("planCode", homeCareDetails.getPlanCode());
 		parameters.put("correspondenceAddress", correspondenceAddress);
 		applicant.put("name", applicantName);
 		applicant.put("gender", "M");

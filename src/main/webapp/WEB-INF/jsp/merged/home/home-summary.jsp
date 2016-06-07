@@ -150,7 +150,7 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Applicant Summary <a href="javascript:void(0);" class="btn-edit">Edit</a></h3>
+                    <h3 class="heading-title">Applicant Summary <a href="<%=request.getContextPath()%>/${language}/home-liability-insurance/user-details" class="btn-edit">Edit</a></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12 tbl-summary">

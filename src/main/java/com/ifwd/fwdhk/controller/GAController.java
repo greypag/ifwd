@@ -76,11 +76,17 @@ public class GAController extends BaseController{
 	public ModelAndView getUserDetails(@PathVariable("plan") String plan, 
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		UserDetails editableUserDetails = (UserDetails)session.getAttribute("editableUserDetails");
+		HomeCareDetailsBean editableHomeCareDetails = (HomeCareDetailsBean)session.getAttribute("editableHomeCareDetails");
+		
 		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
 		session.setAttribute("theClubMembershipNo", theClubMembershipNo);
 		model.addAttribute("theClubMembershipNo", theClubMembershipNo);
 		
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null){
+				homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+			}
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
@@ -99,11 +105,14 @@ public class GAController extends BaseController{
 				mapArea = InitApplicationMessage.areaEN;
 			}
 			
+			
 			model.addAttribute("homeQuoteDetails", homeQuoteDetails);
 			model.addAttribute("districtList", districtList);
 			model.addAttribute("mapNetFloorArea", mapNetFloorArea);
 			model.addAttribute("mapArea", mapArea);
 			model.addAttribute("plan", plan);
+			model.addAttribute("editableUserDetails", editableUserDetails);
+			model.addAttribute("editableHomeCareDetails", editableHomeCareDetails);
 			
 			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS);
@@ -123,6 +132,9 @@ public class GAController extends BaseController{
 			CreatePolicy confirm = (CreatePolicy)session.getAttribute("confirm");
 			CreatePolicy createdPolicy = (CreatePolicy)session.getAttribute("createdPolicy");
 			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+			
+			session.setAttribute("editableUserDetails", userDetails);
+			session.setAttribute("editableHomeCareDetails", homeCareDetails);
 			
 			String totalDue = homeQuoteDetails.getTotalDue();
 			if(StringUtils.hasText(totalDue)) {

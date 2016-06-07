@@ -162,9 +162,15 @@ var plan="${plan}";
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet="true" maxlength="100"
-                                        	<c:if test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
-										    	value="${userDetails.fullName }" readonly="readonly"
-										    </c:if>>
+                                        	<c:choose>
+												<c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+											    	value="${userDetails.fullName }" readonly="readonly"
+											    </c:when>
+											    <c:otherwise>
+											    	value="${editableUserDetails.fullName }"
+											    </c:otherwise>
+											</c:choose>
+										    >
                                         <label class="mdl-textfield__label" for="applicantName">Full name (same as ID document)</label>
                                     </div>
                                     
@@ -180,7 +186,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-date">
-                                            <input class="mdl-textfield__input mobiscroll-date" type="text" id="dob" name="dob">
+                                            <input class="mdl-textfield__input mobiscroll-date" type="text" id="dob" name="dob" value="${editableUserDetails.dob}">
                                             <label class="mdl-textfield__label" for="dob">Date of birth</label>
                                         </div>
                                         
@@ -195,8 +201,8 @@ var plan="${plan}";
                                     <div class="mdl-select">
                                         <select id="apphkidandpassport" name="apphkidandpassport">
                                             <option value="" disabled selected></option>
-                                            <option value="appHkid">HKID</option>
-                                            <option value="appPassport">Passport</option>
+                                            <option value="appHkid" <c:if test="${editableUserDetails != null && editableUserDetails.hkid != ''}"> selected="selected"</c:if>>HKID</option>
+                                            <option value="appPassport" <c:if test="${editableUserDetails != null && editableUserDetails.passport != ''}"> selected="selected"</c:if>>Passport</option>
                                         </select>
                                         <label class="mdl-textfield__label" for="apphkidandpassport">HKID/Passport</label>
                                     </div>
@@ -210,7 +216,16 @@ var plan="${plan}";
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="hkId" name="hkId">
+                                            <input class="mdl-textfield__input" type="text" id="hkId" name="hkId"
+                                            	<c:choose>
+													<c:when test="${editableUserDetails != null && editableUserDetails.hkid != ''}">
+												    	value="${editableUserDetails.hkid }" 
+												    </c:when>
+												    <c:when test="${editableUserDetails != null && editableUserDetails.passport != ''}">
+												    	value="${editableUserDetails.passport }"
+												    </c:when>
+												</c:choose>
+                                            	>
                                             <label class="mdl-textfield__label" for="hkId">HKID/Passport no.</label>
                                         </div>
                                         
@@ -227,9 +242,15 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input class="mdl-textfield__input" type="tel" id="inputMobileNo" name="mobileNo"  maxlength="8"
-                                            	<c:if test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-											    	value="${userDetails.mobileNo}" readonly="readonly"
-											    </c:if>>
+                                            	<c:choose>
+													<c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+												    	value="${userDetails.mobileNo}" readonly="readonly"
+												    </c:when>
+												    <c:otherwise>
+												    	value="${editableUserDetails.mobileNo }"
+												    </c:otherwise>
+												</c:choose>
+												>
                                             <label class="mdl-textfield__label" for="mobileNo">Mobile number</label>
                                         </div>
                                         
@@ -243,9 +264,15 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input class="mdl-textfield__input" type="email" id="inputEmail" name="emailAddress" maxlength="50"
-                                            	<c:if test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-											    	value="${userDetails.emailAddress}" readonly="readonly"
-											    </c:if>>
+	                                            <c:choose>
+													<c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+												    	value="${userDetails.emailAddress}" readonly="readonly"
+												    </c:when>
+													    <c:otherwise>
+													    	value="${editableUserDetails.emailAddress }"
+													    </c:otherwise>
+													</c:choose>
+												>
                                             <label class="mdl-textfield__label" for="emailAddress">Email address</label>
                                         </div>
                                         
@@ -265,7 +292,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantRoom" name="applicantRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true" >
+                                        <input value="${editableHomeCareDetails.applicantRoom }" class="mdl-textfield__input" type="text" id="applicantRoom" name="applicantRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true" >
                                         <label class="mdl-textfield__label" for="applicantRoom">Room</label>
                                     </div>
                                     
@@ -278,7 +305,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantFloor" name="applicantFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantFloor }" class="mdl-textfield__input" type="text" id="applicantFloor" name="applicantFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantFloor">Floor</label>
                                     </div>
                                     
@@ -291,7 +318,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantBlock" name="applicantBlock"  maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantBlock }" class="mdl-textfield__input" type="text" id="applicantBlock" name="applicantBlock"  maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantBlock">Block</label>
                                     </div>
                                     
@@ -308,7 +335,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantBuilding" name="applicantBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantBuilding }" class="mdl-textfield__input" type="text" id="applicantBuilding" name="applicantBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantBuilding">Building</label>
                                     </div>
                                     
@@ -321,7 +348,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantEstate" name="applicantEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantEstate }" class="mdl-textfield__input" type="text" id="applicantEstate" name="applicantEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantEstate">Estate</label>
                                     </div>
                                     
@@ -338,7 +365,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantStreetNo }" class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantStreetNo">Street No.</label>
                                     </div>
                                     
@@ -351,7 +378,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantStreetName" name="applicantStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.applicantStreetName }" class="mdl-textfield__input" type="text" id="applicantStreetName" name="applicantStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="applicantStreetName">Street Name</label>
                                     </div>
                                     
@@ -373,10 +400,8 @@ var plan="${plan}";
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
-                                                <option
-                                                    value="${district.code}">
-                                                    <c:out
-                                                        value="${district.description}" />
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.applicantDistrict }"> selected="selected"</c:if>>
+                                                    <c:out value="${district.description}" />
                                                 </option>
                                             </c:forEach>
                                         </select>
@@ -397,7 +422,7 @@ var plan="${plan}";
                                         <select id="applicantArea" name="applicantArea">
                                             <option value="" disabled selected></option>
                                             <c:forEach var="areaList" items="${mapArea}">
-                                                <option value="${areaList.key}">
+                                                <option value="${areaList.key}" <c:if test="${areaList.key == editableHomeCareDetails.applicantArea }"> selected="selected"</c:if>>
                                                     <c:out value="${areaList.value}" />
                                                 </option>
                                             </c:forEach>
@@ -427,12 +452,21 @@ var plan="${plan}";
                                 <div class="fld-wrapper ctrl-insured-addr">
                                     <div class="row">
                                         <div class="col-xs-12 col-md-6">
-                                            <p class="fld-label">Insured address same as applicant's correspondence address</p>
+                                            <p class="fld-label">Insured address same as applicant's correspondence address${editableHomeCareDetails.cbSameCorrAddr != false}</p>
                                         </div>
                                         <div class="col-xs-12 col-md-6 cb-toggle">
                                             <div class="checkbox checkbox-slider--b checkbox-slider-md">
-                                                <label class="on">
-                                                   <i>No</i><input type="checkbox" name="cbSameCorrAddr" id="cbSameCorrAddr" checked data-txton="No" data-txtoff="Yes" checked><span></span><i>Yes</i>
+                                                <label
+                                                	<c:choose>
+														<c:when test="${editableHomeCareDetails.cbSameCorrAddr != false}">
+													    	class="on"
+													    </c:when>
+													    <c:otherwise>
+													    	class="off"
+													    </c:otherwise>
+													</c:choose>
+                                                	>
+                                                    <i>No</i><input type="checkbox" name="cbSameCorrAddr" id="cbSameCorrAddr" data-txton="No" data-txtoff="Yes" <c:if test="${editableHomeCareDetails.cbSameCorrAddr != false}">checked</c:if>><span></span><i>Yes</i>
                                                 </label>
                                             </div>
                                         </div>
@@ -443,7 +477,7 @@ var plan="${plan}";
                         </div>
                     </div>
 
-                    <div class="row insured-addr-more">
+                    <div class="row insured-addr-more" <c:if test="${!(editableHomeCareDetails.cbSameCorrAddr != false)}">style="display: block;"</c:if>>
 
                         <div class="col-xs-12">
                             <h4>Insured Address</h4>
@@ -453,7 +487,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aRoom" name="aRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aRoom }" class="mdl-textfield__input" type="text" id="aRoom" name="aRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aRoom">Room</label>
                                     </div>
                                     
@@ -466,7 +500,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aFloor" name="aFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aFloor }" class="mdl-textfield__input" type="text" id="aFloor" name="aFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aFloor">Floor</label>
                                     </div>
                                     
@@ -480,7 +514,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aBlock" name="aBlock" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aBlock }" class="mdl-textfield__input" type="text" id="aBlock" name="aBlock" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aBlock">Block</label>
                                     </div>
                                     
@@ -493,7 +527,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aBuilding" name="aBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aBuilding }" class="mdl-textfield__input" type="text" id="aBuilding" name="aBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aBuilding">Building</label>
                                     </div>
                                     
@@ -506,7 +540,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aEstate" name="aEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aEstate }" class="mdl-textfield__input" type="text" id="aEstate" name="aEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aEstate">Estate</label>
                                     </div>
                                     
@@ -519,7 +553,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aStreetNo" name="aStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aStreetNo }" class="mdl-textfield__input" type="text" id="aStreetNo" name="aStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aStreetNo">Street No.</label>
                                     </div>
                                     
@@ -532,7 +566,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="aStreetName" name="aStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
+                                        <input value="${editableHomeCareDetails.aStreetName }" class="mdl-textfield__input" type="text" id="aStreetName" name="aStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true">
                                         <label class="mdl-textfield__label" for="aStreetName">Street Name</label>
                                     </div>
                                     
@@ -549,10 +583,8 @@ var plan="${plan}";
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
-                                                <option
-                                                    value="${district.code}">
-                                                    <c:out
-                                                        value="${district.description}" />
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.aDistrict }"> selected="selected"</c:if>>
+                                                    <c:out value="${district.description}" />
                                                 </option>
                                             </c:forEach>
                                         </select>
@@ -571,7 +603,7 @@ var plan="${plan}";
                                         <select id="aArea" name="aArea">
                                             <option value="" disabled selected></option>
                                             <c:forEach var="areaList" items="${mapArea}">
-                                                <option value="${areaList.key}">
+                                                <option value="${areaList.key}" <c:if test="${areaList.key == editableHomeCareDetails.aArea }"> selected="selected"</c:if>>
                                                     <c:out value="${areaList.value}" />
                                                 </option>
                                             </c:forEach>
@@ -599,7 +631,7 @@ var plan="${plan}";
                                         <select id="netFloorArea" name="netFloorArea">
                                             <option value="" disabled selected></option>
                                             <c:forEach var="floorAreaList" items="${mapNetFloorArea}">
-                                                <option value="${floorAreaList.key}">
+                                                <option value="${floorAreaList.key}" <c:if test="${floorAreaList.key == editableHomeCareDetails.netFloorArea }"> selected="selected"</c:if>>
                                                     <c:out value="${floorAreaList.value}" />
                                                 </option>
                                             </c:forEach>
@@ -616,7 +648,7 @@ var plan="${plan}";
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-date">
-                                            <input class="mdl-textfield__input mobiscroll-date" type="text" id="effectdate" name="effectiveDate">
+                                            <input value="${editableHomeCareDetails.effectiveDate }" class="mdl-textfield__input mobiscroll-date" type="text" id="effectdate" name="effectiveDate">
                                             <label class="mdl-textfield__label" for="effectdate">Effective date of coverage</label>
                                         </div>
                                         

@@ -48,6 +48,14 @@ public class HomeCareDetailsBean {
 	private boolean checkbox3;
 	private boolean checkbox4;
 	
+	private boolean cbSameCorrAddr;
+	
+	public boolean isCbSameCorrAddr() {
+		return cbSameCorrAddr;
+	}
+	public void setCbSameCorrAddr(boolean cbSameCorrAddr) {
+		this.cbSameCorrAddr = cbSameCorrAddr;
+	}
 	public String getGrossPremium() {
 		return grossPremium;
 	}
