@@ -1051,7 +1051,7 @@ public class LifeController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/customer-service-centre"})
+	@RequestMapping(value = {"/{lang}/{plan}/customer-service-centre","/{lang}/{plan}/make-appointment"})
 	public ModelAndView getSavieOnlineLifeServiceCenter(@PathVariable("plan") String plan,Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
