@@ -79,11 +79,30 @@
 	        			<div class="row">
 	        				<div class="col-md-8" id="thankyou-message">
 	        					<h3 class="text-bold heading-title">
-	        					${plan == 'savings-insurance' ? '<fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" />':'Thank you for your application for EasyHealth Insurance Plan'}
+	        						<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.savie.copy1" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.easyhealth.copy1" bundle="${msg}" />
+	        						</c:if>
 	        					</h3>
 	        					<h3 class="visible-xs visible-sm" id="policy-no-mb">Policy no. <span class="policy-no">${lifePolicy.policyNo }</span></h3>
-	        					<p id="success-purchase"><fmt:message key="info.successful.purchase.copy.uploadlater1" bundle="${msg}" /></p>
-	        					<p><fmt:message key="info.successful.purchase.copy.uploadlater2" bundle="${msg}" /></p>
+	        					<p id="success-purchase">
+	        						<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.savie.copy2" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.easyhealth.copy2" bundle="${msg}" />
+	        						</c:if>
+	        					</p>
+	        					<p>
+	        						<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.savie.copy3" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.confirmation.upload.later.easyhealth.copy3" bundle="${msg}" />
+	        						</c:if>
+	        					</p>
 	        					<p id="reminder"><fmt:message key="link.eservice.Page" bundle="${msg}" /></p>
 	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
