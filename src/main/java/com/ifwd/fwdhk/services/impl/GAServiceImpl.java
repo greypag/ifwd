@@ -56,7 +56,7 @@ public class GAServiceImpl implements GAService {
 	@Autowired
 	protected ClientBrowserUtil clientBrowserUtil;
 	
-	public CreatePolicy createPolicy(HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception{
+	public CreatePolicy createPolicy(String plan, HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession();
 		String referralCode = (String)session.getAttribute("referralCode");
 		String theClubMembershipNo = (String)session.getAttribute("theClubMembershipNo");
@@ -141,12 +141,15 @@ public class GAServiceImpl implements GAService {
 		parameters.put("externalPartyCode", theClubMembershipNo);
 		
 		Map<String, String> header = headerUtil.getHeader(request);
-		logger.info("HOMELIABILITY_CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
-		JSONObject responsObject = restService
-				.consumeApi(HttpMethod.PUT,
-						UserRestURIConstants.HOMELIABILITY_CREATE_POLICY, header,
-						parameters);
-		logger.info("HOMELIABILITY_CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
+		logger.info(plan + " CREATE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+		String url;
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			url = UserRestURIConstants.HOMELIABILITY_CREATE_POLICY;
+		}else {
+			url = UserRestURIConstants.EASYHOME_CREATE_POLICY;
+		}
+		JSONObject responsObject = restService.consumeApi(HttpMethod.PUT, url, header, parameters);
+		logger.info(plan + " CREATE_POLICY Response" + JsonUtils.jsonPrint(responsObject));
 
 		CreatePolicy createdPolicy = new CreatePolicy();
 		if (responsObject.get("errMsgs") == null) {
@@ -166,7 +169,7 @@ public class GAServiceImpl implements GAService {
 		return createdPolicy;
 	}
 	
-	public JSONObject confirmPolicy(String referenceNo,
+	public JSONObject confirmPolicy(String plan, String referenceNo,
 			HttpServletResponse response, HttpServletRequest request)
 			throws Exception {
 		HttpSession session = request.getSession();
@@ -174,11 +177,15 @@ public class GAServiceImpl implements GAService {
 		
 		confirmPolicyParameter.put("referenceNo", referenceNo);
 		Map<String, String> header = headerUtil.getHeader(request);
-		logger.info("HOMELIABILITY_CONFIRM_POLICY Requset" + confirmPolicyParameter);
-		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-				UserRestURIConstants.HOMELIABILITY_CONFIRM_POLICY, header,
-				confirmPolicyParameter);
-		logger.info("HOMELIABILITY_CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		logger.info(plan + " CONFIRM_POLICY Requset" + confirmPolicyParameter);
+		String url;
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			url = UserRestURIConstants.HOMELIABILITY_CONFIRM_POLICY;
+		}else {
+			url = UserRestURIConstants.EASYHOME_CONFIRM_POLICY;
+		}
+		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, url, header, confirmPolicyParameter);
+		logger.info(plan + " CONFIRM_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
 		
 		CreatePolicy confirm = new CreatePolicy();
 		confirm.setSecureHash(JsonUtils.checkJsonObjNull(jsonResponse, "secureHash"));
@@ -192,20 +199,22 @@ public class GAServiceImpl implements GAService {
 		return jsonResponse;
 	}
 	
-	public JSONObject SubmitPolicy(String referenceNo,
+	public JSONObject SubmitPolicy(String plan, String referenceNo,
 			HttpServletResponse response, HttpServletRequest request, HttpSession session) {
 		JSONObject result = new JSONObject();
 		JSONObject submitPolicy = new JSONObject();
 		submitPolicy.put("referenceNo", referenceNo);
 		Map<String, String> header = headerUtil.getHeader(request);
 		
-		logger.info("HOMECARE_SUBMIT_POLICY Request" + JsonUtils.jsonPrint(submitPolicy));
-		JSONObject jsonResponse = restService.consumeApi(
-				HttpMethod.POST,
-				UserRestURIConstants.HOMECARE_SUBMIT_POLICY, header,
-				submitPolicy);
-		
-		logger.info("HOMECARE_SUBMIT_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
+		logger.info(plan + " SUBMIT_POLICY Request" + JsonUtils.jsonPrint(submitPolicy));
+		String url;
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			url = UserRestURIConstants.HOMECARE_SUBMIT_POLICY;
+		}else {
+			url = UserRestURIConstants.HOMECARE_SUBMIT_POLICY;
+		}
+		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, url, header, submitPolicy);
+		logger.info(plan + " SUBMIT_POLICY Response" + JsonUtils.jsonPrint(jsonResponse));
 		
 		if (JsonUtils.checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
 			if (JsonUtils.checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
@@ -228,7 +237,7 @@ public class GAServiceImpl implements GAService {
 		return result;
 	}
 	
-	public CreatePolicy finalizeHomeCarePolicy(String userName, String token,
+	public CreatePolicy finalizeHomeCarePolicy(String plan, String userName, String token,
 			String referenceNo, String transactionNumber,
 			String transactionDate, String creditCardNo, String expiryDate,
 			String emailId, String language, String paymentFail) throws Exception {
@@ -247,11 +256,15 @@ public class GAServiceImpl implements GAService {
 			parameters.put("expiryDate", expiryDate);
 			parameters.put("paymentFail", "1");
 			
-			logger.info("HOMELIABILITY_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
-			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY, header,
-					parameters);
-			logger.info("HOMELIABILITY_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+			logger.info(plan + " FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			String url;
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				url = UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY;
+			}else {
+				url = UserRestURIConstants.HOMECARE_FINALIZE_POLICY;
+			}
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST, url, header, parameters);
+			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 			return null;
 		} else {
 		
@@ -269,11 +282,15 @@ public class GAServiceImpl implements GAService {
 			parameters.put("creditCardNo", creditCardNo);
 			parameters.put("expiryDate", expiryDate);
 			
-			logger.info("HOMELIABILITY_FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
-			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY, header,
-					parameters);
-			logger.info("HOMELIABILITY_FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
+			logger.info(plan + " FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
+			String url;
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				url = UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY;
+			}else {
+				url = UserRestURIConstants.HOMECARE_FINALIZE_POLICY;
+			}
+			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST, url, header, parameters);
+			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 	
 			if (apiResponsObject.get("errMsgs") == null) {
 				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));

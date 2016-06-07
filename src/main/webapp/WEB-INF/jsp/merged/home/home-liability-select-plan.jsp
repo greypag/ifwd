@@ -552,6 +552,6 @@ $("#eh-select-plan-next").on("click",function(){
 });
 
 $("#home-liability-update").on("click",function(){
-	window.location = '<%=request.getContextPath()%>/${language}/home-insurance/${nextPageFlow2}';
+	window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
 });
 </script>

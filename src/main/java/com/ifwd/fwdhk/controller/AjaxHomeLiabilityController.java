@@ -10,13 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.Methods;
@@ -33,14 +33,14 @@ public class AjaxHomeLiabilityController extends BaseController{
 	@Autowired
 	private GAService gaService;
 	
-	@RequestMapping(value = {"/ajax/homeliability/processSummary"})
-	public void getQuote(@ModelAttribute("ef-form-application") HomeCareDetailsBean homeCareDetails,
+	@RequestMapping(value = {"/ajax/{plan}/processSummary"})
+	public void getQuote(@PathVariable("plan") String plan, @ModelAttribute("ef-form-application") HomeCareDetailsBean homeCareDetails,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		JSONObject result = new JSONObject();
 		try {
-			CreatePolicy createdPolicy = gaService.createPolicy(homeCareDetails, response, request);
+			CreatePolicy createdPolicy = gaService.createPolicy(plan, homeCareDetails, response, request);
 			if(createdPolicy.getErrMsgs() == null) {
-				result = gaService.confirmPolicy(createdPolicy.getReferenceNo(), response, request);
+				result = gaService.confirmPolicy(plan, createdPolicy.getReferenceNo(), response, request);
 				
 			}else {
 				result.put("errMsgs", createdPolicy.getErrMsgs());
@@ -51,13 +51,13 @@ public class AjaxHomeLiabilityController extends BaseController{
 		}
 		ajaxReturn(response, result);
 	}
-	@RequestMapping(value = {"/ajax/homeliability/submitPolicy"})
-	public void getSubmitPolicy(HttpServletRequest request,HttpServletResponse response,
+	@RequestMapping(value = {"/ajax/{plan}/submitPolicy"})
+	public void getSubmitPolicy(@PathVariable("plan") String plan, HttpServletRequest request,HttpServletResponse response,
 			HttpSession session) {
 		JSONObject result = new JSONObject();
 		String referenceNo = request.getParameter("referenceNo");
 		try {
-			result = gaService.SubmitPolicy(referenceNo, response, request, session);
+			result = gaService.SubmitPolicy(plan, referenceNo, response, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

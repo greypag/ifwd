@@ -47,7 +47,7 @@ public class GAController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
 	
 	@RequestMapping(value = {"/{lang}/{plan}"})
-	public ModelAndView getInsurance(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
+	public ModelAndView getInsurance(@PathVariable("plan") String plan, Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_LANDING);
 		}
@@ -66,8 +66,8 @@ public class GAController extends BaseController{
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
-		}else if(UserRestURIConstants.URL_HOME_CARE_LANDING.equals(plan)){
-			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN);
+		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
+			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
@@ -80,7 +80,7 @@ public class GAController extends BaseController{
 		session.setAttribute("theClubMembershipNo", theClubMembershipNo);
 		model.addAttribute("theClubMembershipNo", theClubMembershipNo);
 		
-		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
@@ -88,26 +88,35 @@ public class GAController extends BaseController{
 			String lang = UserRestURIConstants.getLanaguage(request);
 			List<DistrictBean> districtList;
 			Map<String, String> mapNetFloorArea;
+			Map<String, String> mapArea;
 			if(lang.equals("tc")) {
 				districtList = InitApplicationMessage.districtCN;
 				mapNetFloorArea = InitApplicationMessage.netFloorAreaCN;
+				mapArea = InitApplicationMessage.areaCN;
 			}else {
 				districtList = InitApplicationMessage.districtEN;
 				mapNetFloorArea = InitApplicationMessage.netFloorAreaEN;
+				mapArea = InitApplicationMessage.areaEN;
 			}
 			
 			model.addAttribute("homeQuoteDetails", homeQuoteDetails);
 			model.addAttribute("districtList", districtList);
 			model.addAttribute("mapNetFloorArea", mapNetFloorArea);
+			model.addAttribute("mapArea", mapArea);
+			model.addAttribute("plan", plan);
 			
-			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS);
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_USER_DETAILS);
+			}else {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_USER_DETAILS);
+			}
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/{plan}/summary"})
 	public ModelAndView getSummary(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
-		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
 			UserDetails userDetails = (UserDetails)session.getAttribute("applicantDetails");
 			HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean)session.getAttribute("homeCareDetails");
@@ -138,23 +147,23 @@ public class GAController extends BaseController{
 			String endDate = f.format(date.getTime());
 			String path = request.getRequestURL().toString();
 			
-			Map<String, String> areaList;
+			Map<String, String> mapArea;
 			List<DistrictBean> districtList;
 			Map<String, String> mapNetFloorArea;
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if(lang.equals("tc")) {
-				areaList = InitApplicationMessage.areaCN;
+				mapArea = InitApplicationMessage.areaCN;
 				districtList = InitApplicationMessage.districtCN;
 				mapNetFloorArea = InitApplicationMessage.netFloorAreaCN;
 			}else {
-				areaList = InitApplicationMessage.areaEN;
+				mapArea = InitApplicationMessage.areaEN;
 				districtList = InitApplicationMessage.districtEN;
 				mapNetFloorArea = InitApplicationMessage.netFloorAreaEN;
 			}
 			homeCareDetails.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getApplicantDistrict()));
-			homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getApplicantArea()));
+			homeCareDetails.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(mapArea, homeCareDetails.getApplicantArea()));
 			homeCareDetails.setaDistrictDesc(WebServiceUtils.getDistrictDesc(districtList, homeCareDetails.getaDistrict()));
-			homeCareDetails.setaAreaDesc(WebServiceUtils.getAreaDesc(areaList, homeCareDetails.getaArea()));
+			homeCareDetails.setaAreaDesc(WebServiceUtils.getAreaDesc(mapArea, homeCareDetails.getaArea()));
 			
 			homeCareDetails.setNetFloorAreaDesc(WebServiceUtils.getNetFloorAreaDesc(mapNetFloorArea, homeCareDetails.getNetFloorArea()));
 			
@@ -167,15 +176,20 @@ public class GAController extends BaseController{
 			String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
 			model.addAttribute("theClubMembershipNo", theClubMembershipNo);
 			model.addAttribute("homeQuoteDetails", homeQuoteDetails);
+			model.addAttribute("plan", plan);
 			
-			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY);
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SUMMARY);
+			}else {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SUMMARY);
+			}
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/{plan}/confirmation-ga"})
 	public ModelAndView getConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
-		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
 			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
@@ -221,7 +235,7 @@ public class GAController extends BaseController{
 				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
 			try {
-				CreatePolicy finalizePolicy = gaService.finalizeHomeCarePolicy(userName, token, referenceNo,
+				CreatePolicy finalizePolicy = gaService.finalizeHomeCarePolicy(plan, userName, token, referenceNo,
 						transactionNumber, transactionDate, creditCardNo, expiryDate, emailId, lang, paymentFail);
 				if (finalizePolicy.getErrMsgs() == null) {
 					HashMap<String, String> header = new HashMap<String, String>(
@@ -259,8 +273,13 @@ public class GAController extends BaseController{
 			model.addAttribute("emailID", emailId);
 			model.addAttribute("referenceNo", referenceNo);
 			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+			model.addAttribute("plan", plan);
 			
-			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
+			}else {
+				return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_CONFIRMATION);
+			}
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}

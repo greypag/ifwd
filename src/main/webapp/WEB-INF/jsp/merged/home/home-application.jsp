@@ -6,7 +6,8 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
-var context = "<%=request.getContextPath()%>";
+var context="<%=request.getContextPath()%>";
+var plan="${plan}"; 
 </script>
 
 <div class="fwd-savie-wrapper">
@@ -101,7 +102,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Promote Code</p>
-                                        <p class="fld-val"><span class="txt-promote-code">-</span></p>
+                                        <p class="fld-val"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -109,7 +110,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">The Club Member</p>
-                                        <p class="fld-val"><span class="txt-theclub-member">-</span></p>
+                                        <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -117,7 +118,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Original price</p>
-                                        <p class="fld-val">HK$420.00</p>
+                                        <p class="fld-val">HK$${homeQuoteDetails.grossPremium }</p>
                                     </div>
                                 </div>
                             </li>
@@ -125,7 +126,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Discount</p>
-                                        <p class="fld-val">HK$0.00</p>
+                                        <p class="fld-val">HK$${homeQuoteDetails.discountAmount }</p>
                                     </div>
                                 </div>
                             </li>
@@ -133,7 +134,7 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Amount due</p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">420.00</span></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -160,7 +161,10 @@ var context = "<%=request.getContextPath()%>";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet="true" maxlength="100">
+                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet="true" maxlength="100"
+                                        	<c:if test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+										    	value="${userDetails.fullName }" readonly="readonly"
+										    </c:if>>
                                         <label class="mdl-textfield__label" for="applicantName">Full name (same as ID document)</label>
                                     </div>
                                     
@@ -222,7 +226,10 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="tel" id="inputMobileNo" name="mobileNo"  maxlength="8">
+                                            <input class="mdl-textfield__input" type="tel" id="inputMobileNo" name="mobileNo"  maxlength="8"
+                                            	<c:if test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+											    	value="${userDetails.mobileNo}" readonly="readonly"
+											    </c:if>>
                                             <label class="mdl-textfield__label" for="mobileNo">Mobile number</label>
                                         </div>
                                         
@@ -235,7 +242,10 @@ var context = "<%=request.getContextPath()%>";
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="email" id="inputEmail" name="emailAddress" maxlength="50">
+                                            <input class="mdl-textfield__input" type="email" id="inputEmail" name="emailAddress" maxlength="50"
+                                            	<c:if test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+											    	value="${userDetails.emailAddress}" readonly="readonly"
+											    </c:if>>
                                             <label class="mdl-textfield__label" for="emailAddress">Email address</label>
                                         </div>
                                         
@@ -386,9 +396,11 @@ var context = "<%=request.getContextPath()%>";
                                     <div class="mdl-select">
                                         <select id="applicantArea" name="applicantArea">
                                             <option value="" disabled selected></option>
-                                            <option value="HK">Hong Kong</option>
-                                            <option value="KL">Kowloon</option>
-                                            <option value="NT">New Territories</option>
+                                            <c:forEach var="areaList" items="${mapArea}">
+                                                <option value="${areaList.key}">
+                                                    <c:out value="${areaList.value}" />
+                                                </option>
+                                            </c:forEach>
                                         </select>
                                         <label class="mdl-textfield__label" for="applicantArea">Area</label>
                                     </div>
@@ -558,9 +570,11 @@ var context = "<%=request.getContextPath()%>";
                                     <div class="mdl-select">
                                         <select id="aArea" name="aArea">
                                             <option value="" disabled selected></option>
-                                            <option value="HK">Hong Kong</option>
-                                            <option value="KL">Kowloon</option>
-                                            <option value="NT">New Territories</option>
+                                            <c:forEach var="areaList" items="${mapArea}">
+                                                <option value="${areaList.key}">
+                                                    <c:out value="${areaList.value}" />
+                                                </option>
+                                            </c:forEach>
                                         </select>
                                         <label class="mdl-textfield__label" for="aArea">Area</label>
                                     </div>
@@ -644,7 +658,11 @@ var context = "<%=request.getContextPath()%>";
 
 
 
-            <div class="row form-block">
+            <div class="row form-block"
+				<c:if test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+					hidden="hidden"
+				</c:if>>
+                
                 <div class="col-xs-12">
                     <h3 class="heading-title">Create FWD member account</h3>
                 </div>

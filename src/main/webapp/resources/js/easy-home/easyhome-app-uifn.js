@@ -896,7 +896,7 @@ $(document).ready(function(){
 	 			var geteWayUrl = $('#gateway').val();
 	 			$.ajax({
 					type : "POST",
-					url : contextPath + "/ajax/homeliability/submitPolicy",
+					url : contextPath + "/ajax/" + plan + "/submitPolicy",
 					data : form.serialize(),
 					async : false,
 					success : function(data) {
@@ -923,7 +923,7 @@ $(document).ready(function(){
 	$("#ef-form-application").submit(function(e){
 		$.ajax({
 			type: "POST",
-			url:contextPath+'/ajax/homeliability/processSummary',
+			url:contextPath+'/ajax/' + plan + '/processSummary',
 			data: $('#ef-form-application').serialize(),
 			success:function(data){
 				if(data.errMsgs == null) {

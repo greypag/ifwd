@@ -7,6 +7,7 @@
 <fmt:setBundle basename="messages" var="msg" />
 <script type="text/javascript">
 var context = "<%=request.getContextPath()%>";
+var plan="${plan}";
 </script>
 
 <div class="fwd-savie-wrapper">

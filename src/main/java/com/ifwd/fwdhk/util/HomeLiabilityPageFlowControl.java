@@ -96,7 +96,7 @@ public class HomeLiabilityPageFlowControl {
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
 			to = UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS;
-			to2 = UserRestURIConstants.URL_HOME_CARE_SELECT_PLAN;
+			to2 = UserRestURIConstants.URL_EASY_HOME_SELECT_PLAN;
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS: 
@@ -121,10 +121,10 @@ public class HomeLiabilityPageFlowControl {
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
 
-		String filePath = "";
-		if("home-liability-insurance".equals(plan)) {
-			filePath = "homeliability/";
-		}
+		String filePath = "home/";
+		/*if("home-liability-insurance".equals(plan)) {
+			filePath = "home/";
+		}*/
 		
 		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 

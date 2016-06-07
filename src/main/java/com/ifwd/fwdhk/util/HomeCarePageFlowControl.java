@@ -71,7 +71,7 @@ public class HomeCarePageFlowControl {
 
 		if (current != null) {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase(plan)){
-				current = UserRestURIConstants.PAGE_HOME_CARE_LANDING;
+				current = UserRestURIConstants.PAGE_EASY_HOME_LANDING;
 			} else {
 				current = getHomeCarePage(current);
 			}
@@ -86,12 +86,12 @@ public class HomeCarePageFlowControl {
 
 		switch (current) {
 
-		case UserRestURIConstants.PAGE_HOME_CARE_LANDING:
-			to = UserRestURIConstants.PAGE_HOME_CARE_SELECT_PLAN;
+		case UserRestURIConstants.PAGE_EASY_HOME_LANDING:
+			to = UserRestURIConstants.PAGE_EASY_HOME_SELECT_PLAN;
 			break;
 			
 		default:
-			to = UserRestURIConstants.PAGE_HOME_CARE_LANDING;
+			to = UserRestURIConstants.PAGE_EASY_HOME_LANDING;
 
 		}
 
@@ -102,7 +102,7 @@ public class HomeCarePageFlowControl {
 		model.addAttribute("nextPageFlow2", to2);
 
 		String filePath = "";
-		if("home-insurance".equals(plan)) {
+		if("esay-home-insurance".equals(plan)) {
 			filePath = "homecare/";
 		}
 		
@@ -115,11 +115,11 @@ public class HomeCarePageFlowControl {
 	}
 	
 	public static String getHomeCarePage(String url){	
-		if(url.endsWith(UserRestURIConstants.URL_HOME_CARE_LANDING)) {
-			return UserRestURIConstants.PAGE_HOME_CARE_LANDING;
+		if(url.endsWith(UserRestURIConstants.URL_EASY_HOME_LANDING)) {
+			return UserRestURIConstants.PAGE_EASY_HOME_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_HOME_CARE_SELECT_PLAN)) {
-			return UserRestURIConstants.PAGE_HOME_CARE_SELECT_PLAN;
+		if(url.endsWith(UserRestURIConstants.URL_EASY_HOME_SELECT_PLAN)) {
+			return UserRestURIConstants.PAGE_EASY_HOME_SELECT_PLAN;
 		}
 		return "";
 	}

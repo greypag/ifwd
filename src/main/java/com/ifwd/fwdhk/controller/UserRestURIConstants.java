@@ -311,9 +311,9 @@ public class UserRestURIConstants {
 	public static final String PAGE_HOME_LIABILITY_LANDING = "home-liability-landing";
 	public static final String PAGE_HOME_LIABILITY_SCREENING = "home-liability-screening";
 	public static final String PAGE_HOME_LIABILITY_SELECT_PLAN = "home-liability-select-plan";
-	public static final String PAGE_HOME_LIABILITY_USER_DETAILS = "home-liability-application";
-	public static final String PAGE_HOME_LIABILITY_SUMMARY = "home-liability-summary";
-	public static final String PAGE_HOME_LIABILITY_CONFIRMATION = "home-liability-confirmation";
+	public static final String PAGE_HOME_LIABILITY_USER_DETAILS = "home-application";
+	public static final String PAGE_HOME_LIABILITY_SUMMARY = "home-summary";
+	public static final String PAGE_HOME_LIABILITY_CONFIRMATION = "home-confirmation";
 	
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_LANDING = "home.liability.landing";
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_SCREENING = "home.liability.screening";
@@ -323,17 +323,26 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION = "home.liability.confirmation";
 	
 	/* Page Flow Control For Home Care */
-	public static final String URL_HOME_CARE_LANDING = "home-insurance";
-	public static final String URL_HOME_CARE_SCREENING = "screening";
-	public static final String URL_HOME_CARE_SELECT_PLAN = "select-plan";
+	public static final String URL_EASY_HOME_LANDING = "easy-home-insurance";
+	public static final String URL_EASY_HOME_SCREENING = "screening";
+	public static final String URL_EASY_HOME_SELECT_PLAN = "select-plan";
+	public static final String URL_EASY_HOME_USER_DETAILS = "user-details";
+	public static final String URL_EASY_HOME_SUMMARY = "summary";
+	public static final String URL_EASY_HOME_CONFIRMATION = "confirmation-ga";
 	
-	public static final String PAGE_HOME_CARE_LANDING = "homecare";
-	public static final String PAGE_HOME_CARE_SCREENING = "homecare-screening";
-	public static final String PAGE_HOME_CARE_SELECT_PLAN = "homecare-select-plan";
+	public static final String PAGE_EASY_HOME_LANDING = "homecare";
+	public static final String PAGE_EASY_HOME_SCREENING = "homecare-screening";
+	public static final String PAGE_EASY_HOME_SELECT_PLAN = "homecare-select-plan";
+	public static final String PAGE_EASY_HOME_USER_DETAILS = "home-application";
+	public static final String PAGE_EASY_HOME_SUMMARY = "home-summary";
+	public static final String PAGE_EASY_HOME_CONFIRMATION = "home-confirmation";
 	
-	public static final String PAGE_PROPERTIES_HOME_CARE_LANDING = "homecare.landing";
-	public static final String PAGE_PROPERTIES_HOME_CARE_SCREENING = "homecare.screening";
-	public static final String PAGE_PROPERTIES_HOME_CARE_SELECT_PLAN = "homecare.select.plan";
+	public static final String PAGE_PROPERTIES_EASY_HOME_LANDING = "homecare.landing";
+	public static final String PAGE_PROPERTIES_EASY_HOME_SCREENING = "homecare.screening";
+	public static final String PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN = "homecare.select.plan";
+	public static final String PAGE_PROPERTIES_EASY_HOME_USER_DETAILS = "easy.home.application";
+	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
+	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
 	
 	/* Page Flow Control For savie online */
 	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";
