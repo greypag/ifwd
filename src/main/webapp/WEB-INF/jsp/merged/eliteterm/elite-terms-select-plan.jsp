@@ -2386,7 +2386,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="no-policy-replace-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
-									<label for="no-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></label>
+									<label for="no-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
 								</div>
 							</div>
 						</div>
@@ -2398,7 +2398,7 @@ var home_url = "<%=request.getContextPath()%>";
 										for="yes-policy-replace-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
-									<label for="yes-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.have" bundle="${msg}" /></label>
+									<label for="yes-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
 									<span class="note"><fmt:message
 											key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
 								</div>

@@ -282,7 +282,7 @@ function checkPromoCodePlaceholder(){
 						Double.parseDouble(planQuote.getTotalDue()))%></div>
 											<span class="del actualPrice"><del>
 													<%
-														if (Double.parseDouble(planQuote.getDiscountAmount()) < 0) {
+														if (Double.parseDouble(planQuote.getDiscountAmount()) != 0) {
 													%><%=String.format("%.2f",
 							Double.parseDouble(planQuote.getGrossPremium()))%>
 													<%

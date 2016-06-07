@@ -24,13 +24,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
-public class ECommController {
+public class ECommController extends BaseController {
 	@Autowired
 	private SendEmailDao sendEmail;
 	@Autowired
@@ -184,6 +186,61 @@ public class ECommController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 
+	@RequestMapping(value = {"/cx/{lang}", "/cx/{lang}/"})
+	public ModelAndView getCxHomePage(HttpServletRequest request,HttpServletResponse response, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t1");
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t1");
+	}
+
+	@RequestMapping(value = {"/cx/{lang}/step2"})
+	public ModelAndView getCxStep2(HttpServletRequest request,HttpServletResponse response, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t2");
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t2");
+	}
+
+	@RequestMapping(value = {"/cx/{lang}/step3"})
+	public ModelAndView getCxStep3(HttpServletRequest request,HttpServletResponse response, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t3");
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t3");
+	}
+
+	@RequestMapping(value = {"/cx/{lang}/step4"})
+	public ModelAndView getCxStep4(HttpServletRequest request,HttpServletResponse response, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t4");		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t4");
+	}
+
+	@RequestMapping(value = {"/cx/{lang}/login"})
+	public ModelAndView getCxLogin(HttpServletRequest request,HttpServletResponse response, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		model.addAttribute("pageClass", "en t8");		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/cx/t8");
+	}
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/cx/action"})
+	public void getCxAction(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if (request.getParameter("step").equals("get_flight")){
+			if (!request.getParameter("flight_num").equals("CX337")){
+				jsonObject.put("errorMsg", "fail");
+			}
+		} else {
+			jsonObject.put("data", "pass");		
+		}
+		
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = "/{lang}/fwdiscover")
 	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
 		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.discover", UserRestURIConstants.getLanaguage(request)));
@@ -198,6 +255,7 @@ public class ECommController {
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
 		int[] indexs = {5, 6, 7, 8, 9};
+		
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
@@ -210,8 +268,15 @@ public class ECommController {
 	    int month = cal.get(java.util.Calendar.MONTH);
 	    int day = cal.get(java.util.Calendar.DAY_OF_MONTH);
 	    int hour = cal.get(java.util.Calendar.HOUR_OF_DAY);
-	    
+
+		/* savie voucher */
+	    if (month == 4 && request.getParameter("regular")==null) {
+	    	if ((day == 21 && hour >= 15) || (day >= 22 && day < 31) || (day == 31 && hour < 15)) {
+				indexs = new int[]{13};
+	    	}
+	    }	    	   
 	    int hotelVoucherCampaignId = -1;
+/*
 	    if (month == 3 && day <= 30) {
 	        if (day == 20) {
 	        	if (hour >= 15) {
@@ -253,10 +318,11 @@ public class ECommController {
 	        	}
 	        }
 	    }
-	    
 	    if (request.getParameter("hid")!=null) {
 	    	hotelVoucherCampaignId = Integer.parseInt(request.getParameter("hid").toString());
-	    }
+	    }	    
+*/
+
 	    if (hotelVoucherCampaignId != -1) {
 		    switch(hotelVoucherCampaignId) {
 			    case 14:
@@ -309,31 +375,31 @@ public class ECommController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="30-06-2016";
+						date="31-08-2016";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;

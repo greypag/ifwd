@@ -104,6 +104,7 @@ public class PolicyApplication{
 	private String createBy;
 	private String amount;
 	private String policyNo;
+	private String chequeNo;
 	
 	public String getLastUpdateBy() {
 		return lastUpdateBy;
@@ -724,6 +725,12 @@ public class PolicyApplication{
 	}
 	public void setAccountHolderName(String accountHolderName) {
 		this.accountHolderName = accountHolderName;
+	}
+	public String getChequeNo() {
+		return chequeNo;
+	}
+	public void setChequeNo(String chequeNo) {
+		this.chequeNo = chequeNo;
 	}
 	
 	

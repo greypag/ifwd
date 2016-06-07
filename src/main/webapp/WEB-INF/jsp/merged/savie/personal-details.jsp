@@ -633,7 +633,7 @@ maxlength="19"/>
 					<div style="overflow: hidden;">
 						<a id="getPromotionClose" class="close" aria-label="Close"
 							data-dismiss="modal"> <span aria-hidden="true"
-							style="font-size: 30px;">Ã—</span>
+							style="font-size: 30px;">×</span>
 						</a>
 					</div>
 					<div class="form-container">

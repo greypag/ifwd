@@ -325,7 +325,7 @@
                   </div>
                </div>
             </section>
-            
+
             <!-- 
                FEATURES PLAN MOBILE VERSION 
             -->
@@ -386,6 +386,10 @@
                </div>
             </section>
             
+            <div class="content-disclaimer">
+               <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+            </div>
+            
             <!-- TESTIMONIALS DESKTOP -->
 			
 			<!--
@@ -423,7 +427,7 @@
                   </div>
                </div>
             </section>
-            
+
             <!-- TESTIMONIALS MOBILE 
             <section id="et-testimonials-mob" class="hidden-lg hidden-md" data-ride="carousel" data-interval="false">
                <div class="carousel slide">
@@ -478,7 +482,7 @@
             </section>-->
             
             <a href="#" title="Get Quote" class="et-get-qoute hide-element hidden-md hidden-lg">
-               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/get-qoute.png" alt="get-qoute.png" />
+               <img src="<%=request.getContextPath()%><fmt:message key="elite.term.btn.get.qoute" bundle="${msg}" />" alt="get-qoute.png" />
             </a>
                               
          </div>

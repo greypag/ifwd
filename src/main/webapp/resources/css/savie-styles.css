@@ -2173,7 +2173,7 @@ a.eserv-link:hover {
   background-color: #032c30;
   color: #ffffff;
   font-family: 'Calibri-Bold';
-  font-size: 40px;
+  font-size: 30px;
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid #ffffff;
   padding: 25px;
@@ -2257,7 +2257,7 @@ a.eserv-link:hover {
 @media screen and (min-width: 992px) {
   /* line 651, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-collapse-content .psa-content .description {
-    min-height: 230px;
+    min-height: 200px;
   }
 }
 /* line 659, ../sass/partials/savie/_homepage.scss */

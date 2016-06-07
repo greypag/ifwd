@@ -8573,13 +8573,6 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 		width: 80%;
 		margin-left: 10%;
 	}
-	.partner_heading .h4-5 {
-		text-align: center;
-	}
-	.partner_container {
-		width: 80%;
-		margin-left: 10%;
-	}
 	.partner_content {
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -8592,6 +8585,9 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	.partner_image_container {
 		text-align: center;
 		margin-bottom: 50px;
+	}
+	.desc_sublist{
+		padding-left: 20px;
 	}
 }
 /***** partner *****/
@@ -11322,6 +11318,12 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 #header .top-bar .livechat_button:hover{
 	cursor: pointer;
 }
+.livechat_button{
+	font-size: 18px;
+}
+.lang-btn-grp > li{
+	line-height:40px;
+}
 #success-message-password,#forgotpassword-err-msg,#success-message,#login-err-msg{
 	/*background-color: transparent;
     border: none;*/
@@ -11825,6 +11827,24 @@ body.chin .partner-headline-wrapper .headline-title{
 	}
 }
 
+
+
+#business-partners-container img.csl_logo {
+    transform: none;
+  }
+  
+#business-partners-container img.club_logo {
+    margin-top: 30px;
+}
+#business-partners-container img.agoda_logo {
+    margin-top: 15px;
+}
+  
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container #partners-logo #csl {
+    width: 65px;
+    padding-left: 10px;
+}
+
 /* added on 20160504 */
 #main-slider #freeFlight #myFWDropdown .dropdown-menu.bdr1,
 #main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1{
@@ -11835,6 +11855,22 @@ body.chin .partner-headline-wrapper .headline-title{
 #main-slider #frmTravelGetQuoteDesk #myFWDropdown .dropdown-menu.bdr1 h4{
     line-height: 1.1;
     margin: 2px 0 10px 0;
+}
+@media screen and (min-width: 992px) and (max-width: 1070px) {
+	#tdp1 input.datepicker.form-control.border-radius, #tdp2 input.datepicker.form-control.border-radius {
+	font-size: 18px;
+}	
+}
+
+.content-disclaimer{
+	margin: 30px auto;
+	line-height: 15px;
+	font-size: 14px;
+	width: 80%;
+}
+
+.content-disclaimer a{
+	color: #ff8200;
 }
 
 /* BEM Naming for faq page Start 20160513 */

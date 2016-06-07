@@ -1055,7 +1055,7 @@ var FNArecommendation = {
 			validName = true;
 		}
 
-
+/*
 		if(email == ""){
 			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.empty"));
 			validEmail = false;
@@ -1084,7 +1084,54 @@ var FNArecommendation = {
 			$("#errFNAinputMobileNo").text("");
 			validMobile = true;
 		}
+*/
 
+//both empty
+		if(email == "" && mobileno == ""){
+			$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.empty"));
+			$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.empty"));
+			validEmail = false;
+			validMobile = false;
+//email empty but mobile not empty
+		}else if (email == "" && mobileno != ""){
+			if(!mobile_pattern.test(mobileno)){
+				$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.invalid"));
+				validMobile = false;
+			}else{
+				$("#errFNAinputMobileNo").text("");
+				validMobile = true;
+			}
+			$("#errFNAinputEmail").text("");
+			validEmail = true;
+//email not empty but mobile empty
+		}else if (email != "" && mobileno == ""){
+			if(!emailreg.test(email)){
+				$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.invalid"));
+				validEmail = false;
+			}else{
+				$("#errFNAinputEmail").text("");
+				validEmail = true;
+			}
+			$("#errFNAinputMobileNo").text("");
+			validMobile = true;
+//both not empty
+		}else if (email != "" && mobileno != ""){
+			if (!emailreg.test(email)){
+				$("#errFNAinputEmail").text(getBundle(getBundleLanguage, "form.email.invalid"));
+				validEmail = false;
+			}else{
+				$("#errFNAinputEmail").text("");
+				validEmail = true;
+			}
+			if (!mobile_pattern.test(mobileno)){
+				$("#errFNAinputMobileNo").text(getBundle(getBundleLanguage, "form.mobile.invalid"));
+				validMobile = false;
+			}else{
+				$("#errFNAinputMobileNo").text("");
+				validMobile = true;
+			}
+		}
+	
 		return validName && validEmail && validMobile;		
 	}
 

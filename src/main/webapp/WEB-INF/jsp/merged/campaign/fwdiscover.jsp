@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.Date" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.Date,com.ifwd.fwdhk.util.WebServiceUtils,com.ifwd.fwdhk.controller.UserRestURIConstants" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -27,19 +28,25 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-05-15 11:59:59").getTime();
-    
+    long cStart = cformat.parse("2016-06-30 14:59:59").getTime();
+    //cCurrent =  cformat.parse("2016-06-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
     */
     //hotelVoucherCampaignId = 14;
-    //cCurrent = cformat.parse("2016-04-30 12:00:00").getTime();
+    
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "";
     String countDownMM = "";
+    String countDownDate_special = "2016-05-21 14:59:59";
+    String countDownDate_regular = "2016-05-31 14:59:59";
+    String countDownDate_regular2 = "2016-06-30 14:59:59";
+    String lang = UserRestURIConstants.getLanaguage(request);
+    String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
+    boolean isRegSpecial = false;
     if( cCurrent <= hotelcEnd && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1)){
     	isRegPromo = false;
     	switch(hotelVoucherCampaignId){
@@ -75,17 +82,40 @@
             	break;             	
     	}       
     } else {
-        countDownDate = "2016-05-31 14:59:59";
+        //Regular Offer Period
+        countDownDate = countDownDate_regular;
         countDownDD = "31";
-        countDownMM = "May";    	
-    	if(cCurrent > cStart /*&& cCurrent < hotelcStart*/){
+        countDownMM = "May";
+
+        //Special Offer Period
+        if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime() && request.getParameter("regular")==null){
+        	isRegSpecial = true;
+    		countDownDate = countDownDate_special;
+            countDownDD = "21";
+            countDownMM = "May";        	
+        }else if(cCurrent >= cformat.parse("2016-05-21 15:00:00").getTime() && cCurrent <= cformat.parse("2016-05-31 14:59:59").getTime() && request.getParameter("regular")==null){
+            isRegSpecial = true;
+            countDownDate = countDownDate_regular;
+            countDownDD = "31";
+            countDownMM = "May";
+        }else if(cCurrent >= cformat.parse("2016-05-31 15:00:00").getTime() && cCurrent <= cformat.parse("2016-06-31 14:59:59").getTime() && request.getParameter("regular")==null){
+            isRegSpecial = false;
+            countDownDate = countDownDate_regular2;
+            countDownDD = "30";
+            countDownMM = "June";
+        }
+
+        //Regular Offer ends Period
+    	if(cCurrent >= cStart /* || 
+           (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
+           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime())  */
+           /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
             countDownDD = "15";
             countDownMM = "May";*/    		
     	}
     }
-
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
@@ -130,7 +160,7 @@
                         </div>
 
                         <div class="fwdiscover-timer pull-right">
-                            <p class="hurry"><fmt:message key="Fanfare.landingpage.timerword" bundle="${msg}" /></p>
+                            <p class="hurry"><%=offerCountDownLabel%></p>
                             <div class="clearfix">
                                 <!-- month -->
                                 <div class="timer-holder month-holder">
@@ -255,7 +285,7 @@
                         </a>
                     </div>
                 </div>
-                <% } else { %>
+                <% } else if(isRegPromo == true && isRegSpecial == false) { %>
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
                     
                     <!-- Carousel items -->
@@ -265,8 +295,8 @@
                                 
                                 
                                 
-								<%--<% if(isRegPromo==true){ %>
-                                <div class="col-xs-4">
+								<%--<% if(isRegSpecial==true && isRegPromo==true){%>
+								<div class="col-xs-4">
                                     <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_thumbnail.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm long-text">
                                         <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
@@ -308,13 +338,13 @@
                                     <span class="text-center">
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
                                     </span>
-                                </div>                                
+                                </div>                                                                
                             </div>
                             <!--/row-->
                         </div>  
 
                         <div class="item">
-                            <div class="row">                          
+                            <div class="row">                                                      
                                 <div class="col-xs-4">
                                     <a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
@@ -606,8 +636,8 @@
                 <% } else { %>
                 <!-- Hotel Promotion End -->          
                 <!-- CNY PROMOTION START -->
-                <%--<%
-                    if (isRegPromo) {
+                <%
+                    if (isRegSpecial==true && isRegPromo==true) {
                 %>
                     <div class="fwdiscover-plan">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
@@ -616,7 +646,8 @@
                             <div class="plan-desc">
                                 <div class="upper-desc">
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
@@ -632,13 +663,13 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate.speical" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate.speical.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -651,8 +682,8 @@
                     </div>
                     <!-- end CNY PROMOTION -->
                 <%
-                    } 
-                %> --%>      
+                    } else if (isRegSpecial==false && isRegPromo==true){
+                %>   
                     <!-- first plan -->
                     <div class="fwdiscover-plan <%=disableOfferClass%>">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
@@ -871,6 +902,7 @@
                 </div>
                 <!-- end PLANS -->
                 <% } %>
+                <% } %>
                 <!-- Hotel Partner Start -->
                 <% if (isRegPromo == false) { %>
                 <div class="hotel-partner-wrapper">
@@ -1048,7 +1080,8 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /></p>
+                            <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span><br><span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
 
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
@@ -2144,8 +2177,8 @@
                 success : function(data) {
                 	console.log(data);
                     $('.modal').modal('hide');
-                    var key = "Fanfare.offername"+data["index"];
-                    var tncKey = "Fanfare.offer.tnc"+data["index"];
+                    var key = "Fanfare.offername"+campaignId;
+                    var tncKey = "Fanfare.offer.tnc"+campaignId;
                     var fmt = getBundle(getBundleLanguage, key);
                     var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
                     if(data["result"]=="success"){
@@ -2190,6 +2223,13 @@
 				<%                		
                 	}
                 %>
+                <%
+	            	if (request.getParameter("savie")!=null) {
+				%>
+	            data : "savie=Y",                
+				<%                		
+	            	}
+	            %>                
                 success : function(data) {
                     $(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
                         $(this).html(data["count"+index]);
@@ -2214,7 +2254,7 @@
             }else if("9"==campaignId){
                 link="working-holiday-insurance?promo="+code;
             }else if("13"==campaignId){
-                link="savings-insurance";
+                link="savings-insurance?promo="+code;
             }
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);                      
@@ -2250,7 +2290,11 @@
             );
 
        });
-
+		function setPlanName(campaignId){
+            var planNameKey = "Fanfare.offername"+ campaignId;
+            var fmtPlanName = getBundle(getBundleLanguage, planNameKey);
+            $('#offer-details-promotion-code').find(".title:first").html(fmtPlanName);
+		}
         $(window).load(function () {
             $('#offer-announce').modal('show');
             if(msieversion() < 1) {
@@ -2259,7 +2303,7 @@
             $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
             if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
                 $('.modal').modal('hide');
-                $('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
+                //$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseId}" bundle="${msg}" />');
                 if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
                     $('#offer-details-promotion-code-error-sold').modal('show');
                 }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
@@ -2271,6 +2315,7 @@
                     }else{
 	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 	                    $('#offer-details-promotion-code').modal('show');
+	                    setPlanName("${chooseId}");
 	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
                         setTnCLink("${chooseId}");
                     }

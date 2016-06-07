@@ -150,6 +150,14 @@ $(function() {
     ogDesc = (ogDesc=='')?defaultOg[UILANGUAGE]['desc']:ogDesc;
     ogUrl = (ogUrl=='')?defaultOg[UILANGUAGE]['url']:ogUrl;
     ogImg = (ogImg=='')?defaultOg[UILANGUAGE]['img']:ogImg;
+    
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1684174765175679',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
 
     window.fbAsyncInit = function() {
       FB.init({
@@ -189,7 +197,13 @@ $(function() {
 /*     $('#fb-dialog-share').click(function(e) {
     	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }); */
-
+    //facebook sharer php old api
+    /*$('#fb-dialog-share').click(function(e) {
+    	//facebook sharer php not working if image parameter is passed(not sure deprecated) . Discovered on 2016-05-04
+    	//window.open('http://www.facebook.com/sharer.php?s=100&p[url]=' + ogUrl + '&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + ogUrl, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    	//window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    });*/
+     
     /*
     function navbarLogoSticky(){
         if(window.pageYOffset<35){

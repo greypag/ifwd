@@ -80,6 +80,7 @@
 						</div>
 						<div class="login-button-group">
 						    <input id="fna-check" type="hidden" name="fna" value="false">
+						    <input id="forcefna" type="hidden" name="forcefna" value="false">
                             <input id="nav-bar-check" type="hidden" name="isNavBar" value="true">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
 								class="cta-confirm cta-font cta-orange cta-padding-40">
@@ -616,8 +617,14 @@
 
 
        $(document).ready(function(){
+           $( "#fwd-login-desk" ).on( "click", function() {
+               $('#loginpopup #forcefna').val("false");
+           });     	   
+    	   $( "#fwd-login-mob" ).on( "click", function() {
+    		   $('#loginpopup #forcefna').val("false");
+    	   });    	   
 	   	   $('#loginpopup').on('hidden.bs.modal', function () {
-		   		console.log("fna-cnacel");
+		   		//console.log("fna-cnacel");
 		   		$('#loginpopup #fna-check').val("false");
 	   	   })
            $('html').keyup(function(e){

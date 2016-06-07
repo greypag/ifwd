@@ -468,7 +468,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <div class="clearfix"></div>
   </section>
 
-
+<div class="content-disclaimer">
+   <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+</div>
 
 <section class="blog-item hidden-sm hidden-xs">
   <div class="container">

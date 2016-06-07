@@ -664,7 +664,7 @@ public class LifeServiceImpl implements LifeService {
     	    	attributeList.add(new PdfAttribute("beneficiaryEnglishName1", "Own Estate"));
     	    }
     	    
-    	    //attributeList.add(new PdfAttribute("entitlement1", "100"));
+    	    attributeList.add(new PdfAttribute("entitlement1", "100"));
 	    }
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
@@ -1228,7 +1228,7 @@ public class LifeServiceImpl implements LifeService {
 	        		}
 	        		allGroupName += groupNames.get(allGroups[a]);
 	            }
-	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3a", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
 	        }
 	        String[] group = productGroups.split(",");
 	        String notMatchGrp = "";
@@ -1250,7 +1250,7 @@ public class LifeServiceImpl implements LifeService {
 	        		}
 	            	allObjName += objectiveNames.get(allObj[a]);
 	            }
-	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3b", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
 	        }
 	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
 	        	if (case3aMsg.equals(case3bMsg)){
@@ -1924,6 +1924,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1968,6 +1969,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2033,6 +2035,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2077,6 +2080,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2135,6 +2139,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2581,6 +2586,13 @@ public class LifeServiceImpl implements LifeService {
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());
+			
+			if(policyApplication.getResumeViewPage().endsWith("personal-details")){
+				request.getSession().setAttribute("fatcaYes", "fatcaYes");   
+			}
+			if(policyApplication.getResumeViewPage().endsWith("declaration")){
+				request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
+			}
 		}
 		return apiResponse;
 	}
@@ -3178,6 +3190,9 @@ public class LifeServiceImpl implements LifeService {
 		}else if("offlineApplication".equals(action)) {
 			subject = "Appointment Acknowledgement from FWD | 富衛預約申請確認";
 			template = "savie\\offlineApplication.html";
+		}else if("offlineApplication-rp".equals(action)) {
+			subject = "Savie Appointment Acknowledgement | 自助息理財預約申請確認";
+			template = "savie\\offlineApplication-rp.html";
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
 			template = "savie\\saveLater.html";
