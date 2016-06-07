@@ -102,7 +102,7 @@ public class HomeCarePageFlowControl {
 		model.addAttribute("nextPageFlow2", to2);
 
 		String filePath = "";
-		if("esay-home-insurance".equals(plan)) {
+		if("easy-home-insurance".equals(plan)) {
 			filePath = "homecare/";
 		}
 		

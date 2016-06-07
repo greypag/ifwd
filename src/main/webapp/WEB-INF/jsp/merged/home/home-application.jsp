@@ -719,7 +719,7 @@ var plan="${plan}";
             </div>
 
             <div class="btn-row text-center">
-                <a href="javascript:void(0);" class="btn-app eh-btn-back">Back</a>
+                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back">Back</a>
                 <a href="javascript:void(0);" class="btn-app eh-btn-next">Next</a>
             </div>
             
@@ -736,12 +736,8 @@ var plan="${plan}";
 		
     </div>
 </div>
-
-<%-- <script type="text/javascript">
-$(document).ready(function() {
-	$(".eh-btn-next").click(function() {
-		window.location="<%=request.getContextPath()%>/${language}/home-liability-insurance/summary";
-	});
-});
+<script type="text/javascript">
+function BackMe() {
+    window.history.back();
+}
 </script>
- --%>
