@@ -229,7 +229,6 @@
                             url : '<%=request.getContextPath()%>/forgotUser',
                             data : $('#forgotUserNameForm input').serialize(),
                             success : function(data) {
-
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
@@ -271,11 +270,6 @@
 				commandName="forgotUserPassword" style="display: none">
 
 				<div class="login-form">
-
-                 <div id="forgotpassword-err-msg" class="color-red heading-h5"
-                     role="alert" style="display: none;">
-                     <P id="error1"></P>
-                 </div>
                  <div id="success-message-password" class="alert alert-success"
                      role="alert" style="display: none;">
                      <P id="error1"></P>
@@ -405,6 +399,10 @@
 
 						</div>
 	                    <div id="hide-field"></div>
+		                 <div id="forgotpassword-err-msg" class="color-red heading-h5"
+		                     role="alert" style="display: none;">
+		                     <P id="error1"></P>
+		                 </div>	                    
 						</div>
 
 
