@@ -1426,7 +1426,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<span class="text-red" id="errClubMemberID"></span>
 											<%--inputBox--%>
 											<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
-												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 												<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 											</div>
 											<%--links--%>
@@ -1445,7 +1445,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
 											<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 										</div>
-									</div>--%>
+									</div>
 									<!-- The Club Membership popup -->
 									<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
 										role="dialog" aria-hidden="true" style="display: none;">
@@ -1482,7 +1482,7 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 										</div>
 									</div>
-									<%--<!--/ The Club Membership popup -->
+									<!--/ The Club Membership popup -->--%>
 									<script>
 									function chkClubMember() {
 										$(".errDue").html('');
@@ -1512,7 +1512,7 @@ var home_url = "<%=request.getContextPath()%>";
 										}
 										return flag;
 								}
-								</script>--%>
+								</script>
 								</div>
 								<%-- 2016memberID - end --%>
 
@@ -4056,7 +4056,7 @@ var home_url = "<%=request.getContextPath()%>";
 
   		//applicant dob
   		$(document).on('click', '#et-personal-info-next', function(e) {
-  			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
+  			if( $('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="" && chkClubMember() ) {
   				$('#eliteTermsInsuredInfoForm')
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');

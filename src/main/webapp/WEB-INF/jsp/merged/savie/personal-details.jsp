@@ -607,7 +607,7 @@ maxlength="19"/>
 			<span class="text-red" id="errClubMemberID"></span>
 			<%--inputBox--%>
 			<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
-				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 				<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 			</div>
 			<%--links--%>
@@ -966,7 +966,7 @@ if (msieversion() >= 9) {
 
 $("#et-personal-info-next, #btn-back").click(function () {
 	$('#soInsuredInfoForm').bootstrapValidator('validate');
-	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid() && chkClubMember()) {
 		/*if ( $('#gender-errormsg').hasClass('has-error') ) {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
 					} else {
