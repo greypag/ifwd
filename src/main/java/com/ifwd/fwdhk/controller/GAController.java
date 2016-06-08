@@ -32,7 +32,6 @@ import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.HomeCarePageFlowControl;
 import com.ifwd.fwdhk.util.HomeLiabilityPageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.Methods;
@@ -51,6 +50,9 @@ public class GAController extends BaseController{
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_LANDING);
 		}
+		else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
+		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
@@ -58,6 +60,9 @@ public class GAController extends BaseController{
 	public ModelAndView getScreening(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SCREENING);
+		}
+		else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SCREENING);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
@@ -82,7 +87,7 @@ public class GAController extends BaseController{
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
 		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
-			return HomeCarePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN);
+			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}

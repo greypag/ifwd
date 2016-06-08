@@ -309,7 +309,7 @@ public class UserRestURIConstants {
 	public static final String URL_HOME_LIABILITY_CONFIRMATION = "confirmation-ga";
 	
 	public static final String PAGE_HOME_LIABILITY_LANDING = "home-liability-landing";
-	public static final String PAGE_HOME_LIABILITY_SCREENING = "home-liability-screening";
+	public static final String PAGE_HOME_LIABILITY_SCREENING = "home-screening";
 	public static final String PAGE_HOME_LIABILITY_SELECT_PLAN = "home-liability-select-plan";
 	public static final String PAGE_HOME_LIABILITY_USER_DETAILS = "home-application";
 	public static final String PAGE_HOME_LIABILITY_SUMMARY = "home-summary";
@@ -330,9 +330,9 @@ public class UserRestURIConstants {
 	public static final String URL_EASY_HOME_SUMMARY = "summary";
 	public static final String URL_EASY_HOME_CONFIRMATION = "confirmation-ga";
 	
-	public static final String PAGE_EASY_HOME_LANDING = "homecare";
-	public static final String PAGE_EASY_HOME_SCREENING = "homecare-screening";
-	public static final String PAGE_EASY_HOME_SELECT_PLAN = "homecare-select-plan";
+	public static final String PAGE_EASY_HOME_LANDING = "home-care-landing";
+	public static final String PAGE_EASY_HOME_SCREENING = "home-screening";
+	public static final String PAGE_EASY_HOME_SELECT_PLAN = "home-care-select-plan";
 	public static final String PAGE_EASY_HOME_USER_DETAILS = "home-application";
 	public static final String PAGE_EASY_HOME_SUMMARY = "home-summary";
 	public static final String PAGE_EASY_HOME_CONFIRMATION = "home-confirmation";
