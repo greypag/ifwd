@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
-public class HomeLiabilityPageFlowControl {
-	private final static Logger logger = LoggerFactory.getLogger(HomeLiabilityPageFlowControl.class);
+public class HomePageFlowControl {
+	private final static Logger logger = LoggerFactory.getLogger(HomePageFlowControl.class);
 
 	public static ModelAndView pageFlow(String plan,Model model, HttpServletRequest request, String key) {
 

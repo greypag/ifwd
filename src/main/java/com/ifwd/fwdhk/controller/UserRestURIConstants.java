@@ -337,9 +337,9 @@ public class UserRestURIConstants {
 	public static final String PAGE_EASY_HOME_SUMMARY = "home-summary";
 	public static final String PAGE_EASY_HOME_CONFIRMATION = "home-confirmation";
 	
-	public static final String PAGE_PROPERTIES_EASY_HOME_LANDING = "homecare.landing";
-	public static final String PAGE_PROPERTIES_EASY_HOME_SCREENING = "homecare.screening";
-	public static final String PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN = "homecare.select.plan";
+	public static final String PAGE_PROPERTIES_EASY_HOME_LANDING = "easy.home.landing";
+	public static final String PAGE_PROPERTIES_EASY_HOME_SCREENING = "easy.home.screening";
+	public static final String PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN = "easy.home.select.plan";
 	public static final String PAGE_PROPERTIES_EASY_HOME_USER_DETAILS = "easy.home.application";
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
