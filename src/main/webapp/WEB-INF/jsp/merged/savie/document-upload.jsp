@@ -95,7 +95,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.now" bundle="${msg}" />
-												<span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+												<span>
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -110,7 +117,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.later" bundle="${msg}" />
-												<span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+												<span class="uplater-span">
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -124,7 +138,14 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.now" bundle="${msg}" />
-								   <span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+								   <span>
+									   <c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 							 <div class="clearfix below desktop-align">
@@ -133,15 +154,31 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.later" bundle="${msg}" />
-								   <span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+								   <span class="uplater-span">
+								   		<c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 						  </div-->
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc"><fmt:message key="label.upload.doc.when.ready.title" bundle="${msg}" /></p>
-								<fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" />
+								<p class="first-desc"><fmt:message key="msg.upload.savie.copy4" bundle="${msg}" /></p>
+								<ol>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<li><fmt:message key="msg.upload.savie.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.savie.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<li><fmt:message key="msg.upload.easyhealth.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.easyhealth.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+								</ol>
 							</div>
 						</div>
 						<div class="upload-now-section" id="upload-now-section">
@@ -345,7 +382,14 @@ var languageP = "${language}";
 								<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
 							</div>
 							<div class="upload-note">
-								<p class="upload-p"><span class="orange">*</span> <fmt:message key="label.savie.upload.remark" bundle="${msg}" /></p>
+								<p class="upload-p"><span class="orange">*</span>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.upload.savie.copy3" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.upload.easyhealth.copy3" bundle="${msg}" />
+	        						</c:if>
+								</p>
 							</div>
 						</div>
 						<div class="next-btn">

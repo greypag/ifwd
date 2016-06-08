@@ -9778,4 +9778,20 @@ select::-ms-value {
     pointer-events: auto;
     opacity: 1;
 }
-    
+@media screen and (min-width: 992px) {
+	#spaceHolder{
+		visibility:hidden;
+	}
+	
+	#educationLevel{
+	float:left;
+	width:100%;
+	}
+}
+
+#spaceHolder{
+	display: none;
+}
+
+
+ 
