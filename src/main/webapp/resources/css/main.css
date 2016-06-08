@@ -12032,6 +12032,7 @@ Be caution: <select> have customed made */
     top: 10px;
     padding-left: 15px;
     font-family: 'Calibri-Bold';
+    z-index: 4;
 }
 #soInsuredInfoForm .mdl-textfield__label.mdl-textfield__label--select-box {
 	padding-top: 5px;
@@ -12045,7 +12046,7 @@ Be caution: <select> have customed made */
 #soInsuredInfoForm .mdl-textfield.is-focused label,
 #soInsuredInfoForm .mdl-textfield.is-dirty label{
 	color: #ff8200;
-	font-size: 12px;
+	font-size: 14px;
     top: 1px;
 }
 #soInsuredInfoForm .mdl-textfield.is-not-active label {
