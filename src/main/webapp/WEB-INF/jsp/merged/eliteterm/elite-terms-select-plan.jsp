@@ -1408,10 +1408,12 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 										<label for="the-club-member-toggle">
-											<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
+											<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
 												<fmt:message key="club.membership.confirm" bundle="${msg}" />
-											</a>
+											</a> --%>
+											<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
+											<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 										</label>
 									</div>
 
@@ -1424,14 +1426,15 @@ var home_url = "<%=request.getContextPath()%>";
 											<span class="text-red" id="errClubMemberID"></span>
 											<%--inputBox--%>
 											<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
-												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 												<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 											</div>
 											<%--links--%>
 											<div class="getclubmembership" style="font-size: 14px;">
-												<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">
+												<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
+												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
 													<i>
-														<fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" />
+														<fmt:message key="club.membership.join" bundle="${msg}" />
 													</i>
 												</a>
 											</div>
@@ -1442,7 +1445,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
 											<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 										</div>
-									</div>--%>
+									</div>
 									<!-- The Club Membership popup -->
 									<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
 										role="dialog" aria-hidden="true" style="display: none;">
@@ -1479,7 +1482,7 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 										</div>
 									</div>
-									<!--/ The Club Membership popup -->
+									<!--/ The Club Membership popup -->--%>
 									<script>
 									function chkClubMember() {
 										$(".errDue").html('');
@@ -4053,7 +4056,7 @@ var home_url = "<%=request.getContextPath()%>";
 
   		//applicant dob
   		$(document).on('click', '#et-personal-info-next', function(e) {
-  			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
+  			if( $('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="" && chkClubMember() ) {
   				$('#eliteTermsInsuredInfoForm')
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');

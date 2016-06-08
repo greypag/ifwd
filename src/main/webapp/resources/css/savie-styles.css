@@ -2248,7 +2248,8 @@ a.eserv-link:hover {
 }
 /* line 644, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .psa-ul li a:hover {
-  color: #f28000;
+  /*color: #f28000;*/
+  /*background-color: #f65e1b;*/
 }
 /* line 651, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .description {
@@ -9773,7 +9774,8 @@ select::-ms-value {
 	top: 1px;
 	padding-top: 0;
 }
-#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled]{
+#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled],
+#upload-document-page #so-upload-document-section .next-btn #updoc-complete-btn[disabled]{
 	cursor: pointer;
     pointer-events: auto;
     opacity: 1;
@@ -9794,4 +9796,98 @@ select::-ms-value {
 }
 
 
- 
+/* added on 20160509, add back on 20160608 */
+.savie-regular-landing.sp-only .page-banner a.img-bg,
+.savie-regular-landing.rp-only .page-banner a.img-bg{
+	padding-top: 0;
+	background-size: cover;
+}
+.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+	position: absolute;
+	top: 55%;
+	width: 45px;
+	height: 45px;
+	margin-top: -40px;
+	left: 52%;
+	margin-left: -40px;
+	opacity: 0.7;
+}
+
+.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
+.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn:hover{
+  opacity: 1;
+}
+
+.modal-open .vModal {
+	display: none;
+	position: fixed;
+	z-index: 1041;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+	padding-right: 0!important;
+}
+.modal-open .vModal .close-btn {
+	position: absolute;
+	height: 44px;
+	width: 44px;
+	background: #251606;
+	right: 0;
+	bottom: 100%;
+}
+.modal-open .vModal .modal-dialog {
+	-webkit-transform: translateY(-50%)!important;
+	-moz-transform: translateY(-50%)!important;
+	-ms-transform: translateY(-50%)!important;
+	-o-transform: translateY(-50%)!important;
+	position: relative;
+	width: 100%;
+	max-width: 854px;
+	margin: 0 auto;
+	top: 50%;
+}
+
+@media (min-width: 768px) {
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
+	}
+}
+@media (min-width: 992px) {
+	.modal-open .fwd-savie-wrapper .vModal.modal.fade .modal-dialog {
+		margin-top: 0;
+	}
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
+	}
+}
+
+/* added on 20160502, add back on 20160608 */
+@media (min-width: 992px) {
+	.psa-divider{
+		height: 625px;
+	}
+}
+.psa-divider:hover,
+.psa-divider:hover .psa-btn{
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	background-color: #f68b1f;
+}
+.psa-divider:hover .psa-btn,
+.psa-divider:hover a,
+.psa-divider:hover a i{
+	color: #fff;
+}
