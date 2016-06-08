@@ -25744,3 +25744,13 @@ label.et-bene-radio,#et-application-second-section label,
 .list__item{
 	margin-bottom: 10px;
 }
+
+/*add on 20160608*/
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description h4,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description h5,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description div,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description p,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description ul li{
+	font-size: 16px;
+	line-height: 18px;
+}
