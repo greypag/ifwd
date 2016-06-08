@@ -371,7 +371,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                             <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg">How do I get promotion code?</a>
                         </div>
                         <div>
-                            <input type="text" id="promoCode" name="referralCode" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
+                            <input type="text" id="promoCode" name="referralCode" class="" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')"><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
                         </div>
                     </form>
                 </div>
