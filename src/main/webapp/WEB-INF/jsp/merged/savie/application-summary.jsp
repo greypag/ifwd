@@ -24,11 +24,11 @@ var language = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">			
+		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">
 
         <!-- Breadcrumb Component Start-->
 
-		    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+		    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
 			<c:set var="breadcrumbActive" value="0" />
 
 		    <c:if test="${planIndex == 'medical-insurance'}">
@@ -53,7 +53,7 @@ var language = "${language}";
 
 		<!-- StepIndicator Component Start-->
 
-	     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+	     	<c:set var="stepItems" value="stepindicator.selectplan" />
 			<c:set var="stepActive" value="0" />
 
 			<c:if test="${planIndex == 'medical-insurance'}">
@@ -292,6 +292,14 @@ var language = "${language}";
 								<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
 							</div>
 						</div>
+
+						<div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="theClubMembershipNo" name="theClubMembershipNo" value="${lifePersonalDetails.theClubMembershipNo }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="theClubMembershipNo"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+							</div>
+						</div>
+
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
@@ -321,14 +329,14 @@ var language = "${language}";
 							</div>
 					</div>
                   <div id="spaceHolder" class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active">						
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
 									<option value=""><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
 									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}">${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}</option>
 								</select>
 								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
 							</div>
-					</div>											
+					</div>
                </div>
 				<div id="employerNameDiv" class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -361,7 +369,7 @@ var language = "${language}";
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
 							</div>
-					</div>															
+					</div>
                   	<div id ="educationLevel" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.education.level" bundle="${msg}" /></label>
@@ -372,7 +380,7 @@ var language = "${language}";
 								<input type="hidden" id="education" name="education" />
 							</div>
 					</div>
-										
+
 					<div class="desktop-left">
 					<div id="amountOfOtherSourceOfIncomeDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
@@ -395,8 +403,8 @@ var language = "${language}";
 								</select>
 								<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" />
 							</div>
-						</div>						
-					</div>	
+						</div>
+					</div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
                <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
@@ -416,7 +424,7 @@ var language = "${language}";
 			       </c:when>
 			       <c:otherwise>
 			          <c:if test="${lifeBeneficaryInfo.beneficaryFirstName1 != '' }">
-				          <div class="summary-section inner-beneficiary clearfix">   
+				          <div class="summary-section inner-beneficiary clearfix">
 				               <span class="person-count first-person"><fmt:message key="label.bene1" bundle="${msg}" /></span>
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
@@ -695,7 +703,7 @@ var language = "${language}";
       <!-- Application saved modal -->
       <div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog" id="modal-save-app">
-         <div class="modal-content modal-content-appsave common-welcome-modal">  
+         <div class="modal-content modal-content-appsave common-welcome-modal">
              <div class="modal-header" id="modal-header-appsave">
              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
@@ -713,7 +721,7 @@ var language = "${language}";
 		<script type="text/javascript">
 			var language = "en";
 			var getpath = "<%=request.getContextPath()%>";
-			
+
 			function goNext(){
 					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
@@ -726,7 +734,7 @@ var language = "${language}";
 				$('#occupationDiv').addClass('hidden');
 				$('#employerNameDiv').addClass('hidden');
 				$('#monthlyPersonalIncomeDiv').addClass('hidden');
-				$('#otherOccupationDiv').addClass('hidden');			
+				$('#otherOccupationDiv').addClass('hidden');
 				$('#spaceHolder').removeClass('hidden');
 			}
 			else{
@@ -734,11 +742,11 @@ var language = "${language}";
 				$('#amountOfLiquidAssetsDiv').addClass('hidden');
 				$('#natureOfBusinessDiv').removeClass('hidden');
 				$('#occupationDiv').removeClass('hidden');
-				$('#employerNameDiv').removeClass('hidden');				
+				$('#employerNameDiv').removeClass('hidden');
 				$('#monthlyPersonalIncomeDiv').removeClass('hidden');
-				
+
 				$('#spaceHolder').addClass('hidden');
-				
+
 				if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
 					$('#otherOccupationDiv').removeClass('hidden');
 				}
@@ -746,9 +754,9 @@ var language = "${language}";
 					$('#otherOccupationDiv').addClass('hidden');
 				}
 			}
-         
-         
-         
+
+
+
       	// set fields whether editable or not
 			// Your selected plan block
 			setInputReadonly('planName', true);
@@ -818,8 +826,8 @@ var language = "${language}";
 			setSelectReadonly('tmpBankName', true);
 			setInputReadonly('accountNo', true);
 			setSelectReadonly('tmpBranchName', true);
-			
-			
+
+
 			// Set timer for confirm and sign button
 			var $next_btn = $('#next-btn');
 			var $next_wait_btn = $('#next-wait-btn');
@@ -837,23 +845,23 @@ var language = "${language}";
 					};
 				}, 1000);
 			}
-			
+
 		});
-		
+
 		$('.save-exit-btn1').click(function() {
 			$('#save-and-continue-modal').modal('hide');
 		});
-        
+
         $('#keep-going-btn').click(function() {
 			$('#save-and-continue-batch5-modal').modal('hide');
 		});
-		
+
 		//full fill type = 2
 		$('#save-exit-btn').click(function() {
 			$("#errorMsg").html("");
 			$.ajax({
 				  type : "POST",
-				  async:false, 
+				  async:false,
 				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/applicationSummarySaveforLater",
 				  success : function(data) {
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
@@ -868,7 +876,7 @@ var language = "${language}";
 				  }
 		    });
 		});
-		
+
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});

@@ -1408,10 +1408,12 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 										<label for="the-club-member-toggle">
-											<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
+											<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
 												<fmt:message key="club.membership.confirm" bundle="${msg}" />
-											</a>
+											</a> --%>
+											<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
+											<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 										</label>
 									</div>
 
@@ -1429,9 +1431,10 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 											<%--links--%>
 											<div class="getclubmembership" style="font-size: 14px;">
-												<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">
+												<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
+												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
 													<i>
-														<fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" />
+														<fmt:message key="club.membership.join" bundle="${msg}" />
 													</i>
 												</a>
 											</div>
@@ -1479,7 +1482,7 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 										</div>
 									</div>
-									<!--/ The Club Membership popup -->
+									<%--<!--/ The Club Membership popup -->
 									<script>
 									function chkClubMember() {
 										$(".errDue").html('');
@@ -1509,7 +1512,7 @@ var home_url = "<%=request.getContextPath()%>";
 										}
 										return flag;
 								}
-								</script>
+								</script>--%>
 								</div>
 								<%-- 2016memberID - end --%>
 

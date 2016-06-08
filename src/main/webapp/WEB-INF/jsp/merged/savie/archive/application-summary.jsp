@@ -38,13 +38,13 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="application-flux">
 				<!-- Illustration Review Block -->
-				<div class="fwd-full-container container-fluid illustration-review investment">     
+				<div class="fwd-full-container container-fluid illustration-review investment">
 					<div class="fwd-container-limit illustrate investment-summary-and-table">
 						<div id="sales-contents" class="tab-content credits">
-							<div>	                    	
+							<div>
 								<div class="container-fluid summary-tab-max-width">
 									<div id="application-review-container" class="fwd-container">
 										<div class="illustration-head">
@@ -74,7 +74,7 @@
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col name-pad">
 															<p>${savieDetail.savieApplicantBean.firstName }</p>
-														</div>					                                
+														</div>
 														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.name_chinese" bundle="${msg}" /></p>
@@ -155,22 +155,22 @@
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.savieEmploymentBean.employmentStatusDesc }</p>
-														</div>	
-														<div class="clearfix"></div>                                
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.occupation" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.savieEmploymentBean.occupationDesc }</p>
-														</div>				        
-														<div class="clearfix"></div>                        
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.nature_business" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.savieEmploymentBean.natureOfBusinessDesc }</p>
-														</div>				        
-														<div class="clearfix"></div>                        
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.monthly_personal" bundle="${msg}" /> <span class="p-monthly"><fmt:message key="savie.summary.income" bundle="${msg}" /></span></p>
 														</div>
@@ -188,57 +188,57 @@
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p></p>
-															</div>	
+															</div>
 															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3 name-pad">
 																<p><fmt:message key="savie.summary.last_name" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col name-pad">
 																<p>${savieBeneficiaryBean.lastName }</p>
-															</div>	
-															<div class="clearfix"></div>    
+															</div>
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3 name-pad">
 																<p><fmt:message key="savie.summary.given_name" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col name-pad">
 																<p>${savieBeneficiaryBean.firstName }</p>
-															</div>	
-															<div class="clearfix"></div>        
+															</div>
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.relationship" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p>${savieBeneficiaryBean.relationshipDesc }</p>
-															</div>	
-															<div class="clearfix"></div>    
+															</div>
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.gender" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p>${savieBeneficiaryBean.gender }</p>
 															</div>
-															<div class="clearfix"></div>    
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.entitlement" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p>${savieBeneficiaryBean.entitlement }</p>
 															</div>
-															<div class="clearfix"></div>    
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p>Savie</p>
 															</div>
-															<div class="clearfix"></div>    
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.currency" bundle="${msg}" /></p>
 															</div>
 															<div class="col-xs-6 col-md-9 plan-col">
 																<p>HK$</p>
 															</div>
-															<div class="clearfix"></div>    
+															<div class="clearfix"></div>
 															<div class="col-xs-6 col-md-3">
 																<p><fmt:message key="savie.summary.single_premium" bundle="${msg}" /></p>
 															</div>
@@ -248,54 +248,54 @@
 														</div>
 													</div>
 												</c:forEach>
-												
+
 												<div class="col-xs-12 col-md-12 inner-col">
 													<div class="row">
-														<h3 class="h3-pad"><fmt:message key="savie.summary.payment_info" bundle="${msg}" /> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>           
+														<h3 class="h3-pad"><fmt:message key="savie.summary.payment_info" bundle="${msg}" /> <a class="hidden-xs hidden-sm" href="#"><fmt:message key="savie.summary.edit" bundle="${msg}" /></a></h3>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.payment_method" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.saviePaymentBean.paymentMethod }</p>
 														</div>
-														<div class="clearfix"></div>    
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.amount" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>HK$ ${savieDetail.saviePaymentBean.amount }</p>
-														</div>	
-														<div class="clearfix"></div>    
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.account_no" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.saviePaymentBean.accountNo }</p>
-														</div>	
-														<div class="clearfix"></div>    
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.bank_name" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.saviePaymentBean.bankName }</p>
-														</div>	
-														<div class="clearfix"></div>    
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.branch_name" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
 															<p>${savieDetail.saviePaymentBean.branchName }</p>
-														</div>	
-														<div class="clearfix"></div>    
+														</div>
+														<div class="clearfix"></div>
 														<div class="col-xs-6 col-md-3">
 															<p><fmt:message key="savie.summary.expiry_date" bundle="${msg}" /></p>
 														</div>
 														<div class="col-xs-6 col-md-9 plan-col">
-															<p>${savieDetail.saviePaymentBean.expiryDate }</p>                    
+															<p>${savieDetail.saviePaymentBean.expiryDate }</p>
 														</div>
 													</div>
 												</div>
-											</div>              
+											</div>
 										</div>
 									</div> <!-- application-review end tag -->
 									<div class="btn-style btn-pro text-center">
@@ -307,18 +307,18 @@
 					</div> <!-- investment summary table end -->
 				</div> <!-- investment end -->
 			</div>
-		
+
 			<!-- FOOTER -->
 			<div id="illustration-result" class="modal fade illustration-result application-modal" role="dialog" data-backdrop="false" aria-labelledby="illustration-result">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-						<div class="modal-body">						
+						<div class="modal-body">
 							<h2>Here’s your sales illustration result</h2>
 							<p class="single-premium">Single premium</p>
 							<span class="amount">HK$ 100,00</span>
 							<p class="guaranteed">Guaranteed at the end of 3rd policy year HK$ 110,334</p>
-							<button id="review-accept" class="btn next" data-dismiss="modal">Review and accept</button> 
+							<button id="review-accept" class="btn next" data-dismiss="modal">Review and accept</button>
 						</div>
 					</div>
 				</div>

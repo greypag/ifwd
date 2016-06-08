@@ -589,10 +589,12 @@ maxlength="19"/>
 	<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 		<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 		<label for="the-club-member-toggle">
-			<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
+			<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 				<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
 				<fmt:message key="club.membership.confirm" bundle="${msg}" />
-			</a>
+			</a> --%>
+			<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
+			<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 		</label>
 	</div>
 
@@ -610,9 +612,10 @@ maxlength="19"/>
 			</div>
 			<%--links--%>
 			<div class="getclubmembership" style="font-size: 14px;">
-				<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">
+				<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
+				<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
 					<i>
-						<fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" />
+						<fmt:message key="club.membership.join" bundle="${msg}" />
 					</i>
 				</a>
 			</div>
@@ -624,7 +627,7 @@ maxlength="19"/>
 			<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 		</div>
 	</div>--%>
-	<!-- The Club Membership popup -->
+	<%-- <!-- The Club Membership popup -->
 	<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
 		role="dialog" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
@@ -660,7 +663,7 @@ maxlength="19"/>
 			</div>
 		</div>
 	</div>
-	<!--/ The Club Membership popup -->
+	<!--/ The Club Membership popup --> --%>
 	<script>
 	function chkClubMember() {
 		$(".errDue").html('');
@@ -779,7 +782,7 @@ $(document).ready(function () {
 	if ('${plan }' == 'savings-insurance') {
 		setSelectReadonly('tmpMaritalStatus', true);
 	}
-	
+
 	if ('${plan }' == 'medical-insurance' && '${backSummary}' == "Y") {
 		setStyleOfIsNotActive('hkId');
 		setStyleOfIsNotActive('tmpPlaceOfBirth');
