@@ -68,42 +68,6 @@ $(document).ready(function(){
 	 			$(this).parent().addClass("off");
 	 		}
 	 	});
-
-		$(".eh-btn-next").on("click",function(){
-			var allNo = $('input[name="cb1"]:checked').attr("checked")
-			 		&& $('input[name="cb2"]:checked').attr("checked")
-			 		&& $('input[name="cb3"]:checked').attr("checked");
-			//oldHome
-
-			if(allNo){
-				$.ajax({
-			        type : "get",
-			        cache:false, 
-			        async:false, 
-			        url : contextPath+'/ajax/homeliability/getHomeCareQuote',
-			        data : {
-				        	referralCode : "",
-				        	answer1 : "N",
-				        	answer2 : "N"
-				           },
-			        success : function(data) {
-				      	if(data !=null && data.errorMsg ==null){
-				      		window.location = contextPath+"/"+lang+'/home-liability-insurance/'+nextPage;
-						}
-				      	else{
-				      		console.log(data.errorMsg); 
-				      	}
-			        },
-			        error:function(){
-			            console.log('error');   
-			        }
-			  });
-				//alert("implement screening logic in here");
-			}else{
-				$("#oldHome").modal("show");
-				centerModals($("#oldHome"));
-			}
-		});
 	 }
 	//Application Form
 	if($("#ef-form-application").length > 0){

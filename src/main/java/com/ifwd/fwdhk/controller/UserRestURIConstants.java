@@ -91,7 +91,7 @@ public class UserRestURIConstants {
 	/*API For Home Care Modules
 	*/
 	public static final String GET_HOMECARE_UW_QUESTIONS = SERVICE_URL + "/gi/homeCare/uwQuestions";
-	public static final String HOMECARE_GET_QUOTE = SERVICE_URL + "/gi/homeCare/quote";
+	public static final String HOMECARE_GET_QUOTE = SERVICE_URL + "/gi/home/easyHome/quote";
 	public static final String HOMECARE_CREATE_POLICY = SERVICE_URL + "/gi/homeCare/policies";
 	public static final String HOMECARE_CONFIRM_POLICY = SERVICE_URL + "/gi/homeCare/payments/make";
 	public static final String HOMECARE_SUBMIT_POLICY = SERVICE_URL + "/gi/homeCare/payments/submit";

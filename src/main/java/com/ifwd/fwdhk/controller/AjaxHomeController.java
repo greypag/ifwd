@@ -64,15 +64,14 @@ public class AjaxHomeController extends BaseController{
 		ajaxReturn(response, result);
 	}
 
-	@RequestMapping(value = {"/ajax/homeliability/getHomeCareQuote"})
-	public void getHomeCareQuote(HttpServletRequest request,HttpServletResponse response,HttpSession session){
+	@RequestMapping(value = {"/ajax/{plan}/getHomeCareQuote"})
+	public void getHomeCareQuote(@PathVariable("plan") String plan,HttpServletRequest request,HttpServletResponse response,HttpSession session){
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			gaService.getHomeCareQuote(request, session);
-			jsonObject.put("successMsg", "successfully");
+			jsonObject = gaService.getHomeCareQuote(plan, request, session);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

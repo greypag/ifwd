@@ -63,7 +63,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Easy HomeCare</p>
+                            <p class="fld-label">Personal Liability</p>
                             <p class="fld-val"></p>
                             </div>
                         </div>                        
@@ -72,7 +72,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
-                            <p class="fld-val"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
+                            <p class="fld-val"><span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
                     </li>
@@ -88,7 +88,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$${planQuote.grossPremium }</p>
+                            <p class="fld-val">HK$<span id="original-price">${planQuote.grossPremium }</span></p>
                             </div>
                         </div>
                     </li>
@@ -96,12 +96,12 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$${planQuote.discountAmount }</p>
+                            <p class="fld-val">HK$<span id="discount">${planQuote.discountAmount }</span></p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price" id="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -493,7 +493,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     
-                                    <button type="submit" onclick="return sendEmail()"
+                                    <button type="button" onclick="return sendEmail()"
                                         class="bdr-curve btn btn-primary btn-lg wd5">
                                         Submit
                                     </button>
@@ -525,12 +525,12 @@ For a complete explanation of the terms and conditions, please call our Customer
 
 
 <script>
-$("#eh-select-plan-next").on("click",function(){
+$(".btn-promo-apply").on("click",function(){
 	$.ajax({
         type : "get",
         cache:false, 
         async:false, 
-        url : '${pageContext.request.contextPath}/ajax/homeliability/getHomeCareQuote',
+        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
         data : {
 	        	referralCode : $("#promoCode").val(),
 	        	answer1 : "N",
@@ -538,8 +538,16 @@ $("#eh-select-plan-next").on("click",function(){
 	           },
         success : function(data) {
 	      	if(data !=null && data.errorMsg ==null){
-	      		$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
-           	    document.getElementById('ef-form-selectplan').submit();
+	      		$("#txt-promote-code").html(data.referralCode);
+	      		$("#original-price").html(data.priceInfo.grossPremium);
+	      		$("#discount").html(data.priceInfo.discountAmount);
+	      		$("#txt-price").html(data.priceInfo.totalDue);
+	      		
+	      		$("#planCode").val(data.planCode);
+	      		$("#grossPremium").val(data.priceInfo.grossPremium);
+	      		$("#discountAmount").val(data.priceInfo.discountAmount);
+	      		$("#totalDue").val(data.priceInfo.totalDue);
+	      		$("#referralName").val(data.referralName);
 			}
 	      	else{
 	      		console.log(data.errorMsg); 
@@ -551,7 +559,36 @@ $("#eh-select-plan-next").on("click",function(){
   });
 });
 
+$("#eh-select-plan-next").on("click",function(){
+ 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
+    document.getElementById('ef-form-selectplan').submit();
+});
+
 $("#home-liability-update").on("click",function(){
 	window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
 });
+
+function sendEmail() {
+    $('.proSuccess').addClass('hide');
+    if (get_promo_val()) {
+    	console.log($("#sendmailofpromocode form").serialize());
+        $.ajax({
+            type : "POST",
+            url : "<%=request.getContextPath()%>/sendEmail",
+            data : $("#sendmailofpromocode form").serialize(),
+            async : false,
+            success : function(data) {
+                if (data == 'success') {
+                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+                } else {
+                	console.log(data);
+                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                }
+            },
+            error : function() {
+            }
+        });
+    }
+    return false;
+}
 </script>
