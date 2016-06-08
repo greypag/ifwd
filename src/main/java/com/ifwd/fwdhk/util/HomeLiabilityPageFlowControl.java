@@ -88,6 +88,12 @@ public class HomeLiabilityPageFlowControl {
 
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING:
 			to = UserRestURIConstants.URL_HOME_LIABILITY_SCREENING;
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				current = UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
+			}
+			else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
+				current = UserRestURIConstants.PAGE_EASY_HOME_LANDING;
+			}
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SCREENING:
@@ -97,6 +103,12 @@ public class HomeLiabilityPageFlowControl {
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN: 
 			to = UserRestURIConstants.URL_HOME_LIABILITY_USER_DETAILS;
 			to2 = UserRestURIConstants.URL_EASY_HOME_SELECT_PLAN;
+			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+				current = UserRestURIConstants.PAGE_HOME_LIABILITY_SELECT_PLAN;
+			}
+			else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
+				current = UserRestURIConstants.PAGE_EASY_HOME_SELECT_PLAN;
+			}
 			break;
 			
 		case UserRestURIConstants.PAGE_HOME_LIABILITY_USER_DETAILS: 
