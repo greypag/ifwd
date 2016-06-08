@@ -2248,7 +2248,8 @@ a.eserv-link:hover {
 }
 /* line 644, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .psa-ul li a:hover {
-  color: #f28000;
+  /*color: #f28000;*/
+  /*background-color: #f65e1b;*/
 }
 /* line 651, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .description {
@@ -9795,7 +9796,7 @@ select::-ms-value {
 }
 
 
-/* add on 20160509 */
+/* added on 20160509, add back on 20160608 */
 .savie-regular-landing.sp-only .page-banner a.img-bg,
 .savie-regular-landing.rp-only .page-banner a.img-bg{
 	padding-top: 0;
@@ -9871,4 +9872,22 @@ select::-ms-value {
 	}
 }
 
- 
+/* added on 20160502, add back on 20160608 */
+@media (min-width: 992px) {
+	.psa-divider{
+		height: 625px;
+	}
+}
+.psa-divider:hover,
+.psa-divider:hover .psa-btn{
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	background-color: #f68b1f;
+}
+.psa-divider:hover .psa-btn,
+.psa-divider:hover a,
+.psa-divider:hover a i{
+	color: #fff;
+}
