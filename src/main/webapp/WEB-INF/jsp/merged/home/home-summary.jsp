@@ -521,7 +521,7 @@ var plan="${plan}";
 		                            <div class="form-group">
 		                                <div class="fld-wrapper">
 		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="cardNo" data-keyblock-num="true" maxlength="19">
+		                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="ccNumber" data-keyblock-num="true" maxlength="19">
 		                                        <label class="mdl-textfield__label" for="ccNumber">Credit card number</label>
 		                                    </div>
 		                                    
@@ -652,7 +652,7 @@ var plan="${plan}";
         <input type="hidden" name="errorUrl" value="${failurePath}">
         <input type="hidden" name="lang" value="C">
         <input type="hidden" id="transactionDate" name="transactionDate" value="${effectiveDate}">
-        
+        <input type="hidden" id="cardNo" name="cardNo">
     	</div>
         </form>
     </div>

@@ -593,9 +593,9 @@ $(document).ready(function(){
 								}else{
 									var isValid = isValidUsername($.trim($("#cUserName").val()));
 									if(isValid == true){
-										$("#ef-form-application")
+										/*$("#ef-form-application")
 										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
 
 										return true;
 									}else{
@@ -626,9 +626,9 @@ $(document).ready(function(){
 
 									var isValid = isValidPassword($.trim($("#cPassword").val()));
 									if(isValid == true){
-										$("#ef-form-application")
+										/*$("#ef-form-application")
 										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');
+										.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED');*/
 										
 										return true;
 									}else{
@@ -659,9 +659,9 @@ $(document).ready(function(){
 									
 									var isValid = passMatch($.trim($("#cPassword").val()),$.trim($("#Confirm-Password").val()));
 									if(isValid == true){
-										$("#ef-form-application")
+										/*$("#ef-form-application")
 										.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED')
-										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED');
+										.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED');*/
 
 										return true;
 									}else{
@@ -746,9 +746,15 @@ $(document).ready(function(){
 	if($("#ef-form-summary").length > 0){
 		$('#ccNumber').payment('formatCardNumber');
 
+		$('#ccNumber').keyup(function() {
+	        var replaceSpace = $(this).val(); 
+	        var result = replaceSpace.replace(/\s/g,'');
+	        $("#cardNo").val(result);
+	    });
+		
 		$("#ef-form-summary").bootstrapValidator({
 			fields:{
-				cardNo:{
+				ccNumber:{
 					container:'#ccNumberErrMsg',
 					validators:{
 						notEmpty:{

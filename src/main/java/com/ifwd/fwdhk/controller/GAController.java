@@ -64,6 +64,21 @@ public class GAController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/{plan}/select-plan"})
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("editableUserDetails");
+		session.removeAttribute("editableHomeCareDetails");
+		session.removeAttribute("policyNo");
+		session.removeAttribute("theClubMembershipNo");
+		session.removeAttribute("homeQuoteDetails");
+		session.removeAttribute("confirm");
+		session.removeAttribute("HomeCareTransactionNo");
+		session.removeAttribute("HomeCareReferenceNo");
+		session.removeAttribute("HomeCareTransactionDate");
+		session.removeAttribute("transNo");
+		session.removeAttribute("applicantDetails");
+		session.removeAttribute("HomeCareCreditCardNo");
+		session.removeAttribute("HomeCareCardexpiryDate");
+		
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SELECT_PLAN);
 		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
@@ -132,6 +147,12 @@ public class GAController extends BaseController{
 			CreatePolicy confirm = (CreatePolicy)session.getAttribute("confirm");
 			CreatePolicy createdPolicy = (CreatePolicy)session.getAttribute("createdPolicy");
 			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+			
+			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}else if(createdPolicy == null || homeCareDetails == null) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
 			
 			session.setAttribute("editableUserDetails", userDetails);
 			session.setAttribute("editableHomeCareDetails", homeCareDetails);
