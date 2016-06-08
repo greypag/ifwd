@@ -9773,7 +9773,8 @@ select::-ms-value {
 	top: 1px;
 	padding-top: 0;
 }
-#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled]{
+#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled],
+#upload-document-page #so-upload-document-section .next-btn #updoc-complete-btn[disabled]{
 	cursor: pointer;
     pointer-events: auto;
     opacity: 1;
@@ -9793,5 +9794,81 @@ select::-ms-value {
 	display: none;
 }
 
+
+/* add on 20160509 */
+.savie-regular-landing.sp-only .page-banner a.img-bg,
+.savie-regular-landing.rp-only .page-banner a.img-bg{
+	padding-top: 0;
+	background-size: cover;
+}
+.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+	position: absolute;
+	top: 55%;
+	width: 45px;
+	height: 45px;
+	margin-top: -40px;
+	left: 52%;
+	margin-left: -40px;
+	opacity: 0.7;
+}
+
+.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
+.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn:hover{
+  opacity: 1;
+}
+
+.modal-open .vModal {
+	display: none;
+	position: fixed;
+	z-index: 1041;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+	padding-right: 0!important;
+}
+.modal-open .vModal .close-btn {
+	position: absolute;
+	height: 44px;
+	width: 44px;
+	background: #251606;
+	right: 0;
+	bottom: 100%;
+}
+.modal-open .vModal .modal-dialog {
+	-webkit-transform: translateY(-50%)!important;
+	-moz-transform: translateY(-50%)!important;
+	-ms-transform: translateY(-50%)!important;
+	-o-transform: translateY(-50%)!important;
+	position: relative;
+	width: 100%;
+	max-width: 854px;
+	margin: 0 auto;
+	top: 50%;
+}
+
+@media (min-width: 768px) {
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
+	}
+}
+@media (min-width: 992px) {
+	.modal-open .fwd-savie-wrapper .vModal.modal.fade .modal-dialog {
+		margin-top: 0;
+	}
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		top: 50%;
+		width: 80px;
+		height: 80px;
+		left: 50%;
+	}
+}
 
  
