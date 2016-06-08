@@ -115,7 +115,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below clearfix">
-               <h5><c:choose><c:when test="${planIndex == 'medical-insurance' && language == 'tc'}"><fmt:message key="label.medical.personalinfo" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="label.personalinfo" bundle="${msg}" /></c:otherwise></c:choose> <a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -418,7 +418,7 @@ var language = "${language}";
 						</div>
 					 </div>
 		       </c:if>
-            </div>
+            </div>           
             <c:choose>
 			       <c:when test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
 			       </c:when>
@@ -659,7 +659,15 @@ var language = "${language}";
                </div>
             </div>
             </c:if>
-
+			<div class="clearfix">
+				<h5><fmt:message key="label.confirm.Insurance" bundle="${msg}" /></h5>
+				<ul>
+					<li><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></li>
+					<li><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></li>
+					<li><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></li>
+				</ul>
+				<fmt:message key="underwriting.declaration" bundle="${msg}" />
+			</div>
             <div class="text-center clearfix">
 					<button id="next-wait-btn" type="button" class="btn savie-common-btn" data-wait="10" disabled></button>
                <button id="next-btn" class="btn savie-common-btn hide" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>

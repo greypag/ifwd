@@ -201,13 +201,18 @@
 </div>
 </div>
 <div class="clearfix form-group has-error dob-content">
-<div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
+<!--<div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
 	<div class="selectDiv" id="date">
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
 		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly"/>
 		<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 		<span class="error-msg" id="so-calendar-dob-msg"></span>
+	</div>-->
+	<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-upgraded is-dirty is-not-active">
+		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
+		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly"/>
 	</div>
+	<span class="error-msg" id="so-calendar-dob-msg"></span>
 </div>
 </div>
 <div class="col-sm-12 col-md-6 right">

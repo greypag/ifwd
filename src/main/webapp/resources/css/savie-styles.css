@@ -1145,7 +1145,8 @@ h6 {
   left: 0;
   top: 10px;
   padding-left: 15px;
-  font-family: 'Calibri-Bold';
+  /*font-family: 'Calibri-Bold';*/
+  font-weight: bold;
 }
 /* line 681, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label:after {
@@ -1159,7 +1160,7 @@ h6 {
 .so-mdl-textfield.is-dirty input:valid+label {
   color: #ff8200 !important;
 /*   top: 1px !important; */
-  font-size: 12px;
+  font-size: 14px;
 }
 /* line 695, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused .readonly-field + label, .so-mdl-textfield.is-dirty .readonly-field + label {
@@ -9773,6 +9774,7 @@ select::-ms-value {
 #applicant-info-page #soInsuredInfoForm .selectDiv.is-not-active .mdl-textfield__label.cstm-dropdown-label{
 	top: 1px;
 	padding-top: 0;
+  font-size: 14px;
 }
 #unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled],
 #upload-document-page #so-upload-document-section .next-btn #updoc-complete-btn[disabled]{

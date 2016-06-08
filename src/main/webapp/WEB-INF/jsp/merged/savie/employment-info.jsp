@@ -259,7 +259,7 @@ var languageP = "${language}";
 									<div id="employerNameDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" autocomplete="off" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>

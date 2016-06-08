@@ -115,6 +115,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
+<jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
 
 <script>
 $(function() {
@@ -215,30 +216,14 @@ $(function() {
     }
     $(window).scroll(navbarLogoSticky);
     */
-    ////Notification Start////
-    var ieversion = msieversion();
-	 if(ieversion !=0 && ieversion <=9)
-    show_stack_bar_top('<fmt:message key="system.errorbox.ie.title" bundle="${msg}" />','<fmt:message key="system.errorbox.ie.content" bundle="${msg}" />');
+
+	////Notification Start////
+	var ieversion = msieversion();
+	if(ieversion !=0 && ieversion <=9){
+		show_stack_bar_top('error', '<fmt:message key="system.errorbox.ie.title" bundle="${msg}" />','<fmt:message key="system.errorbox.ie.content" bundle="${msg}" />');
+	}
 	////Notificaiton End////
 });
-
-function show_stack_bar_top(titleToShown,message) {
-	var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
-    new PNotify({
-        title: titleToShown,
-        text: message,
-        addclass: "stack-bar-top error-box",
-        cornerclass: "",
-        width: "100%",
-		height: "15%",
-        hide: false,
-        buttons: {
-       		closer: true,
-       		sticker: true
-       	},
-       stack: stack_bar_top
-	});
-}
 
 function msieversion() {
 	   var ua = window.navigator.userAgent
@@ -281,4 +266,4 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 
-<%-- <jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" /> --%>
+
