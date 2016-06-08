@@ -2785,6 +2785,7 @@ public class LifeServiceImpl implements LifeService {
 		session.removeAttribute("lifeDeclaration");
 		session.removeAttribute("lifePolicy");
 		session.removeAttribute("type");
+		session.removeAttribute("sendEmailsYes");
 		logger.info("remove savie online session");
 	}
 /**
