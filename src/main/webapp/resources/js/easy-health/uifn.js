@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     var nowDT = new Date();
     $('#dob').mobiscroll().calendar({
-        dateOrder: 'yyMdd',
+        dateOrder: 'ddMyy',
         display: 'inline',
         showLabel: true,
         mode: 'scroller',
@@ -55,7 +55,7 @@ $(document).ready(function() {
         minWidth: 40,
         minDate: new Date(nowDT.getFullYear() - 60, nowDT.getMonth(), nowDT.getDate()+1),
         maxDate: new Date(nowDT.getFullYear() - 18, nowDT.getMonth(), nowDT.getDate()),
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'dd-mm-yyyy',
         lang: language == "en" ? "en-US" : "zh"
     });
 
@@ -78,9 +78,9 @@ $(document).ready(function() {
         if ($(this).hasClass("disabled-gray-btn")) return;
 
         $("#loadingDiv").addClass("show");
-
-        var dobStr = $('#dob').val();
-        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
+        
+        var dobStr = $('#dob').mobiscroll("getArrayVal");
+        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: parseDateDMY(dobStr) }, function(data) {
             getPremiumApiLinkCalled = true;
             $("#loadingDiv").removeClass("show");
             fillPlanData(data);
@@ -580,3 +580,7 @@ $(function(){
         console.log(hash_aryStage[2]);
     });
 });
+
+function parseDateDMY(ary){
+        return (ary[2] + "-" + (ary[1]+1) + "-" + ary[0]);
+}

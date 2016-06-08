@@ -152,7 +152,6 @@ var ehPro = '${pro }';
                         <div class="col-sm-12">
                             <div class="text-center title">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_${language}.png" class="img-responsive inline-block" alt='<fmt:message key="label.take.it.easy" bundle="${msg}" />'>
-                                <p><fmt:message key="label.plan.desc" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </dir>
@@ -1848,6 +1847,7 @@ var ehPro = '${pro }';
         	}
 
             $('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+            $('#dob').mobiscroll('select');
         	
         	$("#eh-btn-plan-overview").click();
         	
@@ -1872,6 +1872,7 @@ var ehPro = '${pro }';
         	}
         	
         	$('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+        	$('#dob').mobiscroll('select');
 
         	$("#eh-btn-plan-overview").click();
         	
