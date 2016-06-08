@@ -565,7 +565,28 @@ $("#eh-select-plan-next").on("click",function(){
 });
 
 $("#home-liability-update").on("click",function(){
-	window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
+	$.ajax({
+	   type : "get",
+	   cache:false, 
+	   async:false, 
+	   url : '${pageContext.request.contextPath}/ajax/easy-home-insurance/getHomeCareQuote',
+	   data : {
+	       	referralCode : "",
+	       	answer1 : "N",
+	       	answer2 : "N"
+	          },
+	   success : function(data) {
+	     	if(data !=null && data.errorMsg ==null){
+	     		window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
+			}
+	     	else{
+	     		console.log(data.errorMsg); 
+	     	}
+	   },
+	   error:function(){
+	       console.log('error');   
+	   }
+	});
 });
 
 function sendEmail() {

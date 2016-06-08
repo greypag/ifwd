@@ -19,7 +19,7 @@ var nextPage = "${nextPageFlow}";
     <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/resources/jsignature/jSignature.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.2.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-uifn.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/easyhealth-app-uifn.js"></script>
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -64,7 +64,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Easy HomeCare</p>
-                            <p class="fld-val"></p>
+                            <p class="fld-val">Standard cover, Annual</p>
                             </div>
                         </div>                        
                     </li>
@@ -72,7 +72,8 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
-                            <p class="fld-val"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
+                            <p class="fld-val">
+                            <span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
                     </li>
@@ -88,7 +89,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$${planQuote.grossPremium }</p>
+                            <p class="fld-val">HK$<span id="original-price">${planQuote.grossPremium }</span></p>
                             </div>
                         </div>
                     </li>
@@ -96,12 +97,12 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$${planQuote.discountAmount }</p>
+                            <p class="fld-val">HK$<span id="discount">${planQuote.discountAmount }</span></p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price" id="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -145,31 +146,18 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
-     <form id="ef-form-selectplan" method="post">
      <div class="app-pg-cont">
+        <form id="ef-form-selectplan">
         <div class="container-fluid">
             <div class="row app-selectplan-tab">
                 <div class="col-xs-12 col-md-12">
-                    <div class="row app-selectplan-tab-head planb">
-                        <div class="col-xs-12">
-                            <div class="planb1">
-                                
-                                <div class="app-hero-panel-cont">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
-                                    <h2><span>Personal Liability</span><br>HK$249/year</h2>
-                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability">Selected</a>
-                                </div>
-                                <div class="app-hero-panel-cont2">
-                                    <div class="text-center">
-                                        <h3>Upgrade for total care</h3>
-                                        <h2>Easy HomeCare</h2>
-                                        <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update">Upgrade now</a>
-                                    </div>
-                                </div>
-                                <div style="clear:both;"></div>
-                                
+                    <div class="row app-selectplan-tab-head">
+                        <div class="col-xs-12 col-md-12">
+                            <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-planA-hero.jpg" class="img-hero" alt="">
+                            <div class="app-hero-panel-cont">
+                                <h2><span>Easy HomeCare</span><br>HK $420/year</h2>
+                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse">Selected</a>
                             </div>
-                            
                         </div>
                         
                     </div>
@@ -192,189 +180,140 @@ var nextPage = "${nextPageFlow}";
                         <div class="tab-content">
                             <div class="tab-pane active" id="highlights">
                                 <h4>Product Highlights</h4>
-                                <div class="easy-home-toggle">
-                                    <p>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). From your furniture to your frozen food, stay protected with this comprehensive home insurance.</p>
-                                    <ul>
-                                        <li>Household Contents cover up to a limit as high as HK$500,000</li>
-                                        <li>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world</li>
-                                        <li>Protects household contents inside the home, such as furniture, electrical appliances etc., against loss or damage arising from fire, flood, bursting pipes, typhoon, theft and other accidents</li>
-                                        <li>In an event that your home becomes uninhabitable as a result of accidental loss or damage, our home insurance will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year</li>
-                                        <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
-                                        <li>Applicable to Home for Net Floor Area up to 1,000 square feet</li>
-                                    </ul>
-                                </div>
-                                <div class="home-liability-toggle">
-                                    <p>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world.</p>
-                                    <ul>
-                                        <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
-                                        <li>Applicable to Home for Net Floor Area up to 1,000 square feet</li>
-                                    </ul>
-                                </div>
+                                <p>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). From your furniture to your frozen food, stay protected with this comprehensive home insurance.</p>
+                                <ul>
+                                    <li>Household Contents cover up to a limit as high as HK$500,000</li>
+                                    <li>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world</li>
+                                    <li>Protects household contents inside the home, such as furniture, electrical appliances etc., against loss or damage arising from fire, flood, bursting pipes, typhoon, theft and other accidents</li>
+                                    <li>In an event that your home becomes uninhabitable as a result of accidental loss or damage, our home insurance will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year</li>
+                                    <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
+                                    <li>Applicable to Home for Net Floor Area up to 1,000 square feet</li>
+                                </ul>
                             </div>
                             <div class="tab-pane" id="premium">
                                 <h4>Premium Table (HK$)</h4>
-                                <div class="easy-home-toggle">
-                                    <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
-                                    <br>
-                                    <table class="table-in-tab">
-                                        <tr class="thbg">
-                                            <th>Section</th>
-                                            <th>Coverage</th>
-                                            <th>Limit of Liability (HK$)</th>
-                                            <th>Annual Premium (HK$)</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Household Contents</td>
-                                            <td>500,000</td>
-                                            <td>420</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Personal Liability</td>
-                                            <td>5,000,000</td>
-                                            <td>Free with Section 1</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="home-liability-toggle">
-                                    <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
-                                    <br>
-                                    <table class="table-in-tab">
-                                        <tr class="thbg">
-                                            <th>Section</th>
-                                            <th>Coverage</th>
-                                            <th>Limit of Liability (HK$)</th>
-                                            <th>Annual Premium (HK$)</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Personal Liability</td>
-                                            <td>5,000,000</td>
-                                            <td>239</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
+                                <br>
+                                <table class="table-in-tab">
+                                    <tr class="thbg">
+                                        <th>Section</th>
+                                        <th>Coverage</th>
+                                        <th>Limit of Liability (HK$)</th>
+                                        <th>Annual Premium (HK$)</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Household Contents</td>
+                                        <td>500,000</td>
+                                        <td>420</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Personal Liability</td>
+                                        <td>5,000,000</td>
+                                        <td>Free with Section 1</td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="tab-pane" id="coverage">
                                 <h4>Summary of Coverage</h4>
-                                <div class="easy-home-toggle">
-                                    <strong>Section 1. Household Contents</strong><br>
-                                    <p>Your household contents at home are insured for 'All Risks' cover. This 'All Risks' cover protects your contents against accidental loss or damage arising from, including but not limited to, fire, flood, typhoon, explosion or theft, up to a maximum of HK$500,000 per year. Maximum limit of the coverage for any one item of your household contents is HK$100,000. Valuables, such as jewellery, gold, silver, watches, photographic equipment, furs, musical instruments (except pianos), are covered up to HK$10,000 per item and with an aggregate maximum of HK$100,000 per year.</p>
-                                    <br>
-                                    <p>In addition to the above mentioned coverage, this insurance provides the following extra benefits:</p>
-                                    <br>
-                                    <table id="homecarePremium" class="table table-bordred">
-                                        <tbody>
-                                            <tr style="background-color: #f68a1d;">
-                                                <td><strong style="color: #fff;">Item</strong></td>
-                                                <td><strong style="color: #fff;">Benefit</strong></td>
-                                                <td><strong style="color: #fff;">Maximum Limits(HK$)</strong></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><strong>Window, Door Lock &amp; Key Replacement Replacement of external door locks and keys or broken windows due to theft or attempted theft</strong></td>
-                                                <td>3,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><strong>Temporary Removal<br>Accidental loss of or damage to household contents whilst being temporarily removed from home for renovation, cleaning or repair</strong></td>
-                                                <td>50,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3<br></td>
-                                                <td><strong>Home Removal<br>Accidental loss of or damage to household contents:<br>(a) whilst in transit between current home and new home by professional removers within Hong Kong; or<br>(b) whilst in temporary storage, for up to 7 days in a furniture depository; or<br>(c) whilst at the new home but before occupied as permanent residence up to 2 months (you have to notify us before your move)</strong></td>
-                                                <td>50,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td><strong>Frozen Food<br>Cost of replacing spoilt frozen food due to accidental power failure or breakdown of refrigerator</strong></td>
-                                                <td>5,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td><strong>Removal of Debris<br>Cost of removal of debris when household contents are accidentally damaged</strong></td>
-                                                <td>10,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td><strong>Personal Money<br>Accidental loss or theft of money at home</strong></td>
-                                                <td>2,500 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">7</td>
-                                                <td><strong>Domestic Helper's Property</strong></td>
-                                                <td>1,000 per item</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Accidental loss of or damage to domestic helper's property at home</strong></td>
-                                                <td>5,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td><strong>Tenants Improvement<br>Accidental loss of or damage to tenant's improvements at home</strong></td>
-                                                <td>100,000 per item</td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td><strong>Interior Renovation<br>Accidental loss of or damage to household contents during interior renovation by contractors (provided that the period of renovation is within 2 months)</strong></td>
-                                                <td>100,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">10</td>
-                                                <td rowspan="2"><strong>Alternative Accommodation<br>Cost of alternative accommodation when the home becomes uninhabitable as a result of accidental loss or damage</strong></td>
-                                                <td>1,000 per day</td>
-                                            </tr>
-                                            <tr>
-                                                <td>50,000 per year</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">11</td>
-                                                <td rowspan="2"><strong>Personal Accident<br>Accidental death of Insured or Insured's family members as a result of fire or theft at home</strong></td>
-                                                <td>50,000 per person</td>
-                                            </tr>
-                                            <tr>
-                                                <td>200,000 per year</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <strong>Section 2. Personal Liability</strong><br>
-                                    
-                                    <p>Easy HomeCare provides worldwide cover of your legal liability up to HK$5,000,000 against any claim for bodily injury or property damage resulting from the negligence of you or your family members normally living with you, provided that the legal proceeding is submitted to the Hong Kong court.</p>
-                                    <p>a) as occupier of the home</p>
-                                    <p>b) as owner of the home (including common areas of the building)</p>
-                                    <p>c) as a private individual (anywhere in the world)</p>
-                                    <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
-                                </div>
-                                <div class="home-liability-toggle">
-                                    <p>Home Liability provides worldwide cover of your legal liability up to HK$5,000,000 against any claim for bodily injury or property damage resulting from the negligence of you or your family members normally living with you, provided that the legal proceeding is submitted to the Hong Kong court.</p>
-                                    <p>a) as occupier of the home</p>
-                                    <p>b) as owner of the home (including common areas of the building)</p>
-                                    <p>c) as a private individual (anywhere in the world)</p>
-                                    <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
-                                </div>
+                                <strong>Section 1. Household Contents</strong><br>
+                                <p>Your household contents at home are insured for 'All Risks' cover. This 'All Risks' cover protects your contents against accidental loss or damage arising from, including but not limited to, fire, flood, typhoon, explosion or theft, up to a maximum of HK$500,000 per year. Maximum limit of the coverage for any one item of your household contents is HK$100,000. Valuables, such as jewellery, gold, silver, watches, photographic equipment, furs, musical instruments (except pianos), are covered up to HK$10,000 per item and with an aggregate maximum of HK$100,000 per year.</p>
+                                <br>
+                                <p>In addition to the above mentioned coverage, this insurance provides the following extra benefits:</p>
+                                <br>
+                                <table id="homecarePremium" class="table table-bordred">
+                                    <tbody>
+                                        <tr style="background-color: #f68a1d;">
+                                            <td><strong style="color: #fff;">Item</strong></td>
+                                            <td><strong style="color: #fff;">Benefit</strong></td>
+                                            <td><strong style="color: #fff;">Maximum Limits(HK$)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><strong>Window, Door Lock &amp; Key Replacement Replacement of external door locks and keys or broken windows due to theft or attempted theft</strong></td>
+                                            <td>3,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><strong>Temporary Removal<br>Accidental loss of or damage to household contents whilst being temporarily removed from home for renovation, cleaning or repair</strong></td>
+                                            <td>50,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3<br></td>
+                                            <td><strong>Home Removal<br>Accidental loss of or damage to household contents:<br>(a) whilst in transit between current home and new home by professional removers within Hong Kong; or<br>(b) whilst in temporary storage, for up to 7 days in a furniture depository; or<br>(c) whilst at the new home but before occupied as permanent residence up to 2 months (you have to notify us before your move)</strong></td>
+                                            <td>50,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><strong>Frozen Food<br>Cost of replacing spoilt frozen food due to accidental power failure or breakdown of refrigerator</strong></td>
+                                            <td>5,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><strong>Removal of Debris<br>Cost of removal of debris when household contents are accidentally damaged</strong></td>
+                                            <td>10,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><strong>Personal Money<br>Accidental loss or theft of money at home</strong></td>
+                                            <td>2,500 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">7</td>
+                                            <td><strong>Domestic Helper's Property</strong></td>
+                                            <td>1,000 per item</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Accidental loss of or damage to domestic helper's property at home</strong></td>
+                                            <td>5,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td><strong>Tenants Improvement<br>Accidental loss of or damage to tenant's improvements at home</strong></td>
+                                            <td>100,000 per item</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td><strong>Interior Renovation<br>Accidental loss of or damage to household contents during interior renovation by contractors (provided that the period of renovation is within 2 months)</strong></td>
+                                            <td>100,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">10</td>
+                                            <td rowspan="2"><strong>Alternative Accommodation<br>Cost of alternative accommodation when the home becomes uninhabitable as a result of accidental loss or damage</strong></td>
+                                            <td>1,000 per day</td>
+                                        </tr>
+                                        <tr>
+                                            <td>50,000 per year</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">11</td>
+                                            <td rowspan="2"><strong>Personal Accident<br>Accidental death of Insured or Insured's family members as a result of fire or theft at home</strong></td>
+                                            <td>50,000 per person</td>
+                                        </tr>
+                                        <tr>
+                                            <td>200,000 per year</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <strong>Section 2. Personal Liability</strong><br>
+                                
+                                <p>Easy HomeCare provides worldwide cover of your legal liability up to HK$5,000,000 against any claim for bodily injury or property damage resulting from the negligence of you or your family members normally living with you, provided that the legal proceeding is submitted to the Hong Kong court.</p>
+                                <p>a) as occupier of the home</p>
+                                <p>b) as owner of the home (including common areas of the building)</p>
+                                <p>c) as a private individual (anywhere in the world)</p>
+                                <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
                             </div>
                             <div class="tab-pane" id="exclusion">
                                 <h4>Major Exclusions</h4>
-                                <div class="easy-home-toggle">
-                                    <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
-                                    <ul>
-                                        <li>Loss or damage arising from uninsurable risks such as scratching, wear and tear, mechanical or electrical fault or breakdown, misuse or domestic animals</li>
-                                        <li>Loss of or damage to mobile phones, household contents contained in open areas or on roofs, spectacles, contact lenses, sporting equipment whilst in use, computer system records, aerial devices or satellite dish</li>
-                                        <li>Loss or damage if the home is unoccupied for more than 60 consecutive days</li>
-                                        <li>Personal Liability for travel out of Hong Kong exceeding 90 consecutive days</li>
-                                        <li>Loss or damage due to war risks, radioactive risks, sonic bangs or any act of terrorism</li>
-                                    </ul>
-                                </div>
-                                <div class="home-liability-toggle">
-                                    <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
-                                    <ul>
-                                        <li>Loss or damage arising from uninsurable risks such as scratching, wear and tear, mechanical or electrical fault or breakdown, misuse or domestic animals</li>
-                                        <li>Loss or damage if the home is unoccupied for more than 60 consecutive days</li>
-                                        <li>Personal Liability for travel out of Hong Kong exceeding 90 consecutive days</li>
-                                        <li>Loss or damage due to war risks, radioactive risks, sonic bangs or any act of terrorism</li>
-                                    </ul>
-                                </div>
+                                <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
+                                <ul>
+                                    <li>Loss or damage arising from uninsurable risks such as scratching, wear and tear, mechanical or electrical fault or breakdown, misuse or domestic animals</li>
+                                    <li>Loss of or damage to mobile phones, household contents contained in open areas or on roofs, spectacles, contact lenses, sporting equipment whilst in use, computer system records, aerial devices or satellite dish</li>
+                                    <li>Loss or damage if the home is unoccupied for more than 60 consecutive days</li>
+                                    <li>Personal Liability for travel out of Hong Kong exceeding 90 consecutive days</li>
+                                    <li>Loss or damage due to war risks, radioactive risks, sonic bangs or any act of terrorism</li>
+                                </ul>
                             </div>
                             <div class="tab-pane" id="excess">
                                 <h4>Excess</h4>
@@ -413,7 +352,7 @@ var nextPage = "${nextPageFlow}";
 For a complete explanation of the terms and conditions, please call our Customer Hotline at<nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
 
         </div>
-	        <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
+        <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
 			<input type="hidden" name="grossPremium" id="grossPremium" value="${planQuote.grossPremium}"/> 
 			<input type="hidden" name="discountAmount" id="discountAmount" value="${planQuote.discountAmount}"/> 
 			<input type="hidden" name="totalDue" id="totalDue" value="${planQuote.totalDue}"/> 
@@ -421,7 +360,7 @@ For a complete explanation of the terms and conditions, please call our Customer
 			<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
 			<input type="hidden" name="answer1" value="N"/> 
 			<input type="hidden" name="answer2" value="N"/>
-        
+        </form>
     </div>
     <div class="container-fluid summary-bottom-bar">
         <div class="summary-bottom-bar-container">
@@ -429,7 +368,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                 <div class="col-xs-12 col-md-4 col-md-offset-2 promotion-wrapper">
                     <form action="">
                         <div class="lbl">
-                            <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg" >How do I get promotion code?</a>
+                            <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg">How do I get promotion code?</a>
                         </div>
                         <div>
                             <input type="text" id="promoCode" name="referralCode" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
@@ -446,19 +385,6 @@ For a complete explanation of the terms and conditions, please call our Customer
                 </div>
                 
                 
-            </div>
-        </div>
-    </div>
-    </form>
-    <div class="app-pg-cont">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="btn-row text-center">
-                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-                        <a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-select-plan-next">Next</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -517,20 +443,85 @@ For a complete explanation of the terms and conditions, please call our Customer
             </div>
         </div>
     </div>
-
-
-    <!-- Main Content End-->
-
+    <div class="app-pg-cont">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btn-row text-center">
+                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-select-plan-next">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!--Get promotion code popup-->
+    <div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content plan-modal">
+                <div class="login-form" id="sendmailofpromocode">
+                    <div style="overflow: hidden;">
+                        <a class="close" aria-label="Close" data-dismiss="modal"> <span
+                            aria-hidden="true" style="font-size: 30px;">×</span>
+                        </a>
+                    </div>
+                    <form>
+                        <div class="form-container">
+                            <h2>
+                                Don't have a promotion code? Enter your email address and we'll send you one.
+                            </h2>
+                            <div class="alert alert-success hide proSuccess"></div>
+                            <h4>
+                                Email address
+                            </h4>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder=""
+                                    name="emailToSendPromoCode" id="emailToSendPromoCode">
+                                <input type="hidden" name="planCode" id="planCode"
+                                    value="HOMECARE">
+                            </div>
+                            <span id="errPromoEmail" class="text-red"></span> <br>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    
+                                    <button type="button" onclick="return sendEmail()"
+                                        class="bdr-curve btn btn-primary btn-lg wd5">
+                                        Submit
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
+                                </div>
+                                <br> <br>
+                                <div class="col-lg-12 col-md-12">
+                                    <p>
+                                        By submitting my email address I agree to receive FWD's promotion code and other offers in the future.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content End-->
 
-<script>
-$("#eh-select-plan-next").on("click",function(){
+		
+    </div>
+    
+    <script>
+$(".btn-promo-apply").on("click",function(){
 	$.ajax({
         type : "get",
         cache:false, 
         async:false, 
-        url : '${pageContext.request.contextPath}/ajax/homeliability/getHomeCareQuote',
+        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
         data : {
 	        	referralCode : $("#promoCode").val(),
 	        	answer1 : "N",
@@ -538,8 +529,16 @@ $("#eh-select-plan-next").on("click",function(){
 	           },
         success : function(data) {
 	      	if(data !=null && data.errorMsg ==null){
-	      		$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
-           	    document.getElementById('ef-form-selectplan').submit();
+	      		$("#txt-promote-code").html(data.referralCode);
+	      		$("#original-price").html(data.priceInfo.grossPremium);
+	      		$("#discount").html(data.priceInfo.discountAmount);
+	      		$("#txt-price").html(data.priceInfo.totalDue);
+	      		
+	      		$("#planCode").val(data.planCode);
+	      		$("#grossPremium").val(data.priceInfo.grossPremium);
+	      		$("#discountAmount").val(data.priceInfo.discountAmount);
+	      		$("#totalDue").val(data.priceInfo.totalDue);
+	      		$("#referralName").val(data.referralName);
 			}
 	      	else{
 	      		console.log(data.errorMsg); 
@@ -551,7 +550,33 @@ $("#eh-select-plan-next").on("click",function(){
   });
 });
 
-$("#home-liability-update").on("click",function(){
-	window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
+$("#eh-select-plan-next").on("click",function(){
+ 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow}');
+    document.getElementById('ef-form-selectplan').submit();
 });
+
+
+function sendEmail() {
+    $('.proSuccess').addClass('hide');
+    if (get_promo_val()) {
+    	console.log($("#sendmailofpromocode form").serialize());
+        $.ajax({
+            type : "POST",
+            url : "<%=request.getContextPath()%>/sendEmail",
+            data : $("#sendmailofpromocode form").serialize(),
+            async : false,
+            success : function(data) {
+                if (data == 'success') {
+                    $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+                } else {
+                	console.log(data);
+                    $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+                }
+            },
+            error : function() {
+            }
+        });
+    }
+    return false;
+}
 </script>
