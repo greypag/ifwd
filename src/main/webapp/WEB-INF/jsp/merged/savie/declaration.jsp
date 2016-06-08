@@ -15,6 +15,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
+
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="declaration-page">
 		
 	<!-- Breadcrumb Component Start-->
@@ -437,9 +438,12 @@ var languageP = "${language}";
 		
 		$('.btn-proceed').click(function() {
 			var isPassed = true;
+			var hasDDA = ${planIndex == 'savings-insurance' ? true : false};
 			
 			// validation
-			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			if( hasDDA ){
+				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
