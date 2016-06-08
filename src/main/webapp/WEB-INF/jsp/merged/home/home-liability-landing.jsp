@@ -10,7 +10,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <fmt:setBundle basename="messages" var="msg" />
-landing page
+home-liability-landing page
 <input type="button" value="nextPage" id="nextPage"/>
 <script>
 $("#nextPage").on("click",function(){

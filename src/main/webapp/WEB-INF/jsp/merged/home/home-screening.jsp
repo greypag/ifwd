@@ -123,7 +123,7 @@ var nextPage = "${nextPageFlow}";
 
                 </div>
                 <div class="btn-row text-center">
-                    <a href="javascript:void(0);" class="btn-app eh-btn-next">Next</a>
+                    <a href="javascript:void(0);" class="btn-app eh-btn-next" id="screening-next">Next</a>
                 </div>
             </div>
         </div>
@@ -200,4 +200,38 @@ var nextPage = "${nextPageFlow}";
     </div>
 </div>
 
+<script>
+	$("#screening-next").on("click",function(){
+		var allNo = $('input[name="cb1"]:checked').attr("checked")
+		 		 && $('input[name="cb2"]:checked').attr("checked")
+		 		 && $('input[name="cb3"]:checked').attr("checked");
+		if(allNo){
+			$.ajax({
+		        type : "get",
+		        cache:false, 
+		        async:false, 
+		        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
+		        data : {
+			        	referralCode : "",
+			        	answer1 : "N",
+			        	answer2 : "N"
+			           },
+		        success : function(data) {
+			      	if(data !=null && data.errorMsg ==null){
+			      		window.location = '<%=request.getContextPath()%>/${language}/${planIndex}/${nextPageFlow}';
+					}
+			      	else{
+			      		console.log(data.errorMsg); 
+			      	}
+		        },
+		        error:function(){
+		            console.log('error');   
+		        }
+		  });
+		}else{
+			$("#oldHome").modal("show");
+			centerModals($("#oldHome"));
+		}
+	});
+</script>
    

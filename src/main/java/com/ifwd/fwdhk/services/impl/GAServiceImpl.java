@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.api.controller.RestServiceImpl;
@@ -302,14 +303,18 @@ public class GAServiceImpl implements GAService {
 		}
 	}
 
-	public void getHomeCareQuote(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+	public JSONObject getHomeCareQuote(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
 		String referralCode = request.getParameter("referralCode");
 		String answer1 = request.getParameter("answer1");
 		String answer2 = request.getParameter("answer2");
 		
 		StringBuffer url = new StringBuffer();
-		url.append(UserRestURIConstants.HOMELIABILITY_GET_QUOTE);
+		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+			url.append(UserRestURIConstants.HOMELIABILITY_GET_QUOTE);
+		}else {
+			url.append(UserRestURIConstants.HOMECARE_GET_QUOTE);
+		}
 		url.append("?planCode=EasyHomeCare");
 		url.append("&referralCode=");
 		url.append(referralCode);
@@ -342,6 +347,7 @@ public class GAServiceImpl implements GAService {
 			quoteDetails.setErrormsg(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
+		return responseJsonObj;
 	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
