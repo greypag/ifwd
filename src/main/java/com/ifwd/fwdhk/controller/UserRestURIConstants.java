@@ -301,12 +301,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION = "elite.terms.confirmation";
 	
 	/* Page Flow Control For Home Liability */
-	public static final String URL_HOME_LIABILITY_LANDING = "home-liability-insurance";
+	public static final String URL_HOME_LIABILITY_LANDING = "home-liability";
 	public static final String URL_HOME_LIABILITY_SCREENING = "screening";
-	public static final String URL_HOME_LIABILITY_SELECT_PLAN = "select-plan";
-	public static final String URL_HOME_LIABILITY_USER_DETAILS = "user-details";
+	public static final String URL_HOME_LIABILITY_SELECT_PLAN = "quote";
+	public static final String URL_HOME_LIABILITY_USER_DETAILS = "application";
 	public static final String URL_HOME_LIABILITY_SUMMARY = "summary";
-	public static final String URL_HOME_LIABILITY_CONFIRMATION = "confirmation-ga";
+	public static final String URL_HOME_LIABILITY_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_HOME_LIABILITY_LANDING = "home-liability-landing";
 	public static final String PAGE_HOME_LIABILITY_SCREENING = "home-screening";
@@ -323,12 +323,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION = "home.liability.confirmation";
 	
 	/* Page Flow Control For Home Care */
-	public static final String URL_EASY_HOME_LANDING = "easy-home-insurance";
+	public static final String URL_EASY_HOME_LANDING = "easy-home-care";
 	public static final String URL_EASY_HOME_SCREENING = "screening";
-	public static final String URL_EASY_HOME_SELECT_PLAN = "select-plan";
-	public static final String URL_EASY_HOME_USER_DETAILS = "user-details";
+	public static final String URL_EASY_HOME_SELECT_PLAN = "quote";
+	public static final String URL_EASY_HOME_USER_DETAILS = "application";
 	public static final String URL_EASY_HOME_SUMMARY = "summary";
-	public static final String URL_EASY_HOME_CONFIRMATION = "confirmation-ga";
+	public static final String URL_EASY_HOME_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_EASY_HOME_LANDING = "home-care-landing";
 	public static final String PAGE_EASY_HOME_SCREENING = "home-screening";

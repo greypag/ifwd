@@ -45,7 +45,7 @@ public class GAController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
 	
-	@RequestMapping(value = {"/{lang}/{plan}"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}"})
 	public ModelAndView getInsurance(@PathVariable("plan") String plan, Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_LANDING);
@@ -56,7 +56,7 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/screening"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/screening"})
 	public ModelAndView getScreening(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomeLiabilityPageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_SCREENING);
@@ -67,7 +67,7 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/select-plan"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/quote"})
 	public ModelAndView getQuote(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("editableUserDetails");
@@ -92,7 +92,7 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/user-details"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/application"})
 	public ModelAndView getUserDetails(@PathVariable("plan") String plan, 
 			@ModelAttribute("planQuoteDetails") HomeQuoteBean homeQuoteDetails, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -143,7 +143,7 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/summary"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/summary"})
 	public ModelAndView getSummary(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
@@ -208,7 +208,7 @@ public class GAController extends BaseController{
 			model.addAttribute("effectiveDate", DateApi.pickDate1(homeCareDetails.getEffectiveDate()));
 			model.addAttribute("effectiveEndDate", endDate);
 			model.addAttribute("homeCareDetails", homeCareDetails);
-			model.addAttribute("path", path.replace("summary", "confirmation-ga?utm_nooverride=1"));
+			model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 			model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 			
 			String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
@@ -225,7 +225,7 @@ public class GAController extends BaseController{
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/confirmation-ga"})
+	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/confirmation"})
 	public ModelAndView getConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();

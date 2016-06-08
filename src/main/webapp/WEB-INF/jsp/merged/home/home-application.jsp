@@ -707,7 +707,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="cUserName" name="userName" maxlength="50">
+                                        <input autocomplete="off" class="mdl-textfield__input" type="text" id="cUserName" name="userName" maxlength="50">
                                         <label class="mdl-textfield__label" for="userName">Choose username</label>
                                     </div>
                                     
@@ -723,7 +723,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="password" id="cPassword" name="password">
+                                            <input autocomplete="off" class="mdl-textfield__input" type="password" id="cPassword" name="password">
                                             <label class="mdl-textfield__label" for="password">Choose password</label>
                                         </div>
                                         
@@ -736,7 +736,7 @@ var plan="${plan}";
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="password" id="Confirm-Password" name="Confirm-Password">
+                                            <input autocomplete="off" class="mdl-textfield__input" type="password" id="Confirm-Password" name="Confirm-Password">
                                             <label class="mdl-textfield__label" for="Confirm-Password">Confirm password</label>
                                         </div>
                                         

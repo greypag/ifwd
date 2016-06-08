@@ -14,6 +14,6 @@ home-liability-landing page
 <input type="button" value="nextPage" id="nextPage"/>
 <script>
 $("#nextPage").on("click",function(){
-	window.location = '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}';
+	window.location = '<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}';
 });
 </script>

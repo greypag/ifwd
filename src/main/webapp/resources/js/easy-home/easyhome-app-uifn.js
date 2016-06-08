@@ -897,7 +897,7 @@ $(document).ready(function(){
 			data: $('#ef-form-application').serialize(),
 			success:function(data){
 				if(data.errMsgs == null) {
-					window.location= contextPath + "/" + lang + "/" + plan + "/summary";
+					window.location= contextPath + "/" + lang + "/household-insurance/" + plan + "/summary";
 					return true;
 				}else {
 					$('#loading-overlay').modal('hide');

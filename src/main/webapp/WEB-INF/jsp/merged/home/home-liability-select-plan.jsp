@@ -562,7 +562,7 @@ $(".btn-promo-apply").on("click",function(){
 });
 
 $("#eh-select-plan-next").on("click",function(){
- 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/home-liability-insurance/${nextPageFlow}');
+ 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}');
     document.getElementById('ef-form-selectplan').submit();
 });
 
@@ -572,7 +572,7 @@ $("#home-liability-update").on("click",function(){
 	   type : "get",
 	   cache:false, 
 	   async:false, 
-	   url : '${pageContext.request.contextPath}/ajax/easy-home-insurance/getHomeCareQuote',
+	   url : '${pageContext.request.contextPath}/ajax/easy-home-care/getHomeCareQuote',
 	   data : {
 	       	referralCode : "",
 	       	answer1 : "N",
@@ -581,8 +581,7 @@ $("#home-liability-update").on("click",function(){
 	   success : function(data) {
 	     	if(data !=null && data.errorMsg ==null){
 	     		$('#loading-overlay').modal('hide');
-	     		window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
-			}
+	     		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care/${nextPageFlow2}';			}
 	     	else{
 	     		console.log(data.errorMsg); 
 	     	}

@@ -219,9 +219,7 @@ var nextPage = "${nextPageFlow}";
 			           },
 		        success : function(data) {
 			      	if(data !=null && data.errorMsg ==null){
-			      		$('#loading-overlay').modal('hide');
-			      		window.location = '<%=request.getContextPath()%>/${language}/${planIndex}/${nextPageFlow}';
-					}
+			      		$('#loading-overlay').modal('hide');			      		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}';					}
 			      	else{
 			      		console.log(data.errorMsg); 
 			      	}

@@ -553,7 +553,7 @@ $(".btn-promo-apply").on("click",function(){
 });
 
 $("#eh-select-plan-next").on("click",function(){
- 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow}');
+ 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}');
     document.getElementById('ef-form-selectplan').submit();
 });
 

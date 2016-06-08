@@ -231,7 +231,7 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 <script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 
 <%
-if(request.getRequestURI().indexOf("/home-liability-insurance")>0 || request.getRequestURI().indexOf("/easy-home-insurance")>0) {
+if(request.getRequestURI().indexOf("/home-liability")>0 || request.getRequestURI().indexOf("/easy-home-care")>0) {
 %>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.core.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.js"></script>
