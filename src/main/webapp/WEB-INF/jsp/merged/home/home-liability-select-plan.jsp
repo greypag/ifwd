@@ -526,6 +526,7 @@ For a complete explanation of the terms and conditions, please call our Customer
 
 <script>
 $(".btn-promo-apply").on("click",function(){
+	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 	$.ajax({
         type : "get",
         cache:false, 
@@ -548,6 +549,7 @@ $(".btn-promo-apply").on("click",function(){
 	      		$("#discountAmount").val(data.priceInfo.discountAmount);
 	      		$("#totalDue").val(data.priceInfo.totalDue);
 	      		$("#referralName").val(data.referralName);
+	      		$('#loading-overlay').modal('hide');
 			}
 	      	else{
 	      		console.log(data.errorMsg); 
@@ -565,6 +567,7 @@ $("#eh-select-plan-next").on("click",function(){
 });
 
 $("#home-liability-update").on("click",function(){
+	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 	$.ajax({
 	   type : "get",
 	   cache:false, 
@@ -577,6 +580,7 @@ $("#home-liability-update").on("click",function(){
 	          },
 	   success : function(data) {
 	     	if(data !=null && data.errorMsg ==null){
+	     		$('#loading-overlay').modal('hide');
 	     		window.location = '<%=request.getContextPath()%>/${language}/easy-home-insurance/${nextPageFlow2}';
 			}
 	     	else{

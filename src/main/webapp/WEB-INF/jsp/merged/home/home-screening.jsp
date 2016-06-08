@@ -206,6 +206,7 @@ var nextPage = "${nextPageFlow}";
 		 		 && $('input[name="cb2"]:checked').attr("checked")
 		 		 && $('input[name="cb3"]:checked').attr("checked");
 		if(allNo){
+			$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 			$.ajax({
 		        type : "get",
 		        cache:false, 
@@ -218,6 +219,7 @@ var nextPage = "${nextPageFlow}";
 			           },
 		        success : function(data) {
 			      	if(data !=null && data.errorMsg ==null){
+			      		$('#loading-overlay').modal('hide');
 			      		window.location = '<%=request.getContextPath()%>/${language}/${planIndex}/${nextPageFlow}';
 					}
 			      	else{

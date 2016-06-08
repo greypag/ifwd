@@ -147,7 +147,7 @@ var nextPage = "${nextPageFlow}";
         </div>
     </div>
      <div class="app-pg-cont">
-        <form id="ef-form-selectplan">
+        <form id="ef-form-selectplan" method="post">
         <div class="container-fluid">
             <div class="row app-selectplan-tab">
                 <div class="col-xs-12 col-md-12">
@@ -517,6 +517,7 @@ For a complete explanation of the terms and conditions, please call our Customer
     
     <script>
 $(".btn-promo-apply").on("click",function(){
+	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 	$.ajax({
         type : "get",
         cache:false, 
@@ -539,6 +540,7 @@ $(".btn-promo-apply").on("click",function(){
 	      		$("#discountAmount").val(data.priceInfo.discountAmount);
 	      		$("#totalDue").val(data.priceInfo.totalDue);
 	      		$("#referralName").val(data.referralName);
+	      		$('#loading-overlay').modal('hide');
 			}
 	      	else{
 	      		console.log(data.errorMsg); 
