@@ -74,7 +74,7 @@ var languageP = "${language}";
 			<div class="declaration-content-wrapper">
 				<form id="declarationForm">
 					<p class="title"><fmt:message key="label.declaration.authorization.headline" bundle="${msg}" /></p>
-					
+					<c:if test="${planIndex == 'savings-insurance'}">
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.dda.title" bundle="${msg}" /></b></p>
 						<hr>
@@ -91,7 +91,7 @@ var languageP = "${language}";
 						</nav>
 						<p style="margin-top: 15px;"><fmt:message key="declaration.dda.note" bundle="${msg}" /></p>
 					</div>
-					
+					</c:if>
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
@@ -191,14 +191,6 @@ var languageP = "${language}";
 									<li><fmt:message key="declaration.policyreplacement.copy8" bundle="${msg}" /></li>
 								</ul>
 							</div>
-						</div>
-
-						<div style="margin-top: 20px;">
-						  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
-							<ul class="list-unstyled">
-								<li><fmt:message key="declaration.policyreplacement.copy7" bundle="${msg}" /></li>
-								<li><fmt:message key="declaration.policyreplacement.copy8" bundle="${msg}" /></li>
-							</ul>
 						</div>
 					</div>
 					
