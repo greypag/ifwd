@@ -261,7 +261,7 @@ public class GAServiceImpl implements GAService {
 			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 				url = UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY;
 			}else {
-				url = UserRestURIConstants.HOMECARE_FINALIZE_POLICY;
+				url = UserRestURIConstants.EASYHOME_FINALIZE_POLICY;
 			}
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST, url, header, parameters);
 			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
@@ -287,7 +287,7 @@ public class GAServiceImpl implements GAService {
 			if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 				url = UserRestURIConstants.HOMELIABILITY_FINALIZE_POLICY;
 			}else {
-				url = UserRestURIConstants.HOMECARE_FINALIZE_POLICY;
+				url = UserRestURIConstants.EASYHOME_FINALIZE_POLICY;
 			}
 			JSONObject apiResponsObject = restService.consumeApi(HttpMethod.POST, url, header, parameters);
 			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
