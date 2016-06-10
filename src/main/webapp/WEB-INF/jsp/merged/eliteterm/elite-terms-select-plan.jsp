@@ -1432,7 +1432,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<%--links--%>
 											<div class="getclubmembership" style="font-size: 14px;">
 												<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
-												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
+												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link" target="_blank">	
 													<i>
 														<fmt:message key="club.membership.join" bundle="${msg}" />
 													</i>
