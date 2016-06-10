@@ -2675,7 +2675,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
-							<div class="checkboxBubble" style="display: block;">
+							<div class="checkboxBubble">
                             	<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
                         	</div>
 						</div>
