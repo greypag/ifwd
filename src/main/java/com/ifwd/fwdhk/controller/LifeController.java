@@ -366,7 +366,13 @@ public class LifeController extends BaseController{
 		}
 		else{
 			request.getSession().setAttribute("fatcaYes", "fatcaYes");
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
+			if("savings-insurance".equals(plan)) {
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
+			} else {
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA);
+			}
+				
+			
 		}
 	}
 	

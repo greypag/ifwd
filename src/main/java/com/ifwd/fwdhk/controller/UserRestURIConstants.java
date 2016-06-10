@@ -325,6 +325,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW = "fna.review";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savings.sales.illustration";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "savings.fatca";
+	public static final String PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA = "easyhealth.fatca";
+	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "savings.personal.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "savings.employment.info";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "savings.beneficary.info";
