@@ -2785,6 +2785,7 @@ public class LifeServiceImpl implements LifeService {
 		session.removeAttribute("lifeDeclaration");
 		session.removeAttribute("lifePolicy");
 		session.removeAttribute("type");
+		session.removeAttribute("sendEmailsYes");
 		logger.info("remove savie online session");
 	}
 /**
@@ -3226,7 +3227,9 @@ public class LifeServiceImpl implements LifeService {
 				||"offlineApplication".equals(action)
 				||"uploadDocument".equals(action)
 				||"savieComplete".equals(action)
-				||"signLater".equals(action)){
+				||"signLater".equals(action)
+				||"rophiComplete".equals(action)
+				||"rophiUploadDocument".equals(action)){
 				parameters = new JSONObject();
 				parameters.put("to", UserRestURIConstants.getConfigs("innerMailTo"));
 				parameters.put("subject", subject);

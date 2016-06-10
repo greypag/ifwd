@@ -8276,7 +8276,7 @@ tr.product-landing-error-wrap {
 
 #theClubMembershipNo {
 	border: 0;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: 16px;
@@ -11832,14 +11832,14 @@ body.chin .partner-headline-wrapper .headline-title{
 #business-partners-container img.csl_logo {
     transform: none;
   }
-  
+
 #business-partners-container img.club_logo {
     margin-top: 30px;
 }
 #business-partners-container img.agoda_logo {
     margin-top: 15px;
 }
-  
+
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container #partners-logo #csl {
     width: 65px;
     padding-left: 10px;
@@ -11859,7 +11859,7 @@ body.chin .partner-headline-wrapper .headline-title{
 @media screen and (min-width: 992px) and (max-width: 1070px) {
 	#tdp1 input.datepicker.form-control.border-radius, #tdp2 input.datepicker.form-control.border-radius {
 	font-size: 18px;
-}	
+}
 }
 
 .content-disclaimer{
@@ -12032,6 +12032,7 @@ Be caution: <select> have customed made */
     top: 10px;
     padding-left: 15px;
     font-family: 'Calibri-Bold';
+    z-index: 4;
 }
 #soInsuredInfoForm .mdl-textfield__label.mdl-textfield__label--select-box {
 	padding-top: 5px;
@@ -12045,7 +12046,7 @@ Be caution: <select> have customed made */
 #soInsuredInfoForm .mdl-textfield.is-focused label,
 #soInsuredInfoForm .mdl-textfield.is-dirty label{
 	color: #ff8200;
-	font-size: 12px;
+	font-size: 14px;
     top: 1px;
 }
 #soInsuredInfoForm .mdl-textfield.is-not-active label {
@@ -12106,7 +12107,7 @@ Be caution: <select> have customed made */
 }
 .capitalize.placeholder-lower:placeholder-shown  {
   text-transform: none;
-} 
+}
 .capitalize.placeholder-lower::-webkit-input-placeholder  {
   text-transform: none;
 }

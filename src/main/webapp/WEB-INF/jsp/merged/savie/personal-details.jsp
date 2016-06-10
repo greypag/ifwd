@@ -201,13 +201,18 @@
 </div>
 </div>
 <div class="clearfix form-group has-error dob-content">
-<div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
+<!--<div class="left-desktop text-box et-date-info so-mdl-textfield is-focused is-dirty">
 	<div class="selectDiv" id="date">
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
 		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly"/>
 		<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></div>
 		<span class="error-msg" id="so-calendar-dob-msg"></span>
+	</div>-->
+	<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-upgraded is-dirty is-not-active">
+		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
+		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly"/>
 	</div>
+	<span class="error-msg" id="so-calendar-dob-msg"></span>
 </div>
 </div>
 <div class="col-sm-12 col-md-6 right">
@@ -589,10 +594,12 @@ maxlength="19"/>
 	<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 		<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 		<label for="the-club-member-toggle">
-			<a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
+			<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
 				<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
 				<fmt:message key="club.membership.confirm" bundle="${msg}" />
-			</a>
+			</a> --%>
+			<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
+			<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 		</label>
 	</div>
 
@@ -605,14 +612,15 @@ maxlength="19"/>
 			<span class="text-red" id="errClubMemberID"></span>
 			<%--inputBox--%>
 			<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
-				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 				<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 			</div>
 			<%--links--%>
 			<div class="getclubmembership" style="font-size: 14px;">
-				<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">
+				<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
+				<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
 					<i>
-						<fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" />
+						<fmt:message key="club.membership.join" bundle="${msg}" />
 					</i>
 				</a>
 			</div>
@@ -624,7 +632,7 @@ maxlength="19"/>
 			<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 		</div>
 	</div>--%>
-	<!-- The Club Membership popup -->
+	<%-- <!-- The Club Membership popup -->
 	<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
 		role="dialog" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog modal-lg">
@@ -660,7 +668,7 @@ maxlength="19"/>
 			</div>
 		</div>
 	</div>
-	<!--/ The Club Membership popup -->
+	<!--/ The Club Membership popup --> --%>
 	<script>
 	function chkClubMember() {
 		$(".errDue").html('');
@@ -779,7 +787,7 @@ $(document).ready(function () {
 	if ('${plan }' == 'savings-insurance') {
 		setSelectReadonly('tmpMaritalStatus', true);
 	}
-	
+
 	if ('${plan }' == 'medical-insurance' && '${backSummary}' == "Y") {
 		setStyleOfIsNotActive('hkId');
 		setStyleOfIsNotActive('tmpPlaceOfBirth');
@@ -963,7 +971,7 @@ if (msieversion() >= 9) {
 
 $("#et-personal-info-next, #btn-back").click(function () {
 	$('#soInsuredInfoForm').bootstrapValidator('validate');
-	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid() && chkClubMember()) {
 		/*if ( $('#gender-errormsg').hasClass('has-error') ) {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
 					} else {

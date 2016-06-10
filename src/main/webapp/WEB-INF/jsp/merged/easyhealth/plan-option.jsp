@@ -152,7 +152,6 @@ var ehPro = '${pro }';
                         <div class="col-sm-12">
                             <div class="text-center title">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/p1_img_02_title02_${language}.png" class="img-responsive inline-block" alt='<fmt:message key="label.take.it.easy" bundle="${msg}" />'>
-                                <p><fmt:message key="label.plan.desc" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </dir>
@@ -1567,6 +1566,24 @@ var ehPro = '${pro }';
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
                                                         <div class="panel-body">
+                                                        	<c:choose>
+                                                        	<c:when test="${language =='en'}">
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.1.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.2.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.3.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.4.content" bundle="${msg}" />
+                                                            </p>
+                                                            <ul>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.5.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.6.content" bundle="${msg}" /></li>
+                                                                <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
+                                                            </ul>
+                                                            <br> 
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
+                                                            <br>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
+                                                            <br>                                                            	
+                                                            </c:when>
+                                                            <c:when test="${language =='tc'}">
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.8.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.9.content" bundle="${msg}" /></p>
                                                             <br>
                                                             <p><b><fmt:message key="easyhealth.plandetails.remarks.10.content" bundle="${msg}" /></b><fmt:message key="easyhealth.plandetails.remarks.11.content" bundle="${msg}" /></p>
@@ -1580,7 +1597,9 @@ var ehPro = '${pro }';
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.6.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.remarks.7.content" bundle="${msg}" /></li>
                                                             </ul>
-                                                            <br>
+                                                            <br>                                                                                                                    
+                                                            </c:when>
+                                                            </c:choose>
                                                             
                                                             
                                                             <p><fmt:message key="easyhealth.plandetails.remarks.12.content" bundle="${msg}" /></p>
@@ -1848,6 +1867,7 @@ var ehPro = '${pro }';
         	}
 
             $('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+            $('#dob').mobiscroll('select');
         	
         	$("#eh-btn-plan-overview").click();
         	
@@ -1872,6 +1892,7 @@ var ehPro = '${pro }';
         	}
         	
         	$('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+        	$('#dob').mobiscroll('select');
 
         	$("#eh-btn-plan-overview").click();
         	

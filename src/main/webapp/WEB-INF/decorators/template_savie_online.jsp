@@ -160,8 +160,8 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 <script type='text/javascript'>
 var _vwo_code=(function(){
 var account_id=190010,
-settings_tolerance=2000,
-library_tolerance=2500,
+settings_tolerance=5000,
+library_tolerance=5000,
 use_existing_jquery=false,
 // DO NOT EDIT BELOW THIS LINE
 f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
@@ -275,25 +275,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	})(window, document, 'script', 'dataLayer', 'GTM-MWPF25');
 </script>
 <!--END -Google Code for SEO-->
-	<script>
-	function show_stack_bar_top(message) {
-		var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
-	    var opts = {
-			        title: "<fmt:message key="system.errorbox.generic.title" bundle="${msg}" />",
-			        text: "<fmt:message key="system.errorbox.generic.message" bundle="${msg}" />",
-			        addclass: "stack-bar-top error-box",
-			        cornerclass: "",
-			        width: "100%",
-			        hide: false,
-			        buttons: {
-			       		closer: true,
-			       		sticker: true
-			       	},
-			        stack: stack_bar_top
-			};
-	    new PNotify(opts);
-	}
-	</script>
 	<div class="fwd-savie-wrapper">
 				<%@ include file="include/merged/header.jsp"%>
 		<dec:body />

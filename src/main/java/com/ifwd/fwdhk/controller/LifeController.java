@@ -866,6 +866,7 @@ public class LifeController extends BaseController{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
+		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
@@ -876,18 +877,21 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
-			try {
-				JSONObject models = new JSONObject();
-				models.put("name", request.getSession().getAttribute("username"));
-				
-				if("medical-insurance".equals(plan)) {
-					savieOnlineService.sendEmails(request, "rophiComplete", models);
-				}else {
-					savieOnlineService.sendEmails(request, "savieComplete", models);
+			if(sendEmailsYes == null){
+				try {
+					JSONObject models = new JSONObject();
+					models.put("name", request.getSession().getAttribute("username"));
+					
+					if("medical-insurance".equals(plan)) {
+						savieOnlineService.sendEmails(request, "rophiComplete", models);
+					}else {
+						savieOnlineService.sendEmails(request, "savieComplete", models);
+					}
+					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.info(e.getMessage());
 			}
 			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 		}

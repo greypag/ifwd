@@ -322,6 +322,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("fatcaYes");
 		session.removeAttribute("applicationSummaryYes");
 		session.removeAttribute("documentUploadYes");
+		session.removeAttribute("sendEmailsYes");
 		logger.info("remove session");
 	}
 	

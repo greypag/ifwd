@@ -140,7 +140,7 @@ body {
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.active-bc {
   display: block;
   font-size: 24px;
-  line-height: 16px;
+  line-height: 26px;
   color: #ff8200;
 }
 @media (min-width: 992px) {
