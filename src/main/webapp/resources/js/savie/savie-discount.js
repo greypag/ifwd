@@ -54,13 +54,13 @@ savieDiscount = {
 				}else{
 					$(".loss-msg").slideDown();
 
-				}
+				}	
 
 				$(".pans").slideDown();
 				
 				
 			}else{
-				$(".hkid-err-msg").text("please enter correct hkid");
+				$(".hkid-err-msg").text(getBundle(getBundleLanguage, "savie.online.home.discount.error.hkid"));
 			}
 			
 		});

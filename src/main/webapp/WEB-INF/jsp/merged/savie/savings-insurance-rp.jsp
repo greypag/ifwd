@@ -109,28 +109,28 @@ var home_url = "<%=request.getContextPath()%>";
 	        <!-- Savie Discount Start -->
 		        	<div class="spd-wrapper">
 		        		<div class="text-center">	
-		        			<p class="txt-discount">And a chance to get as high as <span>HK$10,000</span> premium discount<br class="visible-xs"/><br class="visible-xs"/><a href="#spd-wrapper-inner-anchor" class="btn-spd-start">Be The Winner</a> </p>
+		        			<p class="txt-discount"><fmt:message key="savie.online.home.discount.tagline1" bundle="${msg}" /> <span><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" />10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></span> <fmt:message key="savie.online.home.discount.tagline2" bundle="${msg}" /><br class="visible-xs"/><br class="visible-xs"/><a href="#spd-wrapper-inner-anchor" class="btn-spd-start"><fmt:message key="savie.online.home.discount.btn.winner" bundle="${msg}" /></a> </p>
 		        		</div>
 		        		<div id="spd-wrapper-inner-anchor"></div>	
 		        		<div class="spd-wrapper-inner">
 			        		<div class="hkid-search text-center">
-			        			<label>Enter your HKID Card Number：</label>
+			        			<label><fmt:message key="savie.online.home.discount.enter.hkid" bundle="${msg}" /></label>
 			        			<div class="input-wrapper">
 			        				<form id="form-hkid">
-			        					<input type="text" id="input-hkid" autocomplete="off" placeholder="EG: X1234567 WITHOUT ()"><br>
+			        					<input type="text" id="input-hkid" autocomplete="off" placeholder="<fmt:message key="savie.online.home.discount.enter.placeholder" bundle="${msg}" />"><br>
 			        					<span class="hkid-err-msg text-red"></span>
-			        					<span>FWD will NOT store your HKID </span>
+			        					<span><fmt:message key="savie.online.home.discount.notstore" bundle="${msg}" /></span>
 			        				</form>
 			        			</div>
-			        			<button class="btn-spd btn-hkid-submit">Check My Number</button>
+			        			<button class="btn-spd btn-hkid-submit"><fmt:message key="savie.online.home.discount.btn.check" bundle="${msg}" /></button>
 			        		</div>
-			        		<p class="won-msg text-center">Congratulations!<br>You can receive the following Savie premium discount</p>
-			        		<p class="loss-msg text-center">Sigh<br>too bad you can’t choose your own HKID Card Number</p>
+			        		<p class="won-msg text-center"><fmt:message key="savie.online.home.discount.msg.won" bundle="${msg}" /></p>
+			        		<p class="loss-msg text-center"><fmt:message key="savie.online.home.discount.msg.loss" bundle="${msg}" /></p>
 			        		
 			        		
 			        		<table class="tbl-spd hidden-xs">
 			        			<tr>
-			        				<th>Total number of occurrences of &quot;1&quot; and &quot;2&quot; and &quot;3&quot; in the HKID Card Number</th>
+			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
 			        				<td class="b1">1</td>
 			        				<td class="b2">2</td>
 			        				<td class="b3">3</td>
@@ -140,50 +140,50 @@ var home_url = "<%=request.getContextPath()%>";
 			        				<td class="b7">7</td>
 			        			</tr>
 			        			<tr>
-			        				<th>For One-off Premium Plan &gt;= HK$ 200,000</th>
-			        				<td class="b1">HK$ 500</td>
-			        				<td class="b2">HK$ 800</td>
-			        				<td class="b3">HK$ 1,000</td>
-			        				<td class="b4">HK$ 3,000</td>
-			        				<td class="b5">HK$ 5,000</td>
-			        				<td class="b6">HK$ 7,000</td>
-			        				<td class="b7">HK$ 10,000</td>
+			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 			        			</tr>
 			        			<tr>
-			        				<th>For One-off Premium Plan &lt; HK$ 200,000 </th>
-			        				<td class="b1">HK$ 300</td>
-			        				<td class="b2">HK$ 500</td>
-			        				<td class="b3">HK$ 700</td>
-			        				<td class="b4">HK$ 2,000</td>
-			        				<td class="b5">HK$ 3,000</td>
-			        				<td class="b6">HK$ 5,000</td>
-			        				<td class="b7">HK$ 10,000</td>
+			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> &lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 			        			</tr>
 			        			<tr>
-			        				<th>For Monthly Regular Contribution Plan</th>
-			        				<td class="b1">HK$ 200</td>
-			        				<td class="b2">HK$ 400</td>
-			        				<td class="b3">HK$ 600</td>
-			        				<td class="b4">HK$ 1,000</td>
-			        				<td class="b5">HK$ 2,000</td>
-			        				<td class="b6">HK$ 3,000<sup>*</sup></td>
-			        				<td class="b7">HK$ 10,000<sup>*</sup></td>
+			        				<th><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 			        			</tr>
 			        		</table>
 			        		<div class="tbl-spd-mobile visible-xs clearfix">
 					            <div class="sticky-header">
 					                <table>
 					                    <tr>
-					                        <th>Total number of occurrences of "1" and "2" and "3" in the HKID Card Number</th>
+					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
 					                    </tr>
 					                    <tr>
-					                        <th>One-off Premium ≥ HK$ 200,000</th>
+					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
 					                    </tr>
 					                    <tr>
-					                        <th>One-off Premium &lt; HK$ 200,000</th>
+					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> &lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
 					                    </tr>
 					                    <tr>
-					                    	<th>For Monthly Regular Contribution Plan</th>
+					                    	<th><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></th>
 					                    </tr>
 					                </table>
 					            </div>
@@ -195,6 +195,7 @@ var home_url = "<%=request.getContextPath()%>";
 					            	
 					                <table>
 					                    <tr>
+					                    	
 					                        <td class="b1">1</td>
 					                        <td class="b2">2</td>
 					                        <td class="b3">3</td>
@@ -204,48 +205,48 @@ var home_url = "<%=request.getContextPath()%>";
 					                        <td class="b7">7</td>
 					                    </tr>
 					                    <tr>
-					                        <td class="b1">HK$ 500</td>
-					                        <td class="b2">HK$ 800</td>
-					                        <td class="b3">HK$ 1,000</td>
-					                        <td class="b4">HK$ 3,000</td>
-					                        <td class="b5">HK$ 5,000</td>
-					                        <td class="b6">HK$ 7,000</td>
-					                        <td class="b7">HK$ 10,000</td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>       				
 					                    </tr>
 					                    <tr>
-					                    	<td class="b1">HK$ 300</td>
-					        				<td class="b2">HK$ 500</td>
-					        				<td class="b3">HK$ 700</td>
-					        				<td class="b4">HK$ 2,000</td>
-					        				<td class="b5">HK$ 3,000</td>
-					        				<td class="b6">HK$ 5,000</td>
-					        				<td class="b7">HK$ 10,000</td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					                    </tr>
 					                    <tr>
-					                        <td class="b1">HK$ 200</td>
-					                        <td class="b2">HK$ 400</td>
-					                        <td class="b3">HK$ 600</td>
-					                        <td class="b4">HK$ 1,000</td>
-					                        <td class="b5">HK$ 2,000</td>
-					                        <td class="b6">HK$ 3,000<sup>*</sup></td>
-					                        <td class="b7">HK$ 10,000<sup>*</sup></td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        						<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 					                    </tr>
 					                </table>
 					            </div>
 					        </div>
-			        		<p class="remarks">* If the first initial payment paid (which equivalent to the first 2 months’ regular contribution) for the Monthly Regular Contribution Plan (“the First Initial Payment”) is less than the Premium Discount, the applicant can only enjoy the Premium Discount not more than the First Initial Payment.</p>
+			        		<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
 			        		<div class="text-center pans">
 			        			<div class="won-panel">
-			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next">Start</a>
+			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
 			        			</div>
 			        			<div>
-			        				<p class="share-msg">Share with your friends <a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a></p>
+			        				<p class="share-msg"><fmt:message key="savie.online.home.discount.msg.share" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a></p>
 			        				
 			        			</div>
 			        		</div>
 			        		<ul>
-			        			<li class="remarks">To enjoy this Promotion, you must <b><u>make an appointment to visit one of FWD’s customer service centres</u></b> to conduct a simple financial needs analysis to assess your suitability for Savie. Once it is confirmed that Savie meets your objective(s) and need(s), you must present your HKID card proving your eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by your personal cheque, or direct debit through your bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
-			        			<li class="remarks">Please refer to the <a href="javascript:void(0);" class="btn-spd-tnc">Terms &amp; Conditions</a>.</li>
+			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc1.prefix" bundle="${msg}" /> <b><u><fmt:message key="savie.online.home.discount.tnc1.highlight" bundle="${msg}" /></u></b> <fmt:message key="savie.online.home.discount.tnc1.suffix" bundle="${msg}" /></li>
+			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd-tnc"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
 			        		</ul>
 		        		</div>
 		        		
@@ -279,78 +280,78 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-									<h2>Savie HKID Card Promotion Terms and Conditions:</h2>
+									<h2><fmt:message key="savie.online.home.discount.popup.msg.tnc" bundle="${msg}" /></h2>
 									
 								</div>
 								<div class="modal-body">
 									<ul>
-										<li>This Promotion for the “Savie” Insurance Plan (“Savie”) underwritten by FWD Life Insurance Company (Bermuda) Limited (“FWD”) will be offered between 15 June 2016 and 14 July 2016 (both dates inclusive) (“Promotion Period”) and the application for Savie must be submitted within the Promotion Period.</li>
-										<li>Savie applicants with Hong Kong Permanent Identity Card (“HKID Card”) containing “1” or “2” or “3” are eligible for this Promotion, subject to these terms and conditions. The premium discount is determined by the total number of occurrences of digit “1” and “2” and “3” in the HKID Card number, in accordance to the following table:
+										<li><fmt:message key="savie.online.home.discount.popup.tnc1" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc2" bundle="${msg}" />
 											<table>
 												<tr>
-													<td rowspan="3" class="col-1">Total number of occurrences of “1” and “2” and “3” in the HKID Card Number(e.g. HKID Card number “A123456(3)” – the total number  is 4).</td>
-													<td colspan="3" class="col-3">Premium Discount</td>
+													<td rowspan="3" class="col-1"><fmt:message key="savie.online.home.discount.popup.table.th1" bundle="${msg}" /></td>
+													<td colspan="3" class="col-3"><fmt:message key="savie.online.home.discount.popup.table.th2" bundle="${msg}" /></td>
 												</tr>
 												<tr>
-													<td colspan="2" class="col-2">For One-off Premium Plan</td>
-													<td rowspan="2" class="col-2">For Monthly Regular Contribution Plan</td>
+													<td colspan="2" class="col-2"><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /></td>
+													<td rowspan="2" class="col-2"><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></td>
 												</tr>
 												<tr>
-													<td class="col-1">≥ HK$ 200,000</td>
-													<td class="col-1">&lt; HK$ 200,000</td>
+													<td class="col-1">≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td class="col-1">&lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>1</td>
-													<td>HK$ 500</td>
-													<td>HK$ 300</td>
-													<td>HK$ 200</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>2</td>
-													<td>HK$ 800</td>
-													<td>HK$ 500</td>
-													<td>HK$ 400</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>3</td>
-													<td>HK$ 1,000</td>
-													<td>HK$ 700</td>
-													<td>HK$ 600</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>4</td>
-													<td>HK$ 3,000</td>
-													<td>HK$ 2,000</td>
-													<td>HK$ 1,000</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>	
 												<tr>
 													<td>5</td>
-													<td>HK$ 5,000</td>
-													<td>HK$ 3,000</td>
-													<td>HK$ 2,000</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>6</td>
-													<td>HK$ 7,000</td>
-													<td>HK$ 5,000</td>
-													<td>HK$ 3,000*</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 												</tr>	
 												<tr>
 													<td>7</td>
-													<td>HK$ 10,000</td>
-													<td>HK$ 10,000</td>
-													<td>HK$ 10,000*</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 												</tr>
 											</table>
-											<p class="remarks"><sup>*</sup> If the first initial payment paid (which equivalent to the first 2 months’ regular contribution) for the Monthly Regular Contribution Plan (“the First Initial Payment”) is less than the Premium Discount, the applicant can only enjoy the Premium Discount not more than the First Initial Payment.</p>
+											<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
 										</li>
-										<li>To enjoy this Promotion, applicant must make an appointment through <a href="https://i.fwd.com.hk/en/savings-insurance">https://i.fwd.com.hk/en/savings-insurance</a> to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess his/her suitability for Savie. Once it is confirmed that Savie meets applicant’s objective(s) and need(s), applicant must present his/her HKID card proving his/her eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by applicant’s personal cheque, or direct debit through the applicant’s bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
-										<li>Each HKID Card Holder can enjoy this Promotion once only.</li>
-										<li>The application date of Savie is based on the record of FWD.</li>
-										<li>This Promotion is not redeemable for cash and cannot be used in conjunction with other promotional offers or discounts.	</li>
-										<li>Savie is subject to its terms and conditions. FWD has the right to reject any application, and its decision in relation to disputes that may arise from this Promotion will be final and conclusive. </li>
-										<li>FWD reserves the right to amend these terms and conditions of this Promotion or discontinue this promotion at any time without prior notice.</li>
-										<li>In the event of any inconsistency between the Chinese and English versions of these terms and conditions, the English version shall prevail.</li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc3.prefix" bundle="${msg}" /> <a href="https://i.fwd.com.hk/en/savings-insurance">https://i.fwd.com.hk/en/savings-insurance</a> <fmt:message key="savie.online.home.discount.popup.tnc3.suffux" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc4" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc5" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc6" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc7" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc8" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc9" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
