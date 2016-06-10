@@ -1432,7 +1432,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<%--links--%>
 											<div class="getclubmembership" style="font-size: 14px;">
 												<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
-												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link">
+												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link" target="_blank">	
 													<i>
 														<fmt:message key="club.membership.join" bundle="${msg}" />
 													</i>
@@ -2675,7 +2675,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
-							<div class="checkboxBubble" style="display: block;">
+							<div class="checkboxBubble">
                             	<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
                         	</div>
 						</div>
