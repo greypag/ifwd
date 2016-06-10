@@ -123,6 +123,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        				</form>
 			        			</div>
 			        			<button class="btn-spd btn-hkid-submit"><fmt:message key="savie.online.home.discount.btn.check" bundle="${msg}" /></button>
+			        			<a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a>
 			        		</div>
 			        		<p class="won-msg text-center"><fmt:message key="savie.online.home.discount.msg.won" bundle="${msg}" /></p>
 			        		<p class="loss-msg text-center"><fmt:message key="savie.online.home.discount.msg.loss" bundle="${msg}" /></p>
@@ -130,7 +131,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        		
 			        		<table class="tbl-spd hidden-xs">
 			        			<tr>
-			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
+			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></th>
 			        				<td class="b1">1</td>
 			        				<td class="b2">2</td>
 			        				<td class="b3">3</td>
@@ -174,7 +175,7 @@ var home_url = "<%=request.getContextPath()%>";
 					            <div class="sticky-header">
 					                <table>
 					                    <tr>
-					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
+					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></th>
 					                    </tr>
 					                    <tr>
 					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
@@ -234,18 +235,14 @@ var home_url = "<%=request.getContextPath()%>";
 					                </table>
 					            </div>
 					        </div>
-			        		<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
+			        		<p class="remarks grey"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
 			        		<div class="text-center pans">
 			        			<div class="won-panel">
 			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
 			        			</div>
-			        			<div>
-			        				<p class="share-msg"><fmt:message key="savie.online.home.discount.msg.share" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a></p>
-			        				
-			        			</div>
 			        		</div>
 			        		<ul>
-			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc1.prefix" bundle="${msg}" /> <b><u><fmt:message key="savie.online.home.discount.tnc1.highlight" bundle="${msg}" /></u></b> <fmt:message key="savie.online.home.discount.tnc1.suffix" bundle="${msg}" /></li>
+			        			<li class="remarks grey"><fmt:message key="savie.online.home.discount.tnc1.prefix" bundle="${msg}" /> <b><u><fmt:message key="savie.online.home.discount.tnc1.highlight" bundle="${msg}" /></u></b> <fmt:message key="savie.online.home.discount.tnc1.suffix" bundle="${msg}" /></li>
 			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd-tnc"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
 			        		</ul>
 		        		</div>
@@ -289,7 +286,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<li><fmt:message key="savie.online.home.discount.popup.tnc2" bundle="${msg}" />
 											<table>
 												<tr>
-													<td rowspan="3" class="col-1"><fmt:message key="savie.online.home.discount.popup.table.th1" bundle="${msg}" /></td>
+													<td rowspan="3" class="col-1"><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></td>
 													<td colspan="3" class="col-3"><fmt:message key="savie.online.home.discount.popup.table.th2" bundle="${msg}" /></td>
 												</tr>
 												<tr>
@@ -362,7 +359,8 @@ var home_url = "<%=request.getContextPath()%>";
      				
      		<ul class="availability-notice" style="padding-left: 10px;">
   				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li>
+  			<%--<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li> --%>
             <%--<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li> --%>
   				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
   			</ul>
