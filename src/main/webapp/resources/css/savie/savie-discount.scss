@@ -59,6 +59,7 @@
 					border:none;
 					height:44px;
 					font-size:24px;
+					line-height: 44px;
 					padding:5px 10px;
 					color:#ff8422;
 				}
@@ -224,6 +225,10 @@
 	        }
         }
 
+        .btn-spd-share.btn-spd{
+        	min-width: 44px;
+        }
+
 
 		.remarks{
 			font-size:12px;
@@ -291,6 +296,8 @@
 	}
 	ul{
 		padding-left:20px;
+
+		a{font-size:14px !important;}
 	}
 
 	img{margin:auto;}
@@ -324,5 +331,19 @@
 		table{
 			font-size:12px;
 		}
+	}
+
+	.savie-regular-landing .page-banner .img-banner-text.savie-landing{
+		bottom:0;
+		margin:auto;
+		left:0;
+		right:0;
+		text-align:center;
+	}
+
+	.savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn,
+	.savie-regular-landing.rp-only .page-banner a.img-bg img.play-btn{
+		margin-left:-22.5px;
+		left:50%;
 	}
 }

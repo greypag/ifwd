@@ -132,7 +132,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        			<label>Enter your HKID Card Number：</label>
 			        			<div class="input-wrapper">
 			        				<form id="form-hkid">
-			        					<input type="text" id="input-hkid" autocomplete="off"><br>
+			        					<input type="text" id="input-hkid" autocomplete="off" placeholder="EG: X1234567 WITHOUT ()"><br>
 			        					<span class="hkid-err-msg text-red"></span>
 			        					<span>FWD will NOT store your HKID </span>
 			        				</form>
@@ -251,15 +251,15 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<p class="remarks">* If the first initial payment paid (which equivalent to the first 2 months’ regular contribution) for the Monthly Regular Contribution Plan (“the First Initial Payment”) is less than the Premium Discount, the applicant can only enjoy the Premium Discount not more than the First Initial Payment.</p>
 			        		<div class="text-center pans">
 			        			<div class="won-panel">
-			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next">Next</a>
+			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next">Start</a>
 			        			</div>
 			        			<div>
-			        				<p class="share-msg">Share with your friends</p>
-			        				<a href="javascript:void(0);" class="btn-spd btn-spd-share">Share</a>
+			        				<p class="share-msg">Share with your friends <a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a></p>
+			        				
 			        			</div>
 			        		</div>
 			        		<ul>
-			        			<li class="remarks">To enjoy this Promotion, you must make an appointment to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess your suitability for Savie. Once it is confirmed that Savie meets your objective(s) and need(s), you must present your HKID card proving your eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by your personal cheque, or direct debit through your bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
+			        			<li class="remarks">To enjoy this Promotion, you must <b><u>make an appointment to visit one of FWD’s customer service centres</u></b> to conduct a simple financial needs analysis to assess your suitability for Savie. Once it is confirmed that Savie meets your objective(s) and need(s), you must present your HKID card proving your eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by your personal cheque, or direct debit through your bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
 			        			<li class="remarks">Please refer to the <a href="javascript:void(0);" class="btn-spd-tnc">Terms &amp; Conditions</a>.</li>
 			        		</ul>
 		        		</div>
@@ -358,7 +358,7 @@ var home_url = "<%=request.getContextPath()%>";
 												</tr>
 											</table>
 										</li>
-										<li>To enjoy this Promotion, applicant must make an appointment through https://i.fwd.com.hk/en/savings-insurance to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess his/her suitability for Savie. Once it is confirmed that Savie meets applicant’s objective(s) and need(s), applicant must present his/her HKID card proving his/her eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by applicant’s personal cheque, or direct debit through the applicant’s bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
+										<li>To enjoy this Promotion, applicant must make an appointment through <a href="https://i.fwd.com.hk/en/savings-insurance">https://i.fwd.com.hk/en/savings-insurance</a> to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess his/her suitability for Savie. Once it is confirmed that Savie meets applicant’s objective(s) and need(s), applicant must present his/her HKID card proving his/her eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by applicant’s personal cheque, or direct debit through the applicant’s bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
 										<li>Each HKID Card Holder can enjoy this Promotion once only.</li>
 										<li>The application date of Savie is based on the record of FWD.</li>
 										<li>This Promotion is not redeemable for cash and cannot be used in conjunction with other promotional offers or discounts.	</li>

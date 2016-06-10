@@ -1,9 +1,12 @@
 var savieDiscount = {};
 
 savieDiscount = {
+	usrTakeOverTable:null,
+	order:-1,
 	init:function(){
 
-		var that = this;
+		var that = this;	
+		
 		$(".btn-spd-start").click(function(){
 			//$(".spd-wrapper-inner").scrollTo(800);	
 			$.scrollTo(this.hash, 800,{offset:{top:-50}});
@@ -76,9 +79,9 @@ savieDiscount = {
             that.btnSlide(1);
         });
         
-        $(".btn-spd-next").click(function(){
+        /*$(".btn-spd-next").click(function(){
         	$("#spdModal").modal("show");
-        });
+        });*/
         
         $(".btn-spd-tnc").click(function(){
         	$("#tncModal").modal("show");
@@ -87,9 +90,33 @@ savieDiscount = {
 	},
 	
 	initSyncOverflowTable:function(){
-		this.syncOverflowTable(7);
+		var that = this;
+		that.syncOverflowTable(7);
         //$(".overflow-body").scrollLeft($(".overflow-body").width() * (7 - 1));
-        $('.overflow-body').css('visibility','visible').hide().fadeIn();
+        $('.overflow-body').css('visibility','visible').hide().fadeIn(480,function(){
+        	that.usrTakeOverTable = setInterval(function(){
+
+        		var idx = Math.round($(".overflow-body").scrollLeft() / $(".overflow-body").width()) + 1;
+        		var duration = 480;
+        		if(idx == 1 && that.order == -1){
+        			that.order = 1;
+        		}else if(idx == 7 && that.order == 1){
+        			that.order = -1;
+        		}
+        		
+        		idx+=that.order;
+        		
+        		that.toSlide(idx);
+        	},5000);
+        });
+        
+        $(".overflow-body").on("touchstart",function(){
+        	clearInterval(that.usrTakeOverTable);
+        });
+        
+        $("#input-hkid").on("focus",function(){
+        	clearInterval(that.usrTakeOverTable);
+        });
 	},
 
 	syncOverflowTable : function (num){
