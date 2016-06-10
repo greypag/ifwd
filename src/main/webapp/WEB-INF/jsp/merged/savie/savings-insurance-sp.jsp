@@ -348,15 +348,16 @@ var home_url = "<%=request.getContextPath()%>";
 													<td>6</td>
 													<td>HK$ 7,000</td>
 													<td>HK$ 5,000</td>
-													<td>HK$ 3,000*</td>
+													<td>HK$ 3,000<sup>*</sup></td>
 												</tr>	
 												<tr>
 													<td>7</td>
 													<td>HK$ 10,000</td>
 													<td>HK$ 10,000</td>
-													<td>HK$ 10,000*</td>
+													<td>HK$ 10,000<sup>*</sup></td>
 												</tr>
 											</table>
+											<p class="remarks"><sup>*</sup> If the first initial payment paid (which equivalent to the first 2 months’ regular contribution) for the Monthly Regular Contribution Plan (“the First Initial Payment”) is less than the Premium Discount, the applicant can only enjoy the Premium Discount not more than the First Initial Payment.</p>
 										</li>
 										<li>To enjoy this Promotion, applicant must make an appointment through <a href="https://i.fwd.com.hk/en/savings-insurance">https://i.fwd.com.hk/en/savings-insurance</a> to visit one of FWD’s customer service centres to conduct a simple financial needs analysis to assess his/her suitability for Savie. Once it is confirmed that Savie meets applicant’s objective(s) and need(s), applicant must present his/her HKID card proving his/her eligibility of this Promotion and obtain a premium discount on the premium payment. The discounted premium must be paid by applicant’s personal cheque, or direct debit through the applicant’s bank account (only applicable to One-off Plan) or Bank of Communications FWD Credit Card.</li>
 										<li>Each HKID Card Holder can enjoy this Promotion once only.</li>
