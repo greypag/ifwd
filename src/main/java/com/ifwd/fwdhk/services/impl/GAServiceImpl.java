@@ -317,7 +317,7 @@ public class GAServiceImpl implements GAService {
 		}
 		url.append("?planCode=EasyHomeCare");
 		url.append("&referralCode=");
-		url.append(referralCode);
+		url.append(referralCode!=null?referralCode.replace(" ", ""):"");
 		url.append("&room&floor&block=block1&building=building1&estate=estate1&streetNo&streetName&district&area");
 		url.append("&answer1=");
 		url.append(answer1);
