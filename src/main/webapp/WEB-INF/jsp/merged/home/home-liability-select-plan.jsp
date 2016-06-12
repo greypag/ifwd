@@ -456,7 +456,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                 <div class="col-xs-12">
                     <div class="btn-row text-center">
                         <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-                        <a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-select-plan-next">Next</a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next">Next</a>
                     </div>
                 </div>
             </div>

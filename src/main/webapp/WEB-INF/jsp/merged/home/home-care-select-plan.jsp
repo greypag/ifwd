@@ -146,8 +146,8 @@ var nextPage = "${nextPageFlow}";
             </div>
         </div>
     </div>
+<form id="ef-form-selectplan" method="post">
      <div class="app-pg-cont">
-        <form id="ef-form-selectplan" method="post">
         <div class="container-fluid">
             <div class="row app-selectplan-tab">
                 <div class="col-xs-12 col-md-12">
@@ -360,7 +360,6 @@ For a complete explanation of the terms and conditions, please call our Customer
 			<input type="hidden" name="referralName" id="referralName" value="${planQuote.referralName}"/> 
 			<input type="hidden" name="answer1" value="N"/> 
 			<input type="hidden" name="answer2" value="N"/>
-        </form>
     </div>
     <div class="container-fluid summary-bottom-bar">
         <div class="summary-bottom-bar-container">
@@ -388,6 +387,7 @@ For a complete explanation of the terms and conditions, please call our Customer
             </div>
         </div>
     </div>
+</form>
 
     <!--Get promotion code popup-->
     <div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"
@@ -449,7 +449,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                 <div class="col-xs-12">
                     <div class="btn-row text-center">
                         <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-                        <a href="javascript:void(0);" class="btn-app eh-btn-next grey-out" id="eh-select-plan-next">Next</a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next">Next</a>
                     </div>
                 </div>
             </div>

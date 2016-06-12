@@ -53,7 +53,7 @@ public class GAController extends BaseController{
 		else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/screening"})
@@ -64,7 +64,7 @@ public class GAController extends BaseController{
 		else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SCREENING);
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/quote"})
@@ -89,7 +89,7 @@ public class GAController extends BaseController{
 		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)){
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SELECT_PLAN);
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/application"})
@@ -108,7 +108,7 @@ public class GAController extends BaseController{
 				homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
 			}
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 			}
 			session.setAttribute("homeQuoteDetails", homeQuoteDetails);
 			String lang = UserRestURIConstants.getLanaguage(request);
@@ -140,7 +140,7 @@ public class GAController extends BaseController{
 				return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_USER_DETAILS);
 			}
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/summary"})
@@ -154,9 +154,9 @@ public class GAController extends BaseController{
 			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
 			
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 			}else if(createdPolicy == null || homeCareDetails == null) {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 			}
 			
 			session.setAttribute("editableUserDetails", userDetails);
@@ -222,7 +222,7 @@ public class GAController extends BaseController{
 				return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_SUMMARY);
 			}
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/confirmation"})
@@ -270,7 +270,7 @@ public class GAController extends BaseController{
 					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionDate) || 
 					org.apache.commons.lang.StringUtils.isAllLowerCase(creditCardNo) || 
 					org.apache.commons.lang.StringUtils.isAllLowerCase(expiryDate)) {
-				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 			}
 			try {
 				CreatePolicy finalizePolicy = gaService.finalizeHomeCarePolicy(plan, userName, token, referenceNo,
@@ -319,7 +319,7 @@ public class GAController extends BaseController{
 				return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_CONFIRMATION);
 			}
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance"+plan);
 	}
 	
 }

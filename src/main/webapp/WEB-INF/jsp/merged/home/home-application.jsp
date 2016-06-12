@@ -54,7 +54,7 @@ var plan="${plan}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">${homeQuoteDetails.planCode }</p>
+                            <p class="fld-label">${plan=='home-liability'? 'Personal Liability' : 'Easy HomeCare' }</p>
                             <p class="fld-val"><!-- Standard cover, Annual --></p>
                             </div>
                         </div>                        
