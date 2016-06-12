@@ -248,7 +248,7 @@ public class GAController extends BaseController{
 			if (lang.equals("tc"))
 				lang = "CN";
 			
-			if("0.0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
+			if("0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
 				creditCardNo = "0000000000000000";
 				expiryDate = "122030";
 			}else {
