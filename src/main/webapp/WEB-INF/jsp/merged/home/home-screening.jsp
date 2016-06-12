@@ -32,58 +32,7 @@ var nextPage = "${nextPageFlow}";
      </div>
      <div class="savie-online-container app-pg-ctnr theme-white" id="ehome-app-screening">
      
-    <!--<div class="container-fluid summary-bar">
-        <div class="summary-bar-container">
-            <ul class="summary-group clearfix">
-                <li><a href="javascript:void(0);" class="btn-back"><i class="glyphicon glyphicon-arrow-left"></i></a></li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Plan</p>
-                        <p class="fld-val">Easy HomeCare</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Plan type</p>
-                        <p class="fld-val">Year</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Promote Code / The Club Member</p>
-                        <p class="fld-val">-</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Original price</p>
-                        <p class="fld-val">HK$420.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Discount</p>
-                        <p class="fld-val">HK$0.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    HK $420.00
-                </li>
-            </ul>
-            
-            
-        </div>
-    </div>-->
+  
      <div class="app-pg-cont">
         <form id="ef-form-screening">
         <div class="container-fluid">
@@ -129,57 +78,7 @@ var nextPage = "${nextPageFlow}";
         </div>
         </form>
     </div>
-    <!--<div class="container-fluid summary-bottom-bar">
-        <div class="summary-bottom-bar-container">
-            <ul class="summary-group clearfix">
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Plan</p>
-                        <p class="fld-val">Easy HomeCare</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Plan type</p>
-                        <p class="fld-val">Year</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Promote Code / The Club Member</p>
-                        <p class="fld-val">-</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Original price</p>
-                        <p class="fld-val">HK$420.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="form-group">
-                        <div class="fld-wrapper">
-                        <p class="fld-label">Discount</p>
-                        <p class="fld-val">HK$0.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    HK $420.00
-                </li>
-            </ul>
-            
-            
-        </div>
-    </div>-->
+    </div>
     <!-- Main Content End-->
     
     <div class="modal fade" id="oldHome"
@@ -201,6 +100,16 @@ var nextPage = "${nextPageFlow}";
 </div>
 
 <script>
+	$("input[name='cb1'],input[name='cb2'],input[name='cb3']").on("click",function(){
+		var allNo = $('input[name="cb1"]:checked').attr("checked")
+		 && $('input[name="cb2"]:checked').attr("checked")
+		 && $('input[name="cb3"]:checked').attr("checked");
+		if(allNo) {
+			$("#screening-next").removeClass("grey-out");
+		}else {
+			$("#screening-next").addClass("grey-out");
+		}
+	});
 	$("#screening-next").on("click",function(){
 		var allNo = $('input[name="cb1"]:checked').attr("checked")
 		 		 && $('input[name="cb2"]:checked').attr("checked")
@@ -219,7 +128,8 @@ var nextPage = "${nextPageFlow}";
 			           },
 		        success : function(data) {
 			      	if(data !=null && data.errorMsg ==null){
-			      		$('#loading-overlay').modal('hide');			      		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}';					}
+			      		$('#loading-overlay').modal('hide');
+			      		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}';					}
 			      	else{
 			      		console.log(data.errorMsg); 
 			      	}
@@ -233,5 +143,6 @@ var nextPage = "${nextPageFlow}";
 			centerModals($("#oldHome"));
 		}
 	});
+	
 </script>
    
