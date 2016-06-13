@@ -609,7 +609,8 @@ maxlength="19"/>
 		</div>
 		<div class="left-desktop text-box">
 			<%--errMsgs--%>
-			<span class="text-red" id="errClubMemberID"></span>
+			<span class="text-red" id="errClubMemberID"></span><br>
+			<span class="text-red" id="errClubMember8digit"></span>
 			<%--inputBox--%>
 			<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
 				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
@@ -676,25 +677,28 @@ maxlength="19"/>
 		var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
 		var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
 		if (the_club_member_check_box) {
-				if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
-						$("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+			if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+					$("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />");
+					document.getElementById("theClubMembershipNo").focus();
+					$("#theClubMembershipNo").addClass("invalid-field");
+
+					flag = false;
+			} else if (the_club_membership_no != "") {
+				if(/^8/.test(the_club_membership_no) == false){
+						$("#errClubMember8digit").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" />");
 						document.getElementById("theClubMembershipNo").focus();
 						$("#theClubMembershipNo").addClass("invalid-field");
-
 						flag = false;
-				}else if (the_club_membership_no != ""){
-						if(/^8/.test(the_club_membership_no) == false){
-								$("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" />") ;
-								document.getElementById("theClubMembershipNo").focus();
-								$("#theClubMembershipNo").addClass("invalid-field");
-								flag = false;
-						}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
-								$("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
-								document.getElementById("theClubMembershipNo").focus();
-								$("#theClubMembershipNo").addClass("invalid-field");
-								flag = false;
-						}
+				} else {
+						$("#errClubMember8digit").html("");
 				}
+				if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
+						$("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />");
+						document.getElementById("theClubMembershipNo").focus();
+						$("#theClubMembershipNo").addClass("invalid-field");
+						flag = false;
+				}
+			}
 		}
 		return flag;
 }
