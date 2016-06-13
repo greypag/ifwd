@@ -36,6 +36,9 @@ public class AjaxHomeController extends BaseController{
 	@RequestMapping(value = {"/ajax/{plan}/processSummary"})
 	public void getQuote(@PathVariable("plan") String plan, @ModelAttribute("ef-form-application") HomeCareDetailsBean homeCareDetails,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
 		JSONObject result = new JSONObject();
 		try {
 			CreatePolicy createdPolicy = gaService.createPolicy(plan, homeCareDetails, response, request);
@@ -54,6 +57,9 @@ public class AjaxHomeController extends BaseController{
 	@RequestMapping(value = {"/ajax/{plan}/submitPolicy"})
 	public void getSubmitPolicy(@PathVariable("plan") String plan, HttpServletRequest request,HttpServletResponse response,
 			HttpSession session) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
 		JSONObject result = new JSONObject();
 		String referenceNo = request.getParameter("referenceNo");
 		try {
