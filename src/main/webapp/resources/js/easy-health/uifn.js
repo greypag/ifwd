@@ -582,5 +582,5 @@ $(function(){
 });
 
 function parseDateDMY(ary){
-        return (ary[2] + "-" + (ary[1]+1) + "-" + ary[0]);
+        return (ary[2] + "-" + (parseInt(ary[1])+1) + "-" + ary[0]);
 }
