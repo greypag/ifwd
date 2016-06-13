@@ -76,19 +76,24 @@ function getBundle(lang, key){
 
 function putPremium(){
     var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
-    $.ajax({
-          type : "post",
-          cache:false,
-          async:false,
-          url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
-          data : {pro : pro},
-          success : function(data) {
-             window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-          },
-          error:function(){
-              console.log('error');
-          }
-    });
+    if(pro != null){
+    	$.ajax({
+            type : "post",
+            cache:false,
+            async:false,
+            url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
+            data : {pro : pro},
+            success : function(data) {
+               window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            },
+            error:function(){
+                console.log('error');
+            }
+      });
+    }
+    else{
+    	window.location.href = window.location.href;
+    }
 }
 
 

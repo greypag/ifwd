@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
 import com.ifwd.fwdhk.services.EliteTermService;
@@ -37,6 +38,7 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
@@ -1098,8 +1100,50 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setHkId(request.getParameter("savieApplicantBean.hkId"));
 			etPolicyApplication.getApplicant().setPassport("");
 			etPolicyApplication.getApplicant().setMaritalStatus(request.getParameter("savieApplicantBean.maritalStatus"));
+			if(!"".equals(etPolicyApplication.getApplicant().getMaritalStatus())){
+				for(OptionItemDesc item:InitApplicationMessage.maritalStatusesEN){
+					if(etPolicyApplication.getApplicant().getMaritalStatus().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setMaritalStatusEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.maritalStatusesCN){
+					if(etPolicyApplication.getApplicant().getMaritalStatus().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setMaritalStatusCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			etPolicyApplication.getApplicant().setPlaceOfBirth(request.getParameter("savieApplicantBean.placeOfBirth"));
+			if(!"".equals(etPolicyApplication.getApplicant().getPlaceOfBirth())){
+				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthEN){
+					if(etPolicyApplication.getApplicant().getPlaceOfBirth().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setPlaceOfBirthEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.placeOfBirthCN){
+					if(etPolicyApplication.getApplicant().getPlaceOfBirth().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setPlaceOfBirthCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			etPolicyApplication.getApplicant().setNationality(request.getParameter("savieApplicantBean.nationality"));
+			if(!"".equals(etPolicyApplication.getApplicant().getNationality())){
+				for(OptionItemDesc item:InitApplicationMessage.nationalityEN){
+					if(etPolicyApplication.getApplicant().getNationality().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setNationalityEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.nationalityCN){
+					if(etPolicyApplication.getApplicant().getNationality().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setNationalityCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
 			etPolicyApplication.getApplicant().setResidentialTelNo(request.getParameter("savieApplicantBean.residentialTelNo"));
 			etPolicyApplication.getApplicant().setMobileNo(request.getParameter("savieApplicantBean.mobileNo"));
 			etPolicyApplication.getApplicant().setEmail(request.getParameter("savieApplicantBean.emailAddress"));
@@ -1108,16 +1152,82 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setPermanentAddress3(request.getParameter("savieApplicantBean.permanentAddress3"));
 			etPolicyApplication.getApplicant().setPermanentAddress4("");
 			etPolicyApplication.getApplicant().setPermanentAddress(request.getParameter("savieApplicantBean.permanentAddress"));
-			etPolicyApplication.getApplicant().setResidentialAdress1(request.getParameter("savieApplicantBean.residentialAdress1"));
-			etPolicyApplication.getApplicant().setResidentialAdress2(request.getParameter("savieApplicantBean.residentialAdress2"));
-			etPolicyApplication.getApplicant().setResidentialAdress3(request.getParameter("savieApplicantBean.residentialAdress3"));
-			etPolicyApplication.getApplicant().setResidentialAdress4("");
-			etPolicyApplication.getApplicant().setResidentialDistrict(request.getParameter("savieApplicantBean.residentialDistrict"));
-			etPolicyApplication.getApplicant().setCorrespondenceAdress1(request.getParameter("savieApplicantBean.correspondenceAdress1"));
-			etPolicyApplication.getApplicant().setCorrespondenceAdress2(request.getParameter("savieApplicantBean.correspondenceAdress2"));
-			etPolicyApplication.getApplicant().setCorrespondenceAdress3(request.getParameter("savieApplicantBean.correspondenceAdress3"));
-			etPolicyApplication.getApplicant().setCorrespondenceAdress4("");
-			etPolicyApplication.getApplicant().setCorrespondenceDistrict(request.getParameter("savieApplicantBean.correspondenceDistrict"));
+			if(!"".equals(etPolicyApplication.getApplicant().getPermanentAddress())){
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+					if(etPolicyApplication.getApplicant().getPermanentAddress().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setPermanentAddressEnName(item.getItemDesc());
+						break;
+					}
+				}
+				for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+					if(etPolicyApplication.getApplicant().getPermanentAddress().split("-")[0].equals(item.getItemCode())){
+						etPolicyApplication.getApplicant().setPermanentAddressCnName(item.getItemDesc());
+						break;
+					}
+				}
+			}
+			if("true".equals(request.getParameter("savieApplicantBean.isResidential"))){
+				etPolicyApplication.getApplicant().setResidentialAdress1(request.getParameter("savieApplicantBean.residentialAdress1"));
+				etPolicyApplication.getApplicant().setResidentialAdress2(request.getParameter("savieApplicantBean.residentialAdress2"));
+				etPolicyApplication.getApplicant().setResidentialAdress3(request.getParameter("savieApplicantBean.residentialAdress3"));
+				etPolicyApplication.getApplicant().setResidentialAdress4("");
+				etPolicyApplication.getApplicant().setResidentialDistrict(request.getParameter("savieApplicantBean.residentialDistrict"));
+				if(!"".equals(etPolicyApplication.getApplicant().getResidentialDistrict())){
+					for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+						if(etPolicyApplication.getApplicant().getResidentialDistrict().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setResidentialDistrictEnName(item.getItemDesc());
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+						if(etPolicyApplication.getApplicant().getResidentialDistrict().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setResidentialDistrictCnName(item.getItemDesc());
+							break;
+						}
+					}
+				}
+			}
+			else{
+				etPolicyApplication.getApplicant().setResidentialAdress1(etPolicyApplication.getApplicant().getPermanentAddress1());
+				etPolicyApplication.getApplicant().setResidentialAdress2(etPolicyApplication.getApplicant().getPermanentAddress2());
+				etPolicyApplication.getApplicant().setResidentialAdress3(etPolicyApplication.getApplicant().getPermanentAddress3());
+				etPolicyApplication.getApplicant().setResidentialAdress4("");
+				etPolicyApplication.getApplicant().setResidentialDistrict(etPolicyApplication.getApplicant().getPermanentAddress());
+				etPolicyApplication.getApplicant().setResidentialDistrictEnName(etPolicyApplication.getApplicant().getPermanentAddressEnName());
+				etPolicyApplication.getApplicant().setResidentialDistrictCnName(etPolicyApplication.getApplicant().getPermanentAddressCnName());
+			}
+			if("true".equals(request.getParameter("savieApplicantBean.addressIsSame"))){
+				etPolicyApplication.getApplicant().setCorrespondenceAdress1(request.getParameter("savieApplicantBean.correspondenceAdress1"));
+				etPolicyApplication.getApplicant().setCorrespondenceAdress2(request.getParameter("savieApplicantBean.correspondenceAdress2"));
+				etPolicyApplication.getApplicant().setCorrespondenceAdress3(request.getParameter("savieApplicantBean.correspondenceAdress3"));
+				etPolicyApplication.getApplicant().setCorrespondenceAdress4("");
+				etPolicyApplication.getApplicant().setCorrespondenceDistrict(request.getParameter("savieApplicantBean.correspondenceDistrict"));
+				if(!"".equals(etPolicyApplication.getApplicant().getCorrespondenceDistrict())){
+					for(OptionItemDesc item:InitApplicationMessage.savieDistrictEN){
+						if(etPolicyApplication.getApplicant().getCorrespondenceDistrict().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setCorrespondenceDistrictEnName(item.getItemDesc());
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.savieDistrictCN){
+						if(etPolicyApplication.getApplicant().getCorrespondenceDistrict().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setCorrespondenceDistrictCnName(item.getItemDesc());
+							break;
+						}
+					}
+				}
+			}
+			else{
+				etPolicyApplication.getApplicant().setCorrespondenceAdress1(etPolicyApplication.getApplicant().getPermanentAddress1());
+				etPolicyApplication.getApplicant().setCorrespondenceAdress2(etPolicyApplication.getApplicant().getPermanentAddress2());
+				etPolicyApplication.getApplicant().setCorrespondenceAdress3(etPolicyApplication.getApplicant().getPermanentAddress3());
+				etPolicyApplication.getApplicant().setCorrespondenceAdress4("");
+				etPolicyApplication.getApplicant().setCorrespondenceDistrict(etPolicyApplication.getApplicant().getPermanentAddress());
+				etPolicyApplication.getApplicant().setCorrespondenceDistrictEnName(etPolicyApplication.getApplicant().getPermanentAddressEnName());
+				etPolicyApplication.getApplicant().setCorrespondenceDistrictCnName(etPolicyApplication.getApplicant().getPermanentAddressCnName());
+			}
+			etPolicyApplication.getApplicant().setHasTheClubMembershipNo(request.getParameter("hasTheClubMembershipNo"));
+			etPolicyApplication.getApplicant().setTheClubMembershipNo(request.getParameter("theClubMembershipNo"));
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 			logger.info("putPersonalInfoSession success");
 	}
@@ -1128,12 +1238,110 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication = new CreateEliteTermPolicyRequest();
 		}
 		etPolicyApplication.getApplicant().setEmploymentStatus(request.getParameter("savieEmploymentBean.employmentStatus"));
-		etPolicyApplication.getApplicant().setOccupation(request.getParameter("savieEmploymentBean.occupation"));
-		etPolicyApplication.getApplicant().setEducationLevel(request.getParameter("savieEmploymentBean.educationLevel"));
+		if(etPolicyApplication.getApplicant().getEmploymentStatus()!=null && !"".equals(etPolicyApplication.getApplicant().getEmploymentStatus())){
+			for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
+				if(etPolicyApplication.getApplicant().getEmploymentStatus().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setEmploymentStatusEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.employmentStatusCN){
+				if(etPolicyApplication.getApplicant().getEmploymentStatus().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setEmploymentStatusCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
 		etPolicyApplication.getApplicant().setNatureOfBusiness(request.getParameter("savieEmploymentBean.natureOfBusiness"));
+		if(etPolicyApplication.getApplicant().getNatureOfBusiness()!=null && !"".equals(etPolicyApplication.getApplicant().getNatureOfBusiness())){
+			for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessEN){
+				if(etPolicyApplication.getApplicant().getNatureOfBusiness().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setNatureOfBusinessEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.natureOfBusinessCN){
+				if(etPolicyApplication.getApplicant().getNatureOfBusiness().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setNatureOfBusinessCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
+		etPolicyApplication.getApplicant().setOccupation(request.getParameter("savieEmploymentBean.occupation"));
+		if(etPolicyApplication.getApplicant().getOccupation()!=null && !"".equals(etPolicyApplication.getApplicant().getOccupation())){
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, etPolicyApplication.getApplicant().getNatureOfBusiness().split("-")[0], "EN", "1", request)){
+				if(etPolicyApplication.getApplicant().getOccupation().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setOccupationEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.getOccupationByNob(commonUtils, etPolicyApplication.getApplicant().getNatureOfBusiness().split("-")[0], "CH", "1", request)){
+				if(etPolicyApplication.getApplicant().getOccupation().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setOccupationCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
+		etPolicyApplication.getApplicant().setEducationLevel(request.getParameter("savieEmploymentBean.educationLevel"));
+		if(etPolicyApplication.getApplicant().getEducationLevel()!=null && !"".equals(etPolicyApplication.getApplicant().getEducationLevel())){
+			for(OptionItemDesc item:InitApplicationMessage.etEducationLevelEN){
+				if(etPolicyApplication.getApplicant().getEducationLevel().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setEducationLevelEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etEducationLevelCN){
+				if(etPolicyApplication.getApplicant().getEducationLevel().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setEducationLevelCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
 		etPolicyApplication.getApplicant().setMonthlyPersonalIncome(request.getParameter("savieEmploymentBean.monthlyPersonalIncome"));
+		if(etPolicyApplication.getApplicant().getMonthlyPersonalIncome()!=null && !"".equals(etPolicyApplication.getApplicant().getMonthlyPersonalIncome())){
+			for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeEN){
+				if(etPolicyApplication.getApplicant().getMonthlyPersonalIncome().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setMonthlyPersonalIncomeEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.monthlyPersonalIncomeCN){
+				if(etPolicyApplication.getApplicant().getMonthlyPersonalIncome().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setMonthlyPersonalIncomeCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
 		etPolicyApplication.getApplicant().setLiquidAsset(request.getParameter("savieEmploymentBean.liquidAssets"));
+		if(etPolicyApplication.getApplicant().getLiquidAsset()!=null && !"".equals(etPolicyApplication.getApplicant().getLiquidAsset())){
+			for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetEN){
+				if(etPolicyApplication.getApplicant().getLiquidAsset().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setLiquidAssetEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etLiquidAssetCN){
+				if(etPolicyApplication.getApplicant().getLiquidAsset().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setLiquidAssetCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
 		etPolicyApplication.getApplicant().setSourceOfIncome(request.getParameter("savieEmploymentBean.sourceOfIncome"));
+		if(etPolicyApplication.getApplicant().getLiquidAsset()!=null && !"".equals(etPolicyApplication.getApplicant().getSourceOfIncome())){
+			for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceEN){
+				if(etPolicyApplication.getApplicant().getSourceOfIncome().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setSourceOfIncomeEnName(item.getItemDesc());
+					break;
+				}
+			}
+			for(OptionItemDesc item:InitApplicationMessage.etAmountOtherSourceCN){
+				if(etPolicyApplication.getApplicant().getSourceOfIncome().split("-")[0].equals(item.getItemCode())){
+					etPolicyApplication.getApplicant().setSourceOfIncomeCnName(item.getItemDesc());
+					break;
+				}
+			}
+		}
 		etPolicyApplication.getApplicant().setCurrentEmployerName(request.getParameter("savieEmploymentBean.currentEmployerName"));
 		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		logger.info("putEmploymentInfoSession success");
@@ -1155,6 +1363,20 @@ public class EliteTermServiceImpl implements EliteTermService {
 				etPolicyApplication.getApplicant().setPassportNo1(request.getParameter("savieBeneficiaryBean[0].passportNo"));
 				etPolicyApplication.getApplicant().setGender1(request.getParameter("savieBeneficiaryBean[0].gender"));
 				etPolicyApplication.getApplicant().setRelationship1(request.getParameter("savieBeneficiaryBean[0].relationship"));
+				if(!"".equals(etPolicyApplication.getApplicant().getRelationship1())){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(etPolicyApplication.getApplicant().getRelationship1().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship1EnName(item.getItemDesc());
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(etPolicyApplication.getApplicant().getRelationship1().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship1CnName(item.getItemDesc());
+							break;
+						}
+					}
+				}
 				etPolicyApplication.getApplicant().setEntitlement1(request.getParameter("savieBeneficiaryBean[0].entitlement"));
 			}
 			if(request.getParameter("savieBeneficiaryBean[1].firstName")!=null && request.getParameter("savieBeneficiaryBean[1].firstName")!=""){
@@ -1166,6 +1388,20 @@ public class EliteTermServiceImpl implements EliteTermService {
 				etPolicyApplication.getApplicant().setPassportNo2(request.getParameter("savieBeneficiaryBean[1].passportNo"));
 				etPolicyApplication.getApplicant().setGender2(request.getParameter("savieBeneficiaryBean[1].gender"));
 				etPolicyApplication.getApplicant().setRelationship2(request.getParameter("savieBeneficiaryBean[1].relationship"));
+				if(!"".equals(etPolicyApplication.getApplicant().getRelationship2())){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(etPolicyApplication.getApplicant().getRelationship2().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship2EnName(item.getItemDesc());
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(etPolicyApplication.getApplicant().getRelationship2().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship2CnName(item.getItemDesc());
+							break;
+						}
+					}
+				}
 				etPolicyApplication.getApplicant().setEntitlement2(request.getParameter("savieBeneficiaryBean[1].entitlement"));
 			}
 			if(request.getParameter("savieBeneficiaryBean[2].firstName")!=null && request.getParameter("savieBeneficiaryBean[2].firstName")!=""){
@@ -1177,6 +1413,20 @@ public class EliteTermServiceImpl implements EliteTermService {
 				etPolicyApplication.getApplicant().setPassportNo3(request.getParameter("savieBeneficiaryBean[2].passportNo"));
 				etPolicyApplication.getApplicant().setGender3(request.getParameter("savieBeneficiaryBean[2].gender"));
 				etPolicyApplication.getApplicant().setRelationship3(request.getParameter("savieBeneficiaryBean[2].relationship"));
+				if(!"".equals(etPolicyApplication.getApplicant().getRelationship3())){
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
+						if(etPolicyApplication.getApplicant().getRelationship3().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship3EnName(item.getItemDesc());
+							break;
+						}
+					}
+					for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipCN){
+						if(etPolicyApplication.getApplicant().getRelationship3().split("-")[0].equals(item.getItemCode())){
+							etPolicyApplication.getApplicant().setRelationship3CnName(item.getItemDesc());
+							break;
+						}
+					}
+				}
 				etPolicyApplication.getApplicant().setEntitlement3(request.getParameter("savieBeneficiaryBean[2].entitlement"));
 			}
 		}

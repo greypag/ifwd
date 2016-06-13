@@ -2809,104 +2809,122 @@ var home_url = "<%=request.getContextPath()%>";
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-en-lname"></p>
+									<p class="info" id="etaspi-en-lname">${etPolicyApplication.applicant.lastName }</p>
 								</div>
 								<div class="clearfix info-holder">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-fname"></p>
+									<p class="info" id="etaspi-fname">${etPolicyApplication.applicant.firstName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-chName"></p>
+									<p class="info" id="etaspi-chName">${etPolicyApplication.applicant.chineseName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.HKID" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-hkid"></p>
+									<p class="info" id="etaspi-hkid">${etPolicyApplication.applicant.hkId }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Gender"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-gender"></p>
+									<p class="info" id="etaspi-gender">${etPolicyApplication.applicant.gender == 'M' ? language == 'en' ? 'MALE':'男':language == 'en' ? 'FEMALE':'女' }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Smooker/Non-smooker" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-is-smooker"></p>
+									<p class="info" id="etaspi-is-smooker">${etPolicyApplication.applicant.smoke == 'true' ? language == 'en' ? 'YES':'是':language == 'en' ? 'NO':'否' }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Marital.status" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-marital-status"></p>
+									<p class="info" id="etaspi-marital-status">${language == 'en' ? etPolicyApplication.applicant.maritalStatusEnName:etPolicyApplication.applicant.maritalStatusCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-dob"></p>
+									<p class="info" id="etaspi-dob">${etPolicyApplication.applicant.dob }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Place.of.birth" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-pob"></p>
+									<p class="info" id="etaspi-pob">${language == 'en' ? etPolicyApplication.applicant.placeOfBirthEnName:etPolicyApplication.applicant.placeOfBirthCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Nationality" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-nationality"></p>
+									<p class="info" id="etaspi-nationality">${language == 'en' ? etPolicyApplication.applicant.nationalityEnName:etPolicyApplication.applicant.nationalityCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-email"></p>
+									<p class="info" id="etaspi-email">${etPolicyApplication.applicant.email }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-tel-no"></p>
+									<p class="info" id="etaspi-tel-no">${etPolicyApplication.applicant.residentialTelNo }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-mob-no"></p>
+									<p class="info" id="etaspi-mob-no">${etPolicyApplication.applicant.mobileNo }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Permanent.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-per-add"></p>
+									<p class="info" id="etaspi-per-add">
+									${etPolicyApplication.applicant.permanentAddress1 }
+									${etPolicyApplication.applicant.permanentAddress2 }
+									${etPolicyApplication.applicant.permanentAddress3 }
+									${etPolicyApplication.applicant.permanentAddress4 }
+									${language == 'en' ? etPolicyApplication.applicant.permanentAddressEnName:etPolicyApplication.applicant.permanentAddressCnName }
+									</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Residential.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-res-add"></p>
+									<p class="info" id="etaspi-res-add">
+									${etPolicyApplication.applicant.residentialAdress1 }
+									${etPolicyApplication.applicant.residentialAdress2 }
+									${etPolicyApplication.applicant.residentialAdress3 }
+									${etPolicyApplication.applicant.residentialAdress4 }
+									${language == 'en' ? etPolicyApplication.applicant.residentialDistrictEnName:etPolicyApplication.applicant.residentialDistrictCnName }
+									</p>
 								</div>
 								<div class="clearfix info-holder-below et-corr-add">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Correspondence.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-corr-add"></p>
+									<p class="info" id="etaspi-corr-add">
+									${etPolicyApplication.applicant.correspondenceAdress1 }
+									${etPolicyApplication.applicant.correspondenceAdress2 }
+									${etPolicyApplication.applicant.correspondenceAdress3 }
+									${etPolicyApplication.applicant.correspondenceAdress4 }
+									${language == 'en' ? etPolicyApplication.applicant.correspondenceDistrictEnName:etPolicyApplication.applicant.correspondenceDistrictCnName }
+									</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="club.membership.number" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-clubmember-id"></p>
+									<p class="info" id="etaspi-clubmember-id">${etPolicyApplication.applicant.theClubMembershipNo }</p>
 								</div>
 							</div>
 							<!-- PERSONAL INFO END -->
@@ -2924,7 +2942,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<fmt:message key="eliteTerms.selectPlan.Employment.status"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etasei-emp-status"></p>
+									<p class="info" id="etasei-emp-status">${language == 'en' ? etPolicyApplication.applicant.employmentStatusEnName:etPolicyApplication.applicant.employmentStatusCnName }</p>
 								</div>
 								<div class="et-stat-unemployed hide-element">
 									<div class="clearfix info-holder">
@@ -2933,14 +2951,14 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Monthly.personal.income"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-source-income"></p>
+										<p class="info" id="etasei-source-income">${language == 'en' ? etPolicyApplication.applicant.sourceOfIncomeEnName:etPolicyApplication.applicant.sourceOfIncomeCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Liquid.assets"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-liq-asset"></p>
+										<p class="info" id="etasei-liq-asset">${language == 'en' ? etPolicyApplication.applicant.liquidAssetEnName:etPolicyApplication.applicant.liquidAssetCnName }</p>
 									</div>
 								</div>
 								<div class="et-not-stat-unemployed hide-element">
@@ -2949,14 +2967,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Nature.of.business"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-nat-business"></p>
+										<p class="info" id="etasei-nat-business">${language == 'en' ? etPolicyApplication.applicant.natureOfBusinessEnName:etPolicyApplication.applicant.natureOfBusinessCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Occupation"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-occupation"></p>
+										<p class="info" id="etasei-occupation">${language == 'en' ? etPolicyApplication.applicant.occupationEnName:etPolicyApplication.applicant.occupationCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -2964,7 +2982,7 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Monthly.personal.income"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-mon-income"></p>
+										<p class="info" id="etasei-mon-income">${language == 'en' ? etPolicyApplication.applicant.monthlyPersonalIncomeEnName:etPolicyApplication.applicant.monthlyPersonalIncomeCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -2972,7 +2990,7 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Current.Employer.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-employer-name"></p>
+										<p class="info" id="etasei-employer-name">${etPolicyApplication.applicant.currentEmployerName }</p>
 									</div>
 								</div>
 								<div class="clearfix info-holder">
@@ -2980,7 +2998,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<fmt:message key="eliteTerms.selectPlan.Education.level"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etasei-edu-level"></p>
+									<p class="info" id="etasei-edu-level">${language == 'en' ? etPolicyApplication.applicant.educationLevelEnName:etPolicyApplication.applicant.educationLevelCnName }</p>
 								</div>
 							</div>
 							<!-- EMPLOMENT INFO END -->
@@ -3025,49 +3043,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-1"></p>
+										<p class="info" id="etasbi-en-lname-1">${etPolicyApplication.applicant.lastName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-1"></p>
+										<p class="info" id="etasbi-en-fname-1">${etPolicyApplication.applicant.firstName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-1"></p>
+										<p class="info" id="etasbi-ch-name-1">${etPolicyApplication.applicant.chineseName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-1"></p>
+										<p class="info" id="etasbi-hkid-pass-1">${etPolicyApplication.applicant.beneficiaryHkidPassport1 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-1"></p>
+										<p class="info" id="etasbi-relationship-1">${language == 'en' ? etPolicyApplication.applicant.relationship1EnName:etPolicyApplication.applicant.relationship1CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-1"></p>
+										<p class="info" id="etasbi-gender-1">${etPolicyApplication.applicant.gender1 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-1"></p>
+										<p class="info" id="etasbi-entitlement-1">${etPolicyApplication.applicant.entitlement1 }</p>
 									</div>
 								</div>
 								<div class="et-person-2 hide-element">
@@ -3089,49 +3107,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-2"></p>
+										<p class="info" id="etasbi-en-lname-2">${etPolicyApplication.applicant.lastName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-2"></p>
+										<p class="info" id="etasbi-en-fname-2">${etPolicyApplication.applicant.firstName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-2"></p>
+										<p class="info" id="etasbi-ch-name-2">${etPolicyApplication.applicant.chineseName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-2"></p>
+										<p class="info" id="etasbi-hkid-pass-2">${etPolicyApplication.applicant.beneficiaryHkidPassport2 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-2"></p>
+										<p class="info" id="etasbi-relationship-2">${language == 'en' ? etPolicyApplication.applicant.relationship2EnName:etPolicyApplication.applicant.relationship2CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-2"></p>
+										<p class="info" id="etasbi-gender-2">${etPolicyApplication.applicant.gender2 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-2"></p>
+										<p class="info" id="etasbi-entitlement-2">${etPolicyApplication.applicant.entitlement2 }</p>
 									</div>
 								</div>
 								<div class="et-person-3 hide-element">
@@ -3153,49 +3171,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-3"></p>
+										<p class="info" id="etasbi-en-lname-3">${etPolicyApplication.applicant.lastName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-3"></p>
+										<p class="info" id="etasbi-en-fname-3">${etPolicyApplication.applicant.firstName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-3"></p>
+										<p class="info" id="etasbi-ch-name-3">${etPolicyApplication.applicant.chineseName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-3"></p>
+										<p class="info" id="etasbi-hkid-pass-3">${etPolicyApplication.applicant.beneficiaryHkidPassport3 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-3"></p>
+										<p class="info" id="etasbi-relationship-3">${language == 'en' ? etPolicyApplication.applicant.relationship3EnName:etPolicyApplication.applicant.relationship3CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-3"></p>
+										<p class="info" id="etasbi-gender-3">${etPolicyApplication.applicant.gender3 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-3"></p>
+										<p class="info" id="etasbi-entitlement-3">${etPolicyApplication.applicant.entitlement3 }</p>
 									</div>
 								</div>
 							</div>

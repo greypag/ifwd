@@ -789,7 +789,12 @@ $('#myDropdownMob').click(function(e){
                                 } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
                                 	$('#success-message').html('');
                                     $('#success-message').hide();
-                                    $('#forgotusername-err-msg').html(data.slice(2, data.length-2));
+                                    if(data.slice(2, data.length-2) == "The information you have entered is not valid, please try again"){
+                                    	$('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.forgotUserName.error"));
+                                    }
+                                    else{
+                                    	$('#forgotusername-err-msg').html(data.slice(2, data.length-2));
+                                    }
                                     $('#forgotusername-err-msg').show();
                                 } else {             
                                     $('#success-message').html('Your Username is ' + data);
