@@ -60,13 +60,13 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	if(index>=0&&index<=3){
         $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');
     }else if(index>=3&&index<=5){
-        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.WorldwideAsia" bundle="${msg}" />');       
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.WorldwideAsia" bundle="${msg}" />');
     }else{
-        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />');       		
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />');
 	}
 	$("#planIndex").val(index);
     var txtPlanName = $("#"+planName).val()
-    
+
 	var txtDiscountAmt = $("#"+discountAmt).val()
 	var txtTotalDue = $("#"+totalDue).val()
 	$("#promo-code-body").fadeIn();
@@ -80,7 +80,7 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	var index = idArray.indexOf(id);
 	if (index > -1) {
 		idArray.splice(index, 1);
-		
+
 		for (var i = 0; i < idArray.length; i++) {
             $('#' + idArray[i]).removeClass("plan-box-active");
             $('#plan-coverage-' + idArray[i]).css("display","none");
@@ -89,10 +89,10 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 
 	var selected_price = $("#txtGrossPremium"+index).val();//$('#' + id).find('h6').text();
 	selected_price = parseFloat(selected_price).toFixed(2);
-	
+
 	$('#amountdue').html(numeral(txtTotalDue).format('0,0.00'));
-	
-	
+
+
 	$('#subtotal').html(numeral(selected_price).format('0,0.00'));
 	$('#plansummary').html(numeral(selected_price).format('0,0.00'));
 	/*
@@ -102,25 +102,25 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
     if(txtPlanName=='basicB')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Standard.PlanB" bundle="${msg}" />');
     if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanA" bundle="${msg}" />');
     if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanB" bundle="${msg}" />');
-   
-    
+
+
 	$('#inputseletedplanname').val(txtPlanName);
 	$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
-	
+
 	$('#' + id).addClass("plan-box-active");
-    
+
     $('#plan-coverage-' + id).css("display","block");
 
 	$('#discountAmt').html(numeral(txtDiscountAmt).format('0,0.00'));
-	
+
 	/*
 	document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue.trim()).toFixed(2);
     document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt.trim()).toFixed(2);
     $('#txtDiscountAmount').val(numeral(txtDiscountAmt.trim()).format('0,0.00'));
     document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
     */
-    
-    
+
+
     document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue).toFixed(2);
     document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt).toFixed(2);
     //document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
@@ -129,16 +129,16 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
     if(promoData != '')
 		setValue(promoData);
 	return true;
-	
+
 }
-function regionDefaultPlan(id1,index1, planName1, discountAmt1, totalDue1){ 	
+function regionDefaultPlan(id1,index1, planName1, discountAmt1, totalDue1){
     changeColorAndPrice(id1,index1, planName1, discountAmt1, totalDue1);
     $('#inputseletedplanname').val(planName1);
-    $('#amountdue').html(parseFloat(totalDue1).toFixed(2));   
+    $('#amountdue').html(parseFloat(totalDue1).toFixed(2));
 }
 function submitPlan(){
 	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	
+
 	setTimeout(function(){
 		//if(chkDueAmount() && chkClubMember()){
 		if(chkDueAmount()){
@@ -178,7 +178,7 @@ function applyOverseaPromoCode() {
                 backdrop: 'static',
                 keyboard: false
             })
-            console.log($('#frmTravelPlan input').serialize());
+            /* console.log($('#frmTravelPlan input').serialize()); */
             $.ajax({
                 type : 'POST',
                 url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',
@@ -186,7 +186,7 @@ function applyOverseaPromoCode() {
                 success : function(data) {
                     $('#loading-overlay').modal('hide');
                     promoCodeInsertFlag = true;
-                    
+
                     var json = JSON.parse(data);
                     promoData = json;
                     setValue(json);
@@ -203,22 +203,30 @@ function applyOverseaPromoCode() {
 
 function chkPromoCode() {
 	var flag = false;
-	var promoCode = document.getElementById("promoCode").value;
-	if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
+	var promoCode = document.getElementById("promoCode").value.trim();
+	if (promoCode == "" || promoCode == promoCodePlaceholder) {
 		$("#loadingPromo").hide();
 		promoCodeInsertFlag = true;
 		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 		$('#inputPromo').addClass('invalid-field');
 		flag = false;
 	} else {
-		$('#inputPromo').removeClass('invalid-field');
-		flag = true;
+		if ( promoCode == promoCodePlaceholder ) {
+			$("#loadingPromo").hide();
+			promoCodeInsertFlag = true;
+			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+			$('#inputPromo').addClass('invalid-field');
+			flag = false;
+		} else  {
+			$('#inputPromo').removeClass('invalid-field');
+			$("#errPromoCode").html("");
+			flag = true;
+		}
 	}
-
 	return flag;
 }
 
-function chkDueAmount() {		
+function chkDueAmount() {
 	$(".errDue").html('');
 	var flag = false;
 	var amount = document.getElementById("amountdue").innerHTML;
@@ -265,7 +273,7 @@ function coverageToggleGoto(id){
     $('.fwdpanel-body').mCustomScrollbar({
         theme:"light-2"
     });
-    
+
 	if(id=="1"){
 		coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','close');
@@ -291,7 +299,7 @@ function coverageToggleGoto(id){
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
-        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');      
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
    	}else if(id=="2"){
         coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','open');
@@ -328,13 +336,13 @@ function coverageToggleGoto(id){
         $('html, body').animate({
             scrollTop: $('#PersonalLiabilityInnerContent').offset().top
         }, 500);
-        
+
         //$('#SummaryofCoverageContent').animate({
         //    scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
         //}, 500);
-        
+
         $('#PersonalLiabilityInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#PersonalLiabilityInnerContent'));
-        
+
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -351,19 +359,19 @@ function coverageToggleGoto(id){
         coverageToggle('#TopupInPatientMedicalExpensesInnerContent','open');
         coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
         coverageToggle('#PersonalLiabilityInnerContent','close');
-        
+
         //TopupInPatientMedicalExpensesInnerContent
         //$('#PersonalLiabilityInnerContent').slideDown("slow");
         $('html, body').animate({
             scrollTop: $('#TopupInPatientMedicalExpensesInnerContent').offset().top
         }, 500);
-        
+
         //$('#SummaryofCoverageContent').animate({
         //    scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
         //}, 500);
-        
+
         $('#TopupInPatientMedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#TopupInPatientMedicalExpensesInnerContent'));
-        
+
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
@@ -395,9 +403,9 @@ function scrollDownOverseaProductPanel($element){
         $(".product_plan_panel_content").mCustomScrollbar({
             theme:"light-2"
         });
-        
+
         //product_plan_panel_valid=true;
-        
+
         $('html, body').animate({
             scrollTop: $panel.offset().top
         }, 500);
@@ -405,7 +413,7 @@ function scrollDownOverseaProductPanel($element){
 }
 */
 $(document).ready(function() {
-    $(".navbar-inverse").addClass("product-header");               
+    $(".navbar-inverse").addClass("product-header");
     $('[data-toggle="tooltip"]').tooltip();
     $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');
     $('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanA" bundle="${msg}" />');
@@ -414,7 +422,7 @@ $(document).ready(function() {
 
     changeColorAndPrice('box2','2','medicalWorldwideA','0','8000');
     $('#inputseletedplanname').val('medicalWorldwideA');
-    
+
 
     $('#amountdue').html('8,000.00'); */
     changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
@@ -453,7 +461,7 @@ $(document).ready(function() {
 	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1');regionDefaultPlan('box6','6','medicalAsiaA','0','5500')" style=""  data-toggle="modal" data-target="#myModalAsia"><fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" /></div>
                             </div>
                             <div class="clearfix"></div>
-                        </div>				
+                        </div>
 
 
 
@@ -482,40 +490,40 @@ $(document).ready(function() {
       </div>
     </div>
   </div>
-</div>	
+</div>
 <!-- / Modal -->
 
-						
-						
+
+
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.Plans.table1.col1.header" bundle="${msg}" /></h2>
 						<c:forEach begin="0" end="4" var="h" step="4">
 							<div id="region${h==4?1:0}" <c:if test="${h==4}">class="region-box-hidden"</c:if>>
 								<div class="plan-box-l plan-box-title oversea_productbox_title plan-display-desktop-only">
-									<div class="" style="">                           
+									<div class="" style="">
 										<h2><fmt:message key="Overseas.PlanOptions.Plans.table1.col1row2.header" bundle="${msg}" /></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
-	
+
 								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
-									<div class="" style="">                           
+									<div class="" style="">
 										<h2><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
-									<div class="" style="">                           
+									<div class="" style="">
 										<h2><fmt:message key="Overseas.PlanOptions.Plans.table1.col3.header" bundle="${msg}" /></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
-							
-								
+
+
 								<c:forEach begin="${h }" end="${h+2 }" var="i" step="2">
 									<c:set var="j" value="${h==4 ? (i==4 ? 0 : 4) : i}" />
 								<div class="oversea-plan-quote-coverage-wrapper<c:if test="${j == 2 || j == 4}"> plan-flow-r-mobile-only</c:if>">
                                     <div class="plan-box-l oversea_productbox_subtitle">
-										<div class="" style="">                           
+										<div class="" style="">
 											<h2><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" />
 											    <!--<c:if test="${ i == 4 }"><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.WorldWideComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(2)" onmouseover="this.style.cursor='pointer';">
                                                 <img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""></a></c:if>-->
@@ -534,7 +542,7 @@ $(document).ready(function() {
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
-								
+
 									<div class="plan-box-s travelproductbox oversea_productbox  pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col3.header" bundle="${msg}" /></h3>
@@ -542,7 +550,7 @@ $(document).ready(function() {
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									
+
 									<input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="${quoteDetails.planName[j+1]}">
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
@@ -552,10 +560,10 @@ $(document).ready(function() {
 							</div>
 						</c:forEach>
 						<!-- /Region -->
-						
+
 						<div class="clearfix"></div>
 						<!--Full Coverage-->
-                        
+
                         <div class="planDetails" id="plan-coverage-box0" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit1" bundle="${msg}" />
@@ -579,8 +587,8 @@ $(document).ready(function() {
                                 <a  onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
                         </div>
-                        
-                        
+
+
                         <div class="planDetails" id="plan-coverage-box1" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanB.Benefit1" bundle="${msg}" />
@@ -598,9 +606,9 @@ $(document).ready(function() {
                                 <a onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="planDetails" id="plan-coverage-box2" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1" bundle="${msg}" /><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.WorldWideComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(2)" onmouseover="this.style.cursor='pointer';">
@@ -625,11 +633,11 @@ $(document).ready(function() {
                                 <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
                         <div class="planDetails" id="plan-coverage-box3" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit1" bundle="${msg}" />
@@ -648,13 +656,13 @@ $(document).ready(function() {
                             </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit3.Amount" bundle="${msg}" />
-                            </div>                            
+                            </div>
                             <div class="sub-link">
 								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
                         </div>
-                        
-                        
+
+
                         <div class="planDetails" id="plan-coverage-box4" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit1" bundle="${msg}" />
@@ -678,8 +686,8 @@ $(document).ready(function() {
                                 <a onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
                         </div>
-                        
-                        
+
+
                         <div class="planDetails" id="plan-coverage-box5" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanB.Benefit1" bundle="${msg}" />
@@ -697,15 +705,15 @@ $(document).ready(function() {
                                 <a onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="planDetails" id="plan-coverage-box6" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1" bundle="${msg}" /><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(4)" onmouseover="this.style.cursor='pointer';">
                     <img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""></a>
-                    
-                    
+
+
                             </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1.Amount" bundle="${msg}" />
@@ -721,17 +729,17 @@ $(document).ready(function() {
                             </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit3.Amount" bundle="${msg}" />
-                            </div>                            
+                            </div>
                             <div class="sub-link">
                                 <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink" bundle="${msg}" /></a>
 							</div>
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
                         <div class="planDetails" id="plan-coverage-box7" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit1" bundle="${msg}" />
@@ -750,7 +758,7 @@ $(document).ready(function() {
                             </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit3.Amount" bundle="${msg}" />
-                            </div>                            
+                            </div>
                             <div class="sub-link">
                                 <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
@@ -765,7 +773,7 @@ $(document).ready(function() {
 						      </tr>
 						  </tbody></table>
                         </div>
--->                    
+-->
                     </div>
 					<div class="workingholiday-plan-mobile-nomargin form-wrap">
                         <div class="fwdpanel product_plan_panel_container">
@@ -805,7 +813,7 @@ $(document).ready(function() {
                                                 </li>
                                                 <li>
                                                     <fmt:message key="Overseas.PlanOptions.Producthighlights.copy.item8" bundle="${msg}" />
-                                                </li>												
+                                                </li>
                                             </ul>
                                         <p></p>
                                     </div>
@@ -841,12 +849,12 @@ $(document).ready(function() {
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
-                                                  </tr>                                                
+                                                  </tr>
                                                   <!--<tr>
                                                       <td><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="mobile-show planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
-                                                      <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="mobile-show splanOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>                                                      
-                                                  </tr>-->												  
+                                                      <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="mobile-show splanOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
+                                                  </tr>-->
                                                   </tbody>
                                                </table>
                                         </div>
@@ -863,7 +871,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -959,7 +967,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -994,7 +1002,7 @@ $(document).ready(function() {
                                                </tr>
                                                <tr>
                                                    <td colspan="3" bundle="${msg}"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row6" bundle="${msg}" /></td>
-                                               </tr>												   
+                                               </tr>
                                                </tbody>
                                             </table>
                                         </div>
@@ -1011,7 +1019,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1040,7 +1048,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1069,7 +1077,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1085,9 +1093,9 @@ $(document).ready(function() {
                                                <tr>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row2" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.7.2" bundle="${msg}" /></td>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="1"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>                                        
-                                               </tr>                                               
-                                               <!-- 
+                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="1"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <!--
                                                <tr>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row1" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planA.2" bundle="${msg}" /></td>
@@ -1108,7 +1116,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1137,7 +1145,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1177,7 +1185,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1202,7 +1210,7 @@ $(document).ready(function() {
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.row4" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planA.3" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planB.3" bundle="${msg}" /></td>
-                                               </tr>											   
+                                               </tr>
                                                </tbody>
                                             </table>
                                         </div>
@@ -1219,7 +1227,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
                                                    <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
@@ -1238,7 +1246,7 @@ $(document).ready(function() {
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-                                <!-- 
+                                <!--
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Loss of Home Contents
@@ -1249,7 +1257,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th>Benefits</th>
                                                    <th>Plan A</th>
@@ -1278,7 +1286,7 @@ $(document).ready(function() {
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th>Benefits</th>
                                                    <th>Plan A</th>
@@ -1299,14 +1307,14 @@ $(document).ready(function() {
                                 </div>
                                 -->
                             </div>
-                            <!-- 
+                            <!--
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="Overseas.PlanOptions.importantnotes.title" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
-                           
+
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
@@ -1322,7 +1330,7 @@ $(document).ready(function() {
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
-                            
+
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
@@ -1343,7 +1351,7 @@ $(document).ready(function() {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <!-- 
+                            <!--
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="Overseas.PlanOptions.agelimit.title" bundle="${msg}" />
@@ -1375,7 +1383,7 @@ $(document).ready(function() {
 									<span>
 									<a href="#" class="fwdpanel-minimize">
 									   <i class="fa fa-plus"></i> Full Coverage Details</span>
-									</a>		
+									</a>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -1425,12 +1433,12 @@ $(document).ready(function() {
 			                                                        </li>
 			                                                    </ul>
 			                                                </p>
-			
+
 			                                            </div>
 				                                    </div>
 				                                 </div>
 				                            </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1540,7 +1548,7 @@ $(document).ready(function() {
 			                                                            <td>$100,000</td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td>Credit Card Protection<br/> 
+			                                                            <td>Credit Card Protection<br/>
 			                                                                In the event of accidental death of the Insured Person during the journey, the outstanding balance of the Insured Person's credit card as at the date of accident will be covered.
 			                                                            </td>
 			                                                            <td>$30,000</td>
@@ -1631,7 +1639,7 @@ $(document).ready(function() {
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1666,7 +1674,7 @@ $(document).ready(function() {
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1692,7 +1700,7 @@ $(document).ready(function() {
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -2032,7 +2040,7 @@ $(document).ready(function() {
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -2050,7 +2058,7 @@ $(document).ready(function() {
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="">
-								<!-- 
+								<!--
 								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.Planname.title" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
@@ -2059,7 +2067,7 @@ $(document).ready(function() {
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname" value="">
-									<input type="hidden" name="planIndex" id="planIndex" value="">	
+									<input type="hidden" name="planIndex" id="planIndex" value="">
 								</div>
 								<div class="clearfix"></div>
 								<div class="pull-right" style="">
@@ -2080,7 +2088,7 @@ $(document).ready(function() {
 							<h3 style="font-size:18px;"><fmt:message key="Overseas.PlanOptions.Promo" bundle="${msg}" /></h3>
 							<span class="text-grey" id="loadingPromo" style="display:none;">Updating...</span>
 							<span class="text-red" id="errPromoCode"></span>
-							<div id="promo-wrap" class="form-group">						
+							<div id="promo-wrap" class="form-group">
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
@@ -2105,7 +2113,7 @@ $(document).ready(function() {
 							<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
                               <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="resources/images/partner_theclub.png" height="12"> member.</a></label>
                             </div>
-							
+
                             <span class="text-red" id="errClubMemberID"></span>-->
                             <div class="form-group" style="margin-top: 0; margin-bottom: 20; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
@@ -2138,7 +2146,7 @@ $(document).ready(function() {
                                 <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();"><fmt:message key="Overseas.PlanOptions.Back" bundle="${msg}" /></a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%">
-	                            
+
 	                        <c:choose>
 	                            <c:when test="${language=='en'}">
 	                                <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','${quoteDetails.toalDue }','','Regis_Oversea_Step1 EN','USD');perventRedirect=false;submitPlan();">
@@ -2167,14 +2175,14 @@ $(document).ready(function() {
 <fmt:message key="Overseas.userdetails.Disclaimer1" bundle="${msg}" /><br>
 <fmt:message key="Overseas.userdetails.Disclaimer2" bundle="${msg}" /></p>
 		</p>
-		
+
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
 		   <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
 		        <div class="top35 pull-left pad-none" style="width:47%">
 		            <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();"><fmt:message key="Overseas.PlanOptions.Back" bundle="${msg}" /></a>
 		        </div>
 		        <div class="top35 pull-right pad-none" style="width:47%">
-		            
+
 	                <c:choose>
                         <c:when test="${language=='en'}">
                             <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','${quoteDetails.toalDue }','','Regis_Oversea_Step1 EN','USD');perventRedirect=false;submitPlan();">
@@ -2184,8 +2192,8 @@ $(document).ready(function() {
                             <button type="button" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','${quoteDetails.toalDue }','','Regis_Oversea_Step1 ZH','USD');perventRedirect=false;submitPlan();">
                                 <fmt:message key="travel.action.next" bundle="${msg}" /></button>
                         </c:otherwise>
-                    </c:choose>            
-           
+                    </c:choose>
+
 		        </div>
 		        <div class="clearfix"></div>
 		        <span class="text-red errDue"></span>
@@ -2193,7 +2201,7 @@ $(document).ready(function() {
 		</div>
 
 		</form>
-		
+
 	</div>
 	<!--/.row-->
 	</div>
@@ -2218,7 +2226,7 @@ $(document).ready(function() {
 	                    <div class="form-group">
 	                        <input autocomplete="off" type="email" class="form-control" placeholder=""
 	                            name="emailToSendPromoCode" id="emailToSendPromoCode">
-	                        <input type="hidden" name="planCode" id="planCode" value="OVERSEACARE">                         
+	                        <input type="hidden" name="planCode" id="planCode" value="OVERSEACARE">
 	                    </div>
 	                    <span id="errPromoEmail" class="text-red"></span> <br>
 	                    <div class="row">

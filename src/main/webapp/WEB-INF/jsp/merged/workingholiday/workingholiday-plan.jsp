@@ -17,12 +17,12 @@ var promoCodeInsertFlag = true;
 
 	function getuserDetails() {
 
-		
+
 	}
-	
+
 	function submitPlan(){
         $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-        
+
         setTimeout(function(){
             if(prepareWorkingHolidayUserDetails(document.getElementById('frmWorkingHolidayPlan'),'frmWorkingHolidayPlan')){
                 $("#frmWorkingHolidayPlan").submit();
@@ -31,19 +31,29 @@ var promoCodeInsertFlag = true;
             }
         }, 500);
     }
-	
+
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("promoCode").value;
-		promoCode=promoCode.trim();
-		document.getElementById("promoCode").value = promoCode;
-		if (promoCode == "" || promoCode == "<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />" ) {
-			flag = false;
+		var promoCode = document.getElementById("promoCode").value.trim();
+		var promoCodePlaceholder = "<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
+		if (promoCode == "" || promoCode == promoCodePlaceholder) {
+			$("#loadingPromo").hide();
+			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			$('#inputPromo').addClass('invalid-field');
-		} else{
-			flag = true;
-			$('#inputPromo').removeClass('invalid-field');
+			flag = false;
+		} else {
+			if ( promoCode == promoCodePlaceholder ) {
+				$("#loadingPromo").hide();
+				promoCodeInsertFlag = true;
+				$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+				$('#inputPromo').addClass('invalid-field');
+				flag = false;
+			} else  {
+				$('#inputPromo').removeClass('invalid-field');
+				$("#errPromoCode").html("");
+				flag = true;
+			}
 		}
 		return flag;
 	}
@@ -64,9 +74,9 @@ var promoCodeInsertFlag = true;
 	function applyWorkingHolidayPromoCode() {
 		if(promoCodeInsertFlag){
             promoCodeInsertFlag = false;
-            
+
 			$("#errPromoCode").html("");
-			
+
 			if(chkPromoCode()){
 				$('#loading-overlay').modal({
 	                backdrop: 'static',
@@ -80,17 +90,17 @@ var promoCodeInsertFlag = true;
 	                success : function(data) {
 	                	$('#loading-overlay').modal('hide');
                         promoCodeInsertFlag = true;
-	                    
+
 	                    var json = JSON.parse(data);
 	                    promoData = json;
 	                    setValue(json);
 	                }
-	
+
 	            });
 			} else {
 				promoCodeInsertFlag = true;
 			}
-				
+
 		}
 	}
 
@@ -103,10 +113,10 @@ var promoCodeInsertFlag = true;
 		}else{
 			$("#errPromoCode").html("");
 			$('#inputPromo').removeClass('invalid-field');
-			
+
 			if (selValue == "B") {
 				//var totalDue = parseInt(result["priceInfoA"].totalDue);
-				
+
 				$("#subtotal").html(format(parseFloat(result["priceInfoB"].grossPremium)));
 				$("#discountAmt").html(format(parseFloat(result["priceInfoB"].discountAmount)));
 				$('#selectedDiscountAmt').val(format(parseFloat(result["priceInfoB"].discountAmount)));
@@ -114,8 +124,8 @@ var promoCodeInsertFlag = true;
 				$("#amountdue").html(format(parseFloat(result["priceInfoB"].totalDue)));
 				$('#selectedAmountDue').val(format(parseFloat(result["priceInfoB"].totalDue)));
 				$('#selectPlanPremium').val(format(parseFloat(result["priceInfoB"].grossPremium)));
-				
-				
+
+
 			} else {
 				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 				$("#subtotal").html(format(parseFloat(result["priceInfoA"].grossPremium)));
@@ -133,8 +143,8 @@ var promoCodeInsertFlag = true;
 			$('.actualPriceB del').html(format(parseFloat(result["priceInfoB"].grossPremium)));
 		}
 	}
-	
-	
+
+
 	function prepareWorkingHolidayUserDetails(form,formId){
 		var result = false;
 		var formId = '#' + formId;
@@ -157,17 +167,17 @@ var promoCodeInsertFlag = true;
 					}
 				}
 			});
-			
+
 		}else{
 			result = false;
 			console.log("hihi2");
 		}
-		
+
 		return result;
 	}
-	
-	
-	
+
+
+
 </script>
 <style>
 .workingholidaybox:hover {
@@ -232,38 +242,38 @@ var promoCodeInsertFlag = true;
                     <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
                     <li><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></li>
                     <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></li>
-                </ol>				
+                </ol>
 				<div class="container pad-none bdr gray-bg3">
 					<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 pad-none white-bg1">
 					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="workingholiday.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails workingholidayQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-					    	
+
 					    	if (workingholidayQuote != null)
 						 	{
 					    	 	session.setAttribute("tq", workingholidayQuote);
 						 	}
-						
+
 								if (workingholidayQuote.getPlanName().length > 0) {
 									for (int i = 0; i < workingholidayQuote.getPlanName().length; i++) {
 						%>
 						<div class="col-lg-12 col-md-12 plan-box3 workingholidaybox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=workingholidayQuote.getPlanName()[i]%>','<%=workingholidayQuote.getDiscountAmount()[i]%>','<%=workingholidayQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">								
+							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-7 pad-none">
 								<h2>
-									<fmt:message key="workingholiday.quote.plan" bundle="${msg}" /> <%=workingholidayQuote.getPlanName()[i]%>									
+									<fmt:message key="workingholiday.quote.plan" bundle="${msg}" /> <%=workingholidayQuote.getPlanName()[i]%>
 									<br> <%if (workingholidayQuote.getPlanName()[i].equals("A"))
 									{%>  <fmt:message key="workingholiday.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="workingholiday.quote.plan1.medical" bundle="${msg}" />
 								<%}	else{ %>
 										<fmt:message key="workingholiday.quote.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="workingholiday.quote.plan2.medical" bundle="${msg}" />
 									<%} %>
-									
-								</h2>	
+
+								</h2>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
-								
+
 								<h3><fmt:message key="workingholiday.dollar" bundle="${msg}" /></h3>
 								<%
 										DecimalFormat df = new DecimalFormat("#,###,###,##0.00");
@@ -285,14 +295,14 @@ var promoCodeInsertFlag = true;
 									<%
 										}
 									%>
-								
-								
-								
-								
-								
-								
-								
-								
+
+
+
+
+
+
+
+
 							</div>
 							<div class="clearfix"></div>
 							<!-- Plan benefits -->
@@ -329,8 +339,8 @@ var promoCodeInsertFlag = true;
 											<div class="col-lg-4 col-md-4 col-xs-5">
 												<fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
 											</div>
-										</div> 
-										
+										</div>
+
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
 											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
@@ -347,9 +357,9 @@ var promoCodeInsertFlag = true;
 											</div>
 										</div>
 								</div>
-								
-								
-								
+
+
+
 								<div class="clearfix"></div>
 							</div>
 							<!-- / Plan benefits -->
@@ -379,13 +389,13 @@ var promoCodeInsertFlag = true;
 									<span><a href="#" class="fwdpanel-minimize"><i class="fa fa-plus"></i> <fmt:message key="workingholiday.quote.fullDetails.heading" bundle="${msg}" /></a> </span>
 								</h4>
 							</div>
-							
-							
-							
-							
-							
-							
-							
+
+
+
+
+
+
+
 							<div class="fwdpanel-body" style="display: none;">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -437,12 +447,12 @@ var promoCodeInsertFlag = true;
 																	</li>
                                                                 </ul>
                                                             </p>
-            
+
                                                         </div>
                                                     </div>
                                                  </div>
                                             </div>
-                                            
+
                                         </div>
                                         <!-- /  Product Highlights -->
                                         <!--  Summary of Coverage  -->
@@ -498,7 +508,7 @@ var promoCodeInsertFlag = true;
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc3" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col4.desc3" bundle="${msg}" /></td>
 																	</tr>
-																	
+
 																	<tr>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col2.desc4" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row2.col3.desc4" bundle="${msg}" /></td>
@@ -538,14 +548,14 @@ var promoCodeInsertFlag = true;
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col3.desc2" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row3.col4.desc2" bundle="${msg}" /></td>
 																	</tr>
-																	
+
 																	<tr>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col2" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col3" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row4.col4" bundle="${msg}" /></td>
 																	</tr>
-																	
+
 																	<tr>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col1" bundle="${msg}" /></td>
 																		<td><fmt:message key="workingholiday.quote.fullDetails.table.row5.col2" bundle="${msg}" /></td>
@@ -579,7 +589,7 @@ var promoCodeInsertFlag = true;
                                                     </div>
                                                 </div>
                                              </div>
-                                            
+
                                         </div>
                                         <!-- / Summary of Coverage -->
                                         <!--   Major Exclusions  -->
@@ -617,10 +627,10 @@ var promoCodeInsertFlag = true;
                                                     </div>
                                                 </div>
                                              </div>
-                                            
+
                                         </div>
                                         <!-- /  Major Exclusions -->
-                                        
+
                                         <!--   Premium table (���)  -->
                                         <div class="fwdpanel fwdpanel-primary">
                                             <div class="fwdpanel-heading">
@@ -655,12 +665,12 @@ var promoCodeInsertFlag = true;
 																	</tr>
 																</tbody>
                                                             </table>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
                                              </div>
-                                            
+
                                         </div>
                                         <!-- / Premium table (���) -->
                                     </div>
@@ -668,17 +678,17 @@ var promoCodeInsertFlag = true;
                                 </div>
                                 <!-- /row -->
                             </div>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
+
+
+
+
+
+
+
+
+
+
+
 							<h4 class="h4-4">
 								<i class="fa fa-download"></i> <a
 									href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />"
@@ -696,8 +706,8 @@ var promoCodeInsertFlag = true;
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
-									
-										
+
+
 								</div>
 								<div class="pull-right" style="padding-top: 45px;">
 									<div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
@@ -711,38 +721,38 @@ var promoCodeInsertFlag = true;
 								<div class="clearfix"></div>
 							</div>
 							<div class="orange-bdr"></div>
-							
+
 							<!--  //removed the leaving day and return day  -->
 						</div>
 						<div id="promo-code-body" class="hide-html col-xs-12 pad-none holiday-code-wrapper">
 						  <div style="width: 80%;margin-left: 10%;">
 								<h3 style="font-size:18px;"><fmt:message key="workingholiday.sidebar.summary.promocode" bundle="${msg}" /></h3>
-							
+
 								<span class="text-red" id="errPromoCode"></span>
-								
-								
+
+
 								<div id="promo-wrap" class="form-group">
 	                                <div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
 	                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onfocus="placeholderOnFocus(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 	                                    <a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onclick="applyWorkingHolidayPromoCode()"><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></a>
 	                                </div>
 	                            </div>
-								
+
 								<!-- this is new
 								<div class="form-group">
 									<div class="input-group">
 										<input type="text" id="promoCode" name="promoCode"
 											class="form-control" placeholder="<fmt:message key="workingholiday.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-											
+
 										<span style="font-weight: bold; font-size:20px;" class="pointer" onclick="applyworkingholidayPromoCode()">
 		                                  <span><fmt:message key="workingholiday.action.apply" bundle="${msg}" /></span>
-		                                </span>	
+		                                </span>
 									</div>
-									
+
 								</div>
 								-->
-								
-								
+
+
 								<%-- <div class="working-italic workingholiday-getpromocode" style="font-size:14px;">
 									<a href="" class="sub-link" data-toggle="modal"
 											data-target=".bs-promo-modal-lg"><i><fmt:message key="workingholiday.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
@@ -785,9 +795,9 @@ var promoCodeInsertFlag = true;
 </c:choose>
 				<fmt:message key="workingholiday.action.next" bundle="${msg}" /></button>
 </div>
-							
-							
-							
+
+
+
 							<div class="clearfix"></div>
 							<br> <span class="text-red" id="errDue"></span> <br>
 						</div>
@@ -804,7 +814,7 @@ var promoCodeInsertFlag = true;
 				target="_blank"><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
-		
+
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
            <div style="width: 80%;margin-left: 10%;">
                 <div class="top35 pull-left pad-none" style="width:47%">
@@ -829,7 +839,7 @@ var promoCodeInsertFlag = true;
         </div>
 
 		</form:form>
-		
+
 	</div>
 	<!--/.row-->
 	</div>
@@ -870,12 +880,12 @@ var promoCodeInsertFlag = true;
 					</div>
 				</form>
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 </div>
-<!--/ Get promotion code popup--> 
+<!--/ Get promotion code popup-->
 
 <div class="scroll-to-top">
     <a title="Scroll to top" href="#">
@@ -890,24 +900,24 @@ var promoCodeInsertFlag = true;
 		$('#subtotal').html('0');
 		$('#plansummary').html('0');
 		$('#discountAmt').html('0');
-		
+
 
 		$(".workingholidaybox").animate({
 			"background-color" : "#000"
 		}, 3000);
-		
-		
+
+
 		$("#anchor-lang").click(function(){
 			var selValue = document.getElementById("inputseletedplanname").value;
 		});
-		
-		
+
+
 	});
 	function changeColorAndPrice(id, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();
 		document.getElementById("errDue").innerHTML = "";
 		document.getElementById("errDueMobile").innerHTML = "";
-		
+
 		var selected_div;
 		var idArray = [];
 
@@ -926,10 +936,10 @@ var promoCodeInsertFlag = true;
 
 		var selected_price = $('#' + id).find('.hide').text();//$('#' + id).find('h6').text();
 		selected_price = parseFloat(selected_price).toFixed(2);
-		
+
 		$('#amountdue').html(format(parseFloat(totalDue)));
-		
-		
+
+
 		/*   $('#selectedAmountDue').value=selected_price; */
 		$('#subtotal').html(format(parseFloat(selected_price)));
 		$('#plansummary').html(format(parseFloat(selected_price)));
@@ -940,22 +950,22 @@ var promoCodeInsertFlag = true;
 		$('#' + id).addClass("plan-box5");
 
 		$('#discountAmt').html(format(parseFloat(discountAmt)));
-		
+
 		document.getElementById("selectedAmountDue").value = format(parseFloat(totalDue.trim()));
 		document.getElementById("selectedDiscountAmt").value = format(parseFloat(discountAmt.trim()));
 		$('#txtDiscountAmount').val(format(parseFloat(discountAmt.trim())));
 		document.getElementById("txtgrossPremiumAmt").value = format(parseFloat(selected_price.trim()));
-		
+
 		if(promoData !== '')
 			setValue(promoData);
-		
+
 	}
-	
-	function format (num) { 
-	    return (num.toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,'); 
-	} 
-	 
-	
+
+	function format (num) {
+	    return (num.toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+	}
+
+
 	function sendEmail() {
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
