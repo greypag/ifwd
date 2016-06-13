@@ -543,10 +543,12 @@ $(".btn-promo-apply").on("click",function(){
 	      		$('#loading-overlay').modal('hide');
 			}
 	      	else{
+	      		$('#loading-overlay').modal('hide');
 	      		console.log(data.errorMsg); 
 	      	}
         },
         error:function(){
+        	$('#loading-overlay').modal('hide');
             console.log('error');   
         }
   });

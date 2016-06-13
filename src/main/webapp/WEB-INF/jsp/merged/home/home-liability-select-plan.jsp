@@ -552,10 +552,12 @@ $(".btn-promo-apply").on("click",function(){
 	      		$('#loading-overlay').modal('hide');
 			}
 	      	else{
+	      		$('#loading-overlay').modal('hide');
 	      		console.log(data.errorMsg); 
 	      	}
         },
         error:function(){
+        	$('#loading-overlay').modal('hide');
             console.log('error');   
         }
   });
@@ -583,10 +585,12 @@ $("#home-liability-update").on("click",function(){
 	     		$('#loading-overlay').modal('hide');
 	     		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care/${nextPageFlow2}';			}
 	     	else{
+	     		$('#loading-overlay').modal('hide');
 	     		console.log(data.errorMsg); 
 	     	}
 	   },
 	   error:function(){
+		   $('#loading-overlay').modal('hide');
 	       console.log('error');   
 	   }
 	});

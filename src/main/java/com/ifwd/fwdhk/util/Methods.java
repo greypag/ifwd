@@ -318,7 +318,15 @@ public class Methods {
         return new Base64().decode(s.getBytes());  
     }  
     
-    
+    public static String formatMobile(String mobile) {
+    	mobile = mobile.replace("+", "").replace("(", "").replace(") ", "").replace(")", "").trim();
+    	String str = mobile.replace(" ", "");
+    	if(str.length()==11 && str.indexOf("852")==0){
+    		mobile = mobile.substring(3).trim();
+    	}
+		return mobile;
+    	
+    }
 }
 
 

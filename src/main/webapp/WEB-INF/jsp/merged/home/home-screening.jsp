@@ -128,13 +128,14 @@ var nextPage = "${nextPageFlow}";
 			           },
 		        success : function(data) {
 			      	if(data !=null && data.errorMsg ==null){
-			      		$('#loading-overlay').modal('hide');
 			      		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}';					}
 			      	else{
+			      		$('#loading-overlay').modal('hide');
 			      		console.log(data.errorMsg); 
 			      	}
 		        },
 		        error:function(){
+		        	$('#loading-overlay').modal('hide');
 		            console.log('error');   
 		        }
 		  });

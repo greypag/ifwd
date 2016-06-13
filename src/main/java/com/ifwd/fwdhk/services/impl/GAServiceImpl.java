@@ -71,7 +71,7 @@ public class GAServiceImpl implements GAService {
 		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request));
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
-		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String mobileNo = Methods.formatMobile(WebServiceUtils.getParameterValue("mobileNo", session, request));
 		String dob = DateApi.formatString(WebServiceUtils.getParameterValue("dob", session, request));
 		Date effectiveDate = DateApi.formatDate(homeCareDetails.getEffectiveDate());
 		LocalDate date = new LocalDate(effectiveDate);
