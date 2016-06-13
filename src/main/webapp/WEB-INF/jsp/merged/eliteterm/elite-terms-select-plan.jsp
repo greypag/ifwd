@@ -4983,6 +4983,25 @@ var home_url = "<%=request.getContextPath()%>";
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
+			  
+			// Set timer for confirm and sign button
+			var $confirmSignWait = $('#et-confirm-and-sign-wait-btn');
+			var $confirmSign = $('#et-confirm-and-sign-btn');
+	         var waitSecond = 0;
+	         if (waitSecond <= 0) {
+		         waitSecond = parseInt($confirmSignWait.data('wait'), 10);
+		         $confirmSignWait.text('(' + waitSecond + ')');
+		         var waitInterval = setInterval(function(){
+		        	 waitSecond--;
+		        	 $confirmSignWait.text('(' + waitSecond + ')');
+		        	 if (waitSecond <= 0) {
+		        		 $confirmSignWait.addClass('hide');
+		        		 $confirmSign.removeClass('hide');
+		        		 clearInterval(waitInterval);
+		        	 };
+		         }, 1000);
+	      	}
+		         
 		  }
 		  if('${etPageKey }' == '9'){
 			  if (!$("#signature").find('canvas').length) {
