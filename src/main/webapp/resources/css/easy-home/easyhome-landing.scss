@@ -1,75 +1,340 @@
 ul, menu, dir {-webkit-padding-start:0;}
 
-.example-container{
-	background: url(../../images/easy-home/home_landing_s3_case_bg.jpg) bottom center no-repeat;	
-}
-.applyBtn-container{
-	background: url(../../images/easy-home/home_landing_s5_apply_bg.jpg) bottom center no-repeat;		
-	min-height: 320px;
+//========================//
+$base-title-font-size: 1.667em;
+$sub-title-font-size: 1.333em;
+$base-txt-font-size: 0.778em;
+$base-remark-font-size: 0.722em;
+
+$base-title-color: #ff9125;
+$base-remark-color: #e0e0e0;
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .apr_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
-.row.no-margin{
-	margin-left: 0;
-	margin-right: 0;
+%flipcardHoverEffetContainer{
+	perspective: 1000px;
+}
+%flipcardHoverEffet{
+	transform-style: preserve-3d;
+	transition: 0.6s;
+	&.waiting{
+		transform: rotateY(108deg);
+		opacity: 0;
+	}
 }
 
-.floatCenter{
-	
-}
-#ctm-exclusive{
-	max-width: 908px;
-	display: inline-block;
+//========================//
+.img-responsive.center{
 	margin: 0 auto;
+}
+.nopadding{
 	padding-left: 0;
 	padding-right: 0;
-	margin-top: 20px;
-	float: none;
-	ul{
-		margin: 0;
+}
+
+.container{
+	max-width: 1024px;
+}
+
+
+
+//========================//
+.eh_link_black{
+	color: #000;
+	text-decoration: underline !important;// override asset/styles.css
+	&:hover{
+		color: #000;
 	}
-	.ctm-ex-nav-tab{
-		padding: 10px 0;
-		background: #fff;
-		width: 25%;
-		float: left;
-		a{
-			display: block;
-			cursor: pointer;
-		}
-		&.active{
-			background-color: #ff8200;
-			a{
-				color: #fff;
-				
-			}
-		}
+}
+
+.eh_btn_more_details{
+	background-color: #ff8202;
+	border-radius: 8px;
+	color: #fff;
+	display: inline-block;
+	font-size: 1.111em;
+	min-width: 50%;
+	padding: 0.7em;
+	text-align: center;
+	&:hover{
+		background-color: #ec7e0d;
+		color: #fff;
 	}
-	.tab-content{
-		[class*="col-"] {
-			padding-left: 0;
-			padding-right: 0;
-		}
-		padding: 0;
-		background-color: #ff8200;
-		img{
-			border-radius: 0;
-		}
-		.ctn{
-			margin: 30px;
-			overflow: hidden;
-			.col2{
-				padding: 20px;
-				border-left: 1px #fff solid;
-				margin-left: -1px;
-				min-height: 140px;
-			}
+}
+
+.eh_remark{
+	color: $base-remark-color;
+	font-size: $base-remark-font-size;
+	padding: 0.556em 0;
+	text-align: center;
+}
+
+.eh_sec_color_wraping{
+	padding: 0 15px; // inner row got -15 margin left and right but col got 15 padding so make it even
+}
+
+.eh_sec_title{
+	color: $base-title-color;
+	font-size: $base-title-font-size;
+	margin: 1em 0;
+}
+
+.eh_example_card{
+	padding: 0;
+	margin-bottom: 30px;
+	.inner{
+		background-color: #fff;
+		margin: 0 10px;
+		overflow: auto;
+		padding: 0 20px;
+	}
+	.eh_sec_title{
+		font-size: $sub-title-font-size;
+	}
+	.item-desc{
+		padding: 20px 0;
+	}
+}
+
+.eh_halfbanner{
+	.eh_hb_txt_box{
+		padding: 25px 35px;
+		.eh_hb_desc{
+			padding: 1.944em 0;
 		}
 	}
 }
 
-.other-benefits{
-	padding-bottom: 30px;
-	p{
-		margin: 20px 0;
+
+
+//========================//
+.eh_lowest_price_container{
+	.eh_sec_title{
+		margin-bottom: 0;
+		img{
+			margin-bottom: 10px;
+		}
+		&+p{
+			padding: 10px 0;
+		}
+	}
+}
+
+
+.eh_showcase_container{
+	@extend %flipcardHoverEffetContainer;
+	background-color: #fcb714;
+	margin-bottom: 30px;
+	.eh_sec_title{
+		color: #fff;
+	}
+	
+	.eh_example_card {
+		@extend %flipcardHoverEffet;
+		.eh_sec_title{
+			color: $base-title-color;
+		}
+	}
+	.eh_btn_more_details{
+		margin: 1em 0;
+	}
+}
+
+.eh_sale_container{
+	background-color: #f1f1f1;
+}
+
+.eh_cfucome_banner{
+	.eh_hb_txt_box{
+		background-color: #0166b4;
+		color: #fff;
+	}
+	.eh_btn_more_details{
+		margin-bottom: 50px;
+	}
+}
+
+.eh_3_feature{
+	background-color: #f1f1f1;
+	padding-left: 15px;
+	padding-right: 15px;
+	.eh_inner_color{
+		padding-left: 40px;
+		padding-right: 40px;
+		background-color: #fff;
+	}
+	.eh_sec_title{
+		margin-left: 0;
+		margin-top: -20px;
+	}
+	.f1{
+		.inner{
+			background-color: #f98b00;
+		}
+	}
+	.f2{
+		.inner{
+			background-color: #00b896;
+		}
+	}
+	.f3{
+		.inner{
+			background-color: #f85100;			
+		}
+	}
+}
+
+.eh_feature_box{
+	@extend %flipcardHoverEffetContainer;
+	margin-bottom: 30px;
+	.inner{
+		@extend %flipcardHoverEffet;
+		overflow: auto;
+		padding: 0 15px;	
+	}
+	
+}
+
+.eh_feature_box_title, .eh_feature_box_desc{
+	color: #fff;
+	font-size: 1em;
+}
+.eh_feature_box_desc{
+	padding: .556em 0 20px 0;
+}
+
+.eh_theclub_container{
+	background-color: #f1f1f1;
+	margin-bottom: 15px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	.eh_hb_txt_box {
+		background-color: #fff;
+	}
+	.eh_theclub_txt{
+		padding: 20px 0;
+	}
+}
+
+.eh_moreProtect_banner{
+	padding-right: 0;
+	padding-left: 0;
+	.eh_hb_txt_box {
+		background-color: #fcb714;
+		color: #fff;
+		.eh_sec_title{
+			background-color: #fff;
+			color: #fcb714;
+			display: inline-block;
+			margin: 0 0 10px 0;
+			padding: 5px;
+		}
+		.eh_hb_desc{
+			padding: 0.556em 0;
+		}
+	}
+
+}
+
+.example-container{
+	margin: 15px auto;
+	.eh_remark{
+		color: #000;
+	}
+}
+
+.applyBtn-container{
+	background-color: #f1f1f1;
+	margin-top: 30px;
+	min-height: 160px;
+	.savie-regular-btn{
+		margin-bottom: 16px;
+		&:hover{
+			background-color: #fff;
+	    	color: #fdb714;
+	    	border: 1px #fdb714 solid;
+		}
+	}
+}
+
+
+
+//mobile example toggle slider
+.eh_example_case_m{
+	.caseItem{
+		background-color: #26484e;
+		color: #fff;
+		display: block;
+		font-size: 1.389em;
+		padding: .833em;
+		position: relative;
+		&:after{
+			content: "\2212";
+			font-family: 'Glyphicons Halflings';
+			position: absolute;
+			top: .889em;
+			right: 1em;
+			color: orange;
+			font-size: 0.833em;
+		}
+		&.collapsed:after{
+			content: "\002b";
+		}
+	}
+	.details{
+		padding: .833em;	
+	}
+}
+
+
+@media screen and (max-width: 434px) {
+	.eh_3_feature .eh_inner_color{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.eh_sec_color_wraping{
+		padding: 0 35px;
+	}
+
+	.eh_3_feature{
+		padding-right: 35px;
+		padding-left: 35px;
+	}
+
+	.eh_moreProtect_banner{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	.eh_btn_more_details{
+		min-width: 240px;
+	}
+	.eh_theclub_container .eh_hb_txt_box {
+		padding-top: 90px;
+	}
+	.offset_card_holder{
+		margin-left: -10px;
+	}
+	.eh_example_card{
+		margin-bottom: 10px;
 	}
 }
