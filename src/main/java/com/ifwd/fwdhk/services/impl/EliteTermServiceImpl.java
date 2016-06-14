@@ -355,6 +355,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 				throw new ECOMMAPIException("system error");
 			}
 	        FileUtil.deletFile(uploadDir);
+	        request.getSession().removeAttribute("fileToUploadProofAdd");
+	        request.getSession().removeAttribute("hkidFileToUpload");
+	        request.getSession().removeAttribute("passportFileToUpload");
+	        request.getSession().removeAttribute("fileToUploadProofAddType");
+	        request.getSession().removeAttribute("passportFileToUploadType");
+	        request.getSession().removeAttribute("hkidFileToUploadType");
 		}catch(ECOMMAPIException e){
 			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
 			logger.info(e.getMessage());
