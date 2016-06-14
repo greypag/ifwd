@@ -190,9 +190,9 @@ function documentUpload(plan){
 		if(hkidflage == 'none' || proofflage == 'none'){
 			return false;
 		}
-		if(display == 'false' && passportflage == 'none'){
+		if(!display && passportflage == 'none'){
 			return false;
-		}else if(display == 'false'){
+		}else if(!display){
 			passportFlage = true;
 		}else{
 			passportFlage = false;
