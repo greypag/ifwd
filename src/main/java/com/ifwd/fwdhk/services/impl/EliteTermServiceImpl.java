@@ -38,8 +38,7 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.PolicyNoUtil;
+import com.ifwd.fwdhk.util.Methods;import com.ifwd.fwdhk.util.InitApplicationMessage;import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
 	private final static Logger logger = LoggerFactory.getLogger(EliteTermServiceImpl.class);
@@ -103,7 +102,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean.residentialTelNo"));
 			applicant.put("mobileNoCountryCode", "852");
-			applicant.put("mobileNo", request.getParameter("savieApplicantBean.mobileNo"));
+			applicant.put("mobileNo", Methods.formatMobile(request.getParameter("savieApplicantBean.mobileNo")));
 			etPolicyApplication.getApplicant().setMobileNo(applicant.getString("mobileNo"));
 			applicant.put("email", request.getParameter("savieApplicantBean.emailAddress"));
 			request.getSession().setAttribute("eliteTermEmail", request.getParameter("savieApplicantBean.emailAddress"));
@@ -440,7 +439,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			JSONObject parameters = new JSONObject();
 			parameters.put("name", request.getParameter("name"));
 			parameters.put("email", request.getParameter("email"));
-			parameters.put("mobile", request.getParameter("mobile"));
+			parameters.put("mobile", Methods.formatMobile(request.getParameter("mobile")));
 			parameters.put("preferredDay", request.getParameter("preferredDay").split("-")[0]);
 			parameters.put("preferredTimeSlot", request.getParameter("preferredTimeSlot").split("-")[0]);
 			parameters.put("enquiryType", request.getParameter("enquiryType").split("-")[0]);
@@ -1002,7 +1001,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -1145,7 +1143,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}
 			}
 			etPolicyApplication.getApplicant().setResidentialTelNo(request.getParameter("savieApplicantBean.residentialTelNo"));
-			etPolicyApplication.getApplicant().setMobileNo(request.getParameter("savieApplicantBean.mobileNo"));
+			etPolicyApplication.getApplicant().setMobileNo(Methods.formatMobile(request.getParameter("savieApplicantBean.mobileNo")));
 			etPolicyApplication.getApplicant().setEmail(request.getParameter("savieApplicantBean.emailAddress"));
 			etPolicyApplication.getApplicant().setPermanentAddress1(request.getParameter("savieApplicantBean.permanentAddress1"));
 			etPolicyApplication.getApplicant().setPermanentAddress2(request.getParameter("savieApplicantBean.permanentAddress2"));
