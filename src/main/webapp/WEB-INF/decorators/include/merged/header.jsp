@@ -1294,6 +1294,19 @@ function getStarted(){
         </form>
     </div>
 </div>
+
+<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+           <h4 class="text-center welcome-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" /><span id="fullName1" class="hidden"></span></h4>
+           <p class="text-center description-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" /></p>
+           <center>
+               <button class="btn savie-common-btn" id="back-home"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+           </center>
+        </div>
+    </div>
+</div>
 <!--End Mobile header-->
 <!--/header-->
 <script>
