@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -65,6 +66,7 @@ public class EliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/term-life-insurance/select-plan","/{lang}/term-life-insurance/application"})
 	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		
 		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);

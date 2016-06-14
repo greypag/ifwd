@@ -23,6 +23,8 @@ var ehPro = '${pro }';
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/style.css">
         <link href="<%=request.getContextPath()%>/resources/css/easy-health/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
         <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/easy-health/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/nouislider.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/jquery-ui.effect.core.min.js"></script>
         <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-health/jquery.history.min.js"></script>

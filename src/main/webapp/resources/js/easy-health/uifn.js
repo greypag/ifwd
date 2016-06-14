@@ -56,7 +56,7 @@ $(document).ready(function() {
         minDate: new Date(nowDT.getFullYear() - 60, nowDT.getMonth(), nowDT.getDate()+1),
         maxDate: new Date(nowDT.getFullYear() - 18, nowDT.getMonth(), nowDT.getDate()),
         dateFormat: 'dd-mm-yyyy',
-        lang: language == "en" ? "en-US" : "zh"
+        lang: language == "en" ? "en_fwd" : "zh_fwd"
     });
 
     var mh = 0;
