@@ -240,6 +240,10 @@ ol.lower-roman {
                             display: inline-block;
                             margin: 0 auto;
                         }
+                        //firefox fix
+                        .icon-wrap .img-responsive{
+                            width: 100%;
+                        }
                     }
                 }
                 th,
