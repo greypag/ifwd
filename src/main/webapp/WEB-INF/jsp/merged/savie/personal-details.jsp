@@ -1050,7 +1050,7 @@ function soFormValidation() {
 						message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
 					},
 					remote: {
-						message: 'Some input information contains simplified Chinese',
+						message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
 						url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
 						type: "get",
 						dataType: "json",
