@@ -659,6 +659,7 @@ var language = "${language}";
                </div>
             </div>
             </c:if>
+			<c:if test="${plan == 'medical-insurance'}">
 			<div class="clearfix">
 				<h5><fmt:message key="label.confirm.Insurance" bundle="${msg}" /></h5>
 				<ul>
@@ -668,6 +669,7 @@ var language = "${language}";
 				</ul>
 				<fmt:message key="underwriting.declaration" bundle="${msg}" />
 			</div>
+			</c:if>
             <div class="text-center clearfix">
 					<button id="next-wait-btn" type="button" class="btn savie-common-btn" data-wait="10" disabled></button>
                <button id="next-btn" class="btn savie-common-btn hide" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
