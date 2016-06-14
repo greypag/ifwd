@@ -933,6 +933,19 @@
                   }
                }
             },
+            "theClubMembershipNo": {
+               container: '#errClubMemberID',
+               trigger: 'blur',
+               validators: {
+                  notEmpty: {
+                     message: getBundle(getBundleLanguage, "club.member.empty")
+                  },
+                  regexp: {
+                    regexp: /^8[0-9]{9}$/,
+                    message: getBundle(getBundleLanguage, "club.member.digitchk")
+                  }
+               }
+            },
             "savieApplicantBean.hkId": {
                container: '#hkidMessage',
                trigger: 'blur',
