@@ -5,7 +5,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<<script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
