@@ -2277,7 +2277,7 @@ function activateUserAccountJoinUs() {
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
-                                    value="01-01-2015">
+                                    value="${corrTravelQuote.trLeavingDate}">
 
                                 <h3 class="txt-bold">
                                     <fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>

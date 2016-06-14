@@ -23,6 +23,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -46,11 +47,15 @@ public class GAController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}"})
-	public ModelAndView getInsurance(@PathVariable("plan") String plan, Model model, HttpServletRequest request) {
+	public ModelAndView getInsurance(@PathVariable("plan") String plan, @RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
+		if (StringUtils.hasText(promo)) {
+			request.getSession().setAttribute("referralCode", promo);
+		}else {
+			request.getSession().removeAttribute("referralCode");
+		}
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_LANDING);
-		}
-		else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
 		}
 		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);

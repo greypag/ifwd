@@ -305,7 +305,12 @@ public class GAServiceImpl implements GAService {
 
 	public JSONObject getHomeCareQuote(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		HomeQuoteBean quoteDetails = new HomeQuoteBean();
-		String referralCode = request.getParameter("referralCode");
+		String referralCode;
+		if(StringUtils.hasText(request.getParameter("referralCode"))) {
+			referralCode = request.getParameter("referralCode");
+		}else {
+			referralCode = (String)session.getAttribute("referralCode");
+		}
 		String answer1 = request.getParameter("answer1");
 		String answer2 = request.getParameter("answer2");
 		
