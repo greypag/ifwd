@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.Methods;
 @Service
 public class EasyHealthServiceImpl implements EasyHealthService {
 	private final static Logger logger = LoggerFactory.getLogger(EasyHealthServiceImpl.class);
@@ -111,7 +112,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", lifePersonalDetails.getResidentialTelNo());
 			applicant.put("mobileNoCountryCode", "852");
-			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("mobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()));
 			applicant.put("email", lifePersonalDetails.getEmailAddress());
 				JSONObject permanentAddress = new JSONObject();
 				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());

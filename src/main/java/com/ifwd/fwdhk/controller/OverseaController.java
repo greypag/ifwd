@@ -248,7 +248,7 @@ public class OverseaController extends BaseController{
 		String dob = planDetailsForm.getApplicantDob();*/
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
-		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String applicantMobNo = Methods.formatMobile(WebServiceUtils.getParameterValue("mobileNo", session, request));
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
 		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
 		dob = DateApi.pickDate1(dob);

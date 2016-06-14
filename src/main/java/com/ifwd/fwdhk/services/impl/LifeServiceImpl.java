@@ -66,6 +66,7 @@ import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
@@ -543,7 +544,7 @@ public class LifeServiceImpl implements LifeService {
 	    attributeList.add(new PdfAttribute("applicationSex", gender));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
-	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
+	    attributeList.add(new PdfAttribute("applicationMobile", Methods.formatMobile(lifePersonalDetails.getMobileNumber())));
 	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
 	    
 	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
@@ -1516,7 +1517,7 @@ public class LifeServiceImpl implements LifeService {
 		jsonObject.put("channel", "productRecommendation");
 		jsonObject.put("name", request.getParameter("customer_name"));
 		jsonObject.put("email", request.getParameter("email"));
-		jsonObject.put("mobile", request.getParameter("telephone"));
+		jsonObject.put("mobile", Methods.formatMobile(request.getParameter("telephone")));
 		jsonObject.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
 		jsonObject.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
 		jsonObject.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
@@ -1618,7 +1619,7 @@ public class LifeServiceImpl implements LifeService {
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", lifePersonalDetails.getResidentialTelNo());
 			applicant.put("mobileNoCountryCode", "852");
-			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("mobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()));
 			applicant.put("email", lifePersonalDetails.getEmailAddress());
 				JSONObject permanentAddress = new JSONObject();
 				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
@@ -1886,7 +1887,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("applicantResidentialTelNoCountryCode", lifePersonalDetails.getResidentialTelNoCountryCode()!=null?lifePersonalDetails.getResidentialTelNoCountryCode():"");
 		parameters.accumulate("applicantResidentialTelNo", lifePersonalDetails.getResidentialTelNo()!=null?lifePersonalDetails.getResidentialTelNo():"");
 		parameters.accumulate("applicantMobileNoCountryCode", lifePersonalDetails.getMobileNoCountryCode()!=null?lifePersonalDetails.getMobileNoCountryCode():"");
-		parameters.accumulate("applicantMobileNo", lifePersonalDetails.getMobileNumber()!=null?lifePersonalDetails.getMobileNumber():"");
+		parameters.accumulate("applicantMobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()!=null?lifePersonalDetails.getMobileNumber():""));
 		parameters.accumulate("applicantEmail", lifePersonalDetails.getEmailAddress()!=null?lifePersonalDetails.getEmailAddress():"");
 		parameters.accumulate("residentialAddress1", lifePersonalDetails.getResidentialAddress1()!=null?lifePersonalDetails.getResidentialAddress1():"");
 		parameters.accumulate("residentialAddress2", lifePersonalDetails.getResidentialAddress2()!=null?lifePersonalDetails.getResidentialAddress2():"");
@@ -2269,7 +2270,7 @@ public class LifeServiceImpl implements LifeService {
 			lifePersonalDetails.setResidentialTelNoCountryCode(policyApplication.getApplicantResidentialTelNoCountryCode()!=null?policyApplication.getApplicantResidentialTelNoCountryCode():"");
 			lifePersonalDetails.setResidentialTelNo(policyApplication.getApplicantResidentialTelNo()!=null?policyApplication.getApplicantResidentialTelNo():"");
 			lifePersonalDetails.setMobileNoCountryCode(policyApplication.getApplicantMobileNoCountryCode()!=null?policyApplication.getApplicantMobileNoCountryCode():"");
-			lifePersonalDetails.setMobileNumber(policyApplication.getApplicantMobileNo()!=null?policyApplication.getApplicantMobileNo():"");
+			lifePersonalDetails.setMobileNumber(Methods.formatMobile(policyApplication.getApplicantMobileNo()!=null?policyApplication.getApplicantMobileNo():""));
 			lifePersonalDetails.setEmailAddress(policyApplication.getApplicantEmail()!=null?policyApplication.getApplicantEmail():"");
 			lifePersonalDetails.setResidentialAddress1(policyApplication.getResidentialAddress1()!=null?policyApplication.getResidentialAddress1():"");
 			lifePersonalDetails.setResidentialAddress2(policyApplication.getResidentialAddress2()!=null?policyApplication.getResidentialAddress2():"");

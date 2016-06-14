@@ -43,6 +43,7 @@ import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -627,7 +628,7 @@ public class UserController {
 			
 			JSONObject params = new JSONObject();
 			params.put("userName", userDetails.getUserName());
-			params.put("mobile", userDetails.getMobileNo());
+			params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			params.put("password", userDetails.getPassword());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("name", userDetails.getFullName());
@@ -639,7 +640,7 @@ public class UserController {
 				params.put("userName", servletRequest.getParameter("userName"));
 				params.put("password", servletRequest.getParameter("password"));
 				params.put("email", servletRequest.getParameter("email"));
-				params.put("mobile", servletRequest.getParameter("mobile"));
+				params.put("mobile", Methods.formatMobile(servletRequest.getParameter("mobile")));
 				params.put("name", servletRequest.getParameter("name"));
 				params.put("optIn1", optIn1);
 				params.put("optIn2", optIn2);
@@ -750,10 +751,10 @@ public class UserController {
 			JSONObject params = new JSONObject();
 			if(!(StringUtils.isEmpty(userDetails.getEmailAddress1()) && StringUtils.isEmpty(userDetails.getMobileNo1()))) {
 				params.put("email", userDetails.getEmailAddress1());
-				params.put("mobile", userDetails.getMobileNo1());
+				params.put("mobile", Methods.formatMobile(userDetails.getMobileNo1()));
 			}else {
 				params.put("email", userDetails.getEmailAddress());
-				params.put("mobile", userDetails.getMobileNo());
+				params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			}
 			
 			logger.info("USER_FORGOT_USERNAME Request " + JsonUtils.jsonPrint(params));
@@ -787,7 +788,7 @@ public class UserController {
 			JSONObject params = new JSONObject();
 			params.put("userName", userDetails.getUserName());
 			params.put("email", userDetails.getEmailAddress());
-			params.put("mobile", userDetails.getMobileNo());
+			params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			
 			logger.info("USER_FORGOT_PASSWORD Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,

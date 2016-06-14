@@ -533,7 +533,7 @@ public class HomeCareController {
 		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request));
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
-		String mobileNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String mobileNo = Methods.formatMobile(WebServiceUtils.getParameterValue("mobileNo", session, request));
 		String dob = DateApi.formatString(WebServiceUtils.getParameterValue("applicantDob", session, request));
 		NumberFormat formatter = new DecimalFormat("#0.00");  
 		
