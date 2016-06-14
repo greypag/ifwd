@@ -164,8 +164,8 @@ public class UserController {
 					jsonObject.put("fullName", userDetails.getFullName());
 					userDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
-					userDetails.setMobileNo(checkJsonObjNull(customer,
-							"contactNo"));
+					userDetails.setMobileNo(Methods.formatMobile(checkJsonObjNull(customer,
+							"contactNo")));
 					userDetails.setUserName(userLogin.getUserName());
 					userDetails.setReferralCode(checkJsonObjNull(customer,
 							"referralCode"));
@@ -226,7 +226,7 @@ public class UserController {
 				
 				userDetails.setFullName(userDetails.getFullName());
 				userDetails.setEmailAddress(userDetails.getEmailAddress());
-				userDetails.setMobileNo(userDetails.getMobileNo());
+				userDetails.setMobileNo(Methods.formatMobile(userDetails.getMobileNo()));
 				userDetails.setUserName(userDetails.getUserName());
 				model.addAttribute(userDetails);
 				
@@ -706,8 +706,8 @@ public class UserController {
 					}
 					loginUserDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
-					loginUserDetails.setMobileNo(checkJsonObjNull(customer,
-							"contactNo"));
+					loginUserDetails.setMobileNo(Methods.formatMobile(checkJsonObjNull(customer,
+							"contactNo")));
 					loginUserDetails.setUserName(userLogin.getUserName());
 					loginUserDetails.setReferralCode(checkJsonObjNull(customer,
 							"referralCode"));
