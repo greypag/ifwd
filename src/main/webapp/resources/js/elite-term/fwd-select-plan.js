@@ -912,7 +912,7 @@
                      message: getBundle(getBundleLanguage, "error.chinese.name.invalid")
                   },
                   remote:{
-                  	message: 'Some input information contains simplified Chinese',
+                  	message: getBundle(getBundleLanguage, "error.chinese.name.simplified"),
                 	url: contextPath+"/ajax/validateSimpleChinese",
                 	type: "get",
                 	dataType: "json",
