@@ -92,10 +92,17 @@ function putPremium(){
       });
     }
     else{
-    	window.location.href = window.location.href;
+    	refreshPage();
     }
 }
 
+function refreshPage(){
+	//Most browsers do not refresh link with hash if not using reload function.
+	//However, browsers do refresh if the URL is different.
+
+	var cleanURL = window.location.href.replace(/\?r=\d*/,''); //remove random parameter;
+	window.location.href = cleanURL.split('#')[0] + '?r=' + new Date().getTime();
+}
 
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
