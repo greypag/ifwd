@@ -7885,7 +7885,7 @@ tr.product-landing-error-wrap {
 	width: 283px;
 	height: 48px;
 	color: #fff;
-	font-size: 14px;
+	font-size: 14px !important;
 	line-height: 14px;
 	margin-top: -15px;
 	margin-bottom: 50px;
@@ -7894,6 +7894,12 @@ tr.product-landing-error-wrap {
 	padding-left: 20px;
 	overflow: hidden;
 	display: none;
+}
+
+#etLicenseInfoForm .personal-data-check label,
+#etLicenseInfoForm .marketing-info-check label {
+    cursor: pointer;
+    background: #fff;
 }
 
 .chin .checkboxBubble {

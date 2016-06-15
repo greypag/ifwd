@@ -2666,27 +2666,25 @@ var home_url = "<%=request.getContextPath()%>";
 						onsubmit="return false">
 						<div class="clearfix authorization">
 							<div class="pull-left marketing-info-check">
-								<input type="checkbox" value="true" id="marketing-info-check"
-									name="isMarketingInfo" /> <label for="marketing-info-check"></label>
+								<input type="checkbox" value="true" id="marketing-info-check" name="isMarketingInfo" />
+								<label for="marketing-info-check"></label>
 							</div>
 							<div class="pull-left marketing-info-desk checkbox-description">
-								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send"
-									bundle="${msg}" />
+								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send" bundle="${msg}" />
 							</div>
 						</div>
 
 						<div class="clearfix authorization">
 							<div class="pull-left personal-data-check">
-								<input type="checkbox" value="true" id="personal-data-check"
-									name="isPersonalData" /> <label for="personal-data-check"></label>
+								<input type="checkbox" value="true" id="personal-data-check" name="isPersonalData" />
+								<label for="personal-data-check"></label>
 							</div>
 							<div class="pull-left personal-data-desc checkbox-description">
-								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
-									bundle="${msg}" />
+								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide" bundle="${msg}" />
 							</div>
 							<div class="checkboxBubble">
-                            	<fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
-                        	</div>
+                <fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
+              </div>
 						</div>
 						<script type="text/javascript">
                         function showBubble(){
