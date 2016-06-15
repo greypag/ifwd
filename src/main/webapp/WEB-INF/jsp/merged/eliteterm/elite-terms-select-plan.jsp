@@ -5234,7 +5234,7 @@ function addFormBeneficiary (counter) {
 		+'<div class="pull-left select">'
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
-		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']" name="beneficiaryHkidPassport['+counter+']">'
 		+'<option disabled value="" '+((beneficiaryHkidPassport_if_exist!='HKID' && beneficiaryHkidPassport_if_exist!='Passport')?'selected="selected"':'') +'>' + fm_option_select + '</option>'
 		+'<option value="HKID" '+(beneficiaryHkidPassport_if_exist=='HKID'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>'
 		+'<option value="Passport" '+(beneficiaryHkidPassport_if_exist=='Passport'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>'
