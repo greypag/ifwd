@@ -1306,8 +1306,22 @@ function getStarted(){
    <div class="modal-dialog">
        <div class="modal-content">
            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
-           <h4 class="text-center welcome-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" /><span id="fullName1" class="hidden"></span></h4>
-           <p class="text-center description-msg"><fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" /></p>
+           <h4 class="text-center welcome-msg">
+           		<c:if test="${planIndex == 'medical-insurnace'}">
+           			<fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" />
+           		</c:if>
+           		<c:if test="${planIndex == 'savings-insurance'}">
+           			<fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" />
+           		</c:if>
+           	<span id="fullName1" class="hidden"></span></h4>
+           <p class="text-center description-msg">
+           		<c:if test="${planIndex == 'medical-insurnace'}">
+           			<fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" />
+           		</c:if>
+           		<c:if test="${planIndex == 'savings-insurance'}">
+           			<fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" />
+           		</c:if>
+           	</p>
            <center>
                <button class="btn savie-common-btn" id="back-home"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
            </center>

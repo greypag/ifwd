@@ -1000,6 +1000,10 @@ var affordabilityPremium = ${sliderMax};
 		<%-- window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre'; --%>
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});
+
+	$("#back-home").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
+	});
 	
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
