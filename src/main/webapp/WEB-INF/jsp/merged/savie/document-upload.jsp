@@ -481,7 +481,7 @@ var languageP = "${language}";
 			            ga('require', 'ecommerce');
 			            ga('ecommerce:addTransaction', {
 			             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
-			             'revenue': '${selectPlan.monthlyPremium }', // Grand Total of single premium 
+			             'revenue': '${selectPlan.monthlyPremium*2 }', // Grand Total of single premium 
 			             'affiliation': 'Protect', // Insurance type, e.g. Life
 			              'currency': 'HKD'
 			             });
