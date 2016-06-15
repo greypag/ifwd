@@ -1361,12 +1361,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setFirstName1(request.getParameter("savieBeneficiaryBean[0].firstName"));
 			etPolicyApplication.getApplicant().setLastName1(request.getParameter("savieBeneficiaryBean[0].lastName"));
 			etPolicyApplication.getApplicant().setChineseName1(request.getParameter("savieBeneficiaryBean[0].chineseName"));
-			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport1("beneficiaryHkidPassport[0]");
+			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport1(request.getParameter("beneficiaryHkidPassport[0]"));
 			etPolicyApplication.getApplicant().setHkId1(request.getParameter("savieBeneficiaryBean[0].hkId"));
 			etPolicyApplication.getApplicant().setPassportNo1(request.getParameter("savieBeneficiaryBean[0].passportNo"));
 			etPolicyApplication.getApplicant().setGender1(request.getParameter("savieBeneficiaryBean[0].gender"));
 			etPolicyApplication.getApplicant().setRelationship1(request.getParameter("savieBeneficiaryBean[0].relationship"));
-			if(!"".equals(etPolicyApplication.getApplicant().getRelationship1())){
+			if(etPolicyApplication.getApplicant().getRelationship1()!=null && !"".equals(etPolicyApplication.getApplicant().getRelationship1())){
 				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 					if(etPolicyApplication.getApplicant().getRelationship1().split("-")[0].equals(item.getItemCode())){
 						etPolicyApplication.getApplicant().setRelationship1EnName(item.getItemDesc());
@@ -1385,12 +1385,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setFirstName2(request.getParameter("savieBeneficiaryBean[1].firstName"));
 			etPolicyApplication.getApplicant().setLastName2(request.getParameter("savieBeneficiaryBean[1].lastName"));
 			etPolicyApplication.getApplicant().setChineseName2(request.getParameter("savieBeneficiaryBean[1].chineseName"));
-			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport2("beneficiaryHkidPassport[1]");
+			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport2(request.getParameter("beneficiaryHkidPassport[1]"));
 			etPolicyApplication.getApplicant().setHkId2(request.getParameter("savieBeneficiaryBean[1].hkId"));
 			etPolicyApplication.getApplicant().setPassportNo2(request.getParameter("savieBeneficiaryBean[1].passportNo"));
 			etPolicyApplication.getApplicant().setGender2(request.getParameter("savieBeneficiaryBean[1].gender"));
 			etPolicyApplication.getApplicant().setRelationship2(request.getParameter("savieBeneficiaryBean[1].relationship"));
-			if(!"".equals(etPolicyApplication.getApplicant().getRelationship2())){
+			if(etPolicyApplication.getApplicant().getRelationship2()!=null && !"".equals(etPolicyApplication.getApplicant().getRelationship2())){
 				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 					if(etPolicyApplication.getApplicant().getRelationship2().split("-")[0].equals(item.getItemCode())){
 						etPolicyApplication.getApplicant().setRelationship2EnName(item.getItemDesc());
@@ -1409,12 +1409,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setFirstName3(request.getParameter("savieBeneficiaryBean[2].firstName"));
 			etPolicyApplication.getApplicant().setLastName3(request.getParameter("savieBeneficiaryBean[2].lastName"));
 			etPolicyApplication.getApplicant().setChineseName3(request.getParameter("savieBeneficiaryBean[2].chineseName"));
-			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport3("beneficiaryHkidPassport[2]");
+			etPolicyApplication.getApplicant().setBeneficiaryHkidPassport3(request.getParameter("beneficiaryHkidPassport[2]"));
 			etPolicyApplication.getApplicant().setHkId3(request.getParameter("savieBeneficiaryBean[2].hkId"));
 			etPolicyApplication.getApplicant().setPassportNo3(request.getParameter("savieBeneficiaryBean[2].passportNo"));
 			etPolicyApplication.getApplicant().setGender3(request.getParameter("savieBeneficiaryBean[2].gender"));
 			etPolicyApplication.getApplicant().setRelationship3(request.getParameter("savieBeneficiaryBean[2].relationship"));
-			if(!"".equals(etPolicyApplication.getApplicant().getRelationship3())){
+			if(etPolicyApplication.getApplicant().getRelationship3()!=null && !"".equals(etPolicyApplication.getApplicant().getRelationship3())){
 				for(OptionItemDesc item:InitApplicationMessage.lifeBeneficiaryRelationshipEN){
 					if(etPolicyApplication.getApplicant().getRelationship3().split("-")[0].equals(item.getItemCode())){
 						etPolicyApplication.getApplicant().setRelationship3EnName(item.getItemDesc());
