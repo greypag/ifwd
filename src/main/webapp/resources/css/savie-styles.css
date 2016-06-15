@@ -5388,7 +5388,7 @@ a.eserv-link:hover {
 }
 /* line 149, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .person-count.first-person {
-  margin-top: 15px;
+  margin-top: 0;
 }
 /* line 153, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below {
@@ -5442,6 +5442,10 @@ a.eserv-link:hover {
   /* line 182, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.inner-beneficiary {
     margin-top: 15px;
+  }
+
+  .savie-application-summary .summary-section.beneficiary-first{
+    margin-top: 0;
   }
 }
 /* line 188, ../sass/partials/savie/_application-summary.scss */

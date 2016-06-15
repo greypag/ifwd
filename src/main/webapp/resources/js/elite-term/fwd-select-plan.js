@@ -912,7 +912,7 @@
                      message: getBundle(getBundleLanguage, "error.chinese.name.invalid")
                   },
                   remote:{
-                  	message: 'Some input information contains simplified Chinese',
+                  	message: getBundle(getBundleLanguage, "error.chinese.name.simplified"),
                 	url: contextPath+"/ajax/validateSimpleChinese",
                 	type: "get",
                 	dataType: "json",
@@ -930,6 +930,19 @@
                   notEmpty: {
 
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Date.of.birth")
+                  }
+               }
+            },
+            "theClubMembershipNo": {
+               container: '#errClubMemberID',
+               trigger: 'blur',
+               validators: {
+                  notEmpty: {
+                     message: getBundle(getBundleLanguage, "club.member.empty")
+                  },
+                  regexp: {
+                    regexp: /^8[0-9]{9}$/,
+                    message: getBundle(getBundleLanguage, "club.member.digitchk")
                   }
                }
             },

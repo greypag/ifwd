@@ -501,7 +501,7 @@ function isTNCChecked(){
     var isTNCChecked = tnc$.is(':checked');
 
     //force to scroll to tnc checkbox
-    $("html, body").animate({ scrollTop: tnc$.offset().top }, "slow");
+    $("html, body").animate({ scrollTop: tnc$.offset().top - 100 }, "slow");
 
     if(!isTNCChecked) errMsg$.html(errMsg$.attr("data-txt"));
     else errMsg$.html("");
@@ -582,5 +582,5 @@ $(function(){
 });
 
 function parseDateDMY(ary){
-        return (ary[2] + "-" + (parseInt(ary[1])+1) + "-" + ary[0]);
+	return (ary[2] + "-" + (parseInt(ary[1])+1) + "-" + ary[0]);
 }

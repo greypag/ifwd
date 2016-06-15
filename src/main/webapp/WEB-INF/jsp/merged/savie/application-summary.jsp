@@ -95,8 +95,8 @@ var language = "${language}";
 					<div class="desktop-left">
 						<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" readonly="readonly" />
-								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance' && language == 'tc'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" />" readonly="readonly" />
+								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
 							</div>
 						</div>
                </div>
@@ -424,7 +424,7 @@ var language = "${language}";
 			       </c:when>
 			       <c:otherwise>
 			          <c:if test="${lifeBeneficaryInfo.beneficaryFirstName1 != '' }">
-				          <div class="summary-section inner-beneficiary clearfix">
+				          <div class="summary-section inner-beneficiary beneficiary-first clearfix">
 				               <span class="person-count first-person"><fmt:message key="label.bene1" bundle="${msg}" /></span>
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
@@ -659,6 +659,7 @@ var language = "${language}";
                </div>
             </div>
             </c:if>
+			<c:if test="${plan == 'medical-insurance'}">
 			<div class="clearfix">
 				<h5><fmt:message key="label.confirm.Insurance" bundle="${msg}" /></h5>
 				<ul>
@@ -668,6 +669,7 @@ var language = "${language}";
 				</ul>
 				<fmt:message key="underwriting.declaration" bundle="${msg}" />
 			</div>
+			</c:if>
             <div class="text-center clearfix">
 					<button id="next-wait-btn" type="button" class="btn savie-common-btn" data-wait="10" disabled></button>
                <button id="next-btn" class="btn savie-common-btn hide" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
@@ -795,6 +797,7 @@ var language = "${language}";
 			setInputReadonly('correspondenceAddress2', true);
 			setInputReadonly('correspondenceAddress3', true);
 			setSelectReadonly('tmpCorrespondenceDistrict', true);
+			setInputReadonly('theClubMembershipNo', true);
 			//Employment info
 			setSelectReadonly('tmpEmploymentStatus', true);
 			setSelectReadonly('tmpBusinessNature', true);

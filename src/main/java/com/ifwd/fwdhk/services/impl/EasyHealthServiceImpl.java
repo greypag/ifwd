@@ -67,6 +67,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
+		String[] dob = planDetail.getDob().split("-");
+		planDetail.setDobdmy(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		request.getSession().setAttribute("ehPlanDetail", planDetail);
 		request.getSession().setAttribute("ehStep", "1");
 		
@@ -348,20 +350,20 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
 					selectPlan.setSelectPlan(pro);
 					if(0 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-基本計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(1 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-升級計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 升級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(2 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-高級計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 高級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(3 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-豪華計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 豪華計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					
 				}

@@ -210,7 +210,7 @@
 	</div>-->
 	<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield is-upgraded is-dirty is-not-active">
 		<label class="mdl-textfield__label cstm-textfield-label" id="personal-info-label"><fmt:message key="placeholder.dob" bundle="${msg}"/></label>
-		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dob}" readonly="readonly"/>
+		<input type="text" autocomplete="off" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${plan == 'savings-insurance' ? savieFna.dob:ehPlanDetail.dobdmy}" readonly="readonly"/>
 	</div>
 	<span class="error-msg" id="so-calendar-dob-msg"></span>
 </div>
@@ -1050,7 +1050,7 @@ function soFormValidation() {
 						message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
 					},
 					remote: {
-						message: 'Some input information contains simplified Chinese',
+						message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
 						url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
 						type: "get",
 						dataType: "json",

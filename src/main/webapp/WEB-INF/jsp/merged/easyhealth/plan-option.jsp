@@ -1867,8 +1867,8 @@ var ehPro = '${pro }';
         	else{
         		$("#smoker1").click();
         	}
-
-            $('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+        	
+            $('#dob').mobiscroll('setVal', dateStrParse($("#dob").attr("value")));
             $('#dob').mobiscroll('select');
         	
         	$("#eh-btn-plan-overview").click();
@@ -1893,13 +1893,20 @@ var ehPro = '${pro }';
         		$("#smoker1").click();
         	}
         	
-        	$('#dob').mobiscroll('setVal', new Date($("#dob").val()));
+        	$('#dob').mobiscroll('setVal', dateStrParse($("#dob").attr("value")));
         	$('#dob').mobiscroll('select');
 
         	$("#eh-btn-plan-overview").click();
         	
         	$(".step1").hide();
         	$("#"+'${pro }').click();
+        }
+        
+        //patch for firefox
+        function dateStrParse(str){
+        	var ary = str.split("-");
+        	//mm/dd/yyyy
+        	return new Date(ary[1] + "/" + ary[2] + "/" + ary[0]);
         }
         
         $("#back-home").click(function() {
