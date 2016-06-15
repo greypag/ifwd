@@ -396,7 +396,7 @@ var plan="${plan}";
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
                                         
-                                        <select id="applicantDistrict" name="applicantDistrict">
+                                        <select id="applicantDistrict" name="applicantDistrict" onchange="setDropArea(this.value,'selectApplicantArea','applicantArea')">
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
@@ -409,7 +409,14 @@ var plan="${plan}";
                                         
                                         <label class="mdl-textfield__label" for="applicantDistrict">District</label>
                                     </div>
-                                    
+                                    <div class="hidden">
+                                    	<select id="selectApplicantArea">
+                                            <c:forEach
+                                                var="district" items="${districtList}">
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.aDistrict }"> selected="selected"</c:if>><c:out value="${district.area}" /></option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
                                 <span class="error-msg" id="applicantDistrictErrMsg"></span>
                             </div>
@@ -579,7 +586,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
-                                        <select id="aDistrict" name="aDistrict">
+                                        <select id="aDistrict" name="aDistrict"  onchange="setDropArea(this.value,'selectaArea','aArea')">
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
@@ -590,7 +597,14 @@ var plan="${plan}";
                                         </select>
                                         <label class="mdl-textfield__label" for="aDistrict">District</label>
                                     </div>
-                                    
+                                    <div class="hidden">
+                                    	<select id="selectaArea">
+                                            <c:forEach
+                                                var="district" items="${districtList}">
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.aDistrict }"> selected="selected"</c:if>><c:out value="${district.area}" /></option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
                                 <span class="error-msg" id="aDistrictErrMsg"></span>
                             </div>
@@ -772,4 +786,8 @@ var plan="${plan}";
 function BackMe() {
     window.history.back();
 }
+
+function setDropArea(id, selectId, setId) {
+    $('#' + selectId).find('option[value="' + id + '"]').attr('selected', 'selected');
+    $('#' + setId).val($("#" + selectId + " option[value='"+id+"']").text());
 </script>

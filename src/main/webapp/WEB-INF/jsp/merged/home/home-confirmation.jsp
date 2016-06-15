@@ -101,8 +101,8 @@ var plan="${plan}";
                         <h4>Thank you!</h4>
                         <p>You have successfully completed your purchase of Easy HomeCare insurance with FWD. An email will be sent to <strong class="toemail">${emailID}</strong> with the details of your policy.</p>
                         <div class="text-center">
-                            <p class="span">Policy Number</p>
-                            <p class="policy-num">${policyNo}</p>
+                            <p class="span">Reference Number</p>
+                            <p class="policy-num">${referenceNo}</p>
                         </div>
                     </div>
                 </div>                    
@@ -113,7 +113,7 @@ var plan="${plan}";
                     <h4>Share your promotion code now to earn discounts and rewards!</h4>
                     <div class="text-center share-panel">
                         
-                        <div class="text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/home-insurance?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
+                        <div class="text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/${plan=="home-liability" ? "household-insurance/home-liability" : "household-insurance/easy-home-care"}?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
                         <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs">Press "Ctrl+c" to copy</span><span class="boxMessage hidden-md hidden-lg">Long press to copy</span> <span class="boxDownArrow"></span> </div>
                         <a href="javascript:void(0);" class="btn-app btn-copy" onclick="autoSelect('toBeCopied');">Copy Link</a>
                     </div>

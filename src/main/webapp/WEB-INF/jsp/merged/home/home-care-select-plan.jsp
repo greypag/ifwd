@@ -73,7 +73,7 @@ var nextPage = "${nextPageFlow}";
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
                             <p class="fld-val">
-                            <span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode }</span></p>
+                            <span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
                             </div>
                         </div>
                     </li>
@@ -112,7 +112,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Promote Code</p>
-                                        <p class="fld-val"><span class="txt-promote-code">-</span></p>
+                                        <p class="fld-val"><span class="txt-promote-code">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -128,7 +128,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Original price</p>
-                                        <p class="fld-val">HK$420.00</p>
+                                        <p class="fld-val">HK$${planQuote.grossPremium }</p>
                                     </div>
                                 </div>
                             </li>
@@ -136,7 +136,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Discount</p>
-                                        <p class="fld-val">HK$0.00</p>
+                                        <p class="fld-val">HK$${planQuote.discountAmount }</p>
                                     </div>
                                 </div>
                             </li>
@@ -155,7 +155,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-md-12">
                             <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-planA-hero.jpg" class="img-hero" alt="">
                             <div class="app-hero-panel-cont">
-                                <h2><span>Easy HomeCare</span><br>HK $420/year</h2>
+                                <h2><span>Easy HomeCare</span><br>HK ${planQuote.totalDue }/year</h2>
                                 <a href="javascript:void(0);" class="btn-app btn-select-plan reverse">Selected</a>
                             </div>
                         </div>
@@ -370,7 +370,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                             <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg">How do I get promotion code?</a>
                         </div>
                         <div>
-                            <input type="text" id="promoCode" name="referralCode" value="${referralCode }” class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
+                            <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
                         </div>
                     </form>
                 </div>

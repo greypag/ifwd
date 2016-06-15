@@ -269,12 +269,14 @@ var plan="${plan}";
     </div>
     <div class="container-fluid applyBtn-container">
         <div class="row">
-            <div class="col-xs-12">
-                <h3 class="text-center">Home insurance for around HK$1 a day</h3>
-                <div class="text-center">
-                    <button class="savie-regular-btn start-btn">Apply Now</button>
-                </div>
-            </div>
+            <form id="o2o-landing-form1" action="<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}" method="post">
+	            <div class="col-xs-12">
+	                <h3 class="text-center">Home insurance for around HK$1 a day</h3>
+	                <div class="text-center">
+	                    <button class="savie-regular-btn start-btn">Apply Now</button>
+	                </div>
+	            </div>
+	        </form>
         </div>
     </div>
     <div class="fna-icons-body text-center clearfix">
