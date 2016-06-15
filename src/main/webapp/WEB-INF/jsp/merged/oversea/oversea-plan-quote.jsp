@@ -204,12 +204,9 @@ function applyOverseaPromoCode() {
 function chkPromoCode() {
 	var flag = false;
 	var promoCode = document.getElementById("promoCode").value.trim();
-	console.log('promoCode = ' + promoCode);
-	console.log('promoCodePlaceholder = ' + promoCodePlaceholder);
 	if (promoCode == "" || promoCode == promoCodePlaceholder) {
 		$("#loadingPromo").hide();
 		promoCodeInsertFlag = true;
-		console.log(promoCodeInsertFlag);
 		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 		$('#inputPromo').addClass('invalid-field');
 		flag = false;
