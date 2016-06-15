@@ -73,7 +73,7 @@ var nextPage = "${nextPageFlow}";
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
                             <p class="fld-val">
-                            <span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
+                            <span class="txt-promote-code gentle-fade" id="txt-promote-code">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
                             </div>
                         </div>
                     </li>
