@@ -13,6 +13,7 @@ var nextPage = "${nextPageFlow}";
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/application.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-application.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/icon-font.css"></head>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css"></head>
     <!-- <link href="http://cdn-dev.aldu.net/jquery.mobiscroll/latest/jquery.mobiscroll.min.css" rel="stylesheet" type="text/css" /> -->
     <link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.1.min.css" rel="stylesheet" type="text/css" />
     <!-- <script src="http://cdn-dev.aldu.net/jquery.mobiscroll/latest/jquery.mobiscroll.min.js" type="text/javascript"></script> -->
@@ -438,7 +439,7 @@ For a complete explanation of the terms and conditions, please call our Customer
                 </div>
                 <div class="col-xs-12 col-md-4 theclub-wrapper">
                     <div class="checkbox">
-                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span>Member</span></a></label>
+                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span>member</span></a></label>
                     </div>
                     <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" disabled="disabled">
                     
@@ -480,16 +481,18 @@ For a complete explanation of the terms and conditions, please call our Customer
                                 Don't have a promotion code? Enter your email address and we'll send you one.
                             </h2>
                             <div class="alert alert-success hide proSuccess"></div>
-                            <h4>
-                                Email address
-                            </h4>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder=""
-                                    name="emailToSendPromoCode" id="emailToSendPromoCode">
+                                <div class="fld-wrapper">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="email" id="emailToSendPromoCode" name="emailToSendPromoCode" maxlength="50">
+                                        <label class="mdl-textfield__label" for="emailAddress">Email address</label>
+                                    </div>
+                                    
+                                </div>
+                                <span class="error-msg" id="emailToSendPromoCodeErrMsg"></span>
                                 <input type="hidden" name="planCode" id="planCode"
                                     value="HOMECARE">
                             </div>
-                            <span id="errPromoEmail" class="text-red"></span> <br>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     
@@ -517,6 +520,43 @@ For a complete explanation of the terms and conditions, please call our Customer
             </div>
         </div>
     </div>
+    
+    <!-- The Club Membership popup -->
+	<div class="modal fade bs-theclub-modal-lg " tabindex="-1"
+		role="dialog" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content plan-modal">
+				<div class="login-form">
+					<div style="overflow: hidden;">
+						<a id="getPromotionClose" class="close" aria-label="Close"
+							data-dismiss="modal"> <span aria-hidden="true"
+							style="font-size: 30px;">×</span>
+						</a>
+					</div>
+					<div class="form-container">
+						<div class="row">
+							<div class="col-xs-12">
+								<p>
+									Enter The Club membership number to receive 900 Clubpoints from HKT. The Clubpoints will be credited to your HKT membership account within 4-6 weeks upon successful purchase of the FWD Easy Home Care Insurance.
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<p>
+									<a
+										href="https://www.theclub.com.hk/register?lang=EN"
+										target="_blank">Not The Club member yet? Click here to join now</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ The Club Membership popup -->
+    
 
 
     <!-- Main Content End-->
@@ -598,7 +638,7 @@ $("#home-liability-update").on("click",function(){
 
 function sendEmail() {
     $('.proSuccess').addClass('hide');
-    if (get_promo_val()) {
+    if (getPromoCodeByEmailPopup()) {
     	console.log($("#sendmailofpromocode form").serialize());
         $.ajax({
             type : "POST",
@@ -618,5 +658,23 @@ function sendEmail() {
         });
     }
     return false;
+}
+
+function getPromoCodeByEmailPopup(){
+	var val = $.trim($("#emailToSendPromoCode").val());
+	var elmErrMsg = $("#emailToSendPromoCodeErrMsg");
+	var isValid = false;
+	if(val != ""){
+		if(emailreg.test(val)){
+			isValid = true;
+		}else{
+			elmErrMsg.text(getBundle(getBundleLanguage, "promotion.email.notValid.message"));
+			
+		}
+	}else{
+		elmErrMsg.text(getBundle(getBundleLanguage, "promotion.email.notNull.message"));
+	}
+
+	return isValid;
 }
 </script>

@@ -4,6 +4,14 @@
 	.app-pg-cont{
 		max-width:980px;
 	}
+
+	a:hover{
+		text-decoration: none;
+	}
+
+	.btn-app{
+		padding:10px 60px;
+	}
 }
 
 .dw-bubble.mbsc-mobiscroll {
@@ -38,6 +46,7 @@
 	background-color:#f6f6f6;
 	.app-pg-cont{
 		margin-bottom: 0;
+		margin-top:0;
 
 	}
 	/* background:url(../../images/easy-home/screening_bg.jpg) no-repeat center center; */
@@ -78,7 +87,7 @@
 			}
 
 			span{
-				font-size:16px;
+				font-size:18px;
 				color:#adadad;
 			}
 		}
@@ -100,7 +109,7 @@
 				font-style: normal;
 				opacity: 0;
 				animation:popOut ease-in .3s normal;
-				font-size:22px;
+				font-size:20px;
 			}
 
 			.on{
@@ -136,8 +145,8 @@
 		}
 	}
 	.eh-btn-next{
-		width:90%;
-		max-width: 400px;
+		/* width:90%; */
+		padding:10px 60px;
 		display: inline-block;
 		font-size:22px;
 	}
@@ -1046,4 +1055,26 @@
     src: url(../../fonts/CircularPro-Book.otf) format('opentype'), url(../../fonts/CircularPro-Book.ttf) format('truetype'), url(../../fonts/CircularPro-Book.woff) format('woff');
     font-weight: 400;
     font-style: normal
+}
+
+
+.modal{
+
+
+	h2{
+		font-family: "Calibri", sans-serif !important;
+		line-height: 1.5em;
+	}
+
+	.wd5{
+		width:auto;
+		padding-left:60px;
+		padding-right:60px;
+	}
+
+	.login-form{
+		 .form-group{
+		 	border:none;
+		 }
+	}
 }
