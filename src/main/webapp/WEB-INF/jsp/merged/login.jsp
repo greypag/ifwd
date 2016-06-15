@@ -251,7 +251,7 @@
                                     }
                                     $('#forgotusername-err-msg').show();
                                 } else {
-                                    $('#success-message').html('Your Username is ' + data);
+                                    $('#success-message').html(getBundle(getBundleLanguage, "member.login.forgotUserName.success")+data);
                                     $('#success-message').show();
                                 }
 
@@ -531,7 +531,7 @@
 
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.msg"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
                                     $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));
