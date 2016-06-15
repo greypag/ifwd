@@ -58,6 +58,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.GET_EASYHEALTH_PREMIUM);
 		url.append("?dob=");
+		String[] dob = planDetail.getDobdmy().split("-");
+		planDetail.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append(planDetail.getDob());
 		url.append("&gender=");
 		url.append(planDetail.getGender().equals("0")?"M":"F");
@@ -67,8 +69,6 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = new JSONObject();
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,url.toString(), header, jsonObject);
-		String[] dob = planDetail.getDob().split("-");
-		planDetail.setDobdmy(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		request.getSession().setAttribute("ehPlanDetail", planDetail);
 		request.getSession().setAttribute("ehStep", "1");
 		

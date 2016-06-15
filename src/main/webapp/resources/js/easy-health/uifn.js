@@ -79,8 +79,8 @@ $(document).ready(function() {
 
         $("#loadingDiv").addClass("show");
         
-        var dobStr = $('#dob').mobiscroll("getArrayVal");
-        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: parseDateDMY(dobStr) }, function(data) {
+        //var dobStr = $('#dob').mobiscroll("getArrayVal");
+        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dobdmy: $('#dob').val() }, function(data) {
             getPremiumApiLinkCalled = true;
             $("#loadingDiv").removeClass("show");
             fillPlanData(data);
