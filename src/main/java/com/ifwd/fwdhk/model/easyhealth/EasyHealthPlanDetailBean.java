@@ -21,6 +21,7 @@ public class EasyHealthPlanDetailBean implements Serializable {
 	private String gender;
 	private String smoker;
 	private String dob;
+	private String dobdmy;
 	
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
@@ -65,6 +66,14 @@ public class EasyHealthPlanDetailBean implements Serializable {
 
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+
+	public String getDobdmy() {
+		return dobdmy;
+	}
+
+	public void setDobdmy(String dobdmy) {
+		this.dobdmy = dobdmy;
 	}
 	
 	
