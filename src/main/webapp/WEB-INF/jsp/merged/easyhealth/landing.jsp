@@ -337,7 +337,7 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="mini-banner-holder">
                     	<img src="<%=request.getContextPath()%>/resources/images/easy-health/shutterstock.jpg" class="img-responsive">
                         <div class="black-overlay"></div>
-                        <h5 class="text-center">Save before you spend</h5>
+                        <h5 class="text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></h5>
                     </div>
                     <div class="btn-holder">
                         <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
