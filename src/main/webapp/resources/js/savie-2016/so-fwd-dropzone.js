@@ -206,15 +206,18 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
     
 	$prog.addClass('hidden');
 	$('#'+doneID.toString()).addClass('hidden');
-	$('#'+progressBarReset.toString()).css("width",'0%');
+	$('#'+progressPercentText.toString()).css("width",'0%');
 }
 
 var errorMsgCons ;
 function uploadFile(inputID,forDragAndDrop) {
    // Remove this snippet
    // and update the rest of the function to enable AJAX file upload
-   $('#'+progressBarUIId.toString()).css("width", '100%');
-   uploadComplete();
+	setTimeout(function(){
+		$('#'+progressBarUIId.toString()).css("width", '30%');
+		document.getElementById(progressPercentText.toString()).innerHTML = '30%';
+	}, 2000);
+   
    //return;
    // End of snippet
    
