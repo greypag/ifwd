@@ -18,7 +18,7 @@ ol.lower-roman {
 }
 
 .easy-health {
-    background: url(../../images/easy-health/p1_bg.jpg) center bottom;
+    background: url(../../images/easy-health/p1_bg.jpg) left bottom;
     background-size: cover;
     p {
         font-size: 18px;
@@ -359,9 +359,6 @@ ol.lower-roman {
             .item {
                 cursor: pointer;
                 transition-duration: 0.3s;
-                &:hover {
-                    transform: scale(1.1);
-                }
                 &.selected {
                     p {
                         color: #ff7601;
@@ -1171,6 +1168,9 @@ table.tbl-esr{
     }
 }
 @media screen and (min-width: 768px) {
+    .easy-health{
+        background-position: center bottom;
+    }
     .step1 .col-sm-4{
         width: 33%;
     }
@@ -1319,6 +1319,9 @@ table.tbl-esr{
                 top: 52% !important;
             }
         }
+    }
+    .easy-health .step-option .toggle-inner .item:hover{
+        transform: scale(1.1);
     }
 
     .plan-detail {

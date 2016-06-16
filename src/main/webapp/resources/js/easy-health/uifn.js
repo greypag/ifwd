@@ -247,6 +247,8 @@ $(document).ready(function() {
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
         $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
+        
+        $(".sticky-help-wrapper img").fadeIn();
 
     });
 
@@ -415,7 +417,7 @@ function fillPlanData(json) {
         var totlaUpTo = parseInt(p.dailyHospitalCash, 10) + parseInt(p.intensiveCareUnit, 10) + parseInt(p.infectiousDisease, 10);
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price .value").html(priceFormat(totlaUpTo));
         var maxYearAmount = getTableData(16, p.monthlyPremium);
-        console.log(maxYearAmount);
+        
         $(".step3 .eh-plan-" + pc + " .txt-price-y15 .value").html(priceFormat(maxYearAmount.atpp));
         $(".step3 .eh-plan-" + pc + " .txt-price-y15_102 .value").html(priceFormat(maxYearAmount.ra));
 
@@ -545,9 +547,7 @@ $(function(){
             $(".step1").stop(true, true).fadeIn(function (){alignChildHeight(".row-eq-height", "> [class^=col-]");});
         }
 
-        cur = "about-me";
-        console.log("about-me");
-        
+        cur = "about-me";        
     });
 
 
@@ -563,7 +563,6 @@ $(function(){
         }
 
         cur = hash_aryStage[1];
-        console.log(hash_aryStage[1]);
     });
     
     $.History.bind(hash_aryStage[2],function(state){
@@ -577,7 +576,6 @@ $(function(){
 
 
         cur = hash_aryStage[2];
-        console.log(hash_aryStage[2]);
     });
 });
 
