@@ -1489,7 +1489,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 									<!--/ The Club Membership popup -->--%>
 									<script>
-									function chkClubMember() {
+									<%-- function chkClubMember() {
 										$(".errDue").html('');
 										var flag = true;
 										var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
@@ -1518,7 +1518,7 @@ var home_url = "<%=request.getContextPath()%>";
 														flag = true;
 												}
 											}
-										}
+										} --%>
 										return flag;
 								}
 								</script>
