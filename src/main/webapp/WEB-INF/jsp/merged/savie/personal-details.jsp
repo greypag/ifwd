@@ -38,7 +38,7 @@
 					<c:set var="breadcrumbItems">
 						breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
-					<c:set var="breadcrumbActive">3</c:set>
+					<c:set var="breadcrumbActive">4</c:set>
 				</c:if>
 				<c:if test="${planIndex == 'savings-insurance'}">
 					<c:set var="breadcrumbItems">
