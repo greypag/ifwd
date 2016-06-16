@@ -165,7 +165,7 @@ function fileSelected(progressDivBarID, inputId, docuFileNameID, docuFileSizeId,
         
         $('#so-upload-doc-submit-btn').removeAttr('disabled');
         displayProgressBar(progressDivBarID);
-        uploadFile(inputId,forDragAndDrop);
+        uploadFile(inputId,forDragAndDrop,uploadCompleteId,progressBarId,progressTextId);
     }
 }
 
@@ -194,7 +194,7 @@ function isFileValid(file, $fileObj, errorMsgCon) {
 }
 
 //Cancel Button Upload
-function cancelUpload(progressBarID,doneID,progressBarReset){
+function cancelUpload(progressBarID,doneID,progressBarReset,progressTextId){
 	xhr.abort();
     var $prog = $('#'+progressBarID.toString());
     
@@ -206,17 +206,21 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
     
 	$prog.addClass('hidden');
 	$('#'+doneID.toString()).addClass('hidden');
-	$('#'+progressPercentText.toString()).css("width",'0%');
+	$('#'+progressBarReset.toString()).css("width", '0%');
+	$('#'+progressTextId.toString()).html('0%');
+
 }
 
 var errorMsgCons ;
-function uploadFile(inputID,forDragAndDrop) {
+function uploadFile(inputID,forDragAndDrop,uploadCompleteId,progressBarId,progressTextId) {
    // Remove this snippet
    // and update the rest of the function to enable AJAX file upload
 	setTimeout(function(){
-		$('#'+progressBarUIId.toString()).css("width", '30%');
-		document.getElementById(progressPercentText.toString()).innerHTML = '30%';
-	}, 2000);
+		if( $('#'+progressTextId.toString()).html() != '100%' ){
+			$('#'+progressBarId.toString()).css("width", '30%');
+			$('#'+progressTextId.toString()).html('30%');
+		}
+	}, 1000);
    
    //return;
    // End of snippet
@@ -232,40 +236,46 @@ function uploadFile(inputID,forDragAndDrop) {
 	//xhr.addEventListener("load", uploadComplete, false);
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
-	xhr.onreadystatechange = xhrReturn;
+	xhr.onreadystatechange = function(){
+		xhrReturn(uploadCompleteId,progressBarId,progressTextId);
+	}
 	xhr.open("POST", context+"/ajax/savings-insurance/getEliteTermImage");
 	xhr.send(fd);
+
 }
 
 //回调函数    
-function xhrReturn(){    
+function xhrReturn(uploadCompleteId,progressBarId,progressTextId){    
     if(xhr.readyState == 4 && xhr.status == 200){    
         var b = xhr.responseText;
         if(b != "true"){ 
         	addFormFieldError(errorMsgCons, b);
         	cancelUpload(deleteProgressDivBarID,deleteUploadCompleteId,deleteProgressBarId);
         } else {
-        	uploadComplete();
+        	uploadComplete(uploadCompleteId,progressBarId,progressTextId);
         }        
     }    
 }  
 
 function uploadProgress(evt) {
-	if (evt.lengthComputable) {
-		var percentComplete = Math.round(evt.loaded * 100 / evt.total);
-		document.getElementById(progressPercentText.toString()).innerHTML = percentComplete.toString() + '%';
-		var percentProgressBar = percentComplete.toString()+'%';
-		$('#'+progressBarUIId.toString()).css("width",percentProgressBar);
-	} else {
-		document.getElementById('progressNumber').innerHTML = 'unable to compute';
-	}
+	//if (evt.lengthComputable) {
+	//	var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+	//	document.getElementById(progressPercentText.toString()).innerHTML = percentComplete.toString() + '%';
+	//	var percentProgressBar = percentComplete.toString()+'%';
+	//	$('#'+progressBarUIId.toString()).css("width",percentProgressBar);
+	//} else {
+	//	document.getElementById('progressNumber').innerHTML = 'unable to compute';
+	//}
+	
 }
 
-function uploadComplete(evt) {
-	if($('#'+completeUplaodId.toString()).hasClass('hidden')){
-		$('#'+completeUplaodId.toString()).removeClass('hidden');
+function uploadComplete(uploadCompleteId,progressBarId,progressTextId) {
+	if($('#'+uploadCompleteId.toString()).hasClass('hidden')){
+		$('#'+uploadCompleteId.toString()).removeClass('hidden');
 	}
-	console.log('Upload Complete');
+	$('#'+progressBarId.toString()).css("width", '100%');
+	document.getElementById(progressTextId.toString()).innerHTML = '100%';
+	
 }
 
 function uploadFailed(evt) {
