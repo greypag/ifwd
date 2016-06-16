@@ -255,7 +255,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="hkid-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="">
@@ -315,7 +315,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="passport-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="proof-address-holder">
@@ -372,7 +372,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="document-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 							</div>
@@ -567,12 +567,12 @@ var languageP = "${language}";
 						
 						if (isValid && up) {
 							console.log('Proceed');
-							$self.removeAttr('disabled');
+							$self.attr('disabled', 'disabled');
 							documentUpload('${plan }');
 							up = false;
 						} 
 						else {
-							$self.attr('disabled', 'disabled');
+							$self.removeAttr('disabled');
 						}
 					}
 					else{
@@ -610,6 +610,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-hkid-file-message', getBundle(getBundleLanguage,'error.hkid.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#hkid-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -635,6 +641,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-passport-file-message', getBundle(getBundleLanguage,'error.passport.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#passport-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -657,6 +669,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-address-file-message', getBundle(getBundleLanguage,'error.address.proof.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#docu-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 			});
