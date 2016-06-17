@@ -236,39 +236,11 @@ public class GAController extends BaseController{
 			HttpSession session = request.getSession();
 			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
-			String requestNo = (String) session.getAttribute("HomeCareTransactionNo");
 			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
 			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
 			
 			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
-			String userName = (String) session.getAttribute("username");
-			String token = (String) session.getAttribute("token");
 			String emailId = (String) session.getAttribute("emailAddress");
-			String email = (String) session.getAttribute("emailAddress");
-			
-			HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
-			
-			String paymentFail = "0";
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
-			
-			if("0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
-				creditCardNo = "0000000000000000";
-				expiryDate = "122030";
-			}else {
-				if (creditCardNo !=null) {
-					try {
-						creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}else {
-					model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-					model.addAttribute("referenceNo", StringHelper.emptyIfNull((String)session.getAttribute("referenceNo")));
-					return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
-				}
-			}
 			
 			if(org.apache.commons.lang.StringUtils.isAllLowerCase(referenceNo) ||
 					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionNumber) ||
@@ -277,41 +249,6 @@ public class GAController extends BaseController{
 					org.apache.commons.lang.StringUtils.isAllLowerCase(expiryDate)) {
 				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
 			}
-			try {
-				CreatePolicy finalizePolicy = gaService.finalizeHomeCarePolicy(plan, userName, token, referenceNo,
-						transactionNumber, transactionDate, creditCardNo, expiryDate, emailId, lang, paymentFail);
-				if (finalizePolicy.getErrMsgs() == null) {
-					HashMap<String, String> header = new HashMap<String, String>(
-							COMMON_HEADERS);
-					session.removeAttribute("HomeCareCreditCardNo");
-					session.removeAttribute("HomeCareCardexpiryDate");
-					session.removeAttribute("homeCreatedPolicy");
-					session.removeAttribute("home-temp-save");
-					header.put("userName", userName);
-					header.put("token", token);
-					model.addAttribute("policyNo", finalizePolicy.getPolicyNo());
-					session.setAttribute("policyNo", finalizePolicy.getPolicyNo());
-					model.addAttribute("trasnNo", session.getAttribute("transNo"));
-					session.removeAttribute("referralCode"); // vincent - remove session attribute "referral code" if success
-				} else {
-					model.addAttribute("errMsgs", finalizePolicy.getErrMsgs());
-					if (finalizePolicy.getErrMsgs().toString().contains("invalid payment amount")) {
-						model.addAttribute("errorHeader1", "Invalid Payment Amount");
-						model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
-						model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-						model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
-					} else {
-						model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
-						model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
-						model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
-						model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
-					}		
-					return new ModelAndView(UserRestURIConstants.getSitePath(request) + "error");
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			session.setAttribute("referenceNo", referenceNo);
 			model.addAttribute("utm_nooverride", 1);
 			model.addAttribute("emailID", emailId);
 			model.addAttribute("referenceNo", referenceNo);

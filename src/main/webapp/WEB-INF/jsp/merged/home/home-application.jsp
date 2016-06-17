@@ -396,7 +396,7 @@ var plan="${plan}";
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
                                         
-                                        <select id="applicantDistrict" name="applicantDistrict" onchange="setDropArea(this.value,'selectApplicantArea','applicantArea')">
+                                        <select id="applicantDistrict" name="applicantDistrict" onchange="setDropArea(this.value,'selectApplicantArea','applicantArea');">
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
@@ -586,7 +586,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
-                                        <select id="aDistrict" name="aDistrict"  onchange="setDropArea(this.value,'selectaArea','aArea')">
+                                        <select id="aDistrict" name="aDistrict"  onchange="setDropArea(this.value,'selectaArea','aArea');">
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
@@ -790,4 +790,7 @@ function BackMe() {
 function setDropArea(id, selectId, setId) {
     $('#' + selectId).find('option[value="' + id + '"]').attr('selected', 'selected');
     $('#' + setId).val($("#" + selectId + " option[value='"+id+"']").text());
+    $('#' + setId).parent().addClass('is-dirty');
+    $('#' + setId).parent().parent().parent().addClass('has-success');
+}
 </script>

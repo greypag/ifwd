@@ -54,6 +54,7 @@ public class AjaxHomeController extends BaseController{
 		}
 		ajaxReturn(response, result);
 	}
+	
 	@RequestMapping(value = {"/ajax/{plan}/submitPolicy"})
 	public void getSubmitPolicy(@PathVariable("plan") String plan, HttpServletRequest request,HttpServletResponse response,
 			HttpSession session) {
@@ -64,6 +65,22 @@ public class AjaxHomeController extends BaseController{
 		String referenceNo = request.getParameter("referenceNo");
 		try {
 			result = gaService.SubmitPolicy(plan, referenceNo, response, request, session);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		ajaxReturn(response, result);
+	}
+	
+	@RequestMapping(value = {"/ajax/{plan}/finalizePolicy"})
+	public void getFinalizePolicy(@PathVariable("plan") String plan, HttpServletRequest request,HttpServletResponse response,
+			HttpSession session) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		JSONObject result = new JSONObject();
+		String paymentFail = "0";
+		try {
+			result = gaService.finalizeHomeCarePolicy(plan, paymentFail, response, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

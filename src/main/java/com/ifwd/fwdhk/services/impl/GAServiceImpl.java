@@ -19,6 +19,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.api.controller.RestServiceImpl;
@@ -34,6 +35,7 @@ import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -237,24 +239,44 @@ public class GAServiceImpl implements GAService {
 		return result;
 	}
 	
-	public CreatePolicy finalizeHomeCarePolicy(String plan, String userName, String token,
-			String referenceNo, String transactionNumber,
-			String transactionDate, String creditCardNo, String expiryDate,
-			String emailId, String language, String paymentFail) throws Exception {
+	public JSONObject finalizeHomeCarePolicy(String plan, String paymentFail,
+			HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
+		JSONObject result = new JSONObject();
+		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
+		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+		String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+		String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+		String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
+		
+		HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
+		
+		if("0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
+			creditCardNo = "0000000000000000";
+			expiryDate = "122030";
+		}else {
+			if (creditCardNo !=null) {
+				try {
+					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else {
+				result.put("errMsgs", "creditCardNo is null");
+				return result;
+			}
+		}
+		
 		if (paymentFail.equals("1")) {
 			RestServiceDao restService = new RestServiceImpl();
 			CreatePolicy finalizeObject = new CreatePolicy();
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			header.put("userName", userName);
-			header.put("token", token);
+			Map<String, String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("referenceNo", referenceNo);
 			parameters.put("transactionNumber", transactionNumber);
 			parameters.put("transactionDate", transactionDate);
 			parameters.put("creditCardNo", creditCardNo);
 			parameters.put("expiryDate", expiryDate);
-			parameters.put("paymentFail", "1");
+			parameters.put("paymentFail", paymentFail);
 			
 			logger.info(plan + " FINALIZE_POLICY Request" + JsonUtils.jsonPrint(parameters));
 			String url;
@@ -267,13 +289,9 @@ public class GAServiceImpl implements GAService {
 			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 			return null;
 		} else {
-		
 			RestServiceDao restService = new RestServiceImpl();
-			CreatePolicy finalizeObject = new CreatePolicy();
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			header.put("userName", userName);
-			header.put("token", token);
+			//CreatePolicy finalizeObject = new CreatePolicy();
+			Map<String, String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("paymentFail", "0");
 			parameters.put("referenceNo", referenceNo);
@@ -293,13 +311,14 @@ public class GAServiceImpl implements GAService {
 			logger.info(plan + " FINALIZE_POLICY Response" + JsonUtils.jsonPrint(apiResponsObject));
 	
 			if (apiResponsObject.get("errMsgs") == null) {
-				finalizeObject.setPolicyNo(checkJsonObjNull(apiResponsObject, "policyNo"));
-				finalizeObject.setReferralCode(referenceNo);
-			} else {
-				finalizeObject.setErrMsgs(apiResponsObject.get("errMsgs").toString());
+				session.removeAttribute("HomeCareCreditCardNo");
+				session.removeAttribute("HomeCareCardexpiryDate");
+				session.removeAttribute("homeCreatedPolicy");
+				session.removeAttribute("home-temp-save");
+				session.removeAttribute("referralCode"); // vincent - remove session attribute "referral code" if success
 			}
 			
-			return finalizeObject;
+			return apiResponsObject;
 		}
 	}
 
@@ -317,10 +336,11 @@ public class GAServiceImpl implements GAService {
 		StringBuffer url = new StringBuffer();
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
 			url.append(UserRestURIConstants.HOMELIABILITY_GET_QUOTE);
+			url.append("?planCode=HomeLiability");
 		}else {
 			url.append(UserRestURIConstants.HOMECARE_GET_QUOTE);
+			url.append("?planCode=EasyHomeCare");
 		}
-		url.append("?planCode=EasyHomeCare");
 		url.append("&referralCode=");
 		url.append(referralCode!=null?referralCode.replace(" ", ""):"");
 		url.append("&room&floor&block=block1&building=building1&estate=estate1&streetNo&streetName&district&area");
