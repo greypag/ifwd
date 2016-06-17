@@ -1307,7 +1307,7 @@ function getStarted(){
        <div class="modal-content">
            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
            <h4 class="text-center welcome-msg">
-           		<c:if test="${planIndex == 'medical-insurnace'}">
+           		<c:if test="${planIndex == 'medical-insurance'}">
            			<fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" />
            		</c:if>
            		<c:if test="${planIndex == 'savings-insurance'}">
@@ -1315,7 +1315,7 @@ function getStarted(){
            		</c:if>
            	<span id="fullName1" class="hidden"></span></h4>
            <p class="text-center description-msg">
-           		<c:if test="${planIndex == 'medical-insurnace'}">
+           		<c:if test="${planIndex == 'medical-insurance'}">
            			<fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" />
            		</c:if>
            		<c:if test="${planIndex == 'savings-insurance'}">

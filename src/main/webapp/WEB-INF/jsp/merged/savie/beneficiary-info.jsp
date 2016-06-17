@@ -525,6 +525,11 @@ var languageP = "${language}";
 									</a>
 								</c:if>
 							</div>
+							<div class="col-xs-12 submit__error">
+                                <div class="text-center">
+                                    <span class="submit__errormsg" id="submit__errormsg">Testing</span>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -643,7 +648,7 @@ var languageP = "${language}";
 			// application saved modal will show after clicking 'Save and exit' button 
 			// no full fill type = 1
 			$('.save-exit-btn2').click(function() {
-				$("#errorMsg").html("");
+				showSubmitError('', false);
 				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[2\\]').serialize()+"&type="+1;
@@ -655,7 +660,7 @@ var languageP = "${language}";
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $('#save-and-continue-modal').modal('hide');
-							  show_stack_bar_top(data.errorMsg);
+							  showSubmitError(data.errorMsg, true);
 						  }
 						  else{
 							  $('#save-and-continue-modal').modal('hide');

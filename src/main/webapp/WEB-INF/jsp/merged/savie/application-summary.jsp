@@ -102,7 +102,7 @@ var language = "${language}";
                </div>
                <div class="desktop-right">
                   <div class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active ${planIndex=='medical-insurance'?'hidden':''}">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>

@@ -246,7 +246,7 @@ var languageP = "${language}";
 												<span id="hkid-docu-filename">Yourfiles.pdf </span><span id="hkid-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar','hkid-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -306,7 +306,7 @@ var languageP = "${language}";
 												<span id="passport-docu-filename">Yourfiles.pdf </span><span id="passport-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar','passport-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -363,7 +363,7 @@ var languageP = "${language}";
 												<span id="address-docu-filename">Yourfiles.pdf </span><span id="address-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar','docu-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
