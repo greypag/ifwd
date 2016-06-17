@@ -6053,7 +6053,7 @@ p .payment-policy-wrapper{
  {
   font-size: 18px;
   color: #373a36;
-  font-family: 'Calibri-bold';
+  /*font-family: 'Calibri-bold';*/
   padding-top: 4px;
 }
 /* line 128, ../sass/partials/savie/_beneficiary-info-name-others.scss */
@@ -9896,4 +9896,19 @@ select::-ms-value {
 .psa-divider:hover a,
 .psa-divider:hover a i{
 	color: #fff;
+}
+
+/* added on 20160617 */
+.submit__error{
+  color: #e4002b;
+  padding: 10px 0;
+  display: none;
+}
+
+.submit__errormsg{
+  font-size: 14px;
+}
+
+.submit__error--show{
+  display: block;
 }
