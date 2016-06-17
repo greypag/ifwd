@@ -140,6 +140,19 @@ public class AjaxLifeController extends BaseController{
 			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID3())){
 				errorMsg.append("beneficary3 and personalDetail'hkid are the same. ");
 			}
+			
+			String bhkid1 = lifeBeneficaryInfo.getBeneficaryID1();
+			String bhkid2 = lifeBeneficaryInfo.getBeneficaryID2();
+			String bhkid3 = lifeBeneficaryInfo.getBeneficaryID3();
+			if(bhkid1!=null && !bhkid1.equals("") && bhkid2!=null && !bhkid2.equals("") && bhkid1.equals(bhkid2)){
+				errorMsg.append("beneficary1 and beneficary2'hkid are the same. ");
+			}
+			if(bhkid1!=null && !bhkid1.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid1.equals(bhkid3)){
+				errorMsg.append("beneficary1 and beneficary3'hkid are the same. ");
+			}
+			if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
+				errorMsg.append("beneficary2 and beneficary3'hkid are the same. ");
+			}
 			if(errorMsg!=null && !errorMsg.equals("")){
 				jsonObject.put("errorMsg", errorMsg.toString());
 			}
