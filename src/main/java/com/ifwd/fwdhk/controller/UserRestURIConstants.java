@@ -358,6 +358,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "easyhealth.payment";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "easyhealth.confirmation";
 	
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS = "easyhealth.personal.details";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO = "easyhealth.employment.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO = "easyhealth.beneficary.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY = "easyhealth.application.summary";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DECLARATION = "easyhealth.declaration";
+	
 	/*API For easy health*/
 	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 
