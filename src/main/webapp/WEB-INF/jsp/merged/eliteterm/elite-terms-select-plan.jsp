@@ -4294,8 +4294,6 @@ var home_url = "<%=request.getContextPath()%>";
 
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
-		    	  putEtPageKeySession("3");
-
 		    	  $.ajax({
 		 			  type : "POST",
 		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
@@ -4311,6 +4309,8 @@ var home_url = "<%=request.getContextPath()%>";
 	 		      });
 
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+	    	    	 putEtPageKeySession("3");
+	    	    	 
 	    	    	 var $appInfo = $('#et-application-first-section');
 	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
 	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
@@ -5304,4 +5304,19 @@ function addFormBeneficiary (counter) {
 
 	changeColorRadioButtonLabel (counter);
 }
+
+$("#anchor-lang").click(function(e){
+	e.preventDefault();
+	var beneFormdata = $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[2\\]').serialize();
+	$.ajax({
+        type: "POST",
+        url:'<%=request.getContextPath()%>/ajax/eliteTerm/putBeneficiaryInfoSession',
+        data: beneFormdata,
+        success:function(data){
+			window.location = '${switchUrl }';
+	    }
+	});
+})
 </script>

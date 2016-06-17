@@ -1,0 +1,59 @@
+
+.stepIndicator{
+	width: 100%;
+}
+
+.stepIndicator--mobile{
+
+	.stepIndicator__container{
+
+		width: 100%;
+		display: table;
+
+		color: white;
+		background-color: #061d29;
+	}
+}
+
+.stepIndicator.sticky-bar{
+	position: fixed;
+	margin: 0;
+}
+
+.stepIndicator__arrow{
+	
+	display: table-cell;
+	vertical-align: middle;
+
+	width: 10%;
+	padding: 5px 0 0 20px;
+    
+    font-size: 18px;
+    
+    & a{
+    	color: #ffffff;
+    }
+}
+
+.stepIndicator__content{
+	
+	display: table-cell;
+	
+	width: 70%;
+	padding: 14px 20px;
+	
+	font-size: 18px;
+}
+
+.stepIndicator__stepof{
+	
+	//position: absolute;
+    //top: 16px;
+    //right: 30px;
+
+    width: 20%;
+    display: table-cell;
+    
+    color: #9ba5a7;
+    font-size: 14px;
+}
