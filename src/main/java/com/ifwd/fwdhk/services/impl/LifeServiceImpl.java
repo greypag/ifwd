@@ -3643,7 +3643,7 @@ public class LifeServiceImpl implements LifeService {
 			final Map<String,String> headerEmail = headerUtil.getHeader1(request);
 			String attachment = "";
 			boolean isHTML = true;
-			String[] emailList = {partnerRegisterDetails.getContactEmail(), UserRestURIConstants.getConfigs("becomePartnerMailTo")};
+			String[] emailList = {UserRestURIConstants.getConfigs("becomePartnerMailTo")};
 			for (int i=0; i<emailList.length; i++) {
 				org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 				parametersEmail.put("to", emailList[i]);
