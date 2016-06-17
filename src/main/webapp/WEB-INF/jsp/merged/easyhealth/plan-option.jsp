@@ -1823,13 +1823,13 @@ var ehPro = '${pro }';
             }
         });
         
-        $("#backSummary, .btn-apply").click(function() {
+        /* $("#backSummary, .btn-apply").click(function() {
             //### start TNC check
             if(!isTNCChecked()) return;
             //### end TNC check
 
             putPremium();
-        });
+        }); */
 
         function putPremium(){
             var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
