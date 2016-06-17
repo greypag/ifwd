@@ -35,17 +35,16 @@ savieDiscount = {
 			var isValidHKID = IsHKID(hkidVal);
 
 			$(".tbl-spd, .tbl-spd-mobile").find("td").removeClass("bingo");	
-			$(".won-panel, .won-msg, .loss-msg").hide();
+			$(".won-msg, .loss-msg").hide();
 
 			if(isValidHKID){
 				$(".hkid-err-msg").empty();
 
-				var count = (hkidVal.match(/[123]/g) || []).length;
+				var count = (hkidVal.match(/[023]/g) || []).length;
 				
 				if(count > 0){
 
 					$(".tbl-spd, .tbl-spd-mobile").find(".b" + count).addClass("bingo");
-					$(".won-panel").show();
 					$(".won-msg").slideDown();
 
 					that.toSlide(count,700);
@@ -54,9 +53,7 @@ savieDiscount = {
 				}else{
 					$(".loss-msg").slideDown();
 
-				}	
-
-				$(".pans").slideDown();
+				}
 				
 				
 			}else{

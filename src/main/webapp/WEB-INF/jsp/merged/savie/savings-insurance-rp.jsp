@@ -62,9 +62,9 @@ var home_url = "<%=request.getContextPath()%>";
         	<div class="page-banner">
         		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
         		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
-				<a class="img-bg" href="#vModal" data-toggle="modal">
+				<%--<a class="img-bg" href="#vModal" data-toggle="modal">
 					<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
-				</a>
+				</a> --%>
 				<div class="fwd-container-limit">
         		
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
