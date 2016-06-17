@@ -352,37 +352,37 @@ var home_url = "<%=request.getContextPath()%>";
                             <div class="blogs first">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/shutterstock.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post1.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post1.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post1.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="<fmt:message key="blog.savie.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post1.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/avocado-toast.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post2.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post2.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post2.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="<fmt:message key="blog.savie.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post2.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/plastic-wrap-alternatives-abeego-multi-wrap-Cool-Mom-Picks.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post3.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post3.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post3.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="<fmt:message key="blog.savie.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post3.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs last">
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/windowandbonsai.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post4.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post4.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post4.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="<fmt:message key="blog.savie.post4.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post4.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post4.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                         </div>
