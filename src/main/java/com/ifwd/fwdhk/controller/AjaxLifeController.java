@@ -130,7 +130,10 @@ public class AjaxLifeController extends BaseController{
 			lifeBeneficaryInfo.validate(language);
 			
 			StringBuffer errorMsg = new StringBuffer();
+			errorMsg.append("");
 			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+			
+			
 			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID1())){
 				errorMsg.append("beneficary1 and personalDetail'hkid are the same. ");
 			}
@@ -153,7 +156,7 @@ public class AjaxLifeController extends BaseController{
 			if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
 				errorMsg.append("beneficary2 and beneficary3'hkid are the same. ");
 			}
-			if(errorMsg!=null && !errorMsg.equals("")){
+			if(errorMsg!=null && !(errorMsg.length() ==0)){
 				jsonObject.put("errorMsg", errorMsg.toString());
 			}
 			else{
