@@ -4969,18 +4969,31 @@ var home_url = "<%=request.getContextPath()%>";
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '6'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+			  
 			  backToStep(6);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '7'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+			  storeBeneficiaryInfo();
+              populateAppSummBI();
+			  
 			  backToStep(7);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-second-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '8'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+			  storeBeneficiaryInfo();
+              populateAppSummBI();
+			  
 			  backToStep(8);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
