@@ -415,7 +415,12 @@ public class LifeController extends BaseController{
 				request.getSession().setAttribute("savieFna", savieFna);
 			}
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+			}
 		}
 	}
 	
@@ -608,7 +613,12 @@ public class LifeController extends BaseController{
 			model.addAttribute("etLiquidAssetCN", liquidAssetsCN);
 			
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+			}
 		}
 	}
 	
@@ -637,7 +647,12 @@ public class LifeController extends BaseController{
 				model.addAttribute("backSummary", backSummary);
 			}
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+			}
 		}
 	}
 	
@@ -723,7 +738,12 @@ public class LifeController extends BaseController{
 		else{
 			model.addAttribute("plan", plan);
 			request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+			}
 		}
 	}
 	
@@ -739,7 +759,12 @@ public class LifeController extends BaseController{
 		}
 		else{
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DECLARATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
+			}
 		}
 	}
 	

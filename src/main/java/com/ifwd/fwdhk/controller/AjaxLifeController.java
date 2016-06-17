@@ -128,7 +128,24 @@ public class AjaxLifeController extends BaseController{
 		}
 		try {
 			lifeBeneficaryInfo.validate(language);
-			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+			
+			StringBuffer errorMsg = new StringBuffer();
+			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID1())){
+				errorMsg.append("beneficary1 and personalDetail'hkid are the same. ");
+			}
+			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID2())){
+				errorMsg.append("beneficary2 and personalDetail'hkid are the same. ");
+			}
+			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID3())){
+				errorMsg.append("beneficary3 and personalDetail'hkid are the same. ");
+			}
+			if(errorMsg!=null && !errorMsg.equals("")){
+				jsonObject.put("errorMsg", errorMsg.toString());
+			}
+			else{
+				request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+			}
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
