@@ -31,7 +31,7 @@ var plan="${plan}";
     <div class="whole-banner">
         <div class="page-banner"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
             <div class="fwd-container-limit">
-                <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}" method="post">
+            	<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}" method="post">
                     <div class="img-banner-text savie-landing">
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn">Apply Now</button>
@@ -47,12 +47,11 @@ var plan="${plan}";
             <div class="row">
                 <div class="col-xs-12 center">
                     <h3 class="eh_sec_title">
-                        <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s1_title.png" alt="Guaranteed lowest price" class="img-responsive center">
                         Guaranteed lowest price for HK$420 a year
                     </h3>
-                    <p>We guarantee that every Easy HomeCare policy is charged at the lowest price compared to the Similar Home Insurance Product being sold online. If you find that the Premium of any Similar Home Insurance Product is cheaper and you report to FWD during the Promotion Period, subject to the terms and conditions, you will enjoy Free Cover for the next policy year of your Relevant Policy.</p> <a href="javascript:void(0)" data-ani2=".eh_sale_container" class="eh_btn_more_details">More</a>
+                    <p>We guarantee that every Easy HomeCare policy is charged at the lowest price compared to the Similar Home Insurance Product being sold online. If you find that the Premium of any Similar Home Insurance Product is cheaper and you report to FWD during the Promotion Period, subject to the terms and conditions, you will enjoy Free Cover for the next policy year of your Relevant Policy.</p> <a href="javascript:void(0);" data-ani2=".eh_sale_container" class="eh_btn_more_details">More</a>
                     <div class="row">
-                        <div class="col-xs-12 text-right nopadding">
+                        <div class="col-xs-12 text-right">
                             <p class="eh_remark">* Please refer to the full <a href="#">terms and conditions</a> of the best price guarantee.</p>
                         </div>
                     </div>
@@ -70,7 +69,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_example_card introAni waiting">
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title">Protection that goes beyond just replacements</h5>
-                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_01.png" class="img-responsive center">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/person_s1_icon_01.png" class="img-responsive center">
                                 <div class="item-desc">
                                     <p>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). From your furniture to your frozen food, stay protected with this comprehensive home insurance.</p>
                                 </div>
@@ -79,7 +78,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_example_card introAni waiting">
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title">Protection that goes beyond just replacements</h5>
-                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_02.png" class="img-responsive center">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/person_s1_icon_02.png" class="img-responsive center">
                                 <div class="item-desc">
                                     <p class="padded">In an event that your home becomes uninhabitable as a result of accidental loss or damage, our home insurance will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year, so things can get back on track.</p>
                                 </div>
@@ -88,7 +87,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_example_card introAni waiting">
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title">Protection for your home and family</h5>
-                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_03.png" class="img-responsive center">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-home/person_s1_icon_03.png" class="img-responsive center">
                                 <div class="item-desc">
                                     <p class="padded">Protect against losses due to fire, flooding, bursting pipes, typhoon, theft or other accidents. Provide additional protection to allow quicker reinstated from the accidental, including home removal, frozen food, removal of debris, theft of money, give you a peace of mind.</p>
                                 </div>
@@ -105,7 +104,7 @@ var plan="${plan}";
             <div class="container eh_sec_color_wraping eh_sale_container">
                 <div class="col-xs-12 eh_halfbanner eh_cfucome_banner">
                     <div class="col-xs-12">
-                        <h3 class="text-center eh_sec_title">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3> </div>
+                        <h3 class="text-center eh_sec_title">Ab, porro dolor dolore.</h3> </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
@@ -128,7 +127,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_feature_box f1">
                             <div class="inner introAni waiting">
                                 <h4 class="eh_feature_box_title text-center">
-                            Lorem ipsum
+                           Lorem ipsum dolor sit amet
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_01.png" alt="" class="img-responsive center">
                                 <p class="eh_feature_box_desc text-center"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                             </div>
@@ -136,7 +135,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_feature_box f2">
                             <div class="inner introAni waiting">
                                 <h4 class="eh_feature_box_title text-center">
-                            consectetur adipisicing elit
+                           Libero nulla atque ratione esse
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_02.png" alt="" class="img-responsive center">
                                 <p class="eh_feature_box_desc text-center"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                             </div>
@@ -144,7 +143,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4 eh_feature_box f3">
                             <div class="inner introAni waiting">
                                 <h4 class="eh_feature_box_title text-center">
-                           Ex quisquam dolorum et
+                           Exercitationem neque ipsum
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_03.png" alt="" class="img-responsive center">
                                 <p class="eh_feature_box_desc text-center"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. mnis eveniet. </p>
                             </div>
@@ -182,8 +181,8 @@ var plan="${plan}";
             <div class="hidden-sm hidden-xs col-md-12">
                 <canvas id="canvas" class="waiting" width="1024" height="480" style="background-color:#90D3DD"></canvas>
                 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-                <script>window.eh_caseAniImgPath = "<%=request.getContextPath()%>/resources/images/easy-home/caseA/tc";</script>
-                <script src="<%=request.getContextPath()%>/resources/js/easy-home/home_case _v2.js?1465281955995"></script>
+                <script>window.eh_caseAniImgPath = "<%=request.getContextPath()%>/resources/images/easy-home/caseB/tc";</script>
+                <script src="<%=request.getContextPath()%>/resources/js/easy-home/personal_case_v2_canvas.js?1465282089515"></script>
                 <script>
                     var canvas, stage, exportRoot;
                     function init() {
@@ -203,7 +202,7 @@ var plan="${plan}";
                     }
 
                     function handleComplete(evt) {
-                        exportRoot = new lib.home_case_v2();
+                        exportRoot = new lib.personal_case_v2_canvas();
 
                         stage = new createjs.Stage(canvas);
                         stage.addChild(exportRoot);
@@ -225,7 +224,7 @@ var plan="${plan}";
                     </a>
                 </div>
                 <div class="collapse details" id="ce1">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_A.png" alt="" class="img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_A.png" alt="" class="img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ea ex iste, unde error distinctio rerum repudiandae, dicta vel quod nulla beatae temporibus et illo quisquam in aliquam, labore ratione.</p>
                 </div>
                 <div>
@@ -234,7 +233,7 @@ var plan="${plan}";
                     </a>
                 </div>
                 <div class="collapse details" id="ce2">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_B.png" alt="" class="img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_B.png" alt="" class="img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ea ex iste, unde error distinctio rerum repudiandae, dicta vel quod nulla beatae temporibus et illo quisquam in aliquam, labore ratione.</p>
                 </div>
                 <div>
@@ -243,7 +242,7 @@ var plan="${plan}";
                     </a>
                 </div>
                 <div class="collapse details" id="ce3">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_C.png" alt="" class="img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_C.png" alt="" class="img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ea ex iste, unde error distinctio rerum repudiandae, dicta vel quod nulla beatae temporibus et illo quisquam in aliquam, labore ratione.</p>
                 </div>
                 <div>
@@ -252,7 +251,7 @@ var plan="${plan}";
                     </a>
                 </div>
                 <div class="collapse details" id="ce4">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_D.png" alt="" class="img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_D.png" alt="" class="img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ea ex iste, unde error distinctio rerum repudiandae, dicta vel quod nulla beatae temporibus et illo quisquam in aliquam, labore ratione.</p>
                 </div>
                 <div>
@@ -261,10 +260,30 @@ var plan="${plan}";
                     </a>
                 </div>
                 <div class="collapse details" id="ce5">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_E.png" alt="" class="img-responsive">
+                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_E.png" alt="" class="img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ea ex iste, unde error distinctio rerum repudiandae, dicta vel quod nulla beatae temporibus et illo quisquam in aliquam, labore ratione.</p>
                 </div>
             </div>
+            <div class="col-xs-12 text-right">
+                <p class="eh_remark">* For a complete explanation of the <a href="#">terms and conditions</a> for our online travel insurance</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-xs-12 eh_halfbanner eh_moreProtect_banner">
+            <div class="col-xs-12">
+                <h3 class="text-center eh_sec_title">laborum expedita recusandae ratione sunt alias mollitia id, quod ipsum?</h3> </div>
+                <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person_s4_img.jpg" alt="Need more protection" class="img-responsive"> </div>
+                <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
+                    <h3 class="eh_sec_title">
+                        Lorem ipsum dolor
+                    </h3><br>
+                    <h3 class="eh_sec_title">
+                        consectetur adipisicing elit. 
+                    </h3>
+                    <div class="col-xs-12 nopadding eh_hb_desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere error, autem ipsum veniam, aliquid eveniet nam repellat, expedita libero, ea itaque unde similique dolore vel sint. Itaque neque quas repellendus! </div>
+                    <div class="col-xs-12 nopadding"> <a href="#" class="eh_btn_more_details">More</a> </div>
+                </div>
         </div>
     </div>
     <div class="container-fluid applyBtn-container">
@@ -374,7 +393,7 @@ var plan="${plan}";
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Getting started is easy.<br>Just follow these simple steps to <br>complete your Savie applicaton.</h2> </div>
-                <div class="modal-body"> <img src="/resources/images/savie/o2o-landing/infographic-steps.jpg" /> </div>
+                <div class="modal-body"> <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/infographic-steps.jpg" /> </div>
                 <div class="modal-footer">
                     <div class="top-section">
                         <h2>Congratulations!</h2>
@@ -389,4 +408,5 @@ var plan="${plan}";
         </div>
     </div>
 </div>
+
 
