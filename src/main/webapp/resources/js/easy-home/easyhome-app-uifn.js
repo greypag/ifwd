@@ -513,11 +513,11 @@ $(document).ready(function(){
 						}
 					}
 				},
-				effectdate:{
+				effectiveDate:{
 					container:'#effectdateErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Effective Date must be within 60 days of Application Date.'
+							message:'Please select your Effective Date.'
 						}
 					}
 				},
