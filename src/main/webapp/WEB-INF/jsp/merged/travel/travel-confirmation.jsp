@@ -92,7 +92,7 @@
 	              <fmt:message key="travel.confirmation.msg.part6" bundle="${msg}" />
 	            </h3>
 	            
-	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
+	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /></strong><span id="policyNo"> ${policyNo}</span></h4>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
@@ -524,27 +524,23 @@
    k_trackevent(params,'5198');
 </script>
 
-<noscript>
+<%-- <noscript>
    <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
-</noscript>
+</noscript> --%>
 <script>
 $(document).ready(function() {
-  ga('create', 'UA-60032236-1', 'auto');
-  ga('require', 'ecommerce');
-  ga('ecommerce:addTransaction', {
-    'id': '${transNo}', // Transaction ID. Required.
-    'revenue': '${dueAmount}', // Grand Total.
-    'affiliation': 'Travel', // Insurance type, e.g. Life
-    'currency': 'HKD'            
-    });
-  ga('ecommerce:addItem', {
-      'id': '${transNo}', // Transaction ID. Required
-      'name': 'TravelCare', // Product name. Required
-      'category': 'Travel', // Category or variation
-      'price': '${dueAmount}', // Unit price
-      'quantity': '1',      
-      'currency': 'HKD'
-    });
-  ga('ecommerce:send');
+  
+  $.ajax({
+		type : "POST",
+		url : "<%=request.getContextPath()%>/ajax/travel/finalizePolicy",
+		async : false,
+		success : function(data) {
+			if (data != null && data.errMsgs == null) {
+				$("#policyNo").text(data.policyNo);
+			} else {
+				console.log(data.errMsgs);
+			}
+		}
+	});
 });
 </script>
