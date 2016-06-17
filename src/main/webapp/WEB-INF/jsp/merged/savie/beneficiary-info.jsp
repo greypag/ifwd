@@ -775,7 +775,7 @@ var languageP = "${language}";
          });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function() {
 				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
-					$("#errorMsg").html("");
+					showSubmitError('', false);
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[2\\]').serialize();
@@ -786,7 +786,15 @@ var languageP = "${language}";
 						  data: formdata,
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  show_stack_bar_top(data.errorMsg);
+									var bene_errmsg = '';
+									if( data.errorMsg == "Beneficiary HKID cannot be the same as Insured Person's HKID."){
+										bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.same.message");
+							  	  	} else if( data.errorMsg == "Beneficiary HKID No. cannot be duplicated."){
+							  	  		bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message");
+							  	  	} else {
+							  	  		bene_errmsg = data.errorMsg;
+							  	  	}
+									showSubmitError(bene_errmsg, true);
 							  }
 							  else{
 								  if('${backSummary}'=="Y"){
