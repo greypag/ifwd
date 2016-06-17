@@ -5304,4 +5304,19 @@ function addFormBeneficiary (counter) {
 
 	changeColorRadioButtonLabel (counter);
 }
+
+$("#anchor-lang").click(function(e){
+	e.preventDefault();
+	var beneFormdata = $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[2\\]').serialize();
+	$.ajax({
+        type: "POST",
+        url:'<%=request.getContextPath()%>/ajax/eliteTerm/putBeneficiaryInfoSession',
+        data: beneFormdata,
+        success:function(data){
+			window.location = '${switchUrl }';
+	    }
+	});
+})
 </script>
