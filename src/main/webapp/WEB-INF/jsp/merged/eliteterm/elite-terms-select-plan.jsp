@@ -4294,8 +4294,6 @@ var home_url = "<%=request.getContextPath()%>";
 
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
-		    	  putEtPageKeySession("3");
-
 		    	  $.ajax({
 		 			  type : "POST",
 		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
@@ -4311,6 +4309,8 @@ var home_url = "<%=request.getContextPath()%>";
 	 		      });
 
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+	    	    	 putEtPageKeySession("3");
+	    	    	 
 	    	    	 var $appInfo = $('#et-application-first-section');
 	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
 	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
