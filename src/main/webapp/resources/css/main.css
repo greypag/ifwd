@@ -11887,3 +11887,45 @@ body.chin .partner-headline-wrapper .headline-title{
 	width: 60px;
 	height: 60px;
 }
+
+/* line 142, ../sass/partials/_et-cannot-apply-modal.scss */
+#savie-confimation-vulnerable-customer-form select {
+	-webkit-appearance: none;
+	width: 100%;
+	background: url("../images/orange-caret.png") no-repeat;
+	background-position: 100% 50%;
+	border-radius: 0 0;
+	border-right: 25px solid transparent;
+	background-color: #e8eaea;
+	padding-left: 16px;
+}
+
+@media ( min-width : 992px) {
+	/* line 107, ../sass/partials/_et-confirmation.scss */
+	#savie-confimation-vulnerable-customer-form button {
+		font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+		font-size: 24px;
+		max-width: 125px;
+		margin-left: 0px;
+	}
+	/* line 268, ../sass/partials/_thank-you-update.scss */
+	#savie-confimation-vulnerable-customer-form button.btn {
+		margin: 0;
+		display: inline-block;
+		margin-left: 12px;
+		height: 50px;
+		width: 120px;
+	}
+}
+
+/* line 107, ../sass/partials/_et-confirmation.scss */
+#savie-confimation-vulnerable-customer-form button {
+	margin-top: 0;
+	border: 1px solid #ff8200;
+	width: 100%;
+	height: 50px;
+	background-color: #fff;
+	color: #ff8200;
+	font-size: 18px;
+	font-family: 'Calibri-bold';
+}

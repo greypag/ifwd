@@ -65,11 +65,11 @@ var languageP = "${language}";
 								<h3 id="et-active-section-label"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></h3>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="application-flux">
 		         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
 		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -81,52 +81,53 @@ var languageP = "${language}";
 		               <li class="divider last"><i class="fa fa-play"></i></li>
 		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item4" bundle="${msg}" /></li>
 		            </ol>
-		         </div>			        
+		         </div>
 				<div class="container-fluid fwd-container thank-you-container">
-               
+
                <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /></p>
-             
+
 					<h2><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /> <span class="et-title-break" /></span></h2>
-					
+
 					<div class="details-container">
-                  <div class="detail">
-                     <h3 class="acknowledge"><fmt:message key="eliteTerms.confirmation.Acknowledgement" bundle="${msg}" /></h3>
-                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is.part1" bundle="${msg}" /> ${confirmationEmail } <fmt:message key="eliteTerms.confirmation.Your.application.is.part2" bundle="${msg}" />
-                     </p>
-                  </div>
-							
-                  <div class="detail">
-                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number" id="policy-number">${eliteTermPolicy.policyNo }</span></h3>								
-                  </div>
+              <div class="detail">
+                 <h3 class="acknowledge"><fmt:message key="eliteTerms.confirmation.Acknowledgement" bundle="${msg}" /></h3>
+                 <p><fmt:message key="eliteTerms.confirmation.Your.application.is.part1" bundle="${msg}" /> ${confirmationEmail } <fmt:message key="eliteTerms.confirmation.Your.application.is.part2" bundle="${msg}" />
+                 </p>
+              </div>
+
+              <div class="detail">
+                 <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number" id="policy-number">${eliteTermPolicy.policyNo }</span></h3>
+              </div>
+
 					</div>
-					
+
 					<div class="agent-container <c:if test="${eliteTermPolicy.referralCode == 'ET-AGENT'}">hidden</c:if>">
 						<h2 class= "agent"><fmt:message key="eliteTerms.confirmation.Please.enter.your" bundle="${msg}" /></h2>
 						<p class="agent-desc et-agent-desc"><fmt:message key="eliteTerms.confirmation.If.you.already.have" bundle="${msg}" /></p>
-						
+
                   <form action="" method="POST" class="form-horizontal" id="et-confimation-email-form">
                      <div class="form-group">
                         <div class="col-xs-7 col-md-4 col-md-offset-3 et-input-email">
-                           <input type="email" name="agent-email" id="agent-email" autocomplete="off" placeholder="your.agent@fwd.com" />	
+                           <input type="email" name="agent-email" id="agent-email" autocomplete="off" placeholder="your.agent@fwd.com" />
                         </div>
                         <div class="col-xs-5 col-md-2 et-submit">
                            <button type="button" value="Submit" class="btn" id="et-confirmation-submit"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
-                        </div> 
+                        </div>
                      </div>
                      <span id="errPromoEmail" class="text-red"></span>
                   </form>
-                  
+
                   <p class="submitted-info hide-element"><fmt:message key="eliteTerms.confirmation.You.have.submitted" bundle="${msg}" /></p>
-							
+
 					</div>
-					
+
 			  <div class="text-center social-media-share">
 			  		<p><fmt:message key="eliteTerms.confirmation.Share" bundle="${msg}" /></p>
 			  		<a class="share-social" href="https://www.facebook.com/sharer/sharer.php?u=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-facebook"></i></a>
 			  		<a class="share-social" href="https://twitter.com/intent/tweet?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-twitter"></i></a>
 			  		<a class="share-social" href="https://plus.google.com/share?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-google-plus"></i></a>
 			  </div>
-					
+
                <div class="row">
                   <div class="col-xs-12 text-center">
                      <a id="back-to-home" href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
@@ -134,47 +135,47 @@ var languageP = "${language}";
                </div>
 				</div>
 			</div>
-			
+
 			<!-- FOOTER -->
 		</div>
-		
+
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script>
-		
+
 		$('.share-social').click(function(e) {
 	        e.preventDefault();
 	        window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
 	        return false;
 	    });
-        
+
 		$("#back-to-home").click(function(){
 	    	  ga('create', 'UA-60032236-1', 'auto');
-	    	  ga('send', 'pageview', '/${language}/term-life-insurance/confirmation'); 
+	    	  ga('send', 'pageview', '/${language}/term-life-insurance/confirmation');
 	      });
-		
+
          $('#et-confimation-email-form').on('submit', function(e){
             e.preventDefault();
-            
+
             var $self = $(this);
-            
+
             $self.next('.submitted-info')
                   .removeClass('hide-element');
             $self.hide();
          });
-            
+
          /*$(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
-            
+
             var url = 'elite-terms-select-plan.jsp';
             var $self = $(this);
-            
+
             if ($self.attr('id') === 'select-plan') {
                url += '#select-plan';
                window.location.href = url;
             } else if ($self.attr('id') === 'application') {
                url += '#application';
                window.location.href = url;
-            }            
-         });*/ 
+            }
+         });*/
 		</script>
