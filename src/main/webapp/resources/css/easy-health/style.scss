@@ -1084,7 +1084,7 @@ table.tbl-esr{
         text-align: center;
         width: 50%;
         border: 1px solid black;
-        text-decoration: underline;
+        //text-decoration: underline;
     }
 }
 
@@ -1369,4 +1369,11 @@ table.tbl-esr{
     #step-online{
         padding: 0 !important;
     }
+}
+
+/* Set font-size for plan faq */
+.plan-faq .tab-content,
+.plan-faq .tab-content ul,
+.plan-faq .tab-content ol{
+    font-size: 18px;
 }

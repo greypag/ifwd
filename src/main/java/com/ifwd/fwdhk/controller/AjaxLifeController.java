@@ -130,30 +130,37 @@ public class AjaxLifeController extends BaseController{
 			lifeBeneficaryInfo.validate(language);
 			
 			StringBuffer errorMsg = new StringBuffer();
+			errorMsg.append("");
 			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
-			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID1())){
-				errorMsg.append("beneficary1 and personalDetail'hkid are the same. ");
+			
+			
+			if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID1().toUpperCase())){
+				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
 			}
-			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID2())){
-				errorMsg.append("beneficary2 and personalDetail'hkid are the same. ");
+			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID2().toUpperCase())){
+				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
 			}
-			if(lifePersonalDetails.getHkid().equals(lifeBeneficaryInfo.getBeneficaryID3())){
-				errorMsg.append("beneficary3 and personalDetail'hkid are the same. ");
+			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID3().toUpperCase())){
+				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
 			}
 			
-			String bhkid1 = lifeBeneficaryInfo.getBeneficaryID1();
-			String bhkid2 = lifeBeneficaryInfo.getBeneficaryID2();
-			String bhkid3 = lifeBeneficaryInfo.getBeneficaryID3();
-			if(bhkid1!=null && !bhkid1.equals("") && bhkid2!=null && !bhkid2.equals("") && bhkid1.equals(bhkid2)){
-				errorMsg.append("beneficary1 and beneficary2'hkid are the same. ");
+			if(errorMsg==null || (errorMsg.length() ==0)){
+			
+				String bhkid1 = lifeBeneficaryInfo.getBeneficaryID1().toUpperCase();
+				String bhkid2 = lifeBeneficaryInfo.getBeneficaryID2().toUpperCase();
+				String bhkid3 = lifeBeneficaryInfo.getBeneficaryID3().toUpperCase();
+				if(bhkid1!=null && !bhkid1.equals("") && bhkid2!=null && !bhkid2.equals("") && bhkid1.equals(bhkid2)){
+					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+				}
+				else if(bhkid1!=null && !bhkid1.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid1.equals(bhkid3)){
+					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+				}
+				else if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
+					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+				}
 			}
-			if(bhkid1!=null && !bhkid1.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid1.equals(bhkid3)){
-				errorMsg.append("beneficary1 and beneficary3'hkid are the same. ");
-			}
-			if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
-				errorMsg.append("beneficary2 and beneficary3'hkid are the same. ");
-			}
-			if(errorMsg!=null && !errorMsg.equals("")){
+
+			if(errorMsg!=null && !(errorMsg.length() ==0)){
 				jsonObject.put("errorMsg", errorMsg.toString());
 			}
 			else{

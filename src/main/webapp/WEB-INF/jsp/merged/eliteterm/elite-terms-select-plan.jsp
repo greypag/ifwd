@@ -1518,9 +1518,10 @@ var home_url = "<%=request.getContextPath()%>";
 														flag = true;
 												}
 											}
-										} --%>
+										} 
 										return flag;
 								}
+								--%>
 								</script>
 								</div>
 								<%-- 2016memberID - end --%>
@@ -4218,6 +4219,7 @@ var home_url = "<%=request.getContextPath()%>";
     	  }
     	  if(escape('${goApp}')!=null && escape('${goApp}')=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
+
   			  //$('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
   			  $('#et-about-yoursel-section').addClass('hide-element');
   			  $('#et-btn-ay-self').removeClass('et-pad-bot-50');

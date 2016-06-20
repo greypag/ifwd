@@ -1490,7 +1490,7 @@ var ehPro = '${pro }';
                                                               </tr>
                                                             </table>
                                                             <br>
-                                                            <p><fmt:message key="easyhealth.plandetails.exclusions.sub.heading" bundle="${msg}" /></p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.exclusions.sub.heading" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.exclusions.1.content" bundle="${msg}" /></p>
                                                             <ol>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.2.content" bundle="${msg}" /></li>
