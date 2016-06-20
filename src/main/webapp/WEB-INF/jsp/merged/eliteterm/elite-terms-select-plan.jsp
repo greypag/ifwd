@@ -2688,7 +2688,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 						<script type="text/javascript">
                         function showBubble(){
-                            if($("#marketing-info-check").prop('checked') || $("#personal-data-check").prop("checked")) {
+                            if($("#marketing-info-check").prop("checked")==true || $("#personal-data-check").prop("checked")==true) {
                                 $(".checkboxBubble").fadeIn();
                             }else{
                                 $(".checkboxBubble").fadeOut();
@@ -2701,7 +2701,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                         $("#personal-data-check").change(function() {
                             showBubble();
-                        });
+                        });                     
                         </script>
 					</form>
 
@@ -4018,9 +4018,15 @@ var home_url = "<%=request.getContextPath()%>";
 	$('.checkbox-description').on('click', function(e) {
 		if($(this).parent().find(':checkbox').prop('checked')==false) {
 			$(this).parent().find(':checkbox').prop('checked',true);
+			if($(this).hasClass("marketing-info-desk") || $(this).hasClass("personal-data-desc")){
+				showBubble();
+			}
 		}
 		else {
 			$(this).parent().find(':checkbox').prop('checked',false);
+			if($(this).hasClass("marketing-info-desk") || $(this).hasClass("personal-data-desc")){
+				showBubble();
+			}			
 		}
 	});
 
