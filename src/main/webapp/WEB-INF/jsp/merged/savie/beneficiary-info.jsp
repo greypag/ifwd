@@ -787,9 +787,9 @@ var languageP = "${language}";
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 									var bene_errmsg = '';
-									if( data.errorMsg == "Beneficiary HKID cannot be the same as Insured Person's HKID."){
+									if( data.errorMsg == "Beneficiary's HKID cannot be the same as Insured Person's HKID."){
 										bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.same.message");
-							  	  	} else if( data.errorMsg == "Beneficiary HKID No. cannot be duplicated."){
+							  	  	} else if( data.errorMsg == "Beneficiary's HKID No. cannot be duplicated."){
 							  	  		bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message");
 							  	  	} else {
 							  	  		bene_errmsg = data.errorMsg;

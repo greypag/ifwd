@@ -135,13 +135,13 @@ public class AjaxLifeController extends BaseController{
 			
 			
 			if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID1().toUpperCase())){
-				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
 			}
 			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID2().toUpperCase())){
-				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
 			}
 			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID3().toUpperCase())){
-				errorMsg.append("Beneficiary HKID cannot be the same as Insured Person's HKID.");
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
 			}
 			
 			if(errorMsg==null || (errorMsg.length() ==0)){
@@ -150,13 +150,13 @@ public class AjaxLifeController extends BaseController{
 				String bhkid2 = lifeBeneficaryInfo.getBeneficaryID2().toUpperCase();
 				String bhkid3 = lifeBeneficaryInfo.getBeneficaryID3().toUpperCase();
 				if(bhkid1!=null && !bhkid1.equals("") && bhkid2!=null && !bhkid2.equals("") && bhkid1.equals(bhkid2)){
-					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
 				}
 				else if(bhkid1!=null && !bhkid1.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid1.equals(bhkid3)){
-					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
 				}
 				else if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
-					errorMsg.append("Beneficiary HKID No. cannot be duplicated.");
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
 				}
 			}
 
