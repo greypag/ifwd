@@ -719,7 +719,7 @@ var home_url = "<%=request.getContextPath()%>";
 																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no"
+															<a id="medi-question-no-1" href="#" class="btn et-btn-medic et-btn-medic-no"
 																title="No" data-current-target="et-medi-question-1"
 																data-next-target="et-medi-question-2"><fmt:message
 																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -763,7 +763,7 @@ var home_url = "<%=request.getContextPath()%>";
 															</a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
+															<a id="medi-question-no-2" href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
 														</div>
 													</div>
 												</div>
@@ -836,7 +836,7 @@ var home_url = "<%=request.getContextPath()%>";
 																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no last"
+															<a id="medi-question-no-3" href="#" class="btn et-btn-medic et-btn-medic-no last"
 																title="No" data-current-target="et-medi-question-3"
 																data-next-target="et-medi-question-3"><fmt:message
 																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -4961,6 +4961,9 @@ var home_url = "<%=request.getContextPath()%>";
 		          scrollTop: ($('#et-plan-option-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
+		  if('${etPageKey }' >= '2' && escape('${goApp}')!=null && escape('${goApp}')=='yes'){
+			  medicalDeclaration();
+		  }
 		  if('${etPageKey }' == '3'){
 			  backToStep(3);
 			  $('body, html').animate({
@@ -5350,4 +5353,15 @@ $("#anchor-lang").click(function(e){
 	    }
 	});
 })
+
+function medicalDeclaration(){
+	$("#medi-question-no-1").click();
+	setTimeout(function () {
+		$("#medi-question-no-2").click();
+    }, 500);
+	setTimeout(function () {
+		$("#medi-question-no-3").click();
+    }, 1000);
+	$("#et-medi-question-4").click();
+}
 </script>
