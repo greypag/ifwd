@@ -4967,7 +4967,7 @@ var home_url = "<%=request.getContextPath()%>";
 		          scrollTop: ($('#et-plan-option-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
-		  if('${etPageKey }' >= '2' && escape('${goApp}')!=null && escape('${goApp}')=='yes'){
+		  if('${etPageKey }' >= '3'){
 			  medicalDeclaration();
 		  }
 		  if('${etPageKey }' == '3'){
