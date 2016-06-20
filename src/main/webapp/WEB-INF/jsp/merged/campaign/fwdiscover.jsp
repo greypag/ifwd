@@ -23,13 +23,22 @@
 		}
 	}
 
+	if (request.getParameter("month")!=null && ((String)request.getParameter("month")).length() > 0) {
+		int month = Integer.parseInt((String)request.getParameter("month"));
+		if (month == 7) {
+			cCurrent = cformat.parse("2016-07-31 14:59:59").getTime();
+		} else {
+			cCurrent = cformat.parse("2016-07-31 15:00:00").getTime();
+		}
+	}	
+	
     //hotel monthly campiagn display end time
     long hotelcEnd = cformat.parse("2016-04-30 14:59:59").getTime();
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-06-30 14:59:59").getTime();
-    //cCurrent =  cformat.parse("2016-06-30 15:59:59").getTime();
+    long cStart = cformat.parse("2016-07-31 14:59:59").getTime();
+    //cCurrent =  cformat.parse("2016-08-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
@@ -41,7 +50,7 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-05-31 14:59:59";
+    String countDownDate_regular = "2016-07-31 14:59:59";
     String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
@@ -85,7 +94,7 @@
         //Regular Offer Period
         countDownDate = countDownDate_regular;
         countDownDD = "31";
-        countDownMM = "May";
+        countDownMM = "July";
 
         //Special Offer Period
         if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime() && request.getParameter("regular")==null){
@@ -106,9 +115,9 @@
         }
 
         //Regular Offer ends Period
-    	if(cCurrent >= cStart /* || 
+    	if(cCurrent > cStart /* || 
            (cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-21 15:00:00").getTime()) || 
-           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime())  */
+           (cCurrent >= cformat.parse("2016-05-31 00:00:00").getTime() && cCurrent < cformat.parse("2016-05-31 15:00:00").getTime()) */
            /*&& cCurrent < hotelcStart*/){
     		disableOfferClass = "paused-plan";  
             /*countDownDate = "2016-05-31 11:59:59";
@@ -683,7 +692,137 @@
                     <!-- end CNY PROMOTION -->
                 <%
                     } else if (isRegSpecial==false && isRegPromo==true){
-                %>   
+                %>              
+					<!-- fourth plan -->
+                    <div class="fwdiscover-plan <%=disableOfferClass%>">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+
+                        <div class="plan-details-box gray-bg right">
+                            <div class="plan-desc">
+                                <div class="upper-desc">
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></p>
+                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer4.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer4.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4.subtitle3" bundle="${msg}" /></p>
+                                </div>
+                                <div class="lower-desc">
+                                    <ul>
+                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet3" bundle="${msg}" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="desc-and-button-holder clearfix">
+                                <div class="promo-desc text-center">
+                                    <div class="clearfix">
+                                        <div class="holder">
+                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
+                                            <p class="value count">${count3}</p>
+                                        </div>
+                                        <div class="holder date hidden-xs hidden-sm">
+                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                        </div>
+                                        <div class="holder date hidden-md hidden-lg">
+                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-button-holder text-center" name="offer4">
+                                    <button class="details-btn" id="fourth-plan-button" data-target="offer4-details"><fmt:message key="Fanfare.landingpage.offer4.button" bundle="${msg}" /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end fourth plan -->
+                    <!-- fiffth plan -->
+                    <div class="fwdiscover-plan <%=disableOfferClass%>">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+
+                        <div class="plan-details-box red-bg left">
+                            <div class="plan-desc">
+                                <div class="upper-desc">
+                                    <p class="title two-lines"><fmt:message key="Fanfare.landingpage.offer5" bundle="${msg}" /></p>
+                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer5.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer5.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer5.subtitle3" bundle="${msg}" /></p>
+                                </div>
+                                <div class="lower-desc">
+                                    <ul>
+                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet3" bundle="${msg}" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="desc-and-button-holder clearfix">
+                                <div class="promo-desc text-center">
+                                    <div class="clearfix">
+                                        <div class="holder">
+                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
+                                            <p class="value count">${count4}</p>
+                                        </div>
+                                        <div class="holder date hidden-xs hidden-sm">
+                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                        </div>
+                                        <div class="holder date hidden-md hidden-lg">
+                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-button-holder text-center" name="offer5">
+                                    <button class="details-btn" id="fifth-plan-button" data-target="offer5-details"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end fifth plan -->
+					<!-- sixth plan -->
+                    <div class="fwdiscover-plan <%=disableOfferClass%>">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+
+                        <div class="plan-details-box orange-bg right">
+                            <div class="plan-desc">
+                                <div class="upper-desc">
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer6" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" /></p>
+                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer6.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer6.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer6.subtitle3" bundle="${msg}" /></p>
+                                </div>
+                                <div class="lower-desc">
+                                    <ul>
+                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet3" bundle="${msg}" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="desc-and-button-holder clearfix">
+                                <div class="promo-desc text-center">
+                                    <div class="clearfix">
+                                        <div class="holder">
+                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6.box1" bundle="${msg}" /></p>
+                                            <p class="value count">${count3}</p>
+                                        </div>
+                                        <div class="holder date hidden-xs hidden-sm">
+                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
+                                        </div>
+                                        <div class="holder date hidden-md hidden-lg">
+                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-button-holder text-center" name="offer6">
+                                    <button class="details-btn" id="sixth-plan-button" data-target="offer6-details"><fmt:message key="Fanfare.landingpage.offer6.button" bundle="${msg}" /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end sixth plan -->                                         
                     <!-- first plan -->
                     <div class="fwdiscover-plan <%=disableOfferClass%>">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
@@ -812,93 +951,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end third plan -->
-                    <!-- fourth plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box gray-bg right">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer4.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer4.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4.subtitle3" bundle="${msg}" /></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet3" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count3}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer4">
-                                    <button class="details-btn" id="fourth-plan-button" data-target="offer4-details"><fmt:message key="Fanfare.landingpage.offer4.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end fourth plan -->
-                    <!-- fiffth plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box red-bg left">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title two-lines"><fmt:message key="Fanfare.landingpage.offer5" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer5.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer5.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer5.subtitle3" bundle="${msg}" /></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet3" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count4}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer5">
-                                    <button class="details-btn" id="fifth-plan-button" data-target="offer5-details"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end fifth plan -->
+                    <!-- end third plan -->                    
                 </div>
                 <!-- end PLANS -->
                 <% } %>
@@ -1074,7 +1127,7 @@
     <%
         }
     %>                              
-                <!-- 5 plans -->                
+                <!-- 6 plans -->                
                 <!-- CNY PROMOTION -->
                 <div class="modal fade fwdiscover-modal" id="offerCny-details" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
@@ -1269,7 +1322,40 @@
                         </div>
                     </div>
                 </div>
-                <!-- end 5 plans -->
+                <div class="modal fade fwdiscover-modal" id="offer6-details" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6" bundle="${msg}" /></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer6.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer6.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer6.subtitle3" bundle="${msg}" /></span></p>
+
+                            <ul>
+                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet3" bundle="${msg}" /></li>
+                            </ul>
+
+                            <div class="details-button-holder text-center">
+                                <button class="details-btn modal-grab-button" id="modal-grab-button-sixth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
+                            </div>
+
+                            <div class="terms-and-condition">
+                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+                                <ul>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer6" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                 </ul>
+                            </div>
+
+                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                        </div>
+                    </div>
+                </div>                
+                <!-- end 6 plans -->
 				<!-- Hotel Voucher Plan Start -->
 				<!-- Offer 311 -->
                 <div class="modal fade fwdiscover-modal" id="offer-311-detail" role="dialog" aria-hidden="true">
@@ -2125,6 +2211,17 @@
                 assignPromoCode("9");
             }
         });
+        
+        $("#sixth-plan-button").on('click', function(){
+            $('#offer6-details').modal('show');
+        });
+        $('#modal-grab-button-sixth').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("10");
+            }else {
+                assignPromoCode("10");
+            }
+        });        
 
         $(".fwdiscover-modal .close-modal").on('click', function(){
             $('.modal').modal('hide');
