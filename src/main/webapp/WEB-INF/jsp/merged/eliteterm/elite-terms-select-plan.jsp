@@ -4949,7 +4949,13 @@ var home_url = "<%=request.getContextPath()%>";
 		          scrollTop: ($('#et-about-yoursel-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
-		  if('${etPageKey }' == '2'){
+		  if('${etPageKey }' == '2' && escape('${goApp}')!=null && escape('${goApp}')=='yes'){
+			  backToStep(3);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-first-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  else if('${etPageKey }' == '2' && (escape('${goApp}')==null || escape('${goApp}')!='yes')){
 			  backToStep(2);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-plan-option-section').offset().top - stickyHeight) + 'px'
@@ -5333,7 +5339,14 @@ $("#anchor-lang").click(function(e){
         url:'<%=request.getContextPath()%>/ajax/eliteTerm/putBeneficiaryInfoSession',
         data: beneFormdata,
         success:function(data){
-			window.location = '${switchUrl }';
+	        var switchUrl = "";
+	        if('${language }' == 'en'){
+	        	switchUrl = '<%=request.getContextPath()%>/tc/term-life-insurance/select-plan';
+	        }
+	        else{
+	        	switchUrl = '<%=request.getContextPath()%>/en/term-life-insurance/select-plan';
+	        }
+			window.location = switchUrl;
 	    }
 	});
 })
