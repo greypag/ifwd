@@ -3,10 +3,12 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$(".offset_card_holder").autoAlignHeight({child: ".eh_sec_title", minWidth: 992});
 		$(".offset_card_holder").autoAlignHeight({child: ".inner", minWidth: 992});
-		$(".autoAlignBox").autoAlignHeight({child: ".inner", minWidth: 992});
 		$(".eh_theclub_container").autoAlignHeight({child: ".ah_box", minWidth: 992});
 		$(".eh_cfucome_banner").autoAlignHeight({child: ".ah_box", minWidth: 992});
 		$(".eh_moreProtect_banner").autoAlignHeight({child: ".ah_box", minWidth: 992});
+		$(".eh_3_feature").autoAlignHeight({child: ".eh_feature_box_title", minWidth: 992, onFinish:function (){
+			$(".autoAlignBox").autoAlignHeight({child: ".inner", minWidth: 992});
+		}});
 
 		$('#canvas').on('inview', function(event, isInView) {
 		  if (isInView && $(this).hasClass("waiting")){
@@ -26,7 +28,7 @@ $(document).ready(function(){
 		    // element has gone out of viewport
 		  }
 		});
-	}, 800);
+	}, 1200);
 
 });
 
@@ -65,15 +67,24 @@ $.fn.autoAlignHeight = function(conf) {
 		}
 
 		function alignChildHeight(sel, child) {
-		    var max = 0;
-		    $(sel).find(child).each(function() {
-		        $(this).css("height", "auto");
-		        c_height = parseInt($(this).outerHeight(false));
-		        if (c_height > max) {
-		            max = c_height;
-		        }
-		    });
-		    $(sel).find(child).outerHeight(max);
+		    //reset all child height
+			$(sel).find(child).css("height", "auto");
+			
+			setTimeout(function (){
+				var max = 0;
+			    $(sel).find(child).each(function() {
+			        c_height = parseInt($(this).outerHeight(false));
+			        if (c_height > max) {
+			            max = c_height;
+			        }
+			    });
+			    $(sel).find(child).outerHeight(max);
+			    
+			    if(!!conf.onFinish){
+			    	conf.onFinish();
+			    }
+			}, 500);
+			
 		}	
 	
 };

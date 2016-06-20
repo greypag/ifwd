@@ -180,11 +180,11 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-3"> <!-- required for floating -->
                         <!-- Nav tabs -->
                         <ul class="tabs-left">
-                            <li class="active"><a href="#highlights" data-toggle="tab"><i class="icon-icon_01"></i><span>Product Highlights</span></a></li>
-                            <li><a href="#coverage" data-toggle="tab"><i class="icon-icon_03"></i><span>Summary of Coverage</span></a></li>
-                            <li><a href="#premium" data-toggle="tab"><i class="icon-icon_02"></i><span>Premium Table (HK$)</span></a></li>
-                            <li><a href="#exclusion" data-toggle="tab"><i class="icon-icon_04"></i><span>Major Exclusions</span></a></li>
-                            <li><a href="#excess" data-toggle="tab"><i class="icon-icon_05"></i><span>Excess</span></a></li>
+                            <li class="active"><a href="#highlights" data-toggle="tab"><i class="icon-icon_01"></i><span><fmt:message key="planoption.home.liability.tab1.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#coverage" data-toggle="tab"><i class="icon-icon_03"></i><span><fmt:message key="planoption.home.liability.tab2.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#premium" data-toggle="tab"><i class="icon-icon_02"></i><span><fmt:message key="planoption.home.liability.tab3.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#exclusion" data-toggle="tab"><i class="icon-icon_04"></i><span><fmt:message key="planoption.home.liability.tab4.title" bundle="${msg}" /></span></a></li>
+                            <!-- <li><a href="#excess" data-toggle="tab"><i class="icon-icon_05"></i><span>Excess</span></a></li> -->
                         </ul>
                         </div>
 
@@ -192,12 +192,12 @@ var nextPage = "${nextPageFlow}";
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="highlights">
-                                <h4>Product Highlights</h4>
+                                <h4><fmt:message key="planoption.home.liability.tab1.title" bundle="${msg}" /></h4>
                                 <div class="easy-home-toggle">
-                                    <p>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). From your furniture to your frozen food, stay protected with this comprehensive home insurance.</p>
+                                    <p><fmt:message key="planoption.home.liability.tab1.text1" bundle="${msg}" /></p>
                                     <ul>
-                                        <li>Household Contents cover up to a limit as high as HK$500,000</li>
-                                        <li>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world</li>
+                                        <li><fmt:message key="planoption.home.liability.tab1.text2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab1.text3" bundle="${msg}" /></li>
                                         <li>Protects household contents inside the home, such as furniture, electrical appliances etc., against loss or damage arising from fire, flood, bursting pipes, typhoon, theft and other accidents</li>
                                         <li>In an event that your home becomes uninhabitable as a result of accidental loss or damage, our home insurance will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year</li>
                                         <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
@@ -205,15 +205,15 @@ var nextPage = "${nextPageFlow}";
                                     </ul>
                                 </div>
                                 <div class="home-liability-toggle">
-                                    <p>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world.</p>
+                                    <p><fmt:message key="planoption.home.liability.tab1.text1" bundle="${msg}" /></p>
                                     <ul>
-                                        <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
-                                        <li>Applicable to Home for Net Floor Area up to 1,000 square feet</li>
+                                        <li><fmt:message key="planoption.home.liability.tab1.text2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab1.text3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="tab-pane" id="premium">
-                                <h4>Premium Table (HK$)</h4>
+                                <h4><fmt:message key="planoption.home.liability.tab3.title" bundle="${msg}" /></h4>
                                 <div class="easy-home-toggle">
                                     <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
                                     <br>
@@ -239,18 +239,18 @@ var nextPage = "${nextPageFlow}";
                                     </table>
                                 </div>
                                 <div class="home-liability-toggle">
-                                    <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
+                                    <p><fmt:message key="planoption.home.liability.tab3.text" bundle="${msg}" /></p>
                                     <br>
                                     <table class="table-in-tab">
                                         <tr class="thbg">
-                                            <th>Section</th>
-                                            <th>Coverage</th>
-                                            <th>Limit of Liability (HK$)</th>
-                                            <th>Annual Premium (HK$)</th>
+                                            <th><fmt:message key="planoption.home.liability.tab3.table.section" bundle="${msg}" /></th>
+                                            <th><fmt:message key="planoption.home.liability.tab3.table.coverage" bundle="${msg}" /></th>
+                                            <th><fmt:message key="planoption.home.liability.tab3.table.limit" bundle="${msg}" /></th>
+                                            <th><fmt:message key="planoption.home.liability.tab3.table.premium" bundle="${msg}" /></th>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Personal Liability</td>
+                                            <td><fmt:message key="planoption.home.liability.tab3.table.section.text" bundle="${msg}" /></td>
+                                            <td><fmt:message key="planoption.home.liability.tab3.table.coverage.text" bundle="${msg}" /></td>
                                             <td>5,000,000</td>
                                             <td>239</td>
                                         </tr>
@@ -258,7 +258,7 @@ var nextPage = "${nextPageFlow}";
                                 </div>
                             </div>
                             <div class="tab-pane" id="coverage">
-                                <h4>Summary of Coverage</h4>
+                                <h4><fmt:message key="planoption.home.liability.tab2.title" bundle="${msg}" /></h4>
                                 <div class="easy-home-toggle">
                                     <strong>Section 1. Household Contents</strong><br>
                                     <p>Your household contents at home are insured for 'All Risks' cover. This 'All Risks' cover protects your contents against accidental loss or damage arising from, including but not limited to, fire, flood, typhoon, explosion or theft, up to a maximum of HK$500,000 per year. Maximum limit of the coverage for any one item of your household contents is HK$100,000. Valuables, such as jewellery, gold, silver, watches, photographic equipment, furs, musical instruments (except pianos), are covered up to HK$10,000 per item and with an aggregate maximum of HK$100,000 per year.</p>
@@ -348,15 +348,15 @@ var nextPage = "${nextPageFlow}";
                                     <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
                                 </div>
                                 <div class="home-liability-toggle">
-                                    <p>Home Liability provides worldwide cover of your legal liability up to HK$5,000,000 against any claim for bodily injury or property damage resulting from the negligence of you or your family members normally living with you, provided that the legal proceeding is submitted to the Hong Kong court.</p>
-                                    <p>a) as occupier of the home</p>
-                                    <p>b) as owner of the home (including common areas of the building)</p>
-                                    <p>c) as a private individual (anywhere in the world)</p>
-                                    <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
+                                    <p><fmt:message key="planoption.home.liability.tab2.text1" bundle="${msg}" /></p>
+                                    <p><fmt:message key="planoption.home.liability.tab2.text2" bundle="${msg}" /></p>
+                                    <p><fmt:message key="planoption.home.liability.tab2.text3" bundle="${msg}" /></p>
+                                    <p><fmt:message key="planoption.home.liability.tab2.text4" bundle="${msg}" /></p>
+                                    <p><fmt:message key="planoption.home.liability.tab2.text5" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="exclusion">
-                                <h4>Major Exclusions</h4>
+                                <h4><fmt:message key="planoption.home.liability.tab4.title" bundle="${msg}" /></h4>
                                 <div class="easy-home-toggle">
                                     <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
                                     <ul>
@@ -368,16 +368,17 @@ var nextPage = "${nextPageFlow}";
                                     </ul>
                                 </div>
                                 <div class="home-liability-toggle">
-                                    <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
+                                    <p><fmt:message key="planoption.home.liability.tab4.text1" bundle="${msg}" /></p>
                                     <ul>
-                                        <li>Loss or damage arising from uninsurable risks such as scratching, wear and tear, mechanical or electrical fault or breakdown, misuse or domestic animals</li>
-                                        <li>Loss or damage if the home is unoccupied for more than 60 consecutive days</li>
-                                        <li>Personal Liability for travel out of Hong Kong exceeding 90 consecutive days</li>
-                                        <li>Loss or damage due to war risks, radioactive risks, sonic bangs or any act of terrorism</li>
+                                        <li><fmt:message key="planoption.home.liability.tab4.text2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab4.text3" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab4.text4" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab4.text5" bundle="${msg}" /></li>
+                                        <li><fmt:message key="planoption.home.liability.tab4.text6" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="excess">
+                            <!--<div class="tab-pane" id="excess">
                                 <h4>Excess</h4>
                                 <table>
                                     <tr>
@@ -405,13 +406,15 @@ var nextPage = "${nextPageFlow}";
                                     </tr>
                                 </table>
                             </div>
+                            -->
                         </div>
                         </div>  
                     </div>
                 </div>
             </div>
-            <p class="disclaimer">The features above are indicative only. Please refer to the <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank">Product Brochure</a> for details. 
-For a complete explanation of the terms and conditions, please call our Customer Hotline at<nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
+            <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
+ <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
+<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
 
         </div>
 	        <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 

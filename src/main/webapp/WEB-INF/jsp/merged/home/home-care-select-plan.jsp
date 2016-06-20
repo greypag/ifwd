@@ -155,8 +155,8 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-md-12">
                             <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-planA-hero.jpg" class="img-hero" alt="">
                             <div class="app-hero-panel-cont">
-                                <h2><span>Easy HomeCare</span><br>HK ${planQuote.totalDue }/year</h2>
-                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse">Selected</a>
+                                <h2><span><fmt:message key="planoption.home.text.plan.name2" bundle="${msg}" /></span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" />${planQuote.totalDue }<fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
+                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                             </div>
                         </div>
                         
@@ -167,11 +167,11 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-3"> <!-- required for floating -->
                         <!-- Nav tabs -->
                         <ul class="tabs-left">
-                            <li class="active"><a href="#highlights" data-toggle="tab"><i class="icon-icon_01"></i><span>Product Highlights</span></a></li>
-                            <li><a href="#coverage" data-toggle="tab"><i class="icon-icon_03"></i><span>Summary of Coverage</span></a></li>
-                            <li><a href="#premium" data-toggle="tab"><i class="icon-icon_02"></i><span>Premium Table (HK$)</span></a></li>
-                            <li><a href="#exclusion" data-toggle="tab"><i class="icon-icon_04"></i><span>Major Exclusions</span></a></li>
-                            <li><a href="#excess" data-toggle="tab"><i class="icon-icon_05"></i><span>Excess</span></a></li>
+                            <li class="active"><a href="#highlights" data-toggle="tab"><i class="icon-icon_01"></i><span><fmt:message key="planoption.home.tab1.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#coverage" data-toggle="tab"><i class="icon-icon_03"></i><span><fmt:message key="planoption.home.tab2.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#premium" data-toggle="tab"><i class="icon-icon_02"></i><span><fmt:message key="planoption.home.tab3.table2.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#exclusion" data-toggle="tab"><i class="icon-icon_04"></i><span><fmt:message key="planoption.home.tab4.title" bundle="${msg}" /></span></a></li>
+                            <li><a href="#excess" data-toggle="tab"><i class="icon-icon_05"></i><span><fmt:message key="planoption.home.tab5.title" bundle="${msg}" /></span></a></li>
                         </ul>
                         </div>
 
@@ -179,165 +179,172 @@ var nextPage = "${nextPageFlow}";
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="highlights">
-                                <h4>Product Highlights</h4>
-                                <p>You'll receive extensive 'All Risks' cover: up to HK$500,000 on Household Contents as well as up to HK$100,000 for personal items (with a maximum of $10,000 per item). From your furniture to your frozen food, stay protected with this comprehensive home insurance.</p>
+                                <h4><fmt:message key="planoption.home.tab1.title" bundle="${msg}" /></h4>
+                                <p><fmt:message key="planoption.home.tab1.text" bundle="${msg}" /></p>
                                 <ul>
-                                    <li>Household Contents cover up to a limit as high as HK$500,000</li>
-                                    <li>Personal Liability Insurance covers up to HK$5,000,000 as owner and/or occupier of your home or as a private individual anywhere in the world</li>
-                                    <li>Protects household contents inside the home, such as furniture, electrical appliances etc., against loss or damage arising from fire, flood, bursting pipes, typhoon, theft and other accidents</li>
-                                    <li>In an event that your home becomes uninhabitable as a result of accidental loss or damage, our home insurance will help you with the costs of alternative accommodation of up to HK$1,000 per day / HK$50,000 per year</li>
-                                    <li>If someone sustains accidental bodily injury or accidental property damage and you, or your family members, are responsible, we'll pay up to HK$5,000,000 for any loss or damage</li>
-                                    <li>Applicable to Home for Net Floor Area up to 1,000 square feet</li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet4" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet5" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab1.text.bullet6" bundle="${msg}" /></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" id="premium">
-                                <h4>Premium Table (HK$)</h4>
-                                <p>Applicable to Home for Net Floor Area up to 1,000 square feet</p>
+                                <h4><fmt:message key="planoption.home.tab3.table2.title" bundle="${msg}" /></h4>
+                                <p><fmt:message key="planoption.home.tab3.table2.title.text" bundle="${msg}" /></p>
                                 <br>
                                 <table class="table-in-tab">
                                     <tr class="thbg">
-                                        <th>Section</th>
-                                        <th>Coverage</th>
-                                        <th>Limit of Liability (HK$)</th>
-                                        <th>Annual Premium (HK$)</th>
+                                        <th><fmt:message key="planoption.home.tab3.table2.item" bundle="${msg}" /></th>
+                                        <th><fmt:message key="planoption.home.tab3.table2.coverage" bundle="${msg}" /></th>
+                                        <th><fmt:message key="planoption.home.tab3.table2.maxlimit" bundle="${msg}" /></th>
+                                        <th><fmt:message key="planoption.home.tab3.table2.annualpremium" bundle="${msg}" /></th>
                                     </tr>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Household Contents</td>
+                                        <td><fmt:message key="planoption.home.tab3..table2.item.text1" bundle="${msg}" /></td>
+                                        <td><fmt:message key="planoption.home.tab3.table2.coverage.text1" bundle="${msg}" /></td>
                                         <td>500,000</td>
                                         <td>420</td>
                                     </tr>
                                     <tr>
-                                        <td>2</td>
-                                        <td>Personal Liability</td>
+                                        <td><fmt:message key="planoption.home.tab3.table2.item.text2" bundle="${msg}" /></td>
+                                        <td><fmt:message key="planoption.home.tab3.table2.coverage.text2" bundle="${msg}" /></td>
                                         <td>5,000,000</td>
-                                        <td>Free with Section 1</td>
+                                        <td><fmt:message key="planoption.home.tab3.table2.annualpremium.amount2" bundle="${msg}" /></td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="tab-pane" id="coverage">
-                                <h4>Summary of Coverage</h4>
-                                <strong>Section 1. Household Contents</strong><br>
-                                <p>Your household contents at home are insured for 'All Risks' cover. This 'All Risks' cover protects your contents against accidental loss or damage arising from, including but not limited to, fire, flood, typhoon, explosion or theft, up to a maximum of HK$500,000 per year. Maximum limit of the coverage for any one item of your household contents is HK$100,000. Valuables, such as jewellery, gold, silver, watches, photographic equipment, furs, musical instruments (except pianos), are covered up to HK$10,000 per item and with an aggregate maximum of HK$100,000 per year.</p>
+                                <h4><fmt:message key="planoption.home.tab2.title" bundle="${msg}" /></h4>
+                                <strong><fmt:message key="planoption.home.tab2.section1.title" bundle="${msg}" /></strong><br>
+                                <p><fmt:message key="planoption.home.tab2.section1.text" bundle="${msg}" /></p>
                                 <br>
-                                <p>In addition to the above mentioned coverage, this insurance provides the following extra benefits:</p>
+                                <p><fmt:message key="planoption.home.tab2.section1.text2" bundle="${msg}" /></p>
                                 <br>
                                 <table id="homecarePremium" class="table table-bordred">
                                     <tbody>
                                         <tr style="background-color: #f68a1d;">
-                                            <td><strong style="color: #fff;">Item</strong></td>
-                                            <td><strong style="color: #fff;">Benefit</strong></td>
-                                            <td><strong style="color: #fff;">Maximum Limits(HK$)</strong></td>
+                                            <td><strong style="color: #fff;"><fmt:message key="planoption.home.tab2.table.item" bundle="${msg}" /></strong></td>
+                                            <td><strong style="color: #fff;"><fmt:message key="planoption.home.tab2.table.benefit" bundle="${msg}" /></strong></td>
+                                            <td><strong style="color: #fff;"><fmt:message key="planoption.home.tab2.table.max.limit" bundle="${msg}" /></strong></td>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td><strong>Window, Door Lock &amp; Key Replacement Replacement of external door locks and keys or broken windows due to theft or attempted theft</strong></td>
-                                            <td>3,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item1.descrption" bundle="${msg}" /><br>
+                                            	<fmt:message key="planoption.home.tab2.table.item1.descrption2" bundle="${msg}" /></strong>
+                                            </td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item1.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td><strong>Temporary Removal<br>Accidental loss of or damage to household contents whilst being temporarily removed from home for renovation, cleaning or repair</strong></td>
-                                            <td>50,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item2.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item2.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item2.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>3<br></td>
-                                            <td><strong>Home Removal<br>Accidental loss of or damage to household contents:<br>(a) whilst in transit between current home and new home by professional removers within Hong Kong; or<br>(b) whilst in temporary storage, for up to 7 days in a furniture depository; or<br>(c) whilst at the new home but before occupied as permanent residence up to 2 months (you have to notify us before your move)</strong></td>
-                                            <td>50,000 per year</td>
+                                            <td>3</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item3.description1" bundle="${msg}" />
+												<br><fmt:message key="planoption.home.tab2.table.item3.description2" bundle="${msg}" />
+												<br><fmt:message key="planoption.home.tab2.table.item3.description3" bundle="${msg}" />
+												<br><fmt:message key="planoption.home.tab2.table.item3.description4" bundle="${msg}" />
+												<br><fmt:message key="planoption.home.tab2.table.item3.description5" bundle="${msg}" /></strong>
+											</td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item3.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td><strong>Frozen Food<br>Cost of replacing spoilt frozen food due to accidental power failure or breakdown of refrigerator</strong></td>
-                                            <td>5,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item4.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item4.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item4.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td><strong>Removal of Debris<br>Cost of removal of debris when household contents are accidentally damaged</strong></td>
-                                            <td>10,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item5.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item5.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item5.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td><strong>Personal Money<br>Accidental loss or theft of money at home</strong></td>
-                                            <td>2,500 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item6.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item6.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item6.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td rowspan="2">7</td>
-                                            <td><strong>Domestic Helper's Property</strong></td>
-                                            <td>1,000 per item</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Accidental loss of or damage to domestic helper's property at home</strong></td>
-                                            <td>5,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount2" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
-                                            <td><strong>Tenants Improvement<br>Accidental loss of or damage to tenant's improvements at home</strong></td>
-                                            <td>100,000 per item</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item8.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item8.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item8.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td><strong>Interior Renovation<br>Accidental loss of or damage to household contents during interior renovation by contractors (provided that the period of renovation is within 2 months)</strong></td>
-                                            <td>100,000 per year</td>
+                                            <td><strong><fmt:message key="planoption.home.tab2.table.item9.description" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item9.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item9.amount" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td rowspan="2">10</td>
-                                            <td rowspan="2"><strong>Alternative Accommodation<br>Cost of alternative accommodation when the home becomes uninhabitable as a result of accidental loss or damage</strong></td>
-                                            <td>1,000 per day</td>
+                                            <td rowspan="2"><strong><fmt:message key="planoption.home.tab2.table.item10.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item10.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item10.amount1" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>50,000 per year</td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item10.amount2" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
                                             <td rowspan="2">11</td>
-                                            <td rowspan="2"><strong>Personal Accident<br>Accidental death of Insured or Insured's family members as a result of fire or theft at home</strong></td>
-                                            <td>50,000 per person</td>
+                                            <td rowspan="2"><strong><fmt:message key="planoption.home.tab2.table.item11.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item11.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item11.amount1" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>200,000 per year</td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item11.amount2" bundle="${msg}" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <strong>Section 2. Personal Liability</strong><br>
+                                <strong><fmt:message key="planoption.home.tab2.section2.title" bundle="${msg}" /></strong><br>
                                 
-                                <p>Easy HomeCare provides worldwide cover of your legal liability up to HK$5,000,000 against any claim for bodily injury or property damage resulting from the negligence of you or your family members normally living with you, provided that the legal proceeding is submitted to the Hong Kong court.</p>
-                                <p>a) as occupier of the home</p>
-                                <p>b) as owner of the home (including common areas of the building)</p>
-                                <p>c) as a private individual (anywhere in the world)</p>
-                                <p>Cover for your legal liability as a Tenant of the home against damage caused to the structure of the home and landlord's fixtures and fittings.</p>
+                                <p><fmt:message key="planoption.home.tab2.section2.text1" bundle="${msg}" /></p>
+                                <p><fmt:message key="planoption.home.tab2.section2.text2" bundle="${msg}" /></p>
+                                <p><fmt:message key="planoption.home.tab2.section2.text3" bundle="${msg}" /></p>
+                                <p><fmt:message key="planoption.home.tab2.section2.text4" bundle="${msg}" /></p>
+                                <p><fmt:message key="planoption.home.tab2.section2.text5" bundle="${msg}" /></p>
                             </div>
                             <div class="tab-pane" id="exclusion">
-                                <h4>Major Exclusions</h4>
-                                <p>The following is only a summary of the major exclusions. Please refer to the Policy for details.</p>
+                                <h4><fmt:message key="planoption.home.tab4.title" bundle="${msg}" /></h4>
+                                <p><fmt:message key="planoption.home.tab4.text" bundle="${msg}" /></p>
                                 <ul>
-                                    <li>Loss or damage arising from uninsurable risks such as scratching, wear and tear, mechanical or electrical fault or breakdown, misuse or domestic animals</li>
-                                    <li>Loss of or damage to mobile phones, household contents contained in open areas or on roofs, spectacles, contact lenses, sporting equipment whilst in use, computer system records, aerial devices or satellite dish</li>
-                                    <li>Loss or damage if the home is unoccupied for more than 60 consecutive days</li>
-                                    <li>Personal Liability for travel out of Hong Kong exceeding 90 consecutive days</li>
-                                    <li>Loss or damage due to war risks, radioactive risks, sonic bangs or any act of terrorism</li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet4" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet5" bundle="${msg}" /></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" id="excess">
-                                <h4>Excess</h4>
+                                <h4><fmt:message key="planoption.home.tab5.title" bundle="${msg}" /></h4>
                                 <table>
                                     <tr>
-                                        <th>Section 1 - Household Contents</th>
+                                        <th><fmt:message key="planoption.home.tab5.section1.title" bundle="${msg}" /></th>
                                     </tr>
                                     <tr>
                                         <td>
                                             <ul>
-                                                <li>The first HK$1,000 of each claim caused by water</li>
-                                                <li>The first HK$500 of each claim resulting from any other cause</li>
+                                                <li><fmt:message key="planoption.home.tab5.section1.text1" bundle="${msg}" /></li>
+                                                <li><fmt:message key="planoption.home.tab5.section1.text2" bundle="${msg}" /></li>
                                             </ul>
                                         </td>
                                     </tr>
                                 </table><br>
                                 <table>
                                     <tr>
-                                        <th>Section 2 - Personal Liability</th>
+                                        <th><fmt:message key="planoption.home.tab5.section2.title" bundle="${msg}" /></th>
                                     </tr>
                                     <tr>
                                         <td>
                                             <ul>
-                                                <li>The first HK$500 of each claim for third party property damage</li>
+                                                <li><fmt:message key="planoption.home.tab5.section2.text" bundle="${msg}" /></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -348,8 +355,9 @@ var nextPage = "${nextPageFlow}";
                     </div>
                 </div>
             </div>
-            <p class="disclaimer">The features above are indicative only. Please refer to the <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank">Product Brochure</a> for details. 
-For a complete explanation of the terms and conditions, please call our Customer Hotline at<nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
+            <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
+ <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
+<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
 
         </div>
         <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 

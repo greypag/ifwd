@@ -152,7 +152,7 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Applicant Summary <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/application" class="btn-edit">Edit</a></h3>
+                    <h3 class="heading-title"><fmt:message key="payment.jumbo.details" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/application" class="btn-edit">Edit</a></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12 tbl-summary">
@@ -161,7 +161,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Full name (same as ID document)</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.engname" bundle="${msg}" /></p>
                                     <p class="fld-val">${userDetails.fullName}</p>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Date of birth</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.birth" bundle="${msg}" /></p>
                                     <p class="fld-val">${userDetails.dob}</p>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">HKID/Passport number</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.idno" bundle="${msg}" /></p>
                                     <p class="fld-val">${userDetails.hkid != "" ? userDetails.hkid : userDetails.passport}</p>
                                 </div>
                             </div>                            
@@ -191,7 +191,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Mobile no.</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.mobileno" bundle="${msg}" /></p>
                                     <p class="fld-val">${userDetails.mobileNo }</p>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Email address</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.email" bundle="${msg}" /></p>
                                     <p class="fld-val">${userDetails.emailAddress }</p>
                                 </div>
                             </div>
@@ -211,7 +211,7 @@ var plan="${plan}";
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <h5>Correspondence Address</h5>
+                            <h5><fmt:message key="payment.input.address" bundle="${msg}" /></h5>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
@@ -315,7 +315,7 @@ var plan="${plan}";
 
                     <div class="row">
                         <div class="col-xs-12">
-                            <h5>Insured Address</h5>
+                            <h5><fmt:message key="payment.input.insured.address" bundle="${msg}" /></h5>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
@@ -415,7 +415,7 @@ var plan="${plan}";
                     </div>
 
                     <div class="col-xs-12">
-                        <h3 class="heading-title">Plan Summary</h3>
+                        <h3 class="heading-title"><fmt:message key="payment.jumbo.plan.summary" bundle="${msg}" /></h3>
                     </div>
 
                     <div class="row">
@@ -424,7 +424,7 @@ var plan="${plan}";
 
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Period of insurance</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.insurance.period" bundle="${msg}" /></p>
                                     <p class="fld-val">Yearly</p>
                                 </div>
                             </div>
@@ -433,7 +433,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Net floor Area (square feet)</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.area" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.netFloorAreaDesc }</p>
                                 </div>
                             </div>
@@ -445,7 +445,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Effective date of coverage</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.eff.coverage" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.effectiveDate }</p>
                                 </div>
                             </div>
@@ -458,7 +458,7 @@ var plan="${plan}";
                          <div class="col-xs-12 col-md-6">
                              <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Original Amount</p>
+                                    <p class="fld-label"><fmt:message key="payment.input.original.amount" bundle="${msg}" /></p>
                                     <p class="fld-val">HK$ ${homeQuoteDetails.grossPremium }</p>
                                 </div>
                             </div>
@@ -481,7 +481,7 @@ var plan="${plan}";
                     <div class="row">
                         <div class="col-xs-12 col-md-2">
                             <div class="lbl-wrapper">
-                                <span class="lbl">Amount due</span>
+                                <span class="lbl"><fmt:message key="payment.input.amount" bundle="${msg}" /></span>
                             </div>
                         </div>
 
@@ -506,7 +506,7 @@ var plan="${plan}";
 				<c:otherwise>
 		            <div class="row form-block payment-wrapper">
 		                <div class="col-xs-12">
-		                    <h3 class="heading-title">Payment Details</h3>
+		                    <h3 class="heading-title"><fmt:message key="payment.title" bundle="${msg}" /></h3>
 		                </div>
 		                    
 		                <div class="col-xs-12">
@@ -516,7 +516,7 @@ var plan="${plan}";
 		                            
 		                            <div class="form-group">
 		                                <div class="fld-wrapper">
-		                                    <p class="fld-label">Card type</p>
+		                                    <p class="fld-label"><fmt:message key="payment.card.type" bundle="${msg}" /></p>
 		                                    <p class="fld-val cardtype"><span class="visa">Visa</span>&nbsp;/&nbsp;<span class="mastercard">Master</span></p>
 		                                </div>
 		                            </div>
@@ -524,7 +524,7 @@ var plan="${plan}";
 		                                <div class="fld-wrapper">
 		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		                                        <input class="mdl-textfield__input" type="tel" id="ccNumber" name="ccNumber" data-keyblock-num="true" maxlength="19">
-		                                        <label class="mdl-textfield__label" for="ccNumber">Credit card number</label>
+		                                        <label class="mdl-textfield__label" for="ccNumber"><fmt:message key="payment.card.no" bundle="${msg}" /></label>
 		                                    </div>
 		                                    
 		                                </div>
@@ -534,7 +534,7 @@ var plan="${plan}";
 		                                <div class="fld-wrapper">
 		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder">
-		                                        <label class="mdl-textfield__label" for="ccName">Cardholder’s Name</label>
+		                                        <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 		                                    </div>
 		                                </div>
 		                                <span class="error-msg" id="ccNameErrMsg"></span>
@@ -595,7 +595,7 @@ var plan="${plan}";
 		                                        <div class="fld-wrapper">
 		                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 		                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3">
-		                                                <label class="mdl-textfield__label" for="cvvNumber">Security Code</label>
+		                                                <label class="mdl-textfield__label" for="cvvNumber"><fmt:message key="payment.security.code" bundle="${msg}" /></label>
 		                                            </div>
 		                                        </div>
 		                                        <span class="error-msg" id="cvvNumberErrMsg"></span>
@@ -612,7 +612,7 @@ var plan="${plan}";
 		                        <div class="col-xs-12">
 			                        <div class="form-group no-border">
 				                        <div class="checkbox">
-				                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC">I confirm that I am the policy owner and holder of the above credit card. I hereby authorize FWD Life Insurance Company (Bermuda) Limited ("FWD") to debit my Credit Card Account for the premium of this insurance. I further acknowledge and agree that this insurance policy will be automatically renewed and any subsequent renewal premium will be debited from my Credit Card Account specified above until my prior written instruction for cancellation.</label>
+				                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="payment.declaration" bundle="${msg}" /></label>
 				                            <span class="error-msg" id="cbTNCErrMsg"></span>
 				                        </div>
 			
@@ -624,16 +624,16 @@ var plan="${plan}";
 		                
 		            	</div>
 			            <div class="btn-row text-center">
-			                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back grey-out">Back</a>
+			                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back grey-out"><fmt:message key="payment.button.back" bundle="${msg}" /></a>
 			                <%
 			                    HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
 			                %>
 			                <c:choose>
 								<c:when test="${language=='en'}">
-					                <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+					                <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next"><fmt:message key="payment.button.confirm" bundle="${msg}" /></a>
 								</c:when>
 						        <c:otherwise>
-						            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next">Next</a>
+						            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next"><fmt:message key="payment.button.confirm" bundle="${msg}" /></a>
 								</c:otherwise>
 							</c:choose>
 			            </div>	

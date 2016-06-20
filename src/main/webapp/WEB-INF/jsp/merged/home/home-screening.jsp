@@ -37,42 +37,42 @@ var nextPage = "${nextPageFlow}";
         <form id="ef-form-screening">
         <div class="container-fluid">
 
-            <h2>Before we start</h2>
+            <h2><fmt:message key="screening.home.jumbo" bundle="${msg}" /></h2>
             <div class="screening-wrapper clearfix">
                 <img src="<%=request.getContextPath()%>/resources/images/easy-home/screening_image_v01.png" alt="" class="img-hero hidden-xs">
                 <img src="<%=request.getContextPath()%>/resources/images/easy-home/screening_image_mobile_v01.png" alt="" class="img-responsive visible-xs">
                 <div class="screening-cont">
                     <div class="screening-block">
-                        <span>Question 1</span>
-                        <p>Is the building aged over 35 years?</p>
+                        <span><fmt:message key="screening.home.question1.q" bundle="${msg}" /></span>
+                        <p><fmt:message key="screening.home.question1" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                <i>Yes</i><input type="checkbox" name="cb1" checked data-txton="No" data-txtoff="Yes"><span></span><i>No</i>
+                                <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb1" checked data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>
                     <div class="screening-block">
-                        <span>Question 2</span>
-                        <p>Is your home situated in a building which is 4-storey (or less)?</p>
+                        <span><fmt:message key="screening.home.question2.q" bundle="${msg}" /></span>
+                        <p><fmt:message key="screening.home.question2" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                 <i>Yes</i><input type="checkbox" name="cb2" checked  data-txton="No" data-txtoff="Yes"><span></span><i>No</i>
+                                 <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb2" checked  data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>
                     <div class="screening-block">
-                        <span>Question 3</span>
-                        <p>Is your home below net floor area of 1,000 square feet?</p>
+                        <span><fmt:message key="screening.home.question3.q" bundle="${msg}" /></span>
+                        <p><fmt:message key="screening.home.question3" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                <i>Yes</i><input type="checkbox" name="cb3" checked data-txton="No" data-txtoff="Yes"><span></span><i>No</i>
+                                <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb3" checked data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>
 
                 </div>
                 <div class="btn-row text-center">
-                    <a href="javascript:void(0);" class="btn-app eh-btn-next" id="screening-next">Next</a>
+                    <a href="javascript:void(0);" class="btn-app eh-btn-next" id="screening-next"><fmt:message key="screening.home.button.next" bundle="${msg}" /></a>
                 </div>
             </div>
         </div>

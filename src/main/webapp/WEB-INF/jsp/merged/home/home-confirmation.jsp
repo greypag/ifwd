@@ -47,9 +47,9 @@ var plan="${plan}";
 
                     <div class="thanks-panel">
                         <h4>Thank you!</h4>
-                        <p>You have successfully completed your purchase of Easy HomeCare insurance with FWD. An email will be sent to <strong class="toemail">${emailID}</strong> with the details of your policy.</p>
+                        <p><fmt:message key="confirmation.text1" bundle="${msg}" /> Easy HomeCare insurance <fmt:message key="confirmation.text1.suffix" bundle="${msg}" /> <strong class="toemail">${emailID}</strong> <fmt:message key="confirmation.text2" bundle="${msg}" /></p>
                         <div class="text-center">
-                            <p class="span">Reference Number</p>
+                            <p class="span"><fmt:message key="confirmation.text3" bundle="${msg}" /></p>
                             <p class="policy-num">${referenceNo}</p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ var plan="${plan}";
 
             <div class="row cont-block">
                 <div class="col-xs-12 col-md-12">
-                    <h4>Share your promotion code now to earn discounts and rewards!</h4>
+                    <h4><fmt:message key="confirmation.text4" bundle="${msg}" /></h4>
                     <div class="text-center share-panel">
                         
                         <div class="text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/${plan=="home-liability" ? "household-insurance/home-liability" : "household-insurance/easy-home-care"}?promo=<%=session.getAttribute("myHomeReferralCode")%></div>
@@ -107,7 +107,7 @@ var plan="${plan}";
 
             <div class="row cont-block">
                 <div class="col-xs-12">
-                    <h4>Partner</h4>
+                    <h4><fmt:message key="confirmation.text5" bundle="${msg}" /></h4>
                 </div>
                 <div class="col-xs-12 col-md-10 col-md-offset-1">
                     <div class="row">

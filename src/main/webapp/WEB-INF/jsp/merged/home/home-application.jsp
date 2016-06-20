@@ -150,7 +150,7 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Applicant's Details</h3>
+                    <h3 class="heading-title"><fmt:message key="application.jumbo.details" bundle="${msg}" /></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12">
@@ -171,7 +171,7 @@ var plan="${plan}";
 											    </c:otherwise>
 											</c:choose>
 										    >
-                                        <label class="mdl-textfield__label" for="applicantName">Full name (same as ID document)</label>
+                                        <label class="mdl-textfield__label" for="applicantName"><fmt:message key="application.input.engname" bundle="${msg}" /></label>
                                     </div>
                                     
                                 </div>
@@ -187,7 +187,7 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-date">
                                             <input class="mdl-textfield__input mobiscroll-date" type="text" id="dob" name="dob" value="${editableUserDetails.dob}">
-                                            <label class="mdl-textfield__label" for="dob">Date of birth</label>
+                                            <label class="mdl-textfield__label" for="dob"><fmt:message key="application.input.birth" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -204,7 +204,7 @@ var plan="${plan}";
                                             <option value="appHkid" <c:if test="${editableUserDetails != null && editableUserDetails.hkid != ''}"> selected="selected"</c:if>>HKID</option>
                                             <option value="appPassport" <c:if test="${editableUserDetails != null && editableUserDetails.passport != ''}"> selected="selected"</c:if>>Passport</option>
                                         </select>
-                                        <label class="mdl-textfield__label" for="apphkidandpassport">HKID/Passport</label>
+                                        <label class="mdl-textfield__label" for="apphkidandpassport"><fmt:message key="application.input.idno" bundle="${msg}" /></label>
                                     </div>
                                     
                                 </div>
@@ -226,7 +226,7 @@ var plan="${plan}";
 												    </c:when>
 												</c:choose>
                                             	>
-                                            <label class="mdl-textfield__label" for="hkId">HKID/Passport no.</label>
+                                            <label class="mdl-textfield__label" for="hkId"><fmt:message key="application.input.idno" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -251,7 +251,7 @@ var plan="${plan}";
 												    </c:otherwise>
 												</c:choose>
 												>
-                                            <label class="mdl-textfield__label" for="mobileNo">Mobile number</label>
+                                            <label class="mdl-textfield__label" for="mobileNo"><fmt:message key="application.input.mobile" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -273,7 +273,7 @@ var plan="${plan}";
 													    </c:otherwise>
 													</c:choose>
 												>
-                                            <label class="mdl-textfield__label" for="emailAddress">Email address</label>
+                                            <label class="mdl-textfield__label" for="emailAddress"><fmt:message key="application.input.email" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -285,7 +285,7 @@ var plan="${plan}";
                     <div class="row">
                         
                         <div class="col-xs-12">
-                            <h4>Correspondence Address</h4>
+                            <h4><fmt:message key="application.input.address" bundle="${msg}" /></h4>
                         </div>
                         
                         <div class="col-xs-12 col-sm-4">
@@ -407,7 +407,7 @@ var plan="${plan}";
                                         </select>
                                         
                                         
-                                        <label class="mdl-textfield__label" for="applicantDistrict">District</label>
+                                        <label class="mdl-textfield__label" for="applicantDistrict"><fmt:message key="application.input.district" bundle="${msg}" /></label>
                                     </div>
                                     <div class="hidden">
                                     	<select id="selectApplicantArea">
@@ -449,7 +449,7 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Insured Details</h3>
+                    <h3 class="heading-title"><fmt:message key="application.jumbo.insureddetails" bundle="${msg}" /></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12">
@@ -459,7 +459,7 @@ var plan="${plan}";
                                 <div class="fld-wrapper ctrl-insured-addr">
                                     <div class="row">
                                         <div class="col-xs-12 col-md-6">
-                                            <p class="fld-label">Insured address same as applicant's correspondence address${editableHomeCareDetails.cbSameCorrAddr != false}</p>
+                                            <p class="fld-label"><fmt:message key="application.input.sameaddress" bundle="${msg}" />${editableHomeCareDetails.cbSameCorrAddr != false}</p>
                                         </div>
                                         <div class="col-xs-12 col-md-6 cb-toggle">
                                             <div class="checkbox checkbox-slider--b checkbox-slider-md">
@@ -487,7 +487,7 @@ var plan="${plan}";
                     <div class="row insured-addr-more" <c:if test="${!(editableHomeCareDetails.cbSameCorrAddr != false)}">style="display: block;"</c:if>>
 
                         <div class="col-xs-12">
-                            <h4>Insured Address</h4>
+                            <h4><fmt:message key="application.input.insuredaddress" bundle="${msg}" /></h4>
                         </div>
 
                         <div class="col-xs-12 col-sm-4">
@@ -595,7 +595,7 @@ var plan="${plan}";
                                                 </option>
                                             </c:forEach>
                                         </select>
-                                        <label class="mdl-textfield__label" for="aDistrict">District</label>
+                                        <label class="mdl-textfield__label" for="aDistrict"><fmt:message key="application.input.district" bundle="${msg}" /></label>
                                     </div>
                                     <div class="hidden">
                                     	<select id="selectaArea">
@@ -650,7 +650,7 @@ var plan="${plan}";
                                                 </option>
                                             </c:forEach>
                                         </select>
-                                        <label class="mdl-textfield__label" for="netFloorArea">Net floor Area (square feet)</label>
+                                        <label class="mdl-textfield__label" for="netFloorArea"><fmt:message key="application.input.floorarea" bundle="${msg}" /></label>
                                     </div>
                                     
                                 </div>
@@ -663,7 +663,7 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-date">
                                             <input value="${editableHomeCareDetails.effectiveDate }" class="mdl-textfield__input mobiscroll-date" type="text" id="effectdate" name="effectiveDate">
-                                            <label class="mdl-textfield__label" for="effectdate">Effective date of coverage</label>
+                                            <label class="mdl-textfield__label" for="effectdate"><fmt:message key="application.input.eff.coverage" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -677,25 +677,31 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Declaration</h3>
+                    <h3 class="heading-title"><fmt:message key="application.jumbo.declaration" bundle="${msg}" /></h3>
                 </div>
                 <div class="col-xs-12 col-md-12">
                     <div class="form-group no-border">
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox1" id="declarration"><label for="declarration">I have read and understood the policy provisions and declare that:<br>i. the particulars and statements given above are, to the best of my knowledge and belief, true and complete;<br>ii. the Home is constructed from bricks, stone or concrete with concrete roof and occupied by me and my family as private dwelling; <br>iii. I or my family member living with me have not sustained any loss during the last three years from any of the risks now proposed for insurance; or been refused renewal by any insurer;<br>iv. this application shall be the basis of the contract between me and FWD General Insurance Company Limited;<br>v. this Proposal Form is applied for at HKSAR, in case of fraud or misrepresentation, the policy may be declared void.</label>
+                            <input type="checkbox" name="checkbox1" id="declarration"><label for="declarration"><fmt:message key="application.declaration.text1" bundle="${msg}" />
+<br><fmt:message key="application.declaration.home.text2" bundle="${msg}" />
+<br><fmt:message key="application.declaration.home.text3" bundle="${msg}" />
+<br><fmt:message key="application.declaration.home.text4" bundle="${msg}" />
+<br><fmt:message key="application.declaration.home.text5" bundle="${msg}" />
+<br><fmt:message key="application.declaration.home.text6" bundle="${msg}" /></label>
                             <span class="error-msg" id="declarrationErrMsg"></span>
                         </div>
                         <div class="checkbox sep">
-                            <input type="checkbox" name="checkbox2" id="declarration2"><label for="declarration2">I have read and understood Personal Information Collection Statement and agree to be bound by the same.</label>
+                            <input type="checkbox" name="checkbox2" id="declarration2"><label for="declarration2"><fmt:message key="application.declaration.tickbox1" bundle="${msg}" /></label>
                             <span class="error-msg" id="declarration2ErrMsg"></span>
                         </div>
                         <hr>
                         <div class="checkbox grey">
-                            <input type="checkbox" name="checkbox3" id="donotWishDirectMarketing"><label for="donotWishDirectMarketing">If you do NOT wish FWD General Insurance Company Limited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:<br>Please do not send direct marketing information to me.</label>
+                            <input type="checkbox" name="checkbox3" id="donotWishDirectMarketing"><label for="donotWishDirectMarketing"><fmt:message key="application.declaration.home.text7" bundle="${msg}" />
+<br><fmt:message key="application.declaration.tickbox2" bundle="${msg}" /></label>
                             
                         </div>
                         <div class="checkbox grey">
-                            <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label>
+                            <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose"><fmt:message key="application.declaration.tickbox3" bundle="${msg}" /></label>
                             
                         </div>
                     </div>
@@ -710,7 +716,7 @@ var plan="${plan}";
 				</c:if>>
                 
                 <div class="col-xs-12">
-                    <h3 class="heading-title">Create FWD member account</h3>
+                    <h3 class="heading-title"><fmt:message key="application.jumbo.create.member" bundle="${msg}" /></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12">
@@ -722,7 +728,7 @@ var plan="${plan}";
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input autocomplete="off" class="mdl-textfield__input" type="text" id="cUserName" name="userName" maxlength="50">
-                                        <label class="mdl-textfield__label" for="userName">Choose username</label>
+                                        <label class="mdl-textfield__label" for="userName"><fmt:message key="application.input.username" bundle="${msg}" /></label>
                                     </div>
                                     
                                 </div>
@@ -738,7 +744,7 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input autocomplete="off" class="mdl-textfield__input" type="password" id="cPassword" name="password">
-                                            <label class="mdl-textfield__label" for="password">Choose password</label>
+                                            <label class="mdl-textfield__label" for="password"><fmt:message key="application.input.password" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -751,7 +757,7 @@ var plan="${plan}";
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input autocomplete="off" class="mdl-textfield__input" type="password" id="Confirm-Password" name="Confirm-Password">
-                                            <label class="mdl-textfield__label" for="Confirm-Password">Confirm password</label>
+                                            <label class="mdl-textfield__label" for="Confirm-Password"><fmt:message key="application.input.confirm.password" bundle="${msg}" /></label>
                                         </div>
                                         
                                     </div>
@@ -765,8 +771,8 @@ var plan="${plan}";
             </div>
 
             <div class="btn-row text-center">
-                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back">Back</a>
-                <a href="javascript:void(0);" class="btn-app eh-btn-next">Next</a>
+                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back"><fmt:message key="application.button.back" bundle="${msg}" /></a>
+                <a href="javascript:void(0);" class="btn-app eh-btn-next"><fmt:message key="application.button.next" bundle="${msg}" /></a>
             </div>
             
         </div>
