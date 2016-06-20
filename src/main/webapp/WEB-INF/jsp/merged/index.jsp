@@ -572,6 +572,11 @@ var languageP = "${language}";
 					        $('#btn-collapse3').attr('src', src);
 					    }
 					});
+					
+					//mobile blog read more button open blog page
+					$('.read-more-btn-mb').click(function(){
+						window.open('<fmt:message key="link.blog1.link" bundle="${msg}" />');
+					});					
             });
             
 		</script>

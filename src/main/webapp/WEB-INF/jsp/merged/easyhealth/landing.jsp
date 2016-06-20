@@ -436,3 +436,12 @@ var home_url = "<%=request.getContextPath()%>";
     </div>
   </div>
 </div>
+
+<script>
+//mobile blog read more button open blog page
+$(document).ready(function() {
+	$('#btn-blog-link').click(function(){
+		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
+	});
+});	
+</script>
