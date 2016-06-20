@@ -719,8 +719,9 @@ public class WorkingHolidayController {
 		//insured.put("ageRange", planDetailsForm.getWhInsAgeRange());
 		insured.put("ageRange", "4");
 		
-		insured.put("hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
-		insured.put(!"hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
+		insured.put("hkid".equals(planDetailsForm.getSelectWhAppHKID().toLowerCase()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
+		insured.put(!"hkid".equals(planDetailsForm.getSelectWhAppHKID().toLowerCase()) ? "hkId" : "passport", "");
+		insured.put("dob", dob);
 		insured.put("relationship", "SE");
 		JSONObject beneficiary = new JSONObject();
 		
@@ -729,30 +730,20 @@ public class WorkingHolidayController {
 			if (planDetailsForm.getSelectWhAppHKID().toLowerCase().equals("hkid")) {
 				beneficiary.put("hkId", planDetailsForm.getWhAppHKID());
 				beneficiary.put("passport", "");
-			}
-			else {
+			}else {
 				beneficiary.put("hkId", "");
 				beneficiary.put("passport", planDetailsForm.getWhAppHKID());
-				
 			}
-				
-//			beneficiary.put("hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", planDetailsForm.getWhAppHKID());
-//			beneficiary.put(!"hkId".equals(planDetailsForm.getSelectWhAppHKID()) ? "hkId" : "passport", "");
 		} else {
 			beneficiary.put("name", planDetailsForm.getWhInsFullName().toUpperCase());
 			if (planDetailsForm.getSelectWhInsHKID().toLowerCase().equals("hkid")) {
 				beneficiary.put("hkId", planDetailsForm.getWhInsHKID());
 				beneficiary.put("passport", "");
 				
-			}
-				
-			else {
+			}else {
 				beneficiary.put("hkId", "");
 				beneficiary.put("passport", planDetailsForm.getWhInsHKID());
 			}
-				
-//			beneficiary.put("hkId".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", planDetailsForm.getWhInsHKID());
-//			beneficiary.put(!"hkId".equals(planDetailsForm.getSelectWhInsHKID()) ? "hkId" : "passport", "");
 		}
 		beneficiary.put("relationship", planDetailsForm.getWhInsBeneficary());
 		insured.put("beneficiary", beneficiary);
