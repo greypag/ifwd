@@ -2368,7 +2368,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</h4>
 					<div class="clearfix declaration">
 						<div class="pull-left pics-check">
-							<input type="checkbox" value="pics" id="pics-check" name="isPics" />
+							<input type="checkbox" value="pics" id="pics-check" name="isPics" ${etPolicyApplication.applicant.isPics=='pics' ? 'checked="checked"':'' } />
 							<label for="pics-check"></label>
 						</div>
 						<div class="pull-left pics-desc checkbox-description">
@@ -2396,7 +2396,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
 									<input type="checkbox" value="NO"
-										id="no-policy-replace-check" name="cancellation" /> <label
+										id="no-policy-replace-check" name="cancellation" ${etPolicyApplication.applicant.cancellation=='NO' ? 'checked="checked"':'' } /> <label
 										for="no-policy-replace-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2408,7 +2408,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
 									<input type="checkbox" value="YES"
-										id="yes-policy-replace-check" name="cancellation" /> <label
+										id="yes-policy-replace-check" name="cancellation" ${etPolicyApplication.applicant.cancellation=='YES' ? 'checked="checked"':'' }/> <label
 										for="yes-policy-replace-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
@@ -2431,7 +2431,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
 									<input type="checkbox" value="NO"
-										id="no-policy-replace-existing-check" name="policyReplace" /> <label
+										id="no-policy-replace-existing-check" name="policyReplace" ${etPolicyApplication.applicant.policyReplace=='NO' ? 'checked="checked"':'' } /> <label
 										for="no-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2443,7 +2443,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
 									<input type="checkbox" value="YES"
-										id="yes-policy-replace-existing-check" name="policyReplace" /> <label
+										id="yes-policy-replace-existing-check" name="policyReplace" ${etPolicyApplication.applicant.policyReplace=='YES' ? 'checked="checked"':'' } /> <label
 										for="yes-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
@@ -2525,7 +2525,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="clearfix declaration">
 						<div class="pull-left cancellation-check">
 							<input type="checkbox" value="residency"
-								id="cancellation-check" name="residency" /> <label
+								id="cancellation-check" name="residency" ${etPolicyApplication.applicant.residency=='residency' ? 'checked="checked"':'' } /> <label
 								for="cancellation-check"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2549,7 +2549,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
 									<input type="checkbox" value="NO" id="is-resident-check"
-										name="isResident" /> <label for="is-resident-check"></label>
+										name="isResident" ${etPolicyApplication.applicant.isResident=='NO' ? 'checked="checked"':'' } /> <label for="is-resident-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
 									<label for="is-resident-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
@@ -2560,7 +2560,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
 									<input type="checkbox" value="YES" id="non-resident-check"
-										name="isResident" /> <label for="non-resident-check"></label>
+										name="isResident" ${etPolicyApplication.applicant.isResident=='YES' ? 'checked="checked"':'' } /> <label for="non-resident-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
 									<label for="non-resident-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
@@ -2583,7 +2583,7 @@ var home_url = "<%=request.getContextPath()%>";
 						class="clearfix declaration application-declaration sub-header">
 						<div class="pull-left cancellation-check">
 							<input type="checkbox" value="appDeclaration"
-								id="application-declaration" name="appDeclaration" /> <label
+								id="application-declaration" name="appDeclaration" ${etPolicyApplication.applicant.appDeclaration=='appDeclaration' ? 'checked="checked"':'' } /> <label
 								for="application-declaration"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2666,7 +2666,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</h5>
 						<div class="clearfix authorization">
 							<div class="pull-left marketing-info-check">
-								<input type="checkbox" value="YES" id="marketing-info-check" name="isMarketingInfo" />
+								<input type="checkbox" value="YES" id="marketing-info-check" name="isMarketingInfo" ${etPolicyApplication.applicant.isMarketingInfo=='YES' ? 'checked="checked"':'' } />
 								<label for="marketing-info-check"></label>
 							</div>
 							<div class="pull-left marketing-info-desk checkbox-description">
@@ -2676,7 +2676,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 						<div class="clearfix authorization">
 							<div class="pull-left personal-data-check">
-								<input type="checkbox" value="YES" id="personal-data-check" name="isPersonalData" />
+								<input type="checkbox" value="YES" id="personal-data-check" name="isPersonalData" ${etPolicyApplication.applicant.isPersonalData=='YES' ? 'checked="checked"':'' }/>
 								<label for="personal-data-check"></label>
 							</div>
 							<div class="pull-left personal-data-desc checkbox-description">
