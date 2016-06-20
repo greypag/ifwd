@@ -3239,14 +3239,27 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="summary-one"></label>
 									<p class="notice">
 										<fmt:message
-											key="eliteTerms.selectPlan.I.DO.NOT.have.proposal"
+											key="eliteTerms.selectPlan.Question1.copy"
 											bundle="${msg}" />
 									</p>
 								</div>
 								<div class="fwd-checkbox below">
 									<input type="checkbox" id="summary-two" checked disabled>
 									<label for="summary-two"></label>
-									<p class="notice">
+									<p class="notice second-format">
+										<fmt:message key="eliteTerms.selectPlan.Question2.copy"
+											bundle="${msg}" />
+									</p>									
+									</div>
+								</div>
+								<div class="fwd-checkbox below">
+									<input type="checkbox" id="summary-three" checked disabled>
+									<label for="summary-three"></label>
+									<p class="notice second-format">
+										<fmt:message key="eliteTerms.selectPlan.Question3.copy"
+											bundle="${msg}" />
+									</p>									
+									<%--<p class="notice">
 										<fmt:message key="eliteTerms.selectPlan.I.DO.NOT.have.had"
 											bundle="${msg}" />
 									</p>
@@ -3290,7 +3303,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
-											<%-- <li><img
+											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
 											<li><img
@@ -3298,18 +3311,9 @@ var home_url = "<%=request.getContextPath()%>";
 														key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
-														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li> --%>
-										</ul>
-									</div>
-								</div>
-								<div class="fwd-checkbox below">
-									<input type="checkbox" id="summary-three" checked disabled>
-									<label for="summary-three"></label>
-									<p class="notice second-format">
-										<fmt:message key="eliteTerms.selectPlan.In.the.past.3.years"
-											bundle="${msg}" />
-									</p>
-								</div>
+														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
+										</ul>									
+								</div> --%>
 								<div class="fwd-checkbox below">
 									<input type="checkbox" id="summary-four" checked disabled>
 									<label for="summary-four"></label>
