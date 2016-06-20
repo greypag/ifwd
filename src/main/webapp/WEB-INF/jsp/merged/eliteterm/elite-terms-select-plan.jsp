@@ -2352,6 +2352,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<!--DECLARATION AND AUTHORIZATION PAGE-->
 		<div class="container-fluid fwd-container hide-element"
 			id="et-application-second-section">
+			<form id="etLicenseInfoForm" method="post" action="" onsubmit="return false">
 			<div
 				class="declare-authorize page-application et-declaration-section">
 				<h2>
@@ -2393,8 +2394,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="no-policy-replace-check" name="isCancel" /> <label
+									<input type="checkbox" value="NO"
+										id="no-policy-replace-check" name="cancellation" /> <label
 										for="no-policy-replace-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2405,8 +2406,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="yes-policy-replace-check" name="isCancel" /> <label
+									<input type="checkbox" value="YES"
+										id="yes-policy-replace-check" name="cancellation" /> <label
 										for="yes-policy-replace-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
@@ -2428,8 +2429,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="no-policy-replace-existing-check" name="isCancel" /> <label
+									<input type="checkbox" value="NO"
+										id="no-policy-replace-existing-check" name="policyReplace" /> <label
 										for="no-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2440,8 +2441,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="yes-policy-replace-existing-check" name="isCancel" /> <label
+									<input type="checkbox" value="YES"
+										id="yes-policy-replace-existing-check" name="policyReplace" /> <label
 										for="yes-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
@@ -2522,8 +2523,8 @@ var home_url = "<%=request.getContextPath()%>";
 					</h4>
 					<div class="clearfix declaration">
 						<div class="pull-left cancellation-check">
-							<input type="checkbox" value="cancellation"
-								id="cancellation-check" name="isCancel" /> <label
+							<input type="checkbox" value="residency"
+								id="cancellation-check" name="residency" /> <label
 								for="cancellation-check"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2546,7 +2547,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="no" id="is-resident-check"
+									<input type="checkbox" value="NO" id="is-resident-check"
 										name="isResident" /> <label for="is-resident-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2557,8 +2558,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="yes" id="non-resident-check"
-										name="nonResident" /> <label for="non-resident-check"></label>
+									<input type="checkbox" value="YES" id="non-resident-check"
+										name="isResident" /> <label for="non-resident-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
 									<label for="non-resident-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
@@ -2580,8 +2581,8 @@ var home_url = "<%=request.getContextPath()%>";
 					<div
 						class="clearfix declaration application-declaration sub-header">
 						<div class="pull-left cancellation-check">
-							<input type="checkbox" value="cancellation"
-								id="application-declaration" name="isCancel" /> <label
+							<input type="checkbox" value="appDeclaration"
+								id="application-declaration" name="appDeclaration" /> <label
 								for="application-declaration"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2662,11 +2663,9 @@ var home_url = "<%=request.getContextPath()%>";
 						<fmt:message key="eliteTerms.selectPlan.If.you.do.NOT.wish.FWD"
 							bundle="${msg}" />
 					</h5>
-					<form id="etLicenseInfoForm" method="post" action=""
-						onsubmit="return false">
 						<div class="clearfix authorization">
 							<div class="pull-left marketing-info-check">
-								<input type="checkbox" value="true" id="marketing-info-check" name="isMarketingInfo" />
+								<input type="checkbox" value="YES" id="marketing-info-check" name="isMarketingInfo" />
 								<label for="marketing-info-check"></label>
 							</div>
 							<div class="pull-left marketing-info-desk checkbox-description">
@@ -2676,7 +2675,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 						<div class="clearfix authorization">
 							<div class="pull-left personal-data-check">
-								<input type="checkbox" value="true" id="personal-data-check" name="isPersonalData" />
+								<input type="checkbox" value="YES" id="personal-data-check" name="isPersonalData" />
 								<label for="personal-data-check"></label>
 							</div>
 							<div class="pull-left personal-data-desc checkbox-description">

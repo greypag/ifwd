@@ -115,6 +115,17 @@ public class CreateEliteTermPolicyApplicant{
 	private String relationship3CnName;
 	private String entitlement3;
 	
+	private String isPics;
+	private String cancellation;
+	private String policyReplace;
+	private String residency;
+	private String isResident;
+	private String appDeclaration;
+	private String isMarketingInfo;
+	private String isPersonalData;
+	
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -729,6 +740,54 @@ public class CreateEliteTermPolicyApplicant{
 	}
 	public void setRelationship3CnName(String relationship3CnName) {
 		this.relationship3CnName = relationship3CnName;
+	}
+	public String getIsPics() {
+		return isPics;
+	}
+	public void setIsPics(String isPics) {
+		this.isPics = isPics;
+	}
+	public String getCancellation() {
+		return cancellation;
+	}
+	public void setCancellation(String cancellation) {
+		this.cancellation = cancellation;
+	}
+	public String getPolicyReplace() {
+		return policyReplace;
+	}
+	public void setPolicyReplace(String policyReplace) {
+		this.policyReplace = policyReplace;
+	}
+	public String getResidency() {
+		return residency;
+	}
+	public void setResidency(String residency) {
+		this.residency = residency;
+	}
+	public String getIsResident() {
+		return isResident;
+	}
+	public void setIsResident(String isResident) {
+		this.isResident = isResident;
+	}
+	public String getAppDeclaration() {
+		return appDeclaration;
+	}
+	public void setAppDeclaration(String appDeclaration) {
+		this.appDeclaration = appDeclaration;
+	}
+	public String getIsMarketingInfo() {
+		return isMarketingInfo;
+	}
+	public void setIsMarketingInfo(String isMarketingInfo) {
+		this.isMarketingInfo = isMarketingInfo;
+	}
+	public String getIsPersonalData() {
+		return isPersonalData;
+	}
+	public void setIsPersonalData(String isPersonalData) {
+		this.isPersonalData = isPersonalData;
 	}
 	
 	

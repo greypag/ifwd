@@ -695,6 +695,14 @@
 	        	 };
 	         }, 1000);
       	}
+         
+        
+         $.ajax({
+	         type: "POST",
+	         url:contextPath+'/ajax/eliteTerm/putDeclarationSession',
+	         data: $('#etLicenseInfoForm').serialize(),
+	         success:function(data){}
+		 });
 
          //res address
         // if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
