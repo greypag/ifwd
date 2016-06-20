@@ -216,6 +216,7 @@ $(document).ready(function() {
     $(".step-option .btn-option-cancel").click(function (){
         $(".step-option").fadeOut(function() {
             $("body").scrollTo(".step3");
+            $(".sticky-help-wrapper img").fadeIn();
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
     });
