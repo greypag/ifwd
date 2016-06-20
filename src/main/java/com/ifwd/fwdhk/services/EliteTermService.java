@@ -29,5 +29,6 @@ public interface EliteTermService {
 	public void putPersonalInfoSession(HttpServletRequest request)throws ECOMMAPIException;
 	public void putEmploymentInfoSession(HttpServletRequest request)throws ECOMMAPIException;
 	public void putBeneficiaryInfoSession(HttpServletRequest request)throws ECOMMAPIException;
+	public void putDeclarationSession(HttpServletRequest request)throws ECOMMAPIException;
 	
 }

@@ -32,6 +32,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -1432,5 +1433,23 @@ public class EliteTermServiceImpl implements EliteTermService {
 		}
 		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		logger.info("putBeneficiaryInfoSession success");
+    }
+	
+	public void putDeclarationSession(HttpServletRequest request)throws ECOMMAPIException{
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		if(etPolicyApplication == null){
+			etPolicyApplication = new CreateEliteTermPolicyRequest();
+		}
+		etPolicyApplication.getApplicant().setIsPics(request.getParameter("isPics"));
+		etPolicyApplication.getApplicant().setCancellation(request.getParameter("cancellation"));
+		etPolicyApplication.getApplicant().setPolicyReplace(request.getParameter("policyReplace"));
+		etPolicyApplication.getApplicant().setResidency(request.getParameter("residency"));
+		etPolicyApplication.getApplicant().setIsResident(request.getParameter("isResident"));
+		etPolicyApplication.getApplicant().setAppDeclaration(request.getParameter("appDeclaration"));
+		etPolicyApplication.getApplicant().setIsMarketingInfo(request.getParameter("isMarketingInfo"));
+		etPolicyApplication.getApplicant().setIsPersonalData(request.getParameter("isPersonalData"));
+		
+		request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
+		logger.info("putDeclarationSession success");
     }
 }
