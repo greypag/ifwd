@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,39 @@ public class HeaderUtil{
 			}
 		}
 		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CN";
+		}
+		Map<String,String> header = Maps.newHashMap();
+		//header.put("country", "HK");
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		header.put("token", token);
+		header.put("username", username);
+		header.put("Content-Type","application/json");
+		return header;
+	}
+	
+	public Map<String,String> getHeader(HttpServletRequest request, HttpSession session){
+		String token = null, username = null;
+		if((session.getAttribute("token") != null) && (session.getAttribute("username") != null)){
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		}else{
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+		
+        String lang = "tc";
+		if(session.getAttribute("language")!=null) {
+			lang = session.getAttribute("language").toString();
+		}else {
+			session.setAttribute("language", lang);
+			session.setAttribute("uiLocale", "zh-HK");
+		}
+		
 		if (lang.equals("tc")){
 			lang = "CN";
 		}

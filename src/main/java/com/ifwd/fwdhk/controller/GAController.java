@@ -1,12 +1,9 @@
 package com.ifwd.fwdhk.controller;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -36,8 +33,6 @@ import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.Methods;
-import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class GAController extends BaseController{
@@ -234,12 +229,13 @@ public class GAController extends BaseController{
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/confirmation"})
 	public ModelAndView getConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+			HttpSession session = request.getSession();
 			new Thread(){
 				public void run(){
 					JSONObject result = new JSONObject();
 					String paymentFail = "0";
 					try {
-						result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, request.getSession());
+						result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
 						model.addAttribute("policyNo", result.get("policyNo"));
 					} catch (Exception e) {
 						logger.info(e.getMessage());
@@ -248,7 +244,6 @@ public class GAController extends BaseController{
 				}
 			}.start();
 			
-			HttpSession session = request.getSession();
 			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
 			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");

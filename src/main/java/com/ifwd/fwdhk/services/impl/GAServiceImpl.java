@@ -291,7 +291,7 @@ public class GAServiceImpl implements GAService {
 		} else {
 			RestServiceDao restService = new RestServiceImpl();
 			//CreatePolicy finalizeObject = new CreatePolicy();
-			Map<String, String> header = headerUtil.getHeader(request);
+			Map<String, String> header = headerUtil.getHeader(request, session);
 			JSONObject parameters = new JSONObject();
 			parameters.put("paymentFail", "0");
 			parameters.put("referenceNo", referenceNo);
