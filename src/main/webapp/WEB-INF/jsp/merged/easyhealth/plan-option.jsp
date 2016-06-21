@@ -1532,13 +1532,13 @@ var ehPro = '${pro }';
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.32.content" bundle="${msg}" /></li>
                                                                 <li><fmt:message key="easyhealth.plandetails.exclusions.33.content" bundle="${msg}" /></li>
                                                             </ol>
-                                                            <p><fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" /></p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.risk.9.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.10.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><fmt:message key="easyhealth.plandetails.risk.11.content" bundle="${msg}" /></p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.risk.11.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.12.content" bundle="${msg}" /></p>
                                                             <br>
-                                                            <p><fmt:message key="easyhealth.plandetails.risk.13.content" bundle="${msg}" /></p>
+                                                            <p><b><fmt:message key="easyhealth.plandetails.risk.13.content" bundle="${msg}" /></b></p>
                                                             <p><fmt:message key="easyhealth.plandetails.risk.14.content" bundle="${msg}" />
                                                                 <ol>
                                                                     <li><fmt:message key="easyhealth.plandetails.risk.15.content" bundle="${msg}" /></li>
