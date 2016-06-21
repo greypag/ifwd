@@ -781,8 +781,8 @@
                     <!-- end fifth plan -->
 					<!-- sixth plan -->
                     <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-overseas-mobile.jpg" class="img-responsive hidden-md hidden-lg">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-overseas-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
                         <div class="plan-details-box orange-bg right">
                             <div class="plan-desc">
