@@ -1258,7 +1258,9 @@ public class TravelController {
 					
 				}
 			}
-							
+			if(inx == 0) {
+				personal.put("dob", dob);
+			}
 			insured.add(personal);
 			
 			// update relationship desc
@@ -1421,7 +1423,9 @@ public class TravelController {
 					adult.put("beneficiary", beneficiary);
 				}
 			}
-						
+			if(inx == 0) {
+				adult.put("dob", dob);
+			}			
 			insured.add(adult);
 			
 			// update relationship desc
