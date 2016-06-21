@@ -8,6 +8,7 @@
 <script type="text/javascript">
 var context="<%=request.getContextPath()%>";
 var plan="${plan}"; 
+var lang1 = "${language}";
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/easyhome-landing.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
@@ -29,7 +30,7 @@ var plan="${plan}";
 </div>
 <div class="savie-regular-container savie-regular-landing rp-only">
     <div class="whole-banner">
-        <div class="page-banner"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+        <div class="page-banner"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-mobile_${language}.jpg" class="img-responsive hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-desktop_${language}.jpg" class="img-responsive hidden-xs hidden-sm">
             <div class="fwd-container-limit">
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care/${nextPageFlow}" method="post">
                     <div class="img-banner-text savie-landing">
@@ -47,7 +48,7 @@ var plan="${plan}";
             <div class="row">
                 <div class="col-xs-12 center">
                     <h3 class="eh_sec_title">
-                        <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s1_title.png" alt='<fmt:message key="label.title.easy.home" bundle="${msg}" />' class="img-responsive center">
+                        <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s1_title_${language}.png" alt='<fmt:message key="label.title.easy.home" bundle="${msg}" />' class="img-responsive center">
                         <fmt:message key="label.title3.easy.home" bundle="${msg}" />
                     </h3>
                     <p><fmt:message key="label.gurantee.easy.home" bundle="${msg}" /></p> <a href="javascript:void(0)" data-ani2=".eh_sale_container" class="eh_btn_more_details"><fmt:message key="button.more.easy.home" bundle="${msg}" /></a>
@@ -71,7 +72,7 @@ var plan="${plan}";
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title"><fmt:message key="usp.home.title1" bundle="${msg}" /></h5>
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_01.png" class="img-responsive center">
-                                <div class="item-desc">
+                                <div class="item-desc text-center">
                                     <p><fmt:message key="usp.home.text1" bundle="${msg}" /></p>
                                 </div>
                             </div>
@@ -80,7 +81,7 @@ var plan="${plan}";
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title"><fmt:message key="usp.home.title2" bundle="${msg}" /></h5>
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_02.png" class="img-responsive center">
-                                <div class="item-desc">
+                                <div class="item-desc text-center">
                                     <p class="padded"><fmt:message key="usp.home.text2" bundle="${msg}" /></p>
                                 </div>
                             </div>
@@ -89,7 +90,7 @@ var plan="${plan}";
                             <div class="inner">
                                 <h5 class="text-center eh_sec_title"><fmt:message key="usp.home.title3" bundle="${msg}" /></h5>
                                 <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s2_icon_03.png" class="img-responsive center">
-                                <div class="item-desc">
+                                <div class="item-desc text-center">
                                     <p class="padded"><fmt:message key="usp.home.text3" bundle="${msg}" /></p>
                                 </div>
                             </div>
@@ -124,7 +125,7 @@ var plan="${plan}";
         <div class="row">
             <div class="container eh_sec_color_wraping eh_3_feature">
                 <div class="col-xs-12 nopadding eh_inner_color">
-                    <div class="col-xs-12 eh_sec_title"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_title.png" alt='<fmt:message key="button.pro2.jumbo" bundle="${msg}" />' class="img-responsive center"> </div>
+                    <div class="col-xs-12 eh_sec_title"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_title_${language}.png" alt='<fmt:message key="button.pro2.jumbo" bundle="${msg}" />' class="img-responsive center"> </div>
                     <div class="autoAlignBox">
                         <div class="col-xs-12 col-md-4 eh_feature_box f1">
                             <div class="inner introAni waiting">
@@ -174,7 +175,7 @@ var plan="${plan}";
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><fmt:message key="jointpro2.provisions" bundle="${msg}" /><fmt:message key="jointpro2.text3" bundle="${msg}" /><fmt:message key="jointpro2.brochure" bundle="${msg}" /><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><fmt:message key="jointpro2.provisions" bundle="${msg}" /><fmt:message key="jointpro2.text3" bundle="${msg}" /><fmt:message key="jointpro2.brochure" bundle="${msg}" /><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
@@ -187,7 +188,7 @@ var plan="${plan}";
             <div class="hidden-sm hidden-xs col-md-12">
                 <canvas id="canvas" class="waiting" width="1024" height="480" style="background-color:#90D3DD"></canvas>
                 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-                <script>window.eh_caseAniImgPath = "<%=request.getContextPath()%>/resources/images/easy-home/caseA/tc";</script>
+                <script>window.eh_caseAniImgPath = "<%=request.getContextPath()%>/resources/images/easy-home/caseA/${language}";</script>
                 <script src="<%=request.getContextPath()%>/resources/js/easy-home/home_case _v2.js?1465281955995"></script>
                 <script>
                     var canvas, stage, exportRoot;
@@ -208,7 +209,7 @@ var plan="${plan}";
                     }
 
                     function handleComplete(evt) {
-                        exportRoot = new lib.home_case_v2();
+                        exportRoot = new lib.home_case_v2_en();
 
                         stage = new createjs.Stage(canvas);
                         stage.addChild(exportRoot);
@@ -277,9 +278,9 @@ var plan="${plan}";
         <div class="row">
             <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care/${nextPageFlow}" method="post">
 	            <div class="col-xs-12">
-	                <h3 class="text-center">Home insurance for around HK$1 a day</h3>
+	                <h3 class="text-center"><fmt:message key="jointpro2.text6" bundle="${msg}" /></h3>
 	                <div class="text-center">
-	                    <button class="savie-regular-btn start-btn">Apply Now</button>
+	                    <button class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
 	                </div>
 	            </div>
 	        </form>
