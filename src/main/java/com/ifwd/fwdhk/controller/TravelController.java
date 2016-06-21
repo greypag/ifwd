@@ -46,6 +46,7 @@ import com.ifwd.fwdhk.model.PromoCodeDetail;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
+import com.ifwd.fwdhk.services.TravelService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
@@ -67,6 +68,9 @@ public class TravelController {
 
 	@Autowired
 	private MessageSource messageSource;
+	
+	@Autowired
+	private TravelService  travelService;
 	
 	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance", "/{lang}/travel-insurance/sharing/"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
@@ -1856,20 +1860,35 @@ public class TravelController {
 
 	@SuppressWarnings({ "unchecked"})
 	@RequestMapping(value = {"/{lang}/travel-confirmation", "/{lang}/travel-confirmation", "/{lang}/travel-insurance/confirmation"})
-	public String processPayment(Model model, HttpServletRequest request,
+	public String processPayment(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(required = false) String Ref ) {
 		UserRestURIConstants.setController("Travel");
-		
 		HttpSession session = request.getSession();
+		
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errormsg", "Session Expired");
 			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
 		}
+		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
+		
+		new Thread(){
+			public void run(){
+				JSONObject result = new JSONObject();
+				try {
+					result = travelService.finalizeTravelCarePolicy(request, response, session);
+					model.addAttribute("policyNo", result.get("policyNo"));
+				} catch (Exception e) {
+					logger.info(e.getMessage());
+					e.printStackTrace();
+				}
+			}
+		}.start();
+		
 			
 		session.setAttribute("policyNo", session.getAttribute("policyNo"));
 		model.addAttribute("policyNo", session.getAttribute("policyNo"));
