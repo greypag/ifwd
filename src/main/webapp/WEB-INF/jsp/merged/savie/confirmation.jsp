@@ -20,10 +20,10 @@
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps confirmation-full-online" id="upload-later-confirmation-page">
-			
+
 			<!-- Breadcrumb Component Start-->
 
-			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
 				<c:set var="breadcrumbActive" value="0" />
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
@@ -48,7 +48,7 @@
 
 			<!-- StepIndicator Component Start-->
 
-		     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+		     	<c:set var="stepItems" value="stepindicator.selectplan" />
 				<c:set var="stepActive" value="0" />
 
 				<c:if test="${planIndex == 'medical-insurance'}">
@@ -97,6 +97,39 @@
 	        				</div>
 	        				<div class="col-md-12 border-gray visible-md visible-lg" id="border-desktop"></div>
 	        			</div>
+                <%-- 20160620 --%>
+                <div style="padding: 20px 0">
+                  <p><fmt:message key="savie.confirmation.Your.application.is.part1" bundle="${msg}" /></p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <form action="" method="POST" class="form-horizontal" id="savie-confimation-vulnerable-customer-form">
+                     <div class="form-group">
+
+                        <input type="hidden" name="savie.policyNo" value="">
+                        <input type="hidden" name="savie.lastName" value="">
+                        <input type="hidden" name="savie.firstName" value="">
+                        <input type="hidden" name="savie.insuranceProductName" value="">
+                        <input type="hidden" name="savie.timestamp" value="${now}">
+                        <div class="col-lg-2 col-md-2 col-sm-2">&nbsp;</div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 saive-vulnerable-customer-preferred-time saive-confimation-vulnerable-customer-form">
+                            <select class="form-control gray-textbox" id="time" name="preferred-time" data-bv-field="time" style="font-size: 18px;">
+                              <option value="" style="color: #f5f5f5" ><fmt:message key="savie.vulnerableCustomer.preferredtime.option0" bundle="${msg}" /></option>
+                              <option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option1" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option1" bundle="${msg}" /></option>
+                              <option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option2" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option2" bundle="${msg}" /></option>
+                              <option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option3" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option3" bundle="${msg}" /></option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 savie-cv-submit">
+                           <button type="button" value="Submit" class="btn" id="savie-confirmation-submit-vulnerable-customer"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
+                        </div>
+                     </div>
+                  </form>
+                </div>
+                <div style="padding: 20px 0">
+                  <hr>
+                </div>
+                <%-- 20160620 --%>
 	        			<div class="row" id="partner-care-holder">
 	        				<div class="col-md-6" id="care-holder">
 	        					<div class="row">
@@ -140,7 +173,7 @@
 	        					<h3 class="text-bold heading-title"><fmt:message key="partner.savie.confirmation.title4" bundle="${msg}" /></h3>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/agoda-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/agoda-logo.png" class="img-responsive" />
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p><fmt:message key="partner.offer.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.partner.offer.copy1" bundle="${msg}" />"><fmt:message key="label.agoda.offer.copy" bundle="${msg}" /></a> <fmt:message key="label.agoda.offer.copy2" bundle="${msg}" /></p>
@@ -148,7 +181,7 @@
 	        					</div>
 	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/buddy-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/buddy-logo.png" class="img-responsive" />
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p><fmt:message key="partner.offer.copy2.y5buddy" bundle="${msg}" /><a href="<fmt:message key="link.offer.link.y5buddy" bundle="${msg}" />"><fmt:message key="partner.offer.copy2.y5buddy1" bundle="${msg}" /></a></p>
@@ -156,7 +189,7 @@
 	        					</div>
 	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/boconcept-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/boconcept-logo.png" class="img-responsive" />
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p><fmt:message key="partner.offer.copy3" bundle="${msg}" /></p>
@@ -164,16 +197,16 @@
 	        					</div>
 	        					<div class="row partner hidden">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/price-rite-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/price-rite-logo.png" class="img-responsive" />
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p><fmt:message key="partner.offer.copy4.pricerite1" bundle="${msg}" /><a href="<fmt:message key="link.partner.offer.copy.pricerite" bundle="${msg}" />"><fmt:message key="partner.offer.copy4.pricerite2" bundle="${msg}" /></a> <fmt:message key="link.offer.copy4.pricerite3" bundle="${msg}" /></p>
-	        						</div>	
+	        						</div>
 	        					</div>
 	        					<div class="text-center">
 	        						<a href="<fmt:message key="link.find.out.more" bundle="${msg}" />"><button class="text-bold btn common-yellow-btn" id="find-more-btn"><fmt:message key="button.find.out.more" bundle="${msg}" /></button></a>
 	        					</div>
-	        					<div class="border-gray visible-xs visible-sm"></div>	
+	        					<div class="border-gray visible-xs visible-sm"></div>
 	        				</div>
 	        			</div>
 	        			<div class="text-center">
@@ -191,6 +224,6 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-        </script> 
+        </script>
 	</body>
-</html>	
+</html>

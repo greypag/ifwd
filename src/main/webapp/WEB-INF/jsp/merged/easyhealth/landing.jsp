@@ -1,4 +1,4 @@
-﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +19,7 @@ var home_url = "<%=request.getContextPath()%>";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-health/landing.css">
 
-    
+
     <div class="fwd-savie-wrapper ">
         <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
                 <div class="breadcrumb-container">
@@ -39,12 +39,12 @@ var home_url = "<%=request.getContextPath()%>";
                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
                 <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
                 <div class="fwd-container-limit">
-                
+
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/${nextPageFlow}" method="post">
                     <div class="img-banner-text savie-landing">
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.quote.easyhealth" bundle="${msg}" /></button>
-                        </div>                      
+                        </div>
                     <div class="savie-product text-bold">
                         <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
                         <a href="javascript:void(0);" id="cta_filler"></a>
@@ -54,9 +54,9 @@ var home_url = "<%=request.getContextPath()%>";
                 </div>
             </div>
         </div>
-                        
+
         <div class="payment-mode">
-           
+
             <p class="availability-notice text-center"><fmt:message key="label.product.statement.easyhealth" bundle="${msg}" /><span></span>
             </p>
 
@@ -64,7 +64,7 @@ var home_url = "<%=request.getContextPath()%>";
                 <a href="#">Product brochure</a> | <a href="#">Product provisions</a>
             </h5> -->
         </div>
-        
+
         <div class="fwd-container-limit">
                 <div class="usp row">
                     <div class="usp-item clearfix col-xs-12 col-md-4">
@@ -93,7 +93,7 @@ var home_url = "<%=request.getContextPath()%>";
                     </div>
                 </div>
             </div>
- 
+
             <div class="regular-benefit">
                     <div class="hidden-xs hidden-sm">
                 <h3 class="benefits-desktop text-center"><fmt:message key="label.product.benefit" bundle="${msg}" /></h3>
@@ -129,7 +129,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-xs-6 text-center annualTravel_policy_item">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-benefit-4.png">
                                     <span><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></span>
@@ -175,7 +175,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </li>-->
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-6">
                                         <a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="benfit.group1.easyhealth" bundle="${msg}" /></a>
-                                    </li>                                   
+                                    </li>
                                     <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
                                         <a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="benfit.group2.easyhealth" bundle="${msg}" /></a>
                                     </li>
@@ -255,7 +255,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </div>
                                                 </div>
                                             </div>
-                                    <!-- Carousel 
+                                    <!-- Carousel
                                     <a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
                                     </a>
                                     <a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
@@ -330,7 +330,7 @@ var home_url = "<%=request.getContextPath()%>";
                     </div>
                 </div>
             </div>
-        
+
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
@@ -347,7 +347,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <h3 class="text-center"><fmt:message key="blog.home.title" bundle="${msg}" /></h3>
                         <div class="gray-divide"></div>
                         <p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
-    
+
                         <div class="blogs-holder clearfix fwd-container-limit">
                             <div class="blogs first">
                                 <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
@@ -386,15 +386,15 @@ var home_url = "<%=request.getContextPath()%>";
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="fwd-container-limit">
                             <p class="blog-notice"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
                         </div>
                     </div>
             </div>
-            
+
             <a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
-        
+
         <!-- Customer Center Modal -->
         <div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
             <div class="modal-dialog" role="document">
@@ -411,7 +411,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <h4>Your application is complete.</h4>
                             <p>Can't make it for your appointment? Call us at 3123 3123 for a reschedule.</p>
                         </div>
-                        
+
                         <div class="bottom-section">
                             <button type="button" class="btn" data-dismiss="modal">Continue</button>
                         </div>
