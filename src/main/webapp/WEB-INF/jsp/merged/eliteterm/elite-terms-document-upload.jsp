@@ -303,7 +303,7 @@ var languageP = "${language}";
 
 											<h5>
 												<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
-												<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+												<a href="<%=request.getContextPath()%>/<fmt:message key="link.address.proof" bundle="${msg}" />" target="_blank">
 													<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
 												</a>
 											</h5>

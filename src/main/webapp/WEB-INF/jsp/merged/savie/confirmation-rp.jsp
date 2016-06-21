@@ -89,7 +89,7 @@ var affiliate = "${affiliate}";
                       <span class="step">2</span>
                         <p>
                             <fmt:message key="saviee.appointment.doucmenttobring2" bundle="${msg}" />
-                            <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.appointment.doucmenttobring2.URL" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a>
+                            <a href="<%=request.getContextPath()%>/<fmt:message key="link.address.proof" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a>
                             <fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" />
                         </p>
                       <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
