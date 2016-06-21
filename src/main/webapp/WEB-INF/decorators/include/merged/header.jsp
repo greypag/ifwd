@@ -1232,8 +1232,14 @@ $(function() {
     		$( ".enjoy" ).addClass( "active" );
     	}
     }
-	$(document).ready(function() {
+	$(document).ready(function() {		
 		if (isMobile){
+			$("#closeMobileMenu").on("touchmove",function(e) {
+				if($(".mobile-menu-V2").hasClass("in")){
+					$(".mob-menu-btn").click();
+					console.log(e);
+				}
+			});			
             if(window.orientation == 0 || window.orientation == 180) // Portrait
             {
                  //alert("Portrait");

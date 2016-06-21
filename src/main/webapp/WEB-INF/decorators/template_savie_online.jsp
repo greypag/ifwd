@@ -295,7 +295,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	</script>
 	<div class="fwd-savie-wrapper">
 				<%@ include file="include/merged/header.jsp"%>
-		<dec:body />
+		<div id="closeMobileMenu"><dec:body /></div>
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
 	
