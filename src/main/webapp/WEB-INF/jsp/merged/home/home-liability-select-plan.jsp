@@ -35,7 +35,7 @@ var nextPage = "${nextPageFlow}";
         </div>
      </div>
      <div class="savie-online-container app-pg-ctnr" id="ehome-app-selectplan">
-     <div class="container-fluid fwd-full-container browse-holder">
+     <!-- <div class="container-fluid fwd-full-container browse-holder">
         <div class="application-page-header et-header-browse">
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
@@ -51,7 +51,7 @@ var nextPage = "${nextPageFlow}";
              </div>
            </div>  
         </div>
-     </div>
+     </div> -->
     <div class="container-fluid summary-bar">
         <div class="row">
             <div class="summary-bar-container">
@@ -102,7 +102,13 @@ var nextPage = "${nextPageFlow}";
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price" id="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                    	<div class="form-group">
+                            <div class="fld-wrapper">
+                            <p class="fld-label">Amount due</p>
+                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price" id="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            </div>
+                        </div>
+                        
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -137,6 +143,14 @@ var nextPage = "${nextPageFlow}";
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Discount</p>
                                         <p class="fld-val">HK$0.00</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <div class="fld-wrapper">
+                                        <p class="fld-label">Amount due</p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span></p>
                                     </div>
                                 </div>
                             </li>
@@ -444,7 +458,8 @@ var nextPage = "${nextPageFlow}";
                     <div class="checkbox">
                         <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span>member</span></a></label>
                     </div>
-                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" disabled="disabled">
+                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" disabled="disabled" maxlength="10">
+                    <span class="error-msg" id="theClubErrMsg"></span>
                     
                     
                 </div>
@@ -607,8 +622,12 @@ $(".btn-promo-apply").on("click",function(){
 });
 
 $("#eh-select-plan-next").on("click",function(){
- 	$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}');
-    document.getElementById('ef-form-selectplan').submit();
+	
+	if(validateTheClub()){
+		$("#ef-form-selectplan").attr('action', '<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}');
+	    document.getElementById('ef-form-selectplan').submit();		
+	}
+ 	
 });
 
 $("#home-liability-update").on("click",function(){
@@ -678,6 +697,30 @@ function getPromoCodeByEmailPopup(){
 		elmErrMsg.text(getBundle(getBundleLanguage, "promotion.email.notNull.message"));
 	}
 
+	return isValid;
+}
+
+function validateTheClub(){
+	var isValid = true;
+	var elmErrMsg = $("#theClubErrMsg");
+	if($("#the-club-member-toggle").is(":checked")){
+		var val = $.trim($("#theClubMembershipNo").val());
+		isValid = false;
+		if(val == ""){
+			elmErrMsg.text("Please input The Club membership number.");
+		}else if(val.substring(0, 1) != "8"){
+			elmErrMsg.text("The Club membership number must start with 8.");
+		}else if(isNaN(val)){
+			elmErrMsg.text("The Club membership number must be 10 digits in length.");
+		}else{
+			if(val.length != 10){
+				elmErrMsg.text("The Club membership number must be 10 digits in length.");
+			}else{
+				isValid = true;				
+			}
+		}
+	}
+	
 	return isValid;
 }
 </script>

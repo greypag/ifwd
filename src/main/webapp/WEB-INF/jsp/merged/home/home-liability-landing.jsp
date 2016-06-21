@@ -188,6 +188,9 @@ var plan="${plan}";
                 <script src="<%=request.getContextPath()%>/resources/js/easy-home/personal_case_v2_canvas.js?1465282089515"></script>
                 <script>
                     var canvas, stage, exportRoot;
+
+                    startPerloadingCanvasImg();
+
                     function init() {
                         // --- write your JS code here ---
                         
@@ -220,15 +223,6 @@ var plan="${plan}";
             <div class="hidden-md hidden-lg col-xs-12 nopaddding eh_example_case_m">
                 <div>
                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_main_banner.jpg" alt="" class="img-responsive">
-                </div>
-                <div>
-                    <a class="caseItem collapsed" role="button" data-toggle="collapse" href="#ce1" aria-expanded="false" aria-controls="ce1">
-                      <fmt:message key="casesharing.home.liability.title1" bundle="${msg}" />
-                    </a>
-                </div>
-                <div class="collapse details" id="ce1">
-                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseB/caseB_A.png" alt="" class="img-responsive">
-                    <p><fmt:message key="casesharing.home.liability.text1" bundle="${msg}" /></p>
                 </div>
                 <div>
                     <a class="caseItem collapsed" role="button" data-toggle="collapse" href="#ce2" aria-expanded="false" aria-controls="ce2">

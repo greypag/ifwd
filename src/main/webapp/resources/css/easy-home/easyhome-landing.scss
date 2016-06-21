@@ -75,6 +75,7 @@ $base-remark-color: #999;
 	&:hover{
 		background-color: #ec7e0d;
 		color: #fff;
+		text-decoration: none;
 	}
 }
 
@@ -295,7 +296,7 @@ $base-remark-color: #999;
 		color: #fff;
 		display: block;
 		font-size: 1.389em;
-		padding: .833em;
+		padding: .833em 2.5em .833em .833em;
 		position: relative;
 		&:after{
 			content: "\2212";

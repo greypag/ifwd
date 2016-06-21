@@ -33,6 +33,14 @@ $(document).ready(function(){
 });
 
 
+function startPerloadingCanvasImg(){
+	var perloadImg = lib.properties.manifest;
+    for(var i = 0; i < perloadImg.length; i++){
+        var pimg = new Image();
+        pimg.src = perloadImg[i].src;
+    }
+}
+
 
 // sample config
 // conf{

@@ -12,6 +12,8 @@ var context = "<%=request.getContextPath()%>";
 var plan="${plan}";
 </script>
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css"></head>
+
 <div class="fwd-savie-wrapper">
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
@@ -27,7 +29,7 @@ var plan="${plan}";
         </div>
      </div>
      <div class="savie-online-container app-pg-ctnr" id="ehome-app-summary">
-     <div class="container-fluid fwd-full-container browse-holder">
+     <!-- <div class="container-fluid fwd-full-container browse-holder">
         <div class="application-page-header et-header-browse">
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
@@ -43,7 +45,7 @@ var plan="${plan}";
              </div>
            </div>  
         </div>
-     </div>
+     </div> -->
     <div class="container-fluid summary-bar">
         <div class="row">
             <div class="summary-bar-container">
@@ -94,7 +96,12 @@ var plan="${plan}";
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                    	<div class="form-group">
+                            <div class="fld-wrapper">
+                            <p class="fld-label">Discount</p>
+                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            </div>
+                        </div>
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>

@@ -97,7 +97,9 @@ var lang1 = "${language}";
                         </div>
                     </div>
                     <div class="col-xs-12 text-center"> <a href="javascript:void(0);" data-ani2=".example-container" class="eh_btn_more_details"><fmt:message key="usp.home.button.case.sharing" bundle="${msg}" /></a> </div>
-                    <p class="eh_remark"><fmt:message key="usp.home.remarks" bundle="${msg}" /></p>
+                    <div class="col-xs-12">
+                        <p class="eh_remark"><fmt:message key="usp.home.remarks" bundle="${msg}" /></p>    
+                    </div>  
                 </div>
             </div>
         </div>
@@ -192,6 +194,9 @@ var lang1 = "${language}";
                 <script src="<%=request.getContextPath()%>/resources/js/easy-home/home_case _v2.js?1465281955995"></script>
                 <script>
                     var canvas, stage, exportRoot;
+
+                    startPerloadingCanvasImg();
+
                     function init() {
                         // --- write your JS code here ---
                         

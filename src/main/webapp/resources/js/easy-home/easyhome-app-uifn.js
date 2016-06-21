@@ -521,7 +521,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				declarration:{
+				checkbox1:{
 					container:'#declarrationErrMsg',
 					validators:{
 						notEmpty:{
@@ -529,7 +529,7 @@ $(document).ready(function(){
 						}
 					}
 				},
-				declarration2:{
+				checkbox2:{
 					container:'#declarration2ErrMsg',
 					validators:{
 						notEmpty:{

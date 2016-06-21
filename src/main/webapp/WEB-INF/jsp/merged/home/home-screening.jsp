@@ -39,8 +39,8 @@ var nextPage = "${nextPageFlow}";
 
             <h2><fmt:message key="screening.home.jumbo" bundle="${msg}" /></h2>
             <div class="screening-wrapper clearfix">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-home/screening_image_v01.png" alt="" class="img-hero hidden-xs">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-home/screening_image_mobile_v01.png" alt="" class="img-responsive visible-xs">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-home/${plan=='home-liability'? 'screening_image_v02.png' : 'screening_image_v01.png' }" alt="" class="img-hero hidden-xs">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-home/${plan=='home-liability'? 'screening_image_mobile_v02.png' : 'screening_image_mobile_v01.png' }" alt="" class="img-responsive visible-xs">
                 <div class="screening-cont">
                     <div class="screening-block">
                         <span><fmt:message key="screening.home.question1.q" bundle="${msg}" /></span>

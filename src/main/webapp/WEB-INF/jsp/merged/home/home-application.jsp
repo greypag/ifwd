@@ -10,6 +10,8 @@ var context="<%=request.getContextPath()%>";
 var plan="${plan}"; 
 </script>
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css"></head>
+
 <div class="fwd-savie-wrapper">
     <div class="fwd-container container-fluid breadcrumbs">
         <div class="breadcrumb-container">
@@ -25,7 +27,7 @@ var plan="${plan}";
         </div>
      </div>
      <div class="savie-online-container app-pg-ctnr" id="ehome-app-application">
-     <div class="container-fluid fwd-full-container browse-holder">
+     <!-- <div class="container-fluid fwd-full-container browse-holder">
         <div class="application-page-header et-header-browse">
            <div class="browse-container">
               <div class="row reset-margin hidden-xs hidden-sm">
@@ -41,7 +43,7 @@ var plan="${plan}";
              </div>
            </div>  
         </div>
-     </div>
+     </div> -->
     <div class="container-fluid summary-bar">
         <div class="row">
             <div class="summary-bar-container">
@@ -92,7 +94,12 @@ var plan="${plan}";
                         </div>
                     </li>
                     <li class="last hidden-xs">
-                        <p><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                    	<div class="form-group">
+                            <div class="fld-wrapper">
+                            <p class="fld-label">Amount due</p>
+                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            </div>
+                        </div>
                     </li>
                     <li class="visible-xs dropdown-more">
                          <a href="javascript:void(0);" class="btn-summary-back" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -682,7 +689,7 @@ var plan="${plan}";
                 <div class="col-xs-12 col-md-12">
                     <div class="form-group no-border">
                         <div class="checkbox">
-                            <input type="checkbox" name="checkbox1" id="declarration"><label for="declarration"><fmt:message key="application.declaration.text1" bundle="${msg}" />
+                            <input type="checkbox" name="checkbox1" id="checkbox1"><label for="checkbox1"><fmt:message key="application.declaration.text1" bundle="${msg}" />
 <br><fmt:message key="application.declaration.home.text2" bundle="${msg}" />
 <br><fmt:message key="application.declaration.home.text3" bundle="${msg}" />
 <br><fmt:message key="application.declaration.home.text4" bundle="${msg}" />
@@ -691,7 +698,7 @@ var plan="${plan}";
                             <span class="error-msg" id="declarrationErrMsg"></span>
                         </div>
                         <div class="checkbox sep">
-                            <input type="checkbox" name="checkbox2" id="declarration2"><label for="declarration2"><fmt:message key="application.declaration.tickbox1" bundle="${msg}" /></label>
+                            <input type="checkbox" name="checkbox2" id="checkbox2"><label for="checkbox2"><fmt:message key="application.declaration.tickbox1.prefix" bundle="${msg}" /><a href="<fmt:message key="application.declaration.tickbox1.link" bundle="${msg}" />" target="_blank"><fmt:message key="application.declaration.tickbox1.text" bundle="${msg}" /></a><fmt:message key="application.declaration.tickbox1.suffix" bundle="${msg}" /></label>
                             <span class="error-msg" id="declarration2ErrMsg"></span>
                         </div>
                         <hr>

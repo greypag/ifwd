@@ -45,8 +45,8 @@
 					&.last{
 						width:19%;
 						p{
-							line-height: 4em;
-						}
+							/* line-height: 4em; */
+						}	
 
 						span{
 							display: inline-block;
@@ -56,14 +56,23 @@
 							font-size:18px;
 						}
 
+
 						.txt-hkd-prefix{
-							margin-left:5px;
+							margin-left:0;
 						}
 
 						.txt-price{
 							font-size:34px;
 							font-weight: bold;
 							margin:0 5px;
+						}
+
+						.fld-label{
+							margin-bottom:5px;
+						}
+
+						.fld-val{
+							margin-bottom:0;
 						}
 					}
 
@@ -202,7 +211,7 @@
 
 					span{
 						margin-left: 5px;
-						font-size:22px;
+						font-size:18px;
 					}
 				}
 
