@@ -801,6 +801,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					
 				}
 			}
+			if(inx == 0) {
+				personal.put("dob", dob);
+			}
 			insured.add(personal);
 		}
  		
@@ -907,6 +910,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					beneficiary.put("relationship", "SE");
 					adult.put("beneficiary", beneficiary);
 				}
+			}
+			if(inx == 0) {
+				adult.put("dob", dob);
 			}
 			insured.add(adult);
 		}

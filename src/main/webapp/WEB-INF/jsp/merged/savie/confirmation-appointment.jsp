@@ -87,39 +87,6 @@ var language = "${language}";
 						<p class="policy-number">${applicationNumber }</p>
 					</div>
 				</div>
-				<%-- 20160620 --%>
-				<div style="padding: 20px 0">
-					<p><fmt:message key="savie.confirmation.Your.application.is.part1" bundle="${msg}" /></p>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<form action="" method="POST" class="form-horizontal" id="savie-confimation-vulnerable-customer-form">
-						 <div class="form-group">
-
-								<input type="hidden" name="savie.policyNo" value="">
-								<input type="hidden" name="savie.lastName" value="">
-								<input type="hidden" name="savie.firstName" value="">
-								<input type="hidden" name="savie.insuranceProductName" value="">
-								<input type="hidden" name="savie.timestamp" value="${now}">
-								<div class="col-lg-2 col-md-2 col-sm-2">&nbsp;</div>
-								<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 saive-vulnerable-customer-preferred-time saive-confimation-vulnerable-customer-form">
-										<select class="form-control gray-textbox" id="time" name="preferred-time" data-bv-field="time" style="font-size: 18px;">
-											<option value="" style="color: #f5f5f5" ><fmt:message key="savie.vulnerableCustomer.preferredtime.option0" bundle="${msg}" /></option>
-											<option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option1" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option1" bundle="${msg}" /></option>
-											<option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option2" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option2" bundle="${msg}" /></option>
-											<option value="<fmt:message key="savie.vulnerableCustomer.preferredtime.option3" bundle="${msg}" />"><fmt:message key="savie.vulnerableCustomer.preferredtime.option3" bundle="${msg}" /></option>
-										</select>
-								</div>
-
-								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 savie-cv-submit">
-									 <button type="button" value="Submit" class="btn" id="savie-confirmation-submit-vulnerable-customer"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
-								</div>
-						 </div>
-					</form>
-				</div>
-				<div style="padding: 20px 0">
-					<hr>
-				</div>
-				<%-- 20160620 --%>
 				<hr>
 				<div class="row appointment-details-panel">
 					<div class="col-xs-12"><p class="text-bold panel-title"><fmt:message key="label.appointmentdetails" bundle="${msg}" /></p></div>

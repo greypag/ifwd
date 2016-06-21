@@ -240,7 +240,7 @@ public class GAServiceImpl implements GAService {
 	}
 	
 	public JSONObject finalizeHomeCarePolicy(String plan, String paymentFail,
-			HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
+			HttpServletRequest request, HttpSession session) throws Exception {
 		JSONObject result = new JSONObject();
 		String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 		String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");

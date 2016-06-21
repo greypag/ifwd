@@ -160,7 +160,7 @@ var plan="${plan}";
     </div>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
 		type : "POST",
@@ -175,4 +175,4 @@ $(document).ready(function(){
 		}
 	});
 });
-</script>
+</script> -->

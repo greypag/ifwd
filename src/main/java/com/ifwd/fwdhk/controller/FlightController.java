@@ -897,7 +897,7 @@ public class FlightController {
         String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
         String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
         String mobileNo = request.getParameter("mobileNo");
-
+        String dob = DateApi.formatString(request.getParameter("applicantDob"));
 
 		String emailId = request.getParameter("emailAddress");
 		request.setAttribute("email", emailId);
@@ -1019,6 +1019,9 @@ public class FlightController {
 							planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase()); // input
 					personal.put("beneficiary", beneficiary);
 				}
+			}
+			if(inx == 0) {
+				personal.put("dob", dob);
 			}
 			insured.add(personal);
 
@@ -1164,6 +1167,9 @@ public class FlightController {
 							planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
 					adult.put("beneficiary", beneficiary);
 				}
+			}
+			if(inx == 0) {
+				adult.put("dob", dob);
 			}
 			insured.add(adult);
 
@@ -1325,6 +1331,7 @@ public class FlightController {
 							planDetailsForm.getOtherBeneficiary()[inx]); // input
 					other.put("beneficiary", beneficiary);
 				}
+				
 				insured.add(other);
 
 				// update relationship desc
@@ -1359,8 +1366,6 @@ public class FlightController {
 		dateDob.setTime(new Date(dob));
 		Format f = new SimpleDateFormat("yyyy-MM-dd");
 		dob = f.format(dateDob.getTime());*/
-		
-		String dob = DateApi.formatString(request.getParameter("applicantDob"));
 		
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
