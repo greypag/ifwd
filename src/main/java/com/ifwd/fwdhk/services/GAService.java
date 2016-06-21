@@ -15,6 +15,6 @@ public interface GAService {
 	public CreatePolicy createPolicy(String plan, HomeCareDetailsBean homeCareDetails, HttpServletResponse response, HttpServletRequest request) throws Exception;
 	public JSONObject confirmPolicy(String plan, String referenceNo, HttpServletResponse response, HttpServletRequest request) throws Exception;
 	public JSONObject SubmitPolicy(String plan, String referenceNo, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception;
-	public JSONObject finalizeHomeCarePolicy(String plan, String paymentFail, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception;
+	public JSONObject finalizeHomeCarePolicy(String plan, String paymentFail, HttpServletRequest request, HttpSession session) throws Exception;
 	public JSONObject getHomeCareQuote(String plan,HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 }

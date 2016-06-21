@@ -80,7 +80,7 @@ public class AjaxHomeController extends BaseController{
 		JSONObject result = new JSONObject();
 		String paymentFail = "0";
 		try {
-			result = gaService.finalizeHomeCarePolicy(plan, paymentFail, response, request, session);
+			result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

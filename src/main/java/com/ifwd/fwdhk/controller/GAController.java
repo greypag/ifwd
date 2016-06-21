@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -233,6 +234,20 @@ public class GAController extends BaseController{
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/confirmation"})
 	public ModelAndView getConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
+			new Thread(){
+				public void run(){
+					JSONObject result = new JSONObject();
+					String paymentFail = "0";
+					try {
+						result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, request.getSession());
+						model.addAttribute("policyNo", result.get("policyNo"));
+					} catch (Exception e) {
+						logger.info(e.getMessage());
+						e.printStackTrace();
+					}
+				}
+			}.start();
+			
 			HttpSession session = request.getSession();
 			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
 			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
