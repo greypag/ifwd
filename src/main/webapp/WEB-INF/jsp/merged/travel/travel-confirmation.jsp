@@ -544,4 +544,4 @@ $(document).ready(function() {
 		}
 	});
 });
-</s --%>cript>
+</script> --%>
