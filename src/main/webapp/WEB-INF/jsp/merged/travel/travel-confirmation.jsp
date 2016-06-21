@@ -92,7 +92,7 @@
 	              <fmt:message key="travel.confirmation.msg.part6" bundle="${msg}" />
 	            </h3>
 	            
-	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /></strong><span id="policyNo"> ${policyNo}</span></h4>
+	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
@@ -527,7 +527,8 @@
 <%-- <noscript>
    <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
 </noscript> --%>
-<script>
+
+<%-- <script>
 $(document).ready(function() {
   
   $.ajax({
@@ -543,4 +544,4 @@ $(document).ready(function() {
 		}
 	});
 });
-</script>
+</s --%>cript>

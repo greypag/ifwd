@@ -1893,9 +1893,9 @@ public class TravelController {
 			}
 		}.start();
 		
-			
-		session.setAttribute("policyNo", session.getAttribute("policyNo"));
-		model.addAttribute("policyNo", session.getAttribute("policyNo"));
+		model.addAttribute("referenceNo", session.getAttribute("finalizeReferenceNo"));
+		/*session.setAttribute("policyNo", session.getAttribute("policyNo"));
+		model.addAttribute("policyNo", session.getAttribute("policyNo"));*/
 		model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 		model.addAttribute("referralCode", session.getAttribute("referralCode"));
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
