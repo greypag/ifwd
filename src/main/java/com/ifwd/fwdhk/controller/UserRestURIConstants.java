@@ -364,6 +364,11 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY = "easyhealth.application.summary";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_DECLARATION = "easyhealth.declaration";
 	
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD = "easyhealth.document.upload";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD_LATER = "easyhealth.document.upload.later";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION = "easyhealth.confirmation";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION = "easyhealth.confirmation.upload.later";
+	
 	/*API For easy health*/
 	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 

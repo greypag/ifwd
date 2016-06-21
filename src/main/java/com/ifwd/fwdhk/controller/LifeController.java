@@ -839,7 +839,12 @@ public class LifeController extends BaseController{
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
 			}
 			request.getSession().setAttribute("documentUploadYes", "documentUploadYes");
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD_LATER);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			}
 		}else{
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
@@ -883,7 +888,12 @@ public class LifeController extends BaseController{
 				}
 				model.addAttribute("plan", plan);
 				request.getSession().setAttribute("documentUploadYes", "documentUploadYes");
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+				if("medical-insurance".equals(plan)){
+					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD);
+				}
+				else{
+					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+				}
 			}
 		}
 	}
@@ -926,7 +936,12 @@ public class LifeController extends BaseController{
 					logger.info(e.getMessage());
 				}
 			}
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
+			}
 		}
 	}
 	
@@ -978,7 +993,12 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+			}
 		}
 	}
 	
