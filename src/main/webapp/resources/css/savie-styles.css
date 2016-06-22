@@ -9912,3 +9912,8 @@ select::-ms-value {
 .submit__error--show{
   display: block;
 }
+/* ticket 2975 */
+#table-content-pd .tooltip .tooltip-inner *{
+	font-size: 13px;
+	font-weight: bold;
+}
