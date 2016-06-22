@@ -71,22 +71,6 @@ public class AjaxHomeController extends BaseController{
 		ajaxReturn(response, result);
 	}
 	
-	@RequestMapping(value = {"/ajax/{plan}/finalizePolicy"})
-	public void getFinalizePolicy(@PathVariable("plan") String plan, HttpServletRequest request,HttpServletResponse response,
-			HttpSession session) {
-		if (Methods.isXssAjax(request)) {
-			return;
-		}
-		JSONObject result = new JSONObject();
-		String paymentFail = "0";
-		try {
-			result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		ajaxReturn(response, result);
-	}
-
 	@RequestMapping(value = {"/ajax/{plan}/getHomeCareQuote"})
 	public void getHomeCareQuote(@PathVariable("plan") String plan,HttpServletRequest request,HttpServletResponse response,HttpSession session){
 		JSONObject jsonObject = new JSONObject();

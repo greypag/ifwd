@@ -46,7 +46,6 @@ import com.ifwd.fwdhk.model.PromoCodeDetail;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.services.TravelService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
@@ -68,9 +67,6 @@ public class TravelController {
 
 	@Autowired
 	private MessageSource messageSource;
-	
-	@Autowired
-	private TravelService  travelService;
 	
 	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance", "/{lang}/travel-insurance/sharing/"})
 	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
@@ -1867,35 +1863,100 @@ public class TravelController {
 	public String processPayment(Model model, HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(required = false) String Ref ) {
 		UserRestURIConstants.setController("Travel");
-		HttpSession session = request.getSession();
 		
+		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errormsg", "Session Expired");
 			return UserRestURIConstants.getSitePath(request)
 					+ "travel/travel-confirmation";
 		}
-		
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
-		new Thread(){
-			public void run(){
-				JSONObject result = new JSONObject();
+		JSONObject parameters = new JSONObject();
+		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+		model.addAttribute("referenceNo", referenceNo);
+		parameters.put("referenceNo", referenceNo);
+		parameters
+				.put("transactionNumber", session.getAttribute("transNo"));
+		parameters.put("transactionDate",
+				session.getAttribute("transactionDate"));
+		parameters.put("paymentFail", "0");
+		
+		String creditCardNo = (String)session.getAttribute("creditCardNo");
+		String dueAmount = (String)session.getAttribute("dueAmount");
+		
+		if("0.00".equals(dueAmount) && creditCardNo == null) {
+			creditCardNo = "0000000000000000";
+			parameters.put("expiryDate", "122030");
+		} else {
+			if(session.getAttribute("creditCardNo") !=null && session.getAttribute("creditCardNo") != ""){
 				try {
-					result = travelService.finalizeTravelCarePolicy(request, response, session);
-					model.addAttribute("policyNo", result.get("policyNo"));
+					creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo"));
 				} catch (Exception e) {
-					logger.info(e.getMessage());
 					e.printStackTrace();
-				}
+					model.addAttribute("errMsgs", e.toString());
+					return UserRestURIConstants.getSitePath(request)
+							+ "travel/travel-summary-payment";
+				} 
 			}
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+		}
+		
+		if (creditCardNo !=null) {
+			parameters.put("creditCardNo", creditCardNo); 
+		} else {
+			
+			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
+			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+			model.addAttribute("referralCode", session.getAttribute("referralCode"));
+			String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			return UserRestURIConstants.getSitePath(request)
+					+ "travel/travel-confirmation";
+		}
+			
+		
+		if(JsonUtils.hasEmpty(parameters)) {
+			return UserRestURIConstants.getSitePath(request) + "travel/travel";
+		}
+
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("userName", session.getAttribute("username").toString());
+		header.put("token", session.getAttribute("token").toString());
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants
+						.getLanaguage(request)));
+		logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+		new Thread(){
+			public void run() {
+				JSONObject responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
+				logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
+			};
 		}.start();
 		
-		model.addAttribute("referenceNo", session.getAttribute("finalizeReferenceNo"));
-		/*session.setAttribute("policyNo", session.getAttribute("policyNo"));
-		model.addAttribute("policyNo", session.getAttribute("policyNo"));*/
+        //sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
+		
+		session.removeAttribute("creditCardNo");
+		session.removeAttribute("expiryDate");
+		session.removeAttribute("upgradeTotalTravallingDays");
+		session.removeAttribute("upgradeTotalTravallingDays");
+		session.removeAttribute("upgradeUserDetails");
+		session.removeAttribute("upgradePlandetailsForm");
+		session.removeAttribute("upgradeCreateFlightPolicy");
+		session.removeAttribute("upgradeSelectPlanName");
+		session.removeAttribute("upgradeDueAmount");
+		session.removeAttribute("travelQuote");
+		session.removeAttribute("travelCreatePolicy");
+		session.removeAttribute("travel-temp-save");
+		/*session.setAttribute("policyNo", responsObject.get("policyNo"));
+		model.addAttribute("policyNo", responsObject.get("policyNo"));*/
 		model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 		model.addAttribute("referralCode", session.getAttribute("referralCode"));
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
@@ -1921,7 +1982,8 @@ public class TravelController {
 		model.addAttribute("twitterUrl", twitterUrl);
 		model.addAttribute("canonical", canonical);
 		
-		return UserRestURIConstants.getSitePath(request) + "travel/travel-confirmation";
+		return UserRestURIConstants.getSitePath(request)
+				+ "travel/travel-confirmation";
 	}
 	
 	@RequestMapping(value = "/getPromoCode")

@@ -341,99 +341,79 @@ public class OverseaController extends BaseController{
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
-
-		JSONObject responsObject = new JSONObject();
-
-		try {
-			JSONObject parameters = new JSONObject();
-			String requestNo = (String) session.getAttribute("transNo");
-			String email = (String) session.getAttribute("emailAddress");
-			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
-			parameters.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate", session.getAttribute("transactionDate"));
-			parameters.put("paymentFail", "0");
-			
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
-			
-			if (creditCardNo !=null) { 
-				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
-			} else {
-				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
-				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
-				model.addAttribute("referralCode", session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
-				model.addAttribute("pageTitle", pageTitle);
-				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		JSONObject parameters = new JSONObject();
+		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+		model.addAttribute("referenceNo", referenceNo);
+		parameters.put("referenceNo", referenceNo);
+		parameters.put("transactionNumber", session.getAttribute("transNo"));
+		parameters.put("transactionDate", session.getAttribute("transactionDate"));
+		parameters.put("paymentFail", "0");
+		
+		String creditCardNo = (String)session.getAttribute("creditCardNo");
+		
+		if (creditCardNo !=null) { 
+			try {
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
+			} catch (Exception e) {
+				e.printStackTrace();
+				model.addAttribute("errMsgs", e.toString());
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "/oversea/oversea-plan-confirmation");				
+						+ "oversea/oversea-plan-summary");
 			}
-				
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
-
-			if(JsonUtils.hasEmpty(parameters)) {
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-						+ "/overseas-study-insurance");
-			}
-			
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
-			logger.info("OVERSEA_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.OVERSEA_FINALIZE_POLICY, header,
-					parameters);
-			logger.info("OVERSEA_FINALIZE_POLICY Response " + responsObject);
-			
-			if (responsObject.get("errMsgs") == null) {
-				session.removeAttribute("creditCardNo");
-				session.removeAttribute("expiryDate");
-				session.removeAttribute("upgradeTotalTravallingDays");
-				session.removeAttribute("upgradeTotalTravallingDays");
-				session.removeAttribute("upgradeUserDetails");
-				session.removeAttribute("upgradePlandetailsForm");
-				session.removeAttribute("upgradeCreateFlightPolicy");
-				session.removeAttribute("upgradeSelectPlanName");
-				session.removeAttribute("upgradeDueAmount");
-				//session.removeAttribute("annualTravelQuote");
-				session.removeAttribute("overseaCreatePolicy");
-				session.removeAttribute("travel-temp-save");
-				session.removeAttribute("overseaPlanDetailsFormBySummary");
-				session.setAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
-				session.removeAttribute("referralCode");
-				model.addAttribute("utm_nooverride", 1);
-				return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
-			} else {
-				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
-					model.addAttribute("errorHeader1", "Invalid Payment Amount");
-					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
-					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
-				} else {
-					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
-					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
-					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
-					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
-				}		
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "error");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-			model.addAttribute("errMsgs", e.toString());
+		} else {
+			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
+			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+			model.addAttribute("referralCode", session.getAttribute("referralCode"));
+			String pageTitle = WebServiceUtils.getPageTitle("page.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "oversea/oversea-plan-summary");
+					+ "/oversea/oversea-plan-confirmation");				
 		}
+			
+		parameters.put("expiryDate", session.getAttribute("expiryDate"));
+
+		if(JsonUtils.hasEmpty(parameters)) {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/overseas-study-insurance");
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(
+				COMMON_HEADERS);
+		header.put("userName", session.getAttribute("username").toString());
+		header.put("token", session.getAttribute("token").toString());
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants
+						.getLanaguage(request)));
+		logger.info("OVERSEA_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+		new Thread(){
+			public void run() {
+				JSONObject responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.OVERSEA_FINALIZE_POLICY, header, parameters);
+				logger.info("OVERSEA_FINALIZE_POLICY Response " + responsObject);
+			};
+		}.start();
+		
+		session.removeAttribute("creditCardNo");
+		session.removeAttribute("expiryDate");
+		session.removeAttribute("upgradeTotalTravallingDays");
+		session.removeAttribute("upgradeTotalTravallingDays");
+		session.removeAttribute("upgradeUserDetails");
+		session.removeAttribute("upgradePlandetailsForm");
+		session.removeAttribute("upgradeCreateFlightPolicy");
+		session.removeAttribute("upgradeSelectPlanName");
+		session.removeAttribute("upgradeDueAmount");
+		//session.removeAttribute("annualTravelQuote");
+		session.removeAttribute("overseaCreatePolicy");
+		session.removeAttribute("travel-temp-save");
+		session.removeAttribute("overseaPlanDetailsFormBySummary");
+		/*session.setAttribute("policyNo", responsObject.get("policyNo"));
+		model.addAttribute("policyNo", responsObject.get("policyNo"));*/
+		model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
+		model.addAttribute("referralCode", session.getAttribute("referralCode"));
+		session.removeAttribute("referralCode");
+		model.addAttribute("utm_nooverride", 1);
+		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
 	}
 }
