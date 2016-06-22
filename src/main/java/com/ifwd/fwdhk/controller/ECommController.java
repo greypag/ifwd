@@ -254,7 +254,7 @@ public class ECommController extends BaseController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
-		int[] indexs = {5, 6, 7, 8, 9};
+		int[] indexs = {8, 9, 23, 5, 6, 7};
 		
 		String Url;
 		String code;
@@ -375,33 +375,39 @@ public class ECommController extends BaseController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="31-08-2016";
+						date="30-09-2016";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="31-08-2016";
+						date="30-09-2016";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="31-08-2016";
+						date="30-09-2016";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="31-08-2016";
+						date="30-09-2016";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="31-08-2016";
+						date="30-09-2016";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
+						break;
+					case 23:
+						discount="Fanfare.discount11";
+						date="30-09-2016";
+						offername="Fanfare.offername11";
+						tnc="Fanfare.tnc11";
 						break;
 					case 14:
 						discount="Fanfare.discount6";
