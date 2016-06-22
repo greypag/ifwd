@@ -7,6 +7,7 @@
 var context = "<%=request.getContextPath()%>";
 var plan="${plan}";
 </script>
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 
 <div class="fwd-savie-wrapper">
     
@@ -67,7 +68,7 @@ var plan="${plan}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center">
-                        <div class="addthis_sharing_toolbox" data-url="https://uat-ecom.i.fwd.com.hk/en/home-insurance?promo=ECHOME" data-title="iFWD"></div>
+                        <div class="addthis_sharing_toolbox" data-url='<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/${plan=="home-liability" ? "household-insurance/home-liability" : "household-insurance/easy-home-care"}?promo=<%=session.getAttribute("myHomeReferralCode")%>' data-title="iFWD"></div>
                     </div>
                 </div>
 
