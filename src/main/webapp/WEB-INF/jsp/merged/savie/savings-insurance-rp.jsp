@@ -131,7 +131,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        		
 			        		<table class="tbl-spd hidden-xs">
 			        			<tr>
-			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></th>
+			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
 			        				<td class="b1">1</td>
 			        				<td class="b2">2</td>
 			        				<td class="b3">3</td>
@@ -342,7 +342,7 @@ var home_url = "<%=request.getContextPath()%>";
 											</table>
 											<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
 										</li>
-										<li><fmt:message key="savie.online.home.discount.popup.tnc3.prefix" bundle="${msg}" /> <a href="https://i.fwd.com.hk/en/savings-insurance">https://i.fwd.com.hk/en/savings-insurance</a> <fmt:message key="savie.online.home.discount.popup.tnc3.suffux" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc3.prefix" bundle="${msg}" /> <a href="<fmt:message key="savie.online.home.discount.popup.tnc3.link" bundle="${msg}" />"><fmt:message key="savie.online.home.discount.popup.tnc3.link" bundle="${msg}" /></a> <fmt:message key="savie.online.home.discount.popup.tnc3.suffux" bundle="${msg}" /></li>
 										<li><fmt:message key="savie.online.home.discount.popup.tnc4" bundle="${msg}" /></li>
 										<li><fmt:message key="savie.online.home.discount.popup.tnc5" bundle="${msg}" /></li>
 										<li><fmt:message key="savie.online.home.discount.popup.tnc6" bundle="${msg}" /></li>
