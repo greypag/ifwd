@@ -375,7 +375,17 @@
                                     </span>
                                 </div>
                                 <div class="col-xs-4">
-                                    
+                                    <a href="#offer5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-overseas-mobile.jpg" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail6.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail6.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail6" bundle="${msg}" />
+                                        	<br/>
+                                        	<fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" />
+                                        </p>
+                                    </span>
                                 </div>
                             </div>
                             <!--/row-->
