@@ -1021,14 +1021,14 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
-						<li class="menu-link-grp-title">
-							<a href="<%=request.getContextPath()%>/${language}/home-insurance">
-								<fmt:message key="header.product.type1.group3.title" bundle="${msg}" />
-							</a>
-							<ul class="col-sm-12 dropdown-menu">
-								<li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
-						 	</ul>
-						</li>
+				<li class="menu-link-grp-title">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></a>
+					<ul class="col-sm-12 dropdown-menu">
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
+                    </ul>
+				</li>
+
 					</ul>
             </li>
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu"> <%-- Saving Insurance --%>
