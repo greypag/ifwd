@@ -254,7 +254,7 @@ public class GAServiceImpl implements GAService {
 			creditCardNo = "0000000000000000";
 			expiryDate = "122030";
 		}else {
-			if (creditCardNo !=null) {
+			if (creditCardNo !=null && creditCardNo != "") {
 				try {
 					creditCardNo = Methods.decryptStr((String) session.getAttribute("HomeCareCreditCardNo"));
 				} catch (Exception e) {

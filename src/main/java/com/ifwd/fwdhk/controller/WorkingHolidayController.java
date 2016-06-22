@@ -999,108 +999,90 @@ public class WorkingHolidayController {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		
-		JSONObject responsObject = new JSONObject();
-
-		try {
-			JSONObject parameters = new JSONObject();
-			
-			parameters.put("referenceNo",session.getAttribute("finalizeReferenceNo"));
-			parameters.put("transactionNumber", session.getAttribute("transNo"));
-			String requestNo = (String) session.getAttribute("transNo");
-			String email = (String) session.getAttribute("emailAddress");
-			parameters.put("transactionDate",session.getAttribute("transactionDate"));
-			parameters.put("paymentFail", "0");
-			
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
-			
-			if (creditCardNo !=null) { 
-				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
-			} else {
-				
-				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				model.addAttribute("pageTitle", pageTitle);
-				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
-			}
-				
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
-			
-			if(JsonUtils.hasEmpty(parameters)) {
-				return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday";
-			}
-
-			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-			logger.info("WORKINGHOLIDAY_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.WORKINGHOLIDAY_FINALIZE_POLICY, header,parameters);
-			logger.info("WORKINGHOLIDAY_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
-			
-			if (responsObject.get("errMsgs") == null) {
-				session.removeAttribute("creditCardNo");
-				session.removeAttribute("expiryDate");
-				String dueAmount = (String) session.getAttribute("dueAmount");
-				model.addAttribute("dueAmount", dueAmount.replace(",", "").trim());
-				session.removeAttribute("travel-temp-save");
-				session.setAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("policyNo", responsObject.get("policyNo"));
-				model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
-				model.addAttribute("referralCode",session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				
-				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
-				
-				model.addAttribute("pageTitle", pageTitle);
-				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-				
-				String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
-						UserRestURIConstants.getLanaguage(request));
-				String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
-						UserRestURIConstants.getLanaguage(request));
-				String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
-						UserRestURIConstants.getLanaguage(request));
-				String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
-						UserRestURIConstants.getLanaguage(request));
-				String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
-						UserRestURIConstants.getLanaguage(request));
-				model.addAttribute("twitterCard", twitterCard);
-				model.addAttribute("twitterImage", twitterImage);
-				model.addAttribute("twitterSite", twitterSite);
-				model.addAttribute("twitterUrl", twitterUrl);
-				model.addAttribute("canonical", canonical);
-				
+		JSONObject parameters = new JSONObject();
+		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+		model.addAttribute("referenceNo", referenceNo);
+		parameters.put("referenceNo",referenceNo);
+		parameters.put("transactionNumber", session.getAttribute("transNo"));
+		parameters.put("transactionDate",session.getAttribute("transactionDate"));
+		parameters.put("paymentFail", "0");
+		
+		String creditCardNo = (String)session.getAttribute("creditCardNo");
+		
+		if (creditCardNo !=null) { 
+			try {
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
+			} catch (Exception e) {
+				e.printStackTrace();
+				model.addAttribute("errMsgs", e.toString());
 				return UserRestURIConstants.getSitePath(request)
-						+ "workingholiday/workingholiday-confirmation";
-			} else {
-				
-				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
-					model.addAttribute("errorHeader1", "Invalid Payment Amount");
-					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
-					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
-					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
-				} else {
-					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
-					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
-					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
-					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
-				}
-				
-				
-				return UserRestURIConstants.getSitePath(request) + "error";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+						+ "workingholiday/working-holiday-summary-payment";
+			} 
+		} else {
 			
-			model.addAttribute("errMsgs", e.toString());
-			return UserRestURIConstants.getSitePath(request)
-					+ "workingholiday/working-holiday-summary-payment";
+			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+			model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+			model.addAttribute("referralCode",session.getAttribute("referralCode"));
+			String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-confirmation";
 		}
+			
+		parameters.put("expiryDate", session.getAttribute("expiryDate"));
+		
+		if(JsonUtils.hasEmpty(parameters)) {
+			return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday";
+		}
+
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", session.getAttribute("username").toString());
+		header.put("token", session.getAttribute("token").toString());
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		logger.info("WORKINGHOLIDAY_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+		new Thread(){
+			public void run() {
+				JSONObject responsObject = restService.consumeApi(HttpMethod.POST,UserRestURIConstants.WORKINGHOLIDAY_FINALIZE_POLICY, header,parameters);
+				logger.info("WORKINGHOLIDAY_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
+			};
+		}.start();
+		
+		session.removeAttribute("creditCardNo");
+		session.removeAttribute("expiryDate");
+		String dueAmount = (String) session.getAttribute("dueAmount");
+		model.addAttribute("dueAmount", dueAmount.replace(",", "").trim());
+		session.removeAttribute("travel-temp-save");
+		/*session.setAttribute("policyNo", responsObject.get("policyNo"));
+		model.addAttribute("policyNo", responsObject.get("policyNo"));*/
+		model.addAttribute("emailAddress",session.getAttribute("emailAddress"));
+		model.addAttribute("referralCode",session.getAttribute("referralCode"));
+		String pageTitle = WebServiceUtils.getPageTitle("page.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+		
+		session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
+		
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
+		return UserRestURIConstants.getSitePath(request)
+				+ "workingholiday/workingholiday-confirmation";
 	}
 	
 	

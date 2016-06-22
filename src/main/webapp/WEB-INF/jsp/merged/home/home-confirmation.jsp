@@ -159,19 +159,3 @@ var plan="${plan}";
     </div>
     </div>
 </div>
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-	$.ajax({
-		type : "POST",
-		url : contextPath + "/ajax/" + plan + "/finalizePolicy",
-		async : false,
-		success : function(data) {
-			if (data.errMsgs == null) {
-				console.log(data.errMsgs);
-			} else {
-				console.log(data.errMsgs);
-			}
-		}
-	});
-});
-</script> -->

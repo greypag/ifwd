@@ -524,24 +524,7 @@
    k_trackevent(params,'5198');
 </script>
 
-<%-- <noscript>
-   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=<%=request.getSession().getAttribute("policyNo")%>&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
-</noscript> --%>
+<noscript>
+   <img src="https://5198.xg4ken.com/media/redir.php?track=1&token=67bda50a-b010-4425-9f2b-165bf9a1d04a&type=Registration&val=0.0&orderId=${referenceNo}&promoCode=&valueCurrency=HKD&GCID=&kw=&product=" width="1" height="1">
+</noscript>
 
-<%-- <script>
-$(document).ready(function() {
-  
-  $.ajax({
-		type : "POST",
-		url : "<%=request.getContextPath()%>/ajax/travel/finalizePolicy",
-		async : false,
-		success : function(data) {
-			if (data != null && data.errMsgs == null) {
-				$("#policyNo").text(data.policyNo);
-			} else {
-				console.log(data.errMsgs);
-			}
-		}
-	});
-});
-</script> --%>

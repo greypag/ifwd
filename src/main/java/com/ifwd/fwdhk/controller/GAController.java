@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class GAController extends BaseController{
@@ -230,6 +231,34 @@ public class GAController extends BaseController{
 	public ModelAndView getConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
+			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
+			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+			
+			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
+			String emailId = (String) session.getAttribute("emailAddress");
+			
+			if(session.getAttribute("homeCreatedPolicy") == null && creditCardNo == null) {
+				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
+				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+				model.addAttribute("referralCode", session.getAttribute("referralCode"));
+				model.addAttribute("referenceNo", session.getAttribute("HomeCareReferenceNo"));
+				if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan)) {
+					return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_HOME_LIABILITY_CONFIRMATION);
+				}else {
+					return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_CONFIRMATION);
+				}
+			}
+			
+			if(org.apache.commons.lang.StringUtils.isAllLowerCase(referenceNo) ||
+					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionNumber) ||
+					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionDate) || 
+					org.apache.commons.lang.StringUtils.isAllLowerCase(creditCardNo) || 
+					org.apache.commons.lang.StringUtils.isAllLowerCase(expiryDate)) {
+				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
+			}
 			new Thread(){
 				public void run(){
 					JSONObject result = new JSONObject();
@@ -243,22 +272,6 @@ public class GAController extends BaseController{
 					}
 				}
 			}.start();
-			
-			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
-			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
-			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
-			String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
-			
-			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
-			String emailId = (String) session.getAttribute("emailAddress");
-			
-			if(org.apache.commons.lang.StringUtils.isAllLowerCase(referenceNo) ||
-					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionNumber) ||
-					org.apache.commons.lang.StringUtils.isAllLowerCase(transactionDate) || 
-					org.apache.commons.lang.StringUtils.isAllLowerCase(creditCardNo) || 
-					org.apache.commons.lang.StringUtils.isAllLowerCase(expiryDate)) {
-				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
-			}
 			model.addAttribute("utm_nooverride", 1);
 			model.addAttribute("emailID", emailId);
 			model.addAttribute("referenceNo", referenceNo);
