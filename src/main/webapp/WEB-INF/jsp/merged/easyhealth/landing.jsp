@@ -440,6 +440,30 @@ var home_url = "<%=request.getContextPath()%>";
 <script>
 //mobile blog read more button open blog page
 $(document).ready(function() {
+	if(isMobile) {
+		$(".annualTravel_policy_item").click(function(){
+			itemTop = $(this).offset();
+			var html=$(this).children('.hidden-benefits').children().clone();
+			$("#modal_policy_container").html(html);
+			$("#policyCoveragePopup").modal("show");
+            $("#policyCoveragePopup").on('show.bs.modal', function () {
+                $('body').css("position", "inital");
+                $('.hidden-benefits-info').css("font-family", "Calibri");
+				$('.hidden-benefits-info').css("font-size", "14px");
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+            });
+            $("#policyCoveragePopup").on('hide.bs.modal', function () {
+                //alert(itemTop.top);
+                $('body').css("position", "initial");
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                //$('body').css("position", "relative");
+            });
+            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
+                $('body').attr("style", "");
+            });			
+		});
+
+	}	
 	$('#btn-blog-link').click(function(){
 		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
 	});
