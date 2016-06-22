@@ -539,7 +539,7 @@ var home_url = "<%=request.getContextPath()%>";
 								role="tabpanel" aria-labelledby="headingTwo">
 								<div class="et-panel-body" id="panelTwo">
 									<p>
-									<ol>
+									<ol class="et-accrdion-txt-normal">
 										<li><fmt:message
 												key="eliteTerms.selectPlan.important.notes.line1"
 												bundle="${msg}" /></li>

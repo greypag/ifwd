@@ -25754,3 +25754,10 @@ label.et-bene-radio,#et-application-second-section label,
 	font-size: 16px;
 	line-height: 18px;
 }
+
+/* ticket 2890 */
+.fwd-savie-wrapper ol.et-accrdion-txt-normal li {
+	color: #2a2c29;
+	font-size: 18px;
+	font-family: 'Calibri';
+}
