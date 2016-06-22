@@ -319,6 +319,7 @@ public class UserController {
 						String type8 = WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request));
 						String type9 = WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request));
 						String type10 = WebServiceUtils.getMessage("eservice.product.type10", UserRestURIConstants.getLanaguage(request));
+						String type11 = WebServiceUtils.getMessage("eservice.product.type11", UserRestURIConstants.getLanaguage(request));
 						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
 						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
 						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
@@ -356,9 +357,10 @@ public class UserController {
 								entity.setPlanName(type8);
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type9);
-							}
-							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
+							}else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type10);
+							}else if("HomeLiability".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type11);
 							}
 							
 							
@@ -531,7 +533,7 @@ public class UserController {
 										past_saving.add(entity);
 									}
 								}
-							}else if("EasyHomeCare".equals(entity.getPlanCode())) {
+							}else if("EasyHomeCare".equals(entity.getPlanCode()) || "HomeLiability".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
 										active_house.add(entity);
