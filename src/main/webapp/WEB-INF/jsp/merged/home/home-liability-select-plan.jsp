@@ -75,7 +75,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Promote Code</p>
-                            <p class="fld-val gentle-fade"><span class="txt-promote-code" id="txt-promote-code">${planQuote.referralCode }</span></p>
+                            <p class="fld-val gentle-fade"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
                     </li>
@@ -91,7 +91,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$<span id="original-price">${planQuote.grossPremium }</span></p>
+                            <p class="fld-val">HK$<span class="original-price">${planQuote.grossPremium }</span></p>
                             </div>
                         </div>
                     </li>
@@ -99,7 +99,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$<span id="discount">${planQuote.discountAmount }</span></p>
+                            <p class="fld-val">HK$<span class="discount">${planQuote.discountAmount }</span></p>
                             </div>
                         </div>
                     </li>
@@ -107,7 +107,7 @@ var nextPage = "${nextPageFlow}";
                     	<div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">Amount due</p>
-                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price" id="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
                             </div>
                         </div>
                         
@@ -120,7 +120,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Promote Code</p>
-                                        <p class="fld-val"><span class="txt-promote-code">-</span></p>
+                                        <p class="fld-val txt-promote-code">${planQuote.referralCode }</p>
                                     </div>
                                 </div>
                             </li>
@@ -128,7 +128,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">The Club Member</p>
-                                        <p class="fld-val"><span class="txt-theclub-member">-</span></p>
+                                        <p class="fld-val txt-theclub-member"></p>
                                     </div>
                                 </div>
                             </li>
@@ -136,7 +136,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Original price</p>
-                                        <p class="fld-val">HK$420.00</p>
+                                        <p class="fld-val original-price">${planQuote.grossPremium }</p>
                                     </div>
                                 </div>
                             </li>
@@ -144,7 +144,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label">Discount</p>
-                                        <p class="fld-val">HK$0.00</p>
+                                        <p class="fld-val discount">${planQuote.discountAmount }</p>
                                     </div>
                                 </div>
                             </li>
@@ -599,10 +599,10 @@ $(".btn-promo-apply").on("click",function(){
 	           },
         success : function(data) {
 	      	if(data !=null && data.errorMsg ==null){
-	      		$("#txt-promote-code").html(data.referralCode);
-	      		$("#original-price").html(data.priceInfo.grossPremium);
-	      		$("#discount").html(data.priceInfo.discountAmount);
-	      		$("#txt-price").html(data.priceInfo.totalDue);
+	      		$(".txt-promote-code").html(data.referralCode);
+	      		$(".original-price").html(data.priceInfo.grossPremium);
+	      		$(".discount").html(data.priceInfo.discountAmount);
+	      		$(".txt-price").html(data.priceInfo.totalDue);
 	      		
 	      		$("#planCode").val(data.planCode);
 	      		$("#grossPremium").val(data.priceInfo.grossPremium);
