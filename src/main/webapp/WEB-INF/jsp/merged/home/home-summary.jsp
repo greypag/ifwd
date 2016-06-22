@@ -632,7 +632,7 @@ var plan="${plan}";
 		                        <div class="col-xs-12">
 			                        <div class="form-group no-border">
 				                        <div class="checkbox">
-				                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="payment.declaration" bundle="${msg}" /></label>
+				                            <input type="checkbox" name="cbTNC" id="cbTNC" value=""><label for="cbTNC"><fmt:message key="home.summary.declarations" bundle="${msg}" /></label>
 				                            <span class="error-msg" id="cbTNCErrMsg"></span>
 				                        </div>
 			
