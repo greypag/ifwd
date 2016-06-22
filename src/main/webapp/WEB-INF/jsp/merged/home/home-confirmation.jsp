@@ -9,36 +9,35 @@ var plan="${plan}";
 </script>
 
 <div class="fwd-savie-wrapper">
-    <div class="fwd-container container-fluid breadcrumbs">
-        <div class="breadcrumb-container">
-           <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Home</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Save</a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="https://uat-ecom.i.fwd.com.hk/fna/tc/savings-insurance/signature#">Life Insureance Plan</a></li>
-               <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu">Application</li>
-           </ol>
-        </div>
-     </div>
+    
+    <!-- Breadcrumb Component Start-->
+
+    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+    <c:set var="breadcrumbActive" value="0" />
+
+    <c:if test="${planIndex == 'easy-home-care'}">
+        <c:set var="breadcrumbItems">
+            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.easyhome,breadcrumb.item.confirmation
+        </c:set>
+        <c:set var="breadcrumbActive">4</c:set>
+    </c:if>
+    <c:if test="${planIndex == 'home-liability'}">
+        <c:set var="breadcrumbItems">
+            breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.household,breadcrumb.item.home.liability,breadcrumb.item.confirmation
+        </c:set>
+        <c:set var="breadcrumbActive">4</c:set>
+    </c:if>
+
+    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+        <jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+        <jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+    </jsp:include>
+
+    <!-- Breadcrumb Component End-->
+
      <div class="savie-online-container app-pg-ctnr" id="ehome-app-confirmation">
      <div class="container-fluid fwd-full-container browse-holder">
-        <div class="application-page-header et-header-browse">
-           <div class="browse-container">
-              <div class="row reset-margin hidden-xs hidden-sm">
-                 <ul class="common-steps-list six-steps nav nav-pills">
-                    <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select Plan</button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application</button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; Payment</button></li>
-                    <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/header-browse-arrow.png" class="browse-arrow"></li>
-                    <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">4</span>Confirmation</button></li>
-                 </ul>
-             </div>
-           </div>  
-        </div>
+        
      </div>
      <div class="app-pg-cont">
         <div class="container-fluid">
