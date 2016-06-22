@@ -445,16 +445,16 @@ var ehPro = '${pro }';
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-8">
+                    <div class="row text-center">
+                        <div class="inline-block">
                             <div class="box-btn-select">
                                 <a href="javascript:void(0);" class="btn-option-select savie-common-btn disabled-gray-btn btn-need-plan">
                                     <fmt:message key="easyhealth.guidance.button.next" bundle="${msg}" />
                                 </a>
                             </div>
                         </div>
-                        <br class="visible-xs">
-                        <div class="col-sm-4">
+                        <br class="visible-xs"><br class="visible-xs">
+                        <div class="inline-block">
                             <div class="box-btn-cancel">
                                 <a href="javascript:void(0);" class="btn-option-select savie-common-btn disabled-gray-btn btn-option-cancel">
                                     <fmt:message key="easyhealth.guidance.button.back" bundle="${msg}" />
