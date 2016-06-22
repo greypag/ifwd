@@ -18,11 +18,13 @@ var plan="${plan}";
     <div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
         <div class="breadcrumb-container">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                <li><a href="#">Home</a> </li>
+                <li><a href="#"><fmt:message key="breadcrumb.item.home" bundle="${msg}" /></a> </li>
                 <li class="divider"><i class="fa fa-angle-right"></i> </li>
-                <li><a href="#">Protect </a> </li>
+                <li><a href="#"><fmt:message key="breadcrumb.item.protect" bundle="${msg}" /> </a> </li>
                 <li class="divider"><i class="fa fa-angle-right"></i> </li>
-                <li class="active-bc" id="et-active-bc-menu">Home Liability</li>
+                <li><a href="#"><fmt:message key="breadcrumb.item.household" bundle="${msg}" /> </a> </li>
+                <li class="divider"><i class="fa fa-angle-right"></i> </li>
+                <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.item.home.liability" bundle="${msg}" /></li>
             </ol>
         </div>
     </div>
