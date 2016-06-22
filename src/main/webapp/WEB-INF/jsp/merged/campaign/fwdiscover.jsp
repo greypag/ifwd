@@ -728,7 +728,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count3}</p>
+                                            <p class="value count">${count0}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -771,7 +771,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count4}</p>
+                                            <p class="value count">${count1}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -815,7 +815,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer6.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count3}</p>
+                                            <p class="value count">${count2}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -859,7 +859,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count0}</p>
+                                            <p class="value count">${count3}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -901,7 +901,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count1}</p>
+                                            <p class="value count">${count4}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -944,7 +944,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count2}</p>
+                                            <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -2227,9 +2227,9 @@
         });
         $('#modal-grab-button-sixth').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("10");
+                loginpopup("23");
             }else {
-                assignPromoCode("10");
+                assignPromoCode("23");
             }
         });        
 
