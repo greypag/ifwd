@@ -253,7 +253,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<p class="remarks grey"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
 			        		<div class="text-center pans">
 			        			<div class="won-panel">
-			        				<a href="javascript:void(0);" class="btn-spd btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
+			        				<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" class="btn-spd btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
 			        			</div>
 			        		</div>
 			        		<ul>
