@@ -181,7 +181,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet="true" maxlength="100"
+                                        <input class="mdl-textfield__input" type="text" id="applicantName" name="applicantName" data-keyblock-alphabet-space="true" maxlength="100"
                                         	<c:choose>
 												<c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
 											    	value="${userDetails.fullName }" readonly="readonly"
@@ -312,7 +312,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantRoom }" class="mdl-textfield__input" type="text" id="applicantRoom" name="applicantRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantRoom }" class="mdl-textfield__input" type="text" id="applicantRoom" name="applicantRoom" maxlength="10" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantRoom">Room</label>
                                     </div>
                                     
@@ -325,7 +325,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantFloor }" class="mdl-textfield__input" type="text" id="applicantFloor" name="applicantFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantFloor }" class="mdl-textfield__input" type="text" id="applicantFloor" name="applicantFloor" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantFloor">Floor</label>
                                     </div>
                                     
@@ -338,7 +338,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantBlock }" class="mdl-textfield__input" type="text" id="applicantBlock" name="applicantBlock"  maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantBlock }" class="mdl-textfield__input" type="text" id="applicantBlock" name="applicantBlock"  maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantBlock">Block</label>
                                     </div>
                                     
@@ -355,7 +355,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantBuilding }" class="mdl-textfield__input" type="text" id="applicantBuilding" name="applicantBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantBuilding }" class="mdl-textfield__input" type="text" id="applicantBuilding" name="applicantBuilding" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantBuilding">Building</label>
                                     </div>
                                     
@@ -368,7 +368,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantEstate }" class="mdl-textfield__input" type="text" id="applicantEstate" name="applicantEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantEstate }" class="mdl-textfield__input" type="text" id="applicantEstate" name="applicantEstate" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantEstate">Estate</label>
                                     </div>
                                     
@@ -385,7 +385,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantStreetNo }" class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantStreetNo }" class="mdl-textfield__input" type="text" id="applicantStreetNo" name="applicantStreetNo" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantStreetNo">Street No.</label>
                                     </div>
                                     
@@ -398,7 +398,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.applicantStreetName }" class="mdl-textfield__input" type="text" id="applicantStreetName" name="applicantStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.applicantStreetName }" class="mdl-textfield__input" type="text" id="applicantStreetName" name="applicantStreetName" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="applicantStreetName">Street Name</label>
                                     </div>
                                     
@@ -514,7 +514,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aRoom }" class="mdl-textfield__input" type="text" id="aRoom" name="aRoom" maxlength="10" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aRoom }" class="mdl-textfield__input" type="text" id="aRoom" name="aRoom" maxlength="10" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aRoom">Room</label>
                                     </div>
                                     
@@ -527,7 +527,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aFloor }" class="mdl-textfield__input" type="text" id="aFloor" name="aFloor" maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aFloor }" class="mdl-textfield__input" type="text" id="aFloor" name="aFloor" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aFloor">Floor</label>
                                     </div>
                                     
@@ -541,7 +541,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aBlock }" class="mdl-textfield__input" type="text" id="aBlock" name="aBlock" maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aBlock }" class="mdl-textfield__input" type="text" id="aBlock" name="aBlock" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aBlock">Block</label>
                                     </div>
                                     
@@ -554,7 +554,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aBuilding }" class="mdl-textfield__input" type="text" id="aBuilding" name="aBuilding" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aBuilding }" class="mdl-textfield__input" type="text" id="aBuilding" name="aBuilding" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aBuilding">Building</label>
                                     </div>
                                     
@@ -567,7 +567,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aEstate }" class="mdl-textfield__input" type="text" id="aEstate" name="aEstate" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aEstate }" class="mdl-textfield__input" type="text" id="aEstate" name="aEstate" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aEstate">Estate</label>
                                     </div>
                                     
@@ -580,7 +580,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aStreetNo }" class="mdl-textfield__input" type="text" id="aStreetNo" name="aStreetNo" maxlength="5" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aStreetNo }" class="mdl-textfield__input" type="text" id="aStreetNo" name="aStreetNo" maxlength="5" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aStreetNo">Street No.</label>
                                     </div>
                                     
@@ -593,7 +593,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input value="${editableHomeCareDetails.aStreetName }" class="mdl-textfield__input" type="text" id="aStreetName" name="aStreetName" maxlength="50" data-keyblock-alphabet-num-space-dash="true" autocomplete="off">
+                                        <input value="${editableHomeCareDetails.aStreetName }" class="mdl-textfield__input" type="text" id="aStreetName" name="aStreetName" maxlength="50" data-keyblock-alphabet-num-space="true" autocomplete="off">
                                         <label class="mdl-textfield__label" for="aStreetName">Street Name</label>
                                     </div>
                                     
@@ -818,5 +818,6 @@ function setDropArea(id, selectId, setId) {
     $('#' + setId).val($("#" + selectId + " option[value='"+id+"']").text());
     $('#' + setId).parent().addClass('is-dirty');
     $('#' + setId).parent().parent().parent().addClass('has-success');
+    $('#' + setId).change();
 }
 </script>

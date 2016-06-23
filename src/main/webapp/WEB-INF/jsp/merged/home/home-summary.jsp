@@ -111,7 +111,7 @@ var plan="${plan}";
                     <li class="last hidden-xs">
                     	<div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Discount</p>
+                            <p class="fld-label">Amount due</p>
                             <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
                             </div>
                         </div>
@@ -553,7 +553,7 @@ var plan="${plan}";
 		                            <div class="form-group">
 		                                <div class="fld-wrapper">
 		                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder" autocomplete="off">
+		                                        <input class="mdl-textfield__input" type="text" id="ccName" name="cardHolder" data-keyblock-alphabet-num-space="true" autocomplete="off">
 		                                        <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.holder.name" bundle="${msg}" /></label>
 		                                    </div>
 		                                </div>

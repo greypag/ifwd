@@ -11,7 +11,8 @@ application.common = {
 	dataAttributes:[
 		"data-keyblock-alphabet",
 		"data-keyblock-num",
-		"data-keyblock-alphabet-num-space-dash"
+		"data-keyblock-alphabet-num-space-dash",
+		"data-keyblock-alphabet-num-space"
 	],
 
 	pattern:{
@@ -19,7 +20,8 @@ application.common = {
 		Num : /^[0-9]*$/,
 		Email : /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
 		Mobileno:/^1[0-9]{10}$|^[5689][0-9]{7}$/,
-		AlphabetNumSpaceDash : /^[a-zA-Z0-9\s\-]*$/
+		AlphabetNumSpaceDash : /^[a-zA-Z0-9\s\-]*$/,
+		AlphabetNumSpace : /^[a-zA-Z0-9\s]*$/
 	},
 
 	stripPattern:{
@@ -28,6 +30,7 @@ application.common = {
 		Space : /[^\s]/g,
 
 		AlphabetNum : /[^a-zA-Z0-9]/g,
+		AlphabetSpace : /[^a-zA-Z\s]/g,
 		AlphabetNumSpace : /[^a-zA-Z0-9\s]/g,
 		AlphabetNumSpaceDash : /[^a-zA-Z0-9\s\-]/g,
 		AlphabetNumSpaceDot:/[^\sa-zA-Z.]/g
@@ -66,9 +69,8 @@ application.common = {
 
 				sEvt = (typeof sEvt === 'string') ? sEvt:null;
 
-
 				if(sEvt != null){
-
+					
 					$(this).on("keypress",function(evt){
 						return that.keyblock(evt,sEvt.replace("keyblock",""));
 					});
@@ -88,12 +90,13 @@ application.common = {
 	keyblock:function(evt,s){
 
 		var that = this;
-		
+		console.log("s",s);
 		//check existed function or pattern
 		if(typeof that[s] == "function"){
 			return that[s](evt);
 		}else if(that.pattern[s]){
 			var charCode = (evt.which) ? evt.which : event.keyCode;
+			console.log("charCode",charCode);
 			var keychar = String.fromCharCode(charCode);
 			return that.pattern[s].test(keychar);
 		}else{

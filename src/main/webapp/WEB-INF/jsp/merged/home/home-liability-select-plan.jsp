@@ -268,7 +268,7 @@ var nextPage = "${nextPageFlow}";
                                             <td><fmt:message key="planoption.home.liability.tab3.table.section.text" bundle="${msg}" /></td>
                                             <td><fmt:message key="planoption.home.liability.tab3.table.coverage.text" bundle="${msg}" /></td>
                                             <td>5,000,000</td>
-                                            <td>239</td>
+                                            <td>249</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -453,6 +453,7 @@ var nextPage = "${nextPageFlow}";
                         </div>
                         <div>
                             <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
+                            <span class="error-msg" id="promoCodeErrMsg"></span>
                         </div>
                     </form>
                 </div>
@@ -586,41 +587,45 @@ var nextPage = "${nextPageFlow}";
 
 <script>
 $(".btn-promo-apply").on("click",function(){
-	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	$.ajax({
-        type : "get",
-        cache:false, 
-        async:false, 
-        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
-        data : {
-	        	referralCode : $("#promoCode").val(),
-	        	answer1 : "N",
-	        	answer2 : "N"
-	           },
-        success : function(data) {
-	      	if(data !=null && data.errorMsg ==null){
-	      		$(".txt-promote-code").html(data.referralCode);
-	      		$(".original-price").html(data.priceInfo.grossPremium);
-	      		$(".discount").html(data.priceInfo.discountAmount);
-	      		$(".txt-price").html(data.priceInfo.totalDue);
-	      		
-	      		$("#planCode").val(data.planCode);
-	      		$("#grossPremium").val(data.priceInfo.grossPremium);
-	      		$("#discountAmount").val(data.priceInfo.discountAmount);
-	      		$("#totalDue").val(data.priceInfo.totalDue);
-	      		$("#referralName").val(data.referralName);
-	      		$('#loading-overlay').modal('hide');
-			}
-	      	else{
-	      		$('#loading-overlay').modal('hide');
-	      		console.log(data.errorMsg); 
-	      	}
-        },
-        error:function(){
-        	$('#loading-overlay').modal('hide');
-            console.log('error');   
-        }
-  });
+	
+	if(validatePromoCode()){
+		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		$.ajax({
+	        type : "get",
+	        cache:false, 
+	        async:false, 
+	        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
+	        data : {
+		        	referralCode : $("#promoCode").val(),
+		        	answer1 : "N",	
+		        	answer2 : "N"
+		           },
+	        success : function(data) {
+		      	if(data !=null && data.errorMsg ==null){
+		      		$(".txt-promote-code").html(data.referralCode);
+		      		$(".original-price").html(data.priceInfo.grossPremium);
+		      		$(".discount").html(data.priceInfo.discountAmount);
+		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		
+		      		$("#planCode").val(data.planCode);
+		      		$("#grossPremium").val(data.priceInfo.grossPremium);
+		      		$("#discountAmount").val(data.priceInfo.discountAmount);
+		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#referralName").val(data.referralName);
+		      		$('#loading-overlay').modal('hide');
+				}
+		      	else{
+		      		$('#loading-overlay').modal('hide');
+		      		console.log(data.errorMsg); 
+		      	}
+	        },
+	        error:function(){
+	        	$('#loading-overlay').modal('hide');
+	            console.log('error');   
+	        }
+	  });
+	}
+	
 });
 
 $("#eh-select-plan-next").on("click",function(){
@@ -721,6 +726,20 @@ function validateTheClub(){
 				isValid = true;				
 			}
 		}
+	}
+	
+	return isValid;
+}
+
+function validatePromoCode(){
+	var isValid = false;
+	var elmErrMsg = $("#promoCodeErrMsg");
+	var val = $.trim($("#promoCode").val());
+	
+	if(val == ""){
+		elmErrMsg.text(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+	}else{
+		isValid = true;
 	}
 	
 	return isValid;

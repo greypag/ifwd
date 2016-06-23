@@ -525,41 +525,44 @@ var nextPage = "${nextPageFlow}";
     
     <script>
 $(".btn-promo-apply").on("click",function(){
-	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	$.ajax({
-        type : "get",
-        cache:false, 
-        async:false, 
-        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
-        data : {
-	        	referralCode : $("#promoCode").val(),
-	        	answer1 : "N",
-	        	answer2 : "N"
-	           },
-        success : function(data) {
-	      	if(data !=null && data.errorMsg ==null){
-	      		$(".txt-promote-code").html(data.referralCode);
-	      		$(".original-price").html(data.priceInfo.grossPremium);
-	      		$(".discount").html(data.priceInfo.discountAmount);
-	      		$(".txt-price").html(data.priceInfo.totalDue);
-	      		
-	      		$("#planCode").val(data.planCode);
-	      		$("#grossPremium").val(data.priceInfo.grossPremium);
-	      		$("#discountAmount").val(data.priceInfo.discountAmount);
-	      		$("#totalDue").val(data.priceInfo.totalDue);
-	      		$("#referralName").val(data.referralName);
-	      		$('#loading-overlay').modal('hide');
-			}
-	      	else{
-	      		$('#loading-overlay').modal('hide');
-	      		console.log(data.errorMsg); 
-	      	}
-        },
-        error:function(){
-        	$('#loading-overlay').modal('hide');
-            console.log('error');   
-        }
-  });
+	
+	if(validatePromoCode()){
+		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		$.ajax({
+	        type : "get",
+	        cache:false, 
+	        async:false, 
+	        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
+	        data : {
+		        	referralCode : $("#promoCode").val(),
+		        	answer1 : "N",
+		        	answer2 : "N"
+		           },
+	        success : function(data) {
+		      	if(data !=null && data.errorMsg ==null){
+		      		$(".txt-promote-code").html(data.referralCode);
+		      		$(".original-price").html(data.priceInfo.grossPremium);
+		      		$(".discount").html(data.priceInfo.discountAmount);
+		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		
+		      		$("#planCode").val(data.planCode);
+		      		$("#grossPremium").val(data.priceInfo.grossPremium);
+		      		$("#discountAmount").val(data.priceInfo.discountAmount);
+		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#referralName").val(data.referralName);
+		      		$('#loading-overlay').modal('hide');
+				}
+		      	else{
+		      		$('#loading-overlay').modal('hide');
+		      		console.log(data.errorMsg); 
+		      	}
+	        },
+	        error:function(){
+	        	$('#loading-overlay').modal('hide');
+	            console.log('error');   
+	        }
+	  });
+	}
 });
 
 $("#eh-select-plan-next").on("click",function(){
@@ -632,6 +635,20 @@ function validateTheClub(){
 				isValid = true;				
 			}
 		}
+	}
+	
+	return isValid;
+}
+
+function validatePromoCode(){
+	var isValid = false;
+	var elmErrMsg = $("#promoCodeErrMsg");
+	var val = $.trim($("#promoCode").val());
+	
+	if(val == ""){
+		elmErrMsg.text(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+	}else{
+		isValid = true;
 	}
 	
 	return isValid;

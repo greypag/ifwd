@@ -22,6 +22,17 @@ $(document).ready(function(){
 		});
 
 	});
+	 
+	 $(".mdl-textfield").each(function(){
+		 
+		 var p = $(this);
+		 $(this).find("input").on('blur',function(e){
+			 if($.trim($(e.currentTarget).val()) == ""){
+				 $(e.currentTarget).val("");
+				 p.removeClass("is-dirty");
+			 }
+		 });
+	 });
 
 
 	 if($("#ef-form-selectplan").length > 0){
@@ -85,12 +96,14 @@ $(document).ready(function(){
 		$('#dob').mobiscroll().date({
 			minDate:dob_start_date,
 			maxDate:dob_end_date,
-			dateOrder: 'ddMyy',
-        	dateFormat: 'dd-mm-yy',
+			showLabel: true,
+			dateOrder: 'ddmmyy',	
+        	dateFormat: 'dd-mm-yyyy',
 	        theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
 	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
-	        onClosed:onClosed
+	        onClosed:onClosed,
+	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
 		});
 		
 		//60 Days	
@@ -100,12 +113,14 @@ $(document).ready(function(){
 		 $('#effectdate').mobiscroll().date({
 		 	minDate:new Date(),
 		 	maxDate:sixtyDays,
-		 	dateOrder: 'ddMyy',
-        	dateFormat: 'dd-mm-yy',
+		 	showLabel: true,
+		 	dateOrder: 'ddmmyy',
+        	dateFormat: 'dd-mm-yyyy',
 	        theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
 	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
-	        onClosed:onClosed
+	        onClosed:onClosed,
+	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
 	    });
 
 		 $("#cbSameCorrAddr").change(function(){
@@ -140,11 +155,11 @@ $(document).ready(function(){
 					container:'#applicantNameErrMsg',
 					validators: {
 						notEmpty:{
-							message:'Please enter your Name in English.'
+							message:getBundle(getBundleLanguage, "form.full.name.empty")
 							//message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
 						},
 						callback:{
-							message:'Your full name is invalid.',
+							message:getBundle(getBundleLanguage, "form.full.name.invalid"),
 							callback:function(){
 								if($.trim($("#applicantName").val()) == ""){
 									return true;
@@ -160,7 +175,7 @@ $(document).ready(function(){
 					container:'#dobErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select your Date of Birth.'
+							message:getBundle(getBundleLanguage, "form.dob.empty")
 						}
 					}
 				},
@@ -189,10 +204,10 @@ $(document).ready(function(){
 										var isValidHKID = IsHKID(val);
 
 										if(isEmpty){
-											errElm.text(getBundle(getBundleLanguage, "applicant.hkId.notNull.message"));
+											errElm.text(getBundle(getBundleLanguage, "form.hkid.empty"));
 											return false;
 										}else if(!isValidHKID){
-											errElm.text(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
+											errElm.text(getBundle(getBundleLanguage, "form.hkid.invalid"));
 											return false;
 										}else{
 											return true;	
@@ -225,7 +240,7 @@ $(document).ready(function(){
 					container:'#mobileNoErrMsg',
 					validators:{
 						callback:{
-							message:'Please enter your mobile no. or email address.',
+							message:getBundle(getBundleLanguage, "form.mobile.email.empty"),
 							callback:function(a,b){
 
 								var isEmpty = $.trim($("#inputMobileNo").val()) == "";
@@ -236,15 +251,15 @@ $(document).ready(function(){
 									if(isEmpty || isValidMobile){
 										return true;
 									}else{
-										errElm.text("Your mobile no. is invalid.");
+										errElm.text(getBundle(getBundleLanguage, "form.mobile.empty"));
 										return false;
 									}
 								}else{
 									if(isEmpty){
-										errElm.text("Please enter your mobile no. or email address.");
+										errElm.text(getBundle(getBundleLanguage, "form.mobile.email.empty"));
 										return false;
 									}else if(!isValidMobile){
-										errElm.text("Your mobile no. is invalid.");
+										errElm.text(getBundle(getBundleLanguage, "form.mobile.invalid"));
 										return false;
 									}else{
 										return true;
@@ -256,14 +271,14 @@ $(document).ready(function(){
 						}
 					}
 				},
-				inputEmail:{
+				emailAddress:{
 					container:'#emailAddressErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please enter your Email Address.'
+							message:getBundle(getBundleLanguage, "form.email.empty")
 						},
 						emailAddress: {
-                           message: 'Your email address is invalid.'
+                           message: getBundle(getBundleLanguage, "form.email.invalid")
                         },
                         callback:{
                         	message:'',
@@ -331,7 +346,7 @@ $(document).ready(function(){
 					container:'#applicantBuildingErrMsg',
 					validators:{
                         callback:{
-                        	message:'Either Building or Estate must be filled in.',
+                        	message:getBundle(getBundleLanguage, "form.building.estate.empty"),
                         	callback:function(){
                         		var eitherone = $.trim($("#applicantBuilding").val()) != "" || $.trim($("#applicantEstate").val()) != "";
                         		if(eitherone) $("#ef-form-application").bootstrapValidator('updateStatus', 'applicantEstate', 'VALIDATED');
@@ -385,7 +400,7 @@ $(document).ready(function(){
 					container:'#applicantEstateErrMsg',
 					validators:{
                         callback:{
-                        	message:'Either Building or Estate must be filled in.',
+                        	message:getBundle(getBundleLanguage, "form.building.estate.empty"),
                         	callback:function(){
                         		var eitherone = $.trim($("#applicantBuilding").val()) != "" || $.trim($("#applicantEstate").val()) != "";
                         		if(eitherone) $("#ef-form-application").bootstrapValidator('updateStatus', 'applicantBuilding', 'VALIDATED');
@@ -404,7 +419,7 @@ $(document).ready(function(){
 					container:'#applicantDistrictErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select district'
+							message:getBundle(getBundleLanguage, "form.address.district.empty")
 						},
 						callback:{
                         	message:' ',
@@ -422,7 +437,7 @@ $(document).ready(function(){
 					container:'#applicantAreaErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please enter your area'
+							message:getBundle(getBundleLanguage, "form.address.area.empty")
 						},
 						callback:{
                         	message:' ',
@@ -441,7 +456,7 @@ $(document).ready(function(){
 					container:'#aBuildingErrMsg',
 					validators:{
                         callback:{
-                        	message:'Either Building or Estate must be filled in.',
+                        	message:getBundle(getBundleLanguage, "form.building.estate.empty"),
                         	callback:function(){
                         		if(!$("#cbSameCorrAddr").is(":checked")){
                         			var eitherone = $.trim($("#aBuilding").val()) != "" || $.trim($("#aEstate").val()) != "";
@@ -457,7 +472,7 @@ $(document).ready(function(){
 					container:'#aEstateErrMsg',
 					validators:{
                         callback:{
-                        	message:'Either Building or Estate must be filled in.',
+                        	message:getBundle(getBundleLanguage, "form.building.estate.empty"),
                         	callback:function(){
                         		if(!$("#cbSameCorrAddr").is(":checked")){
                         			var eitherone = $.trim($("#aBuilding").val()) != "" || $.trim($("#aEstate").val()) != "";
@@ -475,7 +490,7 @@ $(document).ready(function(){
 					container:'#aDistrictErrMsg',
 					validators:{
 						callback:{
-							message:"Please select district",
+							message:getBundle(getBundleLanguage, "form.address.district.empty"),
 							callback:function(){
 								if(!$("#cbSameCorrAddr").is(":checked")){
 									if($.trim($("#aDistrict").val()) == ""){
@@ -492,7 +507,7 @@ $(document).ready(function(){
 					container:'#aAreaErrMsg',
 					validators:{
 						callback:{
-							message:"Please enter your area",
+							message:getBundle(getBundleLanguage, "form.address.area.empty"),
 							callback:function(){
 								if(!$("#cbSameCorrAddr").is(":checked")){
 									if($.trim($("#aArea").val()) == ""){
@@ -510,7 +525,7 @@ $(document).ready(function(){
 					container:'#netFloorAreaErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select Net Floor Area.'
+							message:getBundle(getBundleLanguage, "form.net.floor.area.empty")
 						}
 					}
 				},
@@ -518,7 +533,7 @@ $(document).ready(function(){
 					container:'#effectdateErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please select your Effective Date.'
+							message:getBundle(getBundleLanguage, "form.home.effective.date.empty")
 						}
 					}
 				},
@@ -526,7 +541,7 @@ $(document).ready(function(){
 					container:'#declarrationErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please read and accept the Declaration, Terms & Conditions before submitting the application.'
+							message:getBundle(getBundleLanguage, "form.declaration.tnc.empty")
 						}
 					}
 				},
@@ -534,7 +549,7 @@ $(document).ready(function(){
 					container:'#declarration2ErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please read and accept the Personal Information Collection Statement before submitting the application.'
+							message:getBundle(getBundleLanguage, "form.declaration.pics.empty")
 						}
 					}
 				},
@@ -727,11 +742,10 @@ $(document).ready(function(){
 					container:'#ccNumberErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please enter your credit card number.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
+							message:getBundle(getBundleLanguage, "form.credit.card.number.empty")
 						},
 						callback:{
-							message:"Please enter your credit card number.",
+							message:getBundle(getBundleLanguage, "form.credit.card.number.invalid"),
 							//message:getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"),
 							callback:function(e){
 								if($("#ccNumber").data("bv.result.notEmpty") === "INVALID"){
@@ -768,12 +782,11 @@ $(document).ready(function(){
 					container:'#ccNameErrMsg',
 					validators: {
 						notEmpty:{
-							message:'Please enter name printed on credit card.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message")
+							message:getBundle(getBundleLanguage, "form.credit.card.name.empty")
 						},
 						callback:{
-							message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer service at 3123 3123 for more details.",
-							//message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
+							//message:"Name on credit card does not match with the applicant's name. Please try to use another credit card or contact our customer service at 3123 3123 for more details.",
+							message:getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"),
 							callback:function(e){
 								if($("#ccName").data("bv.result.notEmpty") === "INVALID"){
 									return true
@@ -794,21 +807,19 @@ $(document).ready(function(){
 					container:'#cvvNumberErrMsg',
 					validators: {
 						notEmpty:{
-							message:'Please enter security code on credit card.'
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.cvv.notNull.message")
+							message:getBundle(getBundleLanguage, "form.credit.card.cvv.empty")
 						},
-						/*cvv: {
+						cvv: {
 							creditCardField: 'ccNumber',
-							message: 'Your security code is invalid.'
-						}*/
+							message: getBundle(getBundleLanguage, "form.credit.card.cvv.invalid")
+						}
 					}
 				},
 				epMonth:{
 					container:'#expMonthErrMsg',
 					validators: {
 						notEmpty:{
-							message:"Please specify your credit card's expiry month."
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message")
+							message:getBundle(getBundleLanguage, "form.credit.card.expiry.month.empty")
 						},
 						callback:{
 							callback:function(e){
@@ -830,8 +841,7 @@ $(document).ready(function(){
 					container:'#expYearErrMsg',
 					validators: {
 						notEmpty:{
-							message:"Please specify your credit card's expiry year."
-							//message:getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message")
+							message:getBundle(getBundleLanguage, "form.credit.card.expiry.year.empty")
 						},
 						callback:{
 							callback:function(e){
@@ -853,8 +863,7 @@ $(document).ready(function(){
 					container:'#cbTNCErrMsg',
 					validators:{
 						notEmpty:{
-							message:'Please read and accept the Payment Authorization.'
-							//message:getBundle(getBundleLanguage, "payment.tnc.notChecked.message")
+							message:getBundle(getBundleLanguage, "form.declaration.payment.empty")
 						}
 					}
 				}				
