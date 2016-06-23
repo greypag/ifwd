@@ -102,6 +102,24 @@
 </div>
 
 <script>
+
+function fbShare(method,url,title,desc,img){
+
+    FB.ui({
+        method: method,
+        display: 'iframe',
+        href: url,
+        mobile_iframe: true
+    },function(response) {
+        if (response && response.post_id) {
+          console.log('Post was published.'+ response);
+        } else {
+          console.log('Post was not published.' + response);
+        }
+    });
+
+}
+
 $(function() {
     $('input, textarea').placeholder();
     var winWidth = 575;
@@ -151,23 +169,8 @@ $(function() {
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
-    function fbShare(method,name,link,picture,description){
-    	FB.ui({
-  			method: method,
-  			display: 'iframe',
-  			href: link,
-        mobile_iframe: true
-      },
-		function(response) {
-			if (response && response.post_id) {
-				console.log('Post was published.'+ response);
-			} else {
-				console.log('Post was not published.' + response);
-			}
-		});    
-    }
     $('#fb-dialog-share').on("click",function(){
-    	fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
+    	fbShare('share',ogUrl,ogTitle,ogDesc,ogImg);
     });    
     
 /*     $('#fb-dialog-share').click(function(e) {

@@ -68,7 +68,7 @@ var plan="${plan}";
                 <div class="col-xs-12">
                     <div class="text-center">
                         
-                        <a role="button" tabindex="1" class="btn-share" onclick="fbShare('share', '', '<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/${plan=="home-liability" ? "household-insurance/home-liability" : "household-insurance/easy-home-care"}?promo=<%=session.getAttribute("myHomeReferralCode")%>', '', '')">
+                        <a role="button" tabindex="1" class="btn-share" onclick="fbShare('share','<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/${plan=="home-liability" ? "household-insurance/home-liability" : "household-insurance/easy-home-care"}?promo=<%=session.getAttribute("myHomeReferralCode")%>','','','')">
                         	<span class="icon-wrapper">
                         		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="icon" style="width: 60px; height: 60px;">
                         		<g><path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path></g></svg>
