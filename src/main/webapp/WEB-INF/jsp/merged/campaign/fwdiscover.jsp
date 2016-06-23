@@ -2362,6 +2362,8 @@
                 link="working-holiday-insurance?promo="+code;
             }else if("13"==campaignId){
                 link="savings-insurance?promo="+code;
+            }else if("23"==campaignId){
+                link="overseas-study-insurance?promo="+code;
             }
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);                      
