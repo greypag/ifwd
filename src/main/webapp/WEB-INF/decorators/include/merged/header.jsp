@@ -76,7 +76,8 @@ function getBundle(lang, key){
 
 function putPremium(){
     var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
-    if(pro != null){
+    var isNavbarLogin = ($('#loginpopup #nav-bar-check').val()=='true')?true:false;
+    if(pro != null && !isNavbarLogin){
     	$.ajax({
             type : "post",
             cache:false,
