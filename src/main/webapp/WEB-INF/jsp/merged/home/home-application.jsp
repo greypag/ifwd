@@ -215,7 +215,7 @@ var plan="${plan}";
                                 </div>
                         </div>
 
-                        <div class="col-xs-12 col-md-3">
+                        <!-- <div class="col-xs-12 col-md-3">
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-select">
@@ -231,8 +231,8 @@ var plan="${plan}";
                                 <span class="error-msg" id="apphkidandpassportErrMsg"></span>
                             </div>
                         </div>
-
-                        <div class="col-xs-12 col-md-3">
+						 -->
+                        <div class="col-xs-12 col-md-6">
                                 <div class="form-group b-left">
                                     <div class="fld-wrapper">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

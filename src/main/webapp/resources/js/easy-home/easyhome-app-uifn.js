@@ -164,28 +164,28 @@ $(document).ready(function(){
 						}
 					}
 				},
-				apphkidandpassport:{
+				/*apphkidandpassport:{
 					container:'#apphkidandpassportErrMsg',
 					validators:{
 						notEmpty:{
 							message:'Please select'
 						}
 					}
-				},
+				},*/
 				hkId:{
 					container:'#hkIdErrMsg',
 					validators:{
 						callback:{
 							message:'',
 							callback:function(){
-								if($("#apphkidandpassport").val() == ""){
+								/*if($("#apphkidandpassport").val() == ""){
 									return true;
-								}else{
+								}else{*/
 									var isEmpty = $.trim($("#hkId").val()) == "";
 									var val = $.trim($("#hkId").val());
 									var errElm = $("#hkId").parents(".form-group").find("small[data-bv-validator='callback']");
 
-									if($("#apphkidandpassport").val() == "appHkid"){
+									//if($("#apphkidandpassport").val() == "appHkid"){
 										var isValidHKID = IsHKID(val);
 
 										if(isEmpty){
@@ -195,9 +195,10 @@ $(document).ready(function(){
 											errElm.text(getBundle(getBundleLanguage, "applicant.hkId.notValid.message"));
 											return false;
 										}else{
-											return true;
+											return true;	
 										}
-									}else if($("#apphkidandpassport").val() == "appPassport"){
+
+									/*}else if($("#apphkidandpassport").val() == "appPassport"){
 										var isValidPassportLen = chkTravelHKPassLen(val);
 										var isValidPassport = chkTravelHKPass(val);
 
@@ -214,8 +215,8 @@ $(document).ready(function(){
 											return true;
 										}
 
-									}
-								}
+									}*/
+								//}
 							}
 						}
 					}
