@@ -586,9 +586,7 @@ var ehPro = '${pro }';
                                                     <br>
                                                     <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /></span><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
-                                                <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login2" bundle="${msg}" /></a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
                                                 <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
@@ -795,9 +793,7 @@ var ehPro = '${pro }';
                                                     <br>
                                                     <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
-                                                <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login2" bundle="${msg}" /></a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
                                                 <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
@@ -1001,9 +997,7 @@ var ehPro = '${pro }';
                                                     <br>
                                                     <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
-                                                <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login2" bundle="${msg}" /></a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
                                                 <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
@@ -1206,9 +1200,7 @@ var ehPro = '${pro }';
                                                     <br>
                                                     <br class="hidden-xs hidden-md"><span class="txt-remarks text-center"><fmt:message key="easyhealth.plandetails-1.premium" bundle="${msg}" /><fmt:message key="easyhealth.plan.monthly.premium.basic" bundle="${msg}" /><span class="txt-price-yca"></span><fmt:message key="easyhealth.plan.monthly.premium.basic.subfix" bundle="${msg}" /><fmt:message key="easyhealth.plandetails-2.premium" bundle="${msg}" /></span>
                                                 </div>
-                                                <div class="btn-apply">
-                                                    <a href="javascript:void(0);" class="savie-common-btn"><fmt:message key="easyhealth.plandetails.login2" bundle="${msg}" /></a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="col-xs-12 hidden-md hidden-lg text-center ywg">
                                                 <fmt:message key="easyhealth.plandetails.receive" bundle="${msg}" />
