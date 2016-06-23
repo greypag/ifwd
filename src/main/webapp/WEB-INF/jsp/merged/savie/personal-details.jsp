@@ -573,13 +573,13 @@ maxlength="19"/>
 </div>
 <input type="hidden" id="is-chinese-address" name="is-chinese-address" value="N"/>
 
-<%-- 2016memberID - start --%>
+<%-- 2016memberID - start
 <div class="row margin">
 <div class="col-sm-12 col-md-12">
 	<hr>
 </div>
 <div class="col-sm-12 col-md-6 left">
-	<%-- checkbox --%>
+	<!-- checkbox --!>
 	<script>
 		$(document).ready(function() {
 			$('#the-club-member-toggle').on('change', function() {
@@ -594,10 +594,6 @@ maxlength="19"/>
 	<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 		<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 		<label for="the-club-member-toggle">
-			<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
-				<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
-				<fmt:message key="club.membership.confirm" bundle="${msg}" />
-			</a> --%>
 			<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
 			<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 		</label>
@@ -608,17 +604,16 @@ maxlength="19"/>
 			<label for="theClubMembershipNo" class="application-page-input-text et-input-label"></label>
 		</div>
 		<div class="left-desktop text-box">
-			<%--errMsgs--%>
+			<!--errMsgs--!>
 			<span class="text-red" id="errClubMemberID"></span><br>
 			<span class="text-red" id="errClubMember8digit"></span>
-			<%--inputBox--%>
+			<!--inputBox--!>
 			<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
 				<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 				<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 			</div>
-			<%--links--%>
+			<!--links--!>
 			<div class="getclubmembership" style="font-size: 14px;">
-				<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
 				<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link" target="_blank">
 					<i>
 						<fmt:message key="club.membership.join" bundle="${msg}" />
@@ -669,7 +664,7 @@ maxlength="19"/>
 			</div>
 		</div>
 	</div>
-	<!--/ The Club Membership popup --> --%>
+	<!-- The Club Membership popup --> --%>
 	<script>
 	function chkClubMember() {
 		$(".errDue").html('');

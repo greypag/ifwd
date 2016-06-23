@@ -695,8 +695,8 @@
 	        	 };
 	         }, 1000);
       	}
-         
-        
+
+
          $.ajax({
 	         type: "POST",
 	         url:contextPath+'/ajax/eliteTerm/putDeclarationSession',
@@ -941,19 +941,20 @@
                   }
                }
             },
-            "theClubMembershipNo": {
-               container: '#errClubMemberID',
-               trigger: 'blur',
-               validators: {
-                  notEmpty: {
-                     message: getBundle(getBundleLanguage, "club.member.empty")
-                  },
-                  regexp: {
-                    regexp: /^8[0-9]{9}$/,
-                    message: getBundle(getBundleLanguage, "club.member.digitchk")
-                  }
-               }
-            },
+            // 2016memberID
+            // "theClubMembershipNo": {
+            //    container: '#errClubMemberID',
+            //    trigger: 'blur',
+            //    validators: {
+            //       notEmpty: {
+            //          message: getBundle(getBundleLanguage, "club.member.empty")
+            //       },
+            //       regexp: {
+            //         regexp: /^8[0-9]{9}$/,
+            //         message: getBundle(getBundleLanguage, "club.member.digitchk")
+            //       }
+            //    }
+            // },
             "savieApplicantBean.hkId": {
                container: '#hkidMessage',
                trigger: 'blur',
@@ -1867,7 +1868,8 @@
       }
       $('#etaspi-mob-no').text('+' + appInfoData.mobNoPrefix + ' ' + _tempMobSuffix);   */
       $('#etaspi-mob-no').text(appInfoData.mobNo);
-      $('#etaspi-clubmember-id').text(appInfoData.clubMemberId);
+      // 2016memberID
+    //   $('#etaspi-clubmember-id').text(appInfoData.clubMemberId);
       var perAddArr = [];
       if (appInfoData.perAddL1 && appInfoData.perAddL1!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
          perAddArr.push(appInfoData.perAddL1);

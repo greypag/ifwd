@@ -1388,12 +1388,12 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 
-								<%-- 2016memberID - start --%>
+								<%-- 2016memberID - start
 								<div class="col-sm-12 col-md-12">
 									<hr>
 								</div>
 								<div class="col-sm-12 col-md-6 left">
-									<%-- checkbox --%>
+									<!-- checkbox --!>
 									<script>
 										$(document).ready(function() {
 											$('#the-club-member-toggle').on('change', function() {
@@ -1409,10 +1409,6 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
 										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
 										<label for="the-club-member-toggle">
-											<%-- <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">
-												<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" />
-												<fmt:message key="club.membership.confirm" bundle="${msg}" />
-											</a> --%>
 											<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
 											<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
 										</label>
@@ -1423,20 +1419,18 @@ var home_url = "<%=request.getContextPath()%>";
 											<label for="theClubMembershipNo" class="application-page-input-text et-input-label"></label>
 										</div>
 										<div class="left-desktop text-box">
-											<%--errMsgs--%>
-											<%-- <span class="text-red" id="errClubMemberID"></span> --%>
-
+											<!--errMsgs--!>
 											<span class="error-msg" id="errClubMemberID"></span>
+											<!-- <span class="text-red" id="errClubMember8digit"></span> --!>
 
-											<%-- <span class="text-red" id="errClubMember8digit"></span> --%>
-											<%--inputBox--%>
+											<!--inputBox--!>
 											<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
 												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
 												<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 											</div>
-											<%--links--%>
+											<!--links--!>
 											<div class="getclubmembership" style="font-size: 14px;">
-												<%--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--%>
+												<!--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--!>
 												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link" target="_blank">
 													<i>
 														<fmt:message key="club.membership.join" bundle="${msg}" />
@@ -1444,7 +1438,7 @@ var home_url = "<%=request.getContextPath()%>";
 												</a>
 											</div>
 										</div>
-									</div>
+									</div> --%>
 									<%--<div class="form-group" style="margin-top: 0px; margin-bottom: 20px; display: none;">
 										<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
 											<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
@@ -1518,16 +1512,17 @@ var home_url = "<%=request.getContextPath()%>";
 														flag = true;
 												}
 											}
-										} 
+										}
 										return flag;
 								}
 								--%>
 								</script>
 								</div>
+								<input type="hidden" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input" value=""/>
 								<%-- 2016memberID - end --%>
 
 							</div>
-							<div class="next-btn">
+							<div class="next-btn center">
 								<button id="et-personal-info-next" class="btn next pi">
 									<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 								</button>
@@ -2701,7 +2696,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                         $("#personal-data-check").change(function() {
                             showBubble();
-                        });                     
+                        });
                         </script>
 					</form>
 
@@ -2927,12 +2922,13 @@ var home_url = "<%=request.getContextPath()%>";
 									${language == 'en' ? etPolicyApplication.applicant.correspondenceDistrictEnName:etPolicyApplication.applicant.correspondenceDistrictCnName }
 									</p>
 								</div>
-								<div class="clearfix info-holder-below">
+								<%-- 2016memberID Start --%>
+								<%-- <div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="club.membership.number" bundle="${msg}" />
 									</h4>
 									<p class="info" id="etaspi-clubmember-id">${etPolicyApplication.applicant.theClubMembershipNo }</p>
-								</div>
+								</div> --%>
 							</div>
 							<!-- PERSONAL INFO END -->
 
@@ -3248,7 +3244,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="notice second-format">
 										<fmt:message key="eliteTerms.selectPlan.Question2.copy"
 											bundle="${msg}" />
-									</p>									
+									</p>
 									</div>
 								</div>
 								<div class="fwd-checkbox below">
@@ -3257,7 +3253,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="notice second-format">
 										<fmt:message key="eliteTerms.selectPlan.Question3.copy"
 											bundle="${msg}" />
-									</p>									
+									</p>
 									<%--<p class="notice">
 										<fmt:message key="eliteTerms.selectPlan.I.DO.NOT.have.had"
 											bundle="${msg}" />
@@ -3311,7 +3307,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<li><img
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
-										</ul>									
+										</ul>
 								</div> --%>
 								<div class="fwd-checkbox below">
 									<input type="checkbox" id="summary-four" checked disabled>
@@ -4026,7 +4022,7 @@ var home_url = "<%=request.getContextPath()%>";
 			$(this).parent().find(':checkbox').prop('checked',false);
 			if($(this).hasClass("marketing-info-desk") || $(this).hasClass("personal-data-desc")){
 				showBubble();
-			}			
+			}
 		}
 	});
 
@@ -4321,7 +4317,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 	    	    	 putEtPageKeySession("3");
-	    	    	 
+
 	    	    	 var $appInfo = $('#et-application-first-section');
 	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
 	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
@@ -4991,7 +4987,7 @@ var home_url = "<%=request.getContextPath()%>";
 		  if('${etPageKey }' == '6'){
 			  storeEmpInfo();
        	      populateAppSummEI();
-			  
+
 			  backToStep(6);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
@@ -5002,7 +4998,7 @@ var home_url = "<%=request.getContextPath()%>";
        	      populateAppSummEI();
 			  storeBeneficiaryInfo();
               populateAppSummBI();
-			  
+
 			  backToStep(7);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-second-section').offset().top - stickyHeight) + 'px'
@@ -5013,7 +5009,7 @@ var home_url = "<%=request.getContextPath()%>";
        	      populateAppSummEI();
 			  storeBeneficiaryInfo();
               populateAppSummBI();
-			  
+
 			  backToStep(8);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'

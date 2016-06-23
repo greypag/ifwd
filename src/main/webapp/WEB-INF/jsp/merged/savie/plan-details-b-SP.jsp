@@ -57,7 +57,7 @@ var affordabilityPremium = ${sliderMax};
 					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
 				 </ul>
 			 </div>
-		   </div>  
+		   </div>
 		   <div class="et-mobile-header-info hidden-md hidden-lg">
 			  <div class="clearfix">
 				 <div class="et-back-arrow">
@@ -93,14 +93,14 @@ var affordabilityPremium = ${sliderMax};
 					<h3 class="heading-title"><fmt:message key="label.savie.plan.details.label" bundle="${msg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<fmt:message key="info.savie.payment.method.tooltip" bundle="${msg}" />" class="fa hidden fa-info-circle info-tooltip"></i></h3>
 					<div class="col-md-4 plan-payment-type">
 						<div class="row">
-							<div class="col-xs-12">							
+							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" <c:if test="${type == '2' }">disabled</c:if>>
 									   <option value="regular-payment"><fmt:message key="savie.online.select.regular" bundle="${msg}" /></option>
 									   <option value="one-off-premium"><fmt:message key="savie.online.select.oneoff" bundle="${msg}" /></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="label.savie.plan.details.paymentmode" bundle="${msg}" /></label>							
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="label.savie.plan.details.paymentmode" bundle="${msg}" /></label>
 								</div>
 							</div>
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
@@ -126,18 +126,18 @@ var affordabilityPremium = ${sliderMax};
 							</div>
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
-				                   <div>				               
+				                   <div>
 				                   		<h3 class="amount-selected">
 				                   			<span class="pull-left"><fmt:message key="label.savie.amount.sp" bundle="${msg}" /></span>
 				                   			<span class="pull-right"><c:if test="${language != 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if><span id="range"><fmt:formatNumber value="${slider_value}" type="number"/></span><c:if test="${language == 'tc'}"><fmt:message key="label.hkd" bundle="${msg}" /></c:if></span>
 				                   		</h3>
 				                   </div>
-				                    <input  class="span2 amount-slider" name="amount" 
-				                    value="${slider_value}" 
-				                    data-slider-min="${slider_min}" 
-				                    data-slider-max="${slider_max}" 
-				                    data-slider-step="1000" 
-				                    data-slider-value="${slider_value}" 
+				                    <input  class="span2 amount-slider" name="amount"
+				                    value="${slider_value}"
+				                    data-slider-min="${slider_min}"
+				                    data-slider-max="${slider_max}"
+				                    data-slider-step="1000"
+				                    data-slider-value="${slider_value}"
 				                    data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
@@ -152,7 +152,7 @@ var affordabilityPremium = ${sliderMax};
 								</div>
 							</div>
 							<div class="clearfix"></div>
-						</div>									
+						</div>
 					</div>
 					<div class="col-md-4 plan-dob">
 						<div class="row">
@@ -160,7 +160,7 @@ var affordabilityPremium = ${sliderMax};
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
 									<input  name="plan-dob" id="plan-dob-datepicker" readonly value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="<fmt:message key="label.dob" bundle="${msg}" />" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="label.dob" bundle="${msg}" /></label> 
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="label.dob" bundle="${msg}" /></label>
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
 									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }"  name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
@@ -173,9 +173,9 @@ var affordabilityPremium = ${sliderMax};
 									   <option value=""></option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="total-payment-years"><fmt:message key="label.payment.year" bundle="${msg}" /></label> 
+									<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="total-payment-years"><fmt:message key="label.payment.year" bundle="${msg}" /></label>
 								</div>
-							</div>								
+							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-md-2 plan-promo-code">
@@ -199,7 +199,7 @@ var affordabilityPremium = ${sliderMax};
 				<h4 class="summary-note-title"><fmt:message key="label.summary" bundle="${msg}" /></h4>
 				<p class="summary-note"><fmt:message key="label.savie.crediting.rate.copy" bundle="${msg}" /></p>
 			</div>
-			<div class="table-content">					
+			<div class="table-content">
 				<div class="rate-table">
 					<table class="table table-hover">
 						<thead>
@@ -267,25 +267,25 @@ var affordabilityPremium = ${sliderMax};
 							<tbody>
 								<tr id="new-table-added">
 									<td class="policy-credit policy-number bold" id="policy-year-0-0">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td> 
-									<td id="premium-change-0-0">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-0">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td>
+									<td id="premium-change-0-0">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-0-0">0</td>
 									<td id="surrender-change-0-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-0-1">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-1">0</td> 
-									<td id="premium-change-0-1">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-1">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-1">0</td>
+									<td id="premium-change-0-1">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-0-1">0</td>
 									<td id="surrender-change-0-1">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-0-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
+									<td class="policy-credit policy-number bold" id="policy-year-0-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-2">0</td>
-									<td id="premium-change-0-2">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-2">0</td>    
+									<td id="premium-change-0-2">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-0-2">0</td>
 									<td id="surrender-change-0-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
@@ -308,25 +308,25 @@ var affordabilityPremium = ${sliderMax};
 							<tbody>
 								<tr id="new-table-added">
 									<td class="policy-credit policy-number bold" id="policy-year-2-0">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-0">2</td> 
-									<td id="premium-change-2-0">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-0">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-0">2</td>
+									<td id="premium-change-2-0">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-2-0">0</td>
 									<td id="surrender-change-2-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-2-1">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-1">2</td> 
-									<td id="premium-change-2-1">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-1">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-1">2</td>
+									<td id="premium-change-2-1">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-2-1">0</td>
 									<td id="surrender-change-2-1">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-2-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
+									<td class="policy-credit policy-number bold" id="policy-year-2-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-2">2</td>
-									<td id="premium-change-2-2">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-2">0</td>    
+									<td id="premium-change-2-2">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-2-2">0</td>
 									<td id="surrender-change-2-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
@@ -349,25 +349,25 @@ var affordabilityPremium = ${sliderMax};
 							<tbody>
 								<tr id="new-table-added">
 									<td class="policy-credit policy-number bold" id="policy-year-3-0">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-0">3</td> 
-									<td id="premium-change-3-0">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-0">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-0">3</td>
+									<td id="premium-change-3-0">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-3-0">0</td>
 									<td id="surrender-change-3-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-3-1">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-1">3</td> 
-									<td id="premium-change-3-1">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-1">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-1">3</td>
+									<td id="premium-change-3-1">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-3-1">0</td>
 									<td id="surrender-change-3-1">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-3-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
+									<td class="policy-credit policy-number bold" id="policy-year-3-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-2">3</td>
-									<td id="premium-change-3-2">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-2">0</td>    
+									<td id="premium-change-3-2">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-3-2">0</td>
 									<td id="surrender-change-3-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
@@ -390,25 +390,25 @@ var affordabilityPremium = ${sliderMax};
 							<tbody>
 								<tr id="new-table-added">
 									<td class="policy-credit policy-number bold" id="policy-year-4-0">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-0">4</td> 
-									<td id="premium-change-4-0">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-0">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-0">4</td>
+									<td id="premium-change-4-0">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-4-0">0</td>
 									<td id="surrender-change-4-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-4-1">0</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-1">4</td> 
-									<td id="premium-change-4-1">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-1">0</td>    
+									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-1">4</td>
+									<td id="premium-change-4-1">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-4-1">0</td>
 									<td id="surrender-change-4-1">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-4-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
+									<td class="policy-credit policy-number bold" id="policy-year-4-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-2">4</td>
-									<td id="premium-change-4-2">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-2">0</td>    
+									<td id="premium-change-4-2">0</td>
+									<td class="hidden-sm hidden-xs" id="account-value-change-4-2">0</td>
 									<td id="surrender-change-4-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
@@ -625,13 +625,13 @@ var affordabilityPremium = ${sliderMax};
 <!-- FOOTER -->
 
 <script type="text/javascript">
-	
+
 	var current_date = new Date();
 	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
 	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
 	/*$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));*/
-	
+
 	var from = $('#plan-dob-datepicker').val().split("-");
 	var birthdate = new Date(from[2], from[1] - 1, from[0]);
 	var cur = new Date();
@@ -639,7 +639,7 @@ var affordabilityPremium = ${sliderMax};
 	var age = Math.floor(diff/31536000000); //the age val
 	var max = 99;
 	var looplimit = max - Number(age);
-	
+
 	//console.log(looplimit);
 	$('#total-payment-years').html('');
 	for(var i = 1; i <= looplimit; i++ ) {
@@ -669,7 +669,7 @@ var affordabilityPremium = ${sliderMax};
 			$('#amount-slide-holder').removeClass('hidden');
 			$('#total-years-holder').addClass('hidden');
 		}
-		
+
 		if('2'!='${type }'){
 			$('#plan-dob-datepicker').datepicker({
 				format: "dd-mm-yyyy",
@@ -680,11 +680,11 @@ var affordabilityPremium = ${sliderMax};
 				startView: 2
 			}).css('cursor', 'default');
 		}
-		
+
 		$('#first-3-years-btn').on('click', function () {
 			$('#after-3-years-container').toggle();
 		});
-		
+
 		var dummy = true;
 		// dummy condition for displaying the back / proceed / login button
 		if(dummy) {
@@ -700,7 +700,7 @@ var affordabilityPremium = ${sliderMax};
 			// display the back button
 			$('#btn-back').removeClass('hidden');
 		}
-		
+
 		var value = $('#policy-year-0-1').html();
 		$(document).on('change','#total-payment-years',function() {
 			$('#policy-year-0-1').html('');
@@ -712,7 +712,7 @@ var affordabilityPremium = ${sliderMax};
 				$('#policy-year-0-1').html(value);
 			}
 		});
-		
+
 		/* $('#plan-dob').datepicker({
 			format: "dd-mm-yyyy",
 			startDate: '${startDOB }',
@@ -727,28 +727,28 @@ var affordabilityPremium = ${sliderMax};
 			// show online-offline-fna modal
 			$('#offline-online-modal').modal('show');
 
-		} 
+		}
 
 		var dummy = false;
 		// dummy condition for displaying previous-savie-application modal/lightbox
 		if(dummy) {
 			// show previous-savie-application modal
 			$('#prev-savie-app-modal').modal('show');
-		} 
+		}
 
 		var dummy = false;
 		// dummy condition for displaying review-fna modal/lightbox
 		if(dummy) {
 			// show review-fna modal
 			$('#review-fna-modal').modal('show');
-		} 
-		
+		}
+
 		var dummy = false;
 		// dummy condition for displaying retrieve application modal/lightbox
 		if(dummy) {
 			// show retrieve application modal
 			$('#retrieve-application-modal').modal('show');
-		} 
+		}
 
 		//dummy condition for plan details if it is RP or SP
 		var isRP = false;
@@ -762,10 +762,10 @@ var affordabilityPremium = ${sliderMax};
 		$("#plan-calculate-btn").click(function(){
 			$('#loadingDiv').toggle();
 			$('body').addClass('modal-open');
-			
+
 			$("#errorMsg").html("");
 			$("#apiData").html("");
-			
+
 			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
 				$('#promoCodeErrorMsg').removeClass('hidden');
 			}else if ($('#promoCode').val()!='' && !$('#promoCodeErrorMsg').hasClass('hidden')){
@@ -775,7 +775,7 @@ var affordabilityPremium = ${sliderMax};
 			}
 			getSavieOnlinePlandetails(false);
 		});
-		
+
 		$('#rate-0').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -784,7 +784,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').addClass('hidden');
 	        $('#rate-table-4').addClass('hidden');
 	    });
-		
+
 	    $('#rate-2').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -793,7 +793,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').addClass('hidden');
 	        $('#rate-table-4').addClass('hidden');
 	    });
-	    
+
 	    $('#rate-3').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -802,7 +802,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').removeClass('hidden');
 	        $('#rate-table-4').addClass('hidden');
 	    });
-	    
+
 	    $('#rate-4').on('click', function() {
 	        $('.rate-buttons button').removeClass('active');
 	        $(this).addClass('active');
@@ -811,7 +811,7 @@ var affordabilityPremium = ${sliderMax};
 	        $('#rate-table-3').addClass('hidden');
 	        $('#rate-table-4').removeClass('hidden');
 	    });
-	    
+
 		/* if($("#plan-dob-datepicker").val()!="") {
 			setPaymentYears($("#plan-dob-datepicker").val())
 		} */
@@ -820,24 +820,24 @@ var affordabilityPremium = ${sliderMax};
 		} else {
 			getSavieOnlinePlandetails(false);
 		}
-		
+
 		//changing labels of promo code
 		$('#promoCode').focus(function() {
-			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');	
+			$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
 		}).focusout(function () {
 			if($(this).val() == '' ) {
 				$('.promocode-label').text('<fmt:message key="label.promocode" bundle="${msg}" />');
 			} else {
 				$('.promocode-label').text('<fmt:message key="label.promocode1" bundle="${msg}" />');
-			}	
+			}
 		});
-		
+
 		$('#plan-dob-datepicker').focus(function () {
 			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
 		});
-		
+
 		$('.rate-btn').on('click', function (){
 			$('.tooltip').hide();
 		});
@@ -846,7 +846,7 @@ var affordabilityPremium = ${sliderMax};
 		});
 
 	});
-	
+
 	// changing first/after 3 years button content
 	function toggleImg() {
 		if($('#first-3-years-btn').hasClass('up')) {
@@ -864,7 +864,7 @@ var affordabilityPremium = ${sliderMax};
 		}
 		return false;
 	}
-	
+
 	$("#btn-proceed").on('click', function(){
 		apply=false;
 		if('2'=='${type }'){
@@ -882,7 +882,7 @@ var affordabilityPremium = ${sliderMax};
 		            $('#loginpopup .modal-dialog').removeClass('loginpopupext');
 		            $('#loginpopup #fna-check').val("false");
 		            $('#loginpopup #nav-bar-check').val("false");
-		            $('#loginpopup').modal('show');         
+		            $('#loginpopup').modal('show');
 		        }
 			}else {
 				$('#offline-online-modal').modal('show');
@@ -890,12 +890,12 @@ var affordabilityPremium = ${sliderMax};
 			}
 		}
 	});
-	
+
 	$("#online-application-btn").on('click', function(){
 		$('#offline-online-modal').modal('hide');
 		proceedLogin(null);
 	});
-	
+
 	$("#offline-application-btn").on('click', function(){
 		 <c:set var="applicationType" scope="session" value="${'offline'}"/>
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
@@ -907,7 +907,7 @@ var affordabilityPremium = ${sliderMax};
             $('#loginpopup .modal-dialog').removeClass('loginpopupext');
             $('#loginpopup #fna-check').val("false");
             $('#loginpopup #nav-bar-check').val("false");
-            $('#loginpopup').modal('show');         
+            $('#loginpopup').modal('show');
         }
 	});
 
@@ -918,12 +918,12 @@ var affordabilityPremium = ${sliderMax};
 			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
             $('#loginpopup #fna-check').val("true");
-            $('#loginpopup #nav-bar-check').val("false");            
-            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
-			$('#loginpopup').modal('show');			
+            $('#loginpopup #nav-bar-check').val("false");
+            $('#loginpopup .modal-dialog').addClass('loginpopupext');
+			$('#loginpopup').modal('show');
 		}
 	}
-	
+
 	var apply=false;//判断是否点击proceed
 	var nextPage;
 	function saviePlanDetailsGoNext(url){
@@ -934,29 +934,29 @@ var affordabilityPremium = ${sliderMax};
 			if($("#type-of-payment").val() == 'regular-payment') {
 				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 			}else {
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+				$.ajax({
+				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',
 				    type:'get',
-				    cache:false, 
-				    async:false, 
-				    data:{    
+				    cache:false,
+				    async:false,
+				    data:{
 		    	    	"planCode" : "SAVIE-SP"
-		       		}, 
-				    error:function(){       
-				    },     
+		       		},
+				    error:function(){
+				    },
 				    success:function(data){
 				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
 					    	$('#loginpopup').modal('hide');
 				    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 				    		$('#prev-savie-app-modal').modal('show');
 				    	}else{
-				    		$.ajax({     
-				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+				    		$.ajax({
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',
 				    		    type:'get',
-							    cache:false, 
-							    async:false,    
-				    		    error:function(){       
-				    		    },     
+							    cache:false,
+							    async:false,
+				    		    error:function(){
+				    		    },
 				    		    success:function(data){
 				    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
 					    		    	$('#loginpopup').modal('hide');
@@ -967,13 +967,13 @@ var affordabilityPremium = ${sliderMax};
 					    		    	if (url != null){
 					    		    		window.location = url;
 					    		    	} else {
-					    		    		$.ajax({     
-								    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+					    		    		$.ajax({
+								    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
 								    		    type:'get',
-											    cache:false, 
-											    async:false,     
-								    		    error:function(){       
-								    		    },     
+											    cache:false,
+											    async:false,
+								    		    error:function(){
+								    		    },
 								    		    success:function(data){
 								    		    	$('#loginpopup').modal('hide');
 								    		    	if(data != null && data.errMsgs == null && data.name !=null){
@@ -983,19 +983,19 @@ var affordabilityPremium = ${sliderMax};
 								    		    	else{
 								    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
 								    		    	}
-								    		    }  
+								    		    }
 								    		});
 					    		    	}
 				    		    	}
-				    		    }  
+				    		    }
 				    		});
 				    	}
-				    }  
+				    }
 				});
 			}
 		}
 	}
-	
+
 	$("#make-appointment-btn").on('click', function(){
 		<%-- window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre'; --%>
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
@@ -1004,37 +1004,37 @@ var affordabilityPremium = ${sliderMax};
 	$("#back-home").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 	});
-	
+
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 	});
-	
+
 	$("#resume-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/'+nextPage;
 	});
-	
+
 	$("#start-over-btn").on('click', function(){
-		$.ajax({    
-			url:'${pageContext.request.contextPath}/ajax/savings-insurance/clearPolicyApplication',   
+		$.ajax({
+			url:'${pageContext.request.contextPath}/ajax/savings-insurance/clearPolicyApplication',
 			type:'get',
-		    cache:false, 
-		    async:false, 
-		    error:function(){       
-		    },     
+		    cache:false,
+		    async:false,
+		    error:function(){
+		    },
 		    success:function(data){
 		    	if(data != null && data.errorMsg == null){
 		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/sales-illustration';
 		    	}
-		    }  
+		    }
 		});
 	});
-	
+
 	$(document).on('change','#plan-dob-datepicker',function(){
 		if($(this).val()!="") {
 			setPaymentYears($(this).val())
 		}
 	});
-	
+
 	function setPaymentYears(dob){
 		var from = dob.split("-");
 		var birthdate = new Date(from[2], from[1] - 1, from[0]);
@@ -1043,7 +1043,7 @@ var affordabilityPremium = ${sliderMax};
 		var age = Math.floor(diff/31536000000); //the age val
 		var max = 99;
 		var looplimit = max - Number(age);
-		
+
 		//console.log(looplimit);
 		$('#total-payment-years').html('');
 		for(var i = 1; i <= looplimit; i++ ) {
@@ -1056,15 +1056,15 @@ var affordabilityPremium = ${sliderMax};
 		}else{
 			apply=true;
             $('#loginpopup #fna-check').val("true");
-            $('#loginpopup #nav-bar-check').val("false");            
-			$('#loginpopup').modal('show');			
+            $('#loginpopup #nav-bar-check').val("false");
+			$('#loginpopup').modal('show');
 		}
 	}
-	
+
 	function goServiceCenter() {
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
 	}
-	
+
 	/* // Detect iOS
 	function iOS() {
 	  var iDevices = [
@@ -1074,7 +1074,7 @@ var affordabilityPremium = ${sliderMax};
 	    'iPad',
 	    'iPhone',
 	    'iPod'
-	  ];	
+	  ];
 
 	  if (!!navigator.platform) {
 	    while (iDevices.length) {
@@ -1094,7 +1094,7 @@ var affordabilityPremium = ${sliderMax};
 	} */
 
 
-	
+
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <%--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>

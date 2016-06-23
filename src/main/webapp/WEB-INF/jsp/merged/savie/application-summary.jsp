@@ -292,13 +292,13 @@ var language = "${language}";
 								<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
 							</div>
 						</div>
-
-						<div class="form-group application-summ">
+						<input class="mdl-textfield__input so-mdl-textfield-input" type="hidden" autocomplete="off" id="theClubMembershipNo" name="theClubMembershipNo" value="" readonly="readonly" />
+						<%--<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
 								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="theClubMembershipNo" name="theClubMembershipNo" value="${lifePersonalDetails.theClubMembershipNo }" readonly="readonly" />
 								<label class="mdl-textfield__label" for="theClubMembershipNo"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
 							</div>
-						</div>
+						</div>--%>
 
                </div>
             </div>
@@ -418,7 +418,7 @@ var language = "${language}";
 						</div>
 					 </div>
 		       </c:if>
-            </div>           
+            </div>
             <c:choose>
 			       <c:when test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
 			       </c:when>
