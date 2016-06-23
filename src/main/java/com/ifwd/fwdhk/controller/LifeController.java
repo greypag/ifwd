@@ -1074,6 +1074,7 @@ public class LifeController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment-sp"})
 	public ModelAndView getSavieOnlineAppointmentConfirmationSp(Model model, HttpServletRequest request) {
 		String userName = (String)request.getSession().getAttribute("username");
+		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		} else if (userName.equalsIgnoreCase("*DIRECTGI")) {
@@ -1083,11 +1084,14 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}else{
-			try {
-				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.info(e.getMessage());
+			if(sendEmailsYes == null){
+				try {
+					savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
+					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.info(e.getMessage());
+				}
 			}
 			return SavieOnlinePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP);
 		}
