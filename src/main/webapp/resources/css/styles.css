@@ -25761,3 +25761,8 @@ label.et-bene-radio,#et-application-second-section label,
 	font-size: 18px;
 	font-family: 'Calibri';
 }
+
+/* ticket 2930 */
+.et-get-qoute {
+	bottom: 105px;
+}	
