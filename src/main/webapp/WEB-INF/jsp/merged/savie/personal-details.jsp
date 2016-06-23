@@ -1043,7 +1043,7 @@ function soFormValidation() {
 						//regexp: /^[\s\u4e00-\u9eff]*$/,
 						regexp: /^[\s\u4e00-\u9fa5]*$/,
 						message: '<fmt:message key="error.chinese.name.invalid" bundle="${msg}" />'
-					},
+					}<%-- ,
 					remote: {
 						message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
 						url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
@@ -1054,7 +1054,7 @@ function soFormValidation() {
 								return $("#chineseName").val();
 							}
 						}
-					}
+					} --%>
 				}
 			},
 			'dob': {

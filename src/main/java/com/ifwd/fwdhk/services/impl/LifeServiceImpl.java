@@ -1782,11 +1782,11 @@ public class LifeServiceImpl implements LifeService {
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 		
-		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+		/*if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
 			logger.info("Some input information contains simplified Chinese");
 			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
-		else{
+		else{*/
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
@@ -1794,7 +1794,7 @@ public class LifeServiceImpl implements LifeService {
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
-		}
+		//}
 		return lifePolicy;
 	}
 	

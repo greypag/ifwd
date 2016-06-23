@@ -918,7 +918,7 @@
                   regexp: {
                      regexp: /^[\s\u4e00-\u9fa5]*$/,
                      message: getBundle(getBundleLanguage, "error.chinese.name.invalid")
-                  },
+                  }/*,
                   remote:{
                   	message: getBundle(getBundleLanguage, "error.chinese.name.simplified"),
                 	url: contextPath+"/ajax/validateSimpleChinese",
@@ -929,7 +929,7 @@
                 	        return $("#savieApplicantBean\\.chineseName").val();
                 	    }
                 	}
-	              }
+	              }*/
                }
             },
             "dob": {

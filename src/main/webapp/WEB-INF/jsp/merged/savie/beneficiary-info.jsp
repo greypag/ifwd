@@ -858,17 +858,16 @@ var languageP = "${language}";
 									 regexp: /^[\s\u4e00-\u9fa5]*$/,
 									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								  },
-								  remote:{
-				                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
-					                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-					                	type: "get",
-					                	dataType: "json",
-					                	data: {
-					                		str: function() {
-					                	        return $("#beneficiaryChineseName\\[2\\]").val();
-					                	    }
-					                	}
-					                },
+								  //remote:{
+				                  //  	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
+					              //  	type: "get",
+					              // 	dataType: "json",
+					              //  	data: {
+					              //  		str: function() {
+					              //  	        return $("#beneficiaryChineseName\\[2\\]").val();
+					              //  	    }
+					               // 	}
+					                //},
 								  callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1059,17 +1058,6 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								remote:{
-			                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
-				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-				                	type: "get",
-				                	dataType: "json",
-				                	data: {
-				                		str: function() {
-				                	        return $("#beneficiaryChineseName\\[1\\]").val();
-				                	    }
-				                	}
-				                },
 								callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1279,17 +1267,6 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								remote:{
-			                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
-				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-				                	type: "get",
-				                	dataType: "json",
-				                	data: {
-				                		str: function() {
-				                	        return $("#beneficiaryChineseName\\[0\\]").val();
-				                	    }
-				                	}
-				                },
 								trigger: 'change keyup'
 							}
 						},

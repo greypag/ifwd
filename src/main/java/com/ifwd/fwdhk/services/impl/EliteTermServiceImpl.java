@@ -262,14 +262,14 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}
 			logger.info(parameters.toString());
 			
-			if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+			/*if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
 				String[] errMsgs = new String[]{"Some input information contains simplified Chinese"};
 				apiReturn.setErrMsgs(errMsgs);
 				logger.info(errMsgs[0]);
 			}
-			else{
+			else{*/
 				apiReturn = connector.createEliteTermPolicy(parameters, header);
-			}
+			//}
 			
 			request.getSession().setAttribute("eliteTermPolicy", apiReturn);
 			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
