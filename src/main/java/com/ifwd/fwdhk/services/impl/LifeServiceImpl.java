@@ -3053,6 +3053,9 @@ public class LifeServiceImpl implements LifeService {
 	 */
 	public void CustomerServiceCentreConfirmation(String action, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		
+		String sendEmailsYes = (String) session.getAttribute("sendEmailsYes");
+		
 		String centre = request.getParameter("centre");
 		String preferredDate = request.getParameter("preferred-date");
 		String preferredTime = request.getParameter("preferred-time");
@@ -3108,7 +3111,10 @@ public class LifeServiceImpl implements LifeService {
 		models.put("timeSlotCh", preferredTime);
 		models.put("centerCh", centerCh);
 		models.put("centerAddCh", centerAddCh);
-		sendEmails(request, action, models);
+		if(sendEmailsYes == null){
+			sendEmails(request, action, models);
+			request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+		}
 		
 		if (lang.equals("CN")) {
 			model.addAttribute("serviceCentre", entityCh);
