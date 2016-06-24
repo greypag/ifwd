@@ -36,6 +36,17 @@ application.common = {
 		AlphabetNumSpaceDot:/[^\sa-zA-Z.]/g
 
 	},
+	
+	kbFnKey:[
+	         45,	//Insert
+	         46,	//Delete
+	         36,	//Home
+	         35,	//End
+	         37,	//Left
+	         38,	//Top
+	         39,	//Right
+	         40		//Bottom
+	],
 
 	validate :function(str,pattern){
 
@@ -90,15 +101,19 @@ application.common = {
 	keyblock:function(evt,s){
 
 		var that = this;
-		console.log("s",s);
 		//check existed function or pattern
 		if(typeof that[s] == "function"){
 			return that[s](evt);
 		}else if(that.pattern[s]){
-			var charCode = (evt.which) ? evt.which : event.keyCode;
-			console.log("charCode",charCode);
-			var keychar = String.fromCharCode(charCode);
-			return that.pattern[s].test(keychar);
+			var charCode = (evt.which) ? evt.which : evt.keyCode;
+			if(!$.inArray(charCode,that.kbFnKey)){
+				var keychar = String.fromCharCode(charCode);
+				console.log("keychar",keychar);
+				return that.pattern[s].test(keychar);
+			}else{
+				return true;
+			}
+			
 		}else{
 			console.log("missing custom function or pattern");
 			return false;
