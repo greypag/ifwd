@@ -57,7 +57,13 @@ savieDiscount = {
 				
 				
 			}else{
-				$(".hkid-err-msg").text(getBundle(getBundleLanguage, "savie.online.home.discount.error.hkid"));
+				
+				if($.trim(hkidVal) == ""){
+					$(".hkid-err-msg").text(getBundle(getBundleLanguage, "savie.online.home.discount.error.hkid.empty"));
+				}else{
+					$(".hkid-err-msg").text(getBundle(getBundleLanguage, "savie.online.home.discount.error.hkid"));
+				}
+				
 			}
 			
 		});
