@@ -66,7 +66,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Easy HomeCare</p>
+                            <p class="fld-label">${language == 'en' ? 'Easy HomeCare':'易安心家居保'}</p>
                             <p class="fld-val">Standard cover, Annual</p>
                             </div>
                         </div>                        
@@ -74,7 +74,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Promote Code</p>
+                            <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                             <p class="fld-val">
                             <span class="txt-promote-code gentle-fade">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
                             </div>
@@ -83,7 +83,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">The Club Member</p>
+                            <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                             <p class="fld-val"><span class="txt-theclub-member">-</span></p>
                             </div>
                         </div>
@@ -91,24 +91,24 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$<span id="original-price">${planQuote.grossPremium }</span></p>
+                            <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span id="original-price">${planQuote.grossPremium }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$<span class="discount">${planQuote.discountAmount }</span></p>
+                            <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span class="discount">${planQuote.discountAmount }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
                     	<div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Amount due</p>
-                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
                             </div>
                         </div>
                     </li>
@@ -119,7 +119,7 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Promote Code</p>
+                                        <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                                         <p class="fld-val txt-promote-code"><span class="txt-promote-code">${planQuote.referralCode == "" ? '-' : planQuote.referralCode}</span></p>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">The Club Member</p>
+                                        <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                                         <p class="fld-val"><span class="txt-theclub-member">-</span></p>
                                     </div>
                                 </div>
@@ -135,24 +135,24 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Original price</p>
-                                        <p class="fld-val original-price">HK$${planQuote.grossPremium }</p>
+                                        <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                                        <p class="fld-val original-price"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Discount</p>
-                                        <p class="fld-val discount">HK$${planQuote.discountAmount }</p>
+                                        <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                                        <p class="fld-val discount"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Amount due</p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span></p>
+                                        <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${planQuote.totalDue }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>

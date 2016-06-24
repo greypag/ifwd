@@ -71,7 +71,9 @@ var plan="${plan}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">${plan=='home-liability'? 'Personal Liability' : 'Easy HomeCare' }</p>
+                            <p class="fld-label">
+                                ${plan == 'home-liability' ? language == 'en' ? 'Personal Liability':'個人法律責任':language == 'en' ? 'Easy HomeCare':'易安心家居保' }
+                            </p>
                             <p class="fld-val"><!-- Standard cover, Annual --></p>
                             </div>
                         </div>                        
@@ -79,7 +81,7 @@ var plan="${plan}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Promote Code</p>
+                            <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                             <p class="fld-val"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
                             </div>
                         </div>
@@ -87,7 +89,7 @@ var plan="${plan}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">The Club Member</p>
+                            <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                             <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
                             </div>
                         </div>
@@ -95,24 +97,24 @@ var plan="${plan}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$${homeQuoteDetails.grossPremium }</p>
+                            <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$${homeQuoteDetails.discountAmount }</p>
+                            <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
                     	<div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Amount due</p>
-                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
                             </div>
                         </div>
                     </li>
@@ -123,7 +125,7 @@ var plan="${plan}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Promote Code</p>
+                                        <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                                         <p class="fld-val"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
                                     </div>
                                 </div>
@@ -131,7 +133,7 @@ var plan="${plan}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">The Club Member</p>
+                                        <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                                         <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
                                     </div>
                                 </div>
@@ -139,24 +141,24 @@ var plan="${plan}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Original price</p>
-                                        <p class="fld-val">HK$${homeQuoteDetails.grossPremium }</p>
+                                        <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Discount</p>
-                                        <p class="fld-val">HK$${homeQuoteDetails.discountAmount }</p>
+                                        <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                              <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Amount due</p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${homeQuoteDetails.totalDue }</span></p>
+                                        <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> </span><span class="txt-price">${homeQuoteDetails.totalDue }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -172,7 +174,7 @@ var plan="${plan}";
 
             <div class="row form-block">
                 <div class="col-xs-12">
-                    <h3 class="heading-title"><fmt:message key="payment.jumbo.details" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/application" class="btn-edit">Edit</a></h3>
+                    <h3 class="heading-title"><fmt:message key="payment.jumbo.details" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/application" class="btn-edit"><fmt:message key="label.edit" bundle="${msg}" /></a></h3>
                 </div>
                     
                 <div class="col-xs-12 col-md-12 tbl-summary">
@@ -236,7 +238,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Room</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.room" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantRoom }</p>
                                 </div>
                             </div>
@@ -245,7 +247,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Floor</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.floor" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantFloor }</p>
                                 </div>
                             </div>
@@ -254,7 +256,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Block</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.block" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantBlock }</p>
                                 </div>
                             </div>
@@ -266,7 +268,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Building</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.building" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantBuilding }</p>
                                 </div>
                             </div>
@@ -275,7 +277,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Estate</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.estate" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantEstate }</p>
                                 </div>
                             </div>
@@ -288,7 +290,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Street No.</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.street.no" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantStreetNo } </p>
                                 </div>
                             </div>
@@ -297,7 +299,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Street Name</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.street.name" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantStreetName }</p>
                                 </div>
                             </div>
@@ -309,7 +311,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">District</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.district" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantDistrictDesc }</p>
                                 </div>
                             </div>
@@ -318,7 +320,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Area</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.area" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.applicantAreaDesc }</p>
                                 </div>
                             </div>
@@ -340,7 +342,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Room</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.room" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aRoom }</p>
                                 </div>
                             </div>
@@ -349,7 +351,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Floor</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.floor" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aFloor }</p>
                                 </div>
                             </div>
@@ -358,7 +360,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-4">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Block</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.block" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aBlock }</p>
                                 </div>
                             </div>
@@ -370,7 +372,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Building</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.building" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aBuilding }</p>
                                 </div>
                             </div>
@@ -379,7 +381,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Estate</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.estate" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aEstate }</p>
                                 </div>
                             </div>
@@ -392,7 +394,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Street No.</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.street.no" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aStreetNo } </p>
                                 </div>
                             </div>
@@ -401,7 +403,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Street Name</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.street.name" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aStreetName }</p>
                                 </div>
                             </div>
@@ -413,7 +415,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">District</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.district" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aDistrictDesc }</p>
                                 </div>
                             </div>
@@ -422,7 +424,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Area</p>
+                                    <p class="fld-label"><fmt:message key="application.input.address.area" bundle="${msg}" /></p>
                                     <p class="fld-val">${homeCareDetails.aAreaDesc }</p>
                                 </div>
                             </div>
@@ -479,7 +481,7 @@ var plan="${plan}";
                              <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label"><fmt:message key="payment.input.original.amount" bundle="${msg}" /></p>
-                                    <p class="fld-val">HK$ ${homeQuoteDetails.grossPremium }</p>
+                                    <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -487,8 +489,8 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                              <div class="form-group">
                                 <div class="fld-wrapper">
-                                    <p class="fld-label">Discount</p>
-                                    <p class="fld-val">HK$ ${homeQuoteDetails.discountAmount }</p>
+                                    <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                                    <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -506,7 +508,7 @@ var plan="${plan}";
                         </div>
 
                         <div class="col-xs-12 col-md-10">
-                            <span class="val xl">HK$ ${homeQuoteDetails.totalDue }</span>
+                            <span class="val xl"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.totalDue } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span>
                         </div>
                     </div>
                 </div>
@@ -583,7 +585,7 @@ var plan="${plan}";
 					                                        <option value="11">11</option>
 					                                        <option value="12">12</option>
 		                                                </select>
-		                                                <label class="mdl-textfield__label" for="ccName">Expiry Month</label>
+		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
 		                                            </div>
 		                                            
 		                                        </div>
@@ -601,7 +603,7 @@ var plan="${plan}";
 						                                        <option value="${currentYear}">${currentYear}</option>
 						                                    </c:forEach>
 		                                                </select>
-		                                                <label class="mdl-textfield__label" for="ccName">Expiry Year</label>
+		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
 		
 		                                            </div>
 		                                        </div>
