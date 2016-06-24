@@ -319,42 +319,6 @@
                                 
                                 
                                 <div class="col-xs-4">
-                                    <a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail1.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail1.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail1" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail2.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail2.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
-                                    </span>
-                                </div>                                                                
-                            </div>
-                            <!--/row-->
-                        </div>  
-
-                        <div class="item">
-                            <div class="row">                                                      
-                                <div class="col-xs-4">
                                     <a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
                                         <p class="price percentage"><fmt:message key="Fanfare.landingpage.thumbnail4.price" bundle="${msg}" /></p>
@@ -386,7 +350,43 @@
                                         	<fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" />
                                         </p>
                                     </span>
+                                </div>                                                              
+                            </div>
+                            <!--/row-->
+                        </div>  
+
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail1.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail1.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail1" bundle="${msg}" /></p>
+                                    </span>
                                 </div>
+                                <div class="col-xs-4">
+                                    <a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.jpg" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail2.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail2.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
+                                    </span>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
+                                    </span>
+                                </div>                             
                             </div>
                             <!--/row-->
                         </div>  
