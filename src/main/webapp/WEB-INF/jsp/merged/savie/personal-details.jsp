@@ -702,7 +702,7 @@ maxlength="19"/>
 </div>
 <%-- 2016memberID - end --%>
 
-<div class="next-btn">
+<div class="next-btn center">
 <button id="et-personal-info-next" class="text-bold btn savie-common-btn applicant-btn"><fmt:message key="button.Next" bundle="${msg}"/></button>
 <c:if test="${plan == 'savings-insurance'}">
 <a href="#" class="link-btn" id="pd-save-con-later"><fmt:message key="label.save.and.continue.later" bundle="${msg}"/></a>
@@ -970,7 +970,9 @@ if (msieversion() >= 9) {
 
 $("#et-personal-info-next, #btn-back").click(function () {
 	$('#soInsuredInfoForm').bootstrapValidator('validate');
-	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid() && chkClubMember()) {
+	if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+	
+	<%-- if ($('#soInsuredInfoForm').data('bootstrapValidator').isValid() && chkClubMember()) { --%>
 		/*if ( $('#gender-errormsg').hasClass('has-error') ) {
 						$('#genderErMsg').find('.help-block').attr('style', 'display:block;');
 					} else {

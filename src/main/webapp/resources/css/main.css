@@ -12130,3 +12130,7 @@ Be caution: <select> have customed made */
 #livechat-compact-container{
 	z-index: 1000 !important;	
 }
+
+.savie-common-btn.applicant-btn {
+	margin-bottom: 30px;
+}
