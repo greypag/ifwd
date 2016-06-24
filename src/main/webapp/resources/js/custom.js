@@ -1128,7 +1128,7 @@ function checkPosition() {
     	$('#gotop').removeClass('go-top-default');
     }
     else {
-    	$(".go-top").css("bottom", 0);
+    	$(".go-top").css("bottom", 80);
     	$('#gotop').addClass('go-top-default');
     }
 }
