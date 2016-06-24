@@ -550,6 +550,11 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED').bootstrapValidator('validateField', "password")
 								.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED').bootstrapValidator('validateField', "Confirm-Password");*/
 
+								if($.trim($("#cUserName").val()) == ""){
+									$("#cUserName").parents(".form-group").find("small[data-bv-validator='callback']").text("");
+									return true
+								}
+								
 								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 
 								if(noAccountInfo){
@@ -583,6 +588,11 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED').bootstrapValidator('validateField', "userName")
 								.bootstrapValidator('updateStatus', 'Confirm-Password', 'NOT_VALIDATED').bootstrapValidator('validateField', "Confirm-Password");*/
 
+								if($.trim($("#cPassword").val()) == ""){
+									$("#cPassword").parents(".form-group").find("small[data-bv-validator='callback']").text("");
+									return true
+								}
+								
 								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 								if(noAccountInfo){
 									return true;
@@ -616,6 +626,11 @@ $(document).ready(function(){
 								.bootstrapValidator('updateStatus', 'userName', 'NOT_VALIDATED').bootstrapValidator('validateField', "userName")
 								.bootstrapValidator('updateStatus', 'password', 'NOT_VALIDATED').bootstrapValidator('validateField', "password");*/
 
+								if($.trim($("#Confirm-Password").val()) == ""){
+									$("#Confirm-Password").parents(".form-group").find("small[data-bv-validator='callback']").text("")
+									return true
+								}
+								
 								var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
 								if(noAccountInfo){
 									return true;
@@ -651,13 +666,22 @@ $(document).ready(function(){
 			if($('#ef-form-application').data('bootstrapValidator').isValid()){
 				//do something
 				$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+				
+				
 				var noAccountInfo = $.trim($("#cUserName").val()) == "" && $.trim($("#cPassword").val()) == "" && $.trim($("#Confirm-Password").val()) == "";
-				if(!noAccountInfo) {
+				if(noAccountInfo) {
+					$('#ef-form-application').submit();
+				}else {
+					if(!validAccountInfo()){
+						$('#loading-overlay').modal('hide');
+						return false;
+					}
+					
 					var optIn1 = "false";
 					var optIn2 = "false";
-			        if($('#donotWishDirectMarketing').is(':checked')){
-			            optIn1 = "true";    
-			        }
+					if($('#donotWishDirectMarketing').is(':checked')){
+						optIn1 = "true";    
+					}
 					if($('#donotDisclose').is(':checked')){
 						optIn2 = "true";    
 					}
@@ -668,38 +692,36 @@ $(document).ready(function(){
 					var email = $("#inputEmail").val();
 					
 					
-			        $.ajax({
-		                type : 'POST',
-		                url : contextPath + '/' + lang + '/joinus',
-		                data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-		                async : false,
-		                success : function(data) {
-	                    	if (data == 'success') {
-	                        	document.getElementById("cUserName").value = "";
-	                       	    document.getElementById("cPassword").value = "";
-	                       	    document.getElementById("Confirm-Password").value = "";
-	                        	$('#ef-form-application').submit();
-	                            return;                            
-	                        } else {
-	                        	console.log(data);
-	                        	$('#loading-overlay').modal('hide');
-	                        	
+					$.ajax({
+						type : 'POST',
+						url : contextPath + '/' + lang + '/joinus',
+						data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+						async : false,
+						success : function(data) {
+							if (data == 'success') {
+								document.getElementById("cUserName").value = "";
+								document.getElementById("cPassword").value = "";
+								document.getElementById("Confirm-Password").value = "";
+								$('#ef-form-application').submit();
+								return;                            
+							} else {
+								console.log(data);
+								$('#loading-overlay').modal('hide');
+								
 								if (data == 'This username already in use, please try again') {
-								    //$('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+									//$('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
 								} else if (data == 'email address and mobile no. already registered') {
-								    //$('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+									//$('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
 								} else {
-								    //$('.error-hide').html(data);
+									//$('.error-hide').html(data);
 								}
-	                            return;
-	                        } 
-	                    },
-	                    error : function(xhr, status, error) {
-	                    	$('#loading-overlay').modal('hide');
-	                    }
-	                });
-				}else {
-					$('#ef-form-application').submit();
+								return;
+							} 
+						},
+						error : function(xhr, status, error) {
+							$('#loading-overlay').modal('hide');
+						}
+					});
 				}
 			}else{
 				//inValid
@@ -915,6 +937,28 @@ $(document).ready(function(){
 	
 });
 
+function validAccountInfo(){
+	var result = true;
+	var userNameValid = isValidUsername($.trim($("#cUserName").val()));
+	var passwordValid = isValidPassword($.trim($("#cPassword").val()));
+	var cPasswordValid = passMatch($.trim($("#cPassword").val()),$.trim($("#Confirm-Password").val()));
+	if(userNameValid != true) {
+		$("#cUserName").parents(".form-group").find("small[data-bv-validator='callback']").text(userNameValid);
+		$("#cUserName").parents(".form-group").find("small[data-bv-validator='callback']").css("display","block");
+		result = false;
+	}
+	if(passwordValid != true){
+		$("#cPassword").parents(".form-group").find("small[data-bv-validator='callback']").text(passwordValid);
+		$("#cPassword").parents(".form-group").find("small[data-bv-validator='callback']").css("display","block");
+		result = false;
+	}
+	if(cPasswordValid != true){
+		$("#Confirm-Password").parents(".form-group").find("small[data-bv-validator='callback']").text(cPasswordValid);
+		$("#Confirm-Password").parents(".form-group").find("small[data-bv-validator='callback']").css("display","block");
+		result = false;
+	}
+	return result;
+}
 
 //select text function 
 function autoSelect(id){

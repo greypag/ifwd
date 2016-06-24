@@ -61,7 +61,7 @@ var nextPage = "${nextPageFlow}";
                 <ul class="summary-group clearfix">
                     <!--  -->
                     <li class="back">
-                        <a href="javascript:void(0);" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/screening" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
                     </li>
                     <li class="first">
                         <div class="form-group">
@@ -476,7 +476,7 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-xs-12">
                     <div class="btn-row text-center">
-                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out" onclick="perventRedirect=false;BackMe();">Back</a>
                         <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next">Next</a>
                     </div>
                 </div>
@@ -724,5 +724,8 @@ function validateTheClub(){
 	}
 	
 	return isValid;
+}
+function BackMe() {
+    window.history.back();
 }
 </script>

@@ -66,7 +66,7 @@ var plan="${plan}";
                 <ul class="summary-group clearfix">
                     <!--  -->
                     <li class="back">
-                        <a href="javascript:void(0);" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/application" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
                     </li>
                     <li class="first">
                         <div class="form-group">

@@ -64,7 +64,7 @@ var plan="${plan}";
                 <ul class="summary-group clearfix">
                     <!--  -->
                     <li class="back">
-                        <a href="javascript:void(0);" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/quote" class="btn-summary-back"><i class="icon icon-arrow-left2"></i></a>
                     </li>
                     <li class="first">
                         <div class="form-group">
@@ -791,7 +791,7 @@ var plan="${plan}";
             </div>
 
             <div class="btn-row text-center">
-                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back"><fmt:message key="application.button.back" bundle="${msg}" /></a>
+                <a href="javascript:void(0);" onclick="perventRedirect=false;BackMe();" class="btn-app eh-btn-back grey-out"><fmt:message key="application.button.back" bundle="${msg}" /></a>
                 <a href="javascript:void(0);" class="btn-app eh-btn-next"><fmt:message key="application.button.next" bundle="${msg}" /></a>
             </div>
             
