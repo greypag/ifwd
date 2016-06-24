@@ -491,6 +491,10 @@
 		.checkbox.grey{
 			color:#999;
 		}
+
+		.btn-app{
+			margin-bottom:10px;
+		}
 	}
 }
 
@@ -775,8 +779,47 @@
 				top:6px; */
 				margin-top:20px;
 			}
+		}
+
+		.btn-share{	
+			display: inline-block;
+			overflow: hidden;
+			border: 0;
+			padding: 0;
+			cursor: pointer;
+			line-height: 0;
+			text-decoration: none;
+			text-transform: none;
+			-webkit-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+			background-color: transparent;
+			width:60px;
+			height:60px;
 
 
+			&:hover{
+				-webkit-transform: translateY(-4px);
+				transform: translateY(-4px);
+				outline-offset: -1px;
+			}
+
+			.icon-wrapper{
+				display: inline-block;
+				overflow: hidden;
+				width:60px;
+				height:60px;
+				background-color: rgb(59, 89, 152);
+				line-height: 32px;
+				cursor: pointer;
+
+				.icon{
+					overflow: hidden;
+					fill: #fff;
+					border: 0;
+					width:60px;
+					height:60px;
+				}
+			}
 		}
 
 		.also-like-grid{
@@ -1000,6 +1043,10 @@
 				}
 
 			}
+		}
+
+		.eh-btn-back{
+			margin-bottom:10px;
 		}
 		
 	}

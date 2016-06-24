@@ -66,7 +66,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Personal Liability</p>
+                            <p class="fld-label">${language == 'en' ? 'Personal Liability':'個人法律責任'}</p>
                             <p class="fld-val"></p>
                             </div>
                         </div>                        
@@ -74,7 +74,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Promote Code</p>
+                            <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                             <p class="fld-val gentle-fade"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">The Club Member</p>
+                            <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                             <p class="fld-val"><span class="txt-theclub-member">-</span></p>
                             </div>
                         </div>
@@ -90,24 +90,24 @@ var nextPage = "${nextPageFlow}";
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Original price</p>
-                            <p class="fld-val">HK$<span class="original-price">${planQuote.grossPremium }</span></p>
+                            <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /><span class="original-price">${planQuote.grossPremium }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="hidden-xs">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Discount</p>
-                            <p class="fld-val">HK$<span class="discount">${planQuote.discountAmount }</span></p>
+                            <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /><span class="discount">${planQuote.discountAmount }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
                     <li class="last hidden-xs">
                     	<div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">Amount due</p>
-                            <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"></span></p>
+                            <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
                             </div>
                         </div>
                         
@@ -119,7 +119,7 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Promote Code</p>
+                                        <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
                                         <p class="fld-val txt-promote-code">${planQuote.referralCode }</p>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">The Club Member</p>
+                                        <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
                                         <p class="fld-val txt-theclub-member"></p>
                                     </div>
                                 </div>
@@ -135,24 +135,24 @@ var nextPage = "${nextPageFlow}";
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Original price</p>
-                                        <p class="fld-val original-price">${planQuote.grossPremium }</p>
+                                        <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
+                                        <p class="fld-val original-price"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Discount</p>
-                                        <p class="fld-val discount">${planQuote.discountAmount }</p>
+                                        <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
+                                        <p class="fld-val discount"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <div class="fld-wrapper">
-                                        <p class="fld-label">Amount due</p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix">HK$</span><span class="txt-price">${planQuote.totalDue }</span></p>
+                                        <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> </span><span class="txt-price">${planQuote.totalDue }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -173,14 +173,14 @@ var nextPage = "${nextPageFlow}";
                                 
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
-                                    <h2><span>Personal Liability</span><br>HK$249/year</h2>
-                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability">Selected</a>
+                                    <h2><span>${language == 'en' ? 'Personal Liability':'個人法律責任'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" />249<fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
+                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                                 </div>
                                 <div class="app-hero-panel-cont2">
                                     <div class="text-center">
-                                        <h3>Upgrade for total care</h3>
-                                        <h2>Easy HomeCare</h2>
-                                        <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update">Upgrade now</a>
+                                        <h3><fmt:message key="label.upgrade.for.total.care" bundle="${msg}" /></h3>
+                                        <h2>${language == 'en' ? 'Easy HomeCare':'易安心家居保'}</h2>
+                                        <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update"><fmt:message key="label.upgrade.now" bundle="${msg}" /></a>
                                     </div>
                                 </div>
                                 <div style="clear:both;"></div>
@@ -268,7 +268,7 @@ var nextPage = "${nextPageFlow}";
                                             <td><fmt:message key="planoption.home.liability.tab3.table.section.text" bundle="${msg}" /></td>
                                             <td><fmt:message key="planoption.home.liability.tab3.table.coverage.text" bundle="${msg}" /></td>
                                             <td>5,000,000</td>
-                                            <td>239</td>
+                                            <td>249</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -453,6 +453,7 @@ var nextPage = "${nextPageFlow}";
                         </div>
                         <div>
                             <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
+                            <span class="error-msg" id="promoCodeErrMsg"></span>
                         </div>
                     </form>
                 </div>
@@ -586,41 +587,45 @@ var nextPage = "${nextPageFlow}";
 
 <script>
 $(".btn-promo-apply").on("click",function(){
-	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-	$.ajax({
-        type : "get",
-        cache:false, 
-        async:false, 
-        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
-        data : {
-	        	referralCode : $("#promoCode").val(),
-	        	answer1 : "N",
-	        	answer2 : "N"
-	           },
-        success : function(data) {
-	      	if(data !=null && data.errorMsg ==null){
-	      		$(".txt-promote-code").html(data.referralCode);
-	      		$(".original-price").html(data.priceInfo.grossPremium);
-	      		$(".discount").html(data.priceInfo.discountAmount);
-	      		$(".txt-price").html(data.priceInfo.totalDue);
-	      		
-	      		$("#planCode").val(data.planCode);
-	      		$("#grossPremium").val(data.priceInfo.grossPremium);
-	      		$("#discountAmount").val(data.priceInfo.discountAmount);
-	      		$("#totalDue").val(data.priceInfo.totalDue);
-	      		$("#referralName").val(data.referralName);
-	      		$('#loading-overlay').modal('hide');
-			}
-	      	else{
-	      		$('#loading-overlay').modal('hide');
-	      		console.log(data.errorMsg); 
-	      	}
-        },
-        error:function(){
-        	$('#loading-overlay').modal('hide');
-            console.log('error');   
-        }
-  });
+	
+	if(validatePromoCode()){
+		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		$.ajax({
+	        type : "get",
+	        cache:false, 
+	        async:false, 
+	        url : '${pageContext.request.contextPath}/ajax/${planIndex}/getHomeCareQuote',
+	        data : {
+		        	referralCode : $("#promoCode").val(),
+		        	answer1 : "N",	
+		        	answer2 : "N"
+		           },
+	        success : function(data) {
+		      	if(data !=null && data.errorMsg ==null){
+		      		$(".txt-promote-code").html(data.referralCode);
+		      		$(".original-price").html(data.priceInfo.grossPremium);
+		      		$(".discount").html(data.priceInfo.discountAmount);
+		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		
+		      		$("#planCode").val(data.planCode);
+		      		$("#grossPremium").val(data.priceInfo.grossPremium);
+		      		$("#discountAmount").val(data.priceInfo.discountAmount);
+		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#referralName").val(data.referralName);
+		      		$('#loading-overlay').modal('hide');
+				}
+		      	else{
+		      		$('#loading-overlay').modal('hide');
+		      		console.log(data.errorMsg); 
+		      	}
+	        },
+	        error:function(){
+	        	$('#loading-overlay').modal('hide');
+	            console.log('error');   
+	        }
+	  });
+	}
+	
 });
 
 $("#eh-select-plan-next").on("click",function(){
@@ -721,6 +726,20 @@ function validateTheClub(){
 				isValid = true;				
 			}
 		}
+	}
+	
+	return isValid;
+}
+
+function validatePromoCode(){
+	var isValid = false;
+	var elmErrMsg = $("#promoCodeErrMsg");
+	var val = $.trim($("#promoCode").val());
+	
+	if(val == ""){
+		elmErrMsg.text(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+	}else{
+		isValid = true;
 	}
 	
 	return isValid;
