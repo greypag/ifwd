@@ -31,7 +31,7 @@ var plan="${plan}";
 </div>
 <div class="savie-regular-container savie-regular-landing rp-only">
     <div class="whole-banner">
-        <div class="page-banner"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/planB-landing-bg-mobile_${language}.jpg" class="img-responsive hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/planB-landing-bg-desktop_${language}.jpg" class="img-responsive hidden-xs hidden-sm">
+        <div class="page-banner"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-mobile_${language}.jpg" class="img-responsive hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person-landing-bg-desktop_${language}.jpg" class="img-responsive hidden-xs hidden-sm">
             <div class="fwd-container-limit">
             	<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}" method="post">
                     <div class="img-banner-text savie-landing">
