@@ -11944,3 +11944,10 @@ body.chin .partner-headline-wrapper .headline-title{
 .submit__error--show{
   display: block;
 }
+
+
+/* added on 20160627*/
+.color-teal-blue{
+	color: #26484e !important;
+}
+
