@@ -305,8 +305,8 @@ var home_url = "<%=request.getContextPath()%>";
 													<td colspan="3" class="col-3"><fmt:message key="savie.online.home.discount.popup.table.th2" bundle="${msg}" /></td>
 												</tr>
 												<tr>
-													<td colspan="2" class="col-2"><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /></td>
-													<td rowspan="2" class="col-2"><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></td>
+													<td colspan="2" class="col-2"><fmt:message key="savie.online.home.discount.popup.table.th3" bundle="${msg}" /></td>
+													<td rowspan="2" class="col-2"><fmt:message key="savie.online.home.discount.popup.table.th4" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td class="col-1">≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
