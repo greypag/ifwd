@@ -1861,8 +1861,8 @@
         $(document).ready(function() {
         	//$('#offer-details-hotel-voucher').modal('show');
         	//$('#offer-details-promotion-code').modal('show');
-        	if(isMobile){
-	            $(window).on("load resize",function(){     
+        	$(window).on("load resize",function(){     
+                if(isMobile){
 	                if(window.innerHeight > window.innerWidth) // Portrait
 	                {
 	                	//console.log("Portrait: " + getWidth());
@@ -1894,13 +1894,20 @@
 	                    } 	                	
 	                    //carouselImgHeight();                   
 	                }               
-	            });
         	}else{
-                $('#myCarousel-fwdiscover').removeClass('carousel slide');
-                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-                $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');        		
-        	}       	
+                if(getWidth()>991){
+                    $('#myCarousel-fwdiscover').removeClass('carousel slide');
+                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+                    $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');        		
+                } else{
+                    $('#myCarousel-fwdiscover').addClass('carousel slide');
+                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                    $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');     
+                }
+        	}    
+                            });   	
         	
             var carouselSlideIndex = 0;
             if(<%=hotelVoucherCampaignId%>==15) carouselSlideIndex = 1;
