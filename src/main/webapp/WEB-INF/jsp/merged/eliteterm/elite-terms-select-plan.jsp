@@ -4348,7 +4348,15 @@ var home_url = "<%=request.getContextPath()%>";
                            message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
                         }
                      }
-                  }
+                  },
+                  "enquiry": {
+                      container: '#cannotApplyEnquireMessage',
+                      validators: {
+                         notEmpty: {
+                            message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.enquiry" bundle="${msg}" />'
+                         }
+                      }
+                   }
                }
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
