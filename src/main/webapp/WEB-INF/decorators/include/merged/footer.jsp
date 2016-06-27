@@ -236,51 +236,11 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 <%
 if(request.getRequestURI().indexOf("/home-liability")>0 || request.getRequestURI().indexOf("/easy-home-care")>0) {
 %>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.core.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.scroller.js"></script>
+<link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
 
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.util.datetime.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.datetimebase.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.datetime.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.select.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.listbase.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.image.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.treelist.js"></script>
-
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.android.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.android-holo.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.ios-classic.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.ios.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.jqm.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.sense-ui.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.frame.wp.js"></script>
-
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.android-holo-light.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.wp-light.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/mobiscroll.mobiscroll-dark.js"></script>
-
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.cs.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.de.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.en-UK.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.es.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.fa.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.fr.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.hu.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.it.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.ja.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.nl.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.no.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.pl.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.pt-BR.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.pt-PT.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.ro.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.ru.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.ru-UA.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.sk.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.sv.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.tr.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/mobiscroll/i18n/mobiscroll.i18n.zh.js"></script>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/easy-home/easyhome-app-uifn.js"></script>

@@ -93,7 +93,8 @@ $(document).ready(function(){
 		dob_start_date.setDate(dob_start_date.getDate()+1);
 
 
-		$('#dob').mobiscroll().date({
+		$('#dob').mobiscroll().calendar({
+			controls: ['date'],
 			minDate:dob_start_date,
 			maxDate:dob_end_date,
 			showLabel: true,
@@ -110,7 +111,8 @@ $(document).ready(function(){
 		var sixtyDays = new Date();
 		sixtyDays.setDate(dob_start_date.getDate()+60);
 
-		 $('#effectdate').mobiscroll().date({
+		 $('#effectdate').mobiscroll().calendar({
+			controls: ['date'],
 		 	minDate:new Date(),
 		 	maxDate:sixtyDays,
 		 	showLabel: true,
