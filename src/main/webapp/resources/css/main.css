@@ -11857,3 +11857,15 @@ body.chin .partner-headline-wrapper .headline-title{
 .content-disclaimer a{
 	color: #ff8200;
 }
+
+/* added on 20160627 */
+.banner-title .dot-font{
+	font-size: 65px;
+}
+
+@media screen and (max-width: 991px){
+	.banner-title .dot-font{
+		font-size: 40px;
+	}
+}
+
