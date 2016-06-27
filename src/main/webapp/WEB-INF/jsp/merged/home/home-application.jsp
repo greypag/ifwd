@@ -797,6 +797,12 @@ var plan="${plan}";
                 <a href="javascript:void(0);" class="btn-app eh-btn-next"><fmt:message key="application.button.next" bundle="${msg}" /></a>
             </div>
             
+            <div class="submit__error">
+                <div class="text-center">
+                    <span class="submit__errormsg" id="submit__errormsg"></span>
+                </div>
+            </div>
+            
         </div>
         <input type="hidden" name="totalDue" value="${ homeQuoteDetails.totalDue}">
 	    <input type="hidden" name="grossPremium" value="${ homeQuoteDetails.grossPremium}">
