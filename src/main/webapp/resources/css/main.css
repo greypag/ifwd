@@ -12134,3 +12134,18 @@ Be caution: <select> have customed made */
 .savie-common-btn.applicant-btn {
 	margin-bottom: 30px;
 }
+
+/* added on 20160617 */
+.submit__error{
+  color: #e4002b;
+  padding: 10px 0;
+  display: none;
+}
+
+.submit__errormsg{
+  font-size: 14px;
+}
+
+.submit__error--show{
+  display: block;
+}

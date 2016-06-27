@@ -9898,20 +9898,6 @@ select::-ms-value {
 	color: #fff;
 }
 
-/* added on 20160617 */
-.submit__error{
-  color: #e4002b;
-  padding: 10px 0;
-  display: none;
-}
-
-.submit__errormsg{
-  font-size: 14px;
-}
-
-.submit__error--show{
-  display: block;
-}
 /* ticket 2975 */
 #table-content-pd .tooltip .tooltip-inner *{
 	font-size: 13px;
