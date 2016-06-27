@@ -344,10 +344,7 @@
                                         <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail6.copy" bundle="${msg}" /></p>
                                     </div>
                                     <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail6" bundle="${msg}" />
-                                            <br/>
-                                            <fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" />
-                                        </p>
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail6" bundle="${msg}" /></p>
                                     </span>
                                 </div>
                             </div>
