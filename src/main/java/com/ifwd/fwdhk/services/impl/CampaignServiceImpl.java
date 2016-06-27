@@ -85,7 +85,7 @@ public class CampaignServiceImpl implements CampaignService {
 	}
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
-		int[] indexs = {5, 6, 7, 8, 9};
+		int[] indexs = {8, 9, 23, 5, 6, 7};
 		
 		/* hotel voucher start */
 		/*
