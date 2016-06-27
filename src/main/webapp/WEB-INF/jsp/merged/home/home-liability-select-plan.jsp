@@ -449,7 +449,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-xs-12 col-md-4 col-md-offset-2 promotion-wrapper">
                     <form action="">
                         <div class="lbl">
-                            <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg" ><fmt:message key="getpromo.copy1" bundle="${msg}" /></a>
+                            <label><fmt:message key="label.promo.code" bundle="${msg}" /></label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg" ><fmt:message key="getpromo.copy1" bundle="${msg}" /></a>
                         </div>
                         <div>
                             <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply"><fmt:message key="button.apply" bundle="${msg}" /></a>
@@ -459,7 +459,7 @@ var nextPage = "${nextPageFlow}";
                 </div>
                 <div class="col-xs-12 col-md-4 theclub-wrapper">
                     <div class="checkbox">
-                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span>member</span></a></label>
+                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span><fmt:message key="club.membership.confirm" bundle="${msg}" /></span></a></label>
                     </div>
                     <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" disabled="disabled" maxlength="10">
                     <span class="error-msg" id="theClubErrMsg"></span>
@@ -524,7 +524,7 @@ var nextPage = "${nextPageFlow}";
                                     
                                     <button type="button" onclick="return sendEmail()"
                                         class="bdr-curve btn btn-primary btn-lg wd5">
-                                        Submit
+                                        <fmt:message key="button.submit" bundle="${msg}" />
                                     </button>
                                 </div>
                                 <div class="col-md-2">
@@ -572,7 +572,7 @@ var nextPage = "${nextPageFlow}";
 								<p>
 									<a
 										href="<fmt:message key="theclub.register.link" bundle="${msg}" />"
-										target="_blank">Not The Club member yet? Click here to join now</a>
+										target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a>
 								</p>
 							</div>
 						</div>
