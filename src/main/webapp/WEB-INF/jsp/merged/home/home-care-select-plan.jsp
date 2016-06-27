@@ -391,16 +391,17 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-xs-12 col-md-4 col-md-offset-2 promotion-wrapper">
                     <form action="">
                         <div class="lbl">
-                            <label>Promotion Code</label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg">How do I get promotion code?</a>
+                            <label><fmt:message key="label.promo.code" bundle="${msg}" /></label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg"><fmt:message key="getpromo.copy1" bundle="${msg}" /></a>
                         </div>
                         <div>
-                            <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply">Apply</a>
+                            <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply"><fmt:message key="button.apply" bundle="${msg}" /></a>
+                            <span class="error-msg" id="promoCodeErrMsg"></span>
                         </div>
                     </form>
                 </div>
                 <div class="col-xs-12 col-md-4 theclub-wrapper">
                     <div class="checkbox">
-                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span>member</span></a></label>
+                        <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/easy-home/ico-the-club.png" alt=""><span><fmt:message key="club.membership.confirm" bundle="${msg}" /></span></a></label>
                     </div>
                     <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" disabled="disabled" maxlength="10">
                     <span class="error-msg" id="theClubErrMsg"></span>
@@ -419,8 +420,8 @@ var nextPage = "${nextPageFlow}";
             <div class="row">
                 <div class="col-xs-12">
                     <div class="btn-row text-center">
-                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out" onclick="perventRedirect=false;BackMe();">Back</a>
-                        <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next">Next</a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out" onclick="perventRedirect=false;BackMe();"><fmt:message key="button.back" bundle="${msg}" /></a>
+                        <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next"><fmt:message key="button.next" bundle="${msg}" /></a>
                     </div>
                     <div class="submit__error">
 		                <div class="text-center">
@@ -446,14 +447,14 @@ var nextPage = "${nextPageFlow}";
                     <form>
                         <div class="form-container">
                             <h2>
-                                Don't have a promotion code? Enter your email address and we'll send you one.
+                                <fmt:message key="getpromo.copy2" bundle="${msg}" />
                             </h2>
                             <div class="alert alert-success hide proSuccess"></div>
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="email" id="emailToSendPromoCode" name="emailToSendPromoCode" maxlength="50">
-                                        <label class="mdl-textfield__label" for="emailAddress">Email address</label>
+                                        <label class="mdl-textfield__label" for="emailAddress"><fmt:message key="label.email" bundle="${msg}" /></label>
                                     </div>
                                     
                                 </div>
@@ -466,7 +467,7 @@ var nextPage = "${nextPageFlow}";
                                     
                                     <button type="button" onclick="return sendEmail()"
                                         class="bdr-curve btn btn-primary btn-lg wd5">
-                                        Submit
+                                        <fmt:message key="button.submit" bundle="${msg}" />
                                     </button>
                                 </div>
                                 <div class="col-md-2">
@@ -478,7 +479,7 @@ var nextPage = "${nextPageFlow}";
                                 <br> <br>
                                 <div class="col-lg-12 col-md-12">
                                     <p>
-                                        By submitting my email address I agree to receive FWD's promotion code and other offers in the future.
+                                        <fmt:message key="getpromo.copy3" bundle="${msg}" />
                                     </p>
                                 </div>
                             </div>
@@ -504,7 +505,7 @@ var nextPage = "${nextPageFlow}";
 						<div class="row">
 							<div class="col-xs-12">
 								<p>
-									Enter The Club membership number to receive 900 Clubpoints from HKT. The Clubpoints will be credited to your HKT membership account within 4-6 weeks upon successful purchase of the FWD Easy Home Care Insurance.
+                                    <fmt:message key="homecare.club.membership.pop.up" bundle="${msg}" />
 								</p>
 							</div>
 						</div>
@@ -512,8 +513,8 @@ var nextPage = "${nextPageFlow}";
 							<div class="col-xs-12">
 								<p>
 									<a
-										href="https://www.theclub.com.hk/register?lang=EN"
-										target="_blank">Not The Club member yet? Click here to join now</a>
+										href="<fmt:message key="theclub.register.link" bundle="${msg}" />"
+										target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a>
 								</p>
 							</div>
 						</div>
@@ -569,16 +570,15 @@ $(".btn-promo-apply").on("click",function(){
 		      		$("#totalDue").val(data.priceInfo.totalDue);
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
-		      		showSubmitError(getBundle(getBundleLanguage, "promocode.notValid.message"), true);
+		      		$('#promoCodeErrMsg').html(getBundle(getBundleLanguage, "promocode.notValid.message"));  
 				}else{
 		      		$('#loading-overlay').modal('hide');
-		      		console.log(data.errMsgs);
-		      		showSubmitError(data.errMsgs, true);
+		      		showSubmitError(getBundle(getBundleLanguage, "promocode.notValid.message"), true);
 		      	}
 	        },
 	        error:function(){
 	        	$('#loading-overlay').modal('hide');
-	            console.log('error');   
+	            console.log('error');
 	        }
 	  });
 	}
@@ -642,18 +642,18 @@ function validateTheClub(){
 		var val = $.trim($("#theClubMembershipNo").val());
 		isValid = false;
 		if(val == ""){
-			elmErrMsg.text("Please input The Club membership number.");
-		}else if(val.substring(0, 1) != "8"){
-			elmErrMsg.text("The Club membership number must start with 8.");
-		}else if(isNaN(val)){
-			elmErrMsg.text("The Club membership number must be 10 digits in length.");
-		}else{
-			if(val.length != 10){
-				elmErrMsg.text("The Club membership number must be 10 digits in length.");
-			}else{
-				isValid = true;				
-			}
-		}
+            elmErrMsg.text(getBundle(getBundleLanguage, "error.club.member.empty"));
+        }else if(val.substring(0, 1) != "8"){
+            elmErrMsg.text(getBundle(getBundleLanguage, "error.club.member.invalid.firstdigit"));
+        }else if(isNaN(val)){
+            elmErrMsg.text(getBundle(getBundleLanguage, "error.club.member.invalid.firstdigit"));
+        }else{
+            if(val.length != 10){
+                elmErrMsg.text(getBundle(getBundleLanguage, "error.club.member.invalid.length"));
+            }else{
+                isValid = true;             
+            }
+        }
 	}
 	
 	return isValid;
