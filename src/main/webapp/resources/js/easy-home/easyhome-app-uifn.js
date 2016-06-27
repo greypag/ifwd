@@ -723,13 +723,15 @@ $(document).ready(function(){
 							} else {
 								console.log(data);
 								$('#loading-overlay').modal('hide');
-								
 								if (data == 'This username already in use, please try again') {
 									//$('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+									showSubmitError(getBundle(getBundleLanguage, "member.registration.fail.username.registered"), true);
 								} else if (data == 'email address and mobile no. already registered') {
 									//$('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+									showSubmitError(getBundle(getBundleLanguage, "member.registration.fail.emailMobile.registered"), true);
 								} else {
 									//$('.error-hide').html(data);
+									showSubmitError(data, true);
 								}
 								return;
 							} 
@@ -938,6 +940,7 @@ $(document).ready(function(){
 				}else {
 					$('#loading-overlay').modal('hide');
 					console.log('processSummary : ' + data.errMsgs);
+					showSubmitError(data.errMsgs, true);
 					return false;
 				}
 			}
