@@ -327,14 +327,14 @@ var plan="${plan}";
                         <div class="so-fna-content">
                             <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png"> </div>
                             <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
-                            <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /><a href="http://www.fwd.com.hk/en/support-claims/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
+                            <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /><a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
                         <div class="so-fna-content">
                             <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png"> </div>
                             <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
-                            <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /><a href="http://www.fwd.com.hk/en/support-claims/eservices-app/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
+                            <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /><a href="<fmt:message key="link.eservice.app" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
                         </div>
                     </div>
                 </div>
