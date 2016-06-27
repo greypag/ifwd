@@ -437,7 +437,14 @@ function faqMainMenuMob(care){
 	$("#faq_main_menu_mob").show();
 }
 
-
-
-
-
+/* Added on June 17 */
+function showSubmitError(msg, bShow){
+	//Assume only 1 submit error message for a page
+	if(bShow){
+		$('.submit__error').addClass('submit__error--show');
+		$('.submit__errormsg').html(msg);
+	} else {
+		$('.submit__error').removeClass('submit__error--show');
+		$('.submit__errormsg').html('');
+	}
+}
