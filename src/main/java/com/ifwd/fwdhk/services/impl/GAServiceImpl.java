@@ -360,12 +360,14 @@ public class GAServiceImpl implements GAService {
 			quoteDetails.setGrossPremium(priceInfo.get("grossPremium").toString());
 			quoteDetails.setTotalNetPremium(priceInfo.get("totalNetPremium").toString());
 			quoteDetails.setDiscountAmount(priceInfo.get("discountAmount").toString());
-			quoteDetails.setReferralCode(responseJsonObj.get("referralCode")!=null?responseJsonObj.get("referralCode").toString():"");
+			quoteDetails.setReferralCode((responseJsonObj.get("referralCode")!=null && responseJsonObj.get("errMsgs") == null)?
+					responseJsonObj.get("referralCode").toString():"");
 			quoteDetails.setReferralName(responseJsonObj.get("referralName")!=null?responseJsonObj.get("referralName").toString():"");
 			quoteDetails.setPlanCode(responseJsonObj.get("planCode").toString());
 			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
-			
-			session.setAttribute("referralCode", quoteDetails.getReferralCode());
+			if(responseJsonObj.get("errMsgs") == null) {
+				session.setAttribute("referralCode", quoteDetails.getReferralCode());
+			}
 			session.setAttribute("planQuote", quoteDetails);
 		} 
 		else {

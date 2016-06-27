@@ -480,6 +480,11 @@ var nextPage = "${nextPageFlow}";
                         <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out" onclick="perventRedirect=false;BackMe();">Back</a>
                         <a href="javascript:void(0);" class="btn-app eh-btn-next" id="eh-select-plan-next">Next</a>
                     </div>
+                    <div class="submit__error">
+		                <div class="text-center">
+		                    <span class="submit__errormsg" id="submit__errormsg"></span>
+		                </div>
+		            </div>
                 </div>
             </div>
         </div>
@@ -590,6 +595,7 @@ $(".btn-promo-apply").on("click",function(){
 	
 	if(validatePromoCode()){
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		showSubmitError('', false);
 		$.ajax({
 	        type : "get",
 	        cache:false, 
@@ -601,7 +607,7 @@ $(".btn-promo-apply").on("click",function(){
 		        	answer2 : "N"
 		           },
 	        success : function(data) {
-		      	if(data !=null && data.errorMsg ==null){
+		      	if(data !=null && data.errMsgs == null){
 		      		$(".txt-promote-code").html(data.referralCode);
 		      		$(".original-price").html(data.priceInfo.grossPremium);
 		      		$(".discount").html(data.priceInfo.discountAmount);
@@ -613,10 +619,23 @@ $(".btn-promo-apply").on("click",function(){
 		      		$("#totalDue").val(data.priceInfo.totalDue);
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
-				}
-		      	else{
+				}else if(data !=null && data.errMsgs == "Promotion code is not valid."){
+		      		//$(".txt-promote-code").html(data.referralCode);
+		      		$(".original-price").html(data.priceInfo.grossPremium);
+		      		$(".discount").html(data.priceInfo.discountAmount);
+		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		
+		      		$("#planCode").val(data.planCode);
+		      		$("#grossPremium").val(data.priceInfo.grossPremium);
+		      		$("#discountAmount").val(data.priceInfo.discountAmount);
+		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
-		      		console.log(data.errorMsg); 
+		      		showSubmitError(getBundle(getBundleLanguage, "promocode.notValid.message"), true);
+				}else{
+		      		$('#loading-overlay').modal('hide');
+		      		showSubmitError(data.errMsgs, true);
+		      		console.log(data.errMsgs); 
 		      	}
 	        },
 	        error:function(){
