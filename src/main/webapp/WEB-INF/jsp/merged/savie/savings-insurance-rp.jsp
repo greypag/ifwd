@@ -66,12 +66,12 @@ var home_url = "<%=request.getContextPath()%>";
 					<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
 				</a> --%>
 				<div class="fwd-container-limit">
-        		
+
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
 	        		<div class="img-banner-text savie-landing">
 	        			<div id="clearfix-height-rp">
 	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-	        			</div>	        			
+	        			</div>
         			<div class="savie-product text-bold">
 						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
 					</div>
@@ -80,7 +80,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        	</div>
         	</div>
         </div>
-						
+
 		<div class="payment-mode">
        		<div class="desktop-inline">
         		<div class="payment-inline">
@@ -105,13 +105,13 @@ var home_url = "<%=request.getContextPath()%>";
 	        			</ul>
 	        		</div>
 	        </div>
-	        
+
 	        <!-- Savie Discount Start -->
 		        	<div class="spd-wrapper">
-		        		<div class="text-center">	
+		        		<div class="text-center">
 		        			<p class="txt-discount"><fmt:message key="savie.online.home.discount.tagline1" bundle="${msg}" /> <span><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" />10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></span> <fmt:message key="savie.online.home.discount.tagline2" bundle="${msg}" /><br class="visible-xs"/><br class="visible-xs"/><a href="#spd-wrapper-inner-anchor" class="btn-spd-start"><fmt:message key="savie.online.home.discount.btn.winner" bundle="${msg}" /></a> </p>
 		        		</div>
-		        		<div id="spd-wrapper-inner-anchor"></div>	
+		        		<div id="spd-wrapper-inner-anchor"></div>
 		        		<div class="spd-wrapper-inner">
 			        		<div class="hkid-search text-center">
 			        			<label><fmt:message key="savie.online.home.discount.enter.hkid" bundle="${msg}" /></label>
@@ -127,8 +127,8 @@ var home_url = "<%=request.getContextPath()%>";
 			        		</div>
 			        		<p class="won-msg text-center"><fmt:message key="savie.online.home.discount.msg.won" bundle="${msg}" /></p>
 			        		<p class="loss-msg text-center"><fmt:message key="savie.online.home.discount.msg.loss" bundle="${msg}" /></p>
-			        		
-			        		
+
+
 			        		<table class="tbl-spd hidden-xs">
 			        			<tr>
 			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
@@ -193,10 +193,10 @@ var home_url = "<%=request.getContextPath()%>";
 									<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
 								</div>
 					            <div class="overflow-body">
-					            	
+
 					                <table>
 					                    <tr>
-					                    	
+
 					                        <td class="b1">1</td>
 					                        <td class="b2">2</td>
 					                        <td class="b3">3</td>
@@ -212,7 +212,7 @@ var home_url = "<%=request.getContextPath()%>";
 					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>       				
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					                    </tr>
 					                    <tr>
 					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
@@ -246,24 +246,24 @@ var home_url = "<%=request.getContextPath()%>";
 			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd-tnc"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
 			        		</ul>
 		        		</div>
-		        		
+
 		        	</div>
-		        	
+
 		        	<!--  Savie Discount Modal Start -->
-		        	
+
 		        	<div class="modal fade" role="dialog" aria-labelledby="spdModal" id="spdModal">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 									<h2>Watch out! Savie premium discount is only for offline application. Online application cannot entitle the discount</h2>
-									
+
 								</div>
 								<div class="modal-body">
 									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_web_${language}.png" class="hidden-xs img-responsive" />
 									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_mobile_${language}.png" class="visible-xs img-responsive" />
 								</div>
-								<div class="modal-footer">								
+								<div class="modal-footer">
 									<div class="bottom-section text-center">
 										<button type="button" class="btn btn-spd-start" data-dismiss="modal">Start</button>
 									</div>
@@ -271,14 +271,14 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="modal fade" role="dialog" aria-labelledby="tncModal" id="tncModal">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 									<h2><fmt:message key="savie.online.home.discount.popup.msg.tnc" bundle="${msg}" /></h2>
-									
+
 								</div>
 								<div class="modal-body">
 									<ul>
@@ -320,7 +320,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-												</tr>	
+												</tr>
 												<tr>
 													<td>5</td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
@@ -332,7 +332,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
-												</tr>	
+												</tr>
 												<tr>
 													<td>7</td>
 													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
@@ -356,7 +356,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 		        	<!--  Savie Discount Modal End -->
 		        	<!-- Savie Discount End -->
-     				
+
      		<ul class="availability-notice" style="padding-left: 10px;">
   				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
   				<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li>
@@ -369,7 +369,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 			</h5> -->
 		</div>
-		
+
         <div class="fwd-container-limit">
         		<div class="usp row">
         			<div class="usp-item clearfix col-xs-12 col-md-4">
@@ -399,7 +399,7 @@ var home_url = "<%=request.getContextPath()%>";
         			</div>
         		</div>
         	</div>
- 
+
        		<div class="regular-benefit">
        		       	<div class="hidden-xs hidden-sm">
         		<h3 class="benefits-desktop text-center"><fmt:message key="savie.online.landing.benefits" bundle="${msg}" /></h3>
@@ -435,7 +435,7 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 									</div>
 		        				</div>
-		        				
+
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
 		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
@@ -495,7 +495,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</li>-->
                                     <li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li active" id="benefits-nav-title-6">
                                         <a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
-                                    </li>									
+                                    </li>
 									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
 									</li>
@@ -566,7 +566,7 @@ var home_url = "<%=request.getContextPath()%>";
 													</div>
 												</div>
 											</div>
-									<!-- Carousel 
+									<!-- Carousel
 									<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
 									</a>
 									<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
@@ -578,7 +578,7 @@ var home_url = "<%=request.getContextPath()%>";
         			</div>
         		</div>
        		</div>
-       		
+
        		<div class="ice-cream-banner hidden-xs hidden-sm">
         				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg" class="hidden">
 	        				<div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
@@ -617,7 +617,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="savings-nav rp-nav">
 								<div class="prev">
 									<a class="pull-right disabled" href="#savings-carousel" role="button" data-slide="prev">
@@ -626,7 +626,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</span>
 									</a>
 								</div>
-								
+
 								<div class="next">
 									<a class="pull-left active" href="#savings-carousel" role="button" data-slide="next">
 									<span class="icon icon-chevron-thin-right">
@@ -654,9 +654,9 @@ var home_url = "<%=request.getContextPath()%>";
     		       			<div class="col-xs-4 col-md-4 col-lg-4 text-center">
 		       					<div class="desktop-center clearfix">
 									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png" class="img-responsive" id="the-club-logo">
-									
+
 		       					</div>
-		       				</div>	   				
+		       				</div>
        				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
        			</div>
        		</div>
@@ -723,11 +723,11 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-		
+
 		<div class="content-disclaimer">
 			<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
 		</div>
-			
+
 		<!-- OUR BLOG -->
 		<div class="blog">
 				<div class="hidden-md hidden-lg">
@@ -744,7 +744,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
 						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
-	
+
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
@@ -783,15 +783,15 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 						</div>
-	
+
 						<div class="fwd-container-limit">
 							<p class="blog-notice"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
 						</div>
 					</div>
 			</div>
-			
+
 			<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
-		
+
 		<!-- Customer Center Modal -->
 		<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 			<div class="modal-dialog" role="document">
@@ -808,7 +808,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<h4><fmt:message key="savie.o2o.landing.Your.application" bundle="${msg}" /></h4>
 							<p><fmt:message key="savie.o2o.landing.Can't.make" bundle="${msg}" /></p>
 						</div>
-						
+
 						<div class="bottom-section">
 							<button type="button" class="btn" data-dismiss="modal"><fmt:message key="savie.o2o.landing.Continue" bundle="${msg}" /></button>
 						</div>
@@ -833,7 +833,7 @@ var home_url = "<%=request.getContextPath()%>";
 		    $('#'+slideFrom.attr('next-target')).addClass('active');
 		});
 		$(document).ready(function() {
-			
+
 			if(isMobile) {
 				$(".annualTravel_policy_item").click(function(){
 					itemTop = $(this).offset();
@@ -844,7 +844,7 @@ var home_url = "<%=request.getContextPath()%>";
 		                $('body').css("position", "inital");
 		                $('.hidden-benefits-info').css("font-family", "Calibri");
 						$('.hidden-benefits-info').css("font-size", "14px");
-		                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+		                $('body').animate({scrollTop: itemTop.top - 60}, 0);
 		            });
 		            $("#policyCoveragePopup").on('hide.bs.modal', function () {
 		                //alert(itemTop.top);
@@ -854,7 +854,7 @@ var home_url = "<%=request.getContextPath()%>";
 		            });
 		            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
 		                $('body').attr("style", "");
-		            });			
+		            });
 				});
 
 				$('#btn-blog-link').click(function(){
@@ -872,7 +872,7 @@ var home_url = "<%=request.getContextPath()%>";
 			$.ajax({
 			        type: "POST",
 			        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
-			        async:false,         
+			        async:false,
 			        success:function(data){
 						if(data.errMsgs != null && data.errMsgs != ''){
 						}
@@ -881,7 +881,7 @@ var home_url = "<%=request.getContextPath()%>";
 						}
 			        },
 					error:function(){
-					    console.log('error');     
+					    console.log('error');
 				    }
 			    });
 		};
@@ -910,7 +910,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<button type="button" class="btn btn-orange" id="forbid-landing-button"><fmt:message key="forbid.landing.modal.button" bundle="${msg}" /></button>
 			</div>
 		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->	
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 	<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
