@@ -2256,7 +2256,7 @@ a.eserv-link:hover {
 @media screen and (min-width: 992px) {
   /* line 651, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-collapse-content .psa-content .description {
-    min-height: 200px;
+    min-height: 170px;
   }
 }
 /* line 659, ../sass/partials/savie/_homepage.scss */
