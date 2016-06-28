@@ -175,7 +175,7 @@ var home_url = "<%=request.getContextPath()%>";
 					            <div class="sticky-header">
 					                <table>
 					                    <tr>
-					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></th>
+					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
 					                    </tr>
 					                    <tr>
 					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
