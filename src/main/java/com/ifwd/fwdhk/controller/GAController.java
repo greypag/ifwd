@@ -112,6 +112,7 @@ public class GAController extends BaseController{
 			if(homeQuoteDetails == null || homeQuoteDetails.getTotalDue() == null) {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
 			}
+			homeQuoteDetails.setReferralCode((String)session.getAttribute("referralCode"));
 			session.setAttribute("homeQuoteDetails", homeQuoteDetails);
 			String lang = UserRestURIConstants.getLanaguage(request);
 			List<DistrictBean> districtList;
