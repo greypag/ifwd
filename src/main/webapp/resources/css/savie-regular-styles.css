@@ -1475,6 +1475,7 @@ body.chin .savie-regular-landing .payment-mode h4 {
   .savie-regular-landing .payment-mode .payment-inline h4 {
     float: left;
     padding-top: 9px;
+    margin-top: -3px;
   }
 }
 /* line 260, ../sass/partials/savie/_landing-page.scss */
