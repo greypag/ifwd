@@ -1,4 +1,4 @@
-@font-face { 
+@font-face {
 	//font-family: 'lato_regular';
 	src: url("../fonts/lato-regular-webfont.eot");
 	/* IE9 Compat Modes */
@@ -9,7 +9,7 @@
 	/* Legacy iOS */
 }
 
-@font-face { 
+@font-face {
 	//font-family: 'lato_italic';
 	src: url("../fonts/lato-italic-webfont.eot");
 	/* IE9 Compat Modes */
@@ -20,7 +20,7 @@
 	/* Legacy iOS */
 }
 
-@font-face { 
+@font-face {
 	//font-family: 'lato_bold';
 	src: url("../fonts/lato-bold-webfont.eot");
 	/* IE9 Compat Modes */
@@ -31,7 +31,7 @@
 	/* Legacy iOS */
 }
 
-@font-face { 
+@font-face {
 	//font-family: 'helvetica_neue_bold';
 	src: url("../fonts/helvetica-neue-bold.eot");
 	/* IE9 Compat Modes */
@@ -42,7 +42,7 @@
 	/* Legacy iOS */
 }
 
-@font-face { 
+@font-face {
 	//font-family: 'lato_black';
 	src: url("../fonts/lato-black-webfont.eot");
 	/* IE9 Compat Modes */
@@ -196,18 +196,18 @@
 
 @media ( min-width : 640px) and (max-width : 991px) {
 	.fwdiscover-timer .hurry {
-        text-align: center; 
+        text-align: center;
 	}
 	.fwdiscover-timer.pull-right{
 	   float: none !important;
-	}	
+	}
 }
 
 @media ( min-width : 992px) {
 	.fwdiscover-timer .hurry {
 		font-size: 18px;
 		margin-top: 6px;
-		padding-left: 37%;	
+		padding-left: 37%;
 	}
 }
 
@@ -269,7 +269,7 @@
 
     .fwdiscover-timer .day-hour-min-sec {
         float: right;
-    }	
+    }
 }
 
 .fwdiscover-timer .timer-holder .bg .line {
@@ -301,9 +301,9 @@
 
 /*carousel*/
 /*ie9 carousel control*/
-.page-fwdiscover .carousel-control.left, .carousel-control.right { 
-	background: none !important; 
-	filter: progid:none !important; 
+.page-fwdiscover .carousel-control.left, .carousel-control.right {
+	background: none !important;
+	filter: progid:none !important;
 }
 .page-fwdiscover .carousel {
 	margin-top: 54px;
@@ -312,7 +312,7 @@
 .page-fwdiscover .carousel .carousel-inner {
     width: 82%;
     margin: 0 auto;
-   
+
     overflow: hidden;
 }
 
@@ -508,7 +508,7 @@
 	}
 
 	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc {
-		float: left;	
+		float: left;
 	}
 
 	.page-fwdiscover .plans-holder .fwdiscover-plan .desc-and-button-holder {
@@ -1070,7 +1070,7 @@
 }
 
 
-@media ( min-width : 414px) { 
+@media ( min-width : 414px) {
 	.fwdiscover-modal .details-button-holder .details-btn {
 	    font-size: 45px;
 	}
@@ -1279,7 +1279,7 @@
     margin-top: 2px;
 }
 
-@media ( min-width : 992px) {   	
+@media ( min-width : 992px) {
 	#myCarousel-fwdiscover .carousel-inner {
 	    width: 80%;
 	    /*width: 60%;*/
@@ -1298,8 +1298,8 @@
 	}
 
 	#myCarousel-fwdiscover .carousel-inner .desktop-img-align {
-		width: 16%;
-		/*width: 20%;*/
+		/*width: 16%;*/
+		width: 20%;
 		float: left;
 		text-align: center;
 	}
@@ -1581,7 +1581,7 @@
 }
 #hotel-voucher-carousel{
     text-align: center;
-    	
+
 }
 #hotel-voucher-carousel .carousel-item-container.first{
 	margin-left: 0;
@@ -1605,7 +1605,7 @@
 	width: 80%;
 	padding: 2% 6%;
 	font-size: 20px;
-	
+
 }
 #hotel-voucher-carousel .carousel-item-container .hotel-name.long-hotel-name{
 	padding:2% 0;
@@ -1645,18 +1645,18 @@
 	content: none;
 }
 #hotel-voucher-carousel .slick-next.arrow-right {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 27px solid transparent;
-    border-bottom: 27px solid transparent;    
+    border-bottom: 27px solid transparent;
     border-left: 42px solid #ff8200;
 }
 
 #hotel-voucher-carousel .slick-prev.arrow-left {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 27px solid transparent;
-    border-bottom: 27px solid transparent;     
+    border-bottom: 27px solid transparent;
     border-right: 42px solid #ff8200;
 }
 #hotel-voucher-carousel.border-fix .slick-prev{
@@ -1672,11 +1672,11 @@
 .sponsor-logo-wrapper .sponsor-text{
 	font-size: 24px;
 	color: #666666;
-	
+
 }
 .hotel-partner-wrapper{
 	max-width: 1170px;
-    margin: 30px auto;	
+    margin: 30px auto;
 }
 .hotel-partner-wrapper .hotel-partner-title{
 	text-align: center;
@@ -1725,18 +1725,18 @@
 @media (min-width: 768px){
     #hotel-description-modal .modal-dialog{
         width: 750px;
-    }   
+    }
 }
 @media (min-width: 992px){
     #hotel-description-modal .modal-dialog{
         width: 970px;
-    }	
+    }
 }
 @media (min-width: 1200px){
     #hotel-description-modal .modal-dialog{
         width: 1170px;
     }
-}	
+}
 #hotel-description-modal .modal-content{
 	padding: 0;
 	border: 5px solid #f68a1d;
@@ -1780,7 +1780,7 @@
     max-width: 60%;
     min-height: 100px;
     margin: 0 auto 0;
-    padding-top: 20px;	
+    padding-top: 20px;
 }
 #hotel-description-modal .hotel-description-right-wrapper a.hotel-link img{
 	margin-right: 10px;
@@ -1793,7 +1793,7 @@
 #hotel-description-modal #hotel-description-carosuel .hotel-description-carosuel-container{
 	overflow: hidden;
 	padding: 20px 20px 0;
-	
+
 }
 #hotel-description-modal .hotel-description-right-wrapper a.hotel-link span{
 	color: #061d2a;
@@ -1816,7 +1816,7 @@
 	bottom: 0;
 	width: 60%;
 	right: 0;
-	float:right;	
+	float:right;
 }
 #hotel-description-modal .hotel-refer-wrapper .hotel-refer{
 	font-size: 16px;
@@ -1825,7 +1825,7 @@
 #hotel-description-modal .hotel-refer-wrapper .btn{
     float: right;
     background-color: transparent;
-    color: #ff8200;	
+    color: #ff8200;
     border: none;
 }
 #hotel-description-modal .hotel-refer img{
@@ -1854,7 +1854,7 @@
 #hotel-description-modal .hotel-carosuel-control .left-control{
     display: inline-block;
     padding: 8px;
-    vertical-align: middle;	
+    vertical-align: middle;
 }
 #hotel-description-carosuel .hotel-carosuel-control .left-control,.hotel-carosuel-control .right-control{
     display: inline-block;
@@ -1867,7 +1867,7 @@
 #hotel-description-carosuel .hotel-carosuel-control{
     overflow: hidden;
     display: block;
-    border-bottom: 3px solid #f68a1d; 
+    border-bottom: 3px solid #f68a1d;
 }
 #hotel-description-carosuel .hotel-carosuel-control .carosuel-arrow-left{
     float: left;
@@ -1875,7 +1875,7 @@
     height: 0;
     border-top: 27px solid transparent;
     border-bottom: 27px solid transparent;
-    border-right: 42px solid #ff8200;    
+    border-right: 42px solid #ff8200;
 }
 #hotel-description-carosuel .hotel-carosuel-control .carosuel-arrow-right{
     float: right;
@@ -1884,7 +1884,7 @@
     border-top: 27px solid transparent;
     border-bottom: 27px solid transparent;
     border-left: 42px solid #ff8200;
-    margin-top: 1px;    
+    margin-top: 1px;
 }
 span#previous-hotel-date,span#next-hotel-date{
     border-right: 1px solid #081d28;
@@ -1893,7 +1893,7 @@ span#previous-hotel-date,span#next-hotel-date{
     font-size: 24px;
     display: inline-block;
     font-weight: 700;
-    padding: 2px 10px;  
+    padding: 2px 10px;
 }
 #hotel-description-carosuel span.fanfare-day {
     font-size: 42px;
@@ -1911,7 +1911,7 @@ span#previous-hotel-name,span#next-hotel-name{
     height: 53px;*/
     float: left;
     padding-left: 10px;
-    padding-top: 5px; 
+    padding-top: 5px;
 }
 span#next-hotel-name{
 	padding-right: 10px;
@@ -1930,7 +1930,7 @@ span#next-hotel-name{
     color: #f68a1d;
     font-size: 30px;
     float: right;
-    display:none;	
+    display:none;
 }
 #hotel-description-carosuel .hotel-icon-wrapper{
 	min-height: 100px;
@@ -1972,13 +1972,13 @@ body.chin #hotel-description-modal .carousel-description-container{
     }
     .hotel-voucher-carousel-title-wrapper .Carousel-subtitle{
         font-size: 17px;
-    } 
+    }
     .sponsor-logo-wrapper{
         margin: 20px 20px 0 20px;
     }
     .sponsor-logo-wrapper + .fwdiscover-container{
         margin-top: 20px;
-    }        
+    }
     .hotel-partner-icon-wrapper img{
         margin: 20px auto;
     }
@@ -2037,10 +2037,10 @@ body.chin #hotel-description-modal .carousel-description-container{
     }
 	#hotel-description-carosuel div#hotel-lanuch-date{
 	    font-size: 14px;
-	} 
+	}
 	#hotel-description-carosuel span.fanfare-day{
 	    font-size: 25px;
-	}   
+	}
     #hotel-description-modal .carousel-description-container{
         margin-left: -30px;
     }
@@ -2053,14 +2053,14 @@ body.chin #hotel-description-modal .carousel-description-container{
         border-top: 16px solid transparent;
         border-left: 22px solid #ff8200;
         border-bottom: 16px solid transparent;
-    } 
+    }
     #hotel-description-carosuel .hotel-carosuel-control .left-control, .hotel-carosuel-control .right-control {
         padding: 13px;
     }
     body.chin #hotel-description-carosuel span.fanfare-day{
         font-size: 20px;
-    }      	     	
-}		
+    }
+}
 @media ( max-width : 1599px) {
 	#hotel-voucher-carousel .slick-next{
 	   right: 0;
@@ -2069,7 +2069,7 @@ body.chin #hotel-description-modal .carousel-description-container{
     #hotel-voucher-carousel .slick-prev{
        left: 0;
        z-index: 1000;
-    }	
+    }
 }
 #offer-details-hotel-voucher p{
 	font-size: 16px;
@@ -2087,5 +2087,5 @@ body.chin #hotel-description-modal .carousel-description-container{
 #offer-details-hotel-voucher .modal-content .terms-and-condition{
 	margin-top: 50px;
 	border-top: none;
-	
+
 }
