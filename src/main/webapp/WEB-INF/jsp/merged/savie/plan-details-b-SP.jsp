@@ -192,12 +192,12 @@ var affordabilityPremium = ${sliderMax};
 			</div>
 		</div>
 		</div>
-		<div class="container-fluid fwd-container" id="plan-details-wrapper">
+<div class="container-fluid fwd-container" id="plan-details-wrapper">
 	<div class="pd-summary-table" id="table-content-pd">
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
 				<h4 class="summary-note-title"><fmt:message key="label.summary" bundle="${msg}" /></h4>
-				<p class="summary-note"><fmt:message key="label.savie.crediting.rate.copy" bundle="${msg}" /></p>
+				<p class="summary-note"><fmt:message key="label.savie.crediting.rate.copy.surrender" bundle="${msg}" /></p>
 			</div>
 			<div class="table-content">
 				<div class="rate-table">
