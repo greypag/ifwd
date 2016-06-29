@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -51,11 +52,8 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 	</div>
 
-	<!--<div id="landing-calculator" class="fwd-full-container container-fluid">
-		<img class="img-responsive hidden-xs" src="assets/images/bg-mini-calcu.png" />
-		<img class="img-responsive hidden-sm hidden-md hidden-lg" src="assets/images/mini-mobile.png" />
-	</div>-->
-	<!--<iframe src="http://192.168.1.128:8080/mini-calculator/" class="full-calcu"></iframe>-->
+	
+	
 	<div class="savie-regular-container savie-regular-landing rp-only">
 		<div class="whole-banner">
         	<div class="page-banner">
@@ -106,10 +104,10 @@ var home_url = "<%=request.getContextPath()%>";
 	        </div>
      				
      		<ul class="availability-notice" style="padding-left: 10px;">
-  				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_4"/></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_5"/></li>
             <%--<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li> --%>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
+  				<li><s:message code="product.detail.savie.remark.copy1_7"/></li>
   			</ul>
 
        		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
@@ -327,39 +325,33 @@ var home_url = "<%=request.getContextPath()%>";
        		</div>
        		
        		<div class="ice-cream-banner hidden-xs hidden-sm">
-        				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg" class="hidden">
 	        				<div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
 							<div id="savings-carousel" class="carousel slide" data-ride="carousel">
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
 									<div class="item active">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-1.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-1.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part1" bundle="${msg}" />" class="img-responsive">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-en-2.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-chi-2.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part2" bundle="${msg}" />" class="img-responsive en-banner-img">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-eng-3.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-chi-3.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part3" bundle="${msg}" />" class="img-responsive">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-4.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-4.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part4" bundle="${msg}" />" class="img-responsive">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-5.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part5" bundle="${msg}" />" class="img-responsive">
 										</div>
 									</div>
 								</div>

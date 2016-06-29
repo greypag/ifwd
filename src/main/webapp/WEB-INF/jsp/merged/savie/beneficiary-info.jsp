@@ -28,68 +28,57 @@ var languageP = "${language}";
 			<!-- HEADER -->
 			
 			<div id="savie-online">
-				<!-- BREADCRUMBS -->
-				<div class="fwd-container container-fluid breadcrumbs">
-					<div class="breadcrumb-container">
-					   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
-							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a class="text-bold" href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
-							<li class="divider last"><i class="fa fa-play"></i></i></li>
-							<li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
-					   </ol>
-					</div>
-				 </div>
-				 <!-- STEPS -->
-				 <div class="container-fluid fwd-full-container browse-holder">
-					<div class="application-page-header et-header-browse">
-					   <div class="browse-container">
-						  <div class="row reset-margin hidden-xs hidden-sm">
-							 <ul class="common-steps-list six-steps nav nav-pills">
-								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
-								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
-								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
-								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
-								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
-								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
-							 </ul>
-						 </div>
-					   </div>  
-					   <div class="et-mobile-header-info hidden-md hidden-lg">
-						  <div class="clearfix">
-							 <div class="et-back-arrow">
-								<a href="#" class="back-arrow-link">
-								   <span class="icon-arrow-left2 arrow-left"></span>
-								</a>
-							 </div>
-							 <div class="et-header-tex">
-								<h3 class="text-bold"><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></h3>
-							 </div>
-							 <p id="step-of">2 out of 6</p>
-						  </div>
-					   </div>
-					</div>
-				</div>
-				<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-					<div class="step-indicator-container clearfix">
-						   <ul class="common-step-indicator six-steps nav nav-pills">
-							 <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-							 <li><a href="#" class="active"><span class="step-no">2</span></a></li>
-							 <li><a href="#"><span class="step-no">3</span></a></li>
-							 <li><a href="#"><span class="step-no">4</span></a></li>
-							 <li><a href="#"><span class="step-no">5</span></a></li>
-							 <li id="last-step"><a href="#"><span class="step-no">6</span></a></li>
-						</ul>
-						<div class="step-line"></div>
-					</div>
-				</div>
+				<!-- Breadcrumb Component Start-->
+
+				    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+					<c:set var="breadcrumbActive" value="0" />
+
+				    <c:if test="${planIndex == 'medical-insurance'}">
+				    	<c:set var="breadcrumbItems">
+				    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+						</c:set>
+				    	<c:set var="breadcrumbActive">4</c:set>
+				    </c:if>
+				    <c:if test="${planIndex == 'savings-insurance'}">
+				    	<c:set var="breadcrumbItems">
+				    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
+				    	</c:set>
+				    	<c:set var="breadcrumbActive">3</c:set>
+				    </c:if>
+
+				    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+				    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+				    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+					</jsp:include>
+
+				<!-- Breadcrumb Component End-->
+
+				<!-- StepIndicator Component Start-->
+
+			     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+					<c:set var="stepActive" value="0" />
+
+					<c:if test="${planIndex == 'medical-insurance'}">
+				    	<c:set var="stepItems">
+				    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+						</c:set>
+				    	<c:set var="stepActive">1</c:set>
+				    </c:if>
+				    <c:if test="${planIndex == 'savings-insurance'}">
+				    	<c:set var="stepItems">
+				    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
+				    	</c:set>
+				    	<c:set var="stepActive">1</c:set>
+				    </c:if>
+
+				     <!--<div class="container-fluid fwd-full-container browse-holder">-->
+				        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+				        	<jsp:param name="stepItems" value="${stepItems}"/>
+			    			<jsp:param name="stepActive" value="${stepActive}"/>
+				    	</jsp:include>
+				     <!--</div>-->
+
+				<!-- StepIndicator Component End-->
 				<!-- BENEFICIARY INFO BLOCK -->
 				<div id="so-beneficiary-info-section" class="headerStick">
 					<div class="container-fluid fwd-full-container" id="container-beneficiary">
@@ -145,6 +134,7 @@ var languageP = "${language}";
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg0"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[0]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -284,6 +274,7 @@ var languageP = "${language}";
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[1]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg1"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[1]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -423,6 +414,7 @@ var languageP = "${language}";
 											<label class="text-bold mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]"><fmt:message key="placeholder.chinese.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[2]"></span>
+										<span class="error-msg" id="beneficiaryChineseNameErMsg2"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupChineseErMsg[2]">Duplicate chinese name</span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
@@ -527,10 +519,17 @@ var languageP = "${language}";
 							<div id="beneficiary-btn">
 								<button type="submit" class="text-bold btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button>
 								<button type="button" id="back-summary-btn" class="text-bold btn beneficiary-btn-back savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
-								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
-									<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
-								</a>
+								<c:if test="${plan == 'savings-insurance'}">
+									<a href="#" class="span-save-continue" id="bf-save-and-con-later">
+										<span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span>
+									</a>
+								</c:if>
 							</div>
+							<div class="col-xs-12 submit__error">
+                                <div class="text-center">
+                                    <span class="submit__errormsg" id="submit__errormsg">Testing</span>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -649,7 +648,7 @@ var languageP = "${language}";
 			// application saved modal will show after clicking 'Save and exit' button 
 			// no full fill type = 1
 			$('.save-exit-btn2').click(function() {
-				$("#errorMsg").html("");
+				showSubmitError('', false);
 				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[2\\]').serialize()+"&type="+1;
@@ -661,7 +660,7 @@ var languageP = "${language}";
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $('#save-and-continue-modal').modal('hide');
-							  show_stack_bar_top(data.errorMsg);
+							  showSubmitError(data.errorMsg, true);
 						  }
 						  else{
 							  $('#save-and-continue-modal').modal('hide');
@@ -776,7 +775,7 @@ var languageP = "${language}";
          });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function() {
 				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
-					$("#errorMsg").html("");
+					showSubmitError('', false);
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[2\\]').serialize();
@@ -787,14 +786,22 @@ var languageP = "${language}";
 						  data: formdata,
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  show_stack_bar_top(data.errorMsg);
+									var bene_errmsg = '';
+									if( data.errorMsg == "Beneficiary HKID cannot be the same as Insured Person's HKID."){
+										bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.same.message");
+							  	  	} else if( data.errorMsg == "Beneficiary HKID No. cannot be duplicated."){
+							  	  		bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message");
+							  	  	} else {
+							  	  		bene_errmsg = data.errorMsg;
+							  	  	}
+									showSubmitError(bene_errmsg, true);
 							  }
 							  else{
 								  if('${backSummary}'=="Y"){
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/application-summary';
+									  window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 								  }
 								  else{
-									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+									  window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 								  }
 							  }
 						  }
@@ -851,6 +858,17 @@ var languageP = "${language}";
 									 regexp: /^[\s\u4e00-\u9fa5]*$/,
 									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								  },
+								  remote:{
+				                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
+					                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
+					                	type: "get",
+					                	dataType: "json",
+					                	data: {
+					                		str: function() {
+					                	        return $("#beneficiaryChineseName\\[2\\]").val();
+					                	    }
+					                	}
+					                },
 								  callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1041,6 +1059,17 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
+								remote:{
+			                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
+				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
+				                	type: "get",
+				                	dataType: "json",
+				                	data: {
+				                		str: function() {
+				                	        return $("#beneficiaryChineseName\\[1\\]").val();
+				                	    }
+				                	}
+				                },
 								callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1250,6 +1279,17 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
+								remote:{
+			                    	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
+				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
+				                	type: "get",
+				                	dataType: "json",
+				                	data: {
+				                		str: function() {
+				                	        return $("#beneficiaryChineseName\\[0\\]").val();
+				                	    }
+				                	}
+				                },
 								trigger: 'change keyup'
 							}
 						},

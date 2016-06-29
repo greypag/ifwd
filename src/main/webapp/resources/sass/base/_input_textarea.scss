@@ -1,0 +1,101 @@
+// Material Design Override - mainly for <input> & <textboard>
+@mixin fwd_input_textarea {
+  a {
+    &.forgotUserName,
+    &.link-forgotPassword {
+      text-decoration: none;
+      font-style: normal;
+    }
+  }
+  .col-sm-12 {
+    &.col-md-6.left,
+    &.col-md-12.left {
+      padding-right: 100px;
+    }
+  }
+  .form-control.gray-textbox {
+    font-size: 18px;
+    font-family: 'Calibri';
+    color: #000;
+    margin-top: 6px;
+    background-color: #f1f3f5 !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    padding: 12px 15px 0 15px;
+    border-radius: 0;
+    border: 0 transparent;
+  }
+  .mdl-textfield__label {
+    padding-top: 5px;
+    font-size: 14px;
+    left: 0;
+    top: 10px;
+    padding-left: 15px;
+    font-family: 'Calibri-Bold';
+  }
+  .mdl-textfield {
+    width: 100% !important;
+  	padding: 0 !important;
+  	margin-bottom: 10px !important;
+    &.is-focused label, &.is-dirty label {
+      color: #ff8200;
+      font-size: 12px;
+      top: 1px;
+    }
+    &.is-not-active label {
+      color: #ff8200;
+    }
+    input {
+      &:hover, &:focus {
+        border-bottom: 2px solid #Ff8200;
+      }
+    }
+    textarea {
+      &:hover, &:focus {
+        border-bottom: 2px solid #Ff8200;
+      }
+    }
+    label:after {
+      background-color: transparent;
+    }
+  }
+  .mdl-textfield__input {
+    &:focus {
+      transition: all 0.1s;
+      background-color: #ffffff;
+      outline: none;
+      outline-offset: 0;
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    }
+    &:hover {
+      outline: none;
+      outline-offset: 0;
+      -webkit-appearance: none;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+    }
+  }
+  textarea.form-control.gray-textbox {
+    height: 135px;
+  }
+  .next-btn {
+    padding: 20px 0 40px 0;
+    text-align: center;
+  }
+  .apply-btn {
+    background: #ffa500;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 37px;
+    border-radius: 4px !important;
+    border-bottom: 3px solid #c56501;
+    &#applyPartner {
+      padding: 5px 90px;
+      font-size: 24px;
+      margin-left: -52px;
+    }
+  }
+	.has-error .help-block{
+		color: #e4002b;
+	}
+}

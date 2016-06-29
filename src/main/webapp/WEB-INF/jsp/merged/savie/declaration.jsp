@@ -15,75 +15,67 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
+
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="declaration-page">
-	<!-- HEADER -->
-	<div class="fwd-container container-fluid breadcrumbs">
-		<div class="breadcrumb-container">
-            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
-               <li class="divider last"><i class="fa fa-play"></i></i></li>
-               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
-            </ol>
-         </div>
-    </div>
-    <!-- STEPS -->
-	<div class="container-fluid fwd-full-container browse-holder">
-		<div class="application-page-header et-header-browse">
-		   <div class="browse-container">
-			  <div class="row reset-margin hidden-xs hidden-sm">
-				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
-				 </ul>
-			 </div>
-		   </div>  
-		   <div class="et-mobile-header-info hidden-md hidden-lg">
-			  <div class="clearfix">
-				 <div class="et-back-arrow">
-					<a href="#" class="back-arrow-link">
-					   <span class="icon-arrow-left2 arrow-left"></span>
-					</a>
-				 </div>
-				 <div class="et-header-tex">
-					<h3 id=""><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></h3>
-				 </div>
-				 <p id="step-of">3 of 6</p>
-			  </div>
-		   </div>
-		</div>
-	</div>
-	<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-		<div class="step-indicator-container clearfix">
-			   <ul class="common-step-indicator six-steps nav nav-pills">
-				 <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-				 <li><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-				 <li><a href="#" class="active"><span class="step-no">3</span></a></li>
-				 <li><a href="#"><span class="step-no">4</span></a></li>
-				 <li><a href="#"><span class="step-no">5</span></a></li>
-				 <li id="last-step"><a href="#"><span class="step-no">6</span></a></li>
-			</ul>
-			<div class="step-line"></div>
-		</div>
-	</div>
-	<div class="container-fluid fwd-full-container headerStick">
+		
+	<!-- Breadcrumb Component Start-->
+
+	    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+		<c:set var="breadcrumbActive" value="0" />
+
+	    <c:if test="${planIndex == 'medical-insurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+			</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'savings-insurance'}">
+	    	<c:set var="breadcrumbItems">
+	    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
+	    	</c:set>
+	    	<c:set var="breadcrumbActive">3</c:set>
+	    </c:if>
+
+	    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+	    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+		</jsp:include>
+
+	<!-- Breadcrumb Component End-->
+
+	<!-- StepIndicator Component Start-->
+
+     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+		<c:set var="stepActive" value="0" />
+
+		<c:if test="${planIndex == 'medical-insurance'}">
+	    	<c:set var="stepItems">
+	    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+			</c:set>
+	    	<c:set var="stepActive">1</c:set>
+	    </c:if>
+	    <c:if test="${planIndex == 'savings-insurance'}">
+	    	<c:set var="stepItems">
+	    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
+	    	</c:set>
+	    	<c:set var="stepActive">2</c:set>
+	    </c:if>
+
+	     <!--<div class="container-fluid fwd-full-container browse-holder">-->
+	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+	        	<jsp:param name="stepItems" value="${stepItems}"/>
+    			<jsp:param name="stepActive" value="${stepActive}"/>
+	    	</jsp:include>
+	     <!--</div>-->
+
+	<!-- StepIndicator Component End-->
+		
+	<div class="container-fluid fwd-full-container">
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="declaration-content-wrapper">
 				<form id="declarationForm">
 					<p class="title"><fmt:message key="label.declaration.authorization.headline" bundle="${msg}" /></p>
-					
+					<c:if test="${planIndex == 'savings-insurance'}">
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.dda.title" bundle="${msg}" /></b></p>
 						<hr>
@@ -100,7 +92,7 @@ var languageP = "${language}";
 						</nav>
 						<p style="margin-top: 15px;"><fmt:message key="declaration.dda.note" bundle="${msg}" /></p>
 					</div>
-					
+					</c:if>
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
@@ -188,8 +180,10 @@ var languageP = "${language}";
 						
 						<div class="replacement-declarations">
 							<p><b><fmt:message key="label.declaration.policyreplacement.confirm" bundle="${msg}" /></b></p>
-							<p><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></p>
-							<p><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></p>
+							<ol class="list list--lower-roman">
+								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy3" bundle="${msg}" /></li>
+								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></li>
+							</ol>
 							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
 							<div style="margin-top: 20px;">
 							  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
@@ -212,7 +206,11 @@ var languageP = "${language}";
 							<p class="chkboxText"><fmt:message key="declaration.cancellation.copy1" bundle="${msg}" /></p>
 						</div>
 						<p id="chkCancellationErMsg" class="err-msg hidden" style="margin-bottom: 15px;"><fmt:message key="error.cancellation.policy.not.checked" bundle="${msg}" /></p>
+					</div>
+
+					<div class="cstm-panel">
 						<p><b><fmt:message key="declaration.residency.declaration.title" bundle="${msg}" /></b></p>
+						<hr>
 						<p><fmt:message key="declaration.residency.declaration.copy" bundle="${msg}" /></p>
 						<div class="radio-group clearfix">
 						   <div class="radio-button-group">
@@ -274,7 +272,9 @@ var languageP = "${language}";
 						
 					<center>
 						<button type="button" class="text-bold btn savie-common-btn btn-proceed"><fmt:message key="button.proceed.to.signature" bundle="${msg}" /></button>
-						<a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+						<c:if test="${plan == 'savings-insurance'}">
+						   <a href="javascript:void(0);" class="save-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
+						</c:if>
 					</center>
 				</form>
 			</div>
@@ -438,9 +438,12 @@ var languageP = "${language}";
 		
 		$('.btn-proceed').click(function() {
 			var isPassed = true;
+			var hasDDA = ${planIndex == 'savings-insurance' ? true : false};
 			
 			// validation
-			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			if( hasDDA ){
+				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
@@ -457,10 +460,10 @@ var languageP = "${language}";
 			if(! isPassed) {
 				return false;
 			}else {
-				$('.btn-proceed').attr({"disabled":"disabled"});
+	        	$('.btn-proceed').attr({"disabled":"disabled"});
 		        $('#loadingDiv').toggle();
-		        $('body').addClass('modal-open');			
-				$.ajax({
+		        $('body').addClass('modal-open');	
+	        	$.ajax({
 					  type : "POST",
 					  async:false, 
 					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclaration",
@@ -471,23 +474,28 @@ var languageP = "${language}";
 							  show_stack_bar_top(data.errorMsg);
 						  }
 						  else{
-							  $.ajax({     
-								    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
-								    type:'get',     
-								    error:function(){
-								    	$('.btn-proceed').removeAttr("disabled");
-                                        $('#loadingDiv').toggle();
-                                        $('body').removeClass('modal-open');								           
-								    },     
-								    success:function(data){
-								    	if(data != null && data.successMsg !=null){
-								    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-								    	}
-								    	else{
-								    		$('.btn-proceed').removeAttr("disabled");
-								    	}
-								    }  
-							  });
+							  if('${plan }' == 'savings-insurance'){
+								  $.ajax({     
+									    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
+									    type:'get',     
+									    error:function(){
+									    	$('.btn-proceed').removeAttr("disabled");
+	                                        $('#loadingDiv').toggle();
+	                                        $('body').removeClass('modal-open');								           
+									    },     
+									    success:function(data){
+									    	if(data != null && data.successMsg !=null){
+									    		window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+									    	}
+									    	else{
+									    		$('.btn-proceed').removeAttr("disabled");
+									    	}
+									    }  
+								  });
+							  }
+						      else{
+						          window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+						      }
 						  }
 					  }
 			     });

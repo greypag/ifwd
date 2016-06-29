@@ -574,7 +574,7 @@ a:hover {
   font-size: 18px;
   color: #000000;
   height: 44px;
-  padding: 3px 16px !important;
+  padding: 3px 15px !important;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -1145,7 +1145,8 @@ h6 {
   left: 0;
   top: 10px;
   padding-left: 15px;
-  font-family: 'Calibri-Bold';
+  /*font-family: 'Calibri-Bold';*/
+  font-weight: bold;
 }
 /* line 681, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label:after {
@@ -1155,10 +1156,11 @@ h6 {
   			width: 97%;*/
 }
 /* line 689, ../sass/partials/savie/_common.scss */
-.so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label {
+.so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label,
+.so-mdl-textfield.is-dirty input:valid+label {
   color: #ff8200 !important;
-  top: 1px !important;
-  font-size: 12px;
+/*   top: 1px !important; */
+  font-size: 14px;
 }
 /* line 695, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused .readonly-field + label, .so-mdl-textfield.is-dirty .readonly-field + label {
@@ -1211,9 +1213,9 @@ h6 {
 #application-summary-page .warning-note{
 	margin-top: 0;
 }
-#applicant-info-page .so-mdl-textfield.is-not-active label {
-	top: 4px !important;
-}
+/* #applicant-info-page .so-mdl-textfield.is-not-active label { */
+/* 	top: 4px !important; */
+/* } */
 
 /* line 717, ../sass/partials/savie/_common.scss */
 .active-checkbox:after {
@@ -2247,7 +2249,8 @@ a.eserv-link:hover {
 }
 /* line 644, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .psa-ul li a:hover {
-  color: #f28000;
+  /*color: #f28000;*/
+  /*background-color: #f65e1b;*/
 }
 /* line 651, ../sass/partials/savie/_homepage.scss */
 .psa-divider .psa-collapse-content .psa-content .description {
@@ -5318,7 +5321,7 @@ a.eserv-link:hover {
 .savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input {
   font-size: 18px;
   border-bottom: 0;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 /* line 85, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input.ch {
@@ -5385,7 +5388,7 @@ a.eserv-link:hover {
 }
 /* line 149, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .person-count.first-person {
-  margin-top: 15px;
+  margin-top: 0;
 }
 /* line 153, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below {
@@ -5439,6 +5442,10 @@ a.eserv-link:hover {
   /* line 182, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.inner-beneficiary {
     margin-top: 15px;
+  }
+
+  .savie-application-summary .summary-section.beneficiary-first{
+    margin-top: 0;
   }
 }
 /* line 188, ../sass/partials/savie/_application-summary.scss */
@@ -6046,7 +6053,7 @@ p .payment-policy-wrapper{
  {
   font-size: 18px;
   color: #373a36;
-  font-family: 'Calibri-bold';
+  /*font-family: 'Calibri-bold';*/
   padding-top: 4px;
 }
 /* line 128, ../sass/partials/savie/_beneficiary-info-name-others.scss */
@@ -6699,7 +6706,7 @@ h6.so-h6 {
 @media screen and (min-width: 992px) {
   /* line 55, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page h6.so-h6 {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -7589,8 +7596,8 @@ h6.so-h6 {
 }
 /* line 123, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav {
-  max-height: 315px;
-  overflow-y: scroll;
+/*   max-height: 315px; */
+/*   overflow-y: scroll; */
   padding: 20px;
   background-color: #f1f3f5;
 }
@@ -9643,7 +9650,7 @@ h3 .heading-title{
  }
  
 #personal-info-label{
- 	padding-top: 5px;
+ 	padding-top: 6px;
  	font-size:14px;
  }
 #upload-document-page .iframe-holder {
@@ -9744,26 +9751,58 @@ select::-ms-value {
 	cursor: pointer;
 }
 
-@media (min-width: 992px) {
-	.psa-divider{
-		height: 588px;
-	}
-}
-.psa-divider:hover,
-.psa-divider:hover .psa-btn{
-	transition: all 0.4s ease-in-out;
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	background-color: #f68b1f;
-}
-.psa-divider:hover .psa-btn,
-.psa-divider:hover a,
-.psa-divider:hover a i{
-	color: #fff;
+#no-btn-call-hotline{
+	min-width:160px;
 }
 
-/* add on 20160509 */
+/*add on 20160527*/
+#application-summary-page .planName-text{
+	font-size: 18px;
+    border-bottom: 0;
+    margin-top: 6px;
+    text-transform: uppercase;
+    padding: 18px 15px 5px 15px !important;
+    /* height: 44px !important; */
+    margin-bottom: 0 !important;
+    border-radius: 0;
+    font-family: inherit;
+    /* font-size: inherit; */
+    line-height: inherit;
+}
+#application-summary-page .planName-label{
+	color: #ff8200 !important;
+    top: 1px !important;
+}
+
+/*add on 20160603*/
+#applicant-info-page #soInsuredInfoForm .selectDiv.is-not-active .mdl-textfield__label.cstm-dropdown-label{
+	top: 1px;
+	padding-top: 0;
+  font-size: 14px;
+}
+#unemployed-page #unemployed-page-body #unemployed-content #next-btn[disabled],
+#upload-document-page #so-upload-document-section .next-btn #updoc-complete-btn[disabled]{
+	cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+}
+@media screen and (min-width: 992px) {
+	#spaceHolder{
+		visibility:hidden;
+	}
+	
+	#educationLevel{
+	float:left;
+	width:100%;
+	}
+}
+
+#spaceHolder{
+	display: none;
+}
+
+
+/* added on 20160509, add back on 20160608 */
 .savie-regular-landing.sp-only .page-banner a.img-bg,
 .savie-regular-landing.rp-only .page-banner a.img-bg{
 	padding-top: 0;
@@ -9778,7 +9817,7 @@ select::-ms-value {
 	margin-top: -40px;
 	left: 52%;
 	margin-left: -40px;
-  opacity: 0.7;
+	opacity: 0.7;
 }
 
 .savie-regular-landing.sp-only .page-banner a.img-bg img.play-btn:hover,
@@ -9839,3 +9878,37 @@ select::-ms-value {
 	}
 }
 
+/* added on 20160502, add back on 20160608 */
+@media (min-width: 992px) {
+	.psa-divider{
+		height: 625px;
+	}
+}
+.psa-divider:hover,
+.psa-divider:hover .psa-btn{
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	background-color: #f68b1f;
+}
+.psa-divider:hover .psa-btn,
+.psa-divider:hover a,
+.psa-divider:hover a i{
+	color: #fff;
+}
+
+/* added on 20160617 */
+.submit__error{
+  color: #e4002b;
+  padding: 10px 0;
+  display: none;
+}
+
+.submit__errormsg{
+  font-size: 14px;
+}
+
+.submit__error--show{
+  display: block;
+}

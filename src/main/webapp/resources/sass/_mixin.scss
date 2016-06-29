@@ -1,0 +1,108 @@
+// #Mixins below are for all SCSS files //
+@mixin bp-min($min...) {                  // How to use? @include bp-min { ... }
+  @media screen and (min-width: $min) { @content; }
+}
+@mixin bp-max($max...) {                  // How to use? @include bp-max { ... }
+  @media screen and (max-width: $max) { @content; }
+}
+@mixin bp-interim($min, $max) {            // How to use? @include bp-intrim { ... }
+  @media screen and (min-width: $min) and (max-width: $max) { @content; }
+}
+
+// #Mixins below are for the base_localize //
+@mixin padding($value...) {             // How to use? @include padding(10px); OR  @include padding(10px 10px);
+  padding: $value;
+}
+@mixin border($value...) {             // How to use? @include border(10px); OR  @include border(10px 10px);
+  border: $value;
+}
+@mixin margin($value...) {             // How to use? @include margin(10px); OR  @include margin(10px 10px);
+  margin: $value;
+}
+@mixin opacity($opacity) {          // How to use? e.g. @include opacity(0.8);
+  opacity: $opacity;
+  // $opacity-ie: $opacity * 100;
+  // filter: alpha(opacity=$opacity-ie); //IE8
+}
+@mixin box-shadow($value...) {      // How to use? e.g. @include box-shadow( 7px 7px 5px 0px rgba(50, 50, 50, 0.75) );
+  -webkit-box-shadow: $value;
+  -moz-box-shadow:    $value;
+  box-shadow:         $value;
+}
+@mixin animation($value...) {      // How to use? e.g. @include animation(slide-down 5s 3);
+  -webkit-animation: $value;
+     -moz-animation: $value;
+      -ms-animation: $value;
+       -o-animation: $value;
+          animation: $value;
+}
+@mixin transition($value...) {
+   -webkit-transition: $value;
+      -moz-transition: $value;
+       -ms-transition: $value;
+        -o-transition: $value;
+           transition: $value;
+}
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -ms-transition-property:     $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-duration:    $duration;
+    -ms-transition-duration:     $duration;
+    -o-transition-duration:      $duration;
+    -webkit-transition-duration: $duration;
+    transition-duration:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -ms-transition-timing-function:     $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -ms-transition-delay:     $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+@mixin keyframes($animation-name) {          // How to use? e.g. @include keyframes(slide-down) { 0% { opacity: 1; } 90% { opacity: 0; } }
+    @-webkit-keyframes #{$animation-name} { @content; }
+    @-moz-keyframes #{$animation-name} { @content; }
+    @-ms-keyframes #{$animation-name} { @content; }
+    @-o-keyframes #{$animation-name} { @content; }
+    @keyframes #{$animation-name} { @content; }
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+%clearfix {                                // How to use? e.g. @extend %clearfix;
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// ======= Not yet organized =============
+// @mixin padding-interim-generate($interim_int_only) {
+//   @for $i from 0 through 5 {
+//     &.padding-interim ????
+//     padding: 10px #{($interim_int_only*$i)+30}px;
+//   }
+// }

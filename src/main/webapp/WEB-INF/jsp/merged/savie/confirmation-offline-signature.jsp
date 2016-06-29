@@ -80,13 +80,13 @@ var languageP = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div id="offline-signature-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="info.savie.confirmation.success.title" bundle="${msg}" /></p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="text-bold panel-title"><fmt:message key="msg.confirmation.sign.later.savie.copy1" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="text-bold policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></span>
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<fmt:message key="info.savie.confirmation.success.copy.signlater" bundle="${msg}" />
+						<fmt:message key="msg.confirmation.sign.later.savie.copy2" bundle="${msg}" />
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="text-bold policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></p>

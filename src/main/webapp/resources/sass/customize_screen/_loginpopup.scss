@@ -1,0 +1,25 @@
+@include bp-min(768px) {
+    // source from line#263 (main_00_orgin.css)
+    .modal.fade.loginpopup {
+        // changed from "#loginpopup .modal-dialog {}"
+        .modal-dialog.loginpopup__modal-dialog {
+            margin: 230px auto;
+            width: 600px;
+        }
+    }
+}
+@include bp-max(767px) {
+    .promo-active-page {
+        .right-side-content #promo-offers-tab-contents {
+            .tab-content {
+                .referral-program-container {
+                    #promo-input-holder {
+                        #toBeCopied.promo-code-input {
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

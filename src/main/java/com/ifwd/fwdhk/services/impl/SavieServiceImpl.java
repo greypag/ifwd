@@ -65,6 +65,7 @@ import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -844,7 +845,7 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("email", request.getParameter("email"));
-			parameters.put("mobileNo", request.getParameter("mobileNo"));
+			parameters.put("mobileNo", Methods.formatMobile(request.getParameter("mobileNo")));
 			parameters.put("answer1", request.getParameter("answer1"));
 			parameters.put("step", request.getParameter("step"));
 			parameters.put("affiliate", affiliate);
@@ -1165,49 +1166,216 @@ public class SavieServiceImpl implements SavieService {
 	
 	@Override
 	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
-        List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
-        JSONArray jsonOptionItemDescs = null;
-        String value = request.getParameter("value");
+		String value = request.getParameter("value");
         String language = request.getParameter("language");
-        try {
-            String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
-			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-			header.put("userName", "*DIRECTGI");
-			header.put("token", commonUtils.getToken("reload"));
-			header.put("language", WebServiceUtils.transformLanaguage(language));
-			
-			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-			
-			logger.info("***********responseJsonObj****************:"+responseJsonObj);
-			
-			if(responseJsonObj==null){
-				
+		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+		if("NoB1".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB1;
 			}
 			else{
-				if (responseJsonObj.get("errMsgs") == null) {
-					jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
-					if(jsonOptionItemDescs.size()>0){
-						for(int i = 0; i<jsonOptionItemDescs.size(); i++){
-							
-							org.json.simple.JSONObject maritalStatusObj=(org.json.simple.JSONObject)jsonOptionItemDescs.get(i);
-							
-							OptionItemDesc optionItemDesc = new OptionItemDesc();				
-							
-							optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
-							optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
-							optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
-							optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
-							OptionItemDescList.add(optionItemDesc);
-						}
-					}
-					
-				}
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB1;
 			}
-		} catch (Exception e) {
-			logger.info("error : " + e.getMessage());
 		}
+		if("NoB2".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB2;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB2;
+			}
+		}
+		if("NoB3".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB3;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB3;
+			}
+		}
+		if("NoB4".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB4;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB4;
+			}
+		}
+		if("NoB5".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB5;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB5;
+			}
+		}
+		if("NoB6".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB6;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB6;
+			}
+		}
+		if("NoB7".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB7;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB7;
+			}
+		}
+		if("NoB8".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB8;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB8;
+			}
+		}
+		if("NoB9".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB9;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB9;
+			}
+		}
+		if("NoB10".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB10;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB10;
+			}
+		}
+		if("NoB11".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB11;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB11;
+			}
+		}
+		if("NoB12".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB12;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB12;
+			}
+		}
+		if("NoB13".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB13;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB13;
+			}
+		}
+		if("NoB14".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB14;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB14;
+			}
+		}
+		if("NoB15".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB15;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB15;
+			}
+		}
+		if("NoB16".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB16;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB16;
+			}
+		}
+		if("NoB17".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB17;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB17;
+			}
+		}
+		if("NoB18".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB18;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB18;
+			}
+		}
+		if("NoB19".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB19;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB19;
+			}
+		}
+		if("NoB20".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB20;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB20;
+			}
+		}
+		if("NoB21".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB21;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB21;
+			}
+		}
+		if("NoB22".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB22;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB22;
+			}
+		}
+		if("NoB23".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB23;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB23;
+			}
+		}
+		if("NoB24".equals(value.split("-")[0])){
+			if (language.toUpperCase().equals("CN") || language.toUpperCase().equals("TC") || language.toUpperCase().equals("CH") || language.toUpperCase().equals("ZH")){
+				OptionItemDescList = InitApplicationMessage.occupationCnNoB24;
+			}
+			else{
+				OptionItemDescList = InitApplicationMessage.occupationEnNoB24;
+			}
+		}
+        JSONArray jsonOptionItemDescs = new JSONArray();
+        if(OptionItemDescList!=null && OptionItemDescList.size()>0){
+			for(int i = 0; i<OptionItemDescList.size(); i++){
+				OptionItemDesc desc = OptionItemDescList.get(i);
+				org.json.simple.JSONObject object = new org.json.simple.JSONObject();
+				
+				object.put("itemTable", desc.getItemTable());
+				object.put("itemCode", desc.getItemCode());
+				object.put("itemLang", desc.getItemLang());
+				object.put("itemDesc", desc.getItemDesc());
+				jsonOptionItemDescs.add(object);
+			}
+		}
+        
 		response.setContentType("text/json;charset=utf-8");
-		//return data
 		try {
 			logger.info(jsonOptionItemDescs.toString());
 			response.getWriter().print(jsonOptionItemDescs.toString());

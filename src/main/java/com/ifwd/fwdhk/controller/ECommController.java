@@ -403,6 +403,12 @@ public class ECommController extends BaseController {
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;
+					case 23:
+						discount="Fanfare.discount11";
+						date="30-09-2016";
+						offername="Fanfare.offername11";
+						tnc="Fanfare.tnc11";
+						break;
 					case 14:
 						discount="Fanfare.discount6";
 						date="31-05-2016";

@@ -17,13 +17,14 @@
     <!--/.container-->
     <!--  Become partner form start -->
     <div class="partnership container">
+        
         <div class="partner-headline-wrapper">
             <h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
-            <%-- <h4 class="form-title"><fmt:message key="partner.form.title" bundle="${msg}" /></h4>  --%>      
+            <%-- <h4 class="form-title"><fmt:message key="partner.form.title" bundle="${msg}" /></h4>  --%>
         </div>
-        <form id="becomePartnerForm" class="form-horizontal form-uppercase" onsubmit="return false;">
-        	<div id="success-msg" class="h4-5"><fmt:message key="partner.form.success" bundle="${msg}" /></div>
+        <form id="becomePartnerForm" class="form-horizontal form-uppercase becomePartnerForm" onsubmit="return false;">
+        	<div id="success-msg" class="h4-5 success-msg"><fmt:message key="partner.form.success" bundle="${msg}" /></div>
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -52,8 +53,8 @@
                         <label class="mdl-textfield__label" for="companyLocation"><fmt:message key="placeholder.company.location" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="companyLocationErMsg"></span>
-                </div>                                                                                                          
-            </div>              
+                </div>
+            </div>
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -75,15 +76,15 @@
                         <label class="mdl-textfield__label" for="descriptionMsg"><fmt:message key="placeholder.message" bundle="${msg}" /></label>
                     </div>
                     <span class="error-msg" id="descriptionMsgErMsg"></span>
-                </div>                                                                                  
+                </div>
             </div>
-            <div class="clearfix"></div>                            
+            <div class="clearfix"></div>
             <div class="next-btn">
-                <button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>  
+                <button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>
                 <!--<button id="applyPartner" type="submit" class="text-bold btn apply-btn"><fmt:message key="partner.sendBtn" bundle="${msg}" /></button>-->
             </div>
-            <div id="failure-msg" class="error-msg has-error"><small class="help-block"><fmt:message key="partner.form.systemError" bundle="${msg}" /></small></div>        
-        </form>                             
+            <div id="failure-msg" class="error-msg has-error"><small class="help-block"><fmt:message key="partner.form.systemError" bundle="${msg}" /></small></div>
+        </form>
     </div>
     <!-- Become partner form end -->
 <script>
@@ -97,14 +98,14 @@ $(document).ready(function() {
         row: {
             valid: 'has-success',
             invalid: 'has-error'
-        },      
+        },
         fields:{
             contactName: {
                 container: '#contactNameErMsg',
                 validators: {
                        notEmpty: {
                            message: getBundle(getBundleLanguage, "error.contact.person.name.empty")
-                       },                      
+                       },
                        regexp: {
                           regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.contact.person.name.invalid")
@@ -128,7 +129,7 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.industry.empty")
-                        },                        
+                        },
                         regexp: {
                            regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.industry.invalid")
@@ -140,7 +141,7 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.location.empty")
-                        },                       
+                        },
                         regexp: {
                            regexp: /^[a-z,-\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.location.invalid")
@@ -149,7 +150,7 @@ $(document).ready(function() {
             },
             contactNum: {
                  container: '#contactNumErMsg',
-                 validators: {                 
+                 validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.contact.person.no.empty")
                         },
@@ -164,7 +165,7 @@ $(document).ready(function() {
                  validators: {
                         notEmpty: {
                             message: getBundle(getBundleLanguage, "error.company.name.empty")
-                        },                       
+                        },
                         regexp: {
                            regexp: /^[a-z()\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.name.invalid")
@@ -176,21 +177,21 @@ $(document).ready(function() {
                 validators: {
                        notEmpty: {
                            message: getBundle(getBundleLanguage, "error.message.empty")
-                       },                      
+                       },
                        regexp: {
                           regexp: /^[a-zA-Z0-9~!@#$%^&*()_+={}|:;"'<>-?,.\-\\\/\s\u4e00-\u9fa5]+$/i ,
                           message:getBundle(getBundleLanguage, "error.message.invalid")
                        }
                 }
-            }           
-        }        
+            }
+        }
     })
     .on('success.form.bv', function(e) {
 /*     	$( "#applyPartner" ).on( "click", function() {
 	        e.preventDefault();
 	        console.log("reset");
 	        resetForm('#becomePartnerForm');
-    	});  */    
+    	});  */
         //Prevent form submission
         //console.log("hehe");
         e.preventDefault();
@@ -215,10 +216,9 @@ $(document).ready(function() {
   				resetForm('#becomePartnerForm');
    			  },
    			  error: function(){
-   		      	$('#failure-msg').show(); 
+   		      	$('#failure-msg').show();
    			  }
    	     });
-    });    
+    });
 });
-
 </script>

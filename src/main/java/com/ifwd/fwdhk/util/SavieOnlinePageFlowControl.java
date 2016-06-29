@@ -12,7 +12,7 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 public class SavieOnlinePageFlowControl {
 	private final static Logger logger = LoggerFactory.getLogger(SavieOnlinePageFlowControl.class);
 
-	public static ModelAndView pageFlow(Model model, HttpServletRequest request, String key) {
+	public static ModelAndView pageFlow(String plan,Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
 		
@@ -55,6 +55,9 @@ public class SavieOnlinePageFlowControl {
 		model.addAttribute("scriptDescription", scriptDescription);
 		model.addAttribute("scriptChildName", scriptChildName);
 		model.addAttribute("scriptImg", scriptImg);
+
+		model.addAttribute("planIndex", plan); //Plan Name
+		model.addAttribute("pageIndex", key); // Page Index
 
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
@@ -118,59 +121,62 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			if("savings-insurance".equals(plan)){
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT;
+			}
+			else{
+				to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			}
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
-			//to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
-			//to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION;
 			filePath = "savie/";
 			current = "signature";
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD:
+			to = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+			to2 = plan+"/"+UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
 			filePath = "savie/";
 			break;
 			

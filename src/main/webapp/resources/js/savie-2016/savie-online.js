@@ -1675,10 +1675,14 @@ function setSelectReadonly(elementId, isReadonly) {
 		elem.removeAttr('disabled', 'disabled');
 		elem.removeClass('readonly-field');
 	}
-	
 	if(elem.val() != '' && elem.val() != null) {
-		elem.parent('.selectDiv').addClass('is-not-active');
+		setStyleOfIsNotActive(elementId);
 	}
+}
+
+function setStyleOfIsNotActive(elementId){
+	var elem = $('#' + elementId);
+	elem.parent('.selectDiv').addClass('is-not-active');
 }
 
 function sendEmailForSaveLater(key) {
@@ -1736,3 +1740,16 @@ function pdfImageInit(selector) {
 		$(this).siblings('.pdf-image-scroll').trigger('scroll');
 	});
 }
+
+/* Added on June 17 */
+function showSubmitError(msg, bShow){
+	//Assume only 1 submit error message for a page
+	if(bShow){
+		$('.submit__error').addClass('submit__error--show');
+		$('.submit__errormsg').html(msg);
+	} else {
+		$('.submit__error').removeClass('submit__error--show');
+		$('.submit__errormsg').html('');
+	}
+}
+

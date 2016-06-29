@@ -229,7 +229,6 @@
                             url : '<%=request.getContextPath()%>/forgotUser',
                             data : $('#forgotUserNameForm input').serialize(),
                             success : function(data) {
-
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
                                     $('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
@@ -244,10 +243,15 @@
                                 } else if (data.indexOf('[')==0&data.indexOf(']')>0) {
                                 	$('#success-message').html('');
                                     $('#success-message').hide();
-                                    $('#forgotusername-err-msg').html(data.slice(2, data.length-2));
+                                    if(data.slice(2, data.length-2) == "The information you have entered is not valid, please try again"){
+                                    	$('#forgotusername-err-msg').html(getBundle(getBundleLanguage, "member.login.forgotUserName.error"));
+                                    }
+                                    else{
+                                    	$('#forgotusername-err-msg').html(data.slice(2, data.length-2));
+                                    }
                                     $('#forgotusername-err-msg').show();
                                 } else {
-                                    $('#success-message').html('Your Username is ' + data);
+                                    $('#success-message').html(getBundle(getBundleLanguage, "member.login.forgotUserName.success")+data);
                                     $('#success-message').show();
                                 }
 
@@ -271,11 +275,6 @@
 				commandName="forgotUserPassword" style="display: none">
 
 				<div class="login-form">
-
-                 <div id="forgotpassword-err-msg" class="color-red heading-h5"
-                     role="alert" style="display: none;">
-                     <P id="error1"></P>
-                 </div>
                  <div id="success-message-password" class="alert alert-success"
                      role="alert" style="display: none;">
                      <P id="error1"></P>
@@ -405,6 +404,10 @@
 
 						</div>
 	                    <div id="hide-field"></div>
+		                 <div id="forgotpassword-err-msg" class="color-red heading-h5"
+		                     role="alert" style="display: none;">
+		                     <P id="error1"></P>
+		                 </div>	                    
 						</div>
 
 
@@ -528,7 +531,7 @@
 
                                 $('.login-ajax-loading').hide();
                                 if (data == 'fail') {
-                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
+                                    $('#forgotpassword-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.msg"));
                                     $('#forgotpassword-err-msg').show();
                                 } else if (data == 'success') {
                                     $('#success-message-password').html(getBundle(getBundleLanguage, "member.forgotPassword.success.message"));

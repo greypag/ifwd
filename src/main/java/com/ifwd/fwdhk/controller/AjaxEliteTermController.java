@@ -20,6 +20,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.eliteterm.EliteTermPlanDetailBean;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.ImgUtil;
@@ -193,12 +194,12 @@ public class AjaxEliteTermController extends BaseController{
 	
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
-	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
+	public void getEliteTermPremium(EliteTermPlanDetailBean etPlanDetail,HttpServletRequest request,HttpServletResponse response) {
 		if (Methods.isXssAjax(request)) {
 			return;
 		}
 		try {
-			ajaxReturn(response, eliteTermService.getEliteTermPremium(request));
+			ajaxReturn(response, eliteTermService.getEliteTermPremium(etPlanDetail, request));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -335,6 +336,76 @@ public class AjaxEliteTermController extends BaseController{
 		}
 		try {
 			ajaxReturn(response, eliteTermService.getPromoteCode(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putEtPageKeySession"})
+	public void putEtPageKeySession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putEtPageKeySession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putPersonalInfoSession"})
+	public void putPersonalInfoSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putPersonalInfoSession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putEmploymentInfoSession"})
+	public void putEmploymentInfoSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putEmploymentInfoSession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putBeneficiaryInfoSession"})
+	public void putBeneficiaryInfoSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putBeneficiaryInfoSession(request);
+			ajaxReturn(response,"success");
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putDeclarationSession"})
+	public void putDeclarationSession(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			eliteTermService.putDeclarationSession(request);
+			ajaxReturn(response,"success");
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();

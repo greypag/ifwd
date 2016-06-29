@@ -25,8 +25,8 @@
 <!--<script src="js/jquery.min.js"></script>
 <script>
    $(function () { $("[data-toggle='tooltip']").tooltip(); });
-   
-   
+
+
 </script>-->
 
 
@@ -44,7 +44,7 @@ perventRedirect=true;
 
 function submitPlan(){
     $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-    
+
     setTimeout(function(){
     	checkPromoCodePlaceholder();
     	if(chkClubMember()){
@@ -58,15 +58,15 @@ function submitPlan(){
 
 function chkClubMember() {
     $(".errDue").html('');
-    var flag = true;        
+    var flag = true;
     var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
-    var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
+    var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
     if (the_club_member_check_box) {
         if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
             $("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
             document.getElementById("theClubMembershipNo").focus();
             $("#theClubMembershipNo").addClass("invalid-field");
-            
+
             flag = false;
         }else if (the_club_membership_no != ""){
             if(/^8/.test(the_club_membership_no) == false){
@@ -78,9 +78,9 @@ function chkClubMember() {
                 $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
                 document.getElementById("theClubMembershipNo").focus();
                 $("#theClubMembershipNo").addClass("invalid-field");
-                flag = false;                   
+                flag = false;
             }
-        } 
+        }
     }
     return flag;
 }
@@ -92,25 +92,34 @@ function checkPromoCodePlaceholder(){
 
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("promoCode").value;
-	
-		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
+		var promoCode = document.getElementById("promoCode").value.trim();
+		if (promoCode == "" || promoCode == promoCodePlaceholder) {
+			$("#loadingPromo").hide();
+			promoCodeInsertFlag = true;
 			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
 			$('#inputPromo').addClass('invalid-field');
 			flag = false;
 		} else {
-			$('#inputPromo').removeClass('invalid-field');
-			flag = true;
+			if ( promoCode == promoCodePlaceholder ) {
+				$("#loadingPromo").hide();
+				promoCodeInsertFlag = true;
+				$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+				$('#inputPromo').addClass('invalid-field');
+				flag = false;
+			} else  {
+				$('#inputPromo').removeClass('invalid-field');
+				$("#errPromoCode").html("");
+				flag = true;
+			}
 		}
-	
 		return flag;
 	}
 	function applyHomePromoCode() {
 		if(promoCodeInsertFlag){
             promoCodeInsertFlag = false;
-            
+
 			$("#errPromoCode").html("");
-			
+
 			if(chkPromoCode()) {
 				$('#loading-overlay').modal({
 	                backdrop: 'static',
@@ -124,12 +133,12 @@ function checkPromoCodePlaceholder(){
 					success : function(data) {
 						$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
-		
+
 						var json = JSON.parse(data);
-		
+
 						setValue(json);
 					}
-		
+
 				});
 			} else {
 				promoCodeInsertFlag = true;
@@ -144,20 +153,20 @@ function checkPromoCodePlaceholder(){
         }else{
             $("#errPromoCode").html("");
             $('#inputPromo').removeClass('invalid-field');
-            
+
 			var totalDue = parseInt(result["priceInfo"].totalDue);
 			$("#subtotal").html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
 			$("#discountAmt").html(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
 			$("#discountAmount").val(parseFloat(result["priceInfo"].discountAmount).toFixed(2));
-			
+
 			$("#amountdue").html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
 			$("#totalDue").val(parseFloat(result["priceInfo"].totalDue).toFixed(2));
-			
+
 			$('.totalPrice').html(parseFloat(result["priceInfo"].totalDue).toFixed(2));
 			$('.actualPrice del').html(parseFloat(result["priceInfo"].grossPremium).toFixed(2));
 		}
 	}
-	
+
 	function sendEmail() {
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
@@ -182,7 +191,7 @@ function checkPromoCodePlaceholder(){
 		}
 		return false;
 	}
-	
+
 	function BackMe() {
 		window.history.back();
 	}
@@ -298,14 +307,14 @@ function checkPromoCodePlaceholder(){
 									<div class="fwdpanel-heading">
 										<h4 class="benefits">
 											<span>
-												<i class="fa fa-plus"></i> 
+												<i class="fa fa-plus"></i>
 												<a href="#" class="fwdpanel-minimize uline color-wht">
-													<fmt:message key="home.quote.plan.benefits" bundle="${msg}" /> 
+													<fmt:message key="home.quote.plan.benefits" bundle="${msg}" />
 												</a>
 											</span>
 										</h4>
 									</div>
-	
+
 									<div class="fwdpanel-body" style="display: none;">
 										<ul class="color-wht">
 											<li><fmt:message key="home.quote.plan.benefits.desc1" bundle="${msg}" /></li>
@@ -314,9 +323,9 @@ function checkPromoCodePlaceholder(){
 											<li><fmt:message key="home.quote.plan.benefits.desc4" bundle="${msg}" /></li>
 										</ul>
 									</div>
-	
+
 									<div class="clearfix"></div>
-	
+
 								</div>
 								-->
 										<!-- / Plan benefits -->
@@ -330,7 +339,7 @@ function checkPromoCodePlaceholder(){
                       <div class="fwdpanel-heading">
                         <h4 class="uline benefits">
                           <span><a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> Plan benefits </a> </span>
-                        </h4> 
+                        </h4>
                       </div>
                       <div class="fwdpanel-body" style="display: none;">
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
@@ -1061,12 +1070,12 @@ function checkPromoCodePlaceholder(){
 								name="answer2" value="${answer2}">
 
 
-							<!-- 
+							<!--
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left hidden-sm hidden-xs">
 								<a href="<%=request.getContextPath()%>/${language}/home-insurance"
 									class="bdr-curve btn btn-primary bck-btn"><fmt:message key="home.action.back" bundle="${msg}" /></a>
 							</div>
-							
+
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right full-width-button">
 								<button type="submit" class="bdr-curve btn btn-primary btn-next">
 									<fmt:message key="home.action.next" bundle="${msg}" />
@@ -1165,8 +1174,8 @@ function checkPromoCodePlaceholder(){
 									</c:otherwise>
 								</c:choose>
 
-							</div>                           
-                            
+							</div>
+
 							<div class="clearfix"></div>
                             <div class="col-xs-14"><span class="text-red errDue"></span></div>
 						</div>
@@ -1193,7 +1202,7 @@ function checkPromoCodePlaceholder(){
 							promotion code?</i></a>
 				</h5>
 			</div>
-				
+
 			<div class="clearfix"></div>
 			<div class="row">
 				<div class="form-group col-sm-12 col-xs-12">
@@ -1201,12 +1210,12 @@ function checkPromoCodePlaceholder(){
 						<span class="text-red" id="errPromoCode"></span> <input
 							id="referralCode" name="referralCode" type="text"
 							class="form-control placeholder-fl" placeholder="eg.FWD789">
-						
+
 						<span class="input-group-addon in black-bold"> <span class="apply pointer" onclick="applyHomePromoCode()">APPLY</span>
 											<!-- <input type="button" name="Apply" value="APPLY" onclick="applyPromoCode()"> -->
 										</span>
-						
-						
+
+
 					</div>
 				</div>
 			</div>
@@ -1220,9 +1229,9 @@ function checkPromoCodePlaceholder(){
 					Next
 				</button>
 			</div>
-				
+
 		</div>
-		
+
 	</form:form> --%>
 
 	<!--/end Main Content-->
@@ -1345,5 +1354,5 @@ function checkPromoCodePlaceholder(){
 </html>
 
 <script>
-	
+
 </script>

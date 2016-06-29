@@ -154,12 +154,17 @@ $(document).ready(function(){
 	                                            <c:if test="${planDetailsForm.correspondenceAddressEstate != ''}">
 	                                                ${planDetailsForm.correspondenceAddressEstate},
 	                                            </c:if>
-	                                            <c:if test="${planDetailsForm.correspondenceAddressStreetNo != ''}">
-	                                                ${planDetailsForm.correspondenceAddressStreetNo} 
-	                                            </c:if>
-	                                             <c:if test="${planDetailsForm.correspondenceAddressStreetName != ''}">
-	                                                ${planDetailsForm.correspondenceAddressStreetName},
-	                                            </c:if>
+	                                            <c:choose>
+		                                            <c:when test="${planDetailsForm.correspondenceAddressStreetNo != '' && planDetailsForm.correspondenceAddressStreetName !=''}">
+		                                                ${planDetailsForm.correspondenceAddressStreetNo} ${planDetailsForm.correspondenceAddressStreetName},
+		                                            </c:when>
+		                                             <c:when test="${planDetailsForm.correspondenceAddressStreetNo == '' && planDetailsForm.correspondenceAddressStreetName !=''}">
+		                                                ${planDetailsForm.correspondenceAddressStreetName},
+		                                            </c:when>
+		                                             <c:when test="${planDetailsForm.correspondenceAddressStreetNo != '' && planDetailsForm.correspondenceAddressStreetName ==''}">
+		                                                ${planDetailsForm.correspondenceAddressStreetNo},
+		                                            </c:when>		                                            
+	                                            </c:choose>	                                            
 	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
 	                                                ${planDetailsForm.applicantDistrictDesc},
 	                                            </c:if>

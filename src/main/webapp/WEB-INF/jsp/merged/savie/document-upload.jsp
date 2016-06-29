@@ -26,70 +26,58 @@ var languageP = "${language}";
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps headerStick" id="upload-document-page">	   <!-- HEADER -->
 		
-			<!-- BREADCRUMBS -->
-			 <div class="fwd-container container-fluid breadcrumbs">
-				<div class="breadcrumb-container">
-				   <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-					   <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
-		               <li class="divider"><i class="fa fa-play"></i></li>
-		               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
-		               <li class="divider last"><i class="fa fa-play"></i></i></li>
-		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.selectplan" bundle="${msg}" /></li>
-				   </ol>
-				</div>
-			 </div>
-			 <!-- STEPS -->
-			 <div class="container-fluid fwd-full-container browse-holder">
-				<div class="application-page-header et-header-browse">
-				   <div class="browse-container">
-					  <div class="row reset-margin hidden-xs hidden-sm">
-						 <ul class="common-steps-list six-steps nav nav-pills">
-							<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.selectplan" bundle="${msg}" /></button></li>
-							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.application" bundle="${msg}" /></button></li>
-							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.summary.declaration" bundle="${msg}" /></button></li>
-							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i><fmt:message key="stepindicator.savie.sign" bundle="${msg}" /></button></li>
-							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">5</span><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></button></li>
-							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button></li>
-						 </ul>
-					 </div>
-				   </div> 
-				   <div class="et-mobile-header-info hidden-md hidden-lg">
-					  <div class="clearfix">
-						 <div class="pull-left">
-							<div class="et-back-arrow">
-							   <a href="#" class="back-arrow-link">
-								  <span class="icon-arrow-left2 arrow-left"></span>
-							   </a>
-							</div>
-							<div class="et-header-tex">
-							   <h3><fmt:message key="stepindicator.savie.upload.document" bundle="${msg}" /></h3>
-							</div>
-						 </div>
-						 <span id="step-of">5 out of 6</span>
-					  </div>
-				   </div>
-				</div>
-			 </div>
-			 <div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-				<div class="step-indicator-container clearfix">
-					<ul class="common-step-indicator six-steps nav nav-pills">
-						 <li id="first-step"><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-						 <li><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-						 <li><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-						 <li><a href="#" class="completed"><i class="fa fa-check"></i></a></li>
-						 <li><a href="#" class="active"><span class="step-no">5</span></a></li>
-						 <li id="last-step"><a href="#"><span class="step-no">6</span></a></li>
-					</ul>
-					<div class="step-line"></div>
-				</div>
-			</div>
+			<!-- Breadcrumb Component Start-->
+
+			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+				<c:set var="breadcrumbActive" value="0" />
+
+			    <c:if test="${planIndex == 'medical-insurance'}">
+			    	<c:set var="breadcrumbItems">
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
+					</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
+			    </c:if>
+			    <c:if test="${planIndex == 'savings-insurance'}">
+			    	<c:set var="breadcrumbItems">
+			    		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.savie,breadcrumb.item.application
+			    	</c:set>
+			    	<c:set var="breadcrumbActive">3</c:set>
+			    </c:if>
+
+			    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+			    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+			    	<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+				</jsp:include>
+
+			<!-- Breadcrumb Component End-->
+
+			<!-- StepIndicator Component Start-->
+
+		     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+				<c:set var="stepActive" value="0" />
+
+				<c:if test="${planIndex == 'medical-insurance'}">
+			    	<c:set var="stepItems">
+			    		stepindicator.selectplan,stepindicator.application.summary.declaration,stepindicator.sign,stepindicator.payment,stepindicator.upload.document,stepindicator.confirmation
+					</c:set>
+			    	<c:set var="stepActive">4</c:set>
+			    </c:if>
+			    <c:if test="${planIndex == 'savings-insurance'}">
+			    	<c:set var="stepItems">
+			    		stepindicator.selectplan,stepindicator.application,stepindicator.summary.declaration,stepindicator.sign,stepindicator.upload.document,stepindicator.confirmation
+			    	</c:set>
+			    	<c:set var="stepActive">4</c:set>
+			    </c:if>
+
+			     <!--<div class="container-fluid fwd-full-container browse-holder">-->
+			        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+			        	<jsp:param name="stepItems" value="${stepItems}"/>
+		    			<jsp:param name="stepActive" value="${stepActive}"/>
+			    	</jsp:include>
+			     <!--</div>-->
+
+			<!-- StepIndicator Component End-->
+
 			<!-- UPLOAD DOCUMENT BLOCK -->
 			<div id="so-upload-document-section">
 				<div class="container-fluid fwd-container up-doc-page">
@@ -107,7 +95,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.now" bundle="${msg}" />
-												<span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+												<span>
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -122,7 +117,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.later" bundle="${msg}" />
-												<span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+												<span class="uplater-span">
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -136,7 +138,14 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.now" bundle="${msg}" />
-								   <span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+								   <span>
+									   <c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 							 <div class="clearfix below desktop-align">
@@ -145,15 +154,31 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.later" bundle="${msg}" />
-								   <span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+								   <span class="uplater-span">
+								   		<c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 						  </div-->
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc"><fmt:message key="label.upload.doc.when.ready.title" bundle="${msg}" /></p>
-								<fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" />
+								<p class="first-desc"><fmt:message key="msg.upload.savie.copy4" bundle="${msg}" /></p>
+								<ol>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<li><fmt:message key="msg.upload.savie.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.savie.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<li><fmt:message key="msg.upload.easyhealth.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.easyhealth.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+								</ol>
 							</div>
 						</div>
 						<div class="upload-now-section" id="upload-now-section">
@@ -221,7 +246,7 @@ var languageP = "${language}";
 												<span id="hkid-docu-filename">Yourfiles.pdf </span><span id="hkid-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar','hkid-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -230,7 +255,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="hkid-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="">
@@ -281,7 +306,7 @@ var languageP = "${language}";
 												<span id="passport-docu-filename">Yourfiles.pdf </span><span id="passport-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar','passport-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -290,7 +315,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="passport-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="proof-address-holder">
@@ -338,7 +363,7 @@ var languageP = "${language}";
 												<span id="address-docu-filename">Yourfiles.pdf </span><span id="address-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar','docu-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -347,7 +372,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="document-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 							</div>
@@ -357,7 +382,14 @@ var languageP = "${language}";
 								<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
 							</div>
 							<div class="upload-note">
-								<p class="upload-p"><span class="orange">*</span> <fmt:message key="label.savie.upload.remark" bundle="${msg}" /></p>
+								<p class="upload-p"><span class="orange">*</span>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.upload.savie.copy3" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.upload.easyhealth.copy3" bundle="${msg}" />
+	        						</c:if>
+								</p>
 							</div>
 						</div>
 						<div class="next-btn">
@@ -393,8 +425,8 @@ var languageP = "${language}";
 		              <h2 id="error-to-home-modal-errorMessage">Unexpected Error</h2>  
 		           </div>
 		           <div class="row">
-		              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">		                 
-	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="error-to-home-btn" data-dismiss="modal">
+		              <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 fwd-orange-btn-center-wrapper">		                 
+	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5 button--full" id="error-to-home-btn" data-dismiss="modal">
 	                 		<fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" />
 	                 	</button>
 	                 	<script>
@@ -423,27 +455,47 @@ var languageP = "${language}";
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function() {
+			$(document).ready(function() { 
 				if( typeof ga !== 'undefined' ){
-					ga('create', 'UA-60032236-1', 'auto');
-		            ga('require', 'ecommerce');
-		            ga('ecommerce:addTransaction', {
-		             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
-		             'revenue': '${saviePlanDetails.insuredAmount }', // Grand Total of single premium 
-		             'affiliation': 'Save', // Insurance type, e.g. Life
-		              'currency': 'HKD'
-		             });
-		            ga('ecommerce:addItem', {
-		                 'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required
-		                 'name': 'Savie SP online', // Product name. Required
-		                 'category': 'Savings', // Category or variation
-		                 'price': '${saviePlanDetails.insuredAmount }', // Unit price (this is the one off premium for SP)
-		                 'quantity': '1',
-		                 'currency': 'HKD'
-		               });
-		            ga('ecommerce:send');
-		        }
-				
+					if('${plan }' == 'savings-insurance'){
+						ga('create', 'UA-60032236-1', 'auto');
+			            ga('require', 'ecommerce');
+			            ga('ecommerce:addTransaction', {
+			             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
+			             'revenue': '${saviePlanDetails.insuredAmount }', // Grand Total of single premium 
+			             'affiliation': 'Save', // Insurance type, e.g. Life
+			              'currency': 'HKD'
+			             });
+			            ga('ecommerce:addItem', {
+			                 'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required
+			                 'name': 'Savie SP online', // Product name. Required
+			                 'category': 'Savings', // Category or variation
+			                 'price': '${saviePlanDetails.insuredAmount }', // Unit price (this is the one off premium for SP)
+			                 'quantity': '1',
+			                 'currency': 'HKD'
+			               });
+			            ga('ecommerce:send');
+					}
+					else if('${plan }' == 'medical-insurance'){
+						ga('create', 'UA-60032236-1', 'auto');
+			            ga('require', 'ecommerce');
+			            ga('ecommerce:addTransaction', {
+			             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
+			             'revenue': '${selectPlan.monthlyPremium*2 }', // Grand Total of single premium 
+			             'affiliation': 'Protect', // Insurance type, e.g. Life
+			              'currency': 'HKD'
+			             });
+			            ga('ecommerce:addItem', {
+			                 'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required
+			                 'name': 'Easy Health', // Product name. Required
+			                 'category': 'Health', // Category or variation
+			                 'price': '${selectPlan.monthlyPremium }', // Unit price (this is the one off premium for SP)
+			                 'quantity': '2',
+			                 'currency': 'HKD'
+			               });
+			            ga('ecommerce:send');
+					}
+				}
 				var language = "en";
 				if(msieversion()>0 && msieversion()<10) {
 					$('.modal-ie-error').modal('show');
@@ -462,36 +514,37 @@ var languageP = "${language}";
 		    		});
 				}
 				var errorMessageType = "${errorMessageType}";
+				var userName = "${username}";
+                var policyUserName = "${policyUserName}";
+                var authenticate = "${authenticate}";
+
+                if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
+                	errorMessageType = 'NOT_AUTHENTICATED';
+                } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
+                	errorMessageType = 'UNMATCHED_USERNAME';
+                }
+
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
-            		if(errorMessageType == 'alreadyUploaded'){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
-            		}else if(errorMessageType == 'UrlExpired' ){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
-            		}else{
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
-            		}
-                	$('#error-to-home-modal').modal('show');
-            	}else{
-            		var userName = "${username}";
-                	var policyUserName = "${policyUserName}";
-                	if(policyUserName != null && policyUserName != ''){
-        				$('#et-upload-now').hide();
-        				$('#et-upload-later').hide();
-        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
-            				$('#loginpopup').find(".close").hide(); 
-            				$('#loginpopup').find(".text-left").hide(); 
-        				}
-    				}
-    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-    					$('#loginpopup').modal('show');
-    				}else{
-    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
-    						$('#error-to-home-modal').modal('show'); 
-    				         
-    					}
-    				}
+
+            		if(errorMessageType == 'NOT_AUTHENTICATED'){
+            			//force login
+	            		$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+	            		$('#loginpopup').find(".close").hide(); 
+	           			$('#loginpopup').find(".text-left").hide(); 
+            			$('#loginpopup').modal('show');
+
+            		} else {
+            			if(errorMessageType == 'UNMATCHED_USERNAME'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+	            		}else if(errorMessageType == 'alreadyUploaded'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+	            		}else if(errorMessageType == 'UrlExpired' ){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+	            		}else{
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+	            		}
+	                	$('#error-to-home-modal').modal('show');
+	                }
             	}
 				
 				// Toggle passport
@@ -514,16 +567,16 @@ var languageP = "${language}";
 						
 						if (isValid && up) {
 							console.log('Proceed');
-							$self.removeAttr('disabled');
-							documentUpload();
+							$self.attr('disabled', 'disabled');
+							documentUpload('${plan }');
 							up = false;
 						} 
 						else {
-							$self.attr('disabled', 'disabled');
+							$self.removeAttr('disabled');
 						}
 					}
 					else{
-						window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
 					}
 				});
 				
@@ -557,6 +610,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-hkid-file-message', getBundle(getBundleLanguage,'error.hkid.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#hkid-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -582,6 +641,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-passport-file-message', getBundle(getBundleLanguage,'error.passport.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#passport-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -604,6 +669,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-address-file-message', getBundle(getBundleLanguage,'error.address.proof.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#docu-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 			});

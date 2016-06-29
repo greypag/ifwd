@@ -1,9 +1,11 @@
 package com.ifwd.fwdhk.util;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,6 +18,8 @@ import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.message.ECommConnector;
+import com.ifwd.fwdhk.message.MessageResponse;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 
 @SuppressWarnings("rawtypes")
@@ -27,6 +31,12 @@ public class InitApplicationMessage implements ApplicationListener{
 	
 	@Autowired
 	private CommonUtils commonUtils;
+	
+	@Autowired 
+	protected ECommConnector connector;
+	
+	@Autowired  
+	private ServletContext application;
 	
 	public static List<OptionItemDesc> maritalStatusesEN;	
 	public static List<OptionItemDesc> maritalStatusesCN;
@@ -146,11 +156,11 @@ public class InitApplicationMessage implements ApplicationListener{
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
-			init(commonUtils,"start");
+			init(commonUtils,"start",connector,application);
 		}
 	}
 
-	public static void init(CommonUtils commonUtils, String type){
+	public static void init(CommonUtils commonUtils, String type,ECommConnector connector,ServletContext application){
 		if("start".equals(type)){
 			logger.info("init : start application");
 		}
@@ -1081,6 +1091,19 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("branchCodeCN : " + branchCodeCN);
+		
+//		Map<String,Map<String,String>> allMessages = null;
+//		try {
+//			MessageResponse messageResponse = connector.getAllMessage();
+//			allMessages = messageResponse.getAllMessages();
+//			application.setAttribute("allMessages", allMessages);
+//		} catch (Exception e) {
+//			logger.error("error : "+e.getMessage());
+//			if("start".equals(type)){
+//				System.exit(0);
+//			}
+//		}
+//		logger.info("allMessages : " + allMessages);
 	}
 
 	public static List<OptionItemDesc> getOccupationByNob(CommonUtils commonUtils,String nobCode,String language,String type, HttpServletRequest request){

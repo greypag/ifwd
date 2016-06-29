@@ -224,13 +224,25 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jPDFImages.jar</systemPath>
          </dependency>
+         <dependency>
+            <groupId>chinese</groupId>
+            <artifactId>chinese</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/chinese.jar</systemPath>
+         </dependency>
+         
 <dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
 		</dependency>	
-	
 		
+	<dependency>  
+          <groupId>commons-configuration</groupId>  
+          <artifactId>commons-configuration</artifactId>  
+          <version>1.6</version>  
+    	</dependency>  
 	</dependencies>
 	<profiles>
 		<profile>
@@ -473,7 +485,7 @@
 		<profile>
 			<id>prd</id>
 			<build>
-				<finalName>fwdhk</finalName>
+				<finalName>ROOT</finalName>
 				<pluginManagement>
 					<plugins>
 						<plugin>
@@ -504,26 +516,13 @@
 				</pluginManagement>
 				<plugins>
 					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.1</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<tasks>
-										<echo>>>>>>> This is for PRODUCTION</echo>
-<!-- 										<delete file="${project.build.outputDirectory}/config.properties" /> -->
-<!-- 										<copy file="src/main/resources/config.prd.properties" -->
-<!-- 											tofile="${project.build.outputDirectory}/config.properties" /> -->
-									</tasks>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
+	                    <groupId>org.apache.maven.plugins</groupId>
+	                    <artifactId>maven-war-plugin</artifactId>
+	                    <configuration>
+	                        <webXml>src/main/webapp/WEB-INF/web.prd.xml</webXml>
+	                        
+	                    </configuration>
+	                </plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -551,7 +550,7 @@
 	</profiles>
 	
 	<build>
-		<finalName>fwdhk</finalName>
+		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

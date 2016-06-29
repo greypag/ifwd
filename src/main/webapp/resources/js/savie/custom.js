@@ -1351,7 +1351,7 @@ function addFormBeneficiary (counter) {
 		+'<div class="pull-left select">'
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
-		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']" name="beneficiaryHkidPassport['+counter+']">'
 		+'<option selected value="HKID">HKID</option>'
 		+'<option value="Passport">Passport No</option>'	
 		+'</select>'

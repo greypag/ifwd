@@ -1,0 +1,60 @@
+@include bp-interim(768px, 991px) {
+  .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .navbar-fixed-top div.logobox > div.navbar-collapse.mobile-menu-V2 {
+    display: none !important;
+    max-height: 9999px;
+    overflow-x: visible;
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    &.in {
+      display: block !important;
+      overflow-y: scroll;
+    }
+  }
+  .col-sm-12.nav.navbar-nav {
+    padding: 0;
+    margin: 0;
+  }
+  #myDropdownMob div.drop-width {
+    width: 768px !important;
+    border-style: none;
+    padding: 0;
+    > ul {
+      background-color: #061d29;
+    }
+  }
+  body {
+    padding-top: 98px;
+  }
+}
+.log-to-acc {
+  color: #fff !important;
+	font-size: 24px;
+}
+
+// .loginpopup {
+//
+//   // .loginpopupext {
+//   //   .modal-content.plan-modal {
+//   //     min-height: 380px;
+//   //     overflow: hidden;
+//   //     position: relative;
+//   //     width: 100%;
+//   //   }
+//   //   .login-info-savie img {
+//   //     /*position: absolute;
+//   //     bottom: 0;*/
+//   //   }
+//   //   .upper-overlay h4 {
+//   //     margin-bottom: 10px;
+//   //   }
+//   // }
+// }

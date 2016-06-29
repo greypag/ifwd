@@ -39,10 +39,11 @@ import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
-import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.JsonUtils;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -62,7 +63,7 @@ public class UserController {
 	protected HeaderUtil headerUtil;
 	
 	@Autowired
-	private SavieOnlineService savieOnlineService;
+	private LifeService savieOnlineService;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody
@@ -163,8 +164,8 @@ public class UserController {
 					jsonObject.put("fullName", userDetails.getFullName());
 					userDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
-					userDetails.setMobileNo(checkJsonObjNull(customer,
-							"contactNo"));
+					userDetails.setMobileNo(Methods.formatMobile(checkJsonObjNull(customer,
+							"contactNo")));
 					userDetails.setUserName(userLogin.getUserName());
 					userDetails.setReferralCode(checkJsonObjNull(customer,
 							"referralCode"));
@@ -225,7 +226,7 @@ public class UserController {
 				
 				userDetails.setFullName(userDetails.getFullName());
 				userDetails.setEmailAddress(userDetails.getEmailAddress());
-				userDetails.setMobileNo(userDetails.getMobileNo());
+				userDetails.setMobileNo(Methods.formatMobile(userDetails.getMobileNo()));
 				userDetails.setUserName(userDetails.getUserName());
 				model.addAttribute(userDetails);
 				
@@ -318,6 +319,10 @@ public class UserController {
 						String type7 = WebServiceUtils.getMessage("eservice.product.type7", UserRestURIConstants.getLanaguage(request));
 						String type8 = WebServiceUtils.getMessage("eservice.product.type8", UserRestURIConstants.getLanaguage(request));
 						String type9 = WebServiceUtils.getMessage("eservice.product.type9", UserRestURIConstants.getLanaguage(request));
+						String type10 = WebServiceUtils.getMessage("eservice.product.type10", UserRestURIConstants.getLanaguage(request));
+						String type11 = WebServiceUtils.getMessage("eservice.product.type11", UserRestURIConstants.getLanaguage(request));
+						String type12 = WebServiceUtils.getMessage("eservice.product.type12", UserRestURIConstants.getLanaguage(request));
+						String type13 = WebServiceUtils.getMessage("eservice.product.type13", UserRestURIConstants.getLanaguage(request));
 						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
 						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
 						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
@@ -356,118 +361,123 @@ public class UserController {
 							}else if("SAVIE-SP".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type9);
 							}
+							else if("HEH1".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type10);
+							}
+							else if("HEH2".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type11);
+							}
+							else if("HEH3".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type12);
+							}
+							else if("HEH4".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type13);
+							}
+							
+							
+							
 							
 							if("Z".equalsIgnoreCase(entity.getStatus())){
 								entity.setStatus(inforce);
 							}
 							
 							if("ET".equals(entity.getPlanCode())) {
-								if("GI".equals(entity.getPolicyType())) {
-									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-				 					}else {
-				 						if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
-									}
-								}else if("Life".equals(entity.getPolicyType())) {
-
-									// Change Elite Term Plan Name. Temp Solution. Please Update Database
-									if(entity.getPlanName().equals("定期壽險")){
-										entity.setPlanName("智理想定期保障計劃");
-									}
-
-									if("PENDING".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(pending);
-										}
-										pending_life.add(entity);
-									}else if("ACTIVE".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_life.add(entity);
-									}else if("PAST".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_life.add(entity);
-									}
+								// Change Elite Term Plan Name. Temp Solution. Please Update Database
+								if(entity.getPlanName().equals("定期壽險")){
+									entity.setPlanName("智理想定期保障計劃");
 								}
-							}else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
-								if("GI".equals(entity.getPolicyType())) {
-									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_saving.add(entity);
+
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
 									}else {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_saving.add(entity);
+										entity.setStatus(pending);
 									}
-								}else if("Life".equals(entity.getPolicyType())) {
-									if("PENDING".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(pending);
-										}
-										pending_saving.add(entity);
-									}else if("ACTIVE".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(active);
-										}
-										active_saving.add(entity);
-									}else if("PAST".equals(entity.getStatus())) {
-										if("false".equals(entity.getDocumentUploaded())) {
-											url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
-											entity.setStatus("<a href=\"" + url + "\">"
-												+ docNow + "</a>");
-										}else {
-											entity.setStatus(past);
-										}
-										past_saving.add(entity);
+									pending_life.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
 									}
+									active_life.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_life.add(entity);
+								}
+							}
+							else if("HEH1".equalsIgnoreCase(entity.getPlanCode()) || "HEH2".equalsIgnoreCase(entity.getPlanCode()) || "HEH3".equalsIgnoreCase(entity.getPlanCode())) {
+								if(entity.getPlanName().equals("定期壽險")){
+									entity.setPlanName("EasyHealth Insurance Plan");
+								}
+
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(pending);
+									}
+									pending_life.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
+									}
+									active_life.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/medical-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_life.add(entity);
+								}
+							}
+							else if("SAVIE".equals(entity.getPlanCode()) || "SAVIE-SP".equals(entity.getPlanCode()) || "SAVIE-RP".equals(entity.getPlanCode())) {
+								if("PENDING".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(pending);
+									}
+									pending_saving.add(entity);
+								}else if("ACTIVE".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(active);
+									}
+									active_saving.add(entity);
+								}else if("PAST".equals(entity.getStatus())) {
+									if("false".equals(entity.getDocumentUploaded())) {
+										url = serverUrl + "/"+language+"/savings-insurance/document-upload?policyNumber="+encoder.encode(entity.getPolicyNumber().getBytes());
+										entity.setStatus("<a href=\"" + url + "\">"
+											+ docNow + "</a>");
+									}else {
+										entity.setStatus(past);
+									}
+									past_saving.add(entity);
 								}
 							}else if("EasyHomeCare".equals(entity.getPlanCode())) {
 								if("GI".equals(entity.getPolicyType())) {
@@ -618,7 +628,7 @@ public class UserController {
 			
 			JSONObject params = new JSONObject();
 			params.put("userName", userDetails.getUserName());
-			params.put("mobile", userDetails.getMobileNo());
+			params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			params.put("password", userDetails.getPassword());
 			params.put("email", userDetails.getEmailAddress());
 			params.put("name", userDetails.getFullName());
@@ -630,10 +640,10 @@ public class UserController {
 				params.put("userName", servletRequest.getParameter("userName"));
 				params.put("password", servletRequest.getParameter("password"));
 				params.put("email", servletRequest.getParameter("email"));
-				params.put("mobile", servletRequest.getParameter("mobile"));
+				params.put("mobile", Methods.formatMobile(servletRequest.getParameter("mobile")));
 				params.put("name", servletRequest.getParameter("name"));
-				params.put("optIn1", servletRequest.getParameter("optIn1"));
-				params.put("optIn2", servletRequest.getParameter("optIn2"));
+				params.put("optIn1", optIn1);
+				params.put("optIn2", optIn2);
 			}
 			
 			logger.info("USER_JOIN_US Request " + JsonUtils.jsonPrint(params));
@@ -696,8 +706,8 @@ public class UserController {
 					}
 					loginUserDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
-					loginUserDetails.setMobileNo(checkJsonObjNull(customer,
-							"contactNo"));
+					loginUserDetails.setMobileNo(Methods.formatMobile(checkJsonObjNull(customer,
+							"contactNo")));
 					loginUserDetails.setUserName(userLogin.getUserName());
 					loginUserDetails.setReferralCode(checkJsonObjNull(customer,
 							"referralCode"));
@@ -741,10 +751,10 @@ public class UserController {
 			JSONObject params = new JSONObject();
 			if(!(StringUtils.isEmpty(userDetails.getEmailAddress1()) && StringUtils.isEmpty(userDetails.getMobileNo1()))) {
 				params.put("email", userDetails.getEmailAddress1());
-				params.put("mobile", userDetails.getMobileNo1());
+				params.put("mobile", Methods.formatMobile(userDetails.getMobileNo1()));
 			}else {
 				params.put("email", userDetails.getEmailAddress());
-				params.put("mobile", userDetails.getMobileNo());
+				params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			}
 			
 			logger.info("USER_FORGOT_USERNAME Request " + JsonUtils.jsonPrint(params));
@@ -778,7 +788,7 @@ public class UserController {
 			JSONObject params = new JSONObject();
 			params.put("userName", userDetails.getUserName());
 			params.put("email", userDetails.getEmailAddress());
-			params.put("mobile", userDetails.getMobileNo());
+			params.put("mobile", Methods.formatMobile(userDetails.getMobileNo()));
 			
 			logger.info("USER_FORGOT_PASSWORD Request " + JsonUtils.jsonPrint(params));
 			JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,

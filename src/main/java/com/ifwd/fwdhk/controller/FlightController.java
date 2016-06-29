@@ -46,6 +46,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -896,7 +897,7 @@ public class FlightController {
         String name = StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
         String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
         String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
-        String mobileNo = request.getParameter("mobileNo");
+        String mobileNo = Methods.formatMobile(request.getParameter("mobileNo"));
 
 
 		String emailId = request.getParameter("emailAddress");
@@ -1370,15 +1371,15 @@ public class FlightController {
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
 		applicantJsonObj.put("optIn1", optIn1);
-		applicantJsonObj.put("optIn2", optIn2);
+		applicantJsonObj.put("optIn2", optIn1);
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName", name);
 		request.setAttribute("hkid", hkid);
 		request.setAttribute("mobileNo", mobileNo);
 		request.setAttribute("emailAddress", emailAddress);
-		request.setAttribute("optIn1", optIn1);
-		request.setAttribute("optIn2", optIn2);
+		request.setAttribute("optOut1", optIn1);
+		request.setAttribute("optOut2", optIn2);
 		parameters.put("applicant", applicantJsonObj);
 		
 		String theClubMembershipNo = (String)session.getAttribute("theClubMembershipNo");
@@ -1625,8 +1626,7 @@ public class FlightController {
 				request.setAttribute("fullName",
 						request.getParameter("fullName"));
 				request.setAttribute("hkid", request.getParameter("hkid"));
-				request.setAttribute("mobileNo",
-						request.getParameter("mobileNo"));
+				request.setAttribute("mobileNo", Methods.formatMobile(request.getParameter("mobileNo")));
 				request.setAttribute("emailAddress",
 						request.getParameter("emailAddress"));
 				if (request.getParameter("checkbox3")!=null && request.getParameter("checkbox3").length()>0) {
@@ -1843,7 +1843,7 @@ public class FlightController {
 
 		String applicantFullName = request.getParameter("fullName");
 		String applicantHKID = request.getParameter("hkid");
-		String applicantMobNo = request.getParameter("mobileNo");
+		String applicantMobNo = Methods.formatMobile(request.getParameter("mobileNo"));
 		String emailAddress = request.getParameter("emailAddress");
 		String optIn1 = request.getParameter("optIn1");
 		String optIn2 = request.getParameter("optIn2");

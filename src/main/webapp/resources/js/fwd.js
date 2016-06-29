@@ -92,7 +92,6 @@ function emptyMembershipError(){
 $(function () {
 	
     /* scrolling code starts */
-	if (!isMobile){
 		var floatingbox = $('.floatingbox');
 	    
 	    if (floatingbox[0]){
@@ -118,7 +117,6 @@ $(function () {
 	        	}
 	        });
 	    }
-	}
     /* scrolling code ends */
     
 	/* payment seccode start*/
@@ -6878,6 +6876,8 @@ $(':text').keyup(function(e) {
 	
 	/* if support chinese, skip */
 	if( $(this).hasClass('chinese-input') ){
+	// use following if case when backend ready for deploy on Chinese Address of Personal-Details
+	//if( $(this).hasClass('chinese-input') || $(this).hasClass('residential-chinese-input') ){
 		e.stopPropagation();
 		return false;
 	}

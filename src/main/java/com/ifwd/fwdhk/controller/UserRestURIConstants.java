@@ -325,6 +325,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW = "fna.review";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savings.sales.illustration";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "savings.fatca";
+	public static final String PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA = "easyhealth.fatca";
+	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "savings.personal.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "savings.employment.info";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "savings.beneficary.info";
@@ -340,6 +342,30 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_SP = "savings.confirmation.appointment.sp";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_CONFIRMATION_APPOINTMENT_RP = "savings.confirmation.appointment.rp";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER = "savings.customer.service.centre";
+	
+	/* Page Flow Control For easy health */
+	public static final String URL_EASYHEALTH = "landing";
+	public static final String URL_EASYHEALTH_PLAN_OPTION = "plan-option";
+	public static final String URL_EASYHEALTH_UNDERWRITING = "underwriting";
+	public static final String URL_EASYHEALTH_SIGNATURE = "signature";
+	public static final String URL_EASYHEALTH_PAYMENT = "payment";
+	public static final String URL_EASYHEALTH_CONFIRMATION = "confirmation";
+	
+	public static final String PAGE_PROPERTIES_EASYHEALTH = "easyhealth.landing";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PLAN_OPTION = "easyhealth.plan.option";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UNDERWRITING = "easyhealth.underwriting";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "easyhealth.signature";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "easyhealth.payment";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "easyhealth.confirmation";
+	
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS = "easyhealth.personal.details";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO = "easyhealth.employment.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO = "easyhealth.beneficary.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY = "easyhealth.application.summary";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DECLARATION = "easyhealth.declaration";
+	
+	/*API For easy health*/
+	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";
 
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";

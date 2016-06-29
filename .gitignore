@@ -52,3 +52,6 @@ src/main/webapp/resources/scss/
 src/main/webapp/resources/images/savie-regular/test
 src/main/webapp/resources/images/savie-regular/img_20160512
 src/main/webapp/resources/images/savie-regular/snapshot_*
+
+*.scssc
+*.map

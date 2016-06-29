@@ -1,0 +1,18 @@
+// $phone-landscape: 480px;
+// $tablet:          768px;
+// $desktop:         960px;
+// $high-definition: 1440px
+// $tablet: "(min-width: 768px) and (max-width: 1023px)";
+
+$mobile: "(max-width: 991px)";
+$desktop: "(min-width: 992px)";
+// $block_ele: "margin" "border" "padding";
+
+// Block Variable Declar
+%pad-0, %no-padding   { padding: 0px; }
+// Color
+//
+// $white: #fff;
+// $black: #000;
+//
+// $color_celeste_approx: #ccc;

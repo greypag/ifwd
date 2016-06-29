@@ -766,7 +766,7 @@ function showAppSection(b0,b1,b2,b3,b4,b5,b6,b7,b8,b9){
 		0: 'et-select-plan-section'
 		,1: 'et-about-yoursel-section'
 		,2: 'et-plan-option-section'
-		,3: 'et-medical-declaration'
+		,3: 'et-application-first-section'
 		,4: 'et-application-info-section'
 		,5: 'et-employment-info-section'
 		,6: 'et-beneficiary-info-section'

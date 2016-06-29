@@ -1,0 +1,24 @@
+/**
+*
+* FWD revamp v0.1.3 [ updated to 21/05/2016 (DD/MM/YYYY) ]
+* for branch#1.15.000 (ROPHI_fwdhk)
+* Last CSS Compiled on: #{timestamp()}
+*
+**/
+
+// @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
+@import "variable";         // #Define all scss variables
+@import "mixin";            // #Contains all kinds of @mixin & @funct
+
+// #Apply for all screens   // #Localize the internal css applying for ALL SCREENs and but only one THEME
+@import "common_screen/stepIndicator";
+
+@media screen and #{$mobile} {
+	@import "mobile/stepIndicator";
+}
+
+@media screen and #{$desktop} {
+  @import "desktop/stepIndicator";
+}
+
+@import "customize_screen/stepIndicator";

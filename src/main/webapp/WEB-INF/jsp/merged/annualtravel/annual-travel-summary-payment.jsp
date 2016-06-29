@@ -149,13 +149,17 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 	                                            <c:if test="${planDetailsForm.applicantEstate != ''}">
 	                                                ${planDetailsForm.applicantEstate},
 	                                            </c:if>
-	                                            <c:if test="${planDetailsForm.applicantStreetNo != ''}">
-	                                                ${planDetailsForm.applicantStreetNo} 
-	                                            </c:if>
-	                                             <c:if test="${planDetailsForm.applicantStreetName != ''}">
-	                                                ${planDetailsForm.applicantStreetName},
-	                                            </c:if>
-	                                            
+	                                            <c:choose>
+		                                            <c:when test="${planDetailsForm.applicantStreetNo != '' && planDetailsForm.applicantStreetName !=''}">
+		                                                ${planDetailsForm.applicantStreetNo} ${planDetailsForm.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${planDetailsForm.applicantStreetNo == '' && planDetailsForm.applicantStreetName !=''}">
+		                                                ${planDetailsForm.applicantStreetName},
+		                                            </c:when>
+		                                             <c:when test="${planDetailsForm.applicantStreetNo != '' && planDetailsForm.applicantStreetName ==''}">
+		                                                ${planDetailsForm.applicantStreetNo},
+		                                            </c:when>		                                            
+	                                            </c:choose>	                                            
 	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
 	                                                ${planDetailsForm.applicantDistrictDesc},
 	                                            </c:if>

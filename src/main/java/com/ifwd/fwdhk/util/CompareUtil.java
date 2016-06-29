@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.ifwd.fwdhk.model.savieOnline.ProductList;
-import com.ifwd.fwdhk.model.savieOnline.Products;
+import com.ifwd.fwdhk.model.life.ProductList;
+import com.ifwd.fwdhk.model.life.Products;
 
 public class CompareUtil {
 

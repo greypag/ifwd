@@ -682,6 +682,7 @@ public class WorkingHolidayController {
 			return "Session Expired";
 		}
 		if (planDetailsForm.getWhInseffectiveDate() != null) {
+			planDetailsForm.setWhAppMobileNO(Methods.formatMobile(planDetailsForm.getWhAppMobileNO()));
 			session.setAttribute("workingHolidayPlanDetailsForm", planDetailsForm);
 			
 		} else {

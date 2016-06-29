@@ -357,7 +357,7 @@ var affiliate = "${affiliate}";
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
-										<p><fmt:message key="fna.question.q4a.amount" bundle="${msg}" /><br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> <input type="tel" autocomplete="off" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int" data-allowzero="true" tabindex="-1"> <fmt:message key="fna.question.q4a.month" bundle="${msg}" /> <div class="sep"></div> <fmt:message key="fna.question.q4a.range" bundle="${msg}" /></p>
+										<p><fmt:message key="fna.question.q4a.amount" bundle="${msg}" /><br><fmt:message key="fna.question.q4a.lessthan" bundle="${msg}" /> <input type="text" autocomplete="off" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="12" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int" data-allowzero="true" tabindex="-1"> <fmt:message key="fna.question.q4a.month" bundle="${msg}" /> <div class="sep"></div> <fmt:message key="fna.question.q4a.range" bundle="${msg}" /></p>
 
 										<ul class="fna-radio-gp-indv clearfix frm-fna-q4a" data-mirror-fld="frm-fna-q4a-mob" data-frm-fld="q4_a">
 											<li class="fna-radio-btn" data-val="0"><fmt:message key="fna.question.q4a.option1" bundle="${msg}" /></li>
@@ -389,7 +389,7 @@ var affiliate = "${affiliate}";
 										</div>
 									</div>
 
-									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /> <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span></h4>
+									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /> <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span><br><br><fmt:message key="fna.question.q4b.type" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4b1 fna-error-msg text-red"></span>
 									</div>
@@ -406,7 +406,7 @@ var affiliate = "${affiliate}";
 										<span class="err_q4b2 fna-error-msg text-red"></span>
 									</div>
 									<div class="sep"></div>
-									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="tel" autocomplete="off" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int" data-allowzero="true" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />
+									<fmt:message key="fna.question.q4b.amount" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" autocomplete="off" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="12" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int" data-allowzero="true" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" />
 									<p class="note"><fmt:message key="fna.question.q4b.note" bundle="${msg}" /></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
@@ -437,7 +437,7 @@ var affiliate = "${affiliate}";
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									<fmt:message key="fna.question.q4c.totallessthen" bundle="${msg}" /> <br class="mob-ignore">
-									<fmt:message key="fna.question.q4c.month" bundle="${msg}" /> <input type="tel" autocomplete="off" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" tabindex="-1" > <fmt:message key="fna.question.q4c.hkd" bundle="${msg}" />
+									<fmt:message key="fna.question.q4c.month" bundle="${msg}" /> <input type="text" autocomplete="off" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="12" tabindex="-1" > <fmt:message key="fna.question.q4c.hkd" bundle="${msg}" />
 
 									<div class="hidden-lg hidden-md">
 										<div class="img-mob-wrapper clearfix">
@@ -457,13 +457,13 @@ var affiliate = "${affiliate}";
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
-									<p><fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="tel" autocomplete="off" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+									<p><fmt:message key="fna.question.q4di.lessthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" autocomplete="off" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="12" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
 
 									<h4><span class="q-sub-num">ii:</span><fmt:message key="fna.question.q4dii" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4d2 fna-error-msg text-red"></span>
 									</div>
-									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="tel" autocomplete="off" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="10" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+									<p><fmt:message key="fna.question.q4dii.leanthan" bundle="${msg}" /> <fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <input type="text" autocomplete="off" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" data-allowzero="true" onkeypress=" return isNumeric(event);" maxlength="12" tabindex="-1"> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside"><fmt:message key="button.back" bundle="${msg}" /></a>
