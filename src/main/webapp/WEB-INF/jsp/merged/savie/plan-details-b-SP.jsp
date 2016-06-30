@@ -499,7 +499,14 @@ var affordabilityPremium = ${sliderMax};
 				</div>
 				<p><fmt:message key="label.savie.plan.detail.note.productrisk" bundle="${msg}" /></p>
 				<br/>
-				<p><fmt:message key="label.savie.plan.detail.note.productrisk2" bundle="${msg}" /></p>
+				<%--<p><fmt:message key="label.savie.plan.detail.note.productrisk2" bundle="${msg}" /></p>--%>
+				<ul class="availability-notice" style="padding-left: 15px;">
+	  				<li><fmt:message key="product.detail.savie.remark.copy1_9" bundle="${msg}" /></li>
+	  				<li><fmt:message key="product.detail.savie.remark.copy1_10" bundle="${msg}" /></li>
+	  				<li><fmt:message key="product.detail.savie.remark.copy1_11" bundle="${msg}" /></li>
+	  				<li><fmt:message key="product.detail.savie.remark.copy1_12" bundle="${msg}" /></li>
+	  				<li><fmt:message key="product.detail.savie.remark.copy1_13" bundle="${msg}" /></li>
+	  			</ul>
 			</div>
 		</div>
 		<div class="next-btn text-center">

@@ -358,11 +358,16 @@ var home_url = "<%=request.getContextPath()%>";
 		        	<!-- Savie Discount End -->
 
      		<ul class="availability-notice" style="padding-left: 10px;">
-  				<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li>
+  			<%--<li><fmt:message key="product.detail.savie.remark.copy1_4" bundle="${msg}" /></li> --%>
+  			<%--<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li> --%>
   			<%--<li><fmt:message key="product.detail.savie.remark.copy1_5" bundle="${msg}" /></li> --%>
             <%--<li><fmt:message key="product.detail.savie.remark.copy1_6" bundle="${msg}" /></li> --%>
-  				<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li>
+  			<%--<li><fmt:message key="product.detail.savie.remark.copy1_7" bundle="${msg}" /></li> --%>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_9" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_10" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_11" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_12" bundle="${msg}" /></li>
+  				<li><fmt:message key="product.detail.savie.remark.copy1_13" bundle="${msg}" /></li>
   			</ul>
 
        		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
