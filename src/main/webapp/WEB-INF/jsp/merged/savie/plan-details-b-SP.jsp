@@ -458,7 +458,14 @@ var affordabilityPremium = ${sliderMax};
 							  </h4>
 						   </div>
 						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
-							  <div class="panel-body"><fmt:message key="product.details.savie.group1.section1.copy" bundle="${msg}" /></div>
+							  <div class="panel-body">
+							  	<div class="js-display-savie-sp">
+							  		<fmt:message key="product.details.savie.group1.section1.copy" bundle="${msg}" />
+							  	</div>
+							  	<div class="js-display-savie-rp">
+							  		<fmt:message key="product.details.savie.rp.group1.section1.copy" bundle="${msg}" />
+							  	</div>
+							  </div>
 						   </div>
 						</div>
 						<div class="panel panel-default pd-sf-sale-illustration-sample-panel">
@@ -515,10 +522,11 @@ var affordabilityPremium = ${sliderMax};
 
 				<a id="btn-login" class="pd-link hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></a>
 				<!-- <button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button> -->
-				<a id="btn-proceed" class="pd-link hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
+				<div class="btn__proceed_online js-display-savie-sp">
+					<a id="btn-proceed" class="pd-link hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
+					<p class="center"><fmt:message key="label.savie.premium.warning" bundle="${msg}" /></p>
+				</div>
 				<a id="btn-back" class="pd-link hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></a>
-
-			<p class="center"><fmt:message key="label.savie.premium.warning" bundle="${msg}" /></p>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->
 		<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">
@@ -675,11 +683,20 @@ var affordabilityPremium = ${sliderMax};
 			if($('#plan-dob-datepicker').val() != '') {
 				$('#total-years-holder').removeClass('hidden');
 			}
+
+			//Hide SP only elements
+			$('.js-display-savie-sp').css('display', 'none');
+			$('.js-display-savie-rp').css('display', 'block');
+
 		} else {
 			$("#type-of-payment").val("one-off-premium");
 			$('#plan-amount-holder').addClass('hidden');
 			$('#amount-slide-holder').removeClass('hidden');
 			$('#total-years-holder').addClass('hidden');
+
+			//Display SP only elements
+			$('.js-display-savie-sp').css('display', 'block');
+			$('.js-display-savie-rp').css('display', 'none');
 		}
 
 		if('2'!='${type }'){

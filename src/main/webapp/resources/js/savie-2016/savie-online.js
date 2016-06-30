@@ -354,10 +354,19 @@ $(document).ready(function() {
 			if($('#plan-dob-datepicker').val() != '') {
 				$('#total-years-holder').removeClass('hidden');
 			}
+
+			//Hide SP only elements
+			$('.js-display-savie-sp').css('display', 'none');
+			$('.js-display-savie-rp').css('display', 'block');
+
 		} else {
 			$('#plan-amount-holder').addClass('hidden');
 			$('#amount-slide-holder').removeClass('hidden');
 			$('#total-years-holder').addClass('hidden');
+
+			//Display SP only elements
+			$('.js-display-savie-sp').css('display', 'block');
+			$('.js-display-savie-rp').css('display', 'none');
 		}
 	});
 	$('#plan-dob-datepicker').on('change', function() {
