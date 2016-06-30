@@ -154,10 +154,9 @@ $(function() {
     function fbShare(method,name,link,picture,description){
     	FB.ui({
 			method: method,
-			name: name,
-			link: link,
-			picture: picture,
-			description: description
+        display: 'iframe',
+        href: link,
+        mobile_iframe: true
       	},
 		function(response) {
 			if (response && response.post_id) {
@@ -167,7 +166,7 @@ $(function() {
 			}
 		});    
     }
-    $('#fb-dialog-share').on("click",function(){
+    $('#fb-dialog-share, .btn-spd-share').on("click",function(){
     	fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
     });
     //facebook sharer php old api
