@@ -9055,6 +9055,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 278, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .pd-link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 /* line 284, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs {
