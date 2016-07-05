@@ -620,7 +620,7 @@ $(".btn-promo-apply").on("click",function(){
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
 				}else if(data !=null && data.errMsgs == "Promotion code is not valid."){
-		      		//$(".txt-promote-code").html(data.referralCode);
+		      		$(".txt-promote-code").html("-");
 		      		$(".original-price").html(data.priceInfo.grossPremium);
 		      		$(".discount").html(data.priceInfo.discountAmount);
 		      		$(".txt-price").html(data.priceInfo.totalDue);
@@ -639,7 +639,7 @@ $(".btn-promo-apply").on("click",function(){
 	        },
 	        error:function(){
 	        	$('#loading-overlay').modal('hide');
-	            showSubmitError(data.errMsgs, true);
+	            showSubmitError("Error", true);
 	        }
 	  });
 	}

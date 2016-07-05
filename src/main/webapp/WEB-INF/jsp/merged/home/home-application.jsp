@@ -422,9 +422,7 @@ var plan="${plan}";
                                             <option value="" disabled selected></option>
                                             <c:forEach
                                                 var="district" items="${districtList}">
-                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.applicantDistrict }"> selected="selected"</c:if>>
-                                                    <c:out value="${district.description}" />
-                                                </option>
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.applicantDistrict }"> selected="selected"</c:if>>${district.description}</option>
                                             </c:forEach>
                                         </select>
                                         
@@ -435,7 +433,7 @@ var plan="${plan}";
                                     	<select id="selectApplicantArea">
                                             <c:forEach
                                                 var="district" items="${districtList}">
-                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.aDistrict }"> selected="selected"</c:if>><c:out value="${district.area}" /></option>
+                                                <option value="${district.code}" <c:if test="${district.code == editableHomeCareDetails.aDistrict }"> selected="selected"</c:if>>${district.area}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -451,9 +449,7 @@ var plan="${plan}";
                                         <select id="applicantArea" name="applicantArea">
                                             <option value="" disabled selected></option>
                                             <c:forEach var="areaList" items="${mapArea}">
-                                                <option value="${areaList.key}" <c:if test="${areaList.key == editableHomeCareDetails.applicantArea }"> selected="selected"</c:if>>
-                                                    <c:out value="${areaList.value}" />
-                                                </option>
+                                                <option value="${areaList.key}" <c:if test="${areaList.key == editableHomeCareDetails.applicantArea }"> selected="selected"</c:if>>${areaList.value}</option>
                                             </c:forEach>
                                         </select>
                                         <label class="mdl-textfield__label" for="applicantArea"><fmt:message key="application.input.address.area" bundle="${msg}" /></label>

@@ -87,6 +87,11 @@ var nextPage = "${nextPageFlow}";
                 <div class="btn-row text-center">
                     <a href="javascript:void(0);" class="btn-app eh-btn-next" id="screening-next"><fmt:message key="screening.home.button.next" bundle="${msg}" /></a>
                 </div>
+                <div class="submit__error">
+	                <div class="text-center">
+	                    <span class="submit__errormsg" id="submit__errormsg"></span>
+	                </div>
+	            </div>
             </div>
         </div>
         </form>
@@ -144,12 +149,14 @@ var nextPage = "${nextPageFlow}";
 			      		window.location = '<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/${nextPageFlow}';					}
 			      	else{
 			      		$('#loading-overlay').modal('hide');
-			      		console.log(data.errorMsg); 
+			      		console.log(data.errorMsg);
+			      		showSubmitError(data.errorMsg, true);
 			      	}
 		        },
 		        error:function(){
 		        	$('#loading-overlay').modal('hide');
-		            console.log('error');   
+		            console.log('Error');
+		            showSubmitError("Error", true);
 		        }
 		  });
 		}else{

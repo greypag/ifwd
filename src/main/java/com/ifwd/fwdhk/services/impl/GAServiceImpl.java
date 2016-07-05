@@ -367,6 +367,8 @@ public class GAServiceImpl implements GAService {
 			quoteDetails.setErrormsg(checkJsonObjNull(responseJsonObj,"errMsgs"));
 			if(responseJsonObj.get("errMsgs") == null) {
 				session.setAttribute("referralCode", quoteDetails.getReferralCode());
+			}else {
+				session.setAttribute("referralCode", "");
 			}
 			session.setAttribute("planQuote", quoteDetails);
 		} 
