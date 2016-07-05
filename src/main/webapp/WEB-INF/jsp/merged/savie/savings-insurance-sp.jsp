@@ -13,6 +13,7 @@
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/savie-discount.css" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -54,13 +55,13 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="hunger-selling-body">
 						<form>
 							<input placeholder="Access code" type="text" autocomplete="off" name="accessCodeConfirm" id="accessCodeConfirm" />
-							<span class="validation-msg hidden-error-msg">The code is invalid or has been used.</span>							
+							<span class="validation-msg hidden-error-msg">The code is invalid or has been used.</span>
 							<button type="submit" id="hunger-btn" class="btn hunger-btn">Submit</button>
 						</form>
 					</div>
 				</div>
 			</div>-->
-			
+
 			<div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
 				<div class="breadcrumb-container">
 	                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -72,23 +73,23 @@ var home_url = "<%=request.getContextPath()%>";
 					 </ol>
 				</div>
 			</div>
-			
+
 			<div class="savie-regular-container savie-regular-landing sp-only">
 				<div class="whole-banner">
               	<div class="page-banner">
 						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
-						<a class="img-bg" href="#vModal" data-toggle="modal">
+						<%--<a class="img-bg" href="#vModal" data-toggle="modal">
 							<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
-						</a>
+						</a>--%>
 						<div class="fwd-container-limit">
-              		
+
               		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
       	        			<!--h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2-->
       	        			<div id="clearfix-height-rp">
       	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-      	        			</div>        			
+      	        			</div>
               			<div class="savie-product text-bold">
       						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie.sp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
       					</div>
@@ -97,7 +98,7 @@ var home_url = "<%=request.getContextPath()%>";
       	        	</div>
               	</div>
 				</div>
-								
+
 				<div class="payment-mode">
 	        		<div class="desktop-inline">
 		        		<div class="payment-inline">
@@ -122,21 +123,273 @@ var home_url = "<%=request.getContextPath()%>";
 		        			</ul>
 		        		</div>
 	        		</div>
+		        	<!-- Savie Discount Start -->
+		        	<div class="spd-wrapper">
+		        		<div class="text-center">
+		        			<p class="txt-discount"><fmt:message key="savie.online.home.discount.tagline1" bundle="${msg}" /> <span><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" />10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></span> <fmt:message key="savie.online.home.discount.tagline2" bundle="${msg}" /><br class="visible-xs"/><br class="visible-xs"/><a href="#spd-wrapper-inner-anchor" class="btn-spd-start"><fmt:message key="savie.online.home.discount.btn.winner" bundle="${msg}" /></a> </p>
+		        		</div>
+		        		<div id="spd-wrapper-inner-anchor"></div>
+		        		<div class="spd-wrapper-inner">
+			        		<div class="hkid-search text-center">
+			        			<label><fmt:message key="savie.online.home.discount.enter.hkid" bundle="${msg}" /></label>
+			        			<div class="input-wrapper">
+			        				<form id="form-hkid">
+			        					<input type="text" id="input-hkid" autocomplete="off" placeholder="<fmt:message key="savie.online.home.discount.enter.placeholder" bundle="${msg}" />"><br>
+			        					<span class="hkid-err-msg text-red"></span>
+			        					<span><fmt:message key="savie.online.home.discount.notstore" bundle="${msg}" /></span>
+			        				</form>
+			        			</div>
+			        			<button class="btn-spd btn-hkid-submit"><fmt:message key="savie.online.home.discount.btn.check" bundle="${msg}" /></button>
+			        			<a href="javascript:void(0);" class="btn-spd btn-spd-share"><i class="fa fa-share-alt"></i></a>
+			        		</div>
+			        		<p class="won-msg text-center"><fmt:message key="savie.online.home.discount.msg.won" bundle="${msg}" /></p>
+			        		<p class="loss-msg text-center"><fmt:message key="savie.online.home.discount.msg.loss" bundle="${msg}" /></p>
+
+
+			        		<table class="tbl-spd hidden-xs">
+			        			<tr>
+			        				<th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
+			        				<td class="b1">1</td>
+			        				<td class="b2">2</td>
+			        				<td class="b3">3</td>
+			        				<td class="b4">4</td>
+			        				<td class="b5">5</td>
+			        				<td class="b6">6</td>
+			        				<td class="b7">7</td>
+			        			</tr>
+			        			<tr>
+			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        			</tr>
+			        			<tr>
+			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> &lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        			</tr>
+			        			<tr>
+			        				<th><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></th>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        			</tr>
+			        		</table>
+			        		<div class="tbl-spd-mobile visible-xs clearfix">
+					            <div class="sticky-header">
+					                <table>
+					                    <tr>
+					                        <th><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /></th>
+					                    </tr>
+					                    <tr>
+					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+					                    </tr>
+					                    <tr>
+					                        <th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> &lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
+					                    </tr>
+					                    <tr>
+					                    	<th><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></th>
+					                    </tr>
+					                </table>
+					            </div>
+								<div class="sticky-btns">
+									<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+									<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+								</div>
+					            <div class="overflow-body">
+
+					                <table>
+					                    <tr>
+
+					                        <td class="b1">1</td>
+					                        <td class="b2">2</td>
+					                        <td class="b3">3</td>
+					                        <td class="b4">4</td>
+					                        <td class="b5">5</td>
+					                        <td class="b6">6</td>
+					                        <td class="b7">7</td>
+					                    </tr>
+					                    <tr>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					                    </tr>
+					                    <tr>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					                    </tr>
+					                    <tr>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        						<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+					                    </tr>
+					                </table>
+					            </div>
+					        </div>
+			        		<p class="remarks grey"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
+			        		<div class="text-center pans">
+			        			<div class="won-panel">
+			        				<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" class="btn-spd btn-spd-next"><fmt:message key="savie.online.home.discount.btn.start" bundle="${msg}" /></a>
+			        			</div>
+			        		</div>
+			        		<ul>
+			        			<li class="remarks grey"><fmt:message key="savie.online.home.discount.tnc1.prefix" bundle="${msg}" /> <b><u><fmt:message key="savie.online.home.discount.tnc1.highlight" bundle="${msg}" /></u></b> <fmt:message key="savie.online.home.discount.tnc1.suffix" bundle="${msg}" /></li>
+			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd-tnc"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
+			        		</ul>
+		        		</div>
+
+		        	</div>
+
+		        	<!--  Savie Discount Modal Start -->
+
+		        	<div class="modal fade" role="dialog" aria-labelledby="spdModal" id="spdModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h2>Watch out! Savie premium discount is only for offline application. Online application cannot entitle the discount</h2>
+
+								</div>
+								<div class="modal-body">
+									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_web_${language}.png" class="hidden-xs img-responsive" />
+									<img src="<%=request.getContextPath()%>/resources/images/savie/savie-discount/appointment_mobile_${language}.png" class="visible-xs img-responsive" />
+								</div>
+								<div class="modal-footer">
+									<div class="bottom-section text-center">
+										<button type="button" class="btn btn-spd-start" data-dismiss="modal">Start</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal fade" role="dialog" aria-labelledby="tncModal" id="tncModal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h2><fmt:message key="savie.online.home.discount.popup.msg.tnc" bundle="${msg}" /></h2>
+
+								</div>
+								<div class="modal-body">
+									<ul>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc1" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc2" bundle="${msg}" />
+											<table>
+												<tr>
+													<td rowspan="3" class="col-1"><fmt:message key="savie.online.home.discount.table.th1" bundle="${msg}" /><br><p class="stxt"><fmt:message key="savie.online.home.discount.table.th1.stxt" bundle="${msg}" /></p></td>
+													<td colspan="3" class="col-3"><fmt:message key="savie.online.home.discount.popup.table.th2" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td colspan="2" class="col-2"><fmt:message key="savie.online.home.discount.popup.table.th3" bundle="${msg}" /></td>
+													<td rowspan="2" class="col-2"><fmt:message key="savie.online.home.discount.popup.table.th4" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td class="col-1">≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td class="col-1">&lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>1</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 300<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 500<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 700<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 600<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+												</tr>
+												<tr>
+													<td>6</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 7,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 5,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 3,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+												</tr>
+												<tr>
+													<td>7</td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+												</tr>
+											</table>
+											<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
+										</li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc3.prefix" bundle="${msg}" /> <a href="<fmt:message key="savie.online.home.discount.popup.tnc3.link" bundle="${msg}" />"><fmt:message key="savie.online.home.discount.popup.tnc3.link" bundle="${msg}" /></a> <fmt:message key="savie.online.home.discount.popup.tnc3.suffux" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc4" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc5" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc6" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc7" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc8" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.online.home.discount.popup.tnc9" bundle="${msg}" /></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+		        	<!--  Savie Discount Modal End -->
+		        	<!-- Savie Discount End -->
+
 
        				<ul class="availability-notice" style="padding-left: 10px;">
-		  				<li><s:message code="product.detail.savie.remark.copy1_0"/></li>
-		  				<li><s:message code="product.detail.savie.remark.copy1_1"/></li>
+		  				<li><fmt:message key="product.detail.savie.remark.copy1_0" bundle="${msg}" /></li>
+		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_1" bundle="${msg}" /></li> --%>
+		  				<li><fmt:message key="product.detail.savie.remark.copy1_8" bundle="${msg}" /></li>
 		  				<%--<li><fmt:message key="product.detail.savie.remark.copy1_2_1" bundle="${msg}" />
 		  					<ul class="availability-notice inner">
 		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_a" bundle="${msg}" />
-		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_b" bundle="${msg}" />		
+		  						<li><fmt:message key="product.detail.savie.remark.copy1_2_1_b" bundle="${msg}" />
 		  					</ul>
 		  				</li>--%>
 		  				<li><s:message code="product.detail.savie.remark.copy1_3"/></li>
 		  			</ul>
-       				
+
 				</div>
-				
+
 		         <div class="fwd-container-limit">
 	        		<div class="usp row">
 	        			<div class="usp-item clearfix col-xs-12 col-md-4">
@@ -261,7 +514,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</li>-->
                                     <li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li active" id="benefits-nav-title-6">
                                         <a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
-                                    </li>									
+                                    </li>
 									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
 									</li>
@@ -343,7 +596,7 @@ var home_url = "<%=request.getContextPath()%>";
         			</div>
         		</div>
        		</div>
-	        		
+
 	        		<div class="ice-cream-banner hidden-xs hidden-sm">
 	        				<div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
 							<div id="savings-carousel" class="carousel slide" data-ride="carousel">
@@ -376,7 +629,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="savings-nav rp-nav">
 								<div class="prev">
 									<a class="pull-right disabled" href="#savings-carousel" role="button" data-slide="prev">
@@ -385,7 +638,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</span>
 									</a>
 								</div>
-								
+
 								<div class="next">
 									<a class="pull-left active" href="#savings-carousel" role="button" data-slide="next">
 									<span class="icon icon-chevron-thin-right">
@@ -413,9 +666,9 @@ var home_url = "<%=request.getContextPath()%>";
 		       				<div class="col-xs-4 col-md-4 col-lg-4 text-center">
 		       					<div class="desktop-center clearfix" >
 									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/theclub-logo.png" class="img-responsive" id="the-club-logo">
-									
+
 		       					</div>
-		       				</div>		       				
+		       				</div>
 		       				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
 		       			</div>
 		       		</div>
@@ -482,7 +735,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="content-disclaimer">
 				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
 			</div>
@@ -503,7 +756,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
 						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
-	
+
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
@@ -542,13 +795,13 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 						</div>
-	
+
 						<div class="fwd-container-limit">
 							<p class="blog-notice"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
-				
+
 				<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 				<!-- Customer Center Modal -->
 				<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
@@ -566,7 +819,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<h4><fmt:message key="savie.o2o.landing.Your.application" bundle="${msg}" /></h4>
 									<p><fmt:message key="savie.o2o.landing.Can't.make" bundle="${msg}" /></p>
 								</div>
-								
+
 								<div class="bottom-section">
 									<button type="button" class="btn" data-dismiss="modal"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
 								</div>
@@ -575,7 +828,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 				</div>
 			</div>
-			
+
 			<!--Access Code Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
@@ -587,7 +840,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="modal-body hunger-selling-body">
 							<div>
 								<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post">
-									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
+									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>
 									<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 								</form>
 							</div>
@@ -596,9 +849,9 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-			
+
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
@@ -628,17 +881,17 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="terms-condition-statement-signup"></label>
 									<p class="notice"><fmt:message key="savie.o2o.landing.waiting.list.terms.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.waiting.list.terms.link.text" bundle="${msg}" /></a><fmt:message key="savie.o2o.landing.waiting.list.terms.part2" bundle="${msg}" /></p>
 								</div>
-								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>					
+								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>
 								<button type="submit" id="signup-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.waiting.list.submit" bundle="${msg}" /></button>
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<!-- FOOTER -->
 		</div>
-		
-		
+
+
 		<div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
 			id="teaserSurvery">
 			<div class="modal-dialog teaserSurvey" role="document">
@@ -653,11 +906,11 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="modal-body teaserSurvey">
 						<p class="registered"><fmt:message key="savie.interestGather.survey.successfully.registered" bundle="${msg}" /></p>
 						<p class="registered"><fmt:message key="savie.interestGather.survey.tell.more" bundle="${msg}" /></p>
-		
+
 						<div class="modal-divider"></div>
-		
+
 						<p class="question"><fmt:message key="savie.interestGather.survey.plan.save" bundle="${msg}" /></p>
-		
+
 						<form class="amount-to-save">
 							<div class="teaser-select">
 									<select class="form-control saveDropdown" name="amountToSave"
@@ -680,9 +933,9 @@ var home_url = "<%=request.getContextPath()%>";
 			<!-- /.modal-dialog -->
 		</div>
 		<!-- /.modal -->
-		
+
 		<!-- JS INCLUDES -->
-		
+
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
@@ -696,7 +949,8 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-teaser.js"></script>
-		
+		<script src="<%=request.getContextPath()%>/resources/js/savie/savie-discount.js"></script>
+
 		<script type="text/javascript">
 			var language = "en";
 			$(document).ready(function (){
@@ -710,17 +964,17 @@ var home_url = "<%=request.getContextPath()%>";
 				$("#regular-button").addClass('clicked-button');
 				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
 			});
-			
+
 			$('#so-carousel').bind('slide.bs.carousel', function (e) {
 			    var slideFrom = $(this).find('.active');
 				$('#nav-holder .so-fna-row li').removeClass('active')
 			    $('#'+slideFrom.attr('next-target')).addClass('active');
 			});
-			
+
 			$( window ).resize(function() {
 				//bannerimg();
 			});
-			
+
 			function bannerimg() {
 				if(getWidth() >= 992 && getWidth() <= 1350) {
 					$('#hero-img-desktop').attr('src','<%=request.getContextPath()%>/resources/images/savie/o2o-landing/landing-md-bg-desktopss.jpg');
@@ -733,7 +987,7 @@ var home_url = "<%=request.getContextPath()%>";
 				if(getWidth() > 991) {
 					$("#so-carousel").on('swipeleft swiperight', '.selector', function(event) {
 					 	event.stopPropagation();
-					 	event.preventDefault();					 	
+					 	event.preventDefault();
 					});
 				}
 			}
@@ -759,7 +1013,7 @@ var home_url = "<%=request.getContextPath()%>";
 				$.ajax({
 				        type: "POST",
 				        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
-				        async:false,         
+				        async:false,
 				        success:function(data){
 							if(data.errMsgs != null && data.errMsgs != ''){
 							}
@@ -770,15 +1024,15 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 				        },
 						error:function(){
-						    console.log('error');     
+						    console.log('error');
 					    }
 				    });
 			};
 
 			// Sign up now validation
 			$('#teaserSignUpForm').submit(function(e){
-				e.preventDefault();				
-				
+				e.preventDefault();
+
 				var errorMsg = false;
 				var signupEmail = $('#signupEmail').val();
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -792,7 +1046,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 				var phone = $('#teaserPhoneNo').val().length;
 				if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
-					isPlaceholder=false;					
+					isPlaceholder=false;
 				} else if (phone > 0 && phone < 8) {
 					$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
 					errorMsg = true;
@@ -810,14 +1064,14 @@ var home_url = "<%=request.getContextPath()%>";
 				if(!isPlaceholder){
 					$('#teaserPhoneNo').val('');
 				}
-				
+
 			});
-			
+
 			// Sign up Now Button
 			$('#signup').click(function(e){
 				$('#signup-now-modal').modal('show');
 			});
-			
+
 			$('#read-more-other-benefits').click(function(e){
 				$('.other-benefits-list-mobile').removeClass('hidden-xs');
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
@@ -825,7 +1079,7 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 
 			$(document).ready(function() {
-				
+
 				if(isMobile) {
 					$(".annualTravel_policy_item").click(function(){
 						itemTop = $(this).offset();
@@ -836,7 +1090,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                $('body').css("position", "inital");
 			                $('.hidden-benefits-info').css("font-family", "Calibri");
 							$('.hidden-benefits-info').css("font-size", "14px");
-			                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+			                $('body').animate({scrollTop: itemTop.top - 60}, 0);
 			            });
 			            $("#policyCoveragePopup").on('hide.bs.modal', function () {
 			                //alert(itemTop.top);
@@ -846,7 +1100,7 @@ var home_url = "<%=request.getContextPath()%>";
 			            });
 			            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
 			                $('body').attr("style", "");
-			            });			
+			            });
 					});
 
 				}
@@ -858,13 +1112,13 @@ var home_url = "<%=request.getContextPath()%>";
 						keyboard: false
 					});
 			    });
-				
+
 				$('#btn-blog-link').click(function(){
 					window.location.href='<fmt:message key="link.blog" bundle="${msg}" />';
 				});
 
 			});
-		
+
 		</script>
 
 <div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
@@ -891,7 +1145,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<button type="button" class="btn btn-orange" id="forbid-landing-button"><fmt:message key="forbid.landing.modal.button" bundle="${msg}" /></button>
 			</div>
 		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->	
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <!-- video Modal -->

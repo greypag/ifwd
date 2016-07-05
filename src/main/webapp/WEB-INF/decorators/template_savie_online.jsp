@@ -277,7 +277,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!--END -Google Code for SEO-->
 	<div class="fwd-savie-wrapper">
 				<%@ include file="include/merged/header.jsp"%>
-		<dec:body />
+		<div class="closeMobileMenu"><dec:body /></div>
 		<%@ include file="include/merged/footer.jsp"%>
 	</div>
 

@@ -28,11 +28,11 @@
 <!-- <bean id = "props" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 	<property name="locations" value="classpath:config.properties"/>
 </bean> -->
-<util:properties id="prop" location="file:${TOMCAT_HOME}/conf/rophi/config.properties"/>
+<util:properties id="prop" location="file:${TOMCAT_HOME}/conf/ROOT/config.properties"/>
 <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
     <property name="locations">
         <list>
-            <value>file:${TOMCAT_HOME}/conf/rophi/config.properties</value>
+            <value>file:${TOMCAT_HOME}/conf/ROOT/config.properties</value>
         </list>
     </property>
 </bean>

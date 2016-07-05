@@ -503,10 +503,15 @@ var affordabilityPremium = ${sliderMax};
 			</div>
 		</div>
 		<div class="next-btn text-center">
-			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></button>
-			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
-			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
-			<a href="javascript:void(0);" onclick="applyCentre();" class="pd-link"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
+			<button type="button" onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
+				<!-- <a href="javascript:void(0);" onclick="applyCentre();" class="pd-link"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a> -->
+
+				<a id="btn-login" class="pd-link hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></a>
+				<!-- <button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button> -->
+				<a id="btn-proceed" class="pd-link hidden"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
+				<a id="btn-back" class="pd-link hidden"><fmt:message key="button.back.summary" bundle="${msg}" /></a>
+
+			<p class="center"><fmt:message key="label.savie.premium.warning" bundle="${msg}" /></p>
 		</div>
 		<!-- MODALS / LIGHTBOXES -->
 		<div class="modal fade common-welcome-modal" id="offline-online-modal" tabindex="-1" role="dialog">

@@ -1390,6 +1390,12 @@ $(function() {
                 $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
                 //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));
             }
+			$("#closeMobileMenu").on("touchmove touchstart",function(e) {
+				if($(".mobile-menu-V2").hasClass("in")){
+					$(".mob-menu-btn").click();
+					//console.log(e);
+				}
+			});			
 			$(window).on("orientationchange",function(){
                 if(window.orientation == 0 || window.orientation == 180) // Portrait
                 {

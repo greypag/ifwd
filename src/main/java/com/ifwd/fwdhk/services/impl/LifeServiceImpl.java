@@ -516,7 +516,7 @@ public class LifeServiceImpl implements LifeService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-	    attributeList.add(new PdfAttribute("CampaignCode", "KSS016"));
+	    attributeList.add(new PdfAttribute("CampaignCode", "KSS017"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    
 	    if("tc".equals(lang)){
