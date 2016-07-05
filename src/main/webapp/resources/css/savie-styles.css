@@ -9903,3 +9903,31 @@ select::-ms-value {
 	font-size: 13px;
 	font-weight: bold;
 }
+
+/* Added on 20160705 - customer service center modal - #moreThan2Tries */
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-content{
+	padding: 35px 30px;
+}
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-header{
+	margin-bottom: 30px;
+}
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-body{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-h2,
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-p{
+	padding-top: 0;
+	text-align: center;
+}
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-p{
+	margin-bottom: 35px;
+}
+.fwd-savie-wrapper #moreThan2Tries .cs-modal-btn{
+	width: 70%;
+	min-width: 200px;
+	font-size: 30px;
+	padding: 15px;
+	font-family: 'Calibri';
+	white-space: normal;
+}
