@@ -241,34 +241,21 @@ $(document).ready(function(){
 				mobileNo:{
 					container:'#mobileNoErrMsg',
 					validators:{
+						notEmpty:{
+							message:getBundle(getBundleLanguage, "form.mobile.empty")
+						},
 						callback:{
-							message:getBundle(getBundleLanguage, "form.mobile.email.empty"),
+							message:getBundle(getBundleLanguage, "form.mobile.invalid"),
 							callback:function(a,b){
 
-								var isEmpty = $.trim($("#inputMobileNo").val()) == "";
-								var isValidMobile = application.common.validate($("#inputMobileNo").val(),"Mobileno");
-								var errElm = $("#inputMobileNo").parents(".form-group").find("small[data-bv-validator='callback']");
-							
-								if($.trim($("#inputEmail").val()) != ""){
-									if(isEmpty || isValidMobile){
-										return true;
-									}else{
-										errElm.text(getBundle(getBundleLanguage, "form.mobile.empty"));
-										return false;
-									}
-								}else{
-									if(isEmpty){
-										errElm.text(getBundle(getBundleLanguage, "form.mobile.email.empty"));
-										return false;
-									}else if(!isValidMobile){
-										errElm.text(getBundle(getBundleLanguage, "form.mobile.invalid"));
-										return false;
-									}else{
-										return true;
-									}
-								}
 								
-								return false;
+								var isValidMobile = application.common.validate($("#inputMobileNo").val(),"Mobileno");
+								
+								if(isValidMobile || $.trim($("#inputMobileNo").val()) == ""){
+									return true;	
+								}else{
+									return false;
+								}
 							}
 						}
 					}
@@ -281,14 +268,14 @@ $(document).ready(function(){
 						},
 						emailAddress: {
                            message: getBundle(getBundleLanguage, "form.email.invalid")
-                        },
+                        }/*,
                         callback:{
                         	message:'',
                         	callback:function(){
                         		$("#ef-form-application").bootstrapValidator('updateStatus', 'mobileNo', 'NOT_VALIDATED').bootstrapValidator('validateField', "mobileNo")
                         		return true;
                         	}
-                        }
+                        }*/
 					}
 				},				
 
