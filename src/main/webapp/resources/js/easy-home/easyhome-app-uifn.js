@@ -698,10 +698,10 @@ $(document).ready(function(){
 					var optIn1 = "false";
 					var optIn2 = "false";
 					if($('#donotWishDirectMarketing').is(':checked')){
-						optIn1 = "true";    
+						optIn1 = "true";
 					}
 					if($('#donotDisclose').is(':checked')){
-						optIn2 = "true";    
+						optIn2 = "true";
 					}
 					var password = $("#cPassword").val();
 					var mobile = $("#inputMobileNo").val();
@@ -920,6 +920,7 @@ $(document).ready(function(){
 						} else {
 							$('#loading-overlay').modal('hide');
 							console.log(data.errMsgs);
+							showSubmitError(data.errMsgs, true);
 							enablePayment=true;
 							return false;
 						}

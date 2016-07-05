@@ -658,7 +658,12 @@ var plan="${plan}";
 						            <a href="javascript:void(0);" onclick="perventRedirect=false; javascript:kenshoo_conv('Registration_Step3','<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%>','','Regis_Home_Step3 EN','USD');" class="btn-app eh-btn-next"><fmt:message key="payment.button.confirm" bundle="${msg}" /></a>
 								</c:otherwise>
 							</c:choose>
-			            </div>	
+			            </div>
+			            <div class="submit__error">
+			                <div class="text-center">
+			                    <span class="submit__errormsg" id="submit__errormsg"></span>
+			                </div>
+			            </div>
 		        	</div>
                 </c:otherwise>
 			</c:choose>
@@ -686,6 +691,6 @@ var plan="${plan}";
 
 <script type="text/javascript">
 function BackMe() {
-    window.history.back();
+	window.location="<%=request.getContextPath()%>/${language}/household-insurance/${planIndex}/application";
 }
 </script>
