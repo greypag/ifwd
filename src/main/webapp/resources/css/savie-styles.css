@@ -2259,7 +2259,7 @@ a.eserv-link:hover {
 @media screen and (min-width: 992px) {
   /* line 651, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-collapse-content .psa-content .description {
-    min-height: 200px;
+    min-height: 170px;
   }
 }
 /* line 659, ../sass/partials/savie/_homepage.scss */
@@ -9062,6 +9062,7 @@ form#table-info #id-policy, form#table-info #id-application {
 /* line 278, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .next-btn .pd-link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 /* line 284, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq #pd-sf-nav-tabs {

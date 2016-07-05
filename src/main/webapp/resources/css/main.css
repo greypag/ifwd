@@ -12149,3 +12149,15 @@ Be caution: <select> have customed made */
 .submit__error--show{
   display: block;
 }
+
+/* added on 20160627 */
+.banner-title .dot-font{
+	font-size: 65px;
+}
+
+@media screen and (max-width: 991px){
+	.banner-title .dot-font{
+		font-size: 40px;
+	}
+}
+
