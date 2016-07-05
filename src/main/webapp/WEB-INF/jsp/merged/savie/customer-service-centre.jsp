@@ -281,7 +281,7 @@ var language = "${language}";
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
 //Check is more than 2 tries from backend
-		var isMoreThan2Tries = true;
+		var isMoreThan2Tries = false;
 		if(isMoreThan2Tries){
 			$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
 			$('#moreThan2Tries').modal('show');
