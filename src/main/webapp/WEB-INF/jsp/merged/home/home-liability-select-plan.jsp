@@ -619,6 +619,7 @@ $(".btn-promo-apply").on("click",function(){
 		      		$("#totalDue").val(data.priceInfo.totalDue);
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
+		      		$('#promoCodeErrMsg').html('');
 				}else if(data !=null && data.errMsgs == "Promotion code is not valid."){
 		      		$(".txt-promote-code").html("-");
 		      		$(".original-price").html(data.priceInfo.grossPremium);
