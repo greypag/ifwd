@@ -86,8 +86,8 @@ var plan="${plan}";
                 <div class="col-xs-12 col-sm-4">
                     <div class="also-like-grid">
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-also-like01.jpg" alt="" class="img-responsive">
-                        <h5>TracelCare(Annual Cover)</h5>
-                        <p>Embark on an adventure abroad with a comprehensive travel protection companion.</p>
+                        <h5><fmt:message key="confirmation.upsell1.title" bundle="${msg}" /></h5>
+                        <p><fmt:message key="confirmation.upsell1.description" bundle="${msg}" /></p>
                         <a href="javascript:void(0);" class="btn-app">Get Quote</a>
 
                     </div>
@@ -95,17 +95,31 @@ var plan="${plan}";
                 <div class="col-xs-12 col-sm-4">
                     <div class="also-like-grid">
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-also-like02.jpg" alt="" class="img-responsive">
-                        <h5>Easy HomeCare</h5>
-                        <p>Protect your home for around HK$1 a day,against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.</p>
+                        <c:if test="${planIndex == 'easy-home-care'}">
+                        <h5><fmt:message key="confirmation.homecare.upsell2.title" bundle="${msg}" /></h5>
+                        <p><fmt:message key="confirmation.homecare.upsell2.description" bundle="${msg}" /></p>
                         <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        </c:if>
+                        <c:if test="${planIndex == 'home-liability'}">
+                        <h5><fmt:message key="confirmation.homeliability.upsell2.title" bundle="${msg}" /></h5>
+                        <p><fmt:message key="confirmation.homeliability.upsell2.description" bundle="${msg}" /></p>
+                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        </c:if>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="also-like-grid">
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-also-like03.jpg" alt="" class="img-responsive">
-                        <h5>Easy HomeCare</h5>
-                        <p>Protect your home for around HK$1 a day,against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.</p>
+                        <c:if test="${planIndex == 'easy-home-care'}">
+                        <h5><fmt:message key="confirmation.homecare.upsell3.title" bundle="${msg}" /></h5>
+                        <p><fmt:message key="confirmation.homecare.upsell3.description" bundle="${msg}" /></p>
                         <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        </c:if>
+                        <c:if test="${planIndex == 'home-liability'}">
+                        <h5><fmt:message key="confirmation.homeliability.upsell3.title" bundle="${msg}" /></h5>
+                        <p><fmt:message key="confirmation.homeliability.upsell3.description" bundle="${msg}" /></p>
+                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -119,10 +133,10 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-agoda.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-y5.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
-                                    <p>Enjoy 8% <a href="javascript:void(0);">Agoda</a> discount on all travel products upon successful registration of FWD online membership.</p>
+                                    <p><fmt:message key="confirmation.partner1.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner1.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner1.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner1.description.suffix" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="partner-grid clearfix">
@@ -130,17 +144,17 @@ var plan="${plan}";
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-y5.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
-                                    <p>15% off pocket wifi rental with <a href="javascript:void(0);">Y5buddy</a></p>
+                                    <p><fmt:message key="confirmation.partner2.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner2.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner2.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner2.description.suffix" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-boconcept.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-agoda.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
-                                    <p>Enjoy 5% discount from <a href="javascript:void(0);">BoConcept</a> when yo purchase an FWD Easy HomeCare insurance Plan.</p>
+                                    <p><fmt:message key="confirmation.partner3.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner2.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link2" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link2.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix2" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="partner-grid clearfix">
@@ -148,7 +162,7 @@ var plan="${plan}";
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-pricerite.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
-                                    <p>HK$ 50 e-coupon from <a href="javascript:void(0);">Pricerite</a> for every successful referral.</p>
+                                    <p><fmt:message key="confirmation.partner4.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner4.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner4.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner4.description.suffix" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +170,7 @@ var plan="${plan}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center">
-                        <a href="javascript:void(0);" class="btn-app">Find out more</a>
+                        <a href="javascript:void(0);" class="btn-app"><fmt:message key="button.find.out.more" bundle="${msg}" /></a>
                     </div>
                 </div>
 
