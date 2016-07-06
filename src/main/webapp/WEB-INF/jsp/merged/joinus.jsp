@@ -41,15 +41,15 @@
 // 								}, 3000);
  								if(window.top.document.referrer.indexOf("savings-insurance/plan-details-rp")>0){
  									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp?thankyou=thankyou';
- 								} else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
+ 								}else if(window.top.document.referrer.indexOf("savings-insurance/plan-details-sp")>0){
  									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?thankyou=thankyou';
- 								}
- 								else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
+ 								}else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
  									perventRedirect=false;
  									ga('send', 'event', 'Login', 'Click', 'Login success');
  									window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp=yes";
- 								}
- 								else {
+ 								}else if("${quarry}" == "FNA"){
+ 									window.location.href = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+ 								}else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}
 // 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								

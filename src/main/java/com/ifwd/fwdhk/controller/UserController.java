@@ -608,8 +608,11 @@ public class UserController {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(req);
 		
+		String quarry = req.getParameter("quarry");
 		String pageTitle = WebServiceUtils.getPageTitle("page.joinUs", UserRestURIConstants.getLanaguage(req));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.joinUs", UserRestURIConstants.getLanaguage(req));
+		
+		model.addAttribute("quarry", quarry);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
