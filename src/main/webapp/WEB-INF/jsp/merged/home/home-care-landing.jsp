@@ -343,9 +343,9 @@ var lang1 = "${language}";
     <!-- OUR BLOG -->
     <div class="blog">
         <div class="hidden-md hidden-lg">
-            <div class="mini-banner-holder"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/read-our-blog.jpg" class="img-responsive">
+            <div class="mini-banner-holder"><img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog1.jpg" class="img-responsive">
                 <div class="black-overlay"></div>
-                <h5 class="text-center">Save before you spend</h5> </div>
+                <h5 class="text-center"><fmt:message key="blog.homecare.title" bundle="${msg}" /></h5> </div>
             <div class="btn-holder">
                 <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
             </div>
@@ -353,27 +353,27 @@ var lang1 = "${language}";
         <div class="hidden-xs hidden-sm">
             <h3 class="text-center"><fmt:message key="blog.home.title" bundle="${msg}" /></h3>
             <div class="gray-divide"></div>
-            <p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
+            <p class="definition text-center"><fmt:message key="blog.homecare.title" bundle="${msg}" /></p>
             <div class="blogs-holder clearfix fwd-container-limit">
-                <div class="blogs first"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
+                <div class="blogs first"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog1.jpg" class="img-responsive">
                     <div class="orange-overlay text-center">
-                        <p class="title">Efficient and affordable lessons for babies</p> <span>SAVE</span>
-                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2016/01/25/efficient-and-affordable-lessons-for-babie/" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
+                        <p class="title"><fmt:message key="blog.homecare.blog1.topic" bundle="${msg}" /></p>
+                        <p class="definition"></p> <a class="btn-read-now" href="<fmt:message key="blog.homecare.blog1.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
                 </div>
-                <div class="blogs"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
+                <div class="blogs"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog2.jpg" class="img-responsive">
                     <div class="orange-overlay text-center">
-                        <p class="title"><fmt:message key="blog.home.post2.title" bundle="${msg}" /></p> <span>SAVE</span>
-                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/30/do-holidays-have-to-be-saving-traps-2/" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
+                        <p class="title"><fmt:message key="blog.homecare.blog2.topic" bundle="${msg}" /></p>
+                        <p class="definition"></p> <a class="btn-read-now" href="<fmt:message key="blog.homecare.blog2.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
                 </div>
-                <div class="blogs"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
+                <div class="blogs"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog3.png" class="img-responsive">
                     <div class="orange-overlay text-center">
-                        <p class="title"><fmt:message key="blog.home.post3.title" bundle="${msg}" /></p> <span>SAVE</span>
-                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/17/busting-the-myths-of-saving-traps-2/" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
+                        <p class="title"><fmt:message key="blog.homecare.blog3.topic" bundle="${msg}" /></p>
+                        <p class="definition"></p> <a class="btn-read-now" href="<fmt:message key="blog.homecare.blog3.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
                 </div>
-                <div class="blogs last"> <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
+                <div class="blogs last"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog4.jpg" class="img-responsive">
                     <div class="orange-overlay text-center">
-                        <p class="title"><fmt:message key="blog.home.post4.title" bundle="${msg}" /></p> <span>SAVE</span>
-                        <p class="definition"></p> <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/09/thats-right-coupons-do-save-you-big-bucks-2/" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
+                        <p class="title"><fmt:message key="blog.homecare.blog4.topic" bundle="${msg}" /></p>
+                        <p class="definition"></p> <a class="btn-read-now" href="<fmt:message key="blog.homecare.blog4.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.readmore.blog" bundle="${msg}" /></a> </div>
                 </div>
             </div>
             <div class="fwd-container-limit">
