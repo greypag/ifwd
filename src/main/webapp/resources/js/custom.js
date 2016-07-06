@@ -1115,7 +1115,6 @@ function getHeight() {
 function checkPosition() {
 
 	var footer_height = $(".footer-whole").height();
-
     if ($(this).scrollTop() > 200) {
 		$('.go-top').fadeIn(400);
     }
@@ -1128,7 +1127,7 @@ function checkPosition() {
     	$('#gotop').removeClass('go-top-default');
     }
     else {
-    	$(".go-top").css("bottom", 0);
+    	$(".go-top").css("bottom", 80);
     	$('#gotop').addClass('go-top-default');
     }
 }
