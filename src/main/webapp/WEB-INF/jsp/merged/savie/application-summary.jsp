@@ -86,10 +86,10 @@ var language = "${language}";
                <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
 					<div class="form-group application-summ">
 						<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
-							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
+							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
+							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
 							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
-							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
+							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
 						</div>
 					</div>
 					<div class="desktop-left">
