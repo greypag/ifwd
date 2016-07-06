@@ -251,7 +251,7 @@
                                     }
                                     $('#forgotusername-err-msg').show();
                                 } else {
-                                    $('#success-message').html(getBundle(getBundleLanguage, "member.login.forgotUserName.success")+data);
+                                    $('#success-message').html(getBundle(getBundleLanguage, "member.login.forgotUserName.success")+' '+data);
                                     $('#success-message').show();
                                 }
 
