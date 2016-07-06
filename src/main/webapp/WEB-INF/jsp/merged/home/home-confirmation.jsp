@@ -88,7 +88,7 @@ var plan="${plan}";
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-also-like01.jpg" alt="" class="img-responsive">
                         <h5><fmt:message key="confirmation.upsell1.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.upsell1.description" bundle="${msg}" /></p>
-                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="btn-app">Get Quote</a>
 
                     </div>
                 </div>
@@ -98,12 +98,12 @@ var plan="${plan}";
                         <c:if test="${planIndex == 'easy-home-care'}">
                         <h5><fmt:message key="confirmation.homecare.upsell2.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homecare.upsell2.description" bundle="${msg}" /></p>
-                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app">Get Quote</a>
                         </c:if>
                         <c:if test="${planIndex == 'home-liability'}">
                         <h5><fmt:message key="confirmation.homeliability.upsell2.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homeliability.upsell2.description" bundle="${msg}" /></p>
-                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app">Get Quote</a>
                         </c:if>
                     </div>
                 </div>
@@ -113,12 +113,12 @@ var plan="${plan}";
                         <c:if test="${planIndex == 'easy-home-care'}">
                         <h5><fmt:message key="confirmation.homecare.upsell3.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homecare.upsell3.description" bundle="${msg}" /></p>
-                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability" class="btn-app">Get Quote</a>
                         </c:if>
                         <c:if test="${planIndex == 'home-liability'}">
                         <h5><fmt:message key="confirmation.homeliability.upsell3.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homeliability.upsell3.description" bundle="${msg}" /></p>
-                        <a href="javascript:void(0);" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care" class="btn-app">Get Quote</a>
                         </c:if>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6">
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-y5.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_cfucome.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
                                     <p><fmt:message key="confirmation.partner1.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner1.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner1.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner1.description.suffix" bundle="${msg}" /></p>
@@ -141,7 +141,7 @@ var plan="${plan}";
                             </div>
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-y5.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_csl.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
                                     <p><fmt:message key="confirmation.partner2.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner2.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner2.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner2.description.suffix" bundle="${msg}" /></p>
@@ -159,7 +159,7 @@ var plan="${plan}";
                             </div>
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-pricerite.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_theclub.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
                                     <p><fmt:message key="confirmation.partner4.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner4.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner4.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner4.description.suffix" bundle="${msg}" /></p>
