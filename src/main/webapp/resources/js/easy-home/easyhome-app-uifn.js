@@ -107,9 +107,9 @@ $(document).ready(function(){
 	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
 		});
 		
-		//60 Days	
+		//60 Days (today+59days)	
 		var sixtyDays = new Date();
-		sixtyDays.setDate(dob_start_date.getDate()+60);
+		sixtyDays.setDate(sixtyDays.getDate()+59);
 
 		 $('#effectdate').mobiscroll().calendar({
 			controls: ['date'],
