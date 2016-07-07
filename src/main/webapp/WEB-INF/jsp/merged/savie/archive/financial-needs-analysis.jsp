@@ -168,7 +168,7 @@
 			</tr>
 			<tr>
 				<td><input type="button" value="No"/></td>
-				<td>Please call customer service hotline 3123-3123</td>
+				<td>Please call customer hotline 3123-3123</td>
 			</tr>
 		</table>
 		

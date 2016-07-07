@@ -110,7 +110,7 @@ var nextPage = "${nextPageFlow}";
                </a>
             </div>
              
-                <p class="errorMsg">Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer service hotline at 3123 3123.</p>
+                <p class="errorMsg">Thank you for your interests in our products, sorry that we are unable to accept your application online. For any enquiry, please call our customer hotline at 3123 3123.</p>
                 <br/>
             </div>
         </div>

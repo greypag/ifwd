@@ -39,7 +39,7 @@ var lang1 = "${language}";
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
                         </div>
-                        <div class="savie-product text-bold"> <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="label.brochure.easy.home" bundle="${msg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
+                        <div class="savie-product text-bold"> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.brochure.easy.home" bundle="${msg}" /></a> | <a href="<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
                     </div>
                 </form>
             </div>

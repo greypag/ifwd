@@ -278,7 +278,7 @@ var languageP = "${language}";
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal="yes-radio-modal"><span aria-hidden="true">×</span></button>
-					<!--p class="text-center">Please contact our customer service hotline <span class="hotline">3123 3123</span> for assistance.</p-->
+					<!--p class="text-center">Please contact our customer hotline <span class="hotline">3123 3123</span> for assistance.</p-->
 					<p class="text-center"><fmt:message key="label.please.call.hotline" bundle="${msg}" /></p>
 				</div>
 			</div>

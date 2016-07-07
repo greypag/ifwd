@@ -60,7 +60,7 @@
 				<div class="radio">
 				    <input id="policy12" name="policy1" type="radio">
 				    <label for="policy12">
-				    	YES [Please call customer service hotline <a>31233123</a>]
+				    	YES [Please call customer hotline <a>31233123</a>]
 				    </label>
 				</div>
 				<p>Do you, in the past 12 months, intend to replace any or a substantial part of your existing life insurance policy upon this application?</p>
@@ -73,7 +73,7 @@
 				<div class="radio">
 				    <input id="policy22" name="policy2" type="radio">
 				    <label for="policy22">
-				    	YES [Please call customer service hotline <a>31233123</a>]
+				    	YES [Please call customer hotline <a>31233123</a>]
 				    </label>
 				</div>
 				

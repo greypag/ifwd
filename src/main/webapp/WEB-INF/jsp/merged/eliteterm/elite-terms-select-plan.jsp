@@ -3714,7 +3714,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<h4><fmt:message key="eliteTerms.selectPlan.Customer.Service" bundle="${msg}" /></h4>
 						</div>
 						<div class="modal-body">
-							<p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no" title="Customer Service Hotline" >3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
+							<p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no" title="Customer Hotline" >3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
 							<form action="">
 								<div class="input-items clearfix">
 									<label for="cs_name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>

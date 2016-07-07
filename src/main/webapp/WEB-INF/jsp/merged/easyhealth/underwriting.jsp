@@ -220,7 +220,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			<div class="modal-body">
 				<p>
-					Please call our Customer Service Hotline
+					Please call our Customer Hotline
 					3123 3123
 					to find out more or leave your contact and let us call you back.
 				</p>

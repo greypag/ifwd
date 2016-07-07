@@ -882,7 +882,7 @@ var languageP = "${language}";
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-	     	<p class="text-center description-msg">The application must be completed within 30 days upon submission. The application has been expired. For any enquiry, please contact our 24-hour customer service hotline 3123-3123.</p>
+	     	<p class="text-center description-msg">The application must be completed within 30 days upon submission. The application has been expired. For any enquiry, please contact our 24-hour customer hotline 3123-3123.</p>
 	     	<center><button class="btn savie-common-btn" id="back-to-home-btn">Back to home</button></center>
 	    </div>
 	  </div>
