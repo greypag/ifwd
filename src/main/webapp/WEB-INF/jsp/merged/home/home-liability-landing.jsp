@@ -347,7 +347,7 @@ var plan="${plan}";
     <!-- OUR BLOG -->
     <div class="blog">
         <div class="hidden-md hidden-lg">
-            <div class="mini-banner-holder"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homecare-blog1.jpg" class="img-responsive">
+            <div class="mini-banner-holder"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homeliability-blog1.jpg" class="img-responsive">
                 <div class="black-overlay"></div>
                 <h5 class="text-center"><fmt:message key="blog.homecare.title" bundle="${msg}" /></h5> </div>
             <div class="btn-holder">
