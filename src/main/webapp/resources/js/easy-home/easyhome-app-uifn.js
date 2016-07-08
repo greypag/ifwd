@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 	 			$(".easy-home-toggle, .home-liability-toggle").hide();
 
-	 			$("."+ $(this).data("plan") + "-toggle").show();
+	 			$("."+ $(this).data("plan") + "-toggle").show();	
 	 		}
 	 		
 	 	});
@@ -66,6 +66,11 @@ $(document).ready(function(){
 	 			}
 	 		}
 	 	});
+	 	
+	 	setInterval(function(){
+	 		$(".app-selectplan-tab-body > .col-xs-3 .tabs-left").height($(".app-selectplan-tab-body > .col-xs-9").height());
+	 	},500);
+	 	
 	 }
 
 	 if($("#ef-form-screening").length > 0){

@@ -170,7 +170,7 @@ var plan="${plan}";
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center">
-                        <a href="javascript:void(0);" class="btn-app"><fmt:message key="button.find.out.more" bundle="${msg}" /></a>
+                        <a href="<fmt:message key="confirmation.findoutmore.link" bundle="${msg}" />" class="btn-app"><fmt:message key="button.find.out.more" bundle="${msg}" /></a>
                     </div>
                 </div>
 
