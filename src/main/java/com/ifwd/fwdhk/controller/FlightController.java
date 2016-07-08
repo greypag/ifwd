@@ -1371,7 +1371,7 @@ public class FlightController {
 		applicantJsonObj.put("mobileNo", mobileNo);
 		
 		applicantJsonObj.put("optIn1", optIn1);
-		applicantJsonObj.put("optIn2", optIn1);
+		applicantJsonObj.put("optIn2", optIn2);
 		applicantJsonObj.put("email", emailAddress);
 
 		request.setAttribute("fullName", name);
