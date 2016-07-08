@@ -727,9 +727,12 @@ public class TravelController {
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
+				NumberFormat formatter = new DecimalFormat("#0.00");
 				
-				NumberFormat formatter = new DecimalFormat("#0.00");  
+				String splanDiscount = quoteDetails.getDiscountAmount()[0];
+				float fplanDiscount = Float.parseFloat(splanDiscount);
+				quoteDetails.getDiscountAmount()[0] = formatter.format(fplanDiscount);
+				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
 				
 				String splanSummary = quoteDetails.getToalDue()[0];
 				float fplanSummary = Float.parseFloat(splanSummary);
@@ -745,10 +748,12 @@ public class TravelController {
 				
 			} else {
 				session.setAttribute("planSelected", "B");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
-				
-				
 				NumberFormat formatter = new DecimalFormat("#0.00");  
+				
+				String splanDiscount = quoteDetails.getDiscountAmount()[1];
+				float fplanDiscount = Float.parseFloat(splanDiscount);
+				quoteDetails.getDiscountAmount()[1] = formatter.format(fplanDiscount);
+				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
 				
 				String splanSummary = quoteDetails.getToalDue()[1];
 				float fplanSummary = Float.parseFloat(splanSummary);
@@ -757,7 +762,6 @@ public class TravelController {
 				
 				
 				String sgrossPremium = quoteDetails.getGrossPremium()[1];
-				
 				float grossPremium = Float.parseFloat(sgrossPremium);
 				quoteDetails.getGrossPremium()[1] = formatter.format(grossPremium);
 				
