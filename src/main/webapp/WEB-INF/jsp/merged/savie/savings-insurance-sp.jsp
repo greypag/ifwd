@@ -784,7 +784,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="blogs">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="blog.savie.post3.title" bundle="${msg}" /></p>
+									<p class="title"><fmt:message key="savie.online.landing.blog.title3" bundle="${msg}" /></p>
 									<span><fmt:message key="savie.online.landing.blog.span2" bundle="${msg}" /></span>
 									<p class="definition"></p>
 									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post6" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
@@ -793,7 +793,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="blogs last">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="blog.savie.post4.title" bundle="${msg}" /></p>
+									<p class="title"><fmt:message key="savie.online.landing.blog.title4" bundle="${msg}" /></p>
 									<span><fmt:message key="savie.online.landing.blog.span2" bundle="${msg}" /></span>
 									<p class="definition"></p>
 									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post7" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
@@ -1154,7 +1154,7 @@ var home_url = "<%=request.getContextPath()%>";
 </div><!-- /.modal -->
 
 <!-- video Modal -->
-<div id="vModal" class="vModal modal fade">
+<!--div id="vModal" class="vModal modal fade">
 	<div class="modal-dialog">
 		<a href="#close-video" class="close-btn" data-dismiss="modal" aria-hidden="true">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="44px" height="44px" viewBox="-1 3 44 44" enable-background="new -1 3 44 44" xml:space="preserve">
@@ -1168,17 +1168,17 @@ var home_url = "<%=request.getContextPath()%>";
 			<iframe id="ifwdVideo" src="<fmt:message key="savie.online.home.youtube" bundle="${msg}" />" frameborder="0" allowfullscreen=""></iframe>
 		</div>
 	</div>
-</div>
+</div-->
 <script>
 $(document).ready(function(){
-	var url = $("#ifwdVideo").attr('src');
+	//var url = $("#ifwdVideo").attr('src');
 	//stop playing youtube because autoplay just start when press play button
-	$("#ifwdVideo").attr('src', '');
-	$("#vModal").on('hide.bs.modal', function(){
-		$("#ifwdVideo").attr('src', '');
-	});
-	$("#vModal").on('show.bs.modal', function(){
-		$("#ifwdVideo").attr('src', url);
-	});
+	//$("#ifwdVideo").attr('src', '');
+	//$("#vModal").on('hide.bs.modal', function(){
+	//	$("#ifwdVideo").attr('src', '');
+	//});
+	//$("#vModal").on('show.bs.modal', function(){
+	//	$("#ifwdVideo").attr('src', url);
+	//});
 });
 </script>
