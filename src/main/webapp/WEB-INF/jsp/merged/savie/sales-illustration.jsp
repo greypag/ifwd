@@ -99,7 +99,7 @@ var languageP = "${language}";
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.planname" bundle="${msg}" /></label>
-  								<p class="data-info"><fmt:message key="savie.landing.savie" bundle="${msg}" /></p>
+  								<p class="data-info"><fmt:message key="savie.landing.savieinsurance" bundle="${msg}" /></p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label"><fmt:message key="label.saving.amount" bundle="${msg}" /></label>
