@@ -30,6 +30,7 @@ h4.product_landing_download_button.divider{
 	color:#ffffff;
 	font-weight: bold;
 	text-decoration: none;
+	text-shadow: 2px 2px #000000;
 }
 .product-download-wrapper .product_landing_download_button a:hover{
 	color: #f68a1d;
