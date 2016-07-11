@@ -11929,6 +11929,14 @@ body.chin .partner-headline-wrapper .headline-title{
 	font-size: 18px;
 	font-family: 'Calibri-bold';
 }
+#savie-confimation-vulnerable-customer-form button:hover {
+	background-color: #ff8200;
+	color: #fff;
+}
+#savie-confimation-vulnerable-customer-form button:focus {
+	background-color: #ff8200;
+	color: #fff;
+}
 
 /* added on 20160617 */
 .submit__error{
