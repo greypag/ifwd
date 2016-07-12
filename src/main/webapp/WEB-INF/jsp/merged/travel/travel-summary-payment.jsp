@@ -14,18 +14,13 @@
 perventRedirect=true;
 
 var enablePayment=true;
-var tapAndGoUrl = "https://custportal.tapngo.com.hk/en/login";
-var clicked = false;
+
+    var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-    	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
-    	clicked = false;
-    	console.log(enablePayment);
     	if(enablePayment){
-    		console.log("enablePayment");
     		enablePayment=false;
-	        if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
-	        	console.log("aaa");
-	        	$("#PaymentingDiv").show();
+    		$("#PaymentingDiv").show();
+	        if (payValid() && clicked === false) {
 	            clicked = true;
 	            
 	            var gatewayUrlId = '#' + gatewayUrlId;
@@ -57,27 +52,14 @@ var clicked = false;
 	                        }
 	                    });
 	            return true;
-	        }else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
-	        		window.open(tapAndGoUrl, '_blank');
-	        		return true;
-	        }else{
+	        }else{ 
 	        	$("#PaymentingDiv").hide();
-                enablePayment=true;
+                enablePayment=true;	
 	        	return false;
-	        }
+	        };
     	}
     }
-    
-	function switchPayment(selector){
-		selector = $(selector).attr('id');
-		if(selector=="visaMaster"){
-			$("#payment-detail-section").show();
-			//console.log(selector);
-		}else if (selector=="tapAndGo"){
-			$("#payment-detail-section").hide();
-			//console.log(selector);
-		}
-	}
+
     $(document).ready(function(){
         $('#cardNo1').payment('formatCardNumber');
         $('#cardNo1').keyup(function() {
@@ -85,19 +67,6 @@ var clicked = false;
             var result = replaceSpace.replace(/\s/g,'');
             $("#cardnumber").val(result);
         });
-        $( ".paymentType__btn" ).on( "click", function() {
-        	switchPayment($(this));
-       	});
-        $( "#button_confirm" ).on( "click", function(e) {
-        	e.stopPropagation();
-        	if(lang=="en"){
-	        	kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');
-        	}else{
-        		kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');	
-        	}
-        	perventRedirect=false;
-        	confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');
-       	});
     })
 </script>
 
@@ -799,30 +768,17 @@ var clicked = false;
 
 
 
-					<div class="form-group float product-payment-type">
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-							<label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">                           
-							<div class="radio paymentType paymentType--first">
-								<input id="visaMaster" class="paymentType__btn" type="radio" name="paymentGroup" value="cc" checked>
-								<label for="visaMaster" class="paymentType__btnLabel">
-									<fmt:message key="payment.type1" bundle="${msg}" />
-									<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
-								</label>																	
-							</div>
-							<div class="radio paymentType paymentType">
-								<input id="tapAndGo" class="paymentType__btn" type="radio" name="paymentGroup" value="tg">
-								<label for="tapAndGo" class="paymentType__btnLabel">
-									<fmt:message key="payment.type2" bundle="${msg}" />
-									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/tap&go.png">
-								</label>																
-							</div>
-							<%--<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">--%>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-                    <div id="payment-detail-section" class="col-xs-12 pad-none product_payment_details">
+
+                    <div class="col-xs-12 pad-none product_payment_details">
+                        <div class="form-group float">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                                <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                         <div class="form-group float" style="display: none;">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <label class="control-label h4-5">Payment Method</label>
@@ -982,11 +938,11 @@ var clicked = false;
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
        <c:when test="${language=='en'}">
-                                	<a id="button_confirm"
+                                	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
        </c:when>
        <c:otherwise>
-	                                <a id="button_confirm"
+	                                <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
 </c:otherwise>
 </c:choose>
