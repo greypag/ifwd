@@ -110,7 +110,7 @@
                 <strong><%=session.getAttribute("emailAddress")%></strong>
                 <fmt:message key="workingholiday.confirmation.msg.part6" bundle="${msg}" />
               </h3>
-              <h4 class="bmg-confirmation-h4"><strong><fmt:message key="workingholiday.confirmation.policyNo" bundle="${msg}" /></strong><span> ${referenceNo}</span></h4>
+              <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span> ${referenceNo}</span></h4>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-10">
                 <div style="width:80%;margin-left:10%">

@@ -42,7 +42,7 @@
 						
 					</h3>
 					
-					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><fmt:message key="Overseas.Confirmation.Confirmation.PolicyNo" bundle="${msg}" /></strong><span> ${referenceNo}</span></h4>
+					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span> ${referenceNo}</span></h4>
 				</div>
                 <div class="clearfix"></div>
                 <div class="h4-2"><fmt:message key="Overseas.Confirmation.Share" bundle="${msg}" /></div>

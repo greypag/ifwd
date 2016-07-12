@@ -48,7 +48,7 @@ var plan="${plan}";
                         
                         <p><fmt:message key="confirmation.home.text1" bundle="${msg}" /> ${plan == 'home-liability' ? language == 'en' ? 'Personal Liability':'個人法律責任':language == 'en' ? 'Easy HomeCare':'易安心家居保' } <fmt:message key="confirmation.home.text1.suffix" bundle="${msg}" /> <strong class="toemail">${emailID}</strong> <fmt:message key="confirmation.home.text2" bundle="${msg}" /></p>
                         <div class="text-center">
-                            <p class="span"><fmt:message key="confirmation.home.text3" bundle="${msg}" /></p>
+                            <p class="span"><fmt:message key="label.reference.no" bundle="${msg}" /></p>
                             <p class="policy-num">${referenceNo}</p>
                         </div>
                     </div>

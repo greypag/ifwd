@@ -438,6 +438,7 @@ var plan="${plan}";
 
                     <div class="col-xs-12">
                         <h3 class="heading-title"><fmt:message key="payment.jumbo.plan.summary" bundle="${msg}" /></h3>
+                        <h5>(<fmt:message key="label.reference.no" bundle="${msg}" /> ${createdPolicy.referenceNo})</h5>
                     </div>
 
                     <div class="row">
