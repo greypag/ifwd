@@ -384,6 +384,8 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW = "fna.review";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savings.sales.illustration";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "savings.fatca";
+	public static final String PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA = "easyhealth.fatca";
+	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "savings.personal.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "savings.employment.info";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "savings.beneficary.info";
@@ -414,6 +416,17 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASYHEALTH_SIGNATURE = "easyhealth.signature";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_PAYMENT = "easyhealth.payment";
 	public static final String PAGE_PROPERTIES_EASYHEALTH_CONFIRMATION = "easyhealth.confirmation";
+	
+	public static final String PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS = "easyhealth.personal.details";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO = "easyhealth.employment.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO = "easyhealth.beneficary.info";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY = "easyhealth.application.summary";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DECLARATION = "easyhealth.declaration";
+	
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD = "easyhealth.document.upload";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD_LATER = "easyhealth.document.upload.later";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION = "easyhealth.confirmation";
+	public static final String PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION = "easyhealth.confirmation.upload.later";
 	
 	/*API For easy health*/
 	public static final String GET_EASYHEALTH_PREMIUM = SERVICE_URL + "/premium/rophi";

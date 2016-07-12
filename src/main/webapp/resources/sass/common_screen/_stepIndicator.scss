@@ -1,0 +1,140 @@
+
+.stepIndicator{
+	font-size: 18px;
+	margin-top: 16px;
+	position: relative;
+	z-index: 10;
+}
+
+.stepIndicator--desktop{
+	
+	.stepIndicator__container{
+		height: 50px;
+    	max-width: 1140px;
+    	margin: 0 auto;
+    	padding-left: 12px;	
+	}
+}
+
+.stepIndicator__list{
+
+	padding: 0;
+
+	&--none{
+		list-style-type: none;
+	}
+}
+
+.stepIndicator__item{
+
+	display: inline-block;
+	float: left;
+	padding-left: 6px;
+
+	position: relative;
+
+	&--active{
+		color: #ff8200;
+	}
+}
+
+.stepIndicator__step{
+
+	height: 50px;
+	border: none;
+	background: #ffffff;
+	padding: 0;
+	outline: 0;
+	color: inherit;
+
+	span{
+		float: left;
+	}
+
+}
+
+.stepIndicator__divider{
+	
+	display: inline-block;
+	float: left;
+
+	img{
+		padding-top: 10px;
+    	padding-right: 10px;
+	}
+}
+
+.stepIndicator__number{
+
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+	display: inline-block;
+
+	color: #ff8200;
+    font-family: 'Calibri-bold';
+    text-align: center;
+    
+    border: 1px solid #ff8200;
+    border-radius: 100%;
+    
+    background-color: #ffffff;
+    
+
+    &--active{
+    	color: #ffffff;
+    	background: #ff8200;
+	}
+
+	&--completed{
+		color: #ffffff;
+		background-color: #cdd2d3;
+	    border: 1px solid #cdd2d3;
+	}
+
+}
+
+.stepIndicator__content{
+
+	font-size: 18px;
+
+	&--active{
+		color: #ff8200;
+	}
+
+	&--completed{
+		color: #cdd2d3;
+	}
+}
+
+//Numer-only style
+.stepIndicator--numberOnly{
+	
+	margin: 0;
+	z-index: 0;
+
+	.stepIndicator__container{
+		@include padding(20px 30px 0 30px);
+	}
+
+	.stepIndicator__item{
+		width: 18.5%;
+		padding: 0;
+		margin-right: 2px;
+
+		&--last{
+			width: 23px;
+			margin-right: 0;
+		}
+	}
+
+	.stepIndicator__stepLine{
+
+		width: 96%;
+		height: 1px;
+	    background-color: #dddddd;
+	    
+	    float: left;
+	    margin-top: -12px;
+	}
+}

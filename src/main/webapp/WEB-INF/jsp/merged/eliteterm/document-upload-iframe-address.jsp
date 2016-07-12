@@ -35,7 +35,7 @@ var languageP = "${language}";
 										</button>-->
 									<h5 class="resident-address-desc">
 										<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
-										<a class="et-valid-proof" href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+										<a class="et-valid-proof" href="<%=request.getContextPath()%>/<fmt:message key="link.address.proof" bundle="${msg}" />" target="_blank">
 											<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
 										</a>
 									</h5>

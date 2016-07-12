@@ -59,16 +59,16 @@
 				</div>
 				<div class="dreaming">
 					<div class="car_dream_btn" onclick="javascript:fwd.onClickRight('car');">
-		
+
 					</div>
 					<div class="saving_dream_btn" onclick="javascript:fwd.onClickRight('saving');">
-		
+
 					</div>
 					<div class="wedding_dream_btn" onclick="javascript:fwd.onClickRight('wedding');">
-		
+
 					</div>
 					<div class="trip_dream_btn" onclick="javascript:fwd.onClickRight('trip');">
-		
+
 					</div>
 				</div>
 				<div id="welcomePageText">
@@ -103,7 +103,7 @@
 						<div class="valueLevelButton" id="valueLevelBtn_simple" onclick="javascript:fwd.valueLevelSelection(this, 1);"><div class="simple"></div></div>
 						<div class="valueLevelButton" id="valueLevelBtn_elegant" onclick="javascript:fwd.valueLevelSelection(this, 2);"><div class="elegant"></div></div>
 						<div class="valueLevelButton" id="valueLevelBtn_deluxe" onclick="javascript:fwd.valueLevelSelection(this, 3);"><div class="deluxe"></div></div>
-					</div>        
+					</div>
 					<div class="sliderUnit">Years</div>
 					<div class="sliderContainer">
 						<div id="slider"></div>
@@ -129,7 +129,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="sliderDivSaving"> 
+				<div id="sliderDivSaving">
 					<div class="divLeft">
 						<div class="sliderUnit saving">HKD</div>
 						<div class="sliderContainerSaving">
@@ -178,7 +178,7 @@
 		</div><!--end of wrapper-->
 		</div>
 	</div>
-	
+
        <div id="flux">
            <div id="landing-three-column" class="fwd-container container-fluid three-column-widget">
                <div class="row row-top text-center">
@@ -208,12 +208,12 @@
                    </div>
                </div>
            </div>
-           
-           <div class="fwd-container container-fluid">     
+
+           <div class="fwd-container container-fluid">
                <div id="other-benefits" class="row">
                	<div class="col-xs-12 col-md-8 pull-right">
                    	<h2 class="text-center"><fmt:message key="savie.landing.Other.H2" bundle="${msg}" /></h2>
-                   </div>	                    
+                   </div>
                    <div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
                        <img src="<%=request.getContextPath()%>/resources/images/savie/other-benefits-img.png">
                    </div>
@@ -232,7 +232,7 @@
                    <p><fmt:message key="savie.landing.Other.p2" bundle="${msg}" /></p>
                </div>
            </div>
-           
+
            <!-- FEATURES AND ACTIONS -->
            <div class="fwd-full-container container-fluid fwd-action">
                <div id="fwd-carousel" class="fwd-carousel carousel slide fwd-action-one" data-ride="carousel">
@@ -300,7 +300,7 @@
                <button type="button" id="sticky-buy-now" class="btn btn-full btn-buy-now"><a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}"><fmt:message key="savie.landing.buynow" bundle="${msg}" /></a></button>
            </div>
        </div>
-	
+
 	<!-- OUR BLOG -->
 	<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
 		<div class="read-blog-desktop three-column-widget">
@@ -321,11 +321,11 @@
 				</div>
 			</div>
 			<p class="text-left hidden-xs hidden-sm"><fmt:message key="savie.landing.hidden.p" bundle="${msg}" /></p>
-		</div>			
+		</div>
 	</div>
 	<!--<button type="button" class="btn btn-full hidden-md hidden-lg">Read more</button>-->
 	<a class="btn btn-full hidden-md hidden-lg" href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
-	
+
 	<script type="text/javascript">
 		var language = "en";
 	</script>

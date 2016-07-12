@@ -79,13 +79,13 @@ var language = "${language}";
 		<div class="fwd-container-limit clearfix sidebar">
 			<div id="appointment-confirmation-page">
 				<div class="row policy-number-panel">
-					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="label.confirmation.successpurchase.title" bundle="${msg}" /></p></div>
+					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="msg.confirmation.pay.later.savie.copy1" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></span>
 						<span class="policy-number">${accessCode }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
-						<p><fmt:message key="info.savie.confirmation.success.copy.payment" bundle="${msg}" /></p>
+						<p><fmt:message key="msg.confirmation.pay.later.savie.copy2" bundle="${msg}" /></p>
 						<!-- <p>Your application is being processed.</p>
 						<p id="review-line">Please review the confirmation of your application as detailed here.</p>-->
 					</div>

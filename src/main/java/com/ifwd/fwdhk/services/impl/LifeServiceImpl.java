@@ -66,6 +66,7 @@ import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
@@ -515,7 +516,7 @@ public class LifeServiceImpl implements LifeService {
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-	    attributeList.add(new PdfAttribute("CampaignCode", "KSS016"));
+	    attributeList.add(new PdfAttribute("CampaignCode", "KSS017"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "15.Employment Status 就業狀況"));
 	    
 	    if("tc".equals(lang)){
@@ -543,7 +544,7 @@ public class LifeServiceImpl implements LifeService {
 	    attributeList.add(new PdfAttribute("applicationSex", gender));
 	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
 	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getResidentialTelNo()));
-	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
+	    attributeList.add(new PdfAttribute("applicationMobile", Methods.formatMobile(lifePersonalDetails.getMobileNumber())));
 	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
 	    
 	    String residentialAddress = (StringUtils.isNotBlank(lifePersonalDetails.getResidentialAddress1())?lifePersonalDetails.getResidentialAddress1()+"," : "")
@@ -664,7 +665,7 @@ public class LifeServiceImpl implements LifeService {
     	    	attributeList.add(new PdfAttribute("beneficiaryEnglishName1", "Own Estate"));
     	    }
     	    
-    	    //attributeList.add(new PdfAttribute("entitlement1", "100"));
+    	    attributeList.add(new PdfAttribute("entitlement1", "100"));
 	    }
 	    
 	    attributeList.add(new PdfAttribute("Bank/BranchName", bankName+"-"+branchName));
@@ -1228,7 +1229,7 @@ public class LifeServiceImpl implements LifeService {
 	        		}
 	        		allGroupName += groupNames.get(allGroups[a]);
 	            }
-	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
+	        	case3aMsg += String.format(WebServiceUtils.getMessage("fna.case3a", lang), allGroupName, contributeNames.get(savieFna.getQ4_e()), notMatchObj ).toString() + "\r\n";
 	        }
 	        String[] group = productGroups.split(",");
 	        String notMatchGrp = "";
@@ -1250,7 +1251,7 @@ public class LifeServiceImpl implements LifeService {
 	        		}
 	            	allObjName += objectiveNames.get(allObj[a]);
 	            }
-	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
+	            case3bMsg += String.format(WebServiceUtils.getMessage("fna.case3b", lang), notMatchGrp, contributeNames.get(savieFna.getQ4_e()), allObjName).toString() + "\r\n";
 	        }
 	        if (case3aMsg.length() > 0 || case3bMsg.length() > 0){
 	        	if (case3aMsg.equals(case3bMsg)){
@@ -1516,7 +1517,7 @@ public class LifeServiceImpl implements LifeService {
 		jsonObject.put("channel", "productRecommendation");
 		jsonObject.put("name", request.getParameter("customer_name"));
 		jsonObject.put("email", request.getParameter("email"));
-		jsonObject.put("mobile", request.getParameter("telephone"));
+		jsonObject.put("mobile", Methods.formatMobile(request.getParameter("telephone")));
 		jsonObject.put("preferredDay", request.getParameter("preferred_date").split("-")[0]);
 		jsonObject.put("preferredTimeSlot", request.getParameter("preferred_time").split("-")[0]);
 		jsonObject.put("enquiryType", request.getParameter("enquiry_type").split("-")[0]);
@@ -1618,7 +1619,7 @@ public class LifeServiceImpl implements LifeService {
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", lifePersonalDetails.getResidentialTelNo());
 			applicant.put("mobileNoCountryCode", "852");
-			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("mobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()));
 			applicant.put("email", lifePersonalDetails.getEmailAddress());
 				JSONObject permanentAddress = new JSONObject();
 				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
@@ -1767,16 +1768,25 @@ public class LifeServiceImpl implements LifeService {
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
 		parameters.put("referralCode", saviePlanDetails.getPromoCode());
+		
+		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
+			parameters.put("externalParty", "THE CLUB");
+			parameters.put("externalPartyCode", lifePersonalDetails.getTheClubMembershipNo());
+		}
+		else{
+			parameters.put("externalParty", "");
+			parameters.put("externalPartyCode", "");
+		}
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 		
-		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+		/*if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
 			logger.info("Some input information contains simplified Chinese");
 			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
-		else{
+		else{*/
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
@@ -1784,7 +1794,7 @@ public class LifeServiceImpl implements LifeService {
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
-		}
+		//}
 		return lifePolicy;
 	}
 	
@@ -1877,7 +1887,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("applicantResidentialTelNoCountryCode", lifePersonalDetails.getResidentialTelNoCountryCode()!=null?lifePersonalDetails.getResidentialTelNoCountryCode():"");
 		parameters.accumulate("applicantResidentialTelNo", lifePersonalDetails.getResidentialTelNo()!=null?lifePersonalDetails.getResidentialTelNo():"");
 		parameters.accumulate("applicantMobileNoCountryCode", lifePersonalDetails.getMobileNoCountryCode()!=null?lifePersonalDetails.getMobileNoCountryCode():"");
-		parameters.accumulate("applicantMobileNo", lifePersonalDetails.getMobileNumber()!=null?lifePersonalDetails.getMobileNumber():"");
+		parameters.accumulate("applicantMobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()!=null?lifePersonalDetails.getMobileNumber():""));
 		parameters.accumulate("applicantEmail", lifePersonalDetails.getEmailAddress()!=null?lifePersonalDetails.getEmailAddress():"");
 		parameters.accumulate("residentialAddress1", lifePersonalDetails.getResidentialAddress1()!=null?lifePersonalDetails.getResidentialAddress1():"");
 		parameters.accumulate("residentialAddress2", lifePersonalDetails.getResidentialAddress2()!=null?lifePersonalDetails.getResidentialAddress2():"");
@@ -1915,6 +1925,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1959,6 +1970,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2024,6 +2036,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2068,6 +2081,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2126,6 +2140,7 @@ public class LifeServiceImpl implements LifeService {
 		parameters.accumulate("resumeViewPage", resumeViewPage);
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		parameters.accumulate("amount", saviePlanDetails.getInsuredAmount());
+		parameters.accumulate("chequeNo", "");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -2255,7 +2270,7 @@ public class LifeServiceImpl implements LifeService {
 			lifePersonalDetails.setResidentialTelNoCountryCode(policyApplication.getApplicantResidentialTelNoCountryCode()!=null?policyApplication.getApplicantResidentialTelNoCountryCode():"");
 			lifePersonalDetails.setResidentialTelNo(policyApplication.getApplicantResidentialTelNo()!=null?policyApplication.getApplicantResidentialTelNo():"");
 			lifePersonalDetails.setMobileNoCountryCode(policyApplication.getApplicantMobileNoCountryCode()!=null?policyApplication.getApplicantMobileNoCountryCode():"");
-			lifePersonalDetails.setMobileNumber(policyApplication.getApplicantMobileNo()!=null?policyApplication.getApplicantMobileNo():"");
+			lifePersonalDetails.setMobileNumber(Methods.formatMobile(policyApplication.getApplicantMobileNo()!=null?policyApplication.getApplicantMobileNo():""));
 			lifePersonalDetails.setEmailAddress(policyApplication.getApplicantEmail()!=null?policyApplication.getApplicantEmail():"");
 			lifePersonalDetails.setResidentialAddress1(policyApplication.getResidentialAddress1()!=null?policyApplication.getResidentialAddress1():"");
 			lifePersonalDetails.setResidentialAddress2(policyApplication.getResidentialAddress2()!=null?policyApplication.getResidentialAddress2():"");
@@ -2572,6 +2587,13 @@ public class LifeServiceImpl implements LifeService {
 			
 			request.getSession().setAttribute("policyNo", policyApplication.getPolicyNo());
 			request.getSession().setAttribute("amount", policyApplication.getAmount());
+			
+			if(policyApplication.getResumeViewPage().endsWith("personal-details")){
+				request.getSession().setAttribute("fatcaYes", "fatcaYes");   
+			}
+			if(policyApplication.getResumeViewPage().endsWith("declaration")){
+				request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
+			}
 		}
 		return apiResponse;
 	}
@@ -2682,6 +2704,12 @@ public class LifeServiceImpl implements LifeService {
 				throw new ECOMMAPIException("system error");
 			}
 	        FileUtil.deletFile(uploadDir);
+	        request.getSession().removeAttribute("fileToUploadProofAdd");
+	        request.getSession().removeAttribute("hkidFileToUpload");
+	        request.getSession().removeAttribute("passportFileToUpload");
+	        request.getSession().removeAttribute("fileToUploadProofAddType");
+	        request.getSession().removeAttribute("passportFileToUploadType");
+	        request.getSession().removeAttribute("hkidFileToUploadType");
 		}catch(ECOMMAPIException e){
 			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
 			logger.info(e.getMessage());
@@ -2764,6 +2792,7 @@ public class LifeServiceImpl implements LifeService {
 		session.removeAttribute("lifeDeclaration");
 		session.removeAttribute("lifePolicy");
 		session.removeAttribute("type");
+		session.removeAttribute("sendEmailsYes");
 		logger.info("remove savie online session");
 	}
 /**
@@ -3024,6 +3053,9 @@ public class LifeServiceImpl implements LifeService {
 	 */
 	public void CustomerServiceCentreConfirmation(String action, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		
+		String sendEmailsYes = (String) session.getAttribute("sendEmailsYes");
+		
 		String centre = request.getParameter("centre");
 		String preferredDate = request.getParameter("preferred-date");
 		String preferredTime = request.getParameter("preferred-time");
@@ -3079,7 +3111,10 @@ public class LifeServiceImpl implements LifeService {
 		models.put("timeSlotCh", preferredTime);
 		models.put("centerCh", centerCh);
 		models.put("centerAddCh", centerAddCh);
-		sendEmails(request, action, models);
+		if(sendEmailsYes == null){
+			sendEmails(request, action, models);
+			request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+		}
 		
 		if (lang.equals("CN")) {
 			model.addAttribute("serviceCentre", entityCh);
@@ -3129,7 +3164,8 @@ public class LifeServiceImpl implements LifeService {
 		parameters.put("subject", "Your Savie application is incomplete | 您的Savie自助息申請尚未完成");
 		JSONObject model = new JSONObject();
 		   model.put("name", userDetails.getFullName());
-		   model.put("resumeLink", serverUrl + "/"+language+"/savings-insurance/"+request.getParameter("key"));
+		   model.put("resumeEnLink", serverUrl + "/en/savings-insurance/"+request.getParameter("key"));
+		   model.put("resumeTcLink", serverUrl + "/tc/savings-insurance/"+request.getParameter("key"));
 		parameters.put("model", model);
 		parameters.put("template", "savie\\saveLater.html");
 		logger.info(parameters.toString());
@@ -3154,21 +3190,24 @@ public class LifeServiceImpl implements LifeService {
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財壽險預約申請確認";
 			template = "savie\\payLater.html";
 		}else if("uploadDocument".equals(action)) {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 			subject = "FWD Savie Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "savie\\uploadDocument.html";
 		}else if("savieComplete".equals(action)) {
-			subject = "FWD Savie Insurance Plan - Complete | 您的網上富衛自助息申請已完成！";
+			subject = "FWD Savie Insurance Plan - Complete | 您的網上富衛Savie自助息申請已完成！";
 			template = "savie\\savieComplete.html";
 		}else if("signLater".equals(action)) {
-			subject = "FWD Savie Insurance Plan Appointment Acknowledgement | 自助息理財預約申請確認";
+			subject = "FWD Savie Insurance Plan Appointment Acknowledgement | Savie自助息理財壽險預約申請確認";
 			template = "savie\\signLater.html";
 		}else if("offlineApplication".equals(action)) {
 			subject = "Appointment Acknowledgement from FWD | 富衛預約申請確認";
 			template = "savie\\offlineApplication.html";
+		}else if("offlineApplication-rp".equals(action)) {
+			subject = "Savie Appointment Acknowledgement | Savie自助息理財壽險預約申請確認";
+			template = "savie\\offlineApplication-rp.html";
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application is incomplete | 您的Savie自助息申請尚未完成";
 			template = "savie\\saveLater.html";
@@ -3202,7 +3241,9 @@ public class LifeServiceImpl implements LifeService {
 				||"offlineApplication".equals(action)
 				||"uploadDocument".equals(action)
 				||"savieComplete".equals(action)
-				||"signLater".equals(action)){
+				||"signLater".equals(action)
+				||"rophiComplete".equals(action)
+				||"rophiUploadDocument".equals(action)){
 				parameters = new JSONObject();
 				parameters.put("to", UserRestURIConstants.getConfigs("innerMailTo"));
 				parameters.put("subject", subject);
@@ -3263,7 +3304,7 @@ public class LifeServiceImpl implements LifeService {
 		for(Object obj : policy) {
 			JSONObject entity = (JSONObject)obj;
 			String documentType = entity != null ? (String)entity.get("documentType") : "";
-			if("proof".equals(documentType) || "passport".equals(documentType) || "passport".equals(documentType)) {
+			if("hkid".equals(documentType)) {
 				request.getSession().setAttribute("errorMessageType", "alreadyUploaded");
 				return true;
 			}
@@ -3609,7 +3650,7 @@ public class LifeServiceImpl implements LifeService {
 			final Map<String,String> headerEmail = headerUtil.getHeader1(request);
 			String attachment = "";
 			boolean isHTML = true;
-			String[] emailList = {partnerRegisterDetails.getContactEmail(), UserRestURIConstants.getConfigs("becomePartnerMailTo")};
+			String[] emailList = {UserRestURIConstants.getConfigs("becomePartnerMailTo")};
 			for (int i=0; i<emailList.length; i++) {
 				org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 				parametersEmail.put("to", emailList[i]);

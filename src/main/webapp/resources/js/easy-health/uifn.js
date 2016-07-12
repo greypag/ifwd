@@ -55,7 +55,8 @@ $(document).ready(function() {
         minWidth: 40,
         minDate: new Date(nowDT.getFullYear() - 60, nowDT.getMonth(), nowDT.getDate()+1),
         maxDate: new Date(nowDT.getFullYear() - 18, nowDT.getMonth(), nowDT.getDate()),
-        dateFormat: 'yyyy-mm-dd'
+        dateFormat: 'dd-mm-yyyy',
+        lang: language == "en" ? "en_fwd" : "zh_fwd"
     });
 
     var mh = 0;
@@ -77,9 +78,9 @@ $(document).ready(function() {
         if ($(this).hasClass("disabled-gray-btn")) return;
 
         $("#loadingDiv").addClass("show");
-
-        var dobStr = $('#dob').val();
-        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dob: dobStr }, function(data) {
+        
+        //var dobStr = $('#dob').mobiscroll("getArrayVal");
+        $.post(getPremiumApiLink, { gender: genderNum, smoker: smokerNum, dobdmy: $('#dob').val() }, function(data) {
             getPremiumApiLinkCalled = true;
             $("#loadingDiv").removeClass("show");
             fillPlanData(data);
@@ -215,6 +216,7 @@ $(document).ready(function() {
     $(".step-option .btn-option-cancel").click(function (){
         $(".step-option").fadeOut(function() {
             $("body").scrollTo(".step3");
+            $(".sticky-help-wrapper img").fadeIn();
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
     });
@@ -246,6 +248,8 @@ $(document).ready(function() {
             $(".step3, .sticky-help-wrapper").fadeIn();
         });
         $(".btn-plan-selector[data-tab='" + plan + "']:first").trigger("click");
+        
+        $(".sticky-help-wrapper img").fadeIn();
 
     });
 
@@ -414,7 +418,7 @@ function fillPlanData(json) {
         var totlaUpTo = parseInt(p.dailyHospitalCash, 10) + parseInt(p.intensiveCareUnit, 10) + parseInt(p.infectiousDisease, 10);
         $(".step3 .eh-plan-" + pc + " .plan-benefit .txt-ttl-benefit-price .value").html(priceFormat(totlaUpTo));
         var maxYearAmount = getTableData(16, p.monthlyPremium);
-        console.log(maxYearAmount);
+        
         $(".step3 .eh-plan-" + pc + " .txt-price-y15 .value").html(priceFormat(maxYearAmount.atpp));
         $(".step3 .eh-plan-" + pc + " .txt-price-y15_102 .value").html(priceFormat(maxYearAmount.ra));
 
@@ -500,7 +504,7 @@ function isTNCChecked(){
     var isTNCChecked = tnc$.is(':checked');
 
     //force to scroll to tnc checkbox
-    $("html, body").animate({ scrollTop: tnc$.offset().top }, "slow");
+    $("html, body").animate({ scrollTop: tnc$.offset().top - 100 }, "slow");
 
     if(!isTNCChecked) errMsg$.html(errMsg$.attr("data-txt"));
     else errMsg$.html("");
@@ -534,14 +538,17 @@ $(function(){
 
     $.History.bind('',function(state){
         if(cur == hash_aryStage[1]){
+            $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
+            $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
+
             //reserve animation
             $(".step2").stop(true, true).hide();
             $(".step1").stop(true, true).fadeIn(function (){alignChildHeight(".row-eq-height", "> [class^=col-]");});
         }
 
-        cur = "about-me";
-        console.log("about-me");
-        
+        cur = "about-me";        
     });
 
 
@@ -550,11 +557,6 @@ $(function(){
             //reserve animation
             $(".step3").stop(true, true).hide();
             $(".step2").stop(true, true).fadeIn();
-
-            $(".step3 .eh-plan-a .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-b .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-c .slider-15yr-policy")[0].noUiSlider.destroy();
-            $(".step3 .eh-plan-d .slider-15yr-policy")[0].noUiSlider.destroy();
         }
         if(cur == hash_aryStage[0]){
             $(".step1").stop(true, true).hide();
@@ -562,7 +564,6 @@ $(function(){
         }
 
         cur = hash_aryStage[1];
-        console.log(hash_aryStage[1]);
     });
     
     $.History.bind(hash_aryStage[2],function(state){
@@ -576,6 +577,9 @@ $(function(){
 
 
         cur = hash_aryStage[2];
-        console.log(hash_aryStage[2]);
     });
 });
+
+function parseDateDMY(ary){
+	return (ary[2] + "-" + (parseInt(ary[1])+1) + "-" + ary[0]);
+}

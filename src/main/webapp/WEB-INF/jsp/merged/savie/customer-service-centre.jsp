@@ -28,9 +28,9 @@ var language = "${language}";
 
 		    <c:if test="${planIndex == 'medical-insurance'}">
 		    	<c:set var="breadcrumbItems">
-		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.appointment
+		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.appointment
 				</c:set>
-		    	<c:set var="breadcrumbActive">3</c:set>
+		    	<c:set var="breadcrumbActive">4</c:set>
 		    </c:if>
 		    <c:if test="${planIndex == 'savings-insurance'}">
 		    	<c:set var="breadcrumbItems">
@@ -253,6 +253,21 @@ var language = "${language}";
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->	
 		</div><!-- /.modal -->
+		
+		<!--Modal in Customer Service Centre (More than 2 tries)-->
+		<div class="modal fade cs-modal" role="dialog" aria-labelledby="moreThan2Tries" id="moreThan2Tries" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog teaserSurvey cs-modal-dialog" role="document">
+				<div class="modal-content teaserSurvey cs-modal-content">
+					<div class="modal-header teaserSurvey cs-modal-header">
+						<h2 class="cs-modal-h2"><fmt:message key="savie.customerServiceCentre.moreThan2Triesmodalheader" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey cs-modal-body">
+						<p class="registered cs-modal-p"><fmt:message key="savie.customerServiceCentre.moreThan2Triesmodalbody" bundle="${msg}" /></p>
+						<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="savie.customerServiceCentre.moreThan2TriesmodalbtnTxt" bundle="${msg}" /></button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->	
+		</div><!-- /.modal -->
 </div>
 
 <!-- JS INCLUDES -->
@@ -265,6 +280,13 @@ var language = "${language}";
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
+//Check is more than 2 tries from backend
+		var isMoreThan2Tries = false;
+		if(isMoreThan2Tries){
+			$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+			$('#moreThan2Tries').modal('show');
+		}
+		
 		/* var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
@@ -398,6 +420,9 @@ var language = "${language}";
 		$('#fullyBooked').modal('hide');
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?type=3';
+	});
+	$('#moreThan2Tries-button').click(function(){
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp';
 	});
 	$('#perferredTimeIsNull-btn').click(function(){
 		$('#perferredTimeIsNull').modal('hide');

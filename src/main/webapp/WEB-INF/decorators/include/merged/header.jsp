@@ -76,21 +76,35 @@ function getBundle(lang, key){
 
 function putPremium(){
     var pro = $(".text-center.btn-plan-selector.selected").attr("data-tab");
-    $.ajax({
-          type : "post",
-          cache:false,
-          async:false,
-          url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
-          data : {pro : pro},
-          success : function(data) {
-             window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
-          },
-          error:function(){
-              console.log('error');
-          }
-    });
+	var isNavbarLogin = ($('#loginpopup #nav-bar-check').val()=='true')?true:false;
+    if(pro != null && !isNavbarLogin){
+
+    	$.ajax({
+            type : "post",
+            cache:false,
+            async:false,
+            url : '${pageContext.request.contextPath}/ajax/medical-insurance/putPremium',
+            data : {pro : pro},
+            success : function(data) {
+               window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+            },
+            error:function(){
+                console.log('error');
+            }
+      });
+    }
+    else{
+    	refreshPage();
+    }
 }
 
+function refreshPage(){
+	//Most browsers do not refresh link with hash if not using reload function.
+	//However, browsers do refresh if the URL is different.
+
+	var cleanURL = window.location.href.replace(/\?r=\d*/,''); //remove random parameter;
+	window.location.href = cleanURL.split('#')[0] + '?r=' + new Date().getTime();
+}
 
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
@@ -347,38 +361,38 @@ function getStarted(){
 			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
 		    	}else{ */
-		    		$.ajax({
-		    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',
-		    		    type:'get',
-		    		    error:function(){
-		    		    },
-		    		    success:function(data){
-		    		    	if(data != null && data.errMsgs == null && data.nextPage !=null){
-		    		    		$('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
-		    			    	$('#loginpopup').modal('hide');
-		    		    		$('#retrieve-application-modal').modal('show');
-		    		    		nextPage = data.nextPage;
-		    		    	}
-		    		    	else{
-		    		    		$.ajax({
-					    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
-					    		    type:'get',
-					    		    error:function(){
-					    		    },
-					    		    success:function(data){
-					    		    	if(data != null && data.errMsgs == null && data.name !=null){
-					    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-					    			    	$('#loginpopup').modal('hide');
-					    		    		$('#review-fna-modal').modal('show');
-					    		    	}
-					    		    	else{
-					    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
-					    		    	}
-					    		    }
-					    		});
-		    		    	}
-		    		    }
-		    		});
+	                    $.ajax({     
+	                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
+	                        type:'get',     
+	                        error:function(){       
+	                        },     
+	                        success:function(data){
+	                            if(data != null && data.errMsgs == null && data.nextPage !=null && $('#loginform-pop #forcefna').val()=="false"){
+	                                $('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
+	                                $('#loginpopup').modal('hide');
+	                                $('#retrieve-application-modal').modal('show');
+	                                nextPage = data.nextPage;
+	                            }
+	                            else{
+	                                $.ajax({     
+	                                    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+	                                    type:'get',     
+	                                    error:function(){       
+	                                    },     
+	                                    success:function(data){
+	                                        if(data != null && data.errMsgs == null && data.name !=null){
+	                                            $('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+	                                            $('#loginpopup').modal('hide');
+	                                            $('#review-fna-modal').modal('show');
+	                                        }
+	                                        else{
+	                                            window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+	                                        }
+	                                    }  
+	                                });
+	                            }
+	                        }  
+	                    });
 		    	/* }
 		    }
 		}); */
@@ -482,7 +496,7 @@ function getStarted(){
 							%>
 
 							<li class="dropdown login-btn margin-left1" id="myDropdown">
-								<a href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
+								<a id="fwd-login-desk" href="#" data-toggle="modal" data-target="#loginpopup"><fmt:message
 										key="header.menu.login" bundle="${msg}" /> <i
 									class="fa fa-caret-right"></i> </a> <!--  </a> -->
 
@@ -1290,6 +1304,33 @@ function getStarted(){
         </form>
     </div>
 </div>
+
+<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+           <h4 class="text-center welcome-msg">
+           		<c:if test="${planIndex == 'medical-insurance'}">
+           			<fmt:message key="overlay.easyhealth.repeated.purchase.copy1" bundle="${msg}" />
+           		</c:if>
+           		<c:if test="${planIndex == 'savings-insurance'}">
+           			<fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" />
+           		</c:if>
+           	<span id="fullName1" class="hidden"></span></h4>
+           <p class="text-center description-msg">
+           		<c:if test="${planIndex == 'medical-insurance'}">
+           			<fmt:message key="overlay.easyhealth.repeated.purchase.copy2" bundle="${msg}" />
+           		</c:if>
+           		<c:if test="${planIndex == 'savings-insurance'}">
+           			<fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" />
+           		</c:if>
+           	</p>
+           <center>
+               <button class="btn savie-common-btn" id="back-home"><fmt:message key="button.back.to.home" bundle="${msg}" /></button>
+           </center>
+        </div>
+    </div>
+</div>
 <!--End Mobile header-->
 <!--/header-->
 <script>
@@ -1340,17 +1381,13 @@ $(function() {
     }
 	$(document).ready(function() {
 		if (isMobile){
-            if(window.orientation == 0 || window.orientation == 180) // Portrait
-            {
-                 //alert("Portrait");
-              $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.7);
-            }
-            else // Landscape
-            {
-                $(".mobile-menu-V2.navbar-collapse").css("max-height",$(window).height()*0.6);
-                //alert("Landscape"+$(".mobile-menu-V2.navbar-collapse").css("max-height"));
-            }
-			$(window).on("orientationchange",function(){
+			$("#closeMobileMenu").on("touchmove touchstart",function(e) {
+				if($(".mobile-menu-V2").hasClass("in")){
+					$(".mob-menu-btn").click();
+					//console.log(e);
+				}
+			});						
+			$(window).on("orientationchange load",function(){
                 if(window.orientation == 0 || window.orientation == 180) // Portrait
                 {
                     // alert("Portrait");

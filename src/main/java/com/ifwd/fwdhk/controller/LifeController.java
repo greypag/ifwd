@@ -35,12 +35,19 @@ import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.easyhealth.EasyHealthPlanDetailBean;
 import com.ifwd.fwdhk.model.life.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.life.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.life.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.life.LifePaymentBean;
 import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.life.ProductRecommendation;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.LifeService;
+
+
+
+
+
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
@@ -202,9 +209,13 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+//		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
+//		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
+//			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+//		}
 		else{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			
@@ -243,9 +254,13 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		//SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
+//		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
+//			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+//		}
 		else{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			
@@ -274,7 +289,11 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(savieFna == null || savieFna.getGender() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -297,7 +316,20 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+		ProductRecommendation productRecommendation = (ProductRecommendation) request.getSession().getAttribute("productRecommendation");
+		
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(saviePlanDetails == null || saviePlanDetails.getInsuredAmount() == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(savieFna == null || savieFna.getGender() == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(productRecommendation == null || productRecommendation.getProduct_list() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -322,15 +354,25 @@ public class LifeController extends BaseController{
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String underwritingYes = (String) request.getSession().getAttribute("underwritingYes");
+		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		}
+		else if("savings-insurance".equals(plan) && salesIllustrationJpgName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else if("medical-insurance".equals(plan) && underwritingYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
 			request.getSession().setAttribute("fatcaYes", "fatcaYes");
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
+			if("savings-insurance".equals(plan)) {
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
+			} else {
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTHONLINE_LIFE_FATCA);
+			}
+				
+			
 		}
 	}
 	
@@ -347,7 +389,7 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if("medical-insurance".equals(plan) && fatcaYes == null){
+		else if(fatcaYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
@@ -373,7 +415,12 @@ public class LifeController extends BaseController{
 				request.getSession().setAttribute("savieFna", savieFna);
 			}
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_PERSONAL_DETAILS);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+			}
 		}
 	}
 	
@@ -390,7 +437,7 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if("medical-insurance".equals(plan) && lifePersonalDetails == null){
+		else if(lifePersonalDetails == null || lifePersonalDetails.getFirstname() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
@@ -566,7 +613,12 @@ public class LifeController extends BaseController{
 			model.addAttribute("etLiquidAssetCN", liquidAssetsCN);
 			
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_EMPLOYMENT_INFO);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+			}
 		}
 	}
 	
@@ -583,7 +635,7 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if("medical-insurance".equals(plan) && lifeEmploymentInfo == null){
+		else if(lifeEmploymentInfo == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
@@ -595,7 +647,12 @@ public class LifeController extends BaseController{
 				model.addAttribute("backSummary", backSummary);
 			}
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_BENEFICARY_INFO);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+			}
 		}
 	}
 	
@@ -609,7 +666,11 @@ public class LifeController extends BaseController{
 		}
 		
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(lifeBeneficaryInfo == null || lifeBeneficaryInfo.getIsOwnEstate() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -663,8 +724,14 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
+		
+		
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		}
+		else if("savings-insurance".equals(plan) && (lifePayment == null || lifePayment.getAccountNumber() == null)){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else if("medical-insurance".equals(plan) && lifeBeneficaryInfo == null){
@@ -673,7 +740,12 @@ public class LifeController extends BaseController{
 		else{
 			model.addAttribute("plan", plan);
 			request.getSession().setAttribute("applicationSummaryYes", "applicationSummaryYes");
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_POLICY_SUMMARY);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+			}
 		}
 	}
 	
@@ -684,12 +756,17 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if("medical-insurance".equals(plan) && applicationSummaryYes == null){
+		else if(applicationSummaryYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
 			model.addAttribute("plan", plan);
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DECLARATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
+			}
 		}
 	}
 	
@@ -702,7 +779,13 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		
+		
+		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) request.getSession().getAttribute("lifeDeclaration");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(lifeDeclaration == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -735,20 +818,33 @@ public class LifeController extends BaseController{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		String creditCaredNo = (String) request.getSession().getAttribute("creditCaredNo");
 		
+		String applicationFormJpgName = (String) request.getSession().getAttribute("applicationFormJpgName");
+		String fnaFormJpgName = (String) request.getSession().getAttribute("fnaFormJpgName");
+		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
+		
 		if(StringUtils.isNotEmpty(policyNumber)){
 			try {
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(!savieOnlineService.checkIsDocumentUpload(request,policyNumber)){
-				String policyUserName = savieOnlineService.getPolicyUserName(request,policyNumber);
+
+			//For checking against username at frontend. Ideal case is backend handle the username checking and return an unmatched_username error to frontend.
+			String policyUserName = savieOnlineService.getPolicyUserName(request,policyNumber);
 				request.getSession().setAttribute("policyUserName", policyUserName);
+
+			if(!savieOnlineService.checkIsDocumentUpload(request,policyNumber)){
 				CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 				lifePolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
 			}
-			return SavieOnlinePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			request.getSession().setAttribute("documentUploadYes", "documentUploadYes");
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD_LATER);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+			}
 		}else{
 			if(userName == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
@@ -758,10 +854,20 @@ public class LifeController extends BaseController{
 			if(userDetails == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
+			else if("savings-insurance".equals(plan) && applicationFormJpgName == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
+			else if("savings-insurance".equals(plan) && fnaFormJpgName == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
+			else if("savings-insurance".equals(plan) && salesIllustrationJpgName == null){
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+			}
 			else if("medical-insurance".equals(plan) && creditCaredNo == null){
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 			}
 			else{
+				JSONObject jsonObject = new JSONObject();
 				try {
 					savieOnlineService.finalizeLifePolicy(plan, request, session);
 				}
@@ -770,7 +876,6 @@ public class LifeController extends BaseController{
 				catch (Exception e) {
 				}
 				if("savings-insurance".equals(plan)){
-					JSONObject jsonObject = new JSONObject();
 					try {
 						savieOnlineService.uploadSavieOnlineDocument(request);
 					}
@@ -783,7 +888,12 @@ public class LifeController extends BaseController{
 				}
 				model.addAttribute("plan", plan);
 				request.getSession().setAttribute("documentUploadYes", "documentUploadYes");
-				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+				if("medical-insurance".equals(plan)){
+					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_DOCUMENT_UPLOAD);
+				}
+				else{
+					return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+				}
 			}
 		}
 	}
@@ -799,30 +909,39 @@ public class LifeController extends BaseController{
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		String documentUploadYes = (String) request.getSession().getAttribute("documentUploadYes");
+		String sendEmailsYes = (String) request.getSession().getAttribute("sendEmailsYes");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
+		}
+		else if(documentUploadYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if("medical-insurance".equals(plan) && documentUploadYes == null){
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
-		}
 		else{
-			try {
-				JSONObject models = new JSONObject();
-				models.put("name", request.getSession().getAttribute("username"));
-				
-				if("medical-insurance".equals(plan)) {
-					savieOnlineService.sendEmails(request, "rophiComplete", models);
-				}else {
-					savieOnlineService.sendEmails(request, "savieComplete", models);
+			if(sendEmailsYes == null){
+				try {
+					JSONObject models = new JSONObject();
+					models.put("name", request.getSession().getAttribute("username"));
+					
+					if("medical-insurance".equals(plan)) {
+						savieOnlineService.sendEmails(request, "rophiComplete", models);
+					}else {
+						savieOnlineService.sendEmails(request, "savieComplete", models);
+					}
+					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
+				} catch (Exception e) {
+					e.printStackTrace();
+					logger.info(e.getMessage());
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
+			}
 		}
 	}
 	
@@ -840,10 +959,10 @@ public class LifeController extends BaseController{
 		if(userDetails == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
-		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
+		else if(documentUploadYes == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
-		}
-		else if("medical-insurance".equals(plan) && documentUploadYes == null){
+		}		
+		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
 		}
 		else{
@@ -858,9 +977,12 @@ public class LifeController extends BaseController{
 				if(StringUtils.isEmpty(language)){
 					language = "tc";
 				}
-				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String encodePolicyNum = new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes());
+				String url = serverUrl + "/"+language+ "/"+plan + "/document-upload?policyNumber=" + encodePolicyNum;
 				
 				models.put("uploadLink", url);
+				models.put("uploadEnLink", serverUrl + "/en/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
+				models.put("uploadTcLink", serverUrl + "/tc/"+plan + "/document-upload?policyNumber=" + encodePolicyNum);
 				
 				if("medical-insurance".equals(plan)) {
 					savieOnlineService.sendEmails(request, "rophiUploadDocument", models);
@@ -871,7 +993,12 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
-			return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+			if("medical-insurance".equals(plan)){
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION);
+			}
+			else{
+				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+			}
 		}
 	}
 	
@@ -884,8 +1011,21 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		String applicationFormJpgName = (String) request.getSession().getAttribute("applicationFormJpgName");
+		String fnaFormJpgName = (String) request.getSession().getAttribute("fnaFormJpgName");
+		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(applicationFormJpgName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(fnaFormJpgName == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(salesIllustrationJpgName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else if(lifePolicy == null || lifePolicy.getPolicyNo() == null || "".equals(lifePolicy.getPolicyNo())){
@@ -913,7 +1053,11 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
 		if(userDetails == null){
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
+		}
+		else if(lifeBeneficaryInfo == null || lifeBeneficaryInfo.getIsOwnEstate() == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}
 		else{
@@ -962,7 +1106,7 @@ public class LifeController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/savings-insurance");
 		}else{
 			try {
-				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication", model, request);
+				savieOnlineService.CustomerServiceCentreConfirmation("offlineApplication-rp", model, request);
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.info(e.getMessage());
@@ -971,7 +1115,7 @@ public class LifeController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/{lang}/{plan}/customer-service-centre"})
+	@RequestMapping(value = {"/{lang}/{plan}/customer-service-centre","/{lang}/{plan}/make-appointment"})
 	public ModelAndView getSavieOnlineLifeServiceCenter(@PathVariable("plan") String plan,Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){

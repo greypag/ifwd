@@ -216,21 +216,19 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 									</div>
 								</div>
-								<span class="err-msg" id="et-gender-message"></span>
-
-								<div class="et-broken-line et-padding hidden-md hidden-lg"></div>
+								<span class="err-msg" id="et-gender-message">
+								</span>
+								<div class="et-broken-line et-padding hidden-md hidden-lg">
+								</div>
 							</div>
 
 							<div class="col-md-4 col-xs-12">
 								<h4 class="et-dob-txt">
-									<fmt:message key="eliteTerms.selectPlan.Your.date.of.birth"
-										bundle="${msg}" />
+									<fmt:message key="eliteTerms.selectPlan.Your.date.of.birth" bundle="${msg}" />
 								</h4>
 								<div id="et-select-plan-date"
 									class="selectDiv et-select-plan-date">
-									<input type="text" class="date et-ays-datepicker"
-										name="et-select-plan-date" id="et-select-plan-date-input"
-										placeholder="DD-MM-YYYY" readonly="">
+									<input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="">
 								</div>
 								<span class="err-msg" id="et-ays-datepicker-message"></span>
 								<div class="et-broken-line et-padding hidden-md hidden-lg"></div>
@@ -238,13 +236,11 @@ var home_url = "<%=request.getContextPath()%>";
 							<div class="col-md-4 col-xs-12">
 								<div class="et-tooltip-wrapper">
 									<h4 class="et-dob-txt smoker">
-										<span><fmt:message
-												key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></span> <span>
-											<button type="button" class="et-minimal et-smoker-tooltip"
-												data-container="body" data-trigger="hover focus click"
-												data-html="true" data-toggle="tooltip" data-placement="top"
-												title="<fmt:message key="eliteTerms.selectPlan.smoker.tooltip" bundle="${msg}" />"
-												data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'>
+										<span>
+											<fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" />
+										</span>
+										<span>
+											<button type="button" class="et-minimal et-smoker-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.smoker.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'>
 												<span class="et-info-tooltip "></span>
 											</button>
 										</span>
@@ -253,11 +249,9 @@ var home_url = "<%=request.getContextPath()%>";
 
 								<div class="clearfix et-smoke-wrapper">
 									<div class="et-gender-div">
-										<input type="radio" id="et-smoker-yes" name="et-smoker"
-											value="true"> <label for="et-smoker-yes"
-											class="et-smoker-label"> <img
-											src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png"
-											alt="et-male.png" />
+										<input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
+										<label for="et-smoker-yes" class="et-smoker-label">
+											<img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
 										</label>
 										<div class="et-smoker-txt yes text-center">
 											<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
@@ -283,8 +277,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 
 					<div class="et-next-btn-div">
-						<button id="et-btn-ay-self"
-							class="btn btn-orange et-next-btn et-pad-bot-50">
+						<button id="et-btn-ay-self" class="btn btn-orange et-next-btn et-pad-bot-50">
 							<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 						</button>
 					</div>
@@ -546,7 +539,7 @@ var home_url = "<%=request.getContextPath()%>";
 								role="tabpanel" aria-labelledby="headingTwo">
 								<div class="et-panel-body" id="panelTwo">
 									<p>
-									<ol>
+									<ol class="et-accrdion-txt-normal">
 										<li><fmt:message
 												key="eliteTerms.selectPlan.important.notes.line1"
 												bundle="${msg}" /></li>
@@ -726,7 +719,7 @@ var home_url = "<%=request.getContextPath()%>";
 																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no"
+															<a id="medi-question-no-1" href="#" class="btn et-btn-medic et-btn-medic-no"
 																title="No" data-current-target="et-medi-question-1"
 																data-next-target="et-medi-question-2"><fmt:message
 																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -759,25 +752,18 @@ var home_url = "<%=request.getContextPath()%>";
 											<div class="row">
 												<div class="col-xs-12 col-md-8">
 													<p>
-														<fmt:message key="eliteTerms.selectPlan.Question2.copy"
-															bundle="${msg}" />
+														<fmt:message key="eliteTerms.selectPlan.Question2.copy" bundle="${msg}" />
 													</p>
 												</div>
 												<div class="col-xs-12 col-md-4">
 													<div class="row">
 														<div class="col-xs-6 et-pad-right-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-yes"
-																data-current-target="et-medi-question-2"
-																data-next-target="et-medi-question-3" title="Yes"
-																data-toggle="modal" data-target="#cannot-apply-modal"
-																onclick="getCsChannel('ETMD2');"><fmt:message
-																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+															<a href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="Yes" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD2');">
+																<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+															</a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no"
-																title="No" data-current-target="et-medi-question-2"
-																data-next-target="et-medi-question-3"><fmt:message
-																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
+															<a id="medi-question-no-2" href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
 														</div>
 													</div>
 												</div>
@@ -787,29 +773,21 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 
 								<div class="panel panel-default et-medic-panel">
-									<div class="panel-heading" role="tab"
-										id="et-medi-question-3-heading">
+									<div class="panel-heading" role="tab" id="et-medi-question-3-heading">
 										<h4 class="panel-title">
-											<a role="button" data-toggle="collapse"
-												data-parent="#et-medic-accordion" href="#et-medi-question-3"
-												aria-expanded="false" aria-controls="et-medi-question-3">
-												<fmt:message key="eliteTerms.selectPlan.Question3"
-													bundle="${msg}" />
+											<a role="button" data-toggle="collapse" data-parent="#et-medic-accordion" href="#et-medi-question-3" aria-expanded="false" aria-controls="et-medi-question-3">
+												<fmt:message key="eliteTerms.selectPlan.Question3" bundle="${msg}" />
 											</a>
 										</h4>
 									</div>
-									<div id="et-medi-question-3"
-										class="panel-collapse collapse et-collapse" role="tabpanel"
-										data-next-target="" data-prev-target="et-medi-question-2"
-										data-is-answered="false"
-										aria-labelledby="et-medi-question-3-heading">
+									<div id="et-medi-question-3" class="panel-collapse collapse et-collapse" role="tabpanel" data-next-target="" data-prev-target="et-medi-question-2" data-is-answered="false" aria-labelledby="et-medi-question-3-heading">
 										<div class="panel-body">
 											<div class="row">
 												<div class="col-xs-12 col-md-8">
 													<p>
 														<fmt:message key="eliteTerms.selectPlan.Question3.copy"
 															bundle="${msg}" />
-													</p>		
+													</p>
 													<%--<div class="et-disease-list">
 														<ul class="col-xs-12 col-md-6">
 															<li><span><fmt:message
@@ -838,6 +816,12 @@ var home_url = "<%=request.getContextPath()%>";
 																		key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
 															<li><span><fmt:message
 																		key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
+															<li><span><fmt:message
+																		key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
 														</ul>
 													</div> --%>
 												</div>
@@ -852,7 +836,7 @@ var home_url = "<%=request.getContextPath()%>";
 																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-no last"
+															<a id="medi-question-no-3" href="#" class="btn et-btn-medic et-btn-medic-no last"
 																title="No" data-current-target="et-medi-question-3"
 																data-next-target="et-medi-question-3"><fmt:message
 																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -898,43 +882,33 @@ var home_url = "<%=request.getContextPath()%>";
 
 				<!--Personal Info Widget-->
 				<div class="container-fluid fwd-container et-personal-info">
-					<div id="personal-info"
-						class="personal-info-widget page-application et-application-page">
+					<div id="personal-info" class="personal-info-widget page-application et-application-page">
 						<h2>
-							<fmt:message key="eliteTerms.selectPlan.person.info"
-								bundle="${msg}" />
+							<fmt:message key="eliteTerms.selectPlan.person.info" bundle="${msg}" />
 							<!-- <button type="button" class="tooltip-button btn-app-info-tooltip"  data-container="body" data-toggle="tooltip" data-placement="top" title="Applicant and the insured must be the same person" data-template= 	'<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="info-tooltip"></span></button> -->
-							<button type="button" class="tooltip-button btn-app-info-tooltip"
-								title="<fmt:message key="eliteTerms.selectPlan.Applicant.and.the.insured" bundle="${msg}" />">
-								<span class="info-tooltip"></span>
+							<button type="button" class="tooltip-button btn-app-info-tooltip" title="<fmt:message key="eliteTerms.selectPlan.Applicant.and.the.insured" bundle="${msg}" />">
+								<span class="info-tooltip">
+								</span>
 							</button>
 						</h2>
 
-						<form id="eliteTermsInsuredInfoForm" method="post"
-							class="form-horizontal" action="" onSubmit="return false;">
+						<form id="eliteTermsInsuredInfoForm" method="post" class="form-horizontal" action="" onSubmit="return false;">
 							<div class="row margin">
 								<div class="col-sm-12 col-md-6 left">
 
 									<div class="clearfix">
 										<div class="left-desktop description">
-											<label for="give-last-name"
-												class="application-page-input-text et-input-label"><fmt:message
-													key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" />
-												<span><fmt:message
-														key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
+											<label for="give-last-name" class="application-page-input-text et-input-label">
+ 												<fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" />
+												<span>
+													<fmt:message key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" />
+												</span>
+											</label>
 										</div>
 										<div class="left-desktop text-box form-group">
-											<input class="form-control gray-textbox" autocomplete="off"
-												id="savieApplicantBean.firstName"
-												name="savieApplicantBean.firstName" type="text"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />"
-												value="${userDetails.firstName }" readonly="readonly">
+											<input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />" value="${userDetails.firstName }" readonly="readonly">
 											<span class="error-msg" id="savieApplicantBeanFirstNameMsg"></span>
-											<input class="form-control gray-textbox" autocomplete="off"
-												id="savieApplicantBean.lastName"
-												name="savieApplicantBean.lastName" type="text"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />"
-												value="${userDetails.lastName }" readonly="readonly">
+											<input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />" value="${userDetails.lastName }" readonly="readonly">
 											<span class="error-msg" id="savieApplicantBeanlastNameMsg"></span>
 										</div>
 									</div>
@@ -1025,7 +999,7 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox capitalize"
+											<input class="form-control gray-textbox capitalize placeholder-lower"
 												autocomplete="off" id="savieApplicantBean.hkId"
 												name="savieApplicantBean.hkId" type="text" value="${etPolicyApplication.applicant.hkId }"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
@@ -1137,7 +1111,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<input type="text" class="form-control gray-textbox"
 												name="savieApplicantBean.residentialTelNo"
 												id="savieApplicantBean.residentialTelNo" value="${etPolicyApplication.applicant.residentialTelNo }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"
+												placeholder="<fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" />"
 												maxlength="8" /> <span class="error-msg" id="resTelMessage"></span>
 										</div>
 									</div>
@@ -1205,9 +1179,9 @@ var home_url = "<%=request.getContextPath()%>";
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.permanentAddressCountry" id="savieApplicantBean.permanentAddressCountry">
                                              <option selected disabled value="">Country</option>
                                              <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
+                                             <option value="Australia">Australia</option>
+                                             <option value="Canada">Canada</option>
+                                             <option value="France">France</option>
                                              <option value="Germany">Germany</option>
                                           </select>
                                        </div>
@@ -1299,12 +1273,12 @@ var home_url = "<%=request.getContextPath()%>";
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.residentialDistrictCountry" id="savieApplicantBean.residentialDistrictCountry">
                                              <option selected disabled value="">Country</option>
                                              <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
-                                             <option value="Germany">Germany</option>    
+                                             <option value="Australia">Australia</option>
+                                             <option value="Canada">Canada</option>
+                                             <option value="France">France</option>
+                                             <option value="Germany">Germany</option>
                                           </select>
-                                       </div> 
+                                       </div>
                                        <span class="error-msg" id="residentialDistrictCountryMessage"></span> -->
 											<div class="selectDiv et-district-wrapper">
 												<span class="icon-chevron-thin-down orange-caret"></span> <select
@@ -1365,46 +1339,34 @@ var home_url = "<%=request.getContextPath()%>";
 													bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input
-												class="form-control gray-textbox  correspondence-address"
-												autocomplete="off" maxlength="29"
-												id="savieApplicantBean.correspondenceAdress1" 
-												name="savieApplicantBean.correspondenceAdress1" type="text" value="${etPolicyApplication.applicant.correspondenceAdress1 }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-											<span class="error-msg" id="corrAddressMessage1"></span> <input
-												class="form-control gray-textbox correspondence-address optional-field"
-												autocomplete="off" maxlength="29"
-												id="savieApplicantBean.correspondenceAdress2"
-												name="savieApplicantBean.correspondenceAdress2" type="text" value="${etPolicyApplication.applicant.correspondenceAdress2 }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-											<span class="error-msg" id="corrAddressMessage2"></span> <input
-												class="form-control gray-textbox correspondence-address optional-field"
-												autocomplete="off" maxlength="19"
-												id="savieApplicantBean.correspondenceAdress3"
-												name="savieApplicantBean.correspondenceAdress3" type="text" value="${etPolicyApplication.applicant.correspondenceAdress3 }"
-												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-											<span class="error-msg" id="corrAddressMessage3"></small> </span>
+											<input class="form-control gray-textbox  correspondence-address" autocomplete="off" maxlength="29" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" value="${etPolicyApplication.applicant.correspondenceAdress1 }" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
+											<span class="error-msg" id="corrAddressMessage1">
+											</span>
+											<input class="form-control gray-textbox correspondence-address optional-field" autocomplete="off" maxlength="29" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" value="${etPolicyApplication.applicant.correspondenceAdress2 }" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+											<span class="error-msg" id="corrAddressMessage2">
+											</span>
+											<input class="form-control gray-textbox correspondence-address optional-field" autocomplete="off" maxlength="19" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" value="${etPolicyApplication.applicant.correspondenceAdress3 }" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+											<span class="error-msg" id="corrAddressMessage3">
+											</span>
 											<!-- <div class="selectDiv">
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrictCountry" id="savieApplicantBean.correspondenceDistrictCountry">
-                                             <option selected disabled value="">Country</option>
-                                             <option value="Hong Kong">Hong Kong</option>
-                                             <option value="Australia">Australia</option>    
-                                             <option value="Canada">Canada</option>    
-                                             <option value="France">France</option>    
-                                             <option value="Germany">Germany</option>    
-                                          </select>
-                                       </div>
-                                       <span class="error-msg" id="correspondenceCountryMessage"></span> -->
+                            <span class="icon-chevron-thin-down orange-caret"></span>
+                            <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrictCountry" id="savieApplicantBean.correspondenceDistrictCountry">
+                               <option selected disabled value="">Country</option>
+                               <option value="Hong Kong">Hong Kong</option>
+                               <option value="Australia">Australia</option>
+                               <option value="Canada">Canada</option>
+                               <option value="France">France</option>
+                               <option value="Germany">Germany</option>
+                            </select>
+                         </div>
+                         <span class="error-msg" id="correspondenceCountryMessage"></span> -->
 											<div class="selectDiv et-district-wrapper">
-												<span class="icon-chevron-thin-down orange-caret"></span> <select
-													class="form-control gray-dropdown"
-													data-style="application-select selection"
-													name="savieApplicantBean.correspondenceDistrict"
-													id="savieApplicantBean.correspondenceDistrict">
-													<option value=""><fmt:message
-															key="eliteTerms.selectPlan.Please.District"
-															bundle="${msg}" /></option>
+												<span class="icon-chevron-thin-down orange-caret">
+												</span>
+												<select class="form-control gray-dropdown" data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
+													<option value="">
+														<fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" />
+													</option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${savieDistrictEN}">
 															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.correspondenceDistrict, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
@@ -1424,10 +1386,143 @@ var home_url = "<%=request.getContextPath()%>";
 													bundle="${msg}" /></span>
 										</div>
 									</div>
-
 								</div>
+
+								<%-- 2016memberID - start
+								<div class="col-sm-12 col-md-12">
+									<hr>
+								</div>
+								<div class="col-sm-12 col-md-6 left">
+									<!-- checkbox --!>
+									<script>
+										$(document).ready(function() {
+											$('#the-club-member-toggle').on('change', function() {
+												if ($(this).is(':checked')) {
+													$('#theClubMembershipNo').closest('.form-group').show();
+
+												} else {
+													$('#theClubMembershipNo').closest('.form-group').hide();
+												}
+											}).change();
+										});
+									</script>
+									<div class="checkbox getclubmembershipid" style="margin-top: 20px; font-size: 14px;">
+										<input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" value="None" />
+										<label for="the-club-member-toggle">
+											<img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" style="margin-bottom: 5px;"/>
+											<span style="color: #ffa500; font-size:15px; vertical-align: text-bottom;"><fmt:message key="club.membership.confirm" bundle="${msg}" /></span>
+										</label>
+									</div>
+
+									<div class="clearfix form-group has-error">
+										<div class="left-desktop right-description">
+											<label for="theClubMembershipNo" class="application-page-input-text et-input-label"></label>
+										</div>
+										<div class="left-desktop text-box">
+											<!--errMsgs--!>
+											<span class="error-msg" id="errClubMemberID"></span>
+											<!-- <span class="text-red" id="errClubMember8digit"></span> --!>
+
+											<!--inputBox--!>
+											<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
+												<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" maxlength="10"/>
+												<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+											</div>
+											<!--links--!>
+											<div class="getclubmembership" style="font-size: 14px;">
+												<!--<a href="" class="sub-link" data-toggle="modal" data-target=".fade.bs-theclub-modal-lg">--!>
+												<a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" class="sub-link" target="_blank">
+													<i>
+														<fmt:message key="club.membership.join" bundle="${msg}" />
+													</i>
+												</a>
+											</div>
+										</div>
+									</div> --%>
+									<%--<div class="form-group" style="margin-top: 0px; margin-bottom: 20px; display: none;">
+										<div class="input-group left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="display: inital; width: 100%;">
+											<input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input mdl-textfield__input" style="display: inline-block; width: 100%;" />
+											<label class="mdl-textfield__label"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+										</div>
+									</div>
+									<!-- The Club Membership popup -->
+									<div class="modal fade bs-theclub-modal-lg" tabindex="-1"
+										role="dialog" aria-hidden="true" style="display: none;">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content plan-modal">
+												<div class="login-form">
+													<div style="overflow: hidden;">
+														<a id="getPromotionClose" class="close" aria-label="Close"
+															data-dismiss="modal"> <span aria-hidden="true"
+															style="font-size: 30px;">×</span>
+														</a>
+													</div>
+													<div class="form-container">
+														<div class="row">
+															<div class="col-xs-12">
+																<p>
+																	<fmt:message key="homecare.club.membership.pop.up"
+																		bundle="${msg}" />
+																</p>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-xs-12">
+																<p>
+																	<a
+																		href="<fmt:message key="theclub.register.link" bundle="${msg}" />"
+																		target="_blank"><fmt:message key="club.membership.join"
+																			bundle="${msg}" /></a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--/ The Club Membership popup -->--%>
+									<script>
+									<%-- function chkClubMember() {
+										$(".errDue").html('');
+										var flag = true;
+										var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
+										var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
+										if (the_club_member_check_box) {
+											if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+												$("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+												document.getElementById("theClubMembershipNo").focus();
+												$("#theClubMembershipNo").addClass("invalid-field");
+
+												flag = false;
+											}else if (the_club_membership_no != ""){
+												if(/^8[0-9]{9}$/.test(the_club_membership_no) == false){
+														$("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+														document.getElementById("theClubMembershipNo").focus();
+														$("#theClubMembershipNo").addClass("invalid-field");
+														flag = false;
+												}else if(/^[0-9	]{10}$/.test(the_club_membership_no) == false){
+														$("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+														document.getElementById("theClubMembershipNo").focus();
+														$("#theClubMembershipNo").addClass("invalid-field");
+														flag = false;
+												} else {
+														$("#errClubMemberID").html("");
+														$("#theClubMembershipNo").removeClass("invalid-field");
+														flag = true;
+												}
+											}
+										}
+										return flag;
+								}
+								--%>
+								</script>
+								</div>
+								<input type="hidden" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder gray-textbox check-emp login-input" value=""/>
+								<%-- 2016memberID - end --%>
+
 							</div>
-							<div class="next-btn">
+							<div class="next-btn center">
 								<button id="et-personal-info-next" class="btn next pi">
 									<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 								</button>
@@ -2048,6 +2143,7 @@ var home_url = "<%=request.getContextPath()%>";
 													bundle="${msg}" /></span>
 										</h3>
 										<div class="form-group has-error beneficiary-info-row">
+											<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"> &nbsp;</div></div>
 											<label for="savieBeneficiaryBean[0].firstName"><fmt:message
 													key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></label>
 											<input type="text" autocomplete="off"
@@ -2252,6 +2348,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<!--DECLARATION AND AUTHORIZATION PAGE-->
 		<div class="container-fluid fwd-container hide-element"
 			id="et-application-second-section">
+			<form id="etLicenseInfoForm" method="post" action="" onsubmit="return false">
 			<div
 				class="declare-authorize page-application et-declaration-section">
 				<h2>
@@ -2266,7 +2363,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</h4>
 					<div class="clearfix declaration">
 						<div class="pull-left pics-check">
-							<input type="checkbox" value="pics" id="pics-check" name="isPics" />
+							<input type="checkbox" value="pics" id="pics-check" name="isPics" ${etPolicyApplication.applicant.isPics=='pics' ? 'checked="checked"':'' } />
 							<label for="pics-check"></label>
 						</div>
 						<div class="pull-left pics-desc checkbox-description">
@@ -2293,24 +2390,24 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="no-policy-replace-check" name="isCancel" /> <label
+									<input type="checkbox" value="NO"
+										id="no-policy-replace-check" name="cancellation" ${etPolicyApplication.applicant.cancellation=='NO' ? 'checked="checked"':'' } /> <label
 										for="no-policy-replace-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
-									<label for="no-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></label>
+									<label for="no-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
 								</div>
 							</div>
 						</div>
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="yes-policy-replace-check" name="isCancel" /> <label
+									<input type="checkbox" value="YES"
+										id="yes-policy-replace-check" name="cancellation" ${etPolicyApplication.applicant.cancellation=='YES' ? 'checked="checked"':'' }/> <label
 										for="yes-policy-replace-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
-									<label for="yes-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.have" bundle="${msg}" /></label>
+									<label for="yes-policy-replace-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
 									<span class="note"><fmt:message
 											key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
 								</div>
@@ -2328,8 +2425,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="no-policy-replace-existing-check" name="isCancel" /> <label
+									<input type="checkbox" value="NO"
+										id="no-policy-replace-existing-check" name="policyReplace" ${etPolicyApplication.applicant.policyReplace=='NO' ? 'checked="checked"':'' } /> <label
 										for="no-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
@@ -2340,8 +2437,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="cancellation"
-										id="yes-policy-replace-existing-check" name="isCancel" /> <label
+									<input type="checkbox" value="YES"
+										id="yes-policy-replace-existing-check" name="policyReplace" ${etPolicyApplication.applicant.policyReplace=='YES' ? 'checked="checked"':'' } /> <label
 										for="yes-policy-replace-existing-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
@@ -2398,6 +2495,19 @@ var home_url = "<%=request.getContextPath()%>";
 									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 									bundle="${msg}" />
 							</p>
+							<div style="margin-top:20px;">
+								<p><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks3"
+									bundle="${msg}" /></p>
+								<ul class="list-unstyled">
+									<li><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks4"
+									bundle="${msg}" /></li>
+									<li><fmt:message
+									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks5"
+									bundle="${msg}" /></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 
@@ -2409,8 +2519,8 @@ var home_url = "<%=request.getContextPath()%>";
 					</h4>
 					<div class="clearfix declaration">
 						<div class="pull-left cancellation-check">
-							<input type="checkbox" value="cancellation"
-								id="cancellation-check" name="isCancel" /> <label
+							<input type="checkbox" value="residency"
+								id="cancellation-check" name="residency" ${etPolicyApplication.applicant.residency=='residency' ? 'checked="checked"':'' } /> <label
 								for="cancellation-check"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2433,8 +2543,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop no">
 							<div class="clearfix">
 								<div class="pull-left policy-replace-check">
-									<input type="checkbox" value="no" id="is-resident-check"
-										name="isResident" /> <label for="is-resident-check"></label>
+									<input type="checkbox" value="NO" id="is-resident-check"
+										name="isResident" ${etPolicyApplication.applicant.isResident=='NO' ? 'checked="checked"':'' } /> <label for="is-resident-check"></label>
 								</div>
 								<div class="pull-left policy-replace-desc">
 									<label for="is-resident-check"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></label>
@@ -2444,8 +2554,8 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="left-desktop yes">
 							<div class="clearfix yes-policy">
 								<div class="pull-left yes-policy-replace-check">
-									<input type="checkbox" value="yes" id="non-resident-check"
-										name="nonResident" /> <label for="non-resident-check"></label>
+									<input type="checkbox" value="YES" id="non-resident-check"
+										name="isResident" ${etPolicyApplication.applicant.isResident=='YES' ? 'checked="checked"':'' } /> <label for="non-resident-check"></label>
 								</div>
 								<div class="pull-left yes-policy-replace-desc">
 									<label for="non-resident-check"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></label>
@@ -2467,8 +2577,8 @@ var home_url = "<%=request.getContextPath()%>";
 					<div
 						class="clearfix declaration application-declaration sub-header">
 						<div class="pull-left cancellation-check">
-							<input type="checkbox" value="cancellation"
-								id="application-declaration" name="isCancel" /> <label
+							<input type="checkbox" value="appDeclaration"
+								id="application-declaration" name="appDeclaration" ${etPolicyApplication.applicant.appDeclaration=='appDeclaration' ? 'checked="checked"':'' } /> <label
 								for="application-declaration"></label>
 						</div>
 						<div class="pull-left cancellation-desc checkbox-description">
@@ -2492,7 +2602,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
 						<div class="clearfix declaration application-declaration">
@@ -2507,7 +2617,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
 						<div class="clearfix declaration application-declaration">
@@ -2539,7 +2649,7 @@ var home_url = "<%=request.getContextPath()%>";
 											bundle="${msg}" />
 									</div>
 								</div>
-	
+
 							</div>
 						</div>
                     </label>
@@ -2549,29 +2659,45 @@ var home_url = "<%=request.getContextPath()%>";
 						<fmt:message key="eliteTerms.selectPlan.If.you.do.NOT.wish.FWD"
 							bundle="${msg}" />
 					</h5>
-					<form id="etLicenseInfoForm" method="post" action=""
-						onsubmit="return false">
 						<div class="clearfix authorization">
 							<div class="pull-left marketing-info-check">
-								<input type="checkbox" value="true" id="marketing-info-check"
-									name="isMarketingInfo" /> <label for="marketing-info-check"></label>
+								<input type="checkbox" value="YES" id="marketing-info-check" name="isMarketingInfo" ${etPolicyApplication.applicant.isMarketingInfo=='YES' ? 'checked="checked"':'' } />
+								<label for="marketing-info-check"></label>
 							</div>
 							<div class="pull-left marketing-info-desk checkbox-description">
-								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send"
-									bundle="${msg}" />
+								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send" bundle="${msg}" />
 							</div>
 						</div>
 
 						<div class="clearfix authorization">
 							<div class="pull-left personal-data-check">
-								<input type="checkbox" value="true" id="personal-data-check"
-									name="isPersonalData" /> <label for="personal-data-check"></label>
+								<input type="checkbox" value="YES" id="personal-data-check" name="isPersonalData" ${etPolicyApplication.applicant.isPersonalData=='YES' ? 'checked="checked"':'' }/>
+								<label for="personal-data-check"></label>
 							</div>
 							<div class="pull-left personal-data-desc checkbox-description">
-								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
-									bundle="${msg}" />
+								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide" bundle="${msg}" />
 							</div>
+							<div class="checkboxBubble">
+                <fmt:message key="general.declarations.PDPO.warning" bundle="${msg}" />
+              </div>
 						</div>
+						<script type="text/javascript">
+                        function showBubble(){
+                            if($("#marketing-info-check").prop("checked")==true || $("#personal-data-check").prop("checked")==true) {
+                                $(".checkboxBubble").fadeIn();
+                            }else{
+                                $(".checkboxBubble").fadeOut();
+                            }
+                        }
+
+                        $("#marketing-info-check").change(function() {
+                            showBubble();
+                        });
+
+                        $("#personal-data-check").change(function() {
+                            showBubble();
+                        });
+                        </script>
 					</form>
 
 					<div class="row et-proceed-btn-wrapper">
@@ -2673,136 +2799,143 @@ var home_url = "<%=request.getContextPath()%>";
 							<!-- PERSONAL INFO -->
 							<div class="summary-body-item">
 								<h3 class="personal-info">
-									<fmt:message key="eliteTerms.selectPlan.Personal.Info"
-										bundle="${msg}" />
-									<a href="#" title="Edit" class="et-app-sum-edit"
-										data-target="#personal-info"><fmt:message
-											key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a>
+									<fmt:message key="eliteTerms.selectPlan.Personal.Info" bundle="${msg}" />
+									<a href="#" title="Edit" class="et-app-sum-edit" data-target="#personal-info">
+										<fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
+									</a>
 								</h3>
 								<h4 class="clearfix info-holder-title">
-									<fmt:message key="eliteTerms.selectPlan.Name.in.English"
-										bundle="${msg}" />
+									<fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" />
 								</h4>
 								<div class="clearfix info-holder">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Last.Name"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-en-lname"></p>
+									<p class="info" id="etaspi-en-lname">${etPolicyApplication.applicant.lastName }</p>
 								</div>
 								<div class="clearfix info-holder">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Given.Name"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-fname"></p>
+									<p class="info" id="etaspi-fname">${etPolicyApplication.applicant.firstName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-chName"></p>
+									<p class="info" id="etaspi-chName">${etPolicyApplication.applicant.chineseName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.HKID" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-hkid"></p>
+									<p class="info" id="etaspi-hkid">${etPolicyApplication.applicant.hkId }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
 										<fmt:message key="eliteTerms.selectPlan.Gender"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-gender"></p>
+									<p class="info" id="etaspi-gender">${etPolicyApplication.applicant.gender == 'M' ? language == 'en' ? 'MALE':'男':language == 'en' ? 'FEMALE':'女' }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Smooker/Non-smooker"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Smooker/Non-smooker" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-is-smooker"></p>
+									<p class="info" id="etaspi-is-smooker">${etPolicyApplication.applicant.smoke == 'true' ? language == 'en' ? 'YES':'是':language == 'en' ? 'NO':'否' }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Marital.status"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Marital.status" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-marital-status"></p>
+									<p class="info" id="etaspi-marital-status">${language == 'en' ? etPolicyApplication.applicant.maritalStatusEnName:etPolicyApplication.applicant.maritalStatusCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Date.of.birth"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-dob"></p>
+									<p class="info" id="etaspi-dob">${etPolicyApplication.applicant.dob }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Place.of.birth"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Place.of.birth" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-pob"></p>
+									<p class="info" id="etaspi-pob">${language == 'en' ? etPolicyApplication.applicant.placeOfBirthEnName:etPolicyApplication.applicant.placeOfBirthCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Nationality"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Nationality" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-nationality"></p>
+									<p class="info" id="etaspi-nationality">${language == 'en' ? etPolicyApplication.applicant.nationalityEnName:etPolicyApplication.applicant.nationalityCnName }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Email.address"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-email"></p>
+									<p class="info" id="etaspi-email">${etPolicyApplication.applicant.email }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Telephone.no"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-tel-no"></p>
+									<p class="info" id="etaspi-tel-no">${etPolicyApplication.applicant.residentialTelNo }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Mobile.no"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-mob-no"></p>
+									<p class="info" id="etaspi-mob-no">${etPolicyApplication.applicant.mobileNo }</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Permanent.address"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Permanent.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-per-add"></p>
+									<p class="info" id="etaspi-per-add">
+									${etPolicyApplication.applicant.permanentAddress1 }
+									${etPolicyApplication.applicant.permanentAddress2 }
+									${etPolicyApplication.applicant.permanentAddress3 }
+									${etPolicyApplication.applicant.permanentAddress4 }
+									${language == 'en' ? etPolicyApplication.applicant.permanentAddressEnName:etPolicyApplication.applicant.permanentAddressCnName }
+									</p>
 								</div>
 								<div class="clearfix info-holder-below">
 									<h4 class="info-label">
-										<fmt:message key="eliteTerms.selectPlan.Residential.address"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Residential.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-res-add"></p>
+									<p class="info" id="etaspi-res-add">
+									${etPolicyApplication.applicant.residentialAdress1 }
+									${etPolicyApplication.applicant.residentialAdress2 }
+									${etPolicyApplication.applicant.residentialAdress3 }
+									${etPolicyApplication.applicant.residentialAdress4 }
+									${language == 'en' ? etPolicyApplication.applicant.residentialDistrictEnName:etPolicyApplication.applicant.residentialDistrictCnName }
+									</p>
 								</div>
 								<div class="clearfix info-holder-below et-corr-add">
 									<h4 class="info-label">
-										<fmt:message
-											key="eliteTerms.selectPlan.Correspondence.address"
-											bundle="${msg}" />
+										<fmt:message key="eliteTerms.selectPlan.Correspondence.address" bundle="${msg}" />
 									</h4>
-									<p class="info" id="etaspi-corr-add"></p>
+									<p class="info" id="etaspi-corr-add">
+									${etPolicyApplication.applicant.correspondenceAdress1 }
+									${etPolicyApplication.applicant.correspondenceAdress2 }
+									${etPolicyApplication.applicant.correspondenceAdress3 }
+									${etPolicyApplication.applicant.correspondenceAdress4 }
+									${language == 'en' ? etPolicyApplication.applicant.correspondenceDistrictEnName:etPolicyApplication.applicant.correspondenceDistrictCnName }
+									</p>
 								</div>
+								<%-- 2016memberID Start --%>
+								<%-- <div class="clearfix info-holder-below">
+									<h4 class="info-label">
+										<fmt:message key="club.membership.number" bundle="${msg}" />
+									</h4>
+									<p class="info" id="etaspi-clubmember-id">${etPolicyApplication.applicant.theClubMembershipNo }</p>
+								</div> --%>
 							</div>
 							<!-- PERSONAL INFO END -->
 
 							<!-- EMPLOYMENT INFO -->
 							<div class="summary-body-item">
 								<h3 class="employment-info">
-									<fmt:message key="eliteTerms.selectPlan.Employment.Info1"
-										bundle="${msg}" />
+									<fmt:message key="eliteTerms.selectPlan.Employment.Info1" bundle="${msg}" />
 									<a href="#" title="Edit" class="et-app-sum-edit"
 										data-target="#et-employment-info-section"><fmt:message
 											key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a>
@@ -2812,7 +2945,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<fmt:message key="eliteTerms.selectPlan.Employment.status"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etasei-emp-status"></p>
+									<p class="info" id="etasei-emp-status">${language == 'en' ? etPolicyApplication.applicant.employmentStatusEnName:etPolicyApplication.applicant.employmentStatusCnName }</p>
 								</div>
 								<div class="et-stat-unemployed hide-element">
 									<div class="clearfix info-holder">
@@ -2821,14 +2954,14 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Monthly.personal.income"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-source-income"></p>
+										<p class="info" id="etasei-source-income">${language == 'en' ? etPolicyApplication.applicant.sourceOfIncomeEnName:etPolicyApplication.applicant.sourceOfIncomeCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Liquid.assets"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-liq-asset"></p>
+										<p class="info" id="etasei-liq-asset">${language == 'en' ? etPolicyApplication.applicant.liquidAssetEnName:etPolicyApplication.applicant.liquidAssetCnName }</p>
 									</div>
 								</div>
 								<div class="et-not-stat-unemployed hide-element">
@@ -2837,14 +2970,14 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Nature.of.business"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-nat-business"></p>
+										<p class="info" id="etasei-nat-business">${language == 'en' ? etPolicyApplication.applicant.natureOfBusinessEnName:etPolicyApplication.applicant.natureOfBusinessCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Occupation"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-occupation"></p>
+										<p class="info" id="etasei-occupation">${language == 'en' ? etPolicyApplication.applicant.occupationEnName:etPolicyApplication.applicant.occupationCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -2852,7 +2985,7 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Monthly.personal.income"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-mon-income"></p>
+										<p class="info" id="etasei-mon-income">${language == 'en' ? etPolicyApplication.applicant.monthlyPersonalIncomeEnName:etPolicyApplication.applicant.monthlyPersonalIncomeCnName }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
@@ -2860,7 +2993,7 @@ var home_url = "<%=request.getContextPath()%>";
 												key="eliteTerms.selectPlan.Current.Employer.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasei-employer-name"></p>
+										<p class="info" id="etasei-employer-name">${etPolicyApplication.applicant.currentEmployerName }</p>
 									</div>
 								</div>
 								<div class="clearfix info-holder">
@@ -2868,7 +3001,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<fmt:message key="eliteTerms.selectPlan.Education.level"
 											bundle="${msg}" />
 									</h4>
-									<p class="info" id="etasei-edu-level"></p>
+									<p class="info" id="etasei-edu-level">${language == 'en' ? etPolicyApplication.applicant.educationLevelEnName:etPolicyApplication.applicant.educationLevelCnName }</p>
 								</div>
 							</div>
 							<!-- EMPLOMENT INFO END -->
@@ -2913,49 +3046,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-1"></p>
+										<p class="info" id="etasbi-en-lname-1">${etPolicyApplication.applicant.lastName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-1"></p>
+										<p class="info" id="etasbi-en-fname-1">${etPolicyApplication.applicant.firstName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-1"></p>
+										<p class="info" id="etasbi-ch-name-1">${etPolicyApplication.applicant.chineseName1 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-1"></p>
+										<p class="info" id="etasbi-hkid-pass-1">${etPolicyApplication.applicant.beneficiaryHkidPassport1 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-1"></p>
+										<p class="info" id="etasbi-relationship-1">${language == 'en' ? etPolicyApplication.applicant.relationship1EnName:etPolicyApplication.applicant.relationship1CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-1"></p>
+										<p class="info" id="etasbi-gender-1">${etPolicyApplication.applicant.gender1 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-1"></p>
+										<p class="info" id="etasbi-entitlement-1">${etPolicyApplication.applicant.entitlement1 }</p>
 									</div>
 								</div>
 								<div class="et-person-2 hide-element">
@@ -2977,49 +3110,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-2"></p>
+										<p class="info" id="etasbi-en-lname-2">${etPolicyApplication.applicant.lastName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-2"></p>
+										<p class="info" id="etasbi-en-fname-2">${etPolicyApplication.applicant.firstName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-2"></p>
+										<p class="info" id="etasbi-ch-name-2">${etPolicyApplication.applicant.chineseName2 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-2"></p>
+										<p class="info" id="etasbi-hkid-pass-2">${etPolicyApplication.applicant.beneficiaryHkidPassport2 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-2"></p>
+										<p class="info" id="etasbi-relationship-2">${language == 'en' ? etPolicyApplication.applicant.relationship2EnName:etPolicyApplication.applicant.relationship2CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-2"></p>
+										<p class="info" id="etasbi-gender-2">${etPolicyApplication.applicant.gender2 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-2"></p>
+										<p class="info" id="etasbi-entitlement-2">${etPolicyApplication.applicant.entitlement2 }</p>
 									</div>
 								</div>
 								<div class="et-person-3 hide-element">
@@ -3041,49 +3174,49 @@ var home_url = "<%=request.getContextPath()%>";
 											<fmt:message key="eliteTerms.selectPlan.Last.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-lname-3"></p>
+										<p class="info" id="etasbi-en-lname-3">${etPolicyApplication.applicant.lastName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Given.Name"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-en-fname-3"></p>
+										<p class="info" id="etasbi-en-fname-3">${etPolicyApplication.applicant.firstName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-ch-name-3"></p>
+										<p class="info" id="etasbi-ch-name-3">${etPolicyApplication.applicant.chineseName3 }</p>
 									</div>
 									<div class="clearfix info-holder">
 										<h4 class="info-label employment">
 											<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-hkid-pass-3"></p>
+										<p class="info" id="etasbi-hkid-pass-3">${etPolicyApplication.applicant.beneficiaryHkidPassport3 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Relationship"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-relationship-3"></p>
+										<p class="info" id="etasbi-relationship-3">${language == 'en' ? etPolicyApplication.applicant.relationship3EnName:etPolicyApplication.applicant.relationship3CnName }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Gender"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-gender-3"></p>
+										<p class="info" id="etasbi-gender-3">${etPolicyApplication.applicant.gender3 }</p>
 									</div>
 									<div class="clearfix info-holder-below">
 										<h4 class="info-label">
 											<fmt:message key="eliteTerms.selectPlan.Entitlement"
 												bundle="${msg}" />
 										</h4>
-										<p class="info" id="etasbi-entitlement-3"></p>
+										<p class="info" id="etasbi-entitlement-3">${etPolicyApplication.applicant.entitlement3 }</p>
 									</div>
 								</div>
 							</div>
@@ -3101,14 +3234,27 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="summary-one"></label>
 									<p class="notice">
 										<fmt:message
-											key="eliteTerms.selectPlan.I.DO.NOT.have.proposal"
+											key="eliteTerms.selectPlan.Question1.copy"
 											bundle="${msg}" />
 									</p>
 								</div>
 								<div class="fwd-checkbox below">
 									<input type="checkbox" id="summary-two" checked disabled>
 									<label for="summary-two"></label>
-									<p class="notice">
+									<p class="notice second-format">
+										<fmt:message key="eliteTerms.selectPlan.Question2.copy"
+											bundle="${msg}" />
+									</p>
+									</div>
+								</div>
+								<div class="fwd-checkbox below">
+									<input type="checkbox" id="summary-three" checked disabled>
+									<label for="summary-three"></label>
+									<p class="notice second-format">
+										<fmt:message key="eliteTerms.selectPlan.Question3.copy"
+											bundle="${msg}" />
+									</p>
+									<%--<p class="notice">
 										<fmt:message key="eliteTerms.selectPlan.I.DO.NOT.have.had"
 											bundle="${msg}" />
 									</p>
@@ -3162,16 +3308,7 @@ var home_url = "<%=request.getContextPath()%>";
 												src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message
 														key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
 										</ul>
-									</div>
-								</div>
-								<div class="fwd-checkbox below">
-									<input type="checkbox" id="summary-three" checked disabled>
-									<label for="summary-three"></label>
-									<p class="notice second-format">
-										<fmt:message key="eliteTerms.selectPlan.In.the.past.3.years"
-											bundle="${msg}" />
-									</p>
-								</div>
+								</div> --%>
 								<div class="fwd-checkbox below">
 									<input type="checkbox" id="summary-four" checked disabled>
 									<label for="summary-four"></label>
@@ -3282,6 +3419,19 @@ var home_url = "<%=request.getContextPath()%>";
 											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 											bundle="${msg}" />
 									</p>
+									<div style="margin-top:20px;">
+										<p><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks3"
+											bundle="${msg}" /></p>
+										<ul class="list-unstyled">
+											<li><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks4"
+											bundle="${msg}" /></li>
+											<li><fmt:message
+											key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks5"
+											bundle="${msg}" /></li>
+										</ul>
+									</div>
 								</div>
 
 								<div class="clearfix info-holder-below">
@@ -3443,7 +3593,7 @@ var home_url = "<%=request.getContextPath()%>";
 </div>
 <!-- END Application Wrapper -->
 <!--
-            MODAL SECTION 
+            MODAL SECTION
          -->
 <!-- GET PROMOTION CODE MODAL -->
 <div id="get-promotion-code-popup" class="modal fade login-modal"
@@ -3661,9 +3811,9 @@ var home_url = "<%=request.getContextPath()%>";
                   <div class="modal-header">
                      <h4 class="modal-title">Your request has been successfully submitted.</h4>
                   </div>
-                     
+
                   <div class="modal-body"></div>
-                  
+
                   <div class="modal-footer">
                      <a href="/" title="Back to homepage" class="btn-block">Back to homepage</a>
                      <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
@@ -3766,7 +3916,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
+				</div><!-- /.modal-dialog -->
 			</div><!--END OF CUSTOMER SERVICE MODAL--> --%>
 
 <!-- FOOTER -->
@@ -3774,7 +3924,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 <!-- JS INCLUDES -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Include all compiled plugins (below), or include individual files as needed 
+<!-- Include all compiled plugins (below), or include individual files as needed
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>-->
 <script
 	src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
@@ -3821,33 +3971,33 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
-	function msieversionCheck() { 
+	function msieversionCheck() {
 	    var ua = window.navigator.userAgent;
 	    var msie = ua.indexOf ( "MSIE " );
 	    var trident = ua.indexOf('Trident/'); // IE11
 	    var edge = ua.indexOf('Edge/'); // IE12
-	
+
 	   //if ( msie > 0 )      // If Internet Explorer, return version number
 	   //   return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
 	   //else                 // If another browser, return 0
 	   //   return 0
-	
+
 	    if (msie > 0) {
 	        // IE 10 or older => return version number
 	        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
 	    }
-	
+
 	    if (trident > 0) {
 	        // IE 11 => return version number
 	        var rv = ua.indexOf('rv:');
 	        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
 	    }
-	
+
 	    if (edge > 0) {
 	       // IE 12 => return version number
 	       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
 	    }
-	
+
 	    return 0;
 	}
 	$('#et-medi-question-4-text').on('click', function(e) {
@@ -3860,88 +4010,93 @@ var home_url = "<%=request.getContextPath()%>";
 			$('#et-medical-dec-next').prop('disabled', true);
 		}
 	});
-	
+
 	$('.checkbox-description').on('click', function(e) {
 		if($(this).parent().find(':checkbox').prop('checked')==false) {
 			$(this).parent().find(':checkbox').prop('checked',true);
+			if($(this).hasClass("marketing-info-desk") || $(this).hasClass("personal-data-desc")){
+				showBubble();
+			}
 		}
 		else {
 			$(this).parent().find(':checkbox').prop('checked',false);
+			if($(this).hasClass("marketing-info-desk") || $(this).hasClass("personal-data-desc")){
+				showBubble();
+			}
 		}
 	});
-		
+
 	$('#et-btn-before-start').on('click', function(e) {
 		//ga('create', 'UA-60032236-1', 'auto');
   	  	//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
 	});
-	
+
 	$('#et-btn-ay-self').on('click', function(e) {
 		  //ga('create', 'UA-60032236-1', 'auto');
-		  //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
+		  //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');
     });
-	
+
 	$('#promocode-hidden-button button').on('click', function(e) {
 		//ga('create', 'UA-60032236-1', 'auto');
-		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4');
 	});
-	
+
 	$('#et-brn-proceed-to-application').on('click', function(e) {
   	  	//ga('create', 'UA-60032236-1', 'auto');
-		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5'); 
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5');
 	});
-	
+
 	$('#et-medical-dec-next').on('click', function(e) {
 		//ga('create', 'UA-60032236-1', 'auto');
-        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6'); 
+        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6');
 	});
-	
+
 	$('#et-employment-info-next').on('click', function(e) {
 		putEtPageKeySession("6");
 		 //ga('create', 'UA-60032236-1', 'auto');
-		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8'); 
+		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8');
 	});
-	
+
 	$('#et-beneficiary-info-next').on('click', function(e) {
 		putEtPageKeySession("7");
 		//ga('create', 'UA-60032236-1', 'auto');
-        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9'); 
+        //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9');
 	});
-	
-	$('#et-app-sum-proceed-btn').on('click', function(e) { 
+
+	$('#et-app-sum-proceed-btn').on('click', function(e) {
 		putEtPageKeySession("8");
 		//ga('create', 'UA-60032236-1', 'auto');
-  	  	//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10'); 
+  	  	//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10');
 	});
-	
+
 	$('#et-confirm-and-sign-btn').on('click', function(e) {
 		putEtPageKeySession("9");
 		 //ga('create', 'UA-60032236-1', 'auto');
-		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11'); 
+		 //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11');
 	});
-	
+
 	$('#et-signature-proceed-btn').on('click', function(e) {
 		//ga('create', 'UA-60032236-1', 'auto');
-		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12'); 
+		//ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12');
 	});
-      
+
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');
       });
 
   		//applicant dob
-  		$(document).on('click', '#et-personal-info-next', function(e) {  			
-  			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
+  		$(document).on('click', '#et-personal-info-next', function(e) {
+  			if ($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
   				$('#eliteTermsInsuredInfoForm')
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');
   			}
-  			
-  			putEtPageKeySession("5");
-  			
+				putEtPageKeySession("5");
+
   			//ga('create', 'UA-60032236-1', 'auto');
-            //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7'); 
-  			
+            //ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7');
+
   			/*
          setTimeout(function(){
 	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
@@ -3949,13 +4104,13 @@ var home_url = "<%=request.getContextPath()%>";
 	  			    .data('bootstrapValidator')
 	  			    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
 	            }
-	  			
+
 	  			if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
 	  			    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
 	            }
-	  			
+
 	  			if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
@@ -3964,7 +4119,7 @@ var home_url = "<%=request.getContextPath()%>";
     		}, 300);
          */
   		});
-  		
+
   		$('.et-app-sum-edit').on('click', function(e) {
   			$('#et-plan-option-section').removeClass('hide-element');
   		});
@@ -4015,31 +4170,31 @@ var home_url = "<%=request.getContextPath()%>";
       }).on('success.form.bv', function(e) {
          e.preventDefault();
          var $form = $(this);
- 
+
          var $planOption = $('#et-plan-option-section');
 
          $('#et-btn-ay-self').removeClass('et-pad-bot-50');
          $('#et-about-yoursel-section').removeAttr('style');
          $planOption.removeClass('hide-element');
-         
+
          if(getWidth()>=992){
             $('.et-collapse-link[aria-expanded="true"]').parent()
                .next()
                .find('.et-panel-body')
                .jScrollPane({showArrows: true});
          }
-         
+
          $('body, html').animate({
             scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
          }, 500);
-         
+
          // Store plan detail data
          if ($('#et-gender-male').prop('checked')) {
             planDetailData.gender = 'Male';
          } else if ($('#et-gender-female').prop('checked')) {
             planDetailData.gender = 'Female';
          }
-         
+
          planDetailData.dob = $planDate.val();
       });
       $(document).ready(function() {
@@ -4056,7 +4211,7 @@ var home_url = "<%=request.getContextPath()%>";
     	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
     		  $("#et-smoker-no").click();
     	  }
-    	  
+
     	  if('${etPolicyApplication.promocode }'!=''){
     		  $('#et-dis-promo-amount').removeClass('hidden');
     		// Application PromoCode
@@ -4064,12 +4219,13 @@ var home_url = "<%=request.getContextPath()%>";
     	  }
     	  else{
     		  $('#et-dis-promo-amount').addClass('hidden');
-    		  
+
     		  $('#etaspd-monthly-premium').find('span.extra-years-remarks').addClass('hidden');
     		  $('#etaspd-monthly-premium-extra-years').addClass('hidden');
     	  }
     	  if(escape('${goApp}')!=null && escape('${goApp}')=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
+
   			  //$('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
   			  $('#et-about-yoursel-section').addClass('hide-element');
   			  $('#et-btn-ay-self').removeClass('et-pad-bot-50');
@@ -4121,7 +4277,7 @@ var home_url = "<%=request.getContextPath()%>";
                } else{
                   $('#R2').slider('setValue', curr_insured_amt);
                }
-            } 
+            }
          });
         $('#R2').on('change', resetCalculatedAmt);
 
@@ -4142,11 +4298,9 @@ var home_url = "<%=request.getContextPath()%>";
          }
 
       });
-  
+
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
-		    	  putEtPageKeySession("3");
-		    	  
 		    	  $.ajax({
 		 			  type : "POST",
 		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
@@ -4160,8 +4314,10 @@ var home_url = "<%=request.getContextPath()%>";
 		 			  success : function(data) {
 		 			  }
 	 		      });
-		    	  
+
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+	    	    	 putEtPageKeySession("3");
+
 	    	    	 var $appInfo = $('#et-application-first-section');
 	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
 	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
@@ -4169,7 +4325,7 @@ var home_url = "<%=request.getContextPath()%>";
 			                  .css('margin-bottom', '190px');
 			         $aboutYourselfSec.addClass('hide-element');
 			         $etPlanOptionSec.addClass('hide-element');
-			         
+
 			         $('body, html').animate({
 			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 			         }, 500);
@@ -4184,31 +4340,31 @@ var home_url = "<%=request.getContextPath()%>";
 					$('#loginpopup').modal('show');
 				 }
 		      });
-		      
+
 		      $('#et-medical-dec-next').on('click', function(e) {
 		    	  putEtPageKeySession("4");
-		    	  
+
 		    	  var $hideMedicalDec = $('#et-medical-declaration');
 		    	  var $etAppInfoSec = $('#et-application-info-section');
 		    	  var $etAppPageDiv = $('#et-application-info-section .page-divider');
 
 		    	  $hideMedicalDec.addClass('hide-element');
 		    	  $etAppPageDiv.addClass('hide-element');
-		    	  
+
 		    	  $('body, html').animate({
 		            scrollTop: ($etAppInfoSec.offset().top - stickyHeight) + 'px'
 		         }, 500);
 		      });
-		      
-		      // Hiding Plan Option		      
+
+		      // Hiding Plan Option
 		      $('.et-gender-main-div input[type=radio]').change(function(){
 		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
-		    	  
+
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
 		    		  putEtPageKeySession("2");
-		    		  
+
 		    		  $.ajax({
 			 			  type : "POST",
 			 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
@@ -4224,29 +4380,29 @@ var home_url = "<%=request.getContextPath()%>";
 		 		      });
 			      });
 		      });
-		      
+
 		      // Datepicker
 		      $('#et-select-plan-date-input').datepicker().on("input change", function (e) {
 		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
-		    	  
+
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
 			      });
 				});
-		      
-		      
+
+
 		      $('#edit-birthday').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.addClass('hide-element');
 		      });
-		      
-		      
+
+
 		      $('#edit-gender').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.addClass('hide-element');
 		      });
-		      
+
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
 		    	  var $etPersonInfo = $('.et-personal-info');
 		    	  $etPersonInfo.removeClass('hide-element');
@@ -4320,14 +4476,14 @@ var home_url = "<%=request.getContextPath()%>";
                                    return {
                                        valid: false,
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }                          
+                                   }
                                }
-                               
+
                               // Remove Email Error message as well
                               $('#et-cust-serv-form')
                                    .data('bootstrapValidator')
                                    .updateStatus('email','VALID');
-                              
+
                               return true;
                            }
                         }
@@ -4361,9 +4517,9 @@ var home_url = "<%=request.getContextPath()%>";
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
                   var $form = $(this);
-          
+
                    $('.modal').modal('hide');
-                   
+
                      var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
@@ -4372,13 +4528,13 @@ var home_url = "<%=request.getContextPath()%>";
 	               	var enquiryType = $('#enquiry').val();
 	               	var channel = $("#channel").val();
 	               	var product = "eliteterm";
-	               	
+
 	               	if(name ==null){
 	               		console.log("data error");
 	               	}
 	               	else{
 	               		$.get(contextPath+'/ajax/eliteTerm/contactCs',
-	               		{ 
+	               		{
 	               			name : name,
 	               			email : email,
 	               			mobile : mobile,
@@ -4404,10 +4560,10 @@ var home_url = "<%=request.getContextPath()%>";
 
             function getAge(year, month, day)
             {
-                var now = new Date()    
+                var now = new Date()
                 var age = now.getFullYear() - year
-                var mdif = now.getMonth() - month + 1 //0=jan    
-                
+                var mdif = now.getMonth() - month + 1 //0=jan
+
                 if(mdif < 0)
                 {
                     --age
@@ -4415,15 +4571,15 @@ var home_url = "<%=request.getContextPath()%>";
                 else if(mdif == 0)
                 {
                     var ddif = now.getDate() - day
-                    
+
                     if(ddif < 0)
                     {
                         --age
                     }
                 }
                 return age
-            }            
-                        
+            }
+
             function isEmailEmpty(number) {
                var isNotEmpty = false;
                var pref = number.split("");
@@ -4434,7 +4590,7 @@ var home_url = "<%=request.getContextPath()%>";
                }
                return isNotEmpty;
             }
-            
+
             function getPromoteCode() {
             	if(validate_promo_val()){
             		$.ajax({
@@ -4785,9 +4941,9 @@ var home_url = "<%=request.getContextPath()%>";
 												+ "</option>");
 							});
 		}
-		
+
 	}
-	
+
 	$(document).ready(function() {
 		var isOwnEstate = '${etPolicyApplication.applicant.beneficiaryInfo }';
 		if(isOwnEstate == 'name-others-now' || '${etPolicyApplication.applicant.firstName1 }' != ''){
@@ -4796,18 +4952,27 @@ var home_url = "<%=request.getContextPath()%>";
 		else{
 			$("#own-estate-now").click();
 		}
-		
+
 		  if('${etPageKey }' == '1'){
 			  backToStep(1);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-about-yoursel-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
-		  if('${etPageKey }' == '2'){
+		  if('${etPageKey }' == '2' && escape('${goApp}')!=null && escape('${goApp}')=='yes'){
+			  backToStep(3);
+			  $('body, html').animate({
+		          scrollTop: ($('#et-application-first-section').offset().top - stickyHeight) + 'px'
+		      }, 500);
+		  }
+		  else if('${etPageKey }' == '2' && (escape('${goApp}')==null || escape('${goApp}')!='yes')){
 			  backToStep(2);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-plan-option-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
+		  }
+		  if('${etPageKey }' >= '3'){
+			  medicalDeclaration();
 		  }
 		  if('${etPageKey }' == '3'){
 			  backToStep(3);
@@ -4828,29 +4993,61 @@ var home_url = "<%=request.getContextPath()%>";
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '6'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+
 			  backToStep(6);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '7'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+			  storeBeneficiaryInfo();
+              populateAppSummBI();
+
 			  backToStep(7);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-second-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
 		  }
 		  if('${etPageKey }' == '8'){
+			  storeEmpInfo();
+       	      populateAppSummEI();
+			  storeBeneficiaryInfo();
+              populateAppSummBI();
+
 			  backToStep(8);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
 		      }, 500);
+
+			// Set timer for confirm and sign button
+			var $confirmSignWait = $('#et-confirm-and-sign-wait-btn');
+			var $confirmSign = $('#et-confirm-and-sign-btn');
+	         var waitSecond = 0;
+	         if (waitSecond <= 0) {
+		         waitSecond = parseInt($confirmSignWait.data('wait'), 10);
+		         $confirmSignWait.text('(' + waitSecond + ')');
+		         var waitInterval = setInterval(function(){
+		        	 waitSecond--;
+		        	 $confirmSignWait.text('(' + waitSecond + ')');
+		        	 if (waitSecond <= 0) {
+		        		 $confirmSignWait.addClass('hide');
+		        		 $confirmSign.removeClass('hide');
+		        		 clearInterval(waitInterval);
+		        	 };
+		         }, 1000);
+	      	}
+
 		  }
 		  if('${etPageKey }' == '9'){
 			  if (!$("#signature").find('canvas').length) {
 
 		            // determine signature pad height
 		            var $jSignatureCan = $('.jSignature');
-		            
+
 		            var sigHeight = '350px';
 		            if (getWidth() < 992) {
 		              sigHeight = '260px';
@@ -4858,12 +5055,12 @@ var home_url = "<%=request.getContextPath()%>";
 
 		            // Initialize signature area
 		            $("#signature").jSignature({
-		               height: sigHeight, 
+		               height: sigHeight,
 		               width: '100%',
 		               'decor-color': 'transparent',
 		            }).on('change', function(e) {
 		               var $self = $(this);
-		               
+
 		               if ($("#signature").jSignature('getData', 'native').length) {
 		                  $self.siblings('.correct-signature')
 		                        .removeClass('hide-element');
@@ -4876,7 +5073,7 @@ var home_url = "<%=request.getContextPath()%>";
 		               }
 		            });
 			  }
-			  
+
 			  backToStep(9);
 			  $('body, html').animate({
 		          scrollTop: ($('#et-application-fourth-section').offset().top - stickyHeight) + 'px'
@@ -4894,7 +5091,7 @@ var home_url = "<%=request.getContextPath()%>";
 			}
 		}
 	});
-	
+
 $("#add-beneficiary-button-2").click(function(){
 	$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
 
@@ -4988,7 +5185,7 @@ $("#add-beneficiary-button-3").click(function(){
 		// Initialize placeholder
 		$('#beneficiaryInfoForm\\[2\\] input').placeholder();
 });
-			
+
 function addFormBeneficiary (counter) {
 	var fm_label_beneficiary	= fmTranslation('beneficiary.lable.beneficiary');
 	var fm_label_beneficiary_p2	= fmTranslation('beneficiary.lable.beneficiary.p2');
@@ -5018,12 +5215,12 @@ function addFormBeneficiary (counter) {
 	var fm_error_dup_chi_name	= fmTranslation('beneficiary.error.duplicate.chinese.name');
 	var fm_error_dup_hkid	= fmTranslation('beneficiary.error.duplicate.hkid');
 	var fm_error_dup_passport	= fmTranslation('beneficiary.error.duplicate.passport');
-	
+
 	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
 
 	var counterPlus = parseInt(counter)+1;
 	var fm_counter_label = (counterPlus==2)?fm_label_beneficiary_p2:fm_label_beneficiary_p3;
-	
+
 	var firstName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.firstName2}":"${etPolicyApplication.applicant.firstName3}";
 	var lastName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.lastName2}":"${etPolicyApplication.applicant.lastName3}";
 	var chineseName_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.chineseName2}":"${etPolicyApplication.applicant.chineseName3}";
@@ -5033,7 +5230,7 @@ function addFormBeneficiary (counter) {
 	var gender_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.gender2}":"${etPolicyApplication.applicant.gender3}";
 	var relationship_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.relationship2}":"${etPolicyApplication.applicant.relationship3}";
 	var entitlement_if_exist = (counterPlus==2)?"${etPolicyApplication.applicant.entitlement2}":"${etPolicyApplication.applicant.entitlement3}";
-	
+
 	console.log('firstName_if_exist: '+firstName_if_exist);
 	console.log('lastName_if_exist: '+lastName_if_exist);
 	console.log('chineseName_if_exist: '+chineseName_if_exist);
@@ -5074,7 +5271,7 @@ function addFormBeneficiary (counter) {
 		+'<div class="pull-left select">'
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
-		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']" name="beneficiaryHkidPassport['+counter+']">'
 		+'<option disabled value="" '+((beneficiaryHkidPassport_if_exist!='HKID' && beneficiaryHkidPassport_if_exist!='Passport')?'selected="selected"':'') +'>' + fm_option_select + '</option>'
 		+'<option value="HKID" '+(beneficiaryHkidPassport_if_exist=='HKID'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>'
 		+'<option value="Passport" '+(beneficiaryHkidPassport_if_exist=='Passport'?'selected="selected"':'') +'><fmt:message key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>'
@@ -5084,7 +5281,7 @@ function addFormBeneficiary (counter) {
 		+'</div>'
 		+'</div>'
 		+'<div class="pull-left input">'
-		+'<input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
+		+'<input class="form-control gray-textbox capitalize placeholder-lower" type="text" autocomplete="off" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="'+hkId_if_exist+'">'
 		+'<input class="form-control gray-textbox capitalize hidden" type="text" autocomplete="off" placeholder="' + fm_placeholder_passport + '" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="'+passportNo_if_exist+'">'
 		+'</div>'
 		+'</div>'
@@ -5143,5 +5340,38 @@ function addFormBeneficiary (counter) {
     });
 
 	changeColorRadioButtonLabel (counter);
+}
+
+$("#anchor-lang").click(function(e){
+	e.preventDefault();
+	var beneFormdata = $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+					   $('#beneficiaryInfoForm\\[2\\]').serialize();
+	$.ajax({
+        type: "POST",
+        url:'<%=request.getContextPath()%>/ajax/eliteTerm/putBeneficiaryInfoSession',
+        data: beneFormdata,
+        success:function(data){
+	        var switchUrl = "";
+	        if('${language }' == 'en'){
+	        	switchUrl = '<%=request.getContextPath()%>/tc/term-life-insurance/select-plan';
+	        }
+	        else{
+	        	switchUrl = '<%=request.getContextPath()%>/en/term-life-insurance/select-plan';
+	        }
+			window.location = switchUrl;
+	    }
+	});
+})
+
+function medicalDeclaration(){
+	$("#medi-question-no-1").click();
+	setTimeout(function () {
+		$("#medi-question-no-2").click();
+    }, 500);
+	setTimeout(function () {
+		$("#medi-question-no-3").click();
+    }, 1000);
+	$("#et-medi-question-4").click();
 }
 </script>

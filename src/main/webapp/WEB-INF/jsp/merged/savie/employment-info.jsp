@@ -34,9 +34,9 @@ var languageP = "${language}";
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
-			    	<c:set var="breadcrumbActive">3</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
@@ -259,7 +259,7 @@ var languageP = "${language}";
 									<div id="employerNameDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" autocomplete="off" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
 										</div>
 										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>
@@ -529,6 +529,15 @@ var languageP = "${language}";
 					if('${fn:length(etAmountOtherSourceEN)}' == '1'){
 						setSelectReadonly('tmpOtherIncomeAmount', true);
 					}
+				}else if('${plan }' == 'medical-insurance'){
+					setStyleOfIsNotActive('tmpEmploymentStatus');
+					setStyleOfIsNotActive('tmpBusinessNature');
+					setStyleOfIsNotActive('tmpOccupation');
+					setStyleOfIsNotActive('tmpEducationLevel');
+					setStyleOfIsNotActive('tmpLiquidAssetsAmount');
+					setStyleOfIsNotActive('other-occupation');
+					setStyleOfIsNotActive('tmpMonthlyPersonalIncome');
+					setStyleOfIsNotActive('tmpOtherIncomeAmount');
 				}
 				
 				var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';

@@ -33,7 +33,7 @@
     <!-- End of LiveChat code -->
   </c:otherwise>
 </c:choose>
-
+<link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 <!--mob bottom-->
 <div class="footer-container">
     <div class="footer-container__top-wrapper container">
@@ -104,6 +104,22 @@
   </div>
 </div>
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
+<jsp:include page="/WEB-INF/jsp/merged/comp/notification.jsp" />
+
 <script>
 $(function() {
     $('input, textarea').placeholder();
@@ -137,9 +153,48 @@ $(function() {
     ogDesc = (ogDesc=='')?defaultOg[UILANGUAGE]['desc']:ogDesc;
     ogUrl = (ogUrl=='')?defaultOg[UILANGUAGE]['url']:ogUrl;
     ogImg = (ogImg=='')?defaultOg[UILANGUAGE]['img']:ogImg;
+    
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1684174765175679',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
 
-    $('#fb-dialog-share').click(function(e) {
-    	window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + ogTitle + '&p[summary]=' + ogDesc + '&p[url]=' + ogUrl + '&p[images][0]=' + ogImg, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1684174765175679',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+    function fbShare(method,name,link,picture,description){
+      FB.ui({
+        method: method,
+        display: 'iframe',
+        href: link,
+        mobile_iframe: true
+      },
+    function(response) {
+      if (response && response.post_id) {
+        console.log('Post was published.'+ response);
+      } else {
+        console.log('Post was not published.' + response);
+      }
+    });    
+    }
+    $('#fb-dialog-share').on("click",function(){
+      fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
     });
 
     /*
@@ -153,26 +208,29 @@ $(function() {
     }
     $(window).scroll(navbarLogoSticky);
     */
+	////Notification Start////
+	var ieversion = msieversion();
+	if(ieversion !=0 && ieversion <=9){
+		show_stack_bar_top('<fmt:message key="system.errorbox.ie.title" bundle="${msg}" />','<fmt:message key="system.errorbox.ie.content" bundle="${msg}" />');
+	}
+	////Notificaiton End////
 });
+
+function msieversion() {
+	   var ua = window.navigator.userAgent
+	   var msie = ua.indexOf ( "MSIE " )
+
+	   if ( msie > 0 )      // If Internet Explorer, return version number
+	      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+	   else                 // If another browser, return 0
+	      return 0
+}
 
 $('#timeout-btn').on('click', function(e) {
   window.location.href= contextPath+'/'+language;
 });
 
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/number-spinner.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>
 
 <!-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/custom.js"></script> -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
@@ -194,6 +252,5 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 }
 %>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
-<script src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>

@@ -24,18 +24,18 @@ var language = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">			
+		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">
 
         <!-- Breadcrumb Component Start-->
 
-		    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+		    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
 			<c:set var="breadcrumbActive" value="0" />
 
 		    <c:if test="${planIndex == 'medical-insurance'}">
 		    	<c:set var="breadcrumbItems">
-		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+		    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 				</c:set>
-		    	<c:set var="breadcrumbActive">3</c:set>
+		    	<c:set var="breadcrumbActive">4</c:set>
 		    </c:if>
 		    <c:if test="${planIndex == 'savings-insurance'}">
 		    	<c:set var="breadcrumbItems">
@@ -53,7 +53,7 @@ var language = "${language}";
 
 		<!-- StepIndicator Component Start-->
 
-	     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+	     	<c:set var="stepItems" value="stepindicator.selectplan" />
 			<c:set var="stepActive" value="0" />
 
 			<c:if test="${planIndex == 'medical-insurance'}">
@@ -86,23 +86,23 @@ var language = "${language}";
                <h5><fmt:message key="label.selectedplan" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/${backPlanUrl }?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
 					<div class="form-group application-summ">
 						<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
-							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
+							<!--input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }" readonly="readonly" /-->
+							<div class="mdl-textfield__input so-mdl-textfield-input planName-text" type="text" autocomplete="off" value="">${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }</div>
 							<label class="mdl-textfield__label planName-label" for="planName"><fmt:message key="Placeholder.planname" bundle="${msg}" /></label>
-							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'自助息':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
+							<input type="hidden" id="planName" name="planName" value="${plan == 'savings-insurance' ? language == 'en' ? 'SAVIE':'Savie自助息理財壽險':language == 'en' ? selectPlan.planNameEn:selectPlan.planNameCn }">
 						</div>
 					</div>
 					<div class="desktop-left">
 						<div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ ${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount1:selectPlan.monthlyPremium}" readonly="readonly" />
-								<label class="mdl-textfield__label" for="savingAmount"><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></label>
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="savingAmount" name="savingAmount" value="HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${plan == 'savings-insurance' ? saviePlanDetails.insuredAmount:selectPlan.monthlyPremium}" />" readonly="readonly" />
+								<label class="mdl-textfield__label" for="savingAmount"><c:choose><c:when test="${planIndex == 'medical-insurance'}"><fmt:message key="Placeholder.medical.amount" bundle="${msg}" /></c:when><c:otherwise><fmt:message key="Placeholder.savingamount" bundle="${msg}" /></c:otherwise></c:choose></label>
 							</div>
 						</div>
                </div>
                <div class="desktop-right">
                   <div class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active ${planIndex=='medical-insurance'?'hidden':''}">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></label>
 								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
 									<option value="" ><fmt:message key="Placeholder.premiummode" bundle="${msg}" /></option>
@@ -115,7 +115,7 @@ var language = "${language}";
                </div>
             </div>
             <div class="summary-section below clearfix">
-               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
+               <h5><fmt:message key="label.personalinfo" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/${plan }/personal-details?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
                <div class="desktop-left">
                   <div class="form-group application-summ">
 							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
@@ -292,6 +292,14 @@ var language = "${language}";
 								<input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
 							</div>
 						</div>
+						<input class="mdl-textfield__input so-mdl-textfield-input" type="hidden" autocomplete="off" id="theClubMembershipNo" name="theClubMembershipNo" value="" readonly="readonly" />
+						<%--<div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="theClubMembershipNo" name="theClubMembershipNo" value="${lifePersonalDetails.theClubMembershipNo }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="theClubMembershipNo"><fmt:message key="club.membership.number" bundle="${msg}" /></label>
+							</div>
+						</div>--%>
+
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
@@ -306,41 +314,10 @@ var language = "${language}";
 								</select>
 								<input type="hidden" id="employmentStatus" name="employmentStatus" />
 							</div>
-						</div>
-                  <div id="natureOfBusinessDiv" class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active">
-								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
-								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
-									<option value=""><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}">${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}</option>
-								</select>
-								<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" />
-							</div>
-						</div>
-                  <div id="occupationDiv" class="form-group application-summ">
-							<div class="selectDiv centreDiv gray-text-bg is-not-active">
-								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
-								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
-									<option value=""><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
-									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}">${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}</option>
-								</select>
-								<input type="hidden" id="occupation" name="occupation" />
-							</div>
-						</div>
-                  <div id="otherOccupationDiv" class="form-group application-summ">
-							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
-							</div>
-						</div>
+					</div>
+
                </div>
                <div class="desktop-right">
-                  <div id="employerNameDiv" class="form-group application-summ">
-							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
-								<label class="mdl-textfield__label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label>
-							</div>
-						</div>
                   <div id="monthlyPersonalIncomeDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></label>
@@ -350,8 +327,50 @@ var language = "${language}";
 								</select>
 								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
 							</div>
-						</div>
-                  <div class="form-group application-summ">
+					</div>
+                  <div id="spaceHolder" class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
+									<option value=""><fmt:message key="placeholder.monthly.personal.income" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}">${language == 'en' ? lifeEmploymentInfo.monthlyPersonalIncomeEnName:lifeEmploymentInfo.monthlyPersonalIncomeCnName}</option>
+								</select>
+								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
+							</div>
+					</div>
+               </div>
+				<div id="employerNameDiv" class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label>
+							</div>
+				</div>
+                  <div id="natureOfBusinessDiv" class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></label>
+								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
+									<option value=""><fmt:message key="placeholder.nature.of.business" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}">${language == 'en' ? lifeEmploymentInfo.natureOfBusinessEnName:lifeEmploymentInfo.natureOfBusinessCnName}</option>
+								</select>
+								<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" />
+							</div>
+					</div>
+                  <div id="occupationDiv" class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg is-not-active">
+								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.occupation" bundle="${msg}" /></label>
+								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
+									<option value=""><fmt:message key="placeholder.occupation" bundle="${msg}" /></option>
+									<option disabled="disabled" selected="selected" value="${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}">${language == 'en' ? lifeEmploymentInfo.occupationEnName:lifeEmploymentInfo.occupationCnName}</option>
+								</select>
+								<input type="hidden" id="occupation" name="occupation" />
+							</div>
+					</div>
+                  <div id="otherOccupationDiv" class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.otherOccupation }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
+							</div>
+					</div>
+                  	<div id ="educationLevel" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.education.level" bundle="${msg}" /></label>
 								<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
@@ -360,9 +379,10 @@ var language = "${language}";
 								</select>
 								<input type="hidden" id="education" name="education" />
 							</div>
-						</div>
-						
-						<div id="amountOfOtherSourceOfIncomeDiv" class="form-group application-summ">
+					</div>
+
+					<div class="desktop-left">
+					<div id="amountOfOtherSourceOfIncomeDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.other.sources.of.income" bundle="${msg}" /></label>
 								<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
@@ -371,8 +391,9 @@ var language = "${language}";
 								</select>
 								<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" />
 							</div>
-						</div>
-						
+					</div>
+					</div>
+					<div class="desktop-right">
 						<div id="amountOfLiquidAssetsDiv" class="form-group application-summ">
 							<div class="selectDiv centreDiv gray-text-bg is-not-active">
 								<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></label>
@@ -383,7 +404,7 @@ var language = "${language}";
 								<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" />
 							</div>
 						</div>
-               </div>
+					</div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
                <h5><fmt:message key="savie.application.Beneficiary.info" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/${plan }/beneficiary-info?backSummary=Y"><fmt:message key="label.edit" bundle="${msg}" /></a></h5>
@@ -403,7 +424,7 @@ var language = "${language}";
 			       </c:when>
 			       <c:otherwise>
 			          <c:if test="${lifeBeneficaryInfo.beneficaryFirstName1 != '' }">
-				          <div class="summary-section inner-beneficiary clearfix">   
+				          <div class="summary-section inner-beneficiary beneficiary-first clearfix">
 				               <span class="person-count first-person"><fmt:message key="label.bene1" bundle="${msg}" /></span>
 				               <div class="desktop-left">
 				                  <div class="form-group application-summ">
@@ -638,9 +659,20 @@ var language = "${language}";
                </div>
             </div>
             </c:if>
-
+			<c:if test="${plan == 'medical-insurance'}">
+			<div class="clearfix">
+				<h5><fmt:message key="label.confirm.Insurance" bundle="${msg}" /></h5>
+				<ul>
+					<li><fmt:message key="underwriting.question.q1.copy" bundle="${msg}" /></li>
+					<li><fmt:message key="underwriting.question.q2.copy" bundle="${msg}" /></li>
+					<li><fmt:message key="underwriting.question.q3.copy" bundle="${msg}" /></li>
+				</ul>
+				<fmt:message key="underwriting.declaration" bundle="${msg}" />
+			</div>
+			</c:if>
             <div class="text-center clearfix">
-               <button class="btn savie-common-btn" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
+					<button id="next-wait-btn" type="button" class="btn savie-common-btn" data-wait="10" disabled></button>
+               <button id="next-btn" class="btn savie-common-btn hide" type="button" onclick="goNext()"><fmt:message key="button.Next" bundle="${msg}" /></button>
                 <c:if test="${plan == 'savings-insurance'}">
                    <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
                	   <span><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></span></a>
@@ -681,7 +713,7 @@ var language = "${language}";
       <!-- Application saved modal -->
       <div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog" id="modal-save-app">
-         <div class="modal-content modal-content-appsave common-welcome-modal">  
+         <div class="modal-content modal-content-appsave common-welcome-modal">
              <div class="modal-header" id="modal-header-appsave">
              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
@@ -699,7 +731,7 @@ var language = "${language}";
 		<script type="text/javascript">
 			var language = "en";
 			var getpath = "<%=request.getContextPath()%>";
-			
+
 			function goNext(){
 					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
 			}
@@ -713,6 +745,7 @@ var language = "${language}";
 				$('#employerNameDiv').addClass('hidden');
 				$('#monthlyPersonalIncomeDiv').addClass('hidden');
 				$('#otherOccupationDiv').addClass('hidden');
+				$('#spaceHolder').removeClass('hidden');
 			}
 			else{
 				$('#amountOfOtherSourceOfIncomeDiv').addClass('hidden');
@@ -721,6 +754,9 @@ var language = "${language}";
 				$('#occupationDiv').removeClass('hidden');
 				$('#employerNameDiv').removeClass('hidden');
 				$('#monthlyPersonalIncomeDiv').removeClass('hidden');
+
+				$('#spaceHolder').addClass('hidden');
+
 				if('${savieFna.nature_of_business }' == 'NoB23' && '${savieFna.occupation }' == 'NoBD16' && '${savieFna.occupation_others }' != null && '${savieFna.occupation_others }' != ''){
 					$('#otherOccupationDiv').removeClass('hidden');
 				}
@@ -728,9 +764,9 @@ var language = "${language}";
 					$('#otherOccupationDiv').addClass('hidden');
 				}
 			}
-         
-         
-         
+
+
+
       	// set fields whether editable or not
 			// Your selected plan block
 			setInputReadonly('planName', true);
@@ -761,6 +797,7 @@ var language = "${language}";
 			setInputReadonly('correspondenceAddress2', true);
 			setInputReadonly('correspondenceAddress3', true);
 			setSelectReadonly('tmpCorrespondenceDistrict', true);
+			setInputReadonly('theClubMembershipNo', true);
 			//Employment info
 			setSelectReadonly('tmpEmploymentStatus', true);
 			setSelectReadonly('tmpBusinessNature', true);
@@ -800,22 +837,42 @@ var language = "${language}";
 			setSelectReadonly('tmpBankName', true);
 			setInputReadonly('accountNo', true);
 			setSelectReadonly('tmpBranchName', true);
+
+
+			// Set timer for confirm and sign button
+			var $next_btn = $('#next-btn');
+			var $next_wait_btn = $('#next-wait-btn');
+			var waitSecond = 0;
+			if (waitSecond <= 0) {
+				waitSecond = parseInt($next_wait_btn.data('wait'), 8);
+				$next_wait_btn.text('(' + waitSecond + ')');
+				var waitInterval = setInterval(function(){
+					waitSecond--;
+					$next_wait_btn.text('(' + waitSecond + ')');
+					if (waitSecond <= 0) {
+						$next_wait_btn.addClass('hide');
+						$next_btn.removeClass('hide');
+						clearInterval(waitInterval);
+					};
+				}, 1000);
+			}
+
 		});
-		
+
 		$('.save-exit-btn1').click(function() {
 			$('#save-and-continue-modal').modal('hide');
 		});
-        
+
         $('#keep-going-btn').click(function() {
 			$('#save-and-continue-batch5-modal').modal('hide');
 		});
-		
+
 		//full fill type = 2
 		$('#save-exit-btn').click(function() {
 			$("#errorMsg").html("");
 			$.ajax({
 				  type : "POST",
-				  async:false, 
+				  async:false,
 				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/applicationSummarySaveforLater",
 				  success : function(data) {
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
@@ -830,7 +887,7 @@ var language = "${language}";
 				  }
 		    });
 		});
-		
+
 		$('#btn-app-save').click(function() {
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});

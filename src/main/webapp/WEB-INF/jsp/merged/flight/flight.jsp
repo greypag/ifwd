@@ -246,7 +246,7 @@ $(document).ready(function() {
                           <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
                          </label> 
                       </div>
-                      <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
+                      <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_desk"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
@@ -254,7 +254,7 @@ $(document).ready(function() {
                         data-toggle="tooltip" data-placement="bottom"
                         title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label>
+                        alt="" style="height: 20px; width:20px;"></a></label>
                           </label>
                       </div>
                       <div class="clearfix"></div>
@@ -412,7 +412,7 @@ $(document).ready(function() {
                         data-toggle="tooltip" data-placement="bottom"
                         title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label>
+                        alt="" style="height: 20px; width: 20px;"></a></label>
            </label> 
           </div>
           <div class="clearfix"></div>
@@ -842,6 +842,11 @@ $(document).ready(function() {
   </div>
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
+
+  <div class="content-disclaimer">
+     <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+  </div>
+
 <section class="blog-item hidden-sm hidden-xs">
   <div class="container pad-none">
     <div class="center">
@@ -952,7 +957,7 @@ $(document).ready(function() {
                           <label for="personal_plan_btm"> <fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
                          </label> 
                       </div>
-                      <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
+                      <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>>
                           <label for="family_plan_btm"><fmt:message key="flight.main.quote.plan2" bundle="${msg}" /><a
@@ -960,9 +965,9 @@ $(document).ready(function() {
                         data-toggle="tooltip" data-placement="bottom"
                         title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a></label>
+                        alt="" style="height: 20px; width: 20px;"></a></label>
                           </label>
-                      </div>
+                      </div>	
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->

@@ -35,9 +35,9 @@ var languageP = "${language}";
 
 				    <c:if test="${planIndex == 'medical-insurance'}">
 				    	<c:set var="breadcrumbItems">
-				    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+				    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 						</c:set>
-				    	<c:set var="breadcrumbActive">3</c:set>
+				    	<c:set var="breadcrumbActive">4</c:set>
 				    </c:if>
 				    <c:if test="${planIndex == 'savings-insurance'}">
 				    	<c:set var="breadcrumbItems">
@@ -525,6 +525,11 @@ var languageP = "${language}";
 									</a>
 								</c:if>
 							</div>
+							<div class="col-xs-12 submit__error">
+                                <div class="text-center">
+                                    <span class="submit__errormsg" id="submit__errormsg">Testing</span>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -606,7 +611,7 @@ var languageP = "${language}";
 				$("#own-estate-id").click();
 				$('#beneficiary-contents').addClass('hidden');
 				$('.add-on-beneficiary').addClass('hidden');
-				$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+				//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 			}
 
 			//init next button text
@@ -643,7 +648,7 @@ var languageP = "${language}";
 			// application saved modal will show after clicking 'Save and exit' button 
 			// no full fill type = 1
 			$('.save-exit-btn2').click(function() {
-				$("#errorMsg").html("");
+				showSubmitError('', false);
 				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 				   $('#beneficiary-info-form\\[2\\]').serialize()+"&type="+1;
@@ -655,7 +660,7 @@ var languageP = "${language}";
 					  success : function(data) {
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $('#save-and-continue-modal').modal('hide');
-							  show_stack_bar_top(data.errorMsg);
+							  showSubmitError(data.errorMsg, true);
 						  }
 						  else{
 							  $('#save-and-continue-modal').modal('hide');
@@ -714,8 +719,30 @@ var languageP = "${language}";
 				$('.selectDiv .gray-dropdown').removeClass('ie-select');
 			}
 			
+			var form1Valid = true;
+			var form2Valid = true;
+			$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+			if(isBeneficiary2Hidden()!="hidden"){
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+				$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
+				form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
+			}
+	        if(isBeneficiary3Hidden()!="hidden"){
+	        	$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
+	        	$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
+	        	$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
+	                form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
+	        }
+			
 			$('#bf-save-and-con-later').on('click', function (e) {
-				if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
+				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
+					$('#save-and-continue-batch5-modal').modal('show');
+				}
+				else{
+					$('#save-and-continue-modal').modal('show');
+				}
+				
+				/* if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
 					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
 				}
 				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
@@ -723,7 +750,7 @@ var languageP = "${language}";
 				if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 				   $('#save-and-continue-batch5-modal').modal('show');           
 				} else {
-					$('#save-and-continue-modal').modal('show');
+					
 				}
 				// second form
 				if($('#beneficiary-info-form\\[1\\]').length == 0) {
@@ -744,26 +771,11 @@ var languageP = "${language}";
 				   $('#save-and-continue-batch5-modal').modal('show');           
 				} else {
 					$('#save-and-continue-modal').modal('show');
-				}
+				} */
          });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function() {
- 				var form1Valid = true;
-				var form2Valid = true;
-				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-				if(isBeneficiary2Hidden()!="hidden"){
-					$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-					$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
-					form1Valid = $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid();
-				}
-            if(isBeneficiary3Hidden()!="hidden"){
-            	$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
-            	$('#beneficiary-info-form\\[1\\]').bootstrapValidator('validate');
-            	$('#beneficiary-info-form\\[2\\]').bootstrapValidator('validate');
-                    form2Valid = $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid();
-            }
-				//if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()){
 				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
-					$("#errorMsg").html("");
+					showSubmitError('', false);
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
 								   $('#beneficiary-info-form\\[2\\]').serialize();
@@ -774,7 +786,15 @@ var languageP = "${language}";
 						  data: formdata,
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  show_stack_bar_top(data.errorMsg);
+									var bene_errmsg = '';
+									if( data.errorMsg == "Beneficiary's HKID cannot be the same as Insured Person's HKID."){
+										bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.same.message");
+							  	  	} else if( data.errorMsg == "Beneficiary's HKID No. cannot be duplicated."){
+							  	  		bene_errmsg = getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message");
+							  	  	} else {
+							  	  		bene_errmsg = data.errorMsg;
+							  	  	}
+									showSubmitError(bene_errmsg, true);
 							  }
 							  else{
 								  if('${backSummary}'=="Y"){
@@ -838,17 +858,16 @@ var languageP = "${language}";
 									 regexp: /^[\s\u4e00-\u9fa5]*$/,
 									 message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								  },
-								  remote:{
-				                    	message: 'Some input information contains simplified Chinese',
-					                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-					                	type: "get",
-					                	dataType: "json",
-					                	data: {
-					                		str: function() {
-					                	        return $("#beneficiaryChineseName\\[2\\]").val();
-					                	    }
-					                	}
-					                },
+								  //remote:{
+				                  //  	message: '<fmt:message key="error.chinese.name.simplified" bundle="${msg}" />',
+					              //  	type: "get",
+					              // 	dataType: "json",
+					              //  	data: {
+					              //  		str: function() {
+					              //  	        return $("#beneficiaryChineseName\\[2\\]").val();
+					              //  	    }
+					               // 	}
+					                //},
 								  callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1039,17 +1058,6 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								remote:{
-			                    	message: 'Some input information contains simplified Chinese',
-				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-				                	type: "get",
-				                	dataType: "json",
-				                	data: {
-				                		str: function() {
-				                	        return $("#beneficiaryChineseName\\[1\\]").val();
-				                	    }
-				                	}
-				                },
 								callback: {
 									callback: function (value, validator) {
 										return true;		                	  
@@ -1259,17 +1267,6 @@ var languageP = "${language}";
 									regexp: /^[\s\u4e00-\u9fa5]*$/,
 									message: '<fmt:message key="error.bene.chinese.name.invalid" bundle="${msg}" />'
 								},
-								remote:{
-			                    	message: 'Some input information contains simplified Chinese',
-				                	url: "<%=request.getContextPath()%>/ajax/validateSimpleChinese",
-				                	type: "get",
-				                	dataType: "json",
-				                	data: {
-				                		str: function() {
-				                	        return $("#beneficiaryChineseName\\[0\\]").val();
-				                	    }
-				                	}
-				                },
 								trigger: 'change keyup'
 							}
 						},

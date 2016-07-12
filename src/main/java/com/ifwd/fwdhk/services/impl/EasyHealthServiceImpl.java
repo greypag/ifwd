@@ -33,6 +33,7 @@ import com.ifwd.fwdhk.services.EasyHealthService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.Methods;
 @Service
 public class EasyHealthServiceImpl implements EasyHealthService {
 	private final static Logger logger = LoggerFactory.getLogger(EasyHealthServiceImpl.class);
@@ -57,6 +58,8 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		StringBuffer url = new StringBuffer();
 		url.append(UserRestURIConstants.GET_EASYHEALTH_PREMIUM);
 		url.append("?dob=");
+		String[] dob = planDetail.getDobdmy().split("-");
+		planDetail.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append(planDetail.getDob());
 		url.append("&gender=");
 		url.append(planDetail.getGender().equals("0")?"M":"F");
@@ -101,7 +104,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
 			inputMsg.append(lifePersonalDetails.getChineseName());
-			applicant.put("dob", lifePersonalDetails.getDob());
+			applicant.put("dob", planDetail.getDob());
 			applicant.put("gender", lifePersonalDetails.getGender().substring(0, 1));
 			applicant.put("hkId", lifePersonalDetails.getHkid().toUpperCase());
 			applicant.put("passport", "");
@@ -111,7 +114,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", lifePersonalDetails.getResidentialTelNo());
 			applicant.put("mobileNoCountryCode", "852");
-			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("mobileNo", Methods.formatMobile(lifePersonalDetails.getMobileNumber()));
 			applicant.put("email", lifePersonalDetails.getEmailAddress());
 				JSONObject permanentAddress = new JSONObject();
 				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
@@ -260,16 +263,25 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", "100000");
 		parameters.put("referralCode", "");
+		
+		if(!"None".equals(lifePersonalDetails.getHasTheClubMembershipNo())){
+			parameters.put("externalParty", "THE CLUB");
+			parameters.put("externalPartyCode", lifePersonalDetails.getTheClubMembershipNo());
+		}
+		else{
+			parameters.put("externalParty", "");
+			parameters.put("externalPartyCode", "");
+		}
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
 		
-		if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
+		/*if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
 			logger.info("Some input information contains simplified Chinese");
 			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
-		else{
+		else{*/
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
@@ -277,7 +289,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 			}
-		}
+		//}
 		return lifePolicy;
 	}
 	
@@ -313,6 +325,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		session.removeAttribute("fatcaYes");
 		session.removeAttribute("applicationSummaryYes");
 		session.removeAttribute("documentUploadYes");
+		session.removeAttribute("sendEmailsYes");
 		logger.info("remove session");
 	}
 	
@@ -337,20 +350,20 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 					selectPlan.setAccidentalDeathBenefit(plans.get(i).get("accidentalDeathBenefit").toString());
 					selectPlan.setSelectPlan(pro);
 					if(0 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-基本計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 基本計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(1 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-附加計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 升級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(2 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-高級計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 高級計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					if(3 == i){
-						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃-豪華計劃");
-						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan-"+selectPlan.getType());
+						selectPlan.setPlanNameCn("「守衛您」保費回贈住院保障計劃 - 豪華計劃");
+						selectPlan.setPlanNameEn("EasyHealth Refundable Hospital Income Plan - "+selectPlan.getType());
 					}
 					
 				}

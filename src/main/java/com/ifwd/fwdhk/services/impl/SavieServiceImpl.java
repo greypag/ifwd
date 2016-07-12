@@ -65,6 +65,7 @@ import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -844,7 +845,7 @@ public class SavieServiceImpl implements SavieService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("email", request.getParameter("email"));
-			parameters.put("mobileNo", request.getParameter("mobileNo"));
+			parameters.put("mobileNo", Methods.formatMobile(request.getParameter("mobileNo")));
 			parameters.put("answer1", request.getParameter("answer1"));
 			parameters.put("step", request.getParameter("step"));
 			parameters.put("affiliate", affiliate);

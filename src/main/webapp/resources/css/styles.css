@@ -3689,7 +3689,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 }
 /* line 467, ../sass/partials/_three-column-widget.scss */
 .fwd-savie-wrapper .et-three-column-widget {
-	padding-left: 20px;
+	/*padding-left: 20px;*/
 	padding-bottom: 25px;
 }
 /* line 473, ../sass/partials/_three-column-widget.scss */
@@ -25744,3 +25744,25 @@ label.et-bene-radio,#et-application-second-section label,
 .list__item{
 	margin-bottom: 10px;
 }
+
+/*add on 20160608*/
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description h4,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description h5,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description div,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description p,
+.fwd-et-wrapper #et-application-wrapper #et-application-second-section .agreement-description ul li{
+	font-size: 16px;
+	line-height: 18px;
+}
+
+/* ticket 2890 */
+.fwd-savie-wrapper ol.et-accrdion-txt-normal li {
+	color: #2a2c29;
+	font-size: 18px;
+	font-family: 'Calibri';
+}
+
+/* ticket 2930 */
+.et-get-qoute {
+	bottom: 105px;
+}	

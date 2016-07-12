@@ -128,7 +128,44 @@ public class AjaxLifeController extends BaseController{
 		}
 		try {
 			lifeBeneficaryInfo.validate(language);
-			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+			
+			StringBuffer errorMsg = new StringBuffer();
+			errorMsg.append("");
+			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+			
+			
+			if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID1().toUpperCase())){
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
+			}
+			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID2().toUpperCase())){
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
+			}
+			else if(lifePersonalDetails.getHkid().toUpperCase().equals(lifeBeneficaryInfo.getBeneficaryID3().toUpperCase())){
+				errorMsg.append("Beneficiary's HKID cannot be the same as Insured Person's HKID.");
+			}
+			
+			if(errorMsg==null || (errorMsg.length() ==0)){
+			
+				String bhkid1 = lifeBeneficaryInfo.getBeneficaryID1().toUpperCase();
+				String bhkid2 = lifeBeneficaryInfo.getBeneficaryID2().toUpperCase();
+				String bhkid3 = lifeBeneficaryInfo.getBeneficaryID3().toUpperCase();
+				if(bhkid1!=null && !bhkid1.equals("") && bhkid2!=null && !bhkid2.equals("") && bhkid1.equals(bhkid2)){
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
+				}
+				else if(bhkid1!=null && !bhkid1.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid1.equals(bhkid3)){
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
+				}
+				else if(bhkid2!=null && !bhkid2.equals("") && bhkid3!=null && !bhkid3.equals("") && bhkid2.equals(bhkid3)){
+					errorMsg.append("Beneficiary's HKID No. cannot be duplicated.");
+				}
+			}
+
+			if(errorMsg!=null && !(errorMsg.length() ==0)){
+				jsonObject.put("errorMsg", errorMsg.toString());
+			}
+			else{
+				request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+			}
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());

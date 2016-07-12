@@ -11,8 +11,14 @@ public class CreateEliteTermPolicyApplicant{
 	private String hkId;
 	private String passport;
 	private String maritalStatus;
+	private String maritalStatusEnName;
+	private String maritalStatusCnName;
 	private String placeOfBirth;
+	private String placeOfBirthEnName;
+	private String placeOfBirthCnName;
 	private String nationality;
+	private String nationalityEnName;
+	private String nationalityCnName;
 	private String residentialTelNoCountryCode;
 	private String residentialTelNo;
 	private String mobileNoCountryCode;
@@ -25,26 +31,49 @@ public class CreateEliteTermPolicyApplicant{
 	private String permanentAddress3;
 	private String permanentAddress4;
 	private String permanentAddress;
+	private String permanentAddressEnName;
+	private String permanentAddressCnName;
 	
 	private String residentialAdress1;
 	private String residentialAdress2;
 	private String residentialAdress3;
 	private String residentialAdress4;
 	private String residentialDistrict;
+	private String residentialDistrictEnName;
+	private String residentialDistrictCnName;
 	
 	private String correspondenceAdress1;
 	private String correspondenceAdress2;
 	private String correspondenceAdress3;
 	private String correspondenceAdress4;
 	private String correspondenceDistrict;
+	private String correspondenceDistrictEnName;
+	private String correspondenceDistrictCnName;
+	
+	private String hasTheClubMembershipNo;
+	private String theClubMembershipNo;
 	
 	private String employmentStatus;
+	private String employmentStatusEnName;
+	private String employmentStatusCnName;
 	private String occupation;
+	private String occupationEnName;
+	private String occupationCnName;
 	private String educationLevel;
+	private String educationLevelEnName;
+	private String educationLevelCnName;
 	private String natureOfBusiness;
+	private String natureOfBusinessEnName;
+	private String natureOfBusinessCnName;
 	private String monthlyPersonalIncome;
+	private String monthlyPersonalIncomeEnName;
+	private String monthlyPersonalIncomeCnName;
 	private String liquidAsset;
+	private String liquidAssetEnName;
+	private String liquidAssetCnName;
 	private String sourceOfIncome;
+	private String sourceOfIncomeEnName;
+	private String sourceOfIncomeCnName;
 	private String currentEmployerName;
 	
 	
@@ -58,6 +87,8 @@ public class CreateEliteTermPolicyApplicant{
 	private String passportNo1;
 	private String gender1;
 	private String relationship1;
+	private String relationship1EnName;
+	private String relationship1CnName;
 	private String entitlement1;
 	
 	private String firstName2;
@@ -68,6 +99,8 @@ public class CreateEliteTermPolicyApplicant{
 	private String passportNo2;
 	private String gender2;
 	private String relationship2;
+	private String relationship2EnName;
+	private String relationship2CnName;
 	private String entitlement2;
 	
 	private String firstName3;
@@ -78,7 +111,20 @@ public class CreateEliteTermPolicyApplicant{
 	private String passportNo3;
 	private String gender3;
 	private String relationship3;
+	private String relationship3EnName;
+	private String relationship3CnName;
 	private String entitlement3;
+	
+	private String isPics;
+	private String cancellation;
+	private String policyReplace;
+	private String residency;
+	private String isResident;
+	private String appDeclaration;
+	private String isMarketingInfo;
+	private String isPersonalData;
+	
+	
 	
 	public String getFirstName() {
 		return firstName;
@@ -490,6 +536,258 @@ public class CreateEliteTermPolicyApplicant{
 	}
 	public void setChineseName3(String chineseName3) {
 		this.chineseName3 = chineseName3;
+	}
+	public String getMaritalStatusEnName() {
+		return maritalStatusEnName;
+	}
+	public void setMaritalStatusEnName(String maritalStatusEnName) {
+		this.maritalStatusEnName = maritalStatusEnName;
+	}
+	public String getMaritalStatusCnName() {
+		return maritalStatusCnName;
+	}
+	public void setMaritalStatusCnName(String maritalStatusCnName) {
+		this.maritalStatusCnName = maritalStatusCnName;
+	}
+	public String getPlaceOfBirthEnName() {
+		return placeOfBirthEnName;
+	}
+	public void setPlaceOfBirthEnName(String placeOfBirthEnName) {
+		this.placeOfBirthEnName = placeOfBirthEnName;
+	}
+	public String getPlaceOfBirthCnName() {
+		return placeOfBirthCnName;
+	}
+	public void setPlaceOfBirthCnName(String placeOfBirthCnName) {
+		this.placeOfBirthCnName = placeOfBirthCnName;
+	}
+	public String getNationalityEnName() {
+		return nationalityEnName;
+	}
+	public void setNationalityEnName(String nationalityEnName) {
+		this.nationalityEnName = nationalityEnName;
+	}
+	public String getNationalityCnName() {
+		return nationalityCnName;
+	}
+	public void setNationalityCnName(String nationalityCnName) {
+		this.nationalityCnName = nationalityCnName;
+	}
+	public String getPermanentAddressEnName() {
+		return permanentAddressEnName;
+	}
+	public void setPermanentAddressEnName(String permanentAddressEnName) {
+		this.permanentAddressEnName = permanentAddressEnName;
+	}
+	public String getPermanentAddressCnName() {
+		return permanentAddressCnName;
+	}
+	public void setPermanentAddressCnName(String permanentAddressCnName) {
+		this.permanentAddressCnName = permanentAddressCnName;
+	}
+	public String getResidentialDistrictEnName() {
+		return residentialDistrictEnName;
+	}
+	public void setResidentialDistrictEnName(String residentialDistrictEnName) {
+		this.residentialDistrictEnName = residentialDistrictEnName;
+	}
+	public String getResidentialDistrictCnName() {
+		return residentialDistrictCnName;
+	}
+	public void setResidentialDistrictCnName(String residentialDistrictCnName) {
+		this.residentialDistrictCnName = residentialDistrictCnName;
+	}
+	public String getCorrespondenceDistrictEnName() {
+		return correspondenceDistrictEnName;
+	}
+	public void setCorrespondenceDistrictEnName(String correspondenceDistrictEnName) {
+		this.correspondenceDistrictEnName = correspondenceDistrictEnName;
+	}
+	public String getCorrespondenceDistrictCnName() {
+		return correspondenceDistrictCnName;
+	}
+	public void setCorrespondenceDistrictCnName(String correspondenceDistrictCnName) {
+		this.correspondenceDistrictCnName = correspondenceDistrictCnName;
+	}
+	public String getHasTheClubMembershipNo() {
+		return hasTheClubMembershipNo;
+	}
+	public void setHasTheClubMembershipNo(String hasTheClubMembershipNo) {
+		this.hasTheClubMembershipNo = hasTheClubMembershipNo;
+	}
+	public String getTheClubMembershipNo() {
+		return theClubMembershipNo;
+	}
+	public void setTheClubMembershipNo(String theClubMembershipNo) {
+		this.theClubMembershipNo = theClubMembershipNo;
+	}
+	public String getEmploymentStatusEnName() {
+		return employmentStatusEnName;
+	}
+	public void setEmploymentStatusEnName(String employmentStatusEnName) {
+		this.employmentStatusEnName = employmentStatusEnName;
+	}
+	public String getEmploymentStatusCnName() {
+		return employmentStatusCnName;
+	}
+	public void setEmploymentStatusCnName(String employmentStatusCnName) {
+		this.employmentStatusCnName = employmentStatusCnName;
+	}
+	public String getOccupationEnName() {
+		return occupationEnName;
+	}
+	public void setOccupationEnName(String occupationEnName) {
+		this.occupationEnName = occupationEnName;
+	}
+	public String getOccupationCnName() {
+		return occupationCnName;
+	}
+	public void setOccupationCnName(String occupationCnName) {
+		this.occupationCnName = occupationCnName;
+	}
+	public String getEducationLevelEnName() {
+		return educationLevelEnName;
+	}
+	public void setEducationLevelEnName(String educationLevelEnName) {
+		this.educationLevelEnName = educationLevelEnName;
+	}
+	public String getEducationLevelCnName() {
+		return educationLevelCnName;
+	}
+	public void setEducationLevelCnName(String educationLevelCnName) {
+		this.educationLevelCnName = educationLevelCnName;
+	}
+	public String getNatureOfBusinessEnName() {
+		return natureOfBusinessEnName;
+	}
+	public void setNatureOfBusinessEnName(String natureOfBusinessEnName) {
+		this.natureOfBusinessEnName = natureOfBusinessEnName;
+	}
+	public String getNatureOfBusinessCnName() {
+		return natureOfBusinessCnName;
+	}
+	public void setNatureOfBusinessCnName(String natureOfBusinessCnName) {
+		this.natureOfBusinessCnName = natureOfBusinessCnName;
+	}
+	public String getMonthlyPersonalIncomeEnName() {
+		return monthlyPersonalIncomeEnName;
+	}
+	public void setMonthlyPersonalIncomeEnName(String monthlyPersonalIncomeEnName) {
+		this.monthlyPersonalIncomeEnName = monthlyPersonalIncomeEnName;
+	}
+	public String getMonthlyPersonalIncomeCnName() {
+		return monthlyPersonalIncomeCnName;
+	}
+	public void setMonthlyPersonalIncomeCnName(String monthlyPersonalIncomeCnName) {
+		this.monthlyPersonalIncomeCnName = monthlyPersonalIncomeCnName;
+	}
+	public String getLiquidAssetEnName() {
+		return liquidAssetEnName;
+	}
+	public void setLiquidAssetEnName(String liquidAssetEnName) {
+		this.liquidAssetEnName = liquidAssetEnName;
+	}
+	public String getLiquidAssetCnName() {
+		return liquidAssetCnName;
+	}
+	public void setLiquidAssetCnName(String liquidAssetCnName) {
+		this.liquidAssetCnName = liquidAssetCnName;
+	}
+	public String getSourceOfIncomeEnName() {
+		return sourceOfIncomeEnName;
+	}
+	public void setSourceOfIncomeEnName(String sourceOfIncomeEnName) {
+		this.sourceOfIncomeEnName = sourceOfIncomeEnName;
+	}
+	public String getSourceOfIncomeCnName() {
+		return sourceOfIncomeCnName;
+	}
+	public void setSourceOfIncomeCnName(String sourceOfIncomeCnName) {
+		this.sourceOfIncomeCnName = sourceOfIncomeCnName;
+	}
+	public String getRelationship1EnName() {
+		return relationship1EnName;
+	}
+	public void setRelationship1EnName(String relationship1EnName) {
+		this.relationship1EnName = relationship1EnName;
+	}
+	public String getRelationship1CnName() {
+		return relationship1CnName;
+	}
+	public void setRelationship1CnName(String relationship1CnName) {
+		this.relationship1CnName = relationship1CnName;
+	}
+	public String getRelationship2EnName() {
+		return relationship2EnName;
+	}
+	public void setRelationship2EnName(String relationship2EnName) {
+		this.relationship2EnName = relationship2EnName;
+	}
+	public String getRelationship2CnName() {
+		return relationship2CnName;
+	}
+	public void setRelationship2CnName(String relationship2CnName) {
+		this.relationship2CnName = relationship2CnName;
+	}
+	public String getRelationship3EnName() {
+		return relationship3EnName;
+	}
+	public void setRelationship3EnName(String relationship3EnName) {
+		this.relationship3EnName = relationship3EnName;
+	}
+	public String getRelationship3CnName() {
+		return relationship3CnName;
+	}
+	public void setRelationship3CnName(String relationship3CnName) {
+		this.relationship3CnName = relationship3CnName;
+	}
+	public String getIsPics() {
+		return isPics;
+	}
+	public void setIsPics(String isPics) {
+		this.isPics = isPics;
+	}
+	public String getCancellation() {
+		return cancellation;
+	}
+	public void setCancellation(String cancellation) {
+		this.cancellation = cancellation;
+	}
+	public String getPolicyReplace() {
+		return policyReplace;
+	}
+	public void setPolicyReplace(String policyReplace) {
+		this.policyReplace = policyReplace;
+	}
+	public String getResidency() {
+		return residency;
+	}
+	public void setResidency(String residency) {
+		this.residency = residency;
+	}
+	public String getIsResident() {
+		return isResident;
+	}
+	public void setIsResident(String isResident) {
+		this.isResident = isResident;
+	}
+	public String getAppDeclaration() {
+		return appDeclaration;
+	}
+	public void setAppDeclaration(String appDeclaration) {
+		this.appDeclaration = appDeclaration;
+	}
+	public String getIsMarketingInfo() {
+		return isMarketingInfo;
+	}
+	public void setIsMarketingInfo(String isMarketingInfo) {
+		this.isMarketingInfo = isMarketingInfo;
+	}
+	public String getIsPersonalData() {
+		return isPersonalData;
+	}
+	public void setIsPersonalData(String isPersonalData) {
+		this.isPersonalData = isPersonalData;
 	}
 	
 	

@@ -2,12 +2,12 @@ var contextPath = context;
 
 // Savie Online
 $(document).ready(function() {
-	$('.modal').on('shown.bs.modal', function(){
+	/*$('.modal').on('shown.bs.modal', function(){
 		document.ontouchmove = function(e){ e.preventDefault(); }
 	});
 	$('.modal').on('hidden.bs.modal', function(){
 		document.ontouchmove = function(e){ return true; }
-	});
+	});*/
 	
 	// PDF lightbox resizing
 	var browWidth = $(window).width();
@@ -107,20 +107,20 @@ $(document).ready(function() {
 	if ($('#own-estate-id').is(':checked')) {
 		$('#beneficiary-contents').addClass('hidden');
 		$('.add-on-beneficiary').addClass('hidden');
-		$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+		//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 	}
 	$('#own-estate-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').addClass('hidden');
 			$('.add-on-beneficiary').addClass('hidden');
-			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+			//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 		}
 	});
 	$('#name-others-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').removeClass('hidden');
 			$('.add-on-beneficiary').removeClass('hidden');
-			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-modal');
+			//$('#bf-save-and-con-later').attr('data-target','#save-and-continue-modal');
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').resetForm(true);
 		}
 	});
@@ -354,10 +354,19 @@ $(document).ready(function() {
 			if($('#plan-dob-datepicker').val() != '') {
 				$('#total-years-holder').removeClass('hidden');
 			}
+
+			//Hide SP only elements
+			$('.js-display-savie-sp').css('display', 'none');
+			$('.js-display-savie-rp').css('display', 'block');
+
 		} else {
 			$('#plan-amount-holder').addClass('hidden');
 			$('#amount-slide-holder').removeClass('hidden');
 			$('#total-years-holder').addClass('hidden');
+
+			//Display SP only elements
+			$('.js-display-savie-sp').css('display', 'block');
+			$('.js-display-savie-rp').css('display', 'none');
 		}
 	});
 	$('#plan-dob-datepicker').on('change', function() {
@@ -1675,10 +1684,14 @@ function setSelectReadonly(elementId, isReadonly) {
 		elem.removeAttr('disabled', 'disabled');
 		elem.removeClass('readonly-field');
 	}
-	
 	if(elem.val() != '' && elem.val() != null) {
-		elem.parent('.selectDiv').addClass('is-not-active');
+		setStyleOfIsNotActive(elementId);
 	}
+}
+
+function setStyleOfIsNotActive(elementId){
+	var elem = $('#' + elementId);
+	elem.parent('.selectDiv').addClass('is-not-active');
 }
 
 function sendEmailForSaveLater(key) {

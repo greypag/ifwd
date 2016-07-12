@@ -319,6 +319,9 @@ public class Methods {
     }  
     
     public static String formatMobile(String mobile) {
+    	if(mobile == null) {
+    		return "";
+    	}
     	mobile = mobile.replace("+", "").replace("(", "").replace(") ", "").replace(")", "").trim();
     	String str = mobile.replace(" ", "");
     	if(str.length()==11 && str.indexOf("852")==0){

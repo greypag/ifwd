@@ -23,7 +23,7 @@
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
             <%-- <h4 class="form-title"><fmt:message key="partner.form.title" bundle="${msg}" /></h4>  --%>
         </div>
-        <form id="becomePartnerForm" class="form-horizontal form-uppercase becomePartnerForm" onsubmit="return false;">
+        <form id="becomePartnerForm" class="form-horizontal form-uppercase becomePartnerForm mdlForm" onsubmit="return false;">
         	<div id="success-msg" class="h4-5 success-msg"><fmt:message key="partner.form.success" bundle="${msg}" /></div>
             <div class="col-sm-12 col-md-6 left">
                 <div class="clearfix form-group">
@@ -167,7 +167,7 @@ $(document).ready(function() {
                             message: getBundle(getBundleLanguage, "error.company.name.empty")
                         },
                         regexp: {
-                           regexp: /^[a-z\s\u4e00-\u9fa5]+$/i ,
+                           regexp: /^[a-z()\s\u4e00-\u9fa5]+$/i ,
                            message:getBundle(getBundleLanguage, "error.company.name.invalid")
                         }
                  }

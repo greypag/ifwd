@@ -213,7 +213,7 @@ $(document).ready(function(){
 						},
 						cvv: {
 							creditCardField: 'ccNumber',
-							message: 'Your security code is invalid.'
+							message: getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message")
 						}
 					}
 				},

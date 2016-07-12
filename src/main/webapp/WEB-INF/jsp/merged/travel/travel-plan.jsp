@@ -11,7 +11,7 @@
 <%
     TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
     if( sessTravelQuoteBean != null ) {
-        //System.out.println("------------------------------------------------------------");     
+        //System.out.println("------------------------------------------------------------");
         //System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
         //System.out.println( "sess Adult   : " + sessTravelQuoteBean.getTotalAdultTraveller() );
         //System.out.println( "sess Child   : " + sessTravelQuoteBean.getTotalChildTraveller() );
@@ -26,13 +26,13 @@
 perventRedirect=true;
 
 // personal or family
-var traveller;  
+var traveller;
 // personal
 var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
 // family
 var familyAdult = parseInt("${corrTravelQuote.totalAdultTraveller}");
 var familyChild = parseInt("${corrTravelQuote.totalChildTraveller}");
-var familyOther = parseInt("${corrTravelQuote.totalOtherTraveller}");  
+var familyOther = parseInt("${corrTravelQuote.totalOtherTraveller}");
 var familyTraveller = familyAdult+familyChild+familyOther;
 
 var t1 = "${corrTravelQuote.totalAdultTraveller}";
@@ -61,29 +61,36 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 	function getuserDetails() {
 
-		
+
 	}
 	function chkPromoCode() {
 		var flag = false;
-		var promoCode = document.getElementById("promoCode").value;
-
-		if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
-			$("#loadingPromo").hide();
-			promoCodeInsertFlag = true;
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
-			$('#inputPromo').addClass('invalid-field');
-			flag = false;
-		} else {
-			$('#inputPromo').removeClass('invalid-field');
-			flag = true;
-		}
-
-		return flag;
+    var promoCode = document.getElementById("promoCode").value.trim();
+  	if (promoCode == "" || promoCode == promoCodePlaceholder) {
+  		$("#loadingPromo").hide();
+  		promoCodeInsertFlag = true;
+  		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+  		$('#inputPromo').addClass('invalid-field');
+  		flag = false;
+  	} else {
+  		if ( promoCode == promoCodePlaceholder ) {
+  			$("#loadingPromo").hide();
+  			promoCodeInsertFlag = true;
+  			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+  			$('#inputPromo').addClass('invalid-field');
+  			flag = false;
+  		} else  {
+  			$('#inputPromo').removeClass('invalid-field');
+  			$("#errPromoCode").html("");
+  			flag = true;
+  		}
+  	}
+    return flag;
 	}
-	
+
 	function submitPlan(){
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
-		
+
 		setTimeout(function(){
 			if(chkDueAmount() && chkClubMember()){
 				$("#frmTravelPlan").submit();
@@ -94,14 +101,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 	function chkClubMember() {
         $(".errDue").html('');
-        var flag = true;		
+        var flag = true;
         var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
         var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
         if (the_club_member_check_box) {
             if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
                 $("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
                 document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");                
+                $("#theClubMembershipNo").addClass("invalid-field");
                 flag = false;
             }else if (the_club_membership_no != ""){
             	if(/^8/.test(the_club_membership_no) == false){
@@ -113,13 +120,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
                     document.getElementById("theClubMembershipNo").focus();
                     $("#theClubMembershipNo").addClass("invalid-field");
-                    flag = false;            		
+                    flag = false;
             	}
-            } 
+            }
         }
         return flag;
 	}
-	function chkDueAmount() {		
+	function chkDueAmount() {
 		$(".errDue").html('');
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
@@ -136,13 +143,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		return flag;
 	}
-	
+
 	function applyTravelPromoCode() {
 		if(promoCodeInsertFlag){
 			promoCodeInsertFlag = false;
-			
+
 			$("#errPromoCode").html("");
-	        
+
 	        if(chkPromoCode()){
 	        	$('#loading-overlay').modal({
 	                backdrop: 'static',
@@ -174,13 +181,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			    keyboard: false
 			})
 			updateQuoteFlag = false;
-			
+
 			$('#lblCountDesk').html(tempTotalTraveller);
 			$("#totalPersonalTraveller").val(tempPersonalTraveller);
 			$("#totalAdultTraveller").val(tempAdultTraveller);
             $("#totalChildTraveller").val(tempChildTraveller);
             $("#totalOtherTraveller").val(tempOtherTraveller);
-			
+
             $('#myFWDropdown').toggleClass('open');
             console.log($('#frmTravelPlan input').serialize());
 			$.ajax({
@@ -190,7 +197,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				success : function(data) {
 					$('#loading-overlay').modal('hide');
 					updateQuoteFlag = true;
-					
+
 					var json = JSON.parse(data);
 					promoData = json;
 					setValue(json);
@@ -200,8 +207,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			});
 		}
 	}
-	
-	
+
+
 
 	function setValue(result) {
 
@@ -213,10 +220,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			$("#errPromoCode").html("");
 			$('#inputPromo').removeClass('invalid-field');
 		}
-		
+
 		if (selValue == "B") {
 			//var totalDue = parseInt(result["priceInfoA"].totalDue);
-			
+
 			//$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
 			$("#subtotal").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
 			/*$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
@@ -232,7 +239,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
             $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
             $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-			
+
 		} else if (selValue == "A") {
 			//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
 			//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
@@ -262,7 +269,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		}
 		/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
 		$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-		
+
 		if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
             //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
             $('.actualPriceB').removeClass('hide');
@@ -296,10 +303,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 }
 </style>
 <!--/#main-Content-->
-<%  
-	String cp = request.getContextPath(); 
+<%
+	String cp = request.getContextPath();
 	//System.out.println("travel-plan.jsp");
-	
+
 	String PersonalPlanChecked = "";
 	  String FamilyPlanChecked = "";
 	  String personalSpinnerStyle = "";
@@ -310,11 +317,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	          PersonalPlanChecked = "checked";
 	        }
 	        else if(sessTravelQuoteBean.getPlanSelected().equalsIgnoreCase("family")){
-	          
+
 	          FamilyPlanChecked = "checked";
 	          personalSpinnerStyle = "style='display:none'";
 	          familySpinnerStyle = "";
-	        } 
+	        }
 	        //System.out.println(familySpinnerStyle);
 	        //System.out.println(personalSpinnerStyle);
 	  }
@@ -346,9 +353,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="travel.quote.choose" bundle="${msg}" /></h2>
 						<%
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-						
-							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
-							
+
+							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote");
+
 					    	if (travelQuote != null)
 						 	{
 					    		if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
@@ -357,11 +364,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					    		}
 					    	 	session.setAttribute("tq", travelQuote);
 						 	}
-					    	else 
+					    	else
 					    	{
 					    		//System.out.println("travel-plan.jsp travelQuote is null!!!");
 					    	}
-						
+
 					    	if (travelQuote != null)
 						 	{
 								if (travelQuote.getPlanName().length > 0) {
@@ -370,7 +377,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<div class="col-lg-12 col-md-12 plan-box3 travelproductbox annual_travelproductbox"
                             id="box<%=i%>"
                             onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">                           
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">
                                 <h2>
                                     <fmt:message key="travel.summary.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>
                                 </h2>
@@ -379,7 +386,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <%}else if(i==1) { %>
                                 <h4 class="product_plan_box_description"><fmt:message key="travel.quote.plan2.type" bundle="${msg}" /><br> HK$  500,000 <fmt:message key="travel.quote.plan2.medical" bundle="${msg}" /></h4>
                                 <%} %>
-                                
+
                                 <!-- Plan benefits -->
 	                            <div class="fwdpanel">
 	                                <div class="fwdpanel-heading">
@@ -414,8 +421,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                            <div class="col-lg-4 col-md-4 col-xs-5">
 	                                                <fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
 	                                            </div>
-	                                        </div> 
-	                                        
+	                                        </div>
+
 	                                        <div class="row">
 	                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
 	                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
@@ -432,9 +439,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                            </div>
 	                                        </div>
 	                                </div>
-	                                
-	                                
-	                                
+
+
+
 	                                <div class="clearfix"></div>
 	                            </div>
 	                            <!-- / Plan benefits -->
@@ -473,14 +480,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<%
 							}
 						 	}
-					    	else 
+					    	else
 					    	{
 					    		//System.out.println("travel-plan.jsp travelQuote is null!!!");
 					    	}
 						%>
 						<div class="clearfix"></div>
 						<!--Full Coverage-->
-						
+
 						<div class="annual_travel_tips hidden-xs hidden-sm">
 						  <table>
 						      <tr>
@@ -489,9 +496,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						      </tr>
 						  </table>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="fwdpanel product_plan_panel_container">
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
@@ -579,7 +586,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -682,7 +689,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -721,7 +728,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -750,7 +757,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -779,7 +786,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -808,7 +815,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -837,7 +844,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -876,7 +883,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -905,7 +912,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -934,7 +941,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -963,7 +970,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -992,7 +999,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -1021,7 +1028,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
-                                               <thead> 
+                                               <thead>
                                                <tr>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
                                                    <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
@@ -1136,32 +1143,32 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </h4>
                                 <div class="clearfix"></div>
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 						<!-- <div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
 									<span>
 									<a href="#" class="fwdpanel-minimize">
 									   <i class="fa fa-plus"></i> <fmt:message key="travel.quote.fullDetails.heading" bundle="${msg}" /></span>
-									</a>		
+									</a>
 								</h4>
 							</div>
 							<div class="fwdpanel-body" style="display: none;">
@@ -1211,12 +1218,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			                                                        </li>
 			                                                    </ul>
 			                                                </p>
-			
+
 			                                            </div>
 				                                    </div>
 				                                 </div>
 				                            </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1326,7 +1333,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
 			                                                        </tr>
 			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.subheading" bundle="${msg}" /><br/> 
+			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.subheading" bundle="${msg}" /><br/>
 			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.content" bundle="${msg}" />
 			                                                            </td>
 			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
@@ -1417,7 +1424,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1452,7 +1459,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1478,7 +1485,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
@@ -1818,7 +1825,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                     </div>
                                                 </div>
                                              </div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -1842,8 +1849,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
-									
-										
+
+
 								</div>
 								<div class="pull-right" style="padding-top: 80px;">
 									<div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
@@ -1860,7 +1867,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<div class="orange-bdr"></div>
 							<div class="form-container" style="padding: 0px !important;">
 							     <div style="width: 80%;margin-left: 10%;">
-								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> 
+								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" />
 	                            </h3>
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                                   <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.trLeavingDate}" readonly>
@@ -1872,7 +1879,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               </div>
 
                               <div class="clearfix"></div>
-                                    
+
                               <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                     <h3>
                                     	<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" />
@@ -1894,17 +1901,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                         <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
-                                        <h3 style="text-align: right;font-weight: normal;">                                            
-                                            <%  
+                                        <h3 style="text-align: right;font-weight: normal;">
+                                            <%
 					                            if (travelQuote == null)
 					                                travelQuote = (QuoteDetails) session.getAttribute("tq");
-					                        
+
 					                            if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
-					                            { 
+					                            {
 					                        %>
 					                                <c:if test="${travelQuoteBean.totalPersonalTraveller!=0}">${travelQuoteBean.totalPersonalTraveller} <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /></c:if>
-					                        <% } 
-					                           else 
+					                        <% }
+					                           else
 					                           {
 					                        %>
 					                                <c:if test="${travelQuoteBean.totalAdultTraveller!=0}">${travelQuoteBean.totalAdultTraveller} <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /><br></c:if>
@@ -1917,39 +1924,39 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 	                                <div class="clearfix"></div>
                                 </div>
-                              
+
 								<!-- return date end  -->
 								<!-- traveller start -->
-								
+
 								<!-- traveller end -->
-								
+
 								<h3 style="display:none;"><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
-								
+
 								<!-- <span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
-                                
+
 								</h3>
-								
+
 								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
-                      
+
                       <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
                       <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.totalFamilyTravellers}">
                                  <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
                                  <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
                                  <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
-								
+
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans" style="display:none;">
-            					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
-						<%	
+            					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;">
+						<%
 							if (travelQuote == null)
 					 			travelQuote = (QuoteDetails) session.getAttribute("tq");
-						
+
 							if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
-							{ 
+							{
 						%>
 								<c:if test="${travelQuoteBean.totalPersonalTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.totalPersonalTraveller}    </c:if>
-						<% } 
-						   else 
+						<% }
+						   else
 						   {
 						%>
 								<c:if test="${travelQuoteBean.totalAdultTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.totalAdultTraveller}  <br></c:if>
@@ -2023,7 +2030,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                            </c:otherwise>
                             </c:choose>
 
-                                
+
 
                             </div>
                             <div class="clearfix"></div>
@@ -2044,7 +2051,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				<br>
 				<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>
-		
+
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
 		   <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
 		        <div class="top35 pull-left pad-none" style="width:47%">
@@ -2062,8 +2069,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                            </c:otherwise>
                             </c:choose>
 
-		            
-           
+
+
 		        </div>
 		        <div class="clearfix"></div>
 		        <span class="text-red errDue"></span>
@@ -2071,7 +2078,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		</div>
 
 		</form:form>
-		
+
 	</div>
 	<!--/.row-->
 	</div>
@@ -2095,13 +2102,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder=""
                                 name="emailToSendPromoCode" id="emailToSendPromoCode">
-                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
+                            <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">
                         </div>
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> -->
-                                
+
                                 <button type="submit" onclick="return sendEmail()"
                                                             class="bdr-curve btn btn-primary btn-lg wd5">
                                                             <fmt:message key="promotion.get.code.action" bundle="${msg}" />
@@ -2121,8 +2128,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     </div>
                 </form>
                 </div>
-                
-                
+
+
             </div>
         </div>
 </div>
@@ -2139,17 +2146,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                 </div>
                 <div class="form-container">
                     <div class="row">
-                        <div class="col-xs-12">   
+                        <div class="col-xs-12">
                             <p><fmt:message key="travel.club.membership.pop.up" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>             
+                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>
                         </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>
@@ -2168,12 +2175,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		$('#subtotal').html('0');
 		$('#plansummary').html('0');
 		$('#discountAmt').html('0');
-		
+
 
 		$(".travelproductbox").animate({
 			"background-color" : "#000"
 		}, 3000);
-		
+
 		 // inline changes for 3 departure date and traveller numbers
         $("#inline-change-1").click(function() {
             $('#dp1').datepicker('show');
@@ -2186,7 +2193,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $('#myFWDropdown .dropdown-toggle').toggleClass('disabled');
             $('#myFWDropdown').toggleClass('hide-html');
             $("#show-traveller").hide();
-            
+
         });
         $('#the-club-member-toggle').on('change', function() {
             if ($(this).is(':checked')) {
@@ -2195,13 +2202,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             	$('#theClubMembershipNo').closest('.form-group').hide();
             }
         }).change();
-        
+
         if('${referralCode}'!=null && '${referralCode}'!=''){
         	$('#promoCode').val('${referralCode}');
         	applyTravelPromoCode();
         }
 	});
-	
+
 //	function enterKeyPress(e){
 
 //	    if (e.keyCode == 13) {
@@ -2229,11 +2236,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		var selected_price = $("#txtGrossPremium"+index).val();//$('#' + id).find('h6').text();
 		selected_price = parseFloat(selected_price).toFixed(2);
-		
+
 		//$('#amountdue').html(parseFloat(totalDue).toFixed(2));
 		$('#amountdue').html(numeral(totalDue).format('0,0.00'));
-		
-		
+
+
 		/*   $('#selectedAmountDue').value=selected_price; */
 		//$('#subtotal').html(parseFloat(selected_price).toFixed(2));
 		$('#subtotal').html(numeral(selected_price).format('0,0.00'));
@@ -2247,18 +2254,18 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		//$('#discountAmt').html(parseFloat(discountAmt).toFixed(2));
 		$('#discountAmt').html(numeral(discountAmt).format('0,0.00'));
-		
+
 		document.getElementById("selectedAmountDue").value = parseFloat(totalDue.trim()).toFixed(2);
 		document.getElementById("selectedDiscountAmt").value = parseFloat(discountAmt.trim()).toFixed(2);
 		//$('#txtDiscountAmount').val(parseFloat(discountAmt.trim()).toFixed(2));
 		$('#txtDiscountAmount').val(numeral(discountAmt.trim()).format('0,0.00'));
 		document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
-		
+
 		if(promoData !== '')
 			setValue(promoData);
-		
+
 	}
-	
+
 	function sendEmail() {
         $('.proSuccess').addClass('hide');
         if (get_promo_val()) {

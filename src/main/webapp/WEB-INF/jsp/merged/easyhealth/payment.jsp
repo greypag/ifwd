@@ -32,9 +32,9 @@ var home_url = "<%=request.getContextPath()%>";
     <!-- Breadcrumb Component Start-->
   
     	<c:set var="breadcrumbItems">
-    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 		</c:set>
-    	<c:set var="breadcrumbActive">3</c:set>
+    	<c:set var="breadcrumbActive">4</c:set>
 	    
 	    <jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
 	    	<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
@@ -142,7 +142,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<option value="11">11</option>
 													<option value="12">12</option>
 												</select>
-												<label class="mdl-textfield__label" for="epMonth"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
+												<label class="mdl-textfield__label" for="epMonth"><fmt:message key="payment.card.expiry.month" bundle="${msg}" /></label>
 											</div>
 											
 										</div>
@@ -166,7 +166,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<option value="2024">2024</option>
 													<option value="2025">2025</option>
 												</select>
-												<label class="mdl-textfield__label" for="epYear"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
+												<label class="mdl-textfield__label" for="epYear"><fmt:message key="payment.card.expiry.year" bundle="${msg}" /></label>
 
 											</div>
 										</div>

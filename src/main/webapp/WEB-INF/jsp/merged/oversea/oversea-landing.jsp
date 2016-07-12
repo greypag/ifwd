@@ -413,6 +413,11 @@ function mouseout2div(obj) {
   </div>
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
+
+<div class="content-disclaimer">
+   <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+</div>
+
 <!--<section class="hidden-lg hidden-md">
     <div class="bottom-disclaimer-wrapper container">
         <p class="h4-6"><fmt:message key="Overseas.Landing.Disclaimer" bundle="${msg}" /></p>

@@ -128,7 +128,7 @@ var language = "${language}";
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="info.addressproof" bundle="${msg}" /><a href="<fmt:message key="link.link.address.proof" bundle="${msg}" />"><fmt:message key="info.click.here" bundle="${msg}" /></a></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="info.addressproof" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.address.proof" bundle="${msg}" />"><fmt:message key="info.click.here" bundle="${msg}" /></a></p></div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-3">

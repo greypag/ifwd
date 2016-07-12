@@ -389,7 +389,7 @@ var affiliate = "${affiliate}";
 										</div>
 									</div>
 
-									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /> <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span></h4>
+									<h4><fmt:message key="fna.question.q4b" bundle="${msg}" /> <span><fmt:message key="fna.question.q4b.specify" bundle="${msg}" /></span><br><br><fmt:message key="fna.question.q4b.type" bundle="${msg}" /></h4>
 									<div class="fna-error-box">
 										<span class="err_q4b1 fna-error-msg text-red"></span>
 									</div>

@@ -227,7 +227,7 @@ $(document).ready(function() {
 	ga('ecommerce:addTransaction', {
 	  'id': '${transNo}', // Transaction ID. Required.
 	  'revenue': '${dueAmount}', // Grand Total.
-	  'affiliation': 'Working Holiday' // Insurance type, e.g. Life
+	  'affiliation': 'Protect' // Insurance type, e.g. Life
 
 	  });
 	ga('ecommerce:addItem', {

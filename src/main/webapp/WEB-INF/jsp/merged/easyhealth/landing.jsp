@@ -1,10 +1,11 @@
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -36,8 +37,8 @@ var home_url = "<%=request.getContextPath()%>";
     <div class="savie-regular-container savie-regular-landing rp-only">
         <div class="whole-banner">
             <div class="page-banner">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
-                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-mobile_${language}.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
+                <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-bg-desktop_${language}.jpg" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="jumbo.easyhealth" bundle="${msg}" />">
                 <div class="fwd-container-limit">
 
                 <form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/${nextPageFlow}" method="post">
@@ -46,8 +47,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.quote.easyhealth" bundle="${msg}" /></button>
                         </div>
                     <div class="savie-product text-bold">
-                        <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
-                        <a href="javascript:void(0);" id="cta_filler"></a>
+                        <a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.easyhealth" bundle="${msg}" />" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a>
                     </div>
                     </div>
                 </form>
@@ -57,7 +57,7 @@ var home_url = "<%=request.getContextPath()%>";
 
         <div class="payment-mode">
 
-            <p class="availability-notice text-center"><fmt:message key="label.product.statement.easyhealth" bundle="${msg}" /><span></span>
+            <p class="availability-notice text-center"><s:message code="label.product.statement.easyhealth"/><span></span>
             </p>
 
             <!-- <h5 class="hidden-sm hidden-xs product-options text-center">
@@ -68,27 +68,27 @@ var home_url = "<%=request.getContextPath()%>";
         <div class="fwd-container-limit">
                 <div class="usp row">
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title1.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-flexible.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title1.easyhealth" bundle="${msg}" /></h5>
-                            <p><fmt:message key="usp.copy1.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title1.easyhealth"/></h5>
+                            <p><s:message code="usp.copy1.easyhealth"/></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title2.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-protection.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title2.easyhealth" bundle="${msg}" /></h5>
-                            <p class="padded"><fmt:message key="usp.copy2.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title2.easyhealth"/></h5>
+                            <p class="padded"><s:message code="usp.copy2.easyhealth"/></p>
                         </div>
                     </div>
                     <div class="usp-item clearfix col-xs-12 col-md-4">
-                        <h5 class="hidden-xs hidden-sm"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
+                        <h5 class="hidden-xs hidden-sm"><s:message code="usp.title3.easyhealth"/></h5>
                         <img src="<%=request.getContextPath()%>/resources/images/easy-health/landing-usp-save.png" class="">
                         <div class="item-desc">
-                            <h5 class="hidden-md hidden-lg"><fmt:message key="usp.title3.easyhealth" bundle="${msg}" /></h5>
-                            <p class="padded"><fmt:message key="usp.copy3.easyhealth" bundle="${msg}" /></p>
+                            <h5 class="hidden-md hidden-lg"><s:message code="usp.title3.easyhealth"/></h5>
+                            <p class="padded"><s:message code="usp.copy3.easyhealth"/></p>
                         </div>
                     </div>
                 </div>
@@ -309,7 +309,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
                                     </div>
                                     <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
-                                    <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en/support-claims/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
+                                    <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
@@ -318,7 +318,7 @@ var home_url = "<%=request.getContextPath()%>";
                                         <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
                                     </div>
                                     <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
-                                    <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en/support-claims/eservices-app/" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
+                                    <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -330,14 +330,16 @@ var home_url = "<%=request.getContextPath()%>";
                     </div>
                 </div>
             </div>
-
+			<div class="content-disclaimer">
+				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+			</div> 
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
                     <div class="mini-banner-holder">
-                        <img src="<%=request.getContextPath()%>/resources/images/savie-regular/read-our-blog.jpg" class="img-responsive">
+                    	<img src="<%=request.getContextPath()%>/resources/images/easy-health/shutterstock.jpg" class="img-responsive">
                         <div class="black-overlay"></div>
-                        <h5 class="text-center">Save before you spend</h5>
+                        <h5 class="text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></h5>
                     </div>
                     <div class="btn-holder">
                         <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
@@ -350,39 +352,39 @@ var home_url = "<%=request.getContextPath()%>";
 
                         <div class="blogs-holder clearfix fwd-container-limit">
                             <div class="blogs first">
-                                <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/shutterstock.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post1.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post1.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post1.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2016/01/25/efficient-and-affordable-lessons-for-babie/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post1.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
-                                <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/avocado-toast.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post2.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post2.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post2.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/30/do-holidays-have-to-be-saving-traps-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post2.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs">
-                                <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/plastic-wrap-alternatives-abeego-multi-wrap-Cool-Mom-Picks.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post3.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post3.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post3.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/17/busting-the-myths-of-saving-traps-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post3.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                             <div class="blogs last">
-                                <img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
+                                <img src="<%=request.getContextPath()%>/resources/images/easy-health/windowandbonsai.jpg" class="img-responsive">
                                 <div class="orange-overlay text-center">
-                                    <p class="title"><fmt:message key="blog.savie.post4.title" bundle="${msg}" /></p>
+                                    <p class="title"><fmt:message key="blog.easyhealth.post4.title" bundle="${msg}" /></p>
                                     <!-- <span>SAVE</span> -->
-                                    <p class="definition"><fmt:message key="blog.savie.post4.copy" bundle="${msg}" /></p>
-                                    <a class="btn-read-now" href="http://blog.fwd.com.hk/en/2015/12/09/thats-right-coupons-do-save-you-big-bucks-2/" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
+                                    <p class="definition"><fmt:message key="blog.easyhealth.post4.copy" bundle="${msg}" /></p>
+                                    <a class="btn-read-now" href="<fmt:message key="blog.easyhealth.post4.link" bundle="${msg}" />" target="_blank"><fmt:message key="blog.home.readmore" bundle="${msg}" /></a>
                                 </div>
                             </div>
                         </div>
@@ -436,3 +438,36 @@ var home_url = "<%=request.getContextPath()%>";
     </div>
   </div>
 </div>
+
+<script>
+//mobile blog read more button open blog page
+$(document).ready(function() {
+	if(isMobile) {
+		$(".annualTravel_policy_item").click(function(){
+			itemTop = $(this).offset();
+			var html=$(this).children('.hidden-benefits').children().clone();
+			$("#modal_policy_container").html(html);
+			$("#policyCoveragePopup").modal("show");
+            $("#policyCoveragePopup").on('show.bs.modal', function () {
+                $('body').css("position", "inital");
+                $('.hidden-benefits-info').css("font-family", "Calibri");
+				$('.hidden-benefits-info').css("font-size", "14px");
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+            });
+            $("#policyCoveragePopup").on('hide.bs.modal', function () {
+                //alert(itemTop.top);
+                $('body').css("position", "initial");
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                //$('body').css("position", "relative");
+            });
+            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
+                $('body').attr("style", "");
+            });			
+		});
+
+	}	
+	$('#btn-blog-link').click(function(){
+		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
+	});
+});	
+</script>

@@ -43,7 +43,6 @@ var languageP = "${language}";
 	</head>
 	<body>
 
-
 		<!--   Main Content-->
 		<div id="savie-online">
 			<div class="hero-banner">
@@ -59,7 +58,7 @@ var languageP = "${language}";
 			</div>
 			<div class="product-list">
 				<div class="content-container row fwd-container-limit">
-					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
+					<div class="hidden psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4 wow fadeInUpBig" data-wow-delay="0s">
 						<button id="psa-btn1" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-1" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.catergory1" bundle="${msg}" /></span><img id="btn-collapse1" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-1">
@@ -80,7 +79,7 @@ var languageP = "${language}";
 						  </div>
 						</div>
 					</div>
-					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
+					<div class="hidden psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4 wow fadeInUpBig" data-wow-delay="0.2s">
 						<button id="psa-btn2" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-2" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category2" bundle="${msg}" /></span><img id="btn-collapse2" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-2">
@@ -95,7 +94,7 @@ var languageP = "${language}";
 						  </div>
 						</div>
 					</div>
-					<div class="psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4">
+					<div class="hidden psa-divider col-sm-12 col-xs-12 col-md-4 col-lg-4 wow fadeInUpBig" data-wow-delay="0.4s">
 						<button id="psa-btn3" class="btn psa-btn" type="button" data-toggle="collapse" data-target="#psa-collapse-3" aria-expanded="false"><span class="text-bold psa-title"><fmt:message key="navbar.category3" bundle="${msg}" /></span><img id="btn-collapse3" class="hidden-lg hidden-md psa-plus" src="<%=request.getContextPath()%>/resources/images/savie-2016/plus-slim.png" />
 						</button>
 						<div class="collapse psa-collapse-content" id="psa-collapse-3">
@@ -144,7 +143,7 @@ var languageP = "${language}";
 						</ul>
 						<div class="fna-carousel" id="so-carousel">
 							<div class="tab-content">
-								<div role="tabpanel" class="fna-tab-content tab-pane active" id="navtabs-1">
+								<div role="tabpanel" class="fna-tab-content tab-pane active wow fadeIn" data-wow-delay="0s" id="navtabs-1">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-1.png" />
@@ -153,7 +152,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.support.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-2">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0.2s" id="navtabs-2">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-2.png" />
@@ -162,7 +161,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-3">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0.4s" id="navtabs-3">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-3.png" />
@@ -171,7 +170,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.claim.easy.link1" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.claim.easy.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy3" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="fna-tab-content tab-pane" id="navtabs-4">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0.6s" id="navtabs-4">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-4.png" />
@@ -194,6 +193,9 @@ var languageP = "${language}";
 						<span style="" class="caret"></span><p>TOP</p>
 					</div>
 				</a> -->
+				<div class="content-disclaimer">
+					<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+				</div>
 				<div class="read-blog text-center fwd-container-limit">
 					<div class="blog-img-container hidden-lg hidden-md">
 						<img class="img-responsive blog-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1-mobile.jpg" />
@@ -218,7 +220,7 @@ var languageP = "${language}";
 				</div>
 				<div class="row row-products">
 					<div class="products-first-block">
-						<div class="col-lg-3 col-md-3 portfolio-item">	
+						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0s">	
 							<div class="caption">
 								<h4><fmt:message key="blog.blog1.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog1.title2" bundle="${msg}" /></h5>
@@ -227,7 +229,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-1.jpg" />
 						</div>
-						<div class="col-lg-3 col-md-3 portfolio-item">
+						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0.2s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog2.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog2.title2" bundle="${msg}" /></h5>
@@ -236,7 +238,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-2.jpg" />
 						</div>
-						<div class="col-lg-3 col-md-3 portfolio-item">
+						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0.4s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog3.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog3.title2" bundle="${msg}" /></h5>
@@ -245,7 +247,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-3.jpg" />
 						</div>
-						<div class="col-lg-3 col-md-3 portfolio-item">
+						<div class="col-lg-3 col-md-3 portfolio-item wow fadeIn" data-wow-delay="0.6s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog4.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog4.title2" bundle="${msg}" /></h5>
@@ -256,7 +258,7 @@ var languageP = "${language}";
 						</div>
 					</div>
 					<div class="products-first-block">
-						<div class="col-md-3 col-lg-3 portfolio-item">	
+						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="0.8s">	
 							<div class="caption">
 								<h4><fmt:message key="blog.blog5.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog5.title2" bundle="${msg}" /></h5>
@@ -265,7 +267,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-5.jpg" />
 						</div>
-						<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="1s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog6.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog6.title2" bundle="${msg}" /></h5>
@@ -274,7 +276,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-6.jpg" />
 						</div>
-						<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="1.2s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog7.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog7.title2" bundle="${msg}" /></h5>
@@ -283,7 +285,7 @@ var languageP = "${language}";
 							</div>
 							<img class="img-responsive img-container" src="<%=request.getContextPath()%>/resources/images/savie-2016/blog-7.jpg" />
 						</div>
-						<div class="col-md-3 col-lg-3 portfolio-item">
+						<div class="col-md-3 col-lg-3 portfolio-item wow fadeIn" data-wow-delay="1.4s">
 							<div class="caption">
 								<h4><fmt:message key="blog.blog8.title1" bundle="${msg}" /></h4>
 								<h5 class="show-travel"><fmt:message key="blog.blog8.title2" bundle="${msg}" /></h5>
@@ -378,14 +380,33 @@ var languageP = "${language}";
             	// To show review fna modal when clicking FNA CTA button
                 $('#btn-fna-cta').click(function() {
                 	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-						window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+                		$.ajax({     
+			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+			    		    type:'get',
+						    cache:false, 
+						    async:false,     
+			    		    error:function(){       
+			    		    },     
+			    		    success:function(data){
+			    		    	$('#loginpopup').modal('hide');
+			    		    	if(data != null && data.errMsgs == null && data.name !=null){
+			    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+			    		    		$('#review-fna-modal').modal('show');
+			    		    	}
+			    		    	else{
+			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
+			    		    	}
+			    		    }  
+			    		});
             		}else{
             			$('.modal').modal('hide');
                         $('.login-info').removeClass('hidden');
                         $('#loginpopup #fna-check').val("false");
                         $('#loginpopup #nav-bar-check').val("false");
+                        $('#loginpopup #forcefna').val("true");
                         $('#loginpopup .modal-dialog').addClass('loginpopupext');			
-            			$('#loginpopup').modal('show');			
+            			$('#loginpopup').modal('show');
+            		    
             		}
                 });
             	
@@ -453,13 +474,15 @@ var languageP = "${language}";
                          }
                      });
                      //$('.psa-link-content').hide();
+						
+						$('.psa-divider').removeClass('hidden');
 				} else {
 					$('.psa-btn').attr('data-toggle', 'none');
 					$('.psa-collapse-content').removeClass('collapse');
 					
 					$('.fna-tab-content').addClass('col-lg-3 col-md-3 active');
 					$('.psa-collapse-content').css('height', 'auto');
-					
+					$('.psa-divider').removeClass('hidden');
 				}
 				$(window).resize(function() {
 					if(getWidth() < 992) {
@@ -497,12 +520,14 @@ var languageP = "${language}";
 	               });
 	
 	               $('.psa-link-content').show();
+						$('.psa-divider').removeClass('hidden');
 					} else {
 						$('.psa-btn').attr('data-toggle', 'none');
 						$('.psa-collapse-content').removeClass('collapse');
 						
 						$('.fna-tab-content').addClass('col-lg-3 col-md-3 active');
 						$('.psa-collapse-content').css('height', 'auto');
+						$('.psa-divider').removeClass('hidden');
 					}
 				});
 				 function getWidth() {
@@ -547,6 +572,11 @@ var languageP = "${language}";
 					        $('#btn-collapse3').attr('src', src);
 					    }
 					});
+					
+					//mobile blog read more button open blog page
+					$('.read-more-btn-mb').click(function(){
+						window.open('<fmt:message key="link.blog1.link" bundle="${msg}" />');
+					});					
             });
             
 		</script>

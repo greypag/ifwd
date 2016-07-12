@@ -33,9 +33,9 @@ var languageP = "${language}";
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
 			    	<c:set var="breadcrumbItems">
-			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+			    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 					</c:set>
-			    	<c:set var="breadcrumbActive">3</c:set>
+			    	<c:set var="breadcrumbActive">4</c:set>
 			    </c:if>
 			    <c:if test="${planIndex == 'savings-insurance'}">
 			    	<c:set var="breadcrumbItems">
@@ -95,7 +95,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.now" bundle="${msg}" />
-												<span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+												<span>
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -110,7 +117,14 @@ var languageP = "${language}";
 										<div class="col-xs-11">
 											<div class="text-bold pull-left desc">
 												<fmt:message key="option.upload.later" bundle="${msg}" />
-												<span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+												<span class="uplater-span">
+													<c:if test="${planIndex == 'savings-insurance'}">
+					        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+					        						</c:if>
+						        					<c:if test="${planIndex == 'medical-insurance'}">
+					        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+					        						</c:if>
+												</span>
 											</div>
 										</div>
 									</div>
@@ -124,7 +138,14 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.now" bundle="${msg}" />
-								   <span><fmt:message key="option.upload.now.copy1" bundle="${msg}" /></span>
+								   <span>
+									   <c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy1" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy1" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 							 <div class="clearfix below desktop-align">
@@ -133,15 +154,31 @@ var languageP = "${language}";
 								</div>
 								<div class="text-bold pull-left desc">
 								   <fmt:message key="option.upload.later" bundle="${msg}" />
-								   <span class="uplater-span"><fmt:message key="option.upload.later.copy1" bundle="${msg}" /></span>
+								   <span class="uplater-span">
+								   		<c:if test="${planIndex == 'savings-insurance'}">
+		        							<fmt:message key="msg.upload.savie.copy2" bundle="${msg}" />
+		        						</c:if>
+			        					<c:if test="${planIndex == 'medical-insurance'}">
+		        							<fmt:message key="msg.upload.easyhealth.copy2" bundle="${msg}" />
+		        						</c:if>
+								   </span>
 								</div>
 							 </div>
 						  </div-->
 					   </div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc"><fmt:message key="label.upload.doc.when.ready.title" bundle="${msg}" /></p>
-								<fmt:message key="label.upload.doc.when.ready.copy1" bundle="${msg}" />
+								<p class="first-desc"><fmt:message key="msg.upload.savie.copy4" bundle="${msg}" /></p>
+								<ol>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<li><fmt:message key="msg.upload.savie.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.savie.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<li><fmt:message key="msg.upload.easyhealth.copy5" bundle="${msg}" /></li>
+										<li><fmt:message key="msg.upload.easyhealth.copy6" bundle="${msg}" /></li>
+	        						</c:if>
+								</ol>
 							</div>
 						</div>
 						<div class="upload-now-section" id="upload-now-section">
@@ -209,7 +246,7 @@ var languageP = "${language}";
 												<span id="hkid-docu-filename">Yourfiles.pdf </span><span id="hkid-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar','hkid-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -218,7 +255,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="hkid-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="passport-section" style="">
@@ -269,7 +306,7 @@ var languageP = "${language}";
 												<span id="passport-docu-filename">Yourfiles.pdf </span><span id="passport-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar','passport-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -278,7 +315,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="passport-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="passport-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-4 so-upload" id="proof-address-holder">
@@ -326,7 +363,7 @@ var languageP = "${language}";
 												<span id="address-docu-filename">Yourfiles.pdf </span><span id="address-docu-fileSize">(319.50 mb)</span>
 											</div>
 											<div class="pull-right">
-												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar')">
+												<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar','docu-upload-percent-text')">
 													<span class="upload-cancel"></span>
 												</button>
 											</div>
@@ -335,7 +372,7 @@ var languageP = "${language}";
 											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="document-upload-progress-bar">
 											</div>
 										</div>
-										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">100%</span></p>
+										<p class="upload-text">Uploading: <span id="docu-upload-percent-text">0%</span></p>
 									</div>
 								</div>
 							</div>
@@ -345,7 +382,14 @@ var languageP = "${language}";
 								<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
 							</div>
 							<div class="upload-note">
-								<p class="upload-p"><span class="orange">*</span> <fmt:message key="label.savie.upload.remark" bundle="${msg}" /></p>
+								<p class="upload-p"><span class="orange">*</span>
+									<c:if test="${planIndex == 'savings-insurance'}">
+	        							<fmt:message key="msg.upload.savie.copy3" bundle="${msg}" />
+	        						</c:if>
+		        					<c:if test="${planIndex == 'medical-insurance'}">
+	        							<fmt:message key="msg.upload.easyhealth.copy3" bundle="${msg}" />
+	        						</c:if>
+								</p>
 							</div>
 						</div>
 						<div class="next-btn">
@@ -437,7 +481,7 @@ var languageP = "${language}";
 			            ga('require', 'ecommerce');
 			            ga('ecommerce:addTransaction', {
 			             'id': '${lifePolicy.transactionNumber }', // Transaction ID. Required.
-			             'revenue': '${selectPlan.monthlyPremium }', // Grand Total of single premium 
+			             'revenue': '${selectPlan.monthlyPremium*2 }', // Grand Total of single premium 
 			             'affiliation': 'Protect', // Insurance type, e.g. Life
 			              'currency': 'HKD'
 			             });
@@ -470,36 +514,37 @@ var languageP = "${language}";
 		    		});
 				}
 				var errorMessageType = "${errorMessageType}";
+				var userName = "${username}";
+                var policyUserName = "${policyUserName}";
+                var authenticate = "${authenticate}";
+
+                if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
+                	errorMessageType = 'NOT_AUTHENTICATED';
+                } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
+                	errorMessageType = 'UNMATCHED_USERNAME';
+                }
+
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
-            		if(errorMessageType == 'alreadyUploaded'){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
-            		}else if(errorMessageType == 'UrlExpired' ){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
-            		}else{
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
-            		}
-                	$('#error-to-home-modal').modal('show');
-            	}else{
-            		var userName = "${username}";
-                	var policyUserName = "${policyUserName}";
-                	if(policyUserName != null && policyUserName != ''){
-        				$('#et-upload-now').hide();
-        				$('#et-upload-later').hide();
-        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
-            				$('#loginpopup').find(".close").hide(); 
-            				$('#loginpopup').find(".text-left").hide(); 
-        				}
-    				}
-    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-    					$('#loginpopup').modal('show');
-    				}else{
-    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
-    						$('#error-to-home-modal').modal('show'); 
-    				         
-    					}
-    				}
+
+            		if(errorMessageType == 'NOT_AUTHENTICATED'){
+            			//force login
+	            		$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+	            		$('#loginpopup').find(".close").hide(); 
+	           			$('#loginpopup').find(".text-left").hide(); 
+            			$('#loginpopup').modal('show');
+
+            		} else {
+            			if(errorMessageType == 'UNMATCHED_USERNAME'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+	            		}else if(errorMessageType == 'alreadyUploaded'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+	            		}else if(errorMessageType == 'UrlExpired' ){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+	            		}else{
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+	            		}
+	                	$('#error-to-home-modal').modal('show');
+	                }
             	}
 				
 				// Toggle passport
@@ -522,12 +567,12 @@ var languageP = "${language}";
 						
 						if (isValid && up) {
 							console.log('Proceed');
-							$self.removeAttr('disabled');
+							$self.attr('disabled', 'disabled');
 							documentUpload('${plan }');
 							up = false;
 						} 
 						else {
-							$self.attr('disabled', 'disabled');
+							$self.removeAttr('disabled');
 						}
 					}
 					else{
@@ -565,6 +610,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-hkid-file-message', getBundle(getBundleLanguage,'error.hkid.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#hkid-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -590,6 +641,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-passport-file-message', getBundle(getBundleLanguage,'error.passport.document.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#passport-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 				
@@ -612,6 +669,12 @@ var languageP = "${language}";
 						addFormFieldError('#so-address-file-message', getBundle(getBundleLanguage,'error.address.proof.empty'), 'required-hkid');
 						isValid = false;
 					}
+
+					// Check if upload is completed.
+					if( $('#docu-upload-percent-text').html() != '100%' ){
+						isValid = false;
+					}
+
 					return isValid;
 				}
 			});

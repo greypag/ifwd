@@ -303,7 +303,7 @@ var languageP = "${language}";
 
 											<h5>
 												<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
-												<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+												<a href="<%=request.getContextPath()%>/<fmt:message key="link.address.proof" bundle="${msg}" />" target="_blank">
 													<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
 												</a>
 											</h5>
@@ -687,36 +687,37 @@ var languageP = "${language}";
             }
             $(function() {
             	var errorMessageType = "${errorMessageType}";
+            	var userName = "${username}";
+                var policyUserName = "${policyUserName}";
+                var authenticate = "${authenticate}";
+
+                if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI") ){
+                	errorMessageType = 'NOT_AUTHENTICATED';
+                } else if(policyUserName != "" && policyUserName.toUpperCase() != userName.toUpperCase() ){
+                	errorMessageType = 'UNMATCHED_USERNAME';
+                }
+
             	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
-            		if(errorMessageType == 'alreadyUploaded'){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
-            		}else if(errorMessageType == 'UrlExpired' ){
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
-            		}else{
-            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
-            		}
-                	$('#error-to-home-modal').modal('show');
-            	}else{
-            		var userName = "${username}";
-                	var policyUserName = "${policyUserName}";
-                	if(policyUserName != null && policyUserName != ''){
-        				$('#et-upload-now').hide();
-        				$('#et-upload-later').hide();
-        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
-            				$('#loginpopup').find(".close").hide(); 
-            				$('#loginpopup').find(".text-left").hide(); 
-        				}
-    				}
-    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-    					$('#loginpopup').modal('show');
-    				}else{
-    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
-    						$('#error-to-home-modal').modal('show'); 
-    				         
-    					}
-    				}
+
+            		if(errorMessageType == 'NOT_AUTHENTICATED'){
+            			//force login
+	            		$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+	            		$('#loginpopup').find(".close").hide(); 
+	           			$('#loginpopup').find(".text-left").hide(); 
+            			$('#loginpopup').modal('show');
+
+            		} else {
+            			if(errorMessageType == 'UNMATCHED_USERNAME'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+	            		}else if(errorMessageType == 'alreadyUploaded'){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+	            		}else if(errorMessageType == 'UrlExpired' ){
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+	            		}else{
+	            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+	            		}
+	                	$('#error-to-home-modal').modal('show');
+	                }
             	}
 			});
             

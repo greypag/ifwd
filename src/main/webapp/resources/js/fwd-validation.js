@@ -726,7 +726,7 @@ $(function() {
 					regexp: {
 						regexp: /^[^a-zA-Z0-9]*$/,
 						message: 'Please input your Chinese name.'
-					},
+					}/*,
 					remote:{
                     	message: 'Some input information contains simplified Chinese',
 	                	url: contextPath+"/ajax/validateSimpleChinese",
@@ -737,7 +737,7 @@ $(function() {
 	                	        return $("#savieBeneficiaryBean\\[0\\]\\.chineseName").val();
 	                	    }
 	                	}
-	                }
+	                }*/
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{

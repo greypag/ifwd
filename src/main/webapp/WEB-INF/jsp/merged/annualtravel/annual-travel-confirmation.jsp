@@ -532,7 +532,7 @@ $(document).ready(function() {
   ga('ecommerce:addTransaction', {
     'id': '${transNo}', // Transaction ID. Required.
     'revenue': '${dueAmount}', // Grand Total.
-    'affiliation': 'Travel', // Insurance type, e.g. Life
+    'affiliation': 'Protect', // Insurance type, e.g. Life
      'currency': 'HKD'
     });
   ga('ecommerce:addItem', {

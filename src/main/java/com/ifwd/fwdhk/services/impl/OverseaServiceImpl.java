@@ -293,7 +293,7 @@ public class OverseaServiceImpl implements OverseaService {
 		String returnDate = DateApi.formatString1(calendar.getTime());
 		String applicantFullName = planDetailsForm.getFullName();
 		String applicantHKID = planDetailsForm.getHkid();
-		String applicantMobNo = planDetailsForm.getMobileNo();
+		String applicantMobNo = Methods.formatMobile(planDetailsForm.getMobileNo());
 		String emailAddress = planDetailsForm.getEmailAddress();
 		String dob = planDetailsForm.getApplicantDob();
 		dob = DateApi.pickDate1(dob);

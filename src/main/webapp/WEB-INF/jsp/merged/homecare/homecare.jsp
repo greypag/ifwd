@@ -596,7 +596,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		</a>
 	</section>
 
-
+    <div class="content-disclaimer">
+       <p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+    </div>
 
 
 	<!--/#testiomonials-->

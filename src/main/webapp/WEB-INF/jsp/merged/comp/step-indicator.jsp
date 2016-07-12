@@ -31,7 +31,7 @@
       template_item += "<button class=\"stepIndicator__step\">";
       template_item += "<span class=\"stepIndicator__number %s\">%s</span>";
       template_item += "<span class=\"stepIndicator__content %s\">%s</span>";
-      template_item += "</li>";
+      template_item += "</button></li>";
 
       template_divider += "<li class=\"stepIndicator__divider\">";
       template_divider += "<img src=\"" +contextPath+"/resources/images/savie-2016/header-browse-arrow.png\" class=\"browse-arrow\">";

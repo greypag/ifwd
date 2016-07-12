@@ -222,7 +222,7 @@ public class SavieOnlinePageFlowControl {
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			filePath = "savie/";
-			current = "confirmation-appointment";
+			current = "confirmation-appointment-rp";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SINGLE_PREMIUM:

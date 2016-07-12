@@ -27,9 +27,9 @@ var home_url = "<%=request.getContextPath()%>";
 
 	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
-	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 			</c:set>
-	    	<c:set var="breadcrumbActive">3</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
 	    </c:if>
 	    <c:if test="${planIndex == 'savings-insurance'}">
 	    	<c:set var="breadcrumbItems">
@@ -65,12 +65,11 @@ var home_url = "<%=request.getContextPath()%>";
 	    	<c:set var="stepActive">1</c:set>
 	    </c:if>
 
-	     <!--<div class="container-fluid fwd-full-container browse-holder">-->
-	        <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
-	        	<jsp:param name="stepItems" value="${stepItems}"/>
-    			<jsp:param name="stepActive" value="${stepActive}"/>
-	    	</jsp:include>
-	     <!--</div>-->
+	    
+	    <jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+	       	<jsp:param name="stepItems" value="${stepItems}"/>
+    		<jsp:param name="stepActive" value="${stepActive}"/>
+	    </jsp:include>
 
 		<!-- StepIndicator Component End-->
 
@@ -220,7 +219,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			<div class="modal-body">
 				<p>
-					Please call our Customer Hotline
+					Please call our Customer Service Hotline
 					3123 3123
 					to find out more or leave your contact and let us call you back.
 				</p>

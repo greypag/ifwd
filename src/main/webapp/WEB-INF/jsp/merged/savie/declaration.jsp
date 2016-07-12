@@ -15,6 +15,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
+
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="declaration-page">
 		
 	<!-- Breadcrumb Component Start-->
@@ -24,9 +25,9 @@ var languageP = "${language}";
 
 	    <c:if test="${planIndex == 'medical-insurance'}">
 	    	<c:set var="breadcrumbItems">
-	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.easyhealth,breadcrumb.item.application
+	    		breadcrumb.item.home,breadcrumb.item.protect,breadcrumb.item.health,breadcrumb.item.easyhealth,breadcrumb.item.application
 			</c:set>
-	    	<c:set var="breadcrumbActive">3</c:set>
+	    	<c:set var="breadcrumbActive">4</c:set>
 	    </c:if>
 	    <c:if test="${planIndex == 'savings-insurance'}">
 	    	<c:set var="breadcrumbItems">
@@ -74,7 +75,7 @@ var languageP = "${language}";
 			<div class="declaration-content-wrapper">
 				<form id="declarationForm">
 					<p class="title"><fmt:message key="label.declaration.authorization.headline" bundle="${msg}" /></p>
-					
+					<c:if test="${planIndex == 'savings-insurance'}">
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.dda.title" bundle="${msg}" /></b></p>
 						<hr>
@@ -91,7 +92,7 @@ var languageP = "${language}";
 						</nav>
 						<p style="margin-top: 15px;"><fmt:message key="declaration.dda.note" bundle="${msg}" /></p>
 					</div>
-					
+					</c:if>
 					<div class="cstm-panel">
 						<p><b><fmt:message key="label.declaration.fatca" bundle="${msg}" /></b></p>
 						<hr>
@@ -129,16 +130,16 @@ var languageP = "${language}";
 								<p><fmt:message key="declaration.policyreplacement.copy1" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
-									  <div class="clearfix desktop-align left">
+									  <div class="clearfix desktop-align left radio-no-div">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false"  class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
-									  <div class="clearfix below desktop-align">
+									  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -154,16 +155,16 @@ var languageP = "${language}";
 								<p><fmt:message key="declaration.policyreplacement.copy2" bundle="${msg}" /></p>
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group clearfix">
-									  <div class="clearfix desktop-align left">
+									  <div class="clearfix desktop-align left radio-no-div">
 										 <div class="pull-left radio-holder">
 											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false"  class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 									  </div>
-									  <div class="clearfix below desktop-align">
+									  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
 										 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -184,6 +185,13 @@ var languageP = "${language}";
 								<li class="list__item"><fmt:message key="declaration.policyreplacement.copy4" bundle="${msg}" /></li>
 							</ol>
 							<p><fmt:message key="declaration.policyreplacement.copy5" bundle="${msg}" /></p>
+							<div style="margin-top: 20px;">
+							  <p><fmt:message key="declaration.policyreplacement.copy6" bundle="${msg}" /></p>
+								<ul class="list-unstyled">
+									<li><fmt:message key="declaration.policyreplacement.copy7" bundle="${msg}" /></li>
+									<li><fmt:message key="declaration.policyreplacement.copy8" bundle="${msg}" /></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					
@@ -206,16 +214,16 @@ var languageP = "${language}";
 						<p><fmt:message key="declaration.residency.declaration.copy" bundle="${msg}" /></p>
 						<div class="radio-group clearfix">
 						   <div class="radio-button-group">
-							  <div class="clearfix desktop-align left">
+							  <div class="clearfix desktop-align left radio-no-div">
 								 <div class="pull-left radio-holder">
 									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false"  class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
 								 <div class="text-bold pull-left desc"><fmt:message key="option.no" bundle="${msg}" /></div>
 							  </div>
-							  <div class="clearfix below desktop-align">
+							  <div class="clearfix below desktop-align radio-yes-div" data-toggle="modal" data-target="#yes-radio-popup">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes" data-toggle="modal" data-target="#yes-radio-popup">
+									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
 								 <div class="text-bold pull-left desc"><fmt:message key="option.yes" bundle="${msg}" /></div>
@@ -384,6 +392,7 @@ var languageP = "${language}";
 	var $radio_no_elem;
 	
 	$(document).ready(function() {
+		/*
 		$("#haveReplacedYes").click(function(){
 			// these variables will be used when closing yes-radio-popup
  			$radio_yes_elem = $(this); 
@@ -401,7 +410,11 @@ var languageP = "${language}";
  			$radio_yes_elem = $(this); 
  			$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
 		});
-
+		*/
+		$('.radio-yes-div').click(function(){
+ 			$radio_yes_elem = $(this).find('input:radio'); 
+ 			$radio_no_elem = $radio_yes_elem.parent().parent().siblings('.left').find('.radio-no');
+		});
 
 		
 		$('.close').click(function() {
@@ -411,7 +424,7 @@ var languageP = "${language}";
 		});
 		
 		$('.modal').on('click', function() {
-			if($(this).attr("id") == "yes-radio-popup") {						
+			if($(this).attr("id") == "yes-radio-popup") {
 				updateRadioStatus();
 			}
 		});
@@ -425,9 +438,12 @@ var languageP = "${language}";
 		
 		$('.btn-proceed').click(function() {
 			var isPassed = true;
+			var hasDDA = ${planIndex == 'savings-insurance' ? true : false};
 			
 			// validation
-			isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			if( hasDDA ){
+				isPassed &= validateChkboxField('hasReadAndAcceptDDA', 'chkDDAErMsg');
+			}
 			isPassed &= validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
 			isPassed &= validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
@@ -580,11 +596,17 @@ var languageP = "${language}";
 			$(this).siblings('input[type=checkbox]').click();
 		});
 		
-		$('.personal-info-link-parent .chkboxText').on('click', function() {
-			$('#hasReadAndAcceptPICS').click();		
-		});
+		//$('.personal-info-link-parent + p').on('click', function() {
+			//$('#hasReadAndAcceptPICS').click();
+		//});
 		
 //		$('#yes-radio-popup').css("display","none");
 //		$('#yes-radio-popup-intent').css("display","none");
+		
+		$('.radio-no-div, .radio-yes-div').on('click', function() {
+			$radio_group_parent = $(this).parent();
+			$radio_group_parent.find('input:radio').prop('checked', false);
+			$(this).find('input:radio').prop('checked', true);
+		});
 	});
 </script>
