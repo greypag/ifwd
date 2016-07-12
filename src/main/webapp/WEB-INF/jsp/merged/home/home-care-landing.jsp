@@ -56,7 +56,7 @@ var lang1 = "${language}";
                     <p><fmt:message key="label.gurantee.easy.home" bundle="${msg}" /></p> <a href="javascript:void(0)" data-ani2=".eh_sale_container" class="eh_btn_more_details"><fmt:message key="button.more.easy.home" bundle="${msg}" /></a>
                     <div class="row">
                         <div class="col-xs-12 text-right nopadding">
-                            <p class="eh_remark"><fmt:message key="label.remarks.easy.home" bundle="${msg}" /><a href="#"><fmt:message key="link.terms.easy.home" bundle="${msg}" /></a><fmt:message key="label.remarks2.easy.home" bundle="${msg}" /></p>
+                            <p class="eh_remark"><fmt:message key="label.remarks.easy.home" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.home.guaranteed.cheapest" bundle="${msg}" />" target="_blank"><fmt:message key="link.terms.easy.home" bundle="${msg}" /></a><fmt:message key="label.remarks2.easy.home" bundle="${msg}" /></p>
                         </div>
                     </div>
                 </div>

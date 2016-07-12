@@ -38,7 +38,7 @@ var plan="${plan}";
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
                         </div>
-                        <div class="savie-product text-bold color-teal-blue"> <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank" class="color-teal-blue"><fmt:message key="label.brochure.easy.home" bundle="${msg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank" class="color-teal-blue"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
+                        <div class="savie-product text-bold color-teal-blue"> <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank" class="color-teal-blue"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
                     </div>
                 </form>
             </div>
@@ -54,7 +54,7 @@ var plan="${plan}";
                     <p><fmt:message key="label.text.home.liability" bundle="${msg}" /></p> <a href="javascript:void(0);" data-ani2=".eh_sale_container" class="eh_btn_more_details"><fmt:message key="button.more.easy.home" bundle="${msg}" /></a>
                     <div class="row">
                         <div class="col-xs-12 text-right">
-                            <p class="eh_remark"><fmt:message key="label.remarks.easy.home" bundle="${msg}" /><a href="#"><fmt:message key="link.terms.easy.home" bundle="${msg}" /></a><fmt:message key="label.remarks2.easy.home" bundle="${msg}" /></p>
+                            <p class="eh_remark"><fmt:message key="label.remarks.easy.home" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.home.guaranteed.cheapest" bundle="${msg}" />" target="_blank"><fmt:message key="link.terms.easy.home" bundle="${msg}" /></a><fmt:message key="label.remarks2.easy.home" bundle="${msg}" /></p>
                         </div>
                     </div>
                 </div>
