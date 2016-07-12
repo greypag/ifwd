@@ -96,7 +96,7 @@ var plan="${plan}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
-                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.grossPremium }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
@@ -104,7 +104,7 @@ var plan="${plan}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
-                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.discountAmount }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
@@ -112,7 +112,7 @@ var plan="${plan}";
                     	<div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
-                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${homeQuoteDetails.totalDue }</span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price"><fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.totalDue }" maxFractionDigits="2"/></span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
                             </div>
                         </div>
                     </li>
@@ -140,7 +140,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
-                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.grossPremium }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -148,7 +148,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
-                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${homeQuoteDetails.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.discountAmount }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -156,7 +156,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${homeQuoteDetails.totalDue }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price"><fmt:formatNumber pattern="0.00" type="number" value="${homeQuoteDetails.totalDue }" maxFractionDigits="2"/></span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>

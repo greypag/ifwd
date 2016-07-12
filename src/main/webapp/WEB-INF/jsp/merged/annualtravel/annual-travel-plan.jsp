@@ -403,7 +403,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
 									%>
 					                <h2 class="product_plan_box_price_right">
-										<fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
+										<fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" pattern="0.00" /></span>
 										<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 									</h2>
 									<div id="actualPrice<%=travelQuote.getPlanName()[i]%>" class="del actualPrice<%=travelQuote.getPlanName()[i]%> product_plan_box_del hide"><del>0</del></div>
@@ -411,7 +411,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 										} else {
 									%>
 									<h2 class="product_plan_box_price_right">
-										<fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getToalDue()[i]%>" />.00</span>
+										<fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getToalDue()[i]%>" pattern="0.00" /></span>
 										<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 									</h2>
 									<div id="actualPrice<%=travelQuote.getPlanName()[i]%>" class="del actualPrice<%=travelQuote.getPlanName()[i]%> product_plan_box_del"><del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del></div>

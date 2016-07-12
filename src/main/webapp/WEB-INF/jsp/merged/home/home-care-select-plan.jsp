@@ -92,7 +92,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
-                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span id="original-price">${planQuote.grossPremium }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span id="original-price"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.grossPremium }" maxFractionDigits="2"/></span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
@@ -100,7 +100,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
-                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span class="discount">${planQuote.discountAmount }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                            <p class="fld-val"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <span class="discount"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.discountAmount }" maxFractionDigits="2"/></span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </li>
@@ -108,7 +108,7 @@ var nextPage = "${nextPageFlow}";
                     	<div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
-                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${planQuote.totalDue }</span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
+                            <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><span class="txt-hkd-suffix"><fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></span></p>
                             </div>
                         </div>
                     </li>
@@ -136,7 +136,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.original.price" bundle="${msg}" /></p>
-                                        <p class="fld-val original-price"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.grossPremium } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val original-price"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${planQuote.grossPremium }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -144,7 +144,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.discount" bundle="${msg}" /></p>
-                                        <p class="fld-val discount"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> ${planQuote.discountAmount } <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val discount"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /> <fmt:formatNumber pattern="0.00" type="number" value="${planQuote.discountAmount }" maxFractionDigits="2"/> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -152,7 +152,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.amount.due" bundle="${msg}" /></p>
-                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price">${planQuote.totalDue }</span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
+                                        <p class="fld-val"><span class="txt-hkd-prefix"><fmt:message key="label.dollar.hkd.en" bundle="${msg}" /></span><span class="txt-price"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span> <fmt:message key="label.dollar.hkd.cn" bundle="${msg}" /></p>
                                     </div>
                                 </div>
                             </li>
@@ -171,7 +171,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="col-xs-12 col-md-12">
                             <img src="<%=request.getContextPath()%>/resources/images/easy-home/Plan_select_A_img.jpg" class="img-hero" alt="">
                             <div class="app-hero-panel-cont">
-                                <h2><span><fmt:message key="planoption.home.text.plan.name2" bundle="${msg}" /></span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" />${planQuote.totalDue }<fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
+                                <h2><span><fmt:message key="planoption.home.text.plan.name2" bundle="${msg}" /></span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
                                 <a href="javascript:void(0);" class="btn-app btn-select-plan reverse"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                             </div>
                         </div>
@@ -548,14 +548,14 @@ $(".btn-promo-apply").on("click",function(){
 	        success : function(data) {
 		      	if(data !=null && data.errMsgs ==null){
 		      		$(".txt-promote-code").html(data.referralCode);
-		      		$(".original-price").html(data.priceInfo.grossPremium);
-		      		$(".discount").html(data.priceInfo.discountAmount);
-		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		$(".original-price").html(parseFloat(data.priceInfo.grossPremium).toFixed(2));
+		      		$(".discount").html(parseFloat(data.priceInfo.discountAmount).toFixed(2));
+		      		$(".txt-price").html(parseFloat(data.priceInfo.totalDue).toFixed(2));
 		      		
 		      		$("#planCode").val(data.planCode);
-		      		$("#grossPremium").val(data.priceInfo.grossPremium);
-		      		$("#discountAmount").val(data.priceInfo.discountAmount);
-		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#grossPremium").val(parseFloat(data.priceInfo.grossPremium).toFixed(2));
+		      		$("#discountAmount").val(parseFloat(data.priceInfo.discountAmount).toFixed(2));
+		      		$("#totalDue").val(parseFloat(data.priceInfo.totalDue).toFixed(2));
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
 		      		$('#promoCodeErrMsg').html('');
@@ -568,14 +568,14 @@ $(".btn-promo-apply").on("click",function(){
 		      		}
 				}else if(data !=null && data.errMsgs == "Promotion code is not valid."){
 		      		$(".txt-promote-code").html("-");
-		      		$(".original-price").html(data.priceInfo.grossPremium);
-		      		$(".discount").html(data.priceInfo.discountAmount);
-		      		$(".txt-price").html(data.priceInfo.totalDue);
+		      		$(".original-price").html(parseFloat(data.priceInfo.grossPremium).toFixed(2));
+		      		$(".discount").html(parseFloat(data.priceInfo.discountAmount).toFixed(2));
+		      		$(".txt-price").html(parseFloat(data.priceInfo.totalDue).toFixed(2));
 		      		
 		      		$("#planCode").val(data.planCode);
-		      		$("#grossPremium").val(data.priceInfo.grossPremium);
-		      		$("#discountAmount").val(data.priceInfo.discountAmount);
-		      		$("#totalDue").val(data.priceInfo.totalDue);
+		      		$("#grossPremium").val(parseFloat(data.priceInfo.grossPremium).toFixed(2));
+		      		$("#discountAmount").val(parseFloat(data.priceInfo.discountAmount).toFixed(2));
+		      		$("#totalDue").val(parseFloat(data.priceInfo.totalDue).toFixed(2));
 		      		$("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
 		      		$('#promoCodeErrMsg').html(getBundle(getBundleLanguage, "promocode.notValid.message"));  
