@@ -250,7 +250,8 @@ public class GAServiceImpl implements GAService {
 		
 		HomeQuoteBean homeQuoteDetails = (HomeQuoteBean)session.getAttribute("homeQuoteDetails");
 		
-		if("0".equals(homeQuoteDetails.getTotalDue()) && creditCardNo == null) {
+		float totalDue = Float.valueOf(homeQuoteDetails.getTotalDue());
+		if(totalDue == 0 && creditCardNo == null) {
 			creditCardNo = "0000000000000000";
 			expiryDate = "122030";
 		}else {
