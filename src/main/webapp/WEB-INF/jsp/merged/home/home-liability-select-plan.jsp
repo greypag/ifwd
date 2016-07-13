@@ -173,7 +173,7 @@ var nextPage = "${nextPageFlow}";
                                 
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
-                                    <h2><span>${language == 'en' ? 'Personal Liability':'個人法律責任'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
+                                    <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
                                     <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                                 </div>
                                 <div class="app-hero-panel-cont2">

@@ -271,17 +271,17 @@ var plan="${plan}";
     <div class="container">
         <div class="col-xs-12 eh_halfbanner eh_moreProtect_banner">
             <div class="col-xs-12">
-                <h3 class="text-center eh_sec_title">laborum expedita recusandae ratione sunt alias mollitia id, quod ipsum?</h3> </div>
+                <h3 class="text-center eh_sec_title"><fmt:message key="moreprotection.home.liability.jumbo" bundle="${msg}" /></h3> </div>
                 <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/person_s4_img.jpg" alt="Need more protection" class="img-responsive"> </div>
                 <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                     <h3 class="eh_sec_title">
-                        Lorem ipsum dolor
+                        <fmt:message key="moreprotection.home.liability.title.part1" bundle="${msg}" />
                     </h3><br>
                     <h3 class="eh_sec_title">
-                        consectetur adipisicing elit. 
+                        <fmt:message key="moreprotection.home.liability.title.part2" bundle="${msg}" />
                     </h3>
-                    <div class="col-xs-12 nopadding eh_hb_desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere error, autem ipsum veniam, aliquid eveniet nam repellat, expedita libero, ea itaque unde similique dolore vel sint. Itaque neque quas repellendus! </div>
-                    <div class="col-xs-12 nopadding"> <a href="#" class="eh_btn_more_details">More</a> </div>
+                    <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="moreprotection.home.liability.copy1" bundle="${msg}" /></div>
+                    <div class="col-xs-12 nopadding"> <a href="#" class="eh_btn_more_details"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
                 </div>
         </div>
     </div>
@@ -349,7 +349,7 @@ var plan="${plan}";
         <div class="hidden-md hidden-lg">
             <div class="mini-banner-holder"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/blog/homeliability-blog1.jpg" class="img-responsive">
                 <div class="black-overlay"></div>
-                <h5 class="text-center"><fmt:message key="blog.homecare.title" bundle="${msg}" /></h5> </div>
+                <h5 class="text-center"><fmt:message key="blog.homeliability.title" bundle="${msg}" /></h5> </div>
             <div class="btn-holder">
                 <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
             </div>

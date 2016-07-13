@@ -60,7 +60,7 @@ var nextPage = "${nextPageFlow}";
                         <p><fmt:message key="screening.home.question1" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb1" checked data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
+                               <i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i><input type="checkbox" name="cb1" checked data-txton="No" data-txtoff="Yes"><span></span> <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ var nextPage = "${nextPageFlow}";
                         <p><fmt:message key="screening.home.question2" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                 <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb2" checked  data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
+                                 <i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i><input type="checkbox" name="cb2" checked  data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ var nextPage = "${nextPageFlow}";
                         <p><fmt:message key="screening.home.question3" bundle="${msg}" /></p>
                         <div class="checkbox checkbox-slider--b checkbox-slider-md">
                             <label class="on">
-                                <i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i><input type="checkbox" name="cb3" checked data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i>
+                                <i><fmt:message key="screening.home.question.no" bundle="${msg}" /></i><input type="checkbox" name="cb3" checked data-txton="No" data-txtoff="Yes"><span></span><i><fmt:message key="screening.home.question.yes" bundle="${msg}" /></i>
                             </label>
                         </div>
                     </div>

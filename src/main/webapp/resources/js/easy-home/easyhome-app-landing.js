@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(".eh_theclub_container").autoAlignHeight({child: ".ah_box", minWidth: 992});
 		$(".eh_cfucome_banner").autoAlignHeight({child: ".ah_box", minWidth: 992});
 		$(".eh_moreProtect_banner").autoAlignHeight({child: ".ah_box", minWidth: 992});
+
 		$(".eh_3_feature").autoAlignHeight({child: ".eh_feature_box_title", minWidth: 992, onFinish:function (){
 			$(".autoAlignBox").autoAlignHeight({child: ".inner", minWidth: 992});
 		}});

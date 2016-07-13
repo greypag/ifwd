@@ -186,37 +186,68 @@ $(document).ready(function(){
 						}
 					}
 				},
-				/*apphkidandpassport:{
+				apphkidandpassport:{
 					container:'#apphkidandpassportErrMsg',
 					validators:{
 						notEmpty:{
 							message:'Please select'
+						},
+						callback:{
+							message:'',
+							callback:function(){
+								$("#ef-form-application").bootstrapValidator('validateField', 'hkId');
+								return true;
+							}
 						}
 					}
-				},*/
+				},
 				hkId:{
 					container:'#hkIdErrMsg',
 					validators:{
 						callback:{
 							message:'',
 							callback:function(){
+								var errElm = $("#hkId").parents(".form-group").find("small[data-bv-validator='callback']");
+								
+								if($("#apphkidandpassport").val() == "" || $("#apphkidandpassport").val() == null){									
+									return true;
+								}else{
 									var isEmpty = $.trim($("#hkId").val()) == "";
 									var val = $.trim($("#hkId").val());
-									var errElm = $("#hkId").parents(".form-group").find("small[data-bv-validator='callback']");
+									
 
-									var isValidHKID = IsHKID(val);
-									var isValidPassportLen = chkTravelHKPassLen(val);
-									var isValidPassport = chkTravelHKPass(val);
+									if($("#apphkidandpassport").val() == "appHkid"){
+										var isValidHKID = IsHKID(val);
 
-									if(isEmpty){
-										errElm.text(getBundle(getBundleLanguage, "form.hkid.passport.empty"));
-										return false;
-									}else if(!isValidHKID && (!isValidPassportLen && !isValidPassport)){
-										errElm.text(getBundle(getBundleLanguage, "form.hkid.passport.invalid"));
-										return false;
-									}else{
-										return true;	
+										if(isEmpty){
+											errElm.text(getBundle(getBundleLanguage, "form.hkid.empty"));
+											return false;
+										}else if(!isValidHKID){
+											errElm.text(getBundle(getBundleLanguage, "form.hkid.invalid"));
+											return false;
+										}else{
+											return true;	
+										}
+
+									}else if($("#apphkidandpassport").val() == "appPassport"){
+										var isValidPassportLen = chkTravelHKPassLen(val);
+										var isValidPassport = chkTravelHKPass(val);
+
+										if(isEmpty){
+											errElm.text(getBundle(getBundleLanguage, "applicant.passport.notNull.message"));
+											return false;
+										}else if(!isValidPassportLen){
+											errElm.text(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+											return false;
+										}else if(!isValidPassport){
+											errElm.text(getBundle(getBundleLanguage, "applicant.passport.notEnglish.message"));
+											return false;
+										}else{
+											return true;
+										}
+
 									}
+								}
 							}
 						}
 					}
@@ -650,7 +681,8 @@ $(document).ready(function(){
 		})
 
 		$(".eh-btn-next").on("click",function(){
-			$('#ef-form-application').bootstrapValidator('validate');
+			
+			$('#ef-form-application').bootstrapValidator('updateStatus', 'hkId', 'NOT_VALIDATED').bootstrapValidator('validate');
 			if($('#ef-form-application').data('bootstrapValidator').isValid()){
 				//do something
 				$('#loading-overlay').modal({backdrop: 'static',keyboard: false});

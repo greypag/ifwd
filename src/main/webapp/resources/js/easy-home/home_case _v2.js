@@ -1,6 +1,7 @@
 (function (lib, img, cjs, ss) {
 
 var p; // shortcut to reference prototypes
+lib.webFontTxtFilters = {}; 
 
 // library properties:
 lib.properties = {
@@ -8,77 +9,85 @@ lib.properties = {
 	height: 540,
 	fps: 24,
 	color: "#FFFFFF",
+	webfonts: {},
 	manifest: [
-		{src:window.eh_caseAniImgPath + "/A1.png?1466500166525", id:"A1"},
-		{src:window.eh_caseAniImgPath + "/A2.png?1466500166525", id:"A2"},
-		{src:window.eh_caseAniImgPath + "/A3.png?1466500166525", id:"A3"},
-		{src:window.eh_caseAniImgPath + "/A4.png?1466500166525", id:"A4"},
-		{src:window.eh_caseAniImgPath + "/A5.png?1466500166525", id:"A5"},
-		{src:window.eh_caseAniImgPath + "/A6.png?1466500166525", id:"A6"},
-		{src:window.eh_caseAniImgPath + "/A_bg.png?1466500166525", id:"A_bg"},
-		{src:window.eh_caseAniImgPath + "/A_on_01.png?1466500166525", id:"A_on_01"},
-		{src:window.eh_caseAniImgPath + "/A_on_02.png?1466500166525", id:"A_on_02"},
-		{src:window.eh_caseAniImgPath + "/A_on_03.png?1466500166525", id:"A_on_03"},
-		{src:window.eh_caseAniImgPath + "/A_on_04.png?1466500166525", id:"A_on_04"},
-		{src:window.eh_caseAniImgPath + "/A_on_05.png?1466500166525", id:"A_on_05"},
-		{src:window.eh_caseAniImgPath + "/A_on_06.png?1466500166525", id:"A_on_06"},
-		{src:window.eh_caseAniImgPath + "/A_on_07.png?1466500166525", id:"A_on_07"},
-		{src:window.eh_caseAniImgPath + "/B1.png?1466500166525", id:"B1"},
-		{src:window.eh_caseAniImgPath + "/B2.png?1466500166525", id:"B2"},
-		{src:window.eh_caseAniImgPath + "/B3.png?1466500166525", id:"B3"},
-		{src:window.eh_caseAniImgPath + "/B4.png?1466500166525", id:"B4"},
-		{src:window.eh_caseAniImgPath + "/B5.png?1466500166525", id:"B5"},
-		{src:window.eh_caseAniImgPath + "/B6.png?1466500166525", id:"B6"},
-		{src:window.eh_caseAniImgPath + "/B_on_01.png?1466500166525", id:"B_on_01"},
-		{src:window.eh_caseAniImgPath + "/B_on_02.png?1466500166525", id:"B_on_02"},
-		{src:window.eh_caseAniImgPath + "/B_on_03.png?1466500166525", id:"B_on_03"},
-		{src:window.eh_caseAniImgPath + "/B_on_04.png?1466500166525", id:"B_on_04"},
-		{src:window.eh_caseAniImgPath + "/B_on_05.png?1466500166525", id:"B_on_05"},
-		{src:window.eh_caseAniImgPath + "/C1.png?1466500166525", id:"C1"},
-		{src:window.eh_caseAniImgPath + "/C2.png?1466500166525", id:"C2"},
-		{src:window.eh_caseAniImgPath + "/C3.png?1466500166525", id:"C3"},
-		{src:window.eh_caseAniImgPath + "/C_bg.png?1466500166525", id:"C_bg"},
-		{src:window.eh_caseAniImgPath + "/C_on_01.png?1466500166525", id:"C_on_01"},
-		{src:window.eh_caseAniImgPath + "/C_on_02.png?1466500166525", id:"C_on_02"},
-		{src:window.eh_caseAniImgPath + "/C_on_03.png?1466500166525", id:"C_on_03"},
-		{src:window.eh_caseAniImgPath + "/C_on_04.png?1466500166525", id:"C_on_04"},
-		{src:window.eh_caseAniImgPath + "/C_on_05.png?1466500166525", id:"C_on_05"},
-		{src:window.eh_caseAniImgPath + "/C_on_06.png?1466500166525", id:"C_on_06"},
-		{src:window.eh_caseAniImgPath + "/case_building.png?1466500166525", id:"case_building"},
-		{src:window.eh_caseAniImgPath + "/case_building_b.png?1466500166525", id:"case_building_b"},
-		{src:window.eh_caseAniImgPath + "/case_building_c.png?1466500166525", id:"case_building_c"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_A.png?1466500166525", id:"case_main_txt_A"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_B.png?1466500166525", id:"case_main_txt_B"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_C.png?1466500166525", id:"case_main_txt_C"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_D.png?1466500166525", id:"case_main_txt_D"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_E.png?1466500166525", id:"case_main_txt_E"},
-		{src:window.eh_caseAniImgPath + "/case_main_txt_hints.png?1466500166525", id:"case_main_txt_hints"},
-		{src:window.eh_caseAniImgPath + "/D1.png?1466500166525", id:"D1"},
-		{src:window.eh_caseAniImgPath + "/D2.png?1466500166525", id:"D2"},
-		{src:window.eh_caseAniImgPath + "/D3.png?1466500166525", id:"D3"},
-		{src:window.eh_caseAniImgPath + "/D4.png?1466500166525", id:"D4"},
-		{src:window.eh_caseAniImgPath + "/D_bg.png?1466500166525", id:"D_bg"},
-		{src:window.eh_caseAniImgPath + "/D_on_01.png?1466500166525", id:"D_on_01"},
-		{src:window.eh_caseAniImgPath + "/D_on_02.png?1466500166525", id:"D_on_02"},
-		{src:window.eh_caseAniImgPath + "/D_on_03.png?1466500166525", id:"D_on_03"},
-		{src:window.eh_caseAniImgPath + "/d_on_07.png?1466500166525", id:"d_on_07"},
-		{src:window.eh_caseAniImgPath + "/E1.png?1466500166525", id:"E1"},
-		{src:window.eh_caseAniImgPath + "/E2.png?1466500166525", id:"E2"},
-		{src:window.eh_caseAniImgPath + "/E3.png?1466500166525", id:"E3"},
-		{src:window.eh_caseAniImgPath + "/E4.png?1466500166525", id:"E4"},
-		{src:window.eh_caseAniImgPath + "/E5.png?1466500166525", id:"E5"},
-		{src:window.eh_caseAniImgPath + "/E6.png?1466500166525", id:"E6"},
-		{src:window.eh_caseAniImgPath + "/E_bg.png?1466500166525", id:"E_bg"},
-		{src:window.eh_caseAniImgPath + "/E_on_01.png?1466500166525", id:"E_on_01"},
-		{src:window.eh_caseAniImgPath + "/E_on_02.png?1466500166525", id:"E_on_02"},
-		{src:window.eh_caseAniImgPath + "/e_on_03.png?1466500166525", id:"e_on_03"},
-		{src:window.eh_caseAniImgPath + "/e_On_04.png?1466500166525", id:"e_On_04"},
-		{src:window.eh_caseAniImgPath + "/main_btn_hints.png?1466500166525", id:"main_btn_hints"}
+		{src:window.eh_caseAniImgPath + "/A1.png", id:"A1"},
+		{src:window.eh_caseAniImgPath + "/A2.png", id:"A2"},
+		{src:window.eh_caseAniImgPath + "/A3.png", id:"A3"},
+		{src:window.eh_caseAniImgPath + "/A4.png", id:"A4"},
+		{src:window.eh_caseAniImgPath + "/A5.png", id:"A5"},
+		{src:window.eh_caseAniImgPath + "/A6.png", id:"A6"},
+		{src:window.eh_caseAniImgPath + "/A_bg.png", id:"A_bg"},
+		{src:window.eh_caseAniImgPath + "/A_on_01.png", id:"A_on_01"},
+		{src:window.eh_caseAniImgPath + "/A_on_02.png", id:"A_on_02"},
+		{src:window.eh_caseAniImgPath + "/A_on_03.png", id:"A_on_03"},
+		{src:window.eh_caseAniImgPath + "/A_on_04.png", id:"A_on_04"},
+		{src:window.eh_caseAniImgPath + "/A_on_05.png", id:"A_on_05"},
+		{src:window.eh_caseAniImgPath + "/A_on_06.png", id:"A_on_06"},
+		{src:window.eh_caseAniImgPath + "/A_on_07.png", id:"A_on_07"},
+		{src:window.eh_caseAniImgPath + "/B1.png", id:"B1"},
+		{src:window.eh_caseAniImgPath + "/B2.png", id:"B2"},
+		{src:window.eh_caseAniImgPath + "/B3.png", id:"B3"},
+		{src:window.eh_caseAniImgPath + "/B4.png", id:"B4"},
+		{src:window.eh_caseAniImgPath + "/B5.png", id:"B5"},
+		{src:window.eh_caseAniImgPath + "/B6.png", id:"B6"},
+		{src:window.eh_caseAniImgPath + "/B_on_01.png", id:"B_on_01"},
+		{src:window.eh_caseAniImgPath + "/B_on_02.png", id:"B_on_02"},
+		{src:window.eh_caseAniImgPath + "/B_on_03.png", id:"B_on_03"},
+		{src:window.eh_caseAniImgPath + "/B_on_04.png", id:"B_on_04"},
+		{src:window.eh_caseAniImgPath + "/B_on_05.png", id:"B_on_05"},
+		{src:window.eh_caseAniImgPath + "/C1.png", id:"C1"},
+		{src:window.eh_caseAniImgPath + "/C2.png", id:"C2"},
+		{src:window.eh_caseAniImgPath + "/C3.png", id:"C3"},
+		{src:window.eh_caseAniImgPath + "/C_bg.png", id:"C_bg"},
+		{src:window.eh_caseAniImgPath + "/C_on_01.png", id:"C_on_01"},
+		{src:window.eh_caseAniImgPath + "/C_on_02.png", id:"C_on_02"},
+		{src:window.eh_caseAniImgPath + "/C_on_03.png", id:"C_on_03"},
+		{src:window.eh_caseAniImgPath + "/C_on_04.png", id:"C_on_04"},
+		{src:window.eh_caseAniImgPath + "/C_on_05.png", id:"C_on_05"},
+		{src:window.eh_caseAniImgPath + "/C_on_06.png", id:"C_on_06"},
+		{src:window.eh_caseAniImgPath + "/case_building.png", id:"case_building"},
+		{src:window.eh_caseAniImgPath + "/case_building_b.png", id:"case_building_b"},
+		{src:window.eh_caseAniImgPath + "/case_building_c.png", id:"case_building_c"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_A_v2.png", id:"case_main_txt_A_v2"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_B_v2.png", id:"case_main_txt_B_v2"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_C_v2.png", id:"case_main_txt_C_v2"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_D_v2.png", id:"case_main_txt_D_v2"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_E_v2.png", id:"case_main_txt_E_v2"},
+		{src:window.eh_caseAniImgPath + "/case_main_txt_hints.png", id:"case_main_txt_hints"},
+		{src:window.eh_caseAniImgPath + "/D1.png", id:"D1"},
+		{src:window.eh_caseAniImgPath + "/D2.png", id:"D2"},
+		{src:window.eh_caseAniImgPath + "/D3.png", id:"D3"},
+		{src:window.eh_caseAniImgPath + "/D4.png", id:"D4"},
+		{src:window.eh_caseAniImgPath + "/D_bg.png", id:"D_bg"},
+		{src:window.eh_caseAniImgPath + "/D_on_01.png", id:"D_on_01"},
+		{src:window.eh_caseAniImgPath + "/D_on_02.png", id:"D_on_02"},
+		{src:window.eh_caseAniImgPath + "/D_on_03.png", id:"D_on_03"},
+		{src:window.eh_caseAniImgPath + "/d_on_07.png", id:"d_on_07"},
+		{src:window.eh_caseAniImgPath + "/E1.png", id:"E1"},
+		{src:window.eh_caseAniImgPath + "/E2.png", id:"E2"},
+		{src:window.eh_caseAniImgPath + "/E3.png", id:"E3"},
+		{src:window.eh_caseAniImgPath + "/E4.png", id:"E4"},
+		{src:window.eh_caseAniImgPath + "/E5.png", id:"E5"},
+		{src:window.eh_caseAniImgPath + "/E6.png", id:"E6"},
+		{src:window.eh_caseAniImgPath + "/E_bg.png", id:"E_bg"},
+		{src:window.eh_caseAniImgPath + "/E_on_01.png", id:"E_on_01"},
+		{src:window.eh_caseAniImgPath + "/E_on_02.png", id:"E_on_02"},
+		{src:window.eh_caseAniImgPath + "/e_on_03.png", id:"e_on_03"},
+		{src:window.eh_caseAniImgPath + "/e_On_04.png", id:"e_On_04"},
+		{src:window.eh_caseAniImgPath + "/main_btn_hints.png", id:"main_btn_hints"}
 	]
 };
 
 
 
+lib.webfontAvailable = function(family) { 
+	lib.properties.webfonts[family] = true;
+	var txtFilters = lib.webFontTxtFilters && lib.webFontTxtFilters[family] || [];
+	for(var f = 0; f < txtFilters.length; ++f) {
+		txtFilters[f].updateCache();
+	}
+};
 // symbols:
 
 
@@ -311,32 +320,32 @@ p.nominalBounds = new cjs.Rectangle(0,0,439,356);
 p.nominalBounds = new cjs.Rectangle(0,0,460,224);
 
 
-(lib.case_main_txt_A = function() {
-	this.initialize(img.case_main_txt_A);
+(lib.case_main_txt_A_v2 = function() {
+	this.initialize(img.case_main_txt_A_v2);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,341,149);
 
 
-(lib.case_main_txt_B = function() {
-	this.initialize(img.case_main_txt_B);
+(lib.case_main_txt_B_v2 = function() {
+	this.initialize(img.case_main_txt_B_v2);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,321,166);
+p.nominalBounds = new cjs.Rectangle(0,0,330,145);
 
 
-(lib.case_main_txt_C = function() {
-	this.initialize(img.case_main_txt_C);
+(lib.case_main_txt_C_v2 = function() {
+	this.initialize(img.case_main_txt_C_v2);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,346,145);
+p.nominalBounds = new cjs.Rectangle(0,0,347,145);
 
 
-(lib.case_main_txt_D = function() {
-	this.initialize(img.case_main_txt_D);
+(lib.case_main_txt_D_v2 = function() {
+	this.initialize(img.case_main_txt_D_v2);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,343,163);
+p.nominalBounds = new cjs.Rectangle(0,0,343,142);
 
 
-(lib.case_main_txt_E = function() {
-	this.initialize(img.case_main_txt_E);
+(lib.case_main_txt_E_v2 = function() {
+	this.initialize(img.case_main_txt_E_v2);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,340,183);
 
@@ -609,7 +618,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,38,45);
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.case_main_txt_E();
+	this.instance = new lib.case_main_txt_E_v2();
 	this.instance.setTransform(45,-20);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -737,7 +746,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,135,78);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.case_main_txt_D();
+	this.instance = new lib.case_main_txt_D_v2();
 	this.instance.setTransform(43,-21.9);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -864,10 +873,10 @@ p.nominalBounds = new cjs.Rectangle(0,0,65,147);
 
 
 (lib.c_txt = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.case_main_txt_C();
+	this.instance = new lib.case_main_txt_C_v2();
 	this.instance.setTransform(21.5,11);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1031,7 +1040,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,77,11);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.case_main_txt_B();
+	this.instance = new lib.case_main_txt_B_v2();
 	this.instance.setTransform(26,-10);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1207,7 +1216,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,143,92);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.case_main_txt_A();
+	this.instance = new lib.case_main_txt_A_v2();
 	this.instance.setTransform(16.5,-4);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
