@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.Date,com.ifwd.fwdhk.util.WebServiceUtils,com.ifwd.fwdhk.controller.UserRestURIConstants" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -131,7 +130,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick-theme.css"/>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/slick.min.js"></script>
-        <div class="fwd-savie-wrapper fwdiscover-wrapper">
+        <div class="fwd-savie-wrapper fwdiscover-wrapper" ng-app="fwdDemo" ng-controller="ctrlFwdiscover">
             <!--Top Header-->
             <div class="page-fwdiscover">
                 <div class="breadcrumbs-holder">
@@ -295,98 +294,31 @@
                     </div>
                 </div>
                 <% } else if(isRegPromo == true && isRegSpecial == false) { %>
+
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
-
-                    <!-- Carousel items -->
+                    {{ miniCarousel.config | json }}
+                    <!-- miniCarousel items -->
                     <div class="carousel-inner clearfix">
-                        <div class="item active">
+
+                        <div class="item" ng-repeat="items in miniCarousel.offerItems" ng-class="{ 'active': $first }">
                             <div class="row">
-
-								<%--<% if(isRegSpecial==true && isRegPromo==true){%>
-								<div class="col-xs-4">
-                                    <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_thumbnail.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm long-text">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail0.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail0" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <% } %> --%>
-
-                                <div class="col-xs-4">
-                                    <a href="#offer5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearworkingholiday.jpg" class="img-responsive"></a>
+                                <div class="col-xs-4" ng-repeat="item in items | filter: { isActive: true }" ng-style="{ 'width': miniCarousel.config.current.gutterWidth }">
+                                    <%-- <a ng-click="scrollToId( item._id )"><img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}"></a> --%>
+                                    <a href="#offer{{item._id}}" du-smooth-scroll du-scrollspy offset="0"><img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail5.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail5.copy" bundle="${msg}" /></p>
+                                        <p class="price" ng-bind-html="item.miniCarousel.price[currentLang]"></p>
+                                        <p class="discount" ng-bind-html="item.miniCarousel.discount[currentLang]"></p>
                                     </div>
                                     <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail5" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price percentage"><fmt:message key="Fanfare.landingpage.thumbnail4.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail4.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail4" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <%-- <div class="col-xs-4">
-                                    <a href="#offer6"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/discover-oversea-thumbnail.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail6.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail6.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail6" bundle="${msg}" /></p>
-                                    </span>
-                                </div> --%>
-                                <div class="col-xs-4">
-                                    <a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail1.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail1.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail1" bundle="${msg}" /></p>
+                                        <p ng-bind-html="item.miniCarousel.desc[currentLang]"></p>
                                     </span>
                                 </div>
                             </div>
-                            <!--/row-->
-                        </div>
-
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail2.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail2.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
-                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
-                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
-                                    </div>
-                                    <span class="text-center">
-                                        <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
-                                    </span>
-                                </div>
-                            </div>
-                            <!--/row-->
                         </div>
 
                     </div>
-                    <!--/carousel-inner-->
+                    <!-- ./miniCarousel -->
+
                     <a class="left carousel-control hidden-md hidden-lg" href="#myCarousel-fwdiscover" data-slide="prev">
                         <div class="img-holder">
                             <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-left.png" class="img-responsive">
@@ -399,8 +331,8 @@
                         </div>
                     </a>
                 </div>
+
                 <% } %>
-                <!--/myCarousel-->
 
                 <!-- PLANS -->
                 <div class="plans-holder fwdiscover-container">
@@ -460,6 +392,7 @@
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/subang-mobile.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/desktop-subang.jpg" class="img-responsive hidden-xs hidden-sm">
                         <div class="plan-details-box gray-bg right">
+
                             <div class="plan-desc">
                                 <div class="upper-desc">
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerHotel2.HotelName" bundle="${msg}" /></p>
@@ -498,6 +431,7 @@
                                     <button class="details-btn" id="offer-312-button" data-toggle="modal" data-target="#offer-312-detail"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <!-- Hotel 2 Offer End -->
@@ -695,269 +629,59 @@
                     </div>
                     <!-- end CNY PROMOTION -->
                 <%
-                    } else if (isRegSpecial==false && isRegPromo==true){
+                    } else if (isRegSpecial==false && isRegPromo==true) {
                 %>
-                    <!-- fiffth plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+                    <!-- 1st-6th plan -->
+                    <div id="offer{{item._id}}" ng-repeat="item in offersItems">
+                        <div class="fwdiscover-plan <%=disableOfferClass%>">
+                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.mobile[currentLang] }}" class="img-responsive hidden-md hidden-lg">
+                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.desktop[currentLang] }}" class="img-responsive hidden-xs hidden-sm">
 
-                        <div class="plan-details-box red-bg left">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title two-lines"><fmt:message key="Fanfare.landingpage.offer5" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer5.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer5.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer5.subtitle3" bundle="${msg}" /></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer5.bullet3" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count1}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
+                            <div class="plan-details-box gray-bg" ng-class="{'left': isLeft( item.detailMsgBox.orientation ), 'right': !isLeft( item.detailMsgBox.orientation )}" ng-style="{'background-color': item.detailMsgBox.backgroundColor}">
+                                <div class="plan-desc">
+                                    <div class="upper-desc">
+                                        <p class="title two-lines" ng-bind-html="item.title[currentLang]"></p>
+                                        <p class="promo">
+                                            <span ng-bind-html="item.subTitles.promo[currentLang]"></span>
+                                            <span class="price" ng-bind-html="item.subTitles.amount[currentLang]"></span>
+                                            <span class="italic" ng-bind-html="item.subTitles.discount[currentLang]"></span>
+                                        </p>
+                                    </div>
+                                    <div class="lower-desc">
+                                        <ul>
+                                            <li ng-repeat="bulletMsg in item.bulletMsgs" ng-bind-html="bulletMsg[currentLang]"></li>
+                                        </ul>
                                     </div>
                                 </div>
 
-                                <div class="details-button-holder text-center" name="offer5">
-                                    <button class="details-btn" id="fifth-plan-button" data-target="offer5-details"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
+                                <div class="desc-and-button-holder clearfix">
+                                    <div class="promo-desc text-center">
+                                        <div class="clearfix">
+                                            <div class="holder">
+                                                <p class="title" ng-bind-html="item.quota.action[currentLang]"></p>
+                                                <p class="value count">${count1}</p>
+                                            </div>
+                                            <div class="holder date hidden-xs hidden-sm">
+                                                <p class="title" ng-bind-html="item.end.action[currentLang]"></p>
+                                                <p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p>
+                                                <p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p>
+                                            </div>
+                                            <div class="holder date hidden-md hidden-lg">
+                                                <p class="title" ng-bind-html="item.end.action[currentLang]"></p>
+                                                <p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p>
+                                                <p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="details-button-holder text-center" name="offer{{item._id}}">
+                                        <button class="clickme details-btn" id="{{item._codeName}}-plan-button" data-toggle="modal" data-target="offer{{item._id}}-details"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end fifth plan -->
-                    <!-- fourth plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box gray-bg right">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer4.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer4.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4.subtitle3" bundle="${msg}" /></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer4.bullet3" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count0}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer4">
-                                    <button class="details-btn" id="fourth-plan-button" data-target="offer4-details"><fmt:message key="Fanfare.landingpage.offer4.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end fourth plan -->
-					<%-- <!-- sixth plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-overseas-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-overseas-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box orange-bg right">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer6" bundle="${msg}" /></p>
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer6.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer6.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer6.subtitle3" bundle="${msg}" /></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer6.bullet3" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count2}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer6">
-                                    <button class="details-btn" id="sixth-plan-button" data-target="offer6-details"><fmt:message key="Fanfare.landingpage.offer6.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end sixth plan --> --%>
-                    <!-- first plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box gray-bg left">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer1.bullet3" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer1.bullet4" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer1.bullet5" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count3}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer1">
-                                    <button class="details-btn" id="first-plan-button" data-target="offer1-details"><fmt:message key="Fanfare.landingpage.offer1.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end first plan -->
-                    <!-- second plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-                        <div class="plan-details-box red-bg right">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer2.bullet3" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer2.bullet4" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count4}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer2">
-                                    <button class="details-btn" id="second-plan-button" data-target="offer2-details"><fmt:message key="Fanfare.landingpage.offer2.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end second plan -->
-                    <!-- third plan -->
-                    <div class="fwdiscover-plan <%=disableOfferClass%>">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
-                        <div class="plan-details-box orange-bg left">
-                            <div class="plan-desc">
-                                <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span> </p>
-                                </div>
-                                <div class="lower-desc">
-                                    <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer3.bullet3" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offer3.bullet4" bundle="${msg}" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="desc-and-button-holder clearfix">
-                                <div class="promo-desc text-center">
-                                    <div class="clearfix">
-                                        <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-                                            <p class="value count">${count5}</p>
-                                        </div>
-                                        <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
-                                        </div>
-                                        <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="details-button-holder text-center" name="offer3">
-                                    <button class="details-btn" id="third-plan-button" data-target="offer3-details"><fmt:message key="Fanfare.landingpage.offer3.button" bundle="${msg}" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end third plan -->
-                </div>
-                <!-- end PLANS -->
+                    <!-- ./1st-6th plan -->
                 <% } %>
                 <% } %>
                 <!-- Hotel Partner Start -->
@@ -1165,201 +889,42 @@
                     </div>
                 </div>
                 <!-- END OF CNY PROMOTION -->
-                <div class="modal fade fwdiscover-modal" id="offer1-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span></p>
 
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer1.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer1.bullet4" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer1.bullet5" bundle="${msg}" /></li>
-                            </ul>
+                <%-- temp put into modal.jsp --%>
+                <%-- <div ng-repeat="item in offersItems | filter: { _id: 4 }"> --%>
+                <div ng-repeat="item in offersItems">
+                    <div class="modal fade fwdiscover-modal" id="offer{{item._id}}-details" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <p class="title two-lines" ng-bind-html="item.title[currentLang]"></p>
+                                <p class="promo">
+                                    <span ng-bind-html="item.subTitles.promo[currentLang]"></span>
+                                    <span class="price" ng-bind-html="item.subTitles.amount[currentLang]"></span>
+                                    <span class="italic" ng-bind-html="item.subTitles.discount[currentLang]"></span>
+                                </p>
 
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-first"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
                                 <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer1" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
+                                    <li ng-repeat="bulletMsg in item.bulletMsgs" ng-bind-html="bulletMsg[currentLang]"></li>
+                                </ul>
 
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                                <div class="details-button-holder text-center">
+                                    <button class="details-btn modal-grab-button" id="modal-grab-button-{{item._codeName}}"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
+                                </div>
+
+                                <div class="terms-and-condition">
+                                    <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+                                    <ul>
+                                        <li ng-repeat="tnc in item.tncs" ng-bind-html="tnc[currentLang]"></li>
+                                    </ul>
+                                </div>
+
+                                <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade fwdiscover-modal" id="offer2-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
+                <%-- /temp put into modal.jsp --%>
 
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer2.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer2.bullet4" bundle="${msg}" /></li>
-                            </ul>
-
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-second"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer2" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade fwdiscover-modal" id="offer3-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span></p>
-
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer3.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer3.bullet4" bundle="${msg}" /></li>
-                            </ul>
-
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-third"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer3" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade fwdiscover-modal" id="offer4-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer4.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer4.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4.subtitle3" bundle="${msg}" /></span></p>
-
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer4.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer4.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer4.bullet3" bundle="${msg}" /></li>
-                            </ul>
-
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-fourth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer4" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade fwdiscover-modal" id="offer5-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer5" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer5.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer5.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer5.subtitle3" bundle="${msg}" /></span></p>
-
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer5.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer5.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer5.bullet3" bundle="${msg}" /></li>
-                            </ul>
-
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-fifth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer5" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade fwdiscover-modal" id="offer6-details" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6" bundle="${msg}" /></p>
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offer6.subtitle0" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offer6.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer6.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer6.subtitle3" bundle="${msg}" /></span></p>
-
-                            <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet2" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offer6.bullet3" bundle="${msg}" /></li>
-                            </ul>
-
-                            <div class="details-button-holder text-center">
-                                <button class="details-btn modal-grab-button" id="modal-grab-button-sixth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
-                            </div>
-
-                            <div class="terms-and-condition">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer6" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end 6 plans -->
 				<!-- Hotel Voucher Plan Start -->
 				<!-- Offer 311 -->
                 <div class="modal fade fwdiscover-modal" id="offer-311-detail" role="dialog" aria-hidden="true">
@@ -1805,7 +1370,234 @@
         <!-- JS INCLUDES -->
         <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
+
+        <%-- angular --%>
         <script type="text/javascript">
+
+        var app = angular.module('fwdDemo', [ 'ngSanitize', 'ngAnimate', 'duScroll' ]);
+
+        // .directive('scrollOnClick', function() {
+        //   return {
+        //     restrict: 'A',
+        //     link: function(scope, $elm) {
+        //       $elm.on('click', function() {
+        //         $("body").animate({scrollTop: $elm.offset().top}, "slow");
+        //       });
+        //     }
+        //   }
+        // })
+
+        app.run(function($rootScope, $location) {
+            // $anchorScroll.yOffset = 42;                                      // "$anchorScroll" required
+            return $rootScope._ = _;                                            // Lodash is declarred in javascript already
+        })
+        .controller( 'ctrlFwdiscover', function( $scope, $http, $window, $location, $document ) {
+
+            var currentLang = "<%= session.getAttribute( "uiLocale" ) %>";      // Define current language in javascript by the JSP uiLocale param
+            $scope.currentLang = currentLang.trim();
+
+            $scope.isLeft = function(orientation) {
+                if ( orientation == 'left' ) { return true; }
+                if ( orientation != 'left' ) { return false; }
+            };
+
+            // $scope.scrollToId = function(idTag) {                            // "$anchorScroll" & "$location" required
+            //     idTag = 'offer'+idTag;
+            //     var newHash = idTag;
+            //     if ($location.hash() !== newHash) {
+            //         $location.hash(idTag);      // set the $location.hash to `newHash` and $anchorScroll will automatically scroll to it
+            //     } else {
+            //         $anchorScroll();            // call $anchorScroll() explicitly, since $location.hash hasn't changed
+            //     }
+            // };
+
+            <%String username2 = (String) session.getAttribute("username");%>
+            $scope.miniCarousel = {                                       // miniCarousel Configs
+                'config': {
+                    'mobile': {
+                        'numItemPerRow': 3,                                                    // how many thumbnail item per row
+                        'gutterWidth': ''                                                      // for buffer calutation
+                    },
+                    'desktop': {
+                        'gutterWidth': ''                                                      // for buffer calutation
+                    },
+                    'current': {
+                        'gutterWidth': ''                                                      // for buffer to view
+                    }
+                },
+                'offerItems': []
+            };
+
+            var initMiniCourasel = function() {                                 // Supplementary for the modal clicking behaviors
+
+                // if ( !_.isEmpty( $scope.offersItems ) ) {
+                //
+                //     var temp = '';
+                //     for (i = 0; i < $scope.offersItems.length; i++) {
+                //         console.log( '#offer' + $scope.offersItems[i]._id + '-details');
+                //         $(document).on("click", "#" + $scope.offersItems[i]._codeName + "-plan-button", function() {
+                //             temp = '';
+                //             temp = '#offer' + $scope.offersItems[i]._id + '-details';
+                //             console.log("[i="+i+"] temp = "+ temp);
+                //             $(temp).modal("show");
+                //         });
+                //         //
+                //         // $(document).on("click", "#modal-grab-button-" + $scope.offersItems[i]._codeName, function() {
+                //         //     if('<%=username2%>' == 'null') {
+                //         //         loginpopup( $scope.offersItems[i]._config.loginpopup );
+                //         //     } else {
+                //         //         assignPromoCode( $scope.offersItems[i]._config.assignPromoCode );
+                //         //     }
+                //         // });
+                //     }
+                //
+                // } else {
+                //     console.error('Friendly reminder: "offersItems" is empty. Please check');
+                // }
+
+                $(document).on("click", "#first-plan-button", function() {
+                	$('#offer1-details').modal('show');
+                });
+                $(document).on("click", "#second-plan-button", function() {
+                    $('#offer2-details').modal('show');
+                });
+                $(document).on("click", "#third-plan-button", function() {
+                    $('#offer3-details').modal('show');
+                });
+                $(document).on("click", "#fourth-plan-button", function() {
+                    $('#offer4-details').modal('show');
+                });
+                $(document).on("click", "#fifth-plan-button", function() {
+                	$('#offer5-details').modal('show');
+                });
+
+                $(document).on("click", "#modal-grab-button-first", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("5");
+                    }else {
+                        assignPromoCode("5");
+                    }
+                });
+                $(document).on("click", "#modal-grab-button-second", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("6");
+                    }else {
+                        assignPromoCode("6");
+                    }
+                });
+                $(document).on("click", "#modal-grab-button-third", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("7");
+                    }else {
+                        assignPromoCode("7");
+                    }
+                });
+                $(document).on("click", "#modal-grab-button-fourth", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("8");
+                    }else {
+                        assignPromoCode("8");
+                    }
+                });
+                $(document).on("click", "#modal-grab-button-fifth", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("9");
+                    }else {
+                        assignPromoCode("9");
+                    }
+                });
+
+                $(document).on('click', ".fwdiscover-modal .close-modal", function() {
+                    console.log(".fwdiscover-modal .close-modal was clicked");
+                    $('.modal').modal('hide');
+                });
+                $(document).on('click', ".close-modal-link", function() {
+                    console.log(".close-modal-link was clicked");
+                    $('.modal').modal('hide');
+                });
+                $(document).on('click', ".close-modal", function() {
+                    console.log(".close-modal was clicked");
+                    if((navigator.userAgent.match(/iPad/i))) {
+                        $('body').addClass("hidden-show");
+                    }
+                });
+
+                // $(document).on('click', "#sixth-plan-button", function(){
+                //     // $("#sixth-plan-button").on('click', function(){
+                //     $('#offer6-details').modal('show');
+                // });
+                // $(document).on("click", "#modal-grab-button-sixth", function() {
+                //     // $('#modal-grab-button-sixth').click(function(){
+                //     if('<%=username2%>' == 'null') {
+                //         loginpopup("23");
+                //     }else {
+                //         assignPromoCode("23");
+                //     }
+                // });
+            }
+
+            $http.get("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json")
+                .then(function(response) {
+                    $scope.offersItems = response.data.fwdiscoverOffers;
+                    var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
+                    var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
+                    $(document).ready(function() {
+                        $(window).on("load resize",function(){
+                            if(isMobile){
+            	                if(window.innerHeight > window.innerWidth) // Portrait
+            	                {
+            	                	//console.log("Portrait: " + getWidth());
+            	                	//console.log("InnerWidth:" + window.innerWidth);
+            	                	if ( getWidth() < 992 ) {
+                                        $('#myCarousel-fwdiscover').addClass('carousel slide');
+                                        $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
+                                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                                        $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                        //$('#myCarousel-footer').removeClass('carousel slide');
+                                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
+                                    }
+            	                }
+            	                else // Landscape
+            	                {
+            	                	//console.log("Landscape: " + getWidth());
+            	                	//console.log("InnerWidth:" + window.innerWidth);
+            	                    if ( getWidth() > 991 ) {
+            	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
+            	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+            	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+            	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
+                                        $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+            	                        //$('#myCarousel-footer').removeClass('carousel slide');
+            	                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
+            	                    }
+            	                    //carouselImgHeight();
+            	                }
+                    	} else {
+                            if ( getWidth() > 991 ) {
+                                $('#myCarousel-fwdiscover').removeClass('carousel slide');
+                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+                                $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
+                                $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                            } else {
+                                $('#myCarousel-fwdiscover').addClass('carousel slide');
+                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                                $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
+                                $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                            }
+                    	}
+                        console.log( $scope.miniCarousel.config.current.gutterWidth );
+                        });
+                    });
+                    $scope.miniCarousel.offerItems = _.chunk($scope.offersItems, $scope.miniCarousel.config.mobile.numItemPerRow);
+                    initMiniCourasel();
+                });
+
+        });
+        <%-- /angular --%>
+
         var slide1Nav = {
         	Date: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
         	LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
@@ -1858,53 +1650,6 @@
         $(document).ready(function() {
         	//$('#offer-details-hotel-voucher').modal('show');
         	//$('#offer-details-promotion-code').modal('show');
-        	$(window).on("load resize",function(){
-                if(isMobile){
-	                if(window.innerHeight > window.innerWidth) // Portrait
-	                {
-	                	//console.log("Portrait: " + getWidth());
-	                	//console.log("InnerWidth:" + window.innerWidth);
-	                	if(getWidth()<992) {
-                            $('#myCarousel-fwdiscover').addClass('carousel slide');
-                            $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
-                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
-                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-
-
-                            //$('#myCarousel-footer').removeClass('carousel slide');
-                            //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
-                        }
-	                }
-	                else // Landscape
-	                {
-	                	//console.log("Landscape: " + getWidth());
-	                	//console.log("InnerWidth:" + window.innerWidth);
-	                    if(getWidth()>991) {
-	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
-	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-
-
-	                        //$('#myCarousel-footer').removeClass('carousel slide');
-	                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
-	                    }
-	                    //carouselImgHeight();
-	                }
-        	}else{
-                if(getWidth()>991){
-                    $('#myCarousel-fwdiscover').removeClass('carousel slide');
-                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-                    $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-                } else{
-                    $('#myCarousel-fwdiscover').addClass('carousel slide');
-                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
-                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-                    $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
-                }
-        	}
-                            });
 
             var carouselSlideIndex = 0;
             if(<%=hotelVoucherCampaignId%>==15) carouselSlideIndex = 1;
@@ -2169,73 +1914,6 @@
             }
         });
         /* Promote code assign and Loginbox pop for Hotel Voucher End*/
-
-        $("#first-plan-button").on('click', function(){
-            $('#offer1-details').modal('show');
-        });
-        $('#modal-grab-button-first').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("5");
-            }else {
-                assignPromoCode("5");
-            }
-        });
-
-        $("#second-plan-button").on('click', function(){
-            $('#offer2-details').modal('show');
-        });
-        $('#modal-grab-button-second').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("6");
-            }else {
-                assignPromoCode("6");
-            }
-        });
-
-        $("#third-plan-button").on('click', function(){
-            $('#offer3-details').modal('show');
-        });
-        $('#modal-grab-button-third').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("7");
-            }else {
-                assignPromoCode("7");
-            }
-        });
-
-        $("#fourth-plan-button").on('click', function(){
-            $('#offer4-details').modal('show');
-        });
-        $('#modal-grab-button-fourth').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("8");
-            }else {
-                assignPromoCode("8");
-            }
-        });
-
-        $("#fifth-plan-button").on('click', function(){
-            $('#offer5-details').modal('show');
-        });
-        $('#modal-grab-button-fifth').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("9");
-            }else {
-                assignPromoCode("9");
-            }
-        });
-
-        $("#sixth-plan-button").on('click', function(){
-            $('#offer6-details').modal('show');
-        });
-        $('#modal-grab-button-sixth').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("23");
-            }else {
-                assignPromoCode("23");
-            }
-        });
-
         $(".fwdiscover-modal .close-modal").on('click', function(){
             $('.modal').modal('hide');
         });

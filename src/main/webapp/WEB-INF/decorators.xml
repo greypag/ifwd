@@ -12,7 +12,6 @@
 
 	<decorator name="default" page="template_default.jsp">
 		<pattern>/*</pattern>
-		
 	</decorator>
 
 	<decorator name="fwdcx" page="template_cx.jsp">
@@ -24,29 +23,33 @@
 		<pattern>/agoda</pattern>
 		<pattern>/Agoda</pattern>
 	</decorator>
-	
+
 	<decorator name="fwdsavie" page="template_savie.jsp">
 		<pattern>/*/savings-insurance*</pattern>
 	</decorator>
-	
+
 	<decorator name="fwdevergreen" page="template_evergreen.jsp">
 		<pattern>/*/savings-evergreen-insurance*</pattern>
 	</decorator>
-	
+
 	<decorator name="fwdsavieonline" page="template_savie_online.jsp">
 		<pattern>/*/savings-insurance*</pattern>
 		<pattern>/*/FNA*</pattern>
 		<pattern>/*/account</pattern>
 	</decorator>
-	
+
 	<decorator name="fwdeasyhealth" page="template_easy_health.jsp">
 		<pattern>/*/medical-insurance*</pattern>
 	</decorator>
-	
+
 	<decorator name="fwdpartner_test" page="template_become-our-partner_with_css_revamp.jsp">
 		<pattern>/*/become-our-partner*</pattern>
 	</decorator>
-	
+
+	<decorator name="ngdiscover" page="template_discover_ng.jsp">
+		<pattern>/*/fwdiscover</pattern>
+	</decorator>
+
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
 		<pattern>/content/**</pattern>
 		<pattern>/*</pattern>
