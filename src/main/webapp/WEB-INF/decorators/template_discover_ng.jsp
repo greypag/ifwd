@@ -7,7 +7,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE HTML>
-<html>
+<html ng-app="fwdDemo" ng-controller="ctrlFwdiscover">
 <head>
 <%-- <%
 if(request.getRequestURI().indexOf("/become-partner")>0) {

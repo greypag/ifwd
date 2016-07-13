@@ -130,7 +130,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick.css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/slick-theme.css"/>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/slick.min.js"></script>
-        <div class="fwd-savie-wrapper fwdiscover-wrapper" ng-app="fwdDemo" ng-controller="ctrlFwdiscover">
+        <div class="fwd-savie-wrapper fwdiscover-wrapper">
             <!--Top Header-->
             <div class="page-fwdiscover">
                 <div class="breadcrumbs-holder">
@@ -158,12 +158,15 @@
 
                     <div class="clearfix fwdiscover-container">
                         <div class="fwdiscover-description">
-                            <p><fmt:message key="Fanfare.landingpage.description1.part1" bundle="${msg}" /></p>
-                            <p><fmt:message key="Fanfare.landingpage.description1.part2" bundle="${msg}" />
-                                <span class="grab"><fmt:message key="Fanfare.landingpage.description1.part3" bundle="${msg}" /></span>
+                            <p ng-bind-html="pageContent.description.part1[currentLang]"></p>
+                            <p>
+                                <span ng-bind-html="pageContent.description.part2[currentLang]"></span>
+                                <span class="grab" ng-bind-html="pageContent.description.part3[currentLang]"></span>
                             </p>
                             <p class="register">
-                                <fmt:message key="Fanfare.landingpage.description2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%><fmt:message key="link.register" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.description2.part2" bundle="${msg}" /></a> <fmt:message key="Fanfare.landingpage.description2.part3" bundle="${msg}" />
+                                <span ng-bind-html="pageContent.register.part1[currentLang]"></span>
+                                <a ng-href="<%=request.getContextPath()%>/{{ pageContent.register.url[currentLang] }}" ng-bind-html="pageContent.register.part2[currentLang]"></a>
+                                <span ng-bind-html="pageContent.register.part3[currentLang]"></span>
                             </p>
                         </div>
 
@@ -296,18 +299,16 @@
                 <% } else if(isRegPromo == true && isRegSpecial == false) { %>
 
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
-                    <small style="color:red;">{{ miniCarousel.config | json }}</small>
                     <!-- miniCarousel items -->
                     <div class="carousel-inner clearfix">
-
                         <div class="item" ng-repeat="items in miniCarousel.offerItems" ng-class="{ 'active': $first }">
                             <div class="row">
                                 <div class="col-xs-4" ng-repeat="item in items | filter: { isActive: true }" ng-style="{ 'width': miniCarousel.config.current.gutterWidth }">
-                                    <%-- <a ng-click="scrollToId( item._id )"><img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}"></a> --%>
-                                    <a href="#offer{{item._id}}" du-smooth-scroll du-scrollspy offset="0"><img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                    <a href="#offer{{item._id}}" du-smooth-scroll du-scrollspy offset="0" ng-mouseenter="miniCarousel.config.desktop.hoverHidden[item._id] = false" ng-mouseleave="miniCarousel.config.desktop.hoverHidden[item._id] = true"> <img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}"> </a>
+                                    <div class="gray-hover hidden-xs hidden-sm" ng-class="{'hidden': !!miniCarousel.config.desktop.hoverHidden[item._id]}">
                                         <p class="price" ng-bind-html="item.miniCarousel.price[currentLang]"></p>
                                         <p class="discount" ng-bind-html="item.miniCarousel.discount[currentLang]"></p>
+                                        <br>
                                     </div>
                                     <span class="text-center">
                                         <p ng-bind-html="item.miniCarousel.desc[currentLang]"></p>
@@ -315,7 +316,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- ./miniCarousel -->
 
@@ -1373,56 +1373,38 @@
 
         <%-- angular --%>
         <script type="text/javascript">
-
+        <%-- Friendly Reminder for developer: ng-app="fwdDemo" ng-controller="ctrlFwdiscover" is put into the <html> tag on the decorators/template_discover_ng.jsp --%>
         var app = angular.module('fwdDemo', [ 'ngSanitize', 'ngAnimate', 'duScroll' ]);
 
-        // .directive('scrollOnClick', function() {
-        //   return {
-        //     restrict: 'A',
-        //     link: function(scope, $elm) {
-        //       $elm.on('click', function() {
-        //         $("body").animate({scrollTop: $elm.offset().top}, "slow");
-        //       });
-        //     }
-        //   }
-        // })
-
         app.run(function($rootScope, $location) {
-            // $anchorScroll.yOffset = 42;                                      // "$anchorScroll" required
             return $rootScope._ = _;                                            // Lodash is declarred in javascript already
         })
         .controller( 'ctrlFwdiscover', function( $scope, $http, $window, $location, $document ) {
 
             var currentLang = "<%= session.getAttribute( "uiLocale" ) %>";      // Define current language in javascript by the JSP uiLocale param
             $scope.currentLang = currentLang.trim();
-
+            $scope.hover = [];
             $scope.isLeft = function(orientation) {
                 if ( orientation == 'left' ) { return true; }
                 if ( orientation != 'left' ) { return false; }
             };
 
-            // $scope.scrollToId = function(idTag) {                            // "$anchorScroll" & "$location" required
-            //     idTag = 'offer'+idTag;
-            //     var newHash = idTag;
-            //     if ($location.hash() !== newHash) {
-            //         $location.hash(idTag);      // set the $location.hash to `newHash` and $anchorScroll will automatically scroll to it
-            //     } else {
-            //         $anchorScroll();            // call $anchorScroll() explicitly, since $location.hash hasn't changed
-            //     }
-            // };
-
             <%String username2 = (String) session.getAttribute("username");%>
             $scope.miniCarousel = {                                       // miniCarousel Configs
                 'config': {
                     'mobile': {
+                        'isMobile': null,
                         'numItemPerRow': 3                                                    // how many thumbnail item per row
                     },
-                    'desktop': {},
+                    'desktop': {
+                        'isDesktop': null,
+                        'hoverHidden': []
+                    },
                     'current': {
                         'gutterWidth': ''                                                      // for buffer to view
                     }
                 },
-                'offerItems': []
+                'offerItems': [],                                        // DATA render to the View
             };
 
             var initMiniCourasel = function() {                                 // Supplementary for the modal clicking behaviors
@@ -1532,35 +1514,46 @@
                 //     }
                 // });
             }
+            var genArrObjTrue = function(obj) {
+                var result = [];
+                for (i = 0; i < obj.length+1; i++) {
+                    if ( i == 0 ) {
+                        result = [true];
+                    } else {
+                        result.push(true);
+                    }
+                }
+                return result;
+            }
 
             $http.get("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json")
                 .then(function(response) {
                     $scope.offersItems = response.data.fwdiscoverOffers;
+                    $scope.pageContent = response.data.fwdiscoverPage;
                     var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
                     var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
+
+                    $scope.miniCarousel.config.desktop.hoverHidden = genArrObjTrue($scope.offersItems);
+
                     $(document).ready(function() {
                         $(window).on("load resize",function(){
                             if(isMobile){
             	                if(window.innerHeight > window.innerWidth) // Portrait
             	                {
-            	                	//console.log("Portrait: " + getWidth());
-            	                	//console.log("InnerWidth:" + window.innerWidth);
             	                	if ( getWidth() < 992 ) {
                                         $('#myCarousel-fwdiscover').addClass('carousel slide');
                                         $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
                                         $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
                                         $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
                                         $scope.$apply(function() {
-                                            $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                            $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                            $scope.miniCarousel.config.mobile.isMobile = true;
+                                            $scope.miniCarousel.config.desktop.isDesktop = false;
                                         });
-                                        //$('#myCarousel-footer').removeClass('carousel slide');
-                                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
                                     }
             	                }
             	                else // Landscape
             	                {
-            	                	//console.log("Landscape: " + getWidth());
-            	                	//console.log("InnerWidth:" + window.innerWidth);
             	                    if ( getWidth() > 991 ) {
             	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
             	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
@@ -1568,11 +1561,10 @@
             	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
                                         $scope.$apply(function() {
                                             $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                            $scope.miniCarousel.config.mobile.isMobile = true;
+                                            $scope.miniCarousel.config.desktop.isDesktop = false;
                                         });
-            	                        //$('#myCarousel-footer').removeClass('carousel slide');
-            	                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
             	                    }
-            	                    //carouselImgHeight();
             	                }
                     	} else {
                             if ( getWidth() > 991 ) {
@@ -1582,6 +1574,8 @@
                                 $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
                                 $scope.$apply(function() {
                                     $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                    $scope.miniCarousel.config.mobile.isMobile = false;
+                                    $scope.miniCarousel.config.desktop.isDesktop = true;
                                 });
                             } else {
                                 $('#myCarousel-fwdiscover').addClass('carousel slide');
@@ -1590,10 +1584,12 @@
                                 $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
                                 $scope.$apply(function() {
                                     $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                    $scope.miniCarousel.config.mobile.isMobile = false;
+                                    $scope.miniCarousel.config.desktop.isDesktop = true;
                                 });
                             }
                     	}
-                        console.log( $scope.miniCarousel.config.current.gutterWidth );
+                        // console.log( $scope.miniCarousel.config.current.gutterWidth );
                         });
                     });
                     $scope.miniCarousel.offerItems = _.chunk($scope.offersItems, $scope.miniCarousel.config.mobile.numItemPerRow);
@@ -1848,16 +1844,6 @@
         $("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").click(function(){
             $(this).parent().find('a').trigger('click');
         });
-
-        $("#myCarousel-fwdiscover .carousel-inner .item a").mouseover(function() {
-            $("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").addClass('hidden');
-            $(this).next('.gray-hover').removeClass('hidden');
-        });
-
-        $("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").mouseleave(function() {
-            $(this).addClass('hidden');
-        });
-
 
         //modals
         <%String username = (String) session.getAttribute("username");%>
