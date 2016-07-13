@@ -296,7 +296,7 @@
                 <% } else if(isRegPromo == true && isRegSpecial == false) { %>
 
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
-                    {{ miniCarousel.config | json }}
+                    <small style="color:red;">{{ miniCarousel.config | json }}</small>
                     <!-- miniCarousel items -->
                     <div class="carousel-inner clearfix">
 
@@ -1415,12 +1415,9 @@
             $scope.miniCarousel = {                                       // miniCarousel Configs
                 'config': {
                     'mobile': {
-                        'numItemPerRow': 3,                                                    // how many thumbnail item per row
-                        'gutterWidth': ''                                                      // for buffer calutation
+                        'numItemPerRow': 3                                                    // how many thumbnail item per row
                     },
-                    'desktop': {
-                        'gutterWidth': ''                                                      // for buffer calutation
-                    },
+                    'desktop': {},
                     'current': {
                         'gutterWidth': ''                                                      // for buffer to view
                     }
@@ -1553,7 +1550,9 @@
                                         $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
                                         $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
                                         $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-                                        $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                        $scope.$apply(function() {
+                                            $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                        });
                                         //$('#myCarousel-footer').removeClass('carousel slide');
                                         //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
                                     }
@@ -1567,7 +1566,9 @@
             	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
             	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
             	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-                                        $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                        $scope.$apply(function() {
+                                            $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                        });
             	                        //$('#myCarousel-footer').removeClass('carousel slide');
             	                        //$('#myCarousel-footer .carousel-inner').children().wrap('<div class="col-md-4"></div>');
             	                    }
@@ -1579,13 +1580,17 @@
                                 $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
                                 $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
                                 $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-                                $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                $scope.$apply(function() {
+                                    $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                });
                             } else {
                                 $('#myCarousel-fwdiscover').addClass('carousel slide');
                                 $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
                                 $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
                                 $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
-                                $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                $scope.$apply(function() {
+                                    $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                });
                             }
                     	}
                         console.log( $scope.miniCarousel.config.current.gutterWidth );
