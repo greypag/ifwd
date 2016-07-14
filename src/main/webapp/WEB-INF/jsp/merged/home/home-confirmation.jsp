@@ -81,14 +81,14 @@ var plan="${plan}";
 
             <div class="row cont-block">
                 <div class="col-xs-12">
-                    <h4>You maybe also like</h4>
+                    <h4><fmt:message key="confirmation.upsell1.label1" bundle="${msg}" /></h4>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="also-like-grid">
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-also-like01.jpg" alt="" class="img-responsive">
                         <h5><fmt:message key="confirmation.upsell1.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.upsell1.description" bundle="${msg}" /></p>
-                        <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/travel-insurance" class="btn-app"><fmt:message key="button.get.quote" bundle="${msg}" /></a>
 
                     </div>
                 </div>
@@ -98,12 +98,12 @@ var plan="${plan}";
                         <c:if test="${planIndex == 'easy-home-care'}">
                         <h5><fmt:message key="confirmation.homecare.upsell2.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homecare.upsell2.description" bundle="${msg}" /></p>
-                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app"><fmt:message key="button.get.quote" bundle="${msg}" /></a>
                         </c:if>
                         <c:if test="${planIndex == 'home-liability'}">
                         <h5><fmt:message key="confirmation.homeliability.upsell2.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homeliability.upsell2.description" bundle="${msg}" /></p>
-                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/medical-insurance" class="btn-app"><fmt:message key="button.get.quote" bundle="${msg}" /></a>
                         </c:if>
                     </div>
                 </div>
@@ -113,12 +113,12 @@ var plan="${plan}";
                         <c:if test="${planIndex == 'easy-home-care'}">
                         <h5><fmt:message key="confirmation.homecare.upsell3.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homecare.upsell3.description" bundle="${msg}" /></p>
-                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability" class="btn-app"><fmt:message key="button.get.quote" bundle="${msg}" /></a>
                         </c:if>
                         <c:if test="${planIndex == 'home-liability'}">
                         <h5><fmt:message key="confirmation.homeliability.upsell3.title" bundle="${msg}" /></h5>
                         <p><fmt:message key="confirmation.homeliability.upsell3.description" bundle="${msg}" /></p>
-                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care" class="btn-app">Get Quote</a>
+                        <a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care" class="btn-app"><fmt:message key="button.get.quote" bundle="${msg}" /></a>
                         </c:if>
                     </div>
                 </div>
