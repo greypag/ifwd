@@ -1,5 +1,17 @@
 @charset "utf-8";
 
+.chin{
+
+	.app-pg-ctnr .fld-wrapper .mdl-textfield select, .app-pg-ctnr .fld-wrapper .mdl-select select{
+		margin-top:10px;
+		font-size:16px;
+	}
+
+	.app-pg-ctnr .fld-wrapper .mdl-textfield input, .app-pg-ctnr .fld-wrapper .mdl-select input{
+		font-size:16px;
+	}
+}
+
 .app-pg-ctnr{
 	.app-pg-cont{
 		max-width:980px;
