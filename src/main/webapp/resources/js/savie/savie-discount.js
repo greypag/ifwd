@@ -41,7 +41,6 @@ savieDiscount = {
 				$(".hkid-err-msg").empty();
 
 				var count = (hkidVal.match(/[023]/g) || []).length;
-				alert(count)
 				if(count > 0){
 
 					$(".tbl-spd, .tbl-spd-mobile").find(".b" + count).addClass("bingo");
