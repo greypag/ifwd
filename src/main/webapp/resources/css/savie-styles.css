@@ -9882,7 +9882,8 @@ select::-ms-value {
 /* added on 20160502, add back on 20160608 */
 @media (min-width: 992px) {
 	.psa-divider{
-		height: 625px;
+		/*height: 625px;*/
+    height: 675px; /*1.16.000 - Add Home Liability*/
 	}
 }
 .psa-divider:hover,

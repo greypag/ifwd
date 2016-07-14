@@ -264,7 +264,7 @@ var plan="${plan}";
                 </div>
             </div>
             <div class="col-xs-12 text-right">
-                <p class="eh_remark">* For a complete explanation of the <a href="#">terms and conditions</a> for our online travel insurance</p>
+                <p class="eh_remark">* <fmt:message key="disclaimer.tnc.home.liability.copy1" bundle="${msg}" /></p>
             </div>
         </div>
     </div>
