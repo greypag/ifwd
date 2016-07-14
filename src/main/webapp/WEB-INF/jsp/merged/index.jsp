@@ -44,7 +44,7 @@ var languageP = "${language}";
 	<body>
 
 		<!--   Main Content-->
-		<div id="savie-online">
+		<div>
 			<div class="hero-banner">
 				<div class="hidden-xs hidden-sm">
 					<img src="<%=request.getContextPath()%>/resources/images/slider/main_en.jpg" class="img-responsive banner-image" />

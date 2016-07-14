@@ -377,7 +377,7 @@ body.chin .text-bold {
 
 /* line 26, ../sass/partials/savie/_common.scss */
 body {
-  padding: 0;
+  /*padding: 0;*/
 }
 
 /* line 29, ../sass/partials/savie/_common.scss */
@@ -830,7 +830,7 @@ a:hover {
 @media (max-width: 992px) {
   /* line 425, ../sass/partials/savie/_common.scss */
   .with-breadcrumbs-steps .breadcrumbs {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
   }
 }
 @media (max-width: 992px) {
@@ -1545,7 +1545,7 @@ body {
 @media screen and (max-width: 991px) {
   /* line 51, ../sass/partials/savie/_homepage.scss */
   body {
-    padding-top: 0;
+    /*padding-top: 0;*/
   }
 }
 
