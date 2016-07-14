@@ -68,7 +68,7 @@ var plan="${plan}";
                             </c:if>
                         </div>
                         <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs">Press "Ctrl+c" to copy</span><span class="boxMessage hidden-md hidden-lg">Long press to copy</span> <span class="boxDownArrow"></span> </div>
-                        <a href="javascript:void(0);" class="btn-app btn-copy" onclick="autoSelect('toBeCopied');">Copy Link</a>
+                        <a href="javascript:void(0);" class="btn-app btn-copy" onclick="autoSelect('toBeCopied');"><fmt:message key="button.copy.link" bundle="${msg}" /></a>
                     </div>
                 </div>
                 <div class="col-xs-12">
@@ -165,7 +165,7 @@ var plan="${plan}";
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-agoda.jpg" alt="">
                                 </div>
                                 <div class="cont-wrapper">
-                                    <p><fmt:message key="confirmation.partner3.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner2.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link2" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link2.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix2" bundle="${msg}" /></p>
+                                    <p><fmt:message key="confirmation.partner3.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link2" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link2.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix2" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="partner-grid clearfix">

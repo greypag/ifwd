@@ -781,7 +781,7 @@ var languageP = "${language}";
 										</div>
 										<div class="col-xs-12 col-md-5" id="social-btns-holder">
 											<ul class="nav nav-pills">
-											  <li role="presentation" class="click-copy-btn"><a href="javascript:autoSelect('toBeCopied');" id="copy-link-btn"><fmt:message key="Button.copy.link" bundle="${msg}" /></a></li>
+											  <li role="presentation" class="click-copy-btn"><a href="javascript:autoSelect('toBeCopied');" id="copy-link-btn"><fmt:message key="button.copy.link" bundle="${msg}" /></a></li>
 											  <li role="presentation"><div class="addthis_sharing_toolbox"></div></li>
 											</ul>
 										</div>
