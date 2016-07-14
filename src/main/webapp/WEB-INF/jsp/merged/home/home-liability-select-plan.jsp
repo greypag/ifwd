@@ -173,7 +173,7 @@ var nextPage = "${nextPageFlow}";
                                 
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
-                                    <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
+                                    <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
                                     <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                                 </div>
                                 <div class="app-hero-panel-cont2">
@@ -616,8 +616,9 @@ $(".btn-promo-apply").on("click",function(){
 		      		$("#planCode").val(data.planCode);
 		      		$("#grossPremium").val(parseFloat(data.priceInfo.grossPremium).toFixed(2));
 		      		$("#discountAmount").val(parseFloat(data.priceInfo.discountAmount).toFixed(2));
-		      		$("#totalDue").val(parseFloat(data.priceInfo.totalDue).toFixed(2));
-		      		$("#referralName").val(data.referralName);
+                    $("#totalDue").val(parseFloat(data.priceInfo.totalDue).toFixed(2));
+                    $("#totalDue2").html(parseFloat(data.priceInfo.totalDue).toFixed(2));
+                    $("#referralName").val(data.referralName);
 		      		$('#loading-overlay').modal('hide');
 		      		$('#promoCodeErrMsg').html('');
 		      		
