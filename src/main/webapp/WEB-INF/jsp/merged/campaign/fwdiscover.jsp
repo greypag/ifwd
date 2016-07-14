@@ -59,7 +59,7 @@
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
     boolean isRegPromo = true;
     boolean isRegSpecial = false;
-    if( cCurrent <= hotelcEnd && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1)){
+    if ( cCurrent <= hotelcEnd && cCurrent >= hotelcStart && (hotelVoucherCampaignId != -1 || hotelVoucherCampaignId == -1) ) {
     	isRegPromo = false;
     	switch(hotelVoucherCampaignId){
     		case 14:
@@ -238,68 +238,10 @@
                     </div>
                 </div>
                 <% if (isRegPromo == false) { %>
-                <div class="hotel-voucher-carousel-wrapper">
-	                <div class="hotel-voucher-carousel-title-wrapper">
-	                    <div class="Carousel-title"><fmt:message key="Fanfare.Hotel.Carousel.Title" bundle="${msg}" /></div>
-	                    <div class="Carousel-subtitle"><fmt:message key="Fanfare.Hotel.Carousel.SubTitle" bundle="${msg}" /></div>
-	                </div>
-	                <div id="hotel-voucher-carousel" class="">
-		                  <div class="carousel-item-container first<%=hotelVoucherCampaignId==14?" selected":"" %>">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="0">
-			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-bayview.jpg" class="img-responsive">
-			                        <div class="carousel-description-container">
-			                              <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" /></div>
-			                              <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" /></div>
-			                        </div>
-		                        </div>
-		                  </div>
-		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==15?" selected":"" %>">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="1">
-			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-subang.jpg" class="img-responsive">
-			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" /></div>
-			                        </div>
-		                        </div>
-		                  </div>
-		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==16?" selected":"" %>">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="2">
-			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-regency.jpg" class="img-responsive">
-			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" /></div>
-			                        </div>
-		                        </div>
-		                  </div>
-		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==17?" selected":"" %>">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="3">
-			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-lanson.jpg" class="img-responsive">
-			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name long-hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
-			                        </div>
-		                        </div>
-		                  </div>
-		                  <div class="carousel-item-container<%=hotelVoucherCampaignId==18?" selected":"" %>">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="4">
-			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/c-ming.jpg" class="img-responsive">
-			                        <div class="carousel-description-container">
-		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" /></div>
-		                                  <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" /></div>
-			                        </div>
-		                        </div>
-		                  </div>
-	                </div>
-	                <div class="clearfix"></div>
-                </div>
-                <div class="sponsor-logo-wrapper">
-                    <div class="sponsor-text">
-                        <fmt:message key="Fanfare.Hotel.Sponsor.Text" bundle="${msg}" />
-                        <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/agoda-logo.png" class="img-responsive">
-                        </a>
-                    </div>
-                </div>
+
+                <!-- RegPromo: Fanfare.Hotel  -->
+                <!-- ./RegPromo: Fanfare.Hotel  -->
+
                 <% } else if(isRegPromo == true && isRegSpecial == false) { %>
 
                 <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
@@ -484,213 +426,11 @@
                 <!-- ./Fanfare -->
 
                 <!-- Hotel promotion code modal -->
-                <div class="modal fade fwdiscover-modal" id="offer-details-hotel-voucher" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="promo-code-holder">
-                                <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
-                                <p class="text-center headline1"><fmt:message key="Fanfare.HotelOffer.Success.Headline1" bundle="${msg}" /></p>
-                                <p class="text-center headline2"><fmt:message key="Fanfare.HotelOffer.Success.Headline2" bundle="${msg}" /></p>
-                            </div>
-
-                            <div class="terms-and-condition offer-details">
-                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
-                                <ul>
-                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet1" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.landingpage.HoteOffer.terms.bullet2" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
-                                 </ul>
-                            </div>
-
-                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Hotel promotion code modal End -->
+                <!-- ./Hotel promotion code modal -->
 
 				<!-- Hotel Description Modal -->
-				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
-				    <div class="modal-dialog">
+                <!-- ./Hotel Description Modal -->
 
-					    <!-- Modal content-->
-					    <div class="modal-content container">
-					        <div class="modal-body">
-					            <div id="hotel-description-carosuel" class="carousel slide" data-ride="carousel" data-interval="false">
-								  <!-- Left and right controls -->
-								  <div class="hotel-carosuel-control">
-									  <div class="left-control">
-										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="prev">
-										    <span class="carosuel-arrow-left" aria-hidden="true"></span>
-										    <span id="previous-hotel-date"></span>
-										    <span id="previous-hotel-name"></span>
-										    <div class="clearfix"></div>
-										  </a>
-									  </div>
-				                       <div id="hotel-carosuel-selected" class="carousel-description-container">
-			                                <div id="hotel-lanuch-date" class="fanfare-date"></div>
-				                       </div>
-				                       <div class="right-control">
-										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="next">
-										    <span class="carosuel-arrow-right"aria-hidden="true"></span>
-										    <span id="next-hotel-name"></span>
-										    <span id="next-hotel-date"></span>
-										    <div class="clearfix"></div>
-										  </a>
-								  		</div>
-								  	</div>
-								  	<button type="button" class="top-close btn btn-default" data-dismiss="modal">&times;</button>
-								  	<div class="clearfix"></div>
-					            	<div class="carousel-inner" role="listbox">
-						            	  <!-- slide hotel 1 -->
-				                          <div class="hotel-description-carosuel-container item active">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/Bayview_langkawai_logo.png" class="hotel-icon img-responsive"></div>
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-bayview-mobile.jpg" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-bayview.jpg" class="img-responsive hidden-xs hidden-sm">
-
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" /></div>
-				                                </div>
-	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.1.Url" bundle="${msg}" />">
-	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.1.Addr" bundle="${msg}" /></span>
-	                                                </a>
-	                                                <div class="clearfix"></div>
-	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.1.Detail" bundle="${msg}" /></div>
-	                                            </div>
-	                                            <div class="hotel-refer-wrapper">
-	                                                <div class="hotel-refer">
-	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-                                                        </a>
-	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
-	                                                <div class="clearfix"></div>
-	                                            </div>
-				                          </div>
-				                          <!-- slide hotel 1 End -->
-						            	  <!-- slide hotel 2 -->
-				                          <div class="hotel-description-carosuel-container item selected">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/logo-dorsettgrand-subang.png" class="hotel-icon img-responsive"></div>
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-subang-mobile.jpg" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-subang.jpg" class="img-responsive hidden-xs hidden-sm">
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" /></div>
-				                                </div>
-	                                            <div class="hotel-description-right-wrapper item">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.2.Url" bundle="${msg}" />">
-	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.2.Addr" bundle="${msg}" /></span>
-	                                                </a>
-	                                                <div class="clearfix"></div>
-	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.2.Detail" bundle="${msg}" /></div>
-	                                            </div>
-	                                            <div class="hotel-refer-wrapper">
-	                                                <div class="hotel-refer">
-	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-                                                        </a>
-	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
-	                                                <div class="clearfix"></div>
-	                                            </div>
-				                          </div>
-				                          <!-- slide hotel 2 End -->
-						            	  <!-- slide hotel 3 -->
-				                          <div class="hotel-description-carosuel-container item">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/dorsett-kualalumpur-logo.png" class="hotel-icon img-responsive"></div>
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-regency-mobile.jpg" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-regency.jpg" class="img-responsive hidden-xs hidden-sm">
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" /></div>
-				                                </div>
-	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.3.Url" bundle="${msg}" />">
-	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.3.Addr" bundle="${msg}" /></span>
-	                                                </a>
-	                                                <div class="clearfix"></div>
-	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.3.Detail" bundle="${msg}" /></div>
-	                                            </div>
-	                                            <div class="hotel-refer-wrapper">
-	                                                <div class="hotel-refer">
-	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-                                                        </a>
-	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
-	                                                <div class="clearfix"></div>
-	                                            </div>
-				                          </div>
-				                          <!-- slide hotel 3 End -->
-						            	  <!-- slide hotel 4 -->
-				                          <div class="hotel-description-carosuel-container item">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/Lanson_Place_logo.png" class="hotel-icon img-responsive"></div>
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-lanson-mobile.jpg" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-lanson.jpg" class="img-responsive hidden-xs hidden-sm">
-
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" /></div>
-				                                </div>
-	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.4.Url" bundle="${msg}" />">
-	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.4.Addr" bundle="${msg}" /></span>
-	                                                </a>
-	                                                <div class="clearfix"></div>
-	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.4.Detail" bundle="${msg}" /></div>
-	                                            </div>
-	                                            <div class="hotel-refer-wrapper">
-	                                                <div class="hotel-refer">
-	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-                                                        </a>
-	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
-	                                                <div class="clearfix"></div>
-	                                            </div>
-				                          </div>
-				                          <!-- slide hotel 4 End -->
-						            	  <!-- slide hotel 5 -->
-				                          <div class="hotel-description-carosuel-container item">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/logo_ming.png" class="hotel-icon img-responsive"></div>
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-ming-mobile.jpg" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/hotel-round2/lightbox-ming.jpg" class="img-responsive hidden-xs hidden-sm">
-	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" /></div>
-				                                </div>
-	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.5.Url" bundle="${msg}" />">
-	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
-	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.5.Addr" bundle="${msg}" /></span>
-	                                                </a>
-	                                                <div class="clearfix"></div>
-	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.5.Detail" bundle="${msg}" /></div>
-	                                            </div>
-	                                            <div class="hotel-refer-wrapper">
-	                                                <div class="hotel-refer">
-	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                                                    <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank">
-                                                            <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-                                                        </a>
-	                                                </div>
-	                                                <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Close" bundle="${msg}" /></button>
-	                                                <div class="clearfix"></div>
-	                                            </div>
-				                          </div>
-				                          <!-- slide hotel 5 End -->
-									  </div>
-					            </div>
-					        </div>
-					    </div>
-
-				    </div>
-				</div>
-                <!-- Hotel Description Modal End -->
                 <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a>
             </div>
             <!-- FOOTER -->
@@ -699,8 +439,10 @@
         <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 
-        <%-- angular --%>
         <script type="text/javascript">
+        <%String username = (String) session.getAttribute("username");%>
+
+        <%-- angular --%>
         <%-- Friendly Reminder for developer: ng-app="fwdDemo" ng-controller="ctrlFwdiscover" is put into the <html> tag on the decorators/template_discover_ng.jsp --%>
         var app = angular.module('fwdDemo', [ 'ngSanitize', 'ngAnimate', 'duScroll' ]);
 
@@ -709,15 +451,18 @@
         })
         .controller( 'ctrlFwdiscover', function( $scope, $http, $window, $location, $document ) {
 
+            // -- declarBasicVariable: from JSP --
+            <%String username2 = (String) session.getAttribute("username");%>
             var currentLang = "<%= session.getAttribute( "uiLocale" ) %>";      // Define current language in javascript by the JSP uiLocale param
+            // -- ./declarBasicVariable: from JSP --
+
+            // -- declarBasicVariable: for $scope --
             $scope.currentLang = currentLang.trim();
             $scope.hover = [];
             $scope.isLeft = function(orientation) {
                 if ( orientation == 'left' ) { return true; }
                 if ( orientation != 'left' ) { return false; }
             };
-
-            <%String username2 = (String) session.getAttribute("username");%>
             $scope.miniCarousel = {                                       // miniCarousel Configs
                 'config': {
                     'mobile': {
@@ -734,7 +479,9 @@
                 },
                 'offerItems': [],                                               // DATA render to the View
             };
+            // -- ./declarBasicVariable: for $scope --
 
+            // -- ngPrivateFunct: initMiniCourasel() --
             var initMiniCourasel = function() {                                 // Supplementary for the modal clicking behaviors
 
                 // if ( !_.isEmpty( $scope.offersItems ) ) {
@@ -828,7 +575,6 @@
                         $('body').addClass("hidden-show");
                     }
                 });
-
                 // $(document).on('click', "#sixth-plan-button", function(){
                 //     // $("#sixth-plan-button").on('click', function(){
                 //     $('#offer6-details').modal('show');
@@ -842,6 +588,9 @@
                 //     }
                 // });
             }
+            // -- ./ngPrivateFunct: initMiniCourasel() --
+
+            // -- ngPrivateFunct: genArrObjTrue() --
             var genArrObjTrue = function(obj) {
                 var result = [];
                 for (i = 0; i < obj.length+1; i++) {
@@ -853,232 +602,101 @@
                 }
                 return result;
             }
+            // -- ./ngPrivateFunct: genArrObjTrue() --
 
-            $http.get("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json")
-                .then(function(response) {
-                    $scope.offersItems = response.data.fwdiscoverOffers;
-                    $scope.pageContent = response.data.fwdiscoverPage;
-                    var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
-                    var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
+            // -- ngPrivateFunct: offersAJAXLoader() --
+            var offersAJAXLoader = function(url) {
+                $http.get(url)
+                    .then(function(response) {
+                        $scope.offersItems = response.data.fwdiscoverOffers;
+                        $scope.pageContent = response.data.fwdiscoverPage;
+                        var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
+                        var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
 
-                    $scope.miniCarousel.config.desktop.hoverHidden = genArrObjTrue($scope.offersItems);
+                        $scope.miniCarousel.config.desktop.hoverHidden = genArrObjTrue($scope.offersItems);
 
-                    $(document).ready(function() {
-                        $(window).on("load resize",function(){
-                            if(isMobile){
-            	                if(window.innerHeight > window.innerWidth) // Portrait
-            	                {
-            	                	if ( getWidth() < 992 ) {
-                                        $('#myCarousel-fwdiscover').addClass('carousel slide');
-                                        $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
-                                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
-                                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-                                        $scope.$apply(function() {
-                                            $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
-                                            $scope.miniCarousel.config.mobile.isMobile = true;
-                                            $scope.miniCarousel.config.desktop.isDesktop = false;
-                                        });
-                                    }
-            	                }
-            	                else // Landscape
-            	                {
-            	                    if ( getWidth() > 991 ) {
-            	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
-            	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-            	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-            	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-                                        $scope.$apply(function() {
-                                            $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
-                                            $scope.miniCarousel.config.mobile.isMobile = true;
-                                            $scope.miniCarousel.config.desktop.isDesktop = false;
-                                        });
-            	                    }
-            	                }
-                    	} else {
-                            if ( getWidth() > 991 ) {
-                                $('#myCarousel-fwdiscover').removeClass('carousel slide');
-                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
-                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
-                                $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
-                                $scope.$apply(function() {
-                                    $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
-                                    $scope.miniCarousel.config.mobile.isMobile = false;
-                                    $scope.miniCarousel.config.desktop.isDesktop = true;
-                                });
-                            } else {
-                                $('#myCarousel-fwdiscover').addClass('carousel slide');
-                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
-                                $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
-                                $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
-                                $scope.$apply(function() {
-                                    $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
-                                    $scope.miniCarousel.config.mobile.isMobile = false;
-                                    $scope.miniCarousel.config.desktop.isDesktop = true;
-                                });
-                            }
-                    	}
-                        // console.log( $scope.miniCarousel.config.current.gutterWidth );
+                        $(document).ready(function() {
+                            $(window).on("load resize",function(){
+                                if(isMobile){
+                	                if(window.innerHeight > window.innerWidth) // Portrait
+                	                {
+                	                	if ( getWidth() < 992 ) {
+                                            $('#myCarousel-fwdiscover').addClass('carousel slide');
+                                            $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
+                                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                                            $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                                            $scope.$apply(function() {
+                                                $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                                $scope.miniCarousel.config.mobile.isMobile = true;
+                                                $scope.miniCarousel.config.desktop.isDesktop = false;
+                                            });
+                                        }
+                	                }
+                	                else // Landscape
+                	                {
+                	                    if ( getWidth() > 991 ) {
+                	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
+                	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+                	                        $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+                	                        $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
+                                            $scope.$apply(function() {
+                                                $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                                $scope.miniCarousel.config.mobile.isMobile = true;
+                                                $scope.miniCarousel.config.desktop.isDesktop = false;
+                                            });
+                	                    }
+                	                }
+                        	} else {
+                                if ( getWidth() > 991 ) {
+                                    $('#myCarousel-fwdiscover').removeClass('carousel slide');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('col-xs-4');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item').children().removeClass('row');
+                                    $scope.$apply(function() {
+                                        $scope.miniCarousel.config.current.gutterWidth = desktopGutterWidth;
+                                        $scope.miniCarousel.config.mobile.isMobile = false;
+                                        $scope.miniCarousel.config.desktop.isDesktop = true;
+                                    });
+                                } else {
+                                    $('#myCarousel-fwdiscover').addClass('carousel slide');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().removeClass('desktop-img-align');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('col-xs-4');
+                                    $('#myCarousel-fwdiscover .carousel-inner .item').children().addClass('row');
+                                    $scope.$apply(function() {
+                                        $scope.miniCarousel.config.current.gutterWidth = mobileGutterWidth;
+                                        $scope.miniCarousel.config.mobile.isMobile = false;
+                                        $scope.miniCarousel.config.desktop.isDesktop = true;
+                                    });
+                                }
+                        	}
+                            // console.log( $scope.miniCarousel.config.current.gutterWidth );
+                            });
                         });
+                        $scope.miniCarousel.offerItems = _.chunk($scope.offersItems, $scope.miniCarousel.config.mobile.numItemPerRow);
+                        initMiniCourasel();
                     });
-                    $scope.miniCarousel.offerItems = _.chunk($scope.offersItems, $scope.miniCarousel.config.mobile.numItemPerRow);
-                    initMiniCourasel();
-                });
+            };
+            // -- ./ngPrivateFunct: offersAJAXLoader() --
 
+            // -- Initialize the custom-made ngPrivateFunct --
+            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json");
+            // -- ./Initialize the custom-made ngPrivateFunct --
         });
-        <%-- /angular --%>
+        <%-- ./angular --%>
 
-        var slide1Nav = {
-        	Date: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
-        	LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
-        	RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
-        	LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" />',
-        	RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" />'
-        };
-		var slide2Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" />'
-		};
-		var slide3Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.2.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.2.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" />'
-		};
-		var slide4Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.3.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.3.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.5.HotelName" bundle="${msg}" />'
-		};
-		var slide5Nav = {
-		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.5.Date" bundle="${msg}" />',
-		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.4.Date" bundle="${msg}" />',
-		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.1.Date" bundle="${msg}" />',
-		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.4.HotelName" bundle="${msg}" />',
-		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.1.HotelName" bundle="${msg}" />'
-		};
-        function assignHotelNav(slideNav){
-        	//console.log(slideNav);
-            $('#previous-hotel-name').html(slideNav.LeftNavHotel);
-            $('#previous-hotel-date').html(slideNav.LeftNavDate);
-            $('#hotel-lanuch-date').html(slideNav.Date);
-            $('#next-hotel-date').html(slideNav.RightNavDate);
-            $('#next-hotel-name').html(slideNav.RightNavHotel);
-        }
-        $( document ).ajaxComplete(function() {
+        // -- slide1-5Nav --
+        // -- ./slide1-5Nav --
+
+        $(document).ajaxComplete(function() {
             $('body').css("display","block");
         });
         $(window).load(function() {
             $('body').css("display","block");
         });
         $(document).ready(function() {
-        	//$('#offer-details-hotel-voucher').modal('show');
-        	//$('#offer-details-promotion-code').modal('show');
+            // -- hotel-related JS --
+        	// -- ./hotel-related JS --
 
-            var carouselSlideIndex = 0;
-            if(<%=hotelVoucherCampaignId%>==15) carouselSlideIndex = 1;
-            if(<%=hotelVoucherCampaignId%>==16) carouselSlideIndex = 2;
-            if(<%=hotelVoucherCampaignId%>==17) carouselSlideIndex = 3;
-            if(<%=hotelVoucherCampaignId%>==18 ||<%=hotelVoucherCampaignId%>==-1) carouselSlideIndex = 4;
-            $('#hotel-voucher-carousel').slick({
-                infinite: true,
-                initialSlide: carouselSlideIndex,
-                arrows: true,
-                speed: 300,
-                prevArrow: '<button type="button" class="slick-prev arrow-left">Previous</button>',
-                nextArrow: '<button type="button" class="slick-next arrow-right">Next</button>',
-                slidesToShow: 1,
-                mobileFirst: true,
-                responsive: [
-                  {
-                    breakpoint: 768,
-                    settings: {
-                      initialSlide: carouselSlideIndex,
-                      slidesToShow: 3,
-                      slidesToScroll: 1
-                    }
-                  },
-                  {
-                    breakpoint: 1600,
-                    settings: {
-                      infinite: false,
-                      initialSlide: 0,
-                      arrows: false,
-                      slidesToShow: 5
-                    }
-                  }
-                  // You can unslick at a given breakpoint now by adding:
-                  // settings: "unslick"
-                  // instead of a settings object
-                  ]
-            });
-            /* IE9 slick carousel custom arrow btn border fix
-               Removed border style in slick-theme.css
-            */
-            if(msieversion != 9){
-                $('#hotel-voucher-carousel').addClass('border-fix');
-                $('#hotel-voucher-carousel').addClass('border-fix');
-            }
-        	$('#hotel-description-modal').on('hide.bs.modal', function () {
-        		$('.modal-backdrop').remove();
-        	})
-        	$('#hotel-description-carosuel').on('slid.bs.carousel', function () {
-        		  // This variable contains all kinds of data and methods related to the carousel
-        		  var carouselData = $(this).data('bs.carousel');
-        		  // EDIT: Doesn't work in Boostrap >= 3.2
-        		  var currentIndex = carouselData.getActiveIndex();
-        	      // For in Boostrap >= 3.2
-        		  //var currentIndex = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
-        		  var total = carouselData.$items.length;
-        		  //console.log(text);
-        		  console.log(currentIndex);
-                  switch (currentIndex) {
-                  case 0:
-                      assignHotelNav(slide1Nav);
-                      break;
-                  case 1:
-                      assignHotelNav(slide2Nav);
-                      break;
-                  case 2:
-                      assignHotelNav(slide3Nav);
-                      break;
-                  case 3:
-                      assignHotelNav(slide4Nav);
-                      break;
-                  case 4:
-                      assignHotelNav(slide5Nav);
-                      break;
-                  }
-        	});
-        	$('#hotel-description-modal').on('show.bs.modal', function () {
-        		var carouselData = $('#hotel-description-carosuel').data('bs.carousel');
-        		var currentIndex = carouselData.getActiveIndex();
-      		  	var total = carouselData.$items.length;
-    		  	//console.log(text);
-    		  	//console.log(currentIndex);
-				switch (currentIndex + 1) {
-				    case 1:
-				    	assignHotelNav(slide1Nav);
-				        break;
-				    case 2:
-				    	assignHotelNav(slide2Nav);
-				        break;
-				    case 3:
-				    	assignHotelNav(slide3Nav);
-				        break;
-				    case 4:
-				    	assignHotelNav(slide4Nav);
-				        break;
-				    case 5:
-				    	assignHotelNav(slide5Nav);
-				        break;
-				}
-        	});
             //$(".plan-details-box").css("display","block")
             //var serverTime = new Date("2016-02-03 11:58:00");
             /*var serverTime = new Date();
@@ -1095,51 +713,12 @@
                 $(this).html(event.strftime('%H:%M:%S'));
                 console.log("ticking");
             });*/
-            if(isMobile){
-                $(".carousel-item-container").click(function(){
-                    itemTop = $('.hotel-voucher-carousel-wrapper').offset();
-                    $("#hotel-description-modal").on('show.bs.modal', function () {
-                        $('body').css("position", "inital");
-                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
-                    });
-                    $("#hotel-description-modal").on('hide.bs.modal', function () {
-                        //alert(itemTop.top);
-                        $('body').css("position", "initial");
-                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
-                        //$('body').css("position", "relative");
-                    });
-                    $("#hotel-description-modal").on('hidden.bs.modal', function () {
-                        /*($('body').attr("style", "");
-                        if((navigator.userAgent.match(/iPad/i))) {
-                            $('body').addClass("hidden-show");
 
-                        }*/
-                    });
-                });
-                $(".fwdiscover-plan .details-btn").click(function(){
-                    itemTop = $(this).parents(".fwdiscover-plan").offset();
-                    $(".fwdiscover-modal").on('show.bs.modal', function () {
-                        $('body').css("position", "inital");
-                        //$('body').css("position", "fixed");
-                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
-                    });
-                    $(".fwdiscover-modal").on('hide.bs.modal', function () {
-                        //alert(itemTop.top);
-                        $('body').css("position", "initial");
-                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
-                        //$('body').css("position", "relative");
-                    });
-                    $(".fwdiscover-modal").on('hidden.bs.modal', function () {
-                        /*$('body').attr("style", "");*/
-                    });
-                });
-            }
+            // JS .carousel-item-container && RegPromo: Fanfare.Hotel
+            // ./JS .carousel-item-container && RegPromo: Fanfare.Hotel
 
-            //adjust CNY offer carousel-inner
-			/*if (<%=(isRegPromo)?true:false%>){
-                $('#myCarousel-fwdiscover .carousel-inner').css('width', '70%');
-                $('#myCarousel-fwdiscover .carousel-inner .desktop-img-align').css('width', '16.6%');
-            }*/
+            // -- adjust CNY offer carousel-inner --
+            // -- ./adjust CNY offer carousel-inner --
 
             if( window.location.href.indexOf("mar29=") > -1 ){
                 $('.paused-plan').removeClass('paused-plan');
@@ -1169,70 +748,28 @@
             }
         });
 
-        $("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").click(function(){
+        $("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").click( function(){
             $(this).parent().find('a').trigger('click');
         });
 
-        //modals
-        <%String username = (String) session.getAttribute("username");%>
-        $('#modal-grab-button').click(function(){
-            if('<%=username%>' == 'null') {
-                $('.modal').modal('hide');
-                $('#loginpopup').modal('show');
-            }else {
-                $('.modal').modal('hide');
-                $('#offer-details-promotion-code .title').html('<fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" />');
-                $('#offer-details-promotion-code').modal('show');
-            }
-        });
+        //modals (maybe trash codes, remove it later)
+        // $('#modal-grab-button').click(function() {
+        //     if ('<%=username%>' == 'null') {
+        //         $('.modal').modal('hide');
+        //         $('#loginpopup').modal('show');
+        //     } else {
+        //         $('.modal').modal('hide');
+        //         $('#offer-details-promotion-code .title').html('<fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" />');
+        //         $('#offer-details-promotion-code').modal('show');
+        //     }
+        // });
 
-        $("#cny-plan-button").on('click', function(){
-            $('#offerCny-details').modal('show');
-        });
-        $('#modal-grab-button-cny').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("13");
-            }else {
-                assignPromoCode("13");
-            }
-        });
-        /* Promote code assign and Loginbox pop for Hotel Voucher*/
-        $('#modal-grab-button-offer311').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("<%=hotelVoucherCampaignId%>");
-            }else {
-                assignPromoCode("<%=hotelVoucherCampaignId%>");
-            }
-        });
-        $('#modal-grab-button-offer312').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("<%=hotelVoucherCampaignId%>");
-            }else {
-                assignPromoCode("<%=hotelVoucherCampaignId%>");
-            }
-        });
-        $('#modal-grab-button-offer313').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("<%=hotelVoucherCampaignId%>");
-            }else {
-                assignPromoCode("<%=hotelVoucherCampaignId%>");
-            }
-        });
-        $('#modal-grab-button-offer314').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("<%=hotelVoucherCampaignId%>");
-            }else {
-                assignPromoCode("<%=hotelVoucherCampaignId%>");
-            }
-        });
-        $('#modal-grab-button-offer315').click(function(){
-            if('<%=username%>' == 'null') {
-                loginpopup("<%=hotelVoucherCampaignId%>");
-            }else {
-                assignPromoCode("<%=hotelVoucherCampaignId%>");
-            }
-        });
-        /* Promote code assign and Loginbox pop for Hotel Voucher End*/
+        // -- #cny-plan-button JS --
+        // -- ./#cny-plan-button JS --
+
+        // -- Promote code assign and Loginbox pop for Hotel Voucher --
+        // -- ./Promote code assign and Loginbox pop for Hotel Voucher --
+
         $(".fwdiscover-modal .close-modal").on('click', function(){
             $('.modal').modal('hide');
         });
@@ -1248,7 +785,7 @@
             }
         })
 
-        $("#myDropdown").on('click', function(){
+        $("#myDropdown").on('click', function() {
             $.ajax({
                 type : "POST",
                 url : "<%=request.getContextPath()%>/ajax/campaign/setChooseCampaign",
@@ -1268,109 +805,21 @@
                 success : function(data) {
                     $('.modal').modal('hide');
                     $('#loginpopup').modal('show');
-                    if((navigator.userAgent.match(/iPad/i))) {
+                    if ((navigator.userAgent.match(/iPad/i))) {
                         $('body').addClass("hidden-show");
                     }
                 }
             });
         }
 
-        <!-- Fanfare -->
-        function assignPromoCode(campaignId) {
-            $.ajax({
-                type : "POST",
-                url : "<%=request.getContextPath()%>/ajax/campaign/assignPromoCode",
-                data : {campaignId:campaignId},
-                async : false,
-                success : function(data) {
-                	console.log(data);
-                    $('.modal').modal('hide');
-                    var key = "Fanfare.offername"+campaignId;
-                    var tncKey = "Fanfare.offer.tnc"+campaignId;
-                    var fmt = getBundle(getBundleLanguage, key);
-                    var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
-                    if(data["result"]=="success"){
-                        if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
-                            $('#offer-details-hotel-voucher').modal('show');
-                            $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
-                        }else{
-                            $('.promo-code-holder .code').html(data["promoCode"]);
-                            $('#offer-details-promotion-code').modal('show');
-                            $('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
-                            $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
-                            setPlanLink(campaignId, data["promoCode"]);
-                        }
-                    }else if(data["result"]=="duplicated") {
-                        $('#offer-details-promotion-code-error-once').modal('show');
-                        if(/*true ||*/ <%=hotelVoucherCampaignId<13%>){
-	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
-	                        setPlanLink(campaignId, data["promoCode"]);
-                        }
-                    }else if(data["result"]=="notlogin") {
-                        loginpopup(campaignId);
-                    }else{
-                        $('#offer-details-promotion-code-error-sold').modal('show');
-                        if(/*true ||*/ <%=hotelVoucherCampaignId<=13%>){
-                            $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
-                        }
-                    }
-                    updateAllPromoCodeCount();
-                }
-            });
-        }
-        <!-- ./Fanfare -->
+        // -- Fanfare JS - assignPromoCode() --
+        // -- ./Fanfare JS - assignPromoCode() --
 
-        function updateAllPromoCodeCount() {
-            $.ajax({
-                type : "POST",
-                url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
-                async : false,
-                <%
-                	if (hotelVoucherCampaignId >= 14 && hotelVoucherCampaignId <=18) {
-				%>
-                data : "hid=<%=hotelVoucherCampaignId%>",
-				<%
-                	}
-                %>
-                <%
-	            	if (request.getParameter("savie")!=null) {
-				%>
-	            data : "savie=Y",
-				<%
-	            	}
-	            %>
-                success : function(data) {
-                    $(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
-                        $(this).html(data["count"+index]);
-                    });
-                    if((navigator.userAgent.match(/iPad/i))) {
-                        $('body').addClass("hidden-show");
-                    }
-                }
-            });
-        }
+        // -- Fanfare JS - updateAllPromoCodeCount() --
+        // -- ./Fanfare JS - updateAllPromoCodeCount() --
 
-        function setPlanLink(campaignId, code) {
-            var link="";
-            if("5"==campaignId){
-                link="travel-insurance?product=annual&promo="+code;
-            }else if("6"==campaignId){
-                link="travel-insurance?promo="+code;
-            }else if("7"==campaignId){
-                link="travel-insurance?promo="+code;
-            }else if("8"==campaignId){
-                link="home-insurance?promo="+code;
-            }else if("9"==campaignId){
-                link="working-holiday-insurance?promo="+code;
-            }else if("13"==campaignId){
-                link="savings-insurance?promo="+code;
-            }else if("23"==campaignId){
-                link="overseas-study-insurance?promo="+code;
-            }
-            $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
-                $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);
-            });
-        }
+        // -- Fanfare JS - setPlanLink(campaignId, code) --
+        // -- ./Fanfare JS - setPlanLink(campaignId, code) --
 
         function setTnCLink(campaignId) {
 
@@ -1406,34 +855,9 @@
             var fmtPlanName = getBundle(getBundleLanguage, planNameKey);
             $('#offer-details-promotion-code').find(".title:first").html(fmtPlanName);
 		}
-        $(window).load(function () {
-            $('#offer-announce').modal('show');
-            if(msieversion() < 1) {
-                //carouselImgHeight();
-            }
-            $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
-            if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
-                $('.modal').modal('hide');
-                //$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseId}" bundle="${msg}" />');
-                if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
-                    $('#offer-details-promotion-code-error-sold').modal('show');
-                }else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
-                    $('#offer-details-promotion-code-error-once').modal('show');
-                }else{
-                    if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
-                        $('#offer-details-hotel-voucher').modal('show');
-                        $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel${hotelVoucherCampaignId}" bundle="${msg}" />');
-                    }else{
-	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
-	                    $('#offer-details-promotion-code').modal('show');
-	                    setPlanName("${chooseId}");
-	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
-                        setTnCLink("${chooseId}");
-                    }
-                }
-            }
-        });
 
+        // -- hotelVoucherCampaignId JS --
+        // -- ./hotelVoucherCampaignId JS --
 
         function carouselImgHeight() {
             if(getWidth()<992) {

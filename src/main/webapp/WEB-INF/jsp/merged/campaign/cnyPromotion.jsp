@@ -75,3 +75,27 @@
     </div>
 </div>
 <!-- ./CNY PROMOTION: Modal -->
+
+<script type="text/javascript">
+// -- #cny-plan-button JS --
+$("#cny-plan-button").on('click', function(){
+    $('#offerCny-details').modal('show');
+});
+$('#modal-grab-button-cny').click(function(){
+    if('<%=username%>' == 'null') {
+        loginpopup("13");
+    }else {
+        assignPromoCode("13");
+    }
+});
+// -- ./#cny-plan-button JS --
+
+$(document).ready(function() {
+    // -- adjust CNY offer carousel-inner --
+    if (<%=(isRegPromo)?true:false%>){
+        $('#myCarousel-fwdiscover .carousel-inner').css('width', '70%');
+        $('#myCarousel-fwdiscover .carousel-inner .desktop-img-align').css('width', '16.6%');
+    }
+    // -- ./adjust CNY offer carousel-inner --
+};
+</script>
