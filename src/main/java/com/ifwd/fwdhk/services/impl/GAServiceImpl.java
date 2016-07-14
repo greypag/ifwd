@@ -39,7 +39,6 @@ import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
-import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
 public class GAServiceImpl implements GAService {
@@ -81,7 +80,7 @@ public class GAServiceImpl implements GAService {
 		String edate = date.toString();
 		
 		UserDetails userDetails = new UserDetails();
-		if (ValidationUtils.isHkid(hkId)) {
+		if ("appHkid".equalsIgnoreCase(passportORhkid)) {
 			userDetails.setHkid(hkId);
 			userDetails.setPassport("");
 		} else {
@@ -102,7 +101,7 @@ public class GAServiceImpl implements GAService {
 		applicant.put("gender", "M");
 		applicant.put("dob", dob);
 
-		if(ValidationUtils.isHkid(hkId)) {
+		if("appHkid".equalsIgnoreCase(passportORhkid)) {
 			applicant.put("hkId", hkId);
 			applicant.put("passport", "");
 		}else {
