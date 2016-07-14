@@ -449,7 +449,7 @@ var nextPage = "${nextPageFlow}";
                 <div class="col-xs-12 col-md-4 col-md-offset-2 promotion-wrapper">
                     <form action="">
                         <div class="lbl">
-                            <label><fmt:message key="label.promo.code" bundle="${msg}" /></label> <a href="javascript:void(0);" class="link-how2-get" data-toggle="modal" data-target=".bs-promo-modal-lg" ><fmt:message key="getpromo.copy1" bundle="${msg}" /></a>
+                            <label><fmt:message key="label.promo.code" bundle="${msg}" /></label> 
                         </div>
                         <div>
                             <input type="text" id="promoCode" name="referralCode" value="${referralCode }" class=""><a href="javascript:void(0);" class="btn-promo-apply"><fmt:message key="button.apply" bundle="${msg}" /></a>
