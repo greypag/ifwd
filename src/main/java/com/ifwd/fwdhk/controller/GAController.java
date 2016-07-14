@@ -240,7 +240,7 @@ public class GAController extends BaseController{
 			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
 			String emailId = (String) session.getAttribute("emailAddress");
 			
-			if(session.getAttribute("homeCreatedPolicy") == null && creditCardNo == null) {
+			if(session.getAttribute("createdPolicy") == null && creditCardNo == null) {
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
 				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));

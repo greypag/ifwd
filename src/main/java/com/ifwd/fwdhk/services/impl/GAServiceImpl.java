@@ -314,7 +314,7 @@ public class GAServiceImpl implements GAService {
 			if (apiResponsObject.get("errMsgs") == null) {
 				session.removeAttribute("HomeCareCreditCardNo");
 				session.removeAttribute("HomeCareCardexpiryDate");
-				session.removeAttribute("homeCreatedPolicy");
+				session.removeAttribute("createdPolicy");
 				session.removeAttribute("home-temp-save");
 				session.removeAttribute("referralCode"); // vincent - remove session attribute "referral code" if success
 			}
