@@ -521,8 +521,8 @@ var plan="${plan}";
 				<c:when test="${quoteTotal<=0}">
 		        	<div class="row form-block payment-wrapper">
 			            <div class="btn-row text-center">
-			                <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out">Back</a>
-			                <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/confirmation" class="btn-app">Next</a>
+			                <a href="javascript:void(0);" class="btn-app eh-btn-back grey-out"><fmt:message key="button.back" bundle="${msg}" /></a>
+			                <a href="<%=request.getContextPath()%>/${language}/household-insurance/${plan }/confirmation" class="btn-app"><fmt:message key="button.confirm" bundle="${msg}" /></a>
 			            </div>
 		        	</div>
 				</c:when>

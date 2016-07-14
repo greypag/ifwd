@@ -67,13 +67,14 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.easy.health" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>								
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.elite.term" bundle="${msg}" />"><fmt:message key="navbar.category1.group1.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.flight.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.travel.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.oversea.study" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.working.holiday.care" bundle="${msg}" />"><fmt:message key="navbar.category1.group2.item4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.easy.home" bundle="${msg}" />"><fmt:message key="navbar.category1.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.easy.health" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>								
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.elite.term" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.flight" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.travel" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.oversea" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.working.holiday" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.home" bundle="${msg}" />"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.home.liability" bundle="${msg}" />" bundle="${msg}" /><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -88,7 +89,7 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>
@@ -103,8 +104,8 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.discover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
-									<li><a href="<%=request.getContextPath()%>/<fmt:message key="link.category.partner" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.fwdiscover" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner.offer" bundle="${msg}" />"><fmt:message key="navbar.category3.group3.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="navbar.category3.group3.item3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>

@@ -112,7 +112,7 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                             <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_logo.png" alt="CFu Come" class="img-responsive">
                                 <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="joint.pro1.description" bundle="${msg}" /></div>
-                                <div class="col-xs-12 nopadding"> <a href="#" class="eh_btn_more_details"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
+                                <div class="col-xs-12 nopadding"> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="eh_btn_more_details" target="_blank"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
                             </div>
                         </div>
                     </div>
@@ -166,14 +166,14 @@ var plan="${plan}";
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
                             <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_logo.png" alt='<fmt:message key="jointpro2.title1" bundle="${msg}" />' class="img-responsive">
                                 <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="jointpro2.text" bundle="${msg}" /></div>
-                                <div class="col-xs-12 nopadding"><a href="#" class="eh_btn_more_details"><fmt:message key="jointpro2.button" bundle="${msg}" /><fmt:message key="jointpro2.text2" bundle="${msg}" /></a></div>
+                                <div class="col-xs-12 nopadding"><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="eh_btn_more_details"><fmt:message key="jointpro2.button" bundle="${msg}" /><fmt:message key="jointpro2.text2" bundle="${msg}" /></a></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><fmt:message key="jointpro2.provisions" bundle="${msg}" /><fmt:message key="jointpro2.text3" bundle="${msg}" /><fmt:message key="jointpro2.brochure" bundle="${msg}" /><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@ var plan="${plan}";
                 </div>
             </div>
             <div class="col-xs-12 text-right">
-                <p class="eh_remark">* For a complete explanation of the <a href="#">terms and conditions</a> for our online travel insurance</p>
+                <p class="eh_remark">* <fmt:message key="disclaimer.tnc.home.liability.copy1" bundle="${msg}" /></p>
             </div>
         </div>
     </div>
@@ -281,7 +281,7 @@ var plan="${plan}";
                         <fmt:message key="moreprotection.home.liability.title.part2" bundle="${msg}" />
                     </h3>
                     <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="moreprotection.home.liability.copy1" bundle="${msg}" /></div>
-                    <div class="col-xs-12 nopadding"> <a href="#" class="eh_btn_more_details"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
+                    <div class="col-xs-12 nopadding"> <a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care" class="eh_btn_more_details"><fmt:message key="button.details.esay.home" bundle="${msg}" /></a> </div>
                 </div>
         </div>
     </div>
