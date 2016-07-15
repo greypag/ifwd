@@ -273,6 +273,9 @@ $base-remark-color: #999;
 
 .example-container{
 	margin: 15px auto;
+	div{
+		padding: 0;
+	}
 	.eh_remark{
 		color: #000;
 	}
