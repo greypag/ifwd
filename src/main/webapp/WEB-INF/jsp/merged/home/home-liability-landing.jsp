@@ -184,7 +184,7 @@ var plan="${plan}";
             <div class="col-xs-12 text-center">
                 <h3 class="eh_sec_title"><fmt:message key="casesharing.home.liability.jumbo" bundle="${msg}" /></h3>
             </div>
-            <div class="hidden-sm hidden-xs col-md-12">
+            <div class="hidden-sm hidden-xs col-md-12 text-center">
                 <canvas id="canvas" class="waiting" width="1024" height="480" style="background-color:#90D3DD"></canvas>
                 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
                 <script>window.eh_caseAniImgPath = "<%=request.getContextPath()%>/resources/images/easy-home/caseB/${language}";</script>
