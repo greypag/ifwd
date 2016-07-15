@@ -38,7 +38,7 @@ var plan="${plan}";
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
                         </div>
-                        <div class="savie-product text-bold color-teal-blue"> <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank" class="color-teal-blue"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
+                        <div class="savie-product text-bold"> <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}"/>" class="color-teal-blue" target="_blank"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
                     </div>
                 </form>
             </div>
@@ -285,11 +285,10 @@ var plan="${plan}";
                 </div>
         </div>
     </div>
-    <div class="container-fluid applyBtn-container">
+    <div class="container-fluid applyBtn-container home-liability">
         <div class="row">
             <form id="o2o-landing-form1" action="<%=request.getContextPath()%>/${language}/household-insurance/home-liability/${nextPageFlow}" method="post">
 	            <div class="col-xs-12">
-	                <h3 class="text-center"><fmt:message key="jointpro2.text6" bundle="${msg}" /></h3>
 	                <div class="text-center">
 	                    <button class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
 	                </div>
