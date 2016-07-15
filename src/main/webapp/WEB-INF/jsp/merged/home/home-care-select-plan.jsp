@@ -284,11 +284,10 @@ var nextPage = "${nextPageFlow}";
                                         </tr>
                                         <tr>
                                             <td rowspan="2">7</td>
-                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description" bundle="${msg}" /></strong></td>
-                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount" bundle="${msg}" /></td>
+                                            <td rowspan="2"><strong><fmt:message key="planoption.home.tab2.table.item7.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item7.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount1" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description2" bundle="${msg}" /></strong></td>
                                             <td><fmt:message key="planoption.home.tab2.table.item7.amount2" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
