@@ -927,6 +927,12 @@ var language = "${language}";
 					    		$('#reservationInvalid').modal('show');
 					    		console.log(data.errMsgs);
 					    	}
+					    	else if(data.errMsgs == "The number of appointments must be less than 2"){
+					    		//Check is more than 2 tries from backend
+								$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+								$('#moreThan2Tries').modal('show');
+					    		console.log(data.errMsgs);
+					    	}
 					    }  
 					});
 				}
