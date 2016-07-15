@@ -150,27 +150,11 @@ var plan="${plan}";
                                     <p><fmt:message key="confirmation.partner1.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner1.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner1.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner1.description.suffix" bundle="${msg}" /></p>
                                 </div>
                             </div>
-                            <div class="partner-grid clearfix">
-                                <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_csl.jpg" alt="">
-                                </div>
-                                <div class="cont-wrapper">
-                                    <p><fmt:message key="confirmation.partner2.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner2.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner2.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner2.description.suffix" bundle="${msg}" /></p>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <div class="partner-grid clearfix">
                                 <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/img-partner-agoda.jpg" alt="">
-                                </div>
-                                <div class="cont-wrapper">
-                                    <p><fmt:message key="confirmation.partner3.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner3.description.link2" bundle="${msg}" />"><fmt:message key="confirmation.partner3.description.link2.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner3.description.suffix2" bundle="${msg}" /></p>
-                                </div>
-                            </div>
-                            <div class="partner-grid clearfix">
-                                <div class="img-wrapper">
-                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_theclub.jpg" alt="">
+                                    <img src="<%=request.getContextPath()%>/resources/images/easy-home/partner_logo_theclub.jpg" alt="" style="margin-bottom: 40px;">
                                 </div>
                                 <div class="cont-wrapper">
                                     <p><fmt:message key="confirmation.partner4.description.prefix" bundle="${msg}" /> <a href="<fmt:message key="confirmation.partner4.description.link" bundle="${msg}" />"><fmt:message key="confirmation.partner4.description.link.text" bundle="${msg}" /></a> <fmt:message key="confirmation.partner4.description.suffix" bundle="${msg}" /></p>
