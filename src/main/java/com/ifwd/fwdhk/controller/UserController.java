@@ -323,6 +323,7 @@ public class UserController {
 						String type11 = WebServiceUtils.getMessage("eservice.product.type11", UserRestURIConstants.getLanaguage(request));
 						String type12 = WebServiceUtils.getMessage("eservice.product.type12", UserRestURIConstants.getLanaguage(request));
 						String type13 = WebServiceUtils.getMessage("eservice.product.type13", UserRestURIConstants.getLanaguage(request));
+						String type15 = WebServiceUtils.getMessage("eservice.product.type15", UserRestURIConstants.getLanaguage(request));
 						String inforce = WebServiceUtils.getMessage("eservice.status.inforce", UserRestURIConstants.getLanaguage(request));
 						String docNow = WebServiceUtils.getMessage("label.status.upload.doc.now", UserRestURIConstants.getLanaguage(request));
 						String pending = WebServiceUtils.getMessage("tab.member.top.pending", UserRestURIConstants.getLanaguage(request));
@@ -373,6 +374,9 @@ public class UserController {
 							}
 							else if("HEH4".equalsIgnoreCase(entity.getPlanCode())) {
 								entity.setPlanName(type13);
+							}
+							else if("ScreenProtector".equalsIgnoreCase(entity.getPlanCode())) {
+								entity.setPlanName(type15);
 							}
 							
 							
@@ -499,7 +503,28 @@ public class UserController {
 										past_house.add(entity);
 									}
 								}
-							}else {
+							}
+							else if("ScreenProtector".equals(entity.getPlanCode())) {
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_house.add(entity);
+									}else {
+										past_house.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(pending);
+										pending_house.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(active);
+										active_house.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(past);
+										past_house.add(entity);
+									}
+								}
+							}
+							else {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
 										active_travel.add(entity);
