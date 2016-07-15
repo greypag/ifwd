@@ -1921,7 +1921,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 564, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .partners h4 {
-  font-size: 38px;
+  /*font-size: 38px;*/
   margin-bottom: 30px;
   color: #ff8200;
 }
