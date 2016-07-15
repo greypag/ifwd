@@ -156,6 +156,10 @@ $(document).ready(function(){
 	 		}
 	 	});
 
+		 $("#hkID").on("keyup",function(e){
+		 	$(e.currentTarget).val($(e.currentTarget).val().toUpperCase());
+		 });
+
 		 $("#ef-form-application").bootstrapValidator({
 			fields:{
 				applicantName:{
