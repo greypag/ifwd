@@ -751,7 +751,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="mini-banner-holder">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/read-our-blog.jpg" class="img-responsive">
 							<div class="black-overlay"></div>
-							<h5 class="text-center"><fmt:message key="savie.online.landing.blog.save" bundle="${msg}" /></h5>
+							<h5 class="text-center"><fmt:message key="blog.savie.description.mobile" bundle="${msg}" /></h5>
 						</div>
 						<div class="btn-holder">
 							<button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.headline" bundle="${msg}" /></button>
@@ -760,43 +760,43 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="hidden-xs hidden-sm">
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
-						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
+						<p class="definition text-center"><fmt:message key="blog.savie.description" bundle="${msg}" /></p>
 
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="savie.online.landing.blog.title3" bundle="${msg}" /></p>
-									<span><fmt:message key="savie.online.landing.blog.span3" bundle="${msg}" /></span>
+									<p class="title"><fmt:message key="blog.savie.post1.title" bundle="${msg}" /></p>
+									<span><fmt:message key="blog.label.save" bundle="${msg}" /></span>
 									<p class="definition"></p>
-									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post4" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="<fmt:message key="blog.savie.post1.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="savie.online.landing.blog.title2" bundle="${msg}" /></p>
-									<span><fmt:message key="savie.online.landing.blog.span2" bundle="${msg}" /></span>
+									<p class="title"><fmt:message key="blog.savie.post2.title" bundle="${msg}" /></p>
+									<span><fmt:message key="blog.label.save" bundle="${msg}" /></span>
 									<p class="definition"></p>
-									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post5" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="<fmt:message key="blog.savie.post2.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="savie.online.landing.blog.title3" bundle="${msg}" /></p>
-									<span><fmt:message key="savie.online.landing.blog.span2" bundle="${msg}" /></span>
+									<p class="title"><fmt:message key="blog.savie.post3.title" bundle="${msg}" /></p>
+									<span><fmt:message key="blog.label.save" bundle="${msg}" /></span>
 									<p class="definition"></p>
-									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post6" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="<fmt:message key="blog.savie.post3.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs last">
 								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
 								<div class="orange-overlay text-center">
-									<p class="title"><fmt:message key="savie.online.landing.blog.title4" bundle="${msg}" /></p>
-									<span><fmt:message key="savie.online.landing.blog.span2" bundle="${msg}" /></span>
+									<p class="title"><fmt:message key="blog.savie.post4.title" bundle="${msg}" /></p>
+									<span><fmt:message key="blog.label.save" bundle="${msg}" /></span>
 									<p class="definition"></p>
-									<a class="btn-read-now" href="<fmt:message key="link.blog.savie.post7" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="<fmt:message key="blog.savie.post4.link" bundle="${msg}" />" target="_blank"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 						</div>

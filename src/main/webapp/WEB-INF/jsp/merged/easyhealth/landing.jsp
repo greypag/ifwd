@@ -339,7 +339,7 @@ var home_url = "<%=request.getContextPath()%>";
                     <div class="mini-banner-holder">
                     	<img src="<%=request.getContextPath()%>/resources/images/easy-health/shutterstock.jpg" class="img-responsive">
                         <div class="black-overlay"></div>
-                        <h5 class="text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></h5>
+                        <h5 class="text-center"><fmt:message key="blog.easyhelath.description" bundle="${msg}" /></h5>
                     </div>
                     <div class="btn-holder">
                         <button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.home.title" bundle="${msg}" /></button>
@@ -348,7 +348,7 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="hidden-xs hidden-sm">
                         <h3 class="text-center"><fmt:message key="blog.home.title" bundle="${msg}" /></h3>
                         <div class="gray-divide"></div>
-                        <p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
+                        <p class="definition text-center"><fmt:message key="blog.easyhelath.description" bundle="${msg}" /></p>
 
                         <div class="blogs-holder clearfix fwd-container-limit">
                             <div class="blogs first">
