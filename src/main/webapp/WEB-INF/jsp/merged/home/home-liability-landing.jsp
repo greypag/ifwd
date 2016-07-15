@@ -131,7 +131,7 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                                 <fmt:message key="joint.pro1.title1" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_01.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text1.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text1.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.text1.2" bundle="${msg}" /></p>
                             </div>
                         </div>
@@ -140,7 +140,7 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                             <fmt:message key="joint.pro1.title2" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_02.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text2.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text2.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.text2.2" bundle="${msg}" /></p>
                             </div>
                         </div>
@@ -149,11 +149,12 @@ var plan="${plan}";
                                 <h4 class="eh_feature_box_title text-center">
                            <fmt:message key="joint.pro1.title3" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_03.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.title3.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.title3.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.title3.2" bundle="${msg}" /></p>
                             </div>
                         </div>
                     </div>
+                    <p class="eh_remark"><fmt:message key="joint.pro1.remarks" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
@@ -173,7 +174,7 @@ var plan="${plan}";
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>

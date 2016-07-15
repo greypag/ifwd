@@ -284,11 +284,10 @@ var nextPage = "${nextPageFlow}";
                                         </tr>
                                         <tr>
                                             <td rowspan="2">7</td>
-                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description" bundle="${msg}" /></strong></td>
-                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount" bundle="${msg}" /></td>
+                                            <td rowspan="2"><strong><fmt:message key="planoption.home.tab2.table.item7.description1" bundle="${msg}" /><br><fmt:message key="planoption.home.tab2.table.item7.description2" bundle="${msg}" /></strong></td>
+                                            <td><fmt:message key="planoption.home.tab2.table.item7.amount1" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
-                                            <td><strong><fmt:message key="planoption.home.tab2.table.item7.description2" bundle="${msg}" /></strong></td>
                                             <td><fmt:message key="planoption.home.tab2.table.item7.amount2" bundle="${msg}" /></td>
                                         </tr>
                                         <tr>
@@ -336,6 +335,7 @@ var nextPage = "${nextPageFlow}";
                                     <li><fmt:message key="planoption.home.tab4.bullet3" bundle="${msg}" /></li>
                                     <li><fmt:message key="planoption.home.tab4.bullet4" bundle="${msg}" /></li>
                                     <li><fmt:message key="planoption.home.tab4.bullet5" bundle="${msg}" /></li>
+                                    <li><fmt:message key="planoption.home.tab4.bullet6" bundle="${msg}" /></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" id="excess">
@@ -373,7 +373,7 @@ var nextPage = "${nextPageFlow}";
             </div>
             <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
  <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
-<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
+<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="planoption.home.tab5.remarkstext5" bundle="${msg}" /></p>
 
         </div>
         <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
