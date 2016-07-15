@@ -53,7 +53,9 @@ var lang1 = "${language}";
                         <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s1_title_${language}.png" alt='<fmt:message key="label.title.easy.home" bundle="${msg}" />' class="img-responsive center">
                         <fmt:message key="label.title3.easy.home" bundle="${msg}" />
                     </h3>
-                    <p><fmt:message key="label.gurantee.easy.home" bundle="${msg}" /></p> <a href="javascript:void(0)" data-ani2=".eh_sale_container" class="eh_btn_more_details"><fmt:message key="button.more.easy.home" bundle="${msg}" /></a>
+                    <p><fmt:message key="label.gurantee.easy.home" bundle="${msg}" /></p>
+                    <p><fmt:message key="label.gurantee.2.easy.home" bundle="${msg}" /> <a href="mailto:i-info.hk@fwd.com"><fmt:message key="link.fwd.email" bundle="${msg}" /></a> <fmt:message key="label.gurantee3.easy.home" bundle="${msg}" /></p>
+                    <a href="javascript:void(0)" data-ani2=".eh_sale_container" class="eh_btn_more_details"><fmt:message key="button.more.easy.home" bundle="${msg}" /></a>
                     <div class="row">
                         <div class="col-xs-12 text-right nopadding">
                             <p class="eh_remark"><fmt:message key="label.remarks.easy.home" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.home.guaranteed.cheapest" bundle="${msg}" />" target="_blank"><fmt:message key="link.terms.easy.home" bundle="${msg}" /></a><fmt:message key="label.remarks2.easy.home" bundle="${msg}" /></p>
@@ -136,7 +138,7 @@ var lang1 = "${language}";
                                 <h4 class="eh_feature_box_title text-center">
                                 <fmt:message key="joint.pro1.title1" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_01.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text1.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text1.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.text1.2" bundle="${msg}" /></p>
                             </div>
                         </div>
@@ -145,7 +147,7 @@ var lang1 = "${language}";
                                 <h4 class="eh_feature_box_title text-center">
                             <fmt:message key="joint.pro1.title2" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_02.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text2.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.text2.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.text2.2" bundle="${msg}" /></p>
                             </div>
                         </div>
@@ -154,7 +156,7 @@ var lang1 = "${language}";
                                 <h4 class="eh_feature_box_title text-center">
                            <fmt:message key="joint.pro1.title3" bundle="${msg}" />
                         </h4> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s3_icon_03.png" alt="" class="img-responsive center">
-                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.title3.1" bundle="${msg}" /></p>
+                                <p class="eh_feature_box_desc text-center"><fmt:message key="joint.pro1.title3.1" bundle="${msg}" /> <fmt:message key="joint.pro1.more.copy1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="joint.pro1.more.copy2" bundle="${msg}" /></a> <fmt:message key="joint.pro1.more.copy3" bundle="${msg}" /></p>
                                 <p class="expiryDate"><fmt:message key="joint.pro1.title3.2" bundle="${msg}" /></p>
                             </div>
                         </div>
@@ -179,7 +181,7 @@ var lang1 = "${language}";
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text3" bundle="${msg}" /><a href="<fmt:message key="link.brochure.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.brochure" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text3" bundle="${msg}" /><a href="<fmt:message key="link.brochure.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.brochure" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /> <fmt:message key="jointpro2.text5" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
@@ -258,7 +260,7 @@ var lang1 = "${language}";
                 </div>
                 <div class="collapse details" id="ce3">
                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/caseA/caseA_C.png" alt="" class="img-responsive">
-                    <p><fmt:message key="casesharing.home.case3.title2" bundle="${msg}" /><br><fmt:message key="casesharing.home.case4.text" bundle="${msg}" /></p>
+                    <p><fmt:message key="casesharing.home.case3.title2" bundle="${msg}" /><br><fmt:message key="casesharing.home.case3.text" bundle="${msg}" /></p>
                 </div>
                 <div>
                     <a class="caseItem collapsed" role="button" data-toggle="collapse" href="#ce4" aria-expanded="false" aria-controls="ce4">
