@@ -88,7 +88,7 @@ var plan="${plan}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
-                            <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
+                            <p class="fld-val"><span class="txt-theclub-member">${empty theClubMembershipNo ? '-' : theClubMembershipNo}</span></p>
                             </div>
                         </div>
                     </li>
@@ -132,7 +132,7 @@ var plan="${plan}";
                                 <div class="form-group">
                                     <div class="fld-wrapper">
                                         <p class="fld-label"><fmt:message key="lable.theclub.member" bundle="${msg}" /></p>
-                                        <p class="fld-val"><span class="txt-theclub-member">${theClubMembershipNo == "" ? '-' : theClubMembershipNo}</span></p>
+                                        <p class="fld-val"><span class="txt-theclub-member">${empty theClubMembershipNo ? '-' : theClubMembershipNo}</span></p>
                                     </div>
                                 </div>
                             </li>

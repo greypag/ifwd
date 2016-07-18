@@ -70,7 +70,7 @@ public class GAServiceImpl implements GAService {
 		JSONObject applicant = new JSONObject();
 		
 		String passportORhkid = WebServiceUtils.getParameterValue("apphkidandpassport", session, request);
-		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request));
+		String hkId = StringHelper.emptyIfNull(WebServiceUtils.getParameterValue("hkId", session, request)).toUpperCase();
 		String applicantName = WebServiceUtils.getParameterValue("applicantName", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
 		String mobileNo = Methods.formatMobile(WebServiceUtils.getParameterValue("mobileNo", session, request));
