@@ -93,6 +93,22 @@ var language = "${language}";
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>
+								<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='0'}">
+									<div class="info-wrapper">
+										<p class="info-label"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></p>
+										<p class="info-value">
+											HK$ ${saviePlanDetails.insuredAmountDiscount}
+											<input type="hidden" name="paymentAmountDiscount" value="${saviePlanDetails.insuredAmountDiscount}">
+										</p>
+									</div>
+									<div class="info-wrapper">
+										<p class="info-label"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></p>
+										<p class="info-value">
+											HK$ ${saviePlanDetails.insuredAmountDue}
+											<input type="hidden" name="paymentAmountDue" value="${saviePlanDetails.insuredAmountDue}">
+										</p>
+									</div>
+								</c:if>
 								<div class="info-wrapper">
 									<p class="info-label"><fmt:message key="placeholder.direct.debit" bundle="${msg}" /></p>
 									<p class="info-value">
@@ -218,6 +234,15 @@ var language = "${language}";
 							<p class="policy-text"><fmt:message key="decleration.policy.owner" bundle="${msg}" /></p>
 						</div>
 						<span id="chkPolicyErMsg" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
+						
+						<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='0'}">
+							<div class="form-group payment-policy-wrapper" id="has-err">
+								<input type="checkbox" id="payment_confirm_authorize_hkid" name="payment_confirm_authorize_hkid">
+								<label for="payment_confirm_authorize_hkid"></label>
+								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /></p>
+							</div>
+							<span id="chkPolicyErMsg_hkid" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
+						</c:if>
 					</div>
 				</form>
 				
@@ -660,10 +685,15 @@ var language = "${language}";
 		
 		$('#payment-save-and-con-paylater, #payment-save-and-con').on('click', function (e) {
 			var isChecked = true;
+			var isChecked_hkid = true;
 			isChecked &= validateChkbox('payment_confirm_authorize', 'chkPolicyErMsg');
+			if($('#payment_confirm_authorize_hkid').length){
+				isChecked_hkid &= validateChkbox('payment_confirm_authorize_hkid', 'chkPolicyErMsg_hkid');
+			}
+			
 			
 			$('#paymentForm').bootstrapValidator('validate');
-            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked) {
+            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked && isChecked_hkid) {
 				$('#save-and-continue-batch5-modal').modal('show');
             }
             else {
@@ -723,7 +753,8 @@ var language = "${language}";
 	   });
 	   
 	   $('.policy-text').on('click', function() {
-		   $('#payment_confirm_authorize').click();
+		   //$('#payment_confirm_authorize').click();
+			$(this).parent().find('input').click();
 	   });
 	   
 		// only numbers can be inputted
@@ -940,9 +971,13 @@ var language = "${language}";
 			else{
 				$('#paymentForm').bootstrapValidator('validate');
 				var isChecked = true;
+				var isChecked_hkid = true;
 				isChecked &= validateChkbox('payment_confirm_authorize', 'chkPolicyErMsg');
+				if($('#payment_confirm_authorize_hkid').length){
+					isChecked_hkid &= validateChkbox('payment_confirm_authorize_hkid', 'chkPolicyErMsg_hkid');
+				}
 				
-	            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked) {
+	            if($('#paymentForm').data('bootstrapValidator').isValid() && isChecked && isChecked_hkid) {
 	            	$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",
@@ -971,12 +1006,12 @@ var language = "${language}";
 		if(!$('#' + chkboxId).is(':checked')) {
 			$('#' + errMsgId).removeClass('hidden');
 			$('#has-err').attr('style', 'margin-bottom:0;');
-			$('#chkPolicyErMsg').attr('style', 'margin-bottom:35px;');
+			$('#chkPolicyErMsg, #chkPolicyErMsg_hkid').attr('style', 'margin-bottom:35px;');
 			return false;
 		} else {
 			$('#' + errMsgId).addClass('hidden');
 			$('#has-err').attr('style', 'margin-bottom:35px;');
-			$('#chkPolicyErMsg').attr('style', 'margin-bottom:0;');
+			$('#chkPolicyErMsg, #chkPolicyErMsg_hkid').attr('style', 'margin-bottom:0;');
 			return true;
 		}
 	}
