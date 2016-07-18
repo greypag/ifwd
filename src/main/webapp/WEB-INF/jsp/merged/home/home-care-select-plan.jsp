@@ -230,6 +230,9 @@ var nextPage = "${nextPageFlow}";
                                         <td><fmt:message key="planoption.home.tab3.table2.annualpremium.amount2" bundle="${msg}" /></td>
                                     </tr>
                                 </table>
+                                <br>
+                                <p><strong><fmt:message key="planoption.home.tab3.table3.renewal.copy1" bundle="${msg}" /></strong></p>
+                                <p><fmt:message key="planoption.home.tab3.table3.renewal.copy2" bundle="${msg}" /></p>
                             </div>
                             <div class="tab-pane" id="coverage">
                                 <h4><fmt:message key="planoption.home.tab2.title" bundle="${msg}" /></h4>

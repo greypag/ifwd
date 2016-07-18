@@ -271,6 +271,9 @@ var nextPage = "${nextPageFlow}";
                                             <td>249</td>
                                         </tr>
                                     </table>
+                                    <br>
+                                    <p><strong><fmt:message key="planoption.home.tab3.table3.renewal.copy1" bundle="${msg}" /></strong></p>
+                                    <p><fmt:message key="planoption.home.tab3.table3.renewal.copy2" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="coverage">
