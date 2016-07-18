@@ -371,9 +371,9 @@ var nextPage = "${nextPageFlow}";
                     </div>
                 </div>
             </div>
-            <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
- <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
-<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="planoption.home.tab5.remarkstext5" bundle="${msg}" /></p>
+            <p class="disclaimer"><fmt:message key="disclaimer.tnc.home.copy2.part1" bundle="${msg}" />
+ <a href="<fmt:message key="link.brochure.home" bundle="${msg}" />" target="_blank"><fmt:message key="disclaimer.tnc.home.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.tnc.home.copy2.part3" bundle="${msg}" /> <a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="disclaimer.tnc.home.copy2.part4" bundle="${msg}" /></a> <fmt:message key="disclaimer.tnc.home.copy2.part5" bundle="${msg}" />
+<fmt:message key="disclaimer.tnc.home.copy2.part6" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="disclaimer.tnc.home.copy2.part7" bundle="${msg}" /></p>
 
         </div>
         <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
