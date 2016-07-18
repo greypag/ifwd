@@ -223,8 +223,8 @@ var plan="${plan}";
                                     <div class="mdl-select">
                                         <select id="apphkidandpassport" name="apphkidandpassport">
                                             <option value="" disabled selected></option>
-                                            <option value="appHkid" <c:if test="${editableUserDetails != null && editableUserDetails.hkid != ''}"> selected="selected"</c:if>>HKID</option>
-                                            <option value="appPassport" <c:if test="${editableUserDetails != null && editableUserDetails.passport != ''}"> selected="selected"</c:if>>Passport</option>
+                                            <option value="appHkid" <c:if test="${editableUserDetails != null && editableUserDetails.hkid != ''}"> selected="selected"</c:if>><fmt:message key="label.hkid" bundle="${msg}" /></option>
+                                            <option value="appPassport" <c:if test="${editableUserDetails != null && editableUserDetails.passport != ''}"> selected="selected"</c:if>><fmt:message key="label.passport" bundle="${msg}" /></option></option>
                                         </select>
                                         <label class="mdl-textfield__label" for="apphkidandpassport"><fmt:message key="application.input.idno" bundle="${msg}" /></label>
                                     </div>
