@@ -174,11 +174,11 @@ var nextPage = "${nextPageFlow}";
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
                                     <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
-                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
+                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" style="cursor:default;" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                                 </div>
                                 <div class="app-hero-panel-cont2">
                                     <div class="text-center">
-                                        <h3><fmt:message key="label.upgrade.for.total.care" bundle="${msg}" /></h3>
+                                        <h3 style="cursor:default;"><fmt:message key="label.upgrade.for.total.care" bundle="${msg}" /></h3>
                                         <h2>${language == 'en' ? 'Easy HomeCare':'易安心家居保'}</h2>
                                         <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update"><fmt:message key="label.upgrade.now" bundle="${msg}" /></a>
                                     </div>

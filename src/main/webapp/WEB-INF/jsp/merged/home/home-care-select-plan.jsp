@@ -172,7 +172,7 @@ var nextPage = "${nextPageFlow}";
                             <img src="<%=request.getContextPath()%>/resources/images/easy-home/Plan_select_A_img.jpg" class="img-hero" alt="">
                             <div class="app-hero-panel-cont">
                                 <h2><span><fmt:message key="planoption.home.text.plan.name2" bundle="${msg}" /></span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
-                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
+                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse" style="cursor:default;"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
                             </div>
                         </div>
                         
