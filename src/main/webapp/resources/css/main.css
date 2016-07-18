@@ -12252,6 +12252,8 @@ Be caution: <select> have customed made */
 .color-teal-blue{
 	color: #26484e !important;
 }
-
-
+/* added on 20160718 7-eleven logo*/
+.partner_image--711{
+	max-width: 240px;
+}
 
