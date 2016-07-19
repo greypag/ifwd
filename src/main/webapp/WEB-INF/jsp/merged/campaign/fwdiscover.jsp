@@ -434,7 +434,67 @@
                 <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a>
             </div>
             <!-- FOOTER -->
+            <!--  Modal for promotion code and sold out and expire -->
+	        <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code" role="dialog" aria-hidden="true">
+	            <div class="modal-dialog">
+	                <div class="modal-content">
+	                    <p class="title"></p>
+	
+	                    <div class="promo-code-holder">
+	                        <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
+	                        <p class="code">FWD987654321</p>
+	                        <p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
+	                    </div>
+	
+	                    <div class="details-button-holder text-center">
+	                        <a class="url" href="" target="_blank"><button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button></a>
+	                    </div>
+	
+	                    <div class="terms-and-condition offer-details">
+	                        <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+	                        <ul>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+	                         </ul>
+	                    </div>
+	
+	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-once" role="dialog" aria-hidden="true">
+	            <div class="modal-dialog">
+	                <div class="modal-content">
+	                    <div class="error-message">
+	                        <p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
+	                        <p class="lower close-modal-link"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
+	                    </div>
+	
+	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+	                </div>
+	            </div>
+	        </div>
+	
+	        <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-sold" role="dialog" aria-hidden="true">
+	            <div class="modal-dialog">
+	                <div class="modal-content">
+	                    <div class="error-message">
+	                        <p><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle1" bundle="${msg}" /></p>
+	                        <p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle2" bundle="${msg}" /></p>
+	                    </div>
+	
+	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+	                </div>
+	            </div>
+	        </div>    
+	        <!--  End Modal for promotion code and sold out and expire -->        
         </div>
+        
         <!-- JS INCLUDES -->
         <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
@@ -690,9 +750,6 @@
         $(document).ajaxComplete(function() {
             $('body').css("display","block");
         });
-        $(window).load(function() {
-            $('body').css("display","block");
-        });
         $(document).ready(function() {
             // -- hotel-related JS --
         	// -- ./hotel-related JS --
@@ -796,6 +853,38 @@
             });
         });
 
+        $(window).load(function () {
+            $('#offer-announce').modal('show');
+            $('body').css("display","block");
+            if(msieversion() < 1) {
+                //carouselImgHeight();
+            }
+            $("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
+            if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
+                $('.modal').modal('hide');
+                //$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseId}" bundle="${msg}" />');
+                if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
+                    $('#offer-details-promotion-code-error-sold').modal('show');
+                } else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
+                    $('#offer-details-promotion-code-error-once').modal('show');
+                } else {
+                    if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                        $('#offer-details-hotel-voucher').modal('show');
+                        $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', '<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.hotel${hotelVoucherCampaignId}" bundle="${msg}" />');
+                    } else {
+	                    $('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
+	                    $('#offer-details-promotion-code').modal('show');
+	                    setPlanName("${chooseId}");
+	                    setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
+                        setTnCLink("${chooseId}");
+                    }
+                }
+            }
+        });
+        $( document ).ajaxComplete(function() {
+            $('body').css("display","block");
+        });       
+        
         function loginpopup(campaignId) {
             $.ajax({
                 type : "POST",
@@ -812,6 +901,102 @@
             });
         }
 
+        <!-- Fanfare -->
+        function assignPromoCode(campaignId) {
+            $.ajax({
+                type : "POST",
+                url : "<%=request.getContextPath()%>/ajax/campaign/assignPromoCode",
+                data : {campaignId:campaignId},
+                async : false,
+                success : function(data) {
+                	console.log(data);
+                    $('.modal').modal('hide');
+                    var key = "Fanfare.offername"+campaignId;
+                    var tncKey = "Fanfare.offer.tnc"+campaignId;
+                    var fmt = getBundle(getBundleLanguage, key);
+                    var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
+                    if(data["result"]=="success"){
+                        if(/*false &&*/ <%=hotelVoucherCampaignId>=14 && hotelVoucherCampaignId<=18%>){
+                            $('#offer-details-hotel-voucher').modal('show');
+                            $('#offer-details-hotel-voucher .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
+                        }else{
+                            $('.promo-code-holder .code').html(data["promoCode"]);
+                            $('#offer-details-promotion-code').modal('show');
+                            $('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
+                            $('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
+                            setPlanLink(campaignId, data["promoCode"]);
+                        }
+                    }else if(data["result"]=="duplicated") {
+                        $('#offer-details-promotion-code-error-once').modal('show');
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<13%>){
+	                        $('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
+	                        setPlanLink(campaignId, data["promoCode"]);
+                        }
+                    }else if(data["result"]=="notlogin") {
+                        loginpopup(campaignId);
+                    }else{
+                        $('#offer-details-promotion-code-error-sold').modal('show');
+                        if(/*true ||*/ <%=hotelVoucherCampaignId<=13%>){
+                            $('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
+                        }
+                    }
+                    updateAllPromoCodeCount();
+                }
+            });
+        }
+        <!-- ./Fanfare -->
+
+        function updateAllPromoCodeCount() {
+            $.ajax({
+                type : "POST",
+                url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
+                async : false,
+                <%
+                	if (hotelVoucherCampaignId >= 14 && hotelVoucherCampaignId <=18) {
+				%>
+                data : "hid=<%=hotelVoucherCampaignId%>",
+				<%
+                	}
+                %>
+                <%
+	            	if (request.getParameter("savie")!=null) {
+				%>
+	            data : "savie=Y",
+				<%
+	            	}
+	            %>
+                success : function(data) {
+                    $(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
+                        $(this).html(data["count"+index]);
+                    });
+                    if((navigator.userAgent.match(/iPad/i))) {
+                        $('body').addClass("hidden-show");
+                    }
+                }
+            });
+        }
+
+        function setPlanLink(campaignId, code) {
+            var link="";
+            if("5"==campaignId){
+                link="travel-insurance?product=annual&promo="+code;
+            }else if("6"==campaignId){
+                link="travel-insurance?promo="+code;
+            }else if("7"==campaignId){
+                link="travel-insurance?promo="+code;
+            }else if("8"==campaignId){
+                link="home-insurance?promo="+code;
+            }else if("9"==campaignId){
+                link="working-holiday-insurance?promo="+code;
+            }else if("13"==campaignId){
+                link="savings-insurance?promo="+code;
+            }else if("23"==campaignId){
+                link="overseas-study-insurance?promo="+code;
+            }
+            $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
+                $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);
+            });
+        }        
         // -- Fanfare JS - assignPromoCode() --
         // -- ./Fanfare JS - assignPromoCode() --
 
@@ -879,7 +1064,7 @@
             } else { // If another browser, return 0
                 return 0;
             }
-        }
+        }        
         </script>
     </body>
 </html>
