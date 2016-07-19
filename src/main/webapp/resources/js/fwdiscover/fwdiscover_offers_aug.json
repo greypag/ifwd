@@ -103,7 +103,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-30T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -114,7 +114,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-07-31T14:59:59"
+                "timestamp": "2016-08-31T14:59:59"
             }
         }, {
             "_id":  5,
@@ -219,7 +219,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-30T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -230,7 +230,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-07-31T14:59:59"
+                "timestamp": "2016-08-31T14:59:59"
             }
         }, {
             "_id":  23,
@@ -335,7 +335,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-31T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -454,7 +454,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-30T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -465,7 +465,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-07-31T14:59:59"
+                "timestamp": "2016-08-31T14:59:59"
             }
         }, {
             "_id":  2,
@@ -570,7 +570,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-30T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -581,7 +581,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-07-31T14:59:59"
+                "timestamp": "2016-08-31T14:59:59"
             }
         }, {
             "_id":  3,
@@ -686,7 +686,7 @@
                     "en-US": "Starts",
                     "zh-HK": "開始"
                 },
-                "timestamp": "2016-06-30T15:00:00"
+                "timestamp": "2016-07-31T15:00:00"
             },
             "end": {
                 "action": {
@@ -697,7 +697,7 @@
                     "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
-                "timestamp": "2016-07-31T14:59:59"
+                "timestamp": "2016-08-31T14:59:59"
             }
         }
     ]
