@@ -63,10 +63,10 @@
             "tncs": [
                 {
                     "en-US": "Each FWD member can only apply once per month for each Offer.",
-                    "zh-HK": "每位富衛會員只可每月獲取每個優惠一次。"
+                    "zh-HK": "每位富衛會員只可每月申請每個優惠一次。"
                 }, {
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
-                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有推廣編號的電郵。"
+                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
                     "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 30 Sep 2016.",
                     "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2016年9月30 日或之前於本網站輸入相關的推廣編號以購買產品。"
@@ -77,8 +77,8 @@
                     "en-US": "This Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -109,6 +109,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-07-31T14:59:59"
             }
@@ -175,10 +179,10 @@
             "tncs": [
                 {
                     "en-US": "Each FWD member can only apply once per month for each Offer.",
-                    "zh-HK": "每位富衛會員只可每月獲取每個優惠一次。"
+                    "zh-HK": "每位富衛會員只可每月申請每個優惠一次。"
                 }, {
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
-                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有推廣編號的電郵。"
+                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
                     "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 30 Sep 2016.",
                     "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2016年9月30 日或之前於本網站輸入相關的推廣編號以購買產品。"
@@ -189,8 +193,8 @@
                     "en-US": "This Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -221,6 +225,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-07-31T14:59:59"
             }
@@ -301,8 +309,8 @@
                     "en-US": "his Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_Fixed_1200_Oversea_StudyCare_Insurance.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_Fixed_1200_Oversea_StudyCare_Insurance.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_Fixed_1200_Oversea_StudyCare_Insurance.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_Fixed_1200_Oversea_StudyCare_Insurance.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -333,6 +341,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-08-31T14:59:59"
             }
@@ -402,10 +414,10 @@
             "tncs": [
                 {
                     "en-US": "Each FWD member can only apply once per month for each Offer.",
-                    "zh-HK": "每位富衛會員只可每月獲取每個優惠一次。"
+                    "zh-HK": "每位富衛會員只可每月申請每個優惠一次。"
                 }, {
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
-                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有推廣編號的電郵。"
+                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
                     "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 30 Sep 2016.",
                     "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2016年9月30 日或之前於本網站輸入相關的推廣編號以購買產品。"
@@ -416,8 +428,8 @@
                     "en-US": "This Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -448,6 +460,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-07-31T14:59:59"
             }
@@ -514,10 +530,10 @@
             "tncs": [
                 {
                     "en-US": "Each FWD member can only apply once per month for each Offer.",
-                    "zh-HK": "每位富衛會員只可每月獲取每個優惠一次。"
+                    "zh-HK": "每位富衛會員只可每月申請每個優惠一次。"
                 }, {
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
-                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有推廣編號的電郵。"
+                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
                     "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 30 Sep 2016.",
                     "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2016年9月30 日或之前於本網站輸入相關的推廣編號以購買產品。"
@@ -528,8 +544,8 @@
                     "en-US": "This Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -560,6 +576,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-07-31T14:59:59"
             }
@@ -626,10 +646,10 @@
             "tncs": [
                 {
                     "en-US": "Each FWD member can only apply once per month for each Offer.",
-                    "zh-HK": "每位富衛會員只可每月獲取每個優惠一次。"
+                    "zh-HK": "每位富衛會員只可每月申請每個優惠一次。"
                 }, {
                     "en-US": "Each FWD member, who successfully redeems the above offer, will receive an email from FWD with a Promotion Code.",
-                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有推廣編號的電郵。"
+                    "zh-HK": "每位成功兌換上述優惠的富衛會員均會收到由富衛發出並載有相關推廣編號的電郵。"
                 }, {
                     "en-US": "The Offer is only applicable for the above product and the promotion code must be entered through this site on or before 30 Sep 2016.",
                     "zh-HK": "此優惠只適用於購買以上指定產品，而客戶必須於2016年9月30 日或之前於本網站輸入相關的推廣編號以購買產品。"
@@ -640,8 +660,8 @@
                     "en-US": "This Reward shall not be redeemable for cash and cannot be used in conjunction with any other promotion program.",
                     "zh-HK": "優惠不能兌換現金或與其他優惠同時使用。"
                 }, {
-                    "en-US": "Please refer to the full <a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD ● discover.",
-                    "zh-HK": "請參閱有關FWD ● discover的完整<a href='https://i.fwd.com.hk/july/resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
+                    "en-US": "Please refer to the full <a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>Terms & Conditions</a> of FWD <span class=\"dot-font\">●</span> discover.",
+                    "zh-HK": "請參閱有關FWD <span class=\"dot-font\">●</span> discover的完整<a href='resources/policy-provisions-pdf/FWDiscover_14_day_Single_Trip_HK_55.pdf' target='_blank'>條款及細則</a>。"
                 }
             ],
             "bgImg": {
@@ -672,6 +692,10 @@
                 "action": {
                     "en-US": "Ends",
                     "zh-HK": "結束"
+                },
+                "display": {
+                    "en-US": "<p class=\"title\">Ends</p><p class=\"value date\">Aug</p><p class=\"value date day\">31</p>",
+                    "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">08月31日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-07-31T14:59:59"
             }

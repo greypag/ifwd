@@ -328,15 +328,15 @@
                                                 <p class="title" ng-bind-html="item.quota.action[currentLang]"></p>
                                                 <p class="value count">${count1}</p>
                                             </div>
-                                            <div class="holder date hidden-xs hidden-sm">
-                                                <p class="title" ng-bind-html="item.end.action[currentLang]"></p>
-                                                <p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p>
-                                                <p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p>
+                                            <div class="holder date hidden-xs hidden-sm" ng-bind-html="item.end.display[currentLang]">
+                                                <!--p class="title" ng-bind-html="item.end.action[currentLang]"></p-->
+                                                <!--p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p-->
+                                                <!--p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p-->
                                             </div>
-                                            <div class="holder date hidden-md hidden-lg">
-                                                <p class="title" ng-bind-html="item.end.action[currentLang]"></p>
-                                                <p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p>
-                                                <p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p>
+                                            <div class="holder date hidden-md hidden-lg" ng-bind-html="item.end.display[currentLang]">
+                                                <!--p class="title" ng-bind-html="item.end.action[currentLang]"></p-->
+                                                <!--p class="value date" ng-bind-html="item.end.timestamp | date:'MMMM'"></p-->
+                                                <!--p class="value date day" ng-bind-html="item.end.timestamp | date:'dd'"></p-->
                                             </div>
                                         </div>
                                     </div>
@@ -679,7 +679,7 @@
             // -- ./ngPrivateFunct: offersAJAXLoader() --
 
             // -- Initialize the custom-made ngPrivateFunct --
-            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers.json");
+            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers_aug.json");
             // -- ./Initialize the custom-made ngPrivateFunct --
         });
         <%-- ./angular --%>
