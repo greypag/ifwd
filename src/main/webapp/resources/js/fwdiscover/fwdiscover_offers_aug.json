@@ -1,4 +1,38 @@
 {
+    "fwdiscoverPage": {
+        "description": {
+            "part1": {
+                "en-US": "FWD ● discover is a fun way to bag a bargain.",
+                "zh-HK": "行樂，要及時；享優惠，更要即時！"
+            },
+            "part2": {
+                "en-US": "For a limited time each month, discover discounted coverage, great travel offers, lifestyle accessories and more. But like all great things in life, the early birds get the worm!",
+                "zh-HK": "FWD <span class='dot-font'>●</span> discover 每月為會員帶來限時優惠，包括保險折扣、旅遊優惠及生活精品等。"
+            },
+            "part3": {
+                "en-US": "So grab this month's deals before they're gone.",
+                "zh-HK": "優惠快閃，快手為先。請作好準備，同全城一齊鬥快！"
+            }
+        },
+        "register": {
+            "url": {
+                "en-US": "en/joinus",
+                "zh-HK": "tc/joinus"
+            },
+            "part1": {
+                "en-US": "Exclusive offers for FWD members. Not yet a member?",
+                "zh-HK": "獨家優惠，唯有會員專享。未登記做會員？"
+            },
+            "part2": {
+                "en-US": "Register now",
+                "zh-HK": "請即行動"
+            },
+            "part3": {
+                "en-US": " .",
+                "zh-HK": "！"
+            }
+        }
+    },
     "fwdiscoverOffers": [
         {
             "_id":  4,
