@@ -182,9 +182,9 @@
 	                                    <ul class="bullets">
 											<li style="list-style: none;">
 	                                            <ul class="desc_sublist">
-													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_1" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_1_offer_period" bundle="${msg}" /></p><br></li>
-													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_2" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_2_offer_period" bundle="${msg}" /></p><br></li>
-													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_3" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_3_offer_period" bundle="${msg}" /></p></li>
+													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_1.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link1" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_1.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_1.part3" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_1_offer_period" bundle="${msg}" /></p><br></li>
+													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_2.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link2" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_2.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_2.part3" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_2_offer_period" bundle="${msg}" /></p><br></li>
+													<li><p class="h4-5"><fmt:message key="partner.cfu.desc1.part1_3.part1" bundle="${msg}" /><a href="<fmt:message key="link.partner.cfu.come.link3" bundle="${msg}" />" target="_blank"><fmt:message key="partner.cfu.desc1.part1_3.part2" bundle="${msg}" /></a><fmt:message key="partner.cfu.desc1.part1_3.part3" bundle="${msg}" /><br><fmt:message key="partner.cfu.desc1.part1_3_offer_period" bundle="${msg}" /></p></li>
 	                                            </ul>
 	                                        </li>
 	                                    </ul>
