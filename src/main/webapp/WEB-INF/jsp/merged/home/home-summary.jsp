@@ -617,7 +617,7 @@ var plan="${plan}";
 		                                    <div class="form-group">
 		                                        <div class="fld-wrapper">
 		                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		                                                <input class="mdl-textfield__input" type="tel" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3" autocomplete="off">
+		                                                <input class="mdl-textfield__input" type="password" id="cvvNumber" name="securityCode" data-keyblock-num="true" maxlength="3" autocomplete="off">
 		                                                <label class="mdl-textfield__label" for="cvvNumber"><fmt:message key="payment.security.code" bundle="${msg}" /></label>
 		                                            </div>
 		                                        </div>
