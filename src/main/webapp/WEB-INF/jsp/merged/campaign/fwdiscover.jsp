@@ -582,7 +582,10 @@
                     $('#offer4-details').modal('show');
                 });
                 $(document).on("click", "#fifth-plan-button", function() {
-                	$('#offer5-details').modal('show');
+                    $('#offer5-details').modal('show');
+                });
+                $(document).on("click", "#twenty-third-plan-button", function() {
+                	$('#offer23-details').modal('show');
                 });
 
                 $(document).on("click", "#modal-grab-button-first", function() {
@@ -618,6 +621,14 @@
                         loginpopup("9");
                     }else {
                         assignPromoCode("9");
+                    }
+                });
+
+                $(document).on("click", "#modal-grab-button-twenty-third", function() {
+                    if('<%=username2%>' == 'null') {
+                        loginpopup("23");
+                    }else {
+                        assignPromoCode("23");
                     }
                 });
 
