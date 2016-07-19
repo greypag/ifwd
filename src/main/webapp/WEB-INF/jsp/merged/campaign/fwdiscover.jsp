@@ -996,7 +996,7 @@
             }else if("7"==campaignId){
                 link="travel-insurance?promo="+code;
             }else if("8"==campaignId){
-                link="easy-home-care?promo="+code;
+                link="household-insurance/easy-home-care?promo="+code;
             }else if("9"==campaignId){
                 link="working-holiday-insurance?promo="+code;
             }else if("13"==campaignId){
