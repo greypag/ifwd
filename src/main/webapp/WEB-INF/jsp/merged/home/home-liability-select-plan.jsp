@@ -565,7 +565,7 @@ var nextPage = "${nextPageFlow}";
 						<div class="row">
 							<div class="col-xs-12">
 								<p>
-									<fmt:message key="homecare.club.membership.pop.up" bundle="${msg}" />
+									<fmt:message key="home.liability.club.membership.pop.up" bundle="${msg}" />
 								</p>
 							</div>
 						</div>

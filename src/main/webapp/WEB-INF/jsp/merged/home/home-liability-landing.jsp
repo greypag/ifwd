@@ -165,16 +165,16 @@ var plan="${plan}";
                 <div class="col-xs-12 eh_halfbanner">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 nopadding eh_hb_txt_box ah_box">
-                            <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_logo.png" alt='<fmt:message key="jointpro2.title1" bundle="${msg}" />' class="img-responsive">
-                                <div class="col-xs-12 nopadding eh_hb_desc"><fmt:message key="jointpro2.text" bundle="${msg}" /></div>
-                                <div class="col-xs-12 nopadding"><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.partner_offers" bundle="${msg}" />" class="eh_btn_more_details"><fmt:message key="jointpro2.button" bundle="${msg}" /><fmt:message key="jointpro2.text2" bundle="${msg}" /></a></div>
+                            <div class="apr_content"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_logo.png" alt='<fmt:message key="partner.card.theclub.home.liability.copy1" bundle="${msg}" />' class="img-responsive">
+                                <div class="col-xs-12 nopadding eh_hb_desc"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy1" bundle="${msg}" /></a> <fmt:message key="partner.card.theclub.home.liability.copy2" bundle="${msg}" /></div>
+                                <div class="col-xs-12 nopadding"><a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" class="eh_btn_more_details" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy3" bundle="${msg}" /></a></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 nopadding ah_box"> <img src="<%=request.getContextPath()%>/resources/images/easy-home/home_s4_images.jpg" alt="Cfu Come" class="img-responsive"> </div>
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="jointpro2.plan.intro.label" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="jointpro2.provisions" bundle="${msg}" /></a><fmt:message key="jointpro2.text4" bundle="${msg}" /><fmt:message key="jointpro2.text5" bundle="${msg}" /><fmt:message key="jointpro2.text6" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="partner.card.theclub.home.liability.copy4" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy5" bundle="${msg}" /></a><fmt:message key="partner.card.theclub.home.liability.copy6" bundle="${msg}" /><fmt:message key="partner.card.theclub.home.liability.copy7" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
