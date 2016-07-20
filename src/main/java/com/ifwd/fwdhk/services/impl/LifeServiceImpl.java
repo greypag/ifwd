@@ -3206,7 +3206,7 @@ public class LifeServiceImpl implements LifeService {
 			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
 			template = "savie\\offlineApplication.html";
 		}else if("offlineApplication-rp".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財壽險預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
 			template = "savie\\offlineApplication-rp.html";
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application has not yet been completed!您的Savie自助息申請尚未完成!";
