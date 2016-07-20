@@ -70,9 +70,9 @@ var plan="${plan}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">
-                                ${plan == 'home-liability' ? language == 'en' ? 'Personal Liability':'個人法律責任':language == 'en' ? 'Easy HomeCare':'易安心家居保' }
+                                ${plan == 'home-liability' ? language == 'en' ? 'Home Liability':'家居責任保險':language == 'en' ? 'Easy HomeCare':'易安心家居保' }
                             </p>
-                            <p class="fld-val"><!-- Standard cover, Annual --></p>
+                            <p class="fld-val">${plan == 'home-liability' ? language == 'en' ? '':'':language == 'en' ? 'Standard cover, Annual':'基本保障，年度' }</p>
                             </div>
                         </div>                        
                     </li>

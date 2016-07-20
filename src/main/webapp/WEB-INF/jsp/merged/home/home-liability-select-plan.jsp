@@ -66,7 +66,7 @@ var nextPage = "${nextPageFlow}";
                     <li class="first">
                         <div class="form-group">
                             <div class="fld-wrapper">
-                            <p class="fld-label">${language == 'en' ? 'Personal Liability':'個人法律責任'}</p>
+                            <p class="fld-label">${language == 'en' ? 'Home Liability':'家居責任保險'}</p>
                             <p class="fld-val"></p>
                             </div>
                         </div>                        
