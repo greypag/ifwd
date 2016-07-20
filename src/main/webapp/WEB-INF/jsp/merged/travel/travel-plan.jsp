@@ -165,7 +165,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                    promoCodeInsertFlag = true;
 	                    var json = JSON.parse(data);
 	                    promoData = json;
-	                    setValue(json);
+	                    if(json.errMsgs == null) {
+		                    console.log("eligibiltyPlanCode : " + json.eligibiltyPlanCode);
+	                        setValue(json);
+	                        $("#errPromoCode").html("");
+	                        $('#inputPromo').removeClass('invalid-field');
+	                    }else {
+		                    $("#errPromoCode").html(json.errMsgs);
+		          			$('#inputPromo').addClass('invalid-field');
+	                    }
+	                    
 	                }
 
 	            });
