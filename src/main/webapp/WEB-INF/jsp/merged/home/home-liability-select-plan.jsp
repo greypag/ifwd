@@ -174,7 +174,7 @@ var nextPage = "${nextPageFlow}";
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
                                     <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
-                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" style="cursor:default;" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
+                                    <div class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></div>
                                 </div>
                                 <div class="app-hero-panel-cont2">
                                     <div class="text-center">
@@ -565,7 +565,7 @@ var nextPage = "${nextPageFlow}";
 						<div class="row">
 							<div class="col-xs-12">
 								<p>
-									<fmt:message key="homecare.club.membership.pop.up" bundle="${msg}" />
+									<fmt:message key="home.liability.club.membership.pop.up" bundle="${msg}" />
 								</p>
 							</div>
 						</div>
