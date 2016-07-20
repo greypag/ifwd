@@ -326,7 +326,7 @@
                                         <div class="clearfix">
                                             <div class="holder">
                                                 <p class="title" ng-bind-html="item.quota.action[currentLang]"></p>
-                                                <p class="value count">${count1}</p>
+                                                <p class="value count">{{offerCount[$index]}}</p>
                                             </div>
                                             <div class="holder date hidden-xs hidden-sm" ng-bind-html="item.end.display[currentLang]">
                                                 <!--p class="title" ng-bind-html="item.end.action[currentLang]"></p-->
@@ -683,6 +683,9 @@
                         $scope.pageContent = response.data.fwdiscoverPage;
                         var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
                         var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
+
+                        //init offers quota
+                        $scope.offerCount = [${count0},${count1},${count2},${count3},${count4},${count5}];
 
                         $scope.miniCarousel.config.desktop.hoverHidden = genArrObjTrue($scope.offersItems);
 
