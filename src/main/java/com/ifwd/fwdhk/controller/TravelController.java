@@ -604,13 +604,9 @@ public class TravelController {
 					header, null);
 
 			logger.info("Response Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
-			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
-				session.setAttribute("referralCode", "");
-			} else {
-				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
-			}
 			
 			if(responseJsonObj.get("errMsgs") == null) {
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
 				// in case responseJsonObj contains errors, likely promo code invalid, thus, still put the details to session
 				QuoteDetails quoteDetails = new QuoteDetails();			
 				JSONObject jsonPriceInfoA = new JSONObject();
@@ -664,6 +660,8 @@ public class TravelController {
 				request.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("quoteDetails", quoteDetails);
+			}else {
+				session.setAttribute("referralCode", "");
 			}
 			return responseJsonObj.toString();
 
