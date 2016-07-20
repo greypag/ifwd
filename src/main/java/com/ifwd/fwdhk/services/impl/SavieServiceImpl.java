@@ -1877,7 +1877,7 @@ public class SavieServiceImpl implements SavieService {
 					"			  </body>\r\n" + 
 					"			</html>";
 			 
-			String subject = "Savie Appointment Acknowledgement email from FWD";
+			String subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
 			String attachment = "";
 			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;

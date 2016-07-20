@@ -172,7 +172,7 @@ var nextPage = "${nextPageFlow}";
                             <img src="<%=request.getContextPath()%>/resources/images/easy-home/Plan_select_A_img.jpg" class="img-hero" alt="">
                             <div class="app-hero-panel-cont">
                                 <h2><span><fmt:message key="planoption.home.text.plan.name2" bundle="${msg}" /></span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
-                                <a href="javascript:void(0);" class="btn-app btn-select-plan reverse"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
+                                <div class="btn-app btn-select-plan reverse"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></div>
                             </div>
                         </div>
                         
@@ -230,6 +230,9 @@ var nextPage = "${nextPageFlow}";
                                         <td><fmt:message key="planoption.home.tab3.table2.annualpremium.amount2" bundle="${msg}" /></td>
                                     </tr>
                                 </table>
+                                <br>
+                                <p><strong><fmt:message key="planoption.home.tab3.table3.renewal.copy1" bundle="${msg}" /></strong></p>
+                                <p><fmt:message key="planoption.home.tab3.table3.renewal.copy2" bundle="${msg}" /></p>
                             </div>
                             <div class="tab-pane" id="coverage">
                                 <h4><fmt:message key="planoption.home.tab2.title" bundle="${msg}" /></h4>
@@ -371,9 +374,9 @@ var nextPage = "${nextPageFlow}";
                     </div>
                 </div>
             </div>
-            <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
- <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
-<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="planoption.home.tab5.remarkstext5" bundle="${msg}" /></p>
+            <p class="disclaimer"><fmt:message key="disclaimer.tnc.home.copy2.part1" bundle="${msg}" />
+ <a href="<fmt:message key="link.brochure.home" bundle="${msg}" />" target="_blank"><fmt:message key="disclaimer.tnc.home.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.tnc.home.copy2.part3" bundle="${msg}" /> <a href="<fmt:message key="link.provisions.home" bundle="${msg}" />" target="_blank"><fmt:message key="disclaimer.tnc.home.copy2.part4" bundle="${msg}" /></a> <fmt:message key="disclaimer.tnc.home.copy2.part5" bundle="${msg}" />
+<fmt:message key="disclaimer.tnc.home.copy2.part6" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="disclaimer.tnc.home.copy2.part7" bundle="${msg}" /></p>
 
         </div>
         <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 

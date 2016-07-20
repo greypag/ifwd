@@ -174,11 +174,11 @@ var nextPage = "${nextPageFlow}";
                                 <div class="app-hero-panel-cont">
                                     <img src="<%=request.getContextPath()%>/resources/images/easy-home/plan_select_B_img.jpg" class="img-hero" alt="">
                                     <h2><span>${language == 'en' ? 'Home Liability':'家居責任保險'}</span><br><fmt:message key="planoption.home.text.amount.prefix" bundle="${msg}" /><span id="totalDue2" style="padding: 0 5px;"><fmt:formatNumber pattern="0.00" type="number" value="${planQuote.totalDue }" maxFractionDigits="2"/></span><fmt:message key="planoption.home.text.amount.suffix" bundle="${msg}" /></h2>
-                                    <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></a>
+                                    <div class="btn-app btn-select-plan" data-plan="home-liability"><fmt:message key="planoption.home.button.selected" bundle="${msg}" /></div>
                                 </div>
                                 <div class="app-hero-panel-cont2">
                                     <div class="text-center">
-                                        <h3><fmt:message key="label.upgrade.for.total.care" bundle="${msg}" /></h3>
+                                        <h3 style="cursor:default;"><fmt:message key="label.upgrade.for.total.care" bundle="${msg}" /></h3>
                                         <h2>${language == 'en' ? 'Easy HomeCare':'易安心家居保'}</h2>
                                         <a href="javascript:void(0);" class="btn-app btn-select-plan" data-plan="home-liability" id="home-liability-update"><fmt:message key="label.upgrade.now" bundle="${msg}" /></a>
                                     </div>
@@ -271,6 +271,9 @@ var nextPage = "${nextPageFlow}";
                                             <td>249</td>
                                         </tr>
                                     </table>
+                                    <br>
+                                    <p><strong><fmt:message key="planoption.home.tab3.table3.renewal.copy1" bundle="${msg}" /></strong></p>
+                                    <p><fmt:message key="planoption.home.tab3.table3.renewal.copy2" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="coverage">
@@ -428,9 +431,8 @@ var nextPage = "${nextPageFlow}";
                     </div>
                 </div>
             </div>
-            <p class="disclaimer"><fmt:message key="planoption.home.tab5.remarkstext1" bundle="${msg}" />
- <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/protect/household/easy-home-care.pdf" target="_blank"><fmt:message key="planoption.home.tab5.remarkstext2" bundle="${msg}" /></a> <fmt:message key="planoption.home.tab5.remarkstext3" bundle="${msg}" /> 
-<fmt:message key="planoption.home.tab5.remarkstext4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr>.</p>
+            <p class="disclaimer"><fmt:message key="disclaimer.tnc.home.liability.copy2.part1" bundle="${msg}" />
+ <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="disclaimer.tnc.home.liability.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.tnc.home.liability.copy2.part3" bundle="${msg}" /> <fmt:message key="disclaimer.tnc.home.liability.copy2.part4" bundle="${msg}" /><nobr> <a href="tel:31233123">3123 3123</a></nobr><fmt:message key="disclaimer.tnc.home.liability.copy2.part5" bundle="${msg}" /></p>
 
         </div>
 	        <input type="hidden" name="planCode" id="planCode" value="${planQuote.planCode}"/> 
@@ -563,7 +565,7 @@ var nextPage = "${nextPageFlow}";
 						<div class="row">
 							<div class="col-xs-12">
 								<p>
-									<fmt:message key="homecare.club.membership.pop.up" bundle="${msg}" />
+									<fmt:message key="home.liability.club.membership.pop.up" bundle="${msg}" />
 								</p>
 							</div>
 						</div>
