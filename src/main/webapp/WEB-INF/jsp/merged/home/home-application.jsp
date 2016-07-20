@@ -713,12 +713,12 @@ var plan="${plan}";
                             <span class="error-msg" id="declarration2ErrMsg"></span>
                         </div>
                         <hr>
-                        <p class="grey"><fmt:message key="application.declaration.home.text7" bundle="${msg}" /></p>
-                        <div class="checkbox grey">
+                        <p><fmt:message key="application.declaration.home.text7" bundle="${msg}" /></p>
+                        <div class="checkbox">
                             <input type="checkbox" name="checkbox3" id="donotWishDirectMarketing"><label for="donotWishDirectMarketing"><fmt:message key="application.declaration.tickbox2" bundle="${msg}" /></label>
                             
                         </div>
-                        <div class="checkbox grey">
+                        <div class="checkbox">
                             <input type="checkbox" name="checkbox4" id="donotDisclose"><label for="donotDisclose"><fmt:message key="application.declaration.tickbox3" bundle="${msg}" /></label>
                             
                         </div>
