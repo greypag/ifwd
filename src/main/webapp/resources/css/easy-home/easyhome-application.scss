@@ -1159,3 +1159,10 @@
 	    top:0;
 	}
 }
+
+.display--ellipsis{
+	width: 90%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

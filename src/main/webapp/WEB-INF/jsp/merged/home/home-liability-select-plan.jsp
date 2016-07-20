@@ -75,7 +75,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
-                            <p class="fld-val gentle-fade"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
+                            <p class="fld-val display--ellipsis gentle-fade"><span class="txt-promote-code">${planQuote.referralCode }</span></p>
                             </div>
                         </div>
                     </li>

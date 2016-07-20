@@ -82,7 +82,7 @@ var plan="${plan}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label"><fmt:message key="lable.promo.code" bundle="${msg}" /></p>
-                            <p class="fld-val"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
+                            <p class="fld-val display--ellipsis"><span class="txt-promote-code">${homeQuoteDetails.referralCode == "" ? '-' : homeQuoteDetails.referralCode}</span></p>
                             </div>
                         </div>
                     </li>
