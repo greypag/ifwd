@@ -57,13 +57,17 @@ if(personalTraveller>familyTraveller){
 //bmg inline variable
 
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
-
-
+//hardcode 7-eleven variable for init
+var codeType = "all";
+if("${referralCode}"=="rex.hw.so@fwd.com"){
+	codeType = "b";
+}
 	function getuserDetails() {
 
 
 	}
 	function chkPromoCode() {
+		showSubmitError("", false);
 		var flag = false;
     var promoCode = document.getElementById("promoCode").value.trim();
   	if (promoCode == "" || promoCode == promoCodePlaceholder) {
@@ -80,6 +84,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
   			$('#inputPromo').addClass('invalid-field');
   			flag = false;
   		} else  {
+  			//hardcode for 7-eleven testing purpose
+  			if(promoCode != "rex.hw.so@fwd.com"){
+  				codeType = "all";
+  			}else{
+  				codeType = "b";
+  			}
   			$('#inputPromo').removeClass('invalid-field');
   			$("#errPromoCode").html("");
   			flag = true;
@@ -161,11 +171,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
+	                	//console.log(data);
 	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 	                    var json = JSON.parse(data);
 	                    promoData = json;
-	                    if(json.errMsgs == null) {
+	                    // return status by andy
+	                    /*if(json.errMsgs == null) {
 		                    console.log("eligibiltyPlanCode : " + json.eligibiltyPlanCode);
 	                        setValue(json);
 	                        $("#errPromoCode").html("");
@@ -173,8 +185,22 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                    }else {
 		                    $("#errPromoCode").html(json.errMsgs);
 		          			$('#inputPromo').addClass('invalid-field');
-	                    }
+	                    }*/
+	                    // end return status by andy
 	                    
+	                    //hardcode the codeType for 7-eleven testing purpsoe.
+	                    //Value b = valid code for 7-eleven travel card, Value all = valid code for normal coupon
+	                    $.extend(json, {"codeType" : codeType});
+	                    console.log(json);
+	                    if(promoData['codeType']=="b"){
+	                    	$("#box0").hide();
+	                    	$("#box1").click();
+	                    }else{
+	                    	$("#box0").show();
+	                    }
+	                    json['errMsgs'] = "hehe";
+	                    setSystemError(json['errMsgs']);
+	                    setValue(json);
 	                }
 
 	            });
@@ -206,9 +232,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				success : function(data) {
 					$('#loading-overlay').modal('hide');
 					updateQuoteFlag = true;
-
+					console.log("update");
 					var json = JSON.parse(data);
-					promoData = json;
+					promoData = json;					
 					setValue(json);
 					$("#totalTravellingDays").val(json.totalDays);
 					$("#totalTravellingDaysSpan").html(json.totalDays);
@@ -218,7 +244,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 
 
-
+	function setSystemError(resultErr){
+		if(resultErr !== null){
+			showSubmitError(resultErr, true);
+		};
+	}
+	
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
@@ -2042,6 +2073,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 
                             </div>
+							<div class="col-xs-12 submit__error">
+                                <div class="text-center">
+                                    <span class="submit__errormsg" id="submit__errormsg">Testing</span>
+                                </div>
+                            </div>                            
                             <div class="clearfix"></div>
                             <div class="col-xs-14"><span class="text-red errDue"></span></div>
                             <br>
