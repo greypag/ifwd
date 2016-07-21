@@ -11277,10 +11277,10 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 .lang-grp li:last-child a {
     border-right: none;
 }
-.logobox .mobile-menu-V2 .dropdown-menu {
+.logobox .mobile-menu-V2 .dropdown-menu,.logobox #myDropdownMob .dropdown-menu {
     display: none;
 }
-.logobox .mobile-menu-V2 .open .dropdown-menu {
+.logobox .mobile-menu-V2 .open .dropdown-menu,.logobox #myDropdownMob.open .dropdown-menu {
     display: block;
 }
 /*/menu language btn add 160314*/
