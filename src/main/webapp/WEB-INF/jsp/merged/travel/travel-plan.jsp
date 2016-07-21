@@ -58,25 +58,17 @@ if(personalTraveller>familyTraveller){
 
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
 //hardcode 7-eleven variable for init
-var codeType = "all";
-if("${referralCode}"=="rex.hw.so@fwd.com"){
-	codeType = "b";
-}
-	function getuserDetails() {
-
-
-	}
 	function chkPromoCode() {
 		showSubmitError("", false);
 		var flag = false;
-    var promoCode = document.getElementById("promoCode").value.trim();
-  	if (promoCode == "" || promoCode == promoCodePlaceholder) {
-  		$("#loadingPromo").hide();
-  		promoCodeInsertFlag = true;
-  		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
-  		$('#inputPromo').addClass('invalid-field');
-  		flag = false;
-  	} else {
+	    var promoCode = document.getElementById("promoCode").value.trim();
+	  	if (promoCode == "" || promoCode == promoCodePlaceholder) {
+	  		$("#loadingPromo").hide();
+	  		promoCodeInsertFlag = true;
+	  		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+	  		$('#inputPromo').addClass('invalid-field');
+	  		flag = false;
+	  	} else {
   		if ( promoCode == promoCodePlaceholder ) {
   			$("#loadingPromo").hide();
   			promoCodeInsertFlag = true;
@@ -84,12 +76,6 @@ if("${referralCode}"=="rex.hw.so@fwd.com"){
   			$('#inputPromo').addClass('invalid-field');
   			flag = false;
   		} else  {
-  			//hardcode for 7-eleven testing purpose
-  			if(promoCode != "rex.hw.so@fwd.com"){
-  				codeType = "all";
-  			}else{
-  				codeType = "b";
-  			}
   			$('#inputPromo').removeClass('invalid-field');
   			$("#errPromoCode").html("");
   			flag = true;
@@ -171,35 +157,18 @@ if("${referralCode}"=="rex.hw.so@fwd.com"){
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
-	                	//console.log(data);
+	                	
 	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 	                    var json = JSON.parse(data);
-	                    promoData = json;
-	                    // return status by andy
-	                    /*if(json.errMsgs == null) {
-		                    console.log("eligibiltyPlanCode : " + json.eligibiltyPlanCode);
-	                        setValue(json);
-	                        $("#errPromoCode").html("");
-	                        $('#inputPromo').removeClass('invalid-field');
-	                    }else {
-		                    $("#errPromoCode").html(json.errMsgs);
-		          			$('#inputPromo').addClass('invalid-field');
-	                    }*/
-	                    // end return status by andy
-	                    
-	                    //hardcode the codeType for 7-eleven testing purpsoe.
-	                    //Value b = valid code for 7-eleven travel card, Value all = valid code for normal coupon
-	                    $.extend(json, {"codeType" : codeType});
-	                    console.log(json);
-	                    if(promoData['codeType']=="b"){
+	                    if(json.eligibiltyPlanCode=="B"){
 	                    	$("#box0").hide();
-	                    	$("#box1").click();
+	                    	$("#box1").click();	                    	
 	                    }else{
 	                    	$("#box0").show();
 	                    }
-	                    json['errMsgs'] = "hehe";
-	                    setSystemError(json['errMsgs']);
+	                    promoData = json;
+	                    setSystemError(json.errMsgs);
 	                    setValue(json);
 	                }
 
