@@ -10,7 +10,7 @@
 	/* Legacy iOS */
 }
 
-@font-face { 
+@font-face {
 	font-family: 'foco_bold';
 	src: url("../fonts/Foco-Bold_gdi.eot");
 	/* IE9 Compat Modes */
@@ -68,7 +68,7 @@ body .bold{
 	font-family: 'Calibri-bold', Calibri, sans-serif !important;
 }
 
-body.chin, 
+body.chin,
 body.chin .bold{
 	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
@@ -2960,7 +2960,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 /* line 16, ../sass/partials/_our-blog.scss */
 .fwd-savie-wrapper .blog-widget {
 	/* Sticky Buy Now button */
-	
+
 }
 /* line 17, ../sass/partials/_our-blog.scss */
 .fwd-savie-wrapper .blog-widget .read-blog-mobile {
@@ -3999,8 +3999,8 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 }
 
 /*
-* Login 
-* by: RM Nepomocino	
+* Login
+* by: RM Nepomocino
 */
 /* line 9, ../sass/partials/_login.scss */
 .fwd-savie-wrapper .login-modal.in ~ .modal-backdrop.in {
@@ -7813,7 +7813,7 @@ span.explanation {
 	/*
   ** Chart
   **/
-	
+
 }
 /* line 3, ../sass/partials/_investment.scss */
 .fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content
@@ -10573,7 +10573,7 @@ span.dup-error-msg {
 	.fwd-savie-wrapper .personal-info-widget .checkbox-section {
 		padding-left: 34%;
 	}
-	
+
 	.fwd-savie-wrapper .personal-info-widget#et-medical-declaration .checkbox-section {
         padding-left: 0;
     }
@@ -10901,7 +10901,7 @@ span.dup-error-msg {
 	/* line 42, ../sass/partials/_employment-info.scss */
 	.fwd-savie-wrapper #employment-info .content .employment-info-row .form-control.gray-textbox
 		{
-		width: 65.5%;
+		width: 90%;
 	}
 	/* line 45, ../sass/partials/_employment-info.scss */
 	.fwd-savie-wrapper #employment-info .content .employment-info-row .monthly-income
@@ -13839,7 +13839,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper {
 	/* layout.css Style */
 	/* skin.css Style*/
-	
+
 }
 /* line 10, ../sass/partials/_docu_upload.scss */
 .fwd-savie-wrapper .upload-drop-zone {
@@ -14952,7 +14952,7 @@ span.dup-error-msg {
 	/* line 933, ../sass/partials/_docu_upload.scss */
 	.fwd-savie-wrapper .document-upload .description p.first-desc {
 		/*margin-top: 10px;*/
-		
+
 	}
 }
 
@@ -17191,7 +17191,7 @@ button#thank-you-continue {
 /* line 338, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .centreDiv {
 	/*position: relative;
-  
+
   			img {
   			    position: absolute;
   			    right: 9px;
@@ -21543,84 +21543,84 @@ body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd
 /* line 13, ../sass/partials/_chinese.scss */
 body
 .chin
- 
+
 .fwd-savie-wrapper
- 
+
 p
 ,
 body
 .chin
- 
+
 .fwd-savie-wrapper
- 
+
 a
 ,
 body
 .chin
- 
+
 .fwd-savie-wrapper
- 
+
 li
 ,
 body
 .chin
- 
+
 .fwd-savie-wrapper
- 
+
 span
 :not
- 
+
 (
 .icon
- 
+
 )
 :not
- 
+
 (
 .glyphicon
- 
+
 )
 :not
- 
+
 (
 .fa
 
-	
+
 )
 :not
- 
+
 (
 [
 class
 *=
 " icon-"
 ]
- 
+
 )
 :not
- 
+
 (
 [
 class
 ^=
 icon-
 ]
- 
+
 )
 {
 font-family
 :
- 
+
 "
 Microsoft
- 
+
 JhengHei
 "
 ,
 Calibri
 ,
 sans-serif
- 
+
 !
 important
 ;
@@ -24318,7 +24318,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 
 .et-document-upload .iframe-holder {
 	position: relative;
-	overflow: hidden; 
+	overflow: hidden;
 	margin-top: 5px;
 }
 
@@ -25722,7 +25722,7 @@ label.et-bene-radio,#et-application-second-section label,
 	    color: #061d2a;
 	    margin-top: -2px;
 	    padding-top: 0;
-	    border: 0;	
+	    border: 0;
 	}
 }
 
@@ -25765,4 +25765,4 @@ label.et-bene-radio,#et-application-second-section label,
 /* ticket 2930 */
 .et-get-qoute {
 	bottom: 105px;
-}	
+}

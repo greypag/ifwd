@@ -1576,22 +1576,42 @@ var home_url = "<%=request.getContextPath()%>";
 											key="eliteTerms.selectPlan.Nature.of.business"
 											bundle="${msg}" /></label>
 									<div class="selectEmployment">
-										<span class="icon-chevron-thin-down orange-caret"></span> <select
+										<span class="icon-chevron-thin-down orange-caret"></span>
+										<select
+											style="/*text-overflow: ellipsis; display: block; overflow: hidden; white-space: nowrap;*/"
 											class="form-control gray-dropdown"
 											id="savieEmploymentBean.natureOfBusiness"
 											name="savieEmploymentBean.natureOfBusiness"
-											data-style="application-select"
+											data-style="application-select" style="width: 100%;"
 											onchange="getOccupation(this.value,'${language }');">
 											<option value=""><fmt:message
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${natureOfBusinessEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 40}">
+															${fn:substring(list.itemDesc, 0, 40)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${natureOfBusinessCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option class="font-auto-resize" value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.natureOfBusiness, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 16}">
+															${fn:substring(list.itemDesc, 0, 16)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1612,12 +1632,30 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${occupationEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 40}">
+															${fn:substring(list.itemDesc, 0, 40)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${occupationCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.occupation, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 16}">
+															${fn:substring(list.itemDesc, 0, 16)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -1968,12 +2006,30 @@ var home_url = "<%=request.getContextPath()%>";
 													key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etAmountOtherSourceEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 40}">
+															${fn:substring(list.itemDesc, 0, 40)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etAmountOtherSourceCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${fn:substringBefore(etPolicyApplication.applicant.sourceOfIncome, '-') == list.itemCode }">selected="selected"</c:if>>
+													<c:choose>
+														<c:when test="${list.itemDesc.length() > 16}">
+															${fn:substring(list.itemDesc, 0, 16)} ...
+														</c:when>
+														<c:otherwise>
+															${list.itemDesc }
+														</c:otherwise>
+													</c:choose>
+													</option>
 												</c:forEach>
 											</c:if>
 										</select>
@@ -3864,7 +3920,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<h4><fmt:message key="eliteTerms.selectPlan.Customer.Service" bundle="${msg}" /></h4>
 						</div>
 						<div class="modal-body">
-							<p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no" title="Customer Hotline" >3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
+							<p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no" title="Customer Service Hotline" >3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
 							<form action="">
 								<div class="input-items clearfix">
 									<label for="cs_name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
