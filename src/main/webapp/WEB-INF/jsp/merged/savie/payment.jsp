@@ -453,6 +453,20 @@ var language = "${language}";
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->	
 </div><!-- /.modal -->
+<!--Modal in Customer Service Centre (More than 2 tries)-->
+<div class="modal fade cs-modal" role="dialog" aria-labelledby="moreThan2Tries" id="moreThan2Tries" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog teaserSurvey cs-modal-dialog" role="document">
+		<div class="modal-content teaserSurvey cs-modal-content">
+			<div class="modal-header teaserSurvey cs-modal-header">
+				<h2 class="cs-modal-h2"><fmt:message key="savie.customerServiceCentre.moreThan2Triesmodalheader" bundle="${msg}" /></h2>
+			</div>
+			<div class="modal-body teaserSurvey cs-modal-body">
+				<p class="registered cs-modal-p"><fmt:message key="savie.customerServiceCentre.moreThan2Triesmodalbody" bundle="${msg}" /></p>
+				<button type="button" class="btn btn-orange cs-modal-btn" id="moreThan2Tries-button"><fmt:message key="savie.customerServiceCentre.moreThan2TriesmodalbtnTxt" bundle="${msg}" /></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->	
+</div><!-- /.modal -->
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 	var language = "en";
@@ -1000,4 +1014,7 @@ var language = "${language}";
         }
         %>
 	}
+	$('#moreThan2Tries-button').click(function(){
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp';
+	});
 </script>
