@@ -67,7 +67,7 @@ var nextPage = "${nextPageFlow}";
                         <div class="form-group">
                             <div class="fld-wrapper">
                             <p class="fld-label">${language == 'en' ? 'Easy HomeCare':'易安心家居保'}</p>
-                            <p class="fld-val">${plan == 'home-liability' ? language == 'en' ? '':'':language == 'en' ? 'Standard cover, Annual':'基本保障，年度' }</p>
+                            <p class="fld-val"></p>
                             </div>
                         </div>                        
                     </li>
