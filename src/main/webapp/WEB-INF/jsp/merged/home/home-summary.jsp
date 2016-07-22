@@ -586,7 +586,7 @@ var plan="${plan}";
 					                                        <option value="11">11</option>
 					                                        <option value="12">12</option>
 		                                                </select>
-		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
+		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.month" bundle="${msg}" /></label>
 		                                            </div>
 		                                            
 		                                        </div>
@@ -604,7 +604,7 @@ var plan="${plan}";
 						                                        <option value="${currentYear}">${currentYear}</option>
 						                                    </c:forEach>
 		                                                </select>
-		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.date" bundle="${msg}" /></label>
+		                                                <label class="mdl-textfield__label" for="ccName"><fmt:message key="payment.card.expiry.year" bundle="${msg}" /></label>
 		
 		                                            </div>
 		                                        </div>

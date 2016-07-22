@@ -47,7 +47,7 @@ lib.properties = {
 		{src:window.eh_caseAniImgPath + "/case_txt_03.png", id:"case_txt_03"},
 		{src:window.eh_caseAniImgPath + "/case_txt_04.png", id:"case_txt_04"},
 		{src:window.eh_caseAniImgPath + "/case_txt_05.png", id:"case_txt_05"},
-		{src:window.eh_caseAniImgPath + "/en_txt_tab_02.png", id:"en_txt_tab_02"},
+		{src:window.eh_caseAniImgPath + "/main_txt_02.png", id:"en_txt_tab_02"},
 		{src:window.eh_caseAniImgPath + "/main_txt_01.png", id:"main_txt_01"},
 		{src:window.eh_caseAniImgPath + "/main_txt_02.png", id:"main_txt_02"},
 		{src:window.eh_caseAniImgPath + "/main_txt_03_v2.png", id:"main_txt_03_v2"},

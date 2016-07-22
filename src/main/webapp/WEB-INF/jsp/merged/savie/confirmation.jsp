@@ -104,7 +104,7 @@
 	        				</div>
 	        				<div class="col-md-12 border-gray visible-md visible-lg" id="border-desktop"></div>
 	        			</div>
-                <%-- 20160620 --%>
+                <%-- 20160620 VC
                 <div style="padding: 20px 0">
                   <p><fmt:message key="savie.confirmation.Your.application.is.part1" bundle="${msg}" /></p>
                 </div>
@@ -136,7 +136,7 @@
                 <div style="padding: 20px 0">
                   <hr>
                 </div>
-                <%-- 20160620 --%>
+                20160620 --%>
 	        			<div class="row" id="partner-care-holder">
 	        				<div class="col-md-6" id="care-holder">
 	        					<div class="row">

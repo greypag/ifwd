@@ -67,7 +67,7 @@ var languageP = "${language}";
 							<div class="psa-link-content">
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
-									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.easy.health" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>								
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.easy.health" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname2.full" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>								
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.elite.term" bundle="${msg}" />"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.flight" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.travel" bundle="${msg}" />"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>

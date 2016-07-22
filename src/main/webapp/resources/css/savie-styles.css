@@ -7081,7 +7081,7 @@ h6.so-h6 {
 /* line 76, ../sass/partials/savie/_upload-later-confirmation.scss */
 #upload-later-confirmation-page #upload-later-confirmation-content #partner-care-holder #care-holder 
  {
-  margin-left: 15px;
+  /*margin-left: 15px;*/
 }
 @media (max-width: 992px) {
   /* line 76, ../sass/partials/savie/_upload-later-confirmation.scss */
