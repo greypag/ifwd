@@ -38,7 +38,7 @@ var plan="${plan}";
                         <div id="clearfix-height-rp">
                             <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.apply.easy.home" bundle="${msg}" /></button>
                         </div>
-                        <div class="savie-product text-bold"> <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}"/>" class="color-teal-blue" target="_blank"><fmt:message key="label.provisions.easy.home" bundle="${msg}" /></a> </div>
+                        <div class="savie-product text-bold color-teal-blue"> <a href="<fmt:message key="link.factsheet.home.liability" bundle="${msg}" />" class="color-teal-blue" target="_blank"><fmt:message key="label.factsheet" bundle="${msg}" /></a> | <a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}"/>" class="color-teal-blue" target="_blank"><fmt:message key="label.provisions" bundle="${msg}" /></a> </div>
                     </div>
                 </form>
             </div>
@@ -186,7 +186,7 @@ var plan="${plan}";
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="text-center eh_theclub_txt"><fmt:message key="partner.card.theclub.home.liability.copy4" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy5" bundle="${msg}" /></a><fmt:message key="partner.card.theclub.home.liability.copy6" bundle="${msg}" /><fmt:message key="partner.card.theclub.home.liability.copy7" bundle="${msg}" /></p>
+                    <p class="text-center eh_theclub_txt"><fmt:message key="partner.card.theclub.home.liability.copy4" bundle="${msg}" /><a href="<fmt:message key="link.provisions.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy5" bundle="${msg}" /></a><fmt:message key="partner.card.theclub.home.liability.copy6" bundle="${msg}" /><a href="<fmt:message key="link.factsheet.home.liability" bundle="${msg}" />" target="_blank"><fmt:message key="partner.card.theclub.home.liability.copy7" bundle="${msg}" /></a><fmt:message key="partner.card.theclub.home.liability.copy8" bundle="${msg}" /> <fmt:message key="partner.card.theclub.home.liability.copy9" bundle="${msg}" /></p>
                 </div>
             </div>
         </div>
