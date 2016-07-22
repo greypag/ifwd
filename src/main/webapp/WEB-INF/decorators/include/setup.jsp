@@ -15,7 +15,9 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
-
+<%
+if(request.getRequestURI().indexOf("/household-insurance")>0) {
+%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/easy-home/application.css">
@@ -46,7 +48,9 @@
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll/mobiscroll.android-holo-light.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll/mobiscroll.wp-light.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll/mobiscroll.mobiscroll-dark.css" rel="stylesheet" type="text/css" />
-
+<%
+}
+%>
 <script>
 
 	// handle when console is null/undefined especially in IE
