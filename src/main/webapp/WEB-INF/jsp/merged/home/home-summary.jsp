@@ -448,7 +448,7 @@ var plan="${plan}";
                             <div class="form-group">
                                 <div class="fld-wrapper">
                                     <p class="fld-label"><fmt:message key="payment.input.insurance.period" bundle="${msg}" /></p>
-                                    <p class="fld-val">Yearly</p>
+                                    <p class="fld-val"><fmt:message key="payment.input.insurance.period.yearly" bundle="${msg}" /></p>
                                 </div>
                             </div>
                         </div>
