@@ -48,8 +48,8 @@ public class PaymentController extends BaseController {
 		payloadObject.put("totalPrice", "500.00");
 		payloadObject.put("currency", "HKD");
 		payloadObject.put("merTradeNo", merTradeNo);
-		payloadObject.put("notifyUrl", "http://127.0.0.1:8090/fwdhk_tag&go/paymentNotify");
-		payloadObject.put("returnUrl", "http://127.0.0.1:8090/fwdhk_tag&go/paymentReturn");
+		payloadObject.put("notifyUrl", "http://127.0.0.1:8090/fwdhk/paymentNotify");
+		payloadObject.put("returnUrl", "http://127.0.0.1:8090/fwdhk/paymentReturn");
 		payloadObject.put("remark", "Single Merchant, web-based");
 		payloadObject.put("lang", "en");
 		payload = payloadObject.toString();
