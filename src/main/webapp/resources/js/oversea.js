@@ -50,7 +50,7 @@ function validatenameOfInstitution(){
 
 function validatecountryOfInstitution(){
 	countryOfInstitution = $("#countryOfInstitution").val();
-	//console.log(institueCountryPlaceholder);
+	
 	if (countryOfInstitution.trim() == "" || countryOfInstitution.trim()== institueCountryPlaceholder.trim()) {
 		$("#countryOfInstitution").addClass("invalid-field");
 		$("#countryOfInstitutionInvalid").html(
@@ -113,7 +113,7 @@ function coverageToogle(id){
 function validateCorrespondenceBorE() {
 	building = $("#correspondenceAddressBuildingId").val();
 	estate = $("#correspondenceAddressEstateId").val();
-	console.log();
+	
 	if ((building.trim() == "" && estate.trim() == "") || (building.trim() == appBuildingPlaceholder.trim() && estate.trim() == appEstatePlaceholder.trim())) {
 
 		$("#correspondenceAddressBuildingId").addClass("invalid-field");
@@ -483,7 +483,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#"+'dobInsuredInvalid').html('');
 		$("#"+'oversea_insure_dob').removeClass("invalid-field");
 	}
-	//console.log(chkTravelHKPass(beneficiaryId.trim()));
+	
 	if($("#personalselectBenificiary").val() != "" && $("#personalselectBenificiary").val() != 'SE'){
 		if (beneficiaryName.trim() == "") {
 			$("#errBeneficiaryFullName").html( getBundle(getBundleLanguage, "beneficiary.name.notNull.message"));
@@ -606,19 +606,14 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		if($("#"+'selectedPlanName').val()=="basicA" || $("#"+'selectedPlanName').val()=="basicB" || $("#"+'selectedPlanName').val()=="medicalWorldwideA" || $("#"+'selectedPlanName').val()=="medicalWorldwideB"){
 			compare_list = world_wide_country_list;
 			isAsia = false;
-			//console.log("worldwide");
 		}else if($("#"+'selectedPlanName').val()=="medicalAsiaA" || $("#"+'selectedPlanName').val()=="medicalAsiaB"){
 			compare_list = asia_country_list;
 			isAsia = true;
-			//console.log("asia");
 		}
-		//console.log(compare_list);
-		console.log(compare_list.indexOf(countryOfInstitution));
 		if(compare_list.indexOf(countryOfInstitution) < 0){
 			previous_action_link = window.location.href;
 			previous_action_link = previous_action_link.replace("details","quote");
 			$("#"+'countryOfInstitution').addClass("invalid-field");
-			console.log(world_wide_country_list.indexOf(countryOfInstitution) > 0);
 			if(isAsia){
 				if(world_wide_country_list.indexOf(countryOfInstitution) > 0){
 					$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia') );
@@ -722,15 +717,11 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	var Date3 =moment(overseaDepartureDate,"DD-MM-YYYY");	
 	//var departAge = Date1.from(Date3).split(" ");
 	//var currAge = Date1.from(Date2).split(" ");
-	//console.log(Date1);
-	//console.log(Date2);
 	var departAge = Date3.diff(Date1,'years',true);
 	var currAge = Date2.diff(Date1,'years',true);
-	//console.log("DepartAge= "+departAge);
-	//console.log("CurrAge= "+currAge);
+
 	if(appRelation =="SE"){
 		if(currAge > 65){
-			//console.log(">65");
 			$("#input_oversea_dob").addClass("invalid-field");
 			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			$("#oversea_insure_dob").addClass("invalid-field");
@@ -762,7 +753,6 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#input_oversea_dob").removeClass("invalid-field");
 			$("#dobInvalid").html( '');			
 		}		
-		//console.log("insured");
 		if(currAge > 65 && InsuDob!=""){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
@@ -815,7 +805,7 @@ function confirmDetails(form, formId, language) {
 	var result = false;
 	var formId = '#' + formId;
 	var method = contextPath + '/ajax/oversea/prepareOverseaSummary';
-	console.log($(formId).serialize());
+	
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -828,7 +818,7 @@ function confirmDetails(form, formId, language) {
 				result = true;
 			} else {
 				oversea_click = false;
-				console.log(data);
+				//console.log(data);
 				$("#errorMsg").html(data);
 				scrollToElement("errorMsg");
 			}
@@ -844,7 +834,7 @@ function prepareOverseaQuote() {
 	var result = false;
 	var formId = '#frmTravelGetQuoteDesk';
 	var method = contextPath+'/ajax/oversea/prepareOverseaQuote';
-	console.log($(formId).serialize());
+	
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -854,7 +844,7 @@ function prepareOverseaQuote() {
 			if (data == 'success') {
 				result = true;
 			} else {
-				console.log(data);
+				//console.log(data);
 				$('#startDateDeskIn').html(data.errMsgs);
 				result = false;
 			}
