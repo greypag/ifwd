@@ -2,16 +2,16 @@
     $.mobiscroll.i18n.zh_fwd = {
         // Core
         rtl: false, // Right to left mode
-        setText: 'Set',
-        cancelText: 'Cancel',
+        setText: '確定',
+        cancelText: '取消',
         clearText: 'Clear',
         selectedText: '{count} selected',
         selectedPluralText: '{count} selected',
         // Datetime component
         dateFormat: 'dd/mm/yy',
         dateOrder: 'ddmmyy',
-        dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        dayNames: ['週日', '週一', '週二', '週三', '週四', '週五', '週六'],
+        dayNamesShort: ['日', '一', '二', '三', '四', '五', '六'],
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         dayText: '\u65e5',
         hourText: 'Hours',
@@ -40,8 +40,8 @@
         fractionText: 'Fraction',
         unitText: 'Unit',
         // Time / Timespan component
-        labels: ['\u5e74', '\u6708', '\u65e5', 'Hours', 'Minutes', 'Seconds', ''],
-        labelsShort: ['\u5e74', '\u6708', '\u65e5', 'Hrs', 'Mins', 'Secs', ''],
+        labels: ['年', '月', '日', '小時', '分鐘', '秒', ''],
+        labelsShort: ['年', '月', '日', '時', '分', '秒', ''],
         // Timer component
         startText: 'Start',
         stopText: 'Stop',
