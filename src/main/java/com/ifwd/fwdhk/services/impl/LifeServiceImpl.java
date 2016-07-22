@@ -3190,7 +3190,7 @@ public class LifeServiceImpl implements LifeService {
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
-			subject = "	 Acknowledgement from FWD | 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD |	 自助息理財預約申請確認";
 			template = "savie\\payLater.html";
 		}else if("uploadDocument".equals(action)) {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
