@@ -3190,23 +3190,23 @@ public class LifeServiceImpl implements LifeService {
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD |	 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD |	Savie自助息理財預約申請確認";
 			template = "savie\\payLater.html";
 		}else if("uploadDocument".equals(action)) {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
-			subject = "FWD Savie Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
+			subject = "FWD Savie Insurance Plan – Documents Upload [" + lifePolicy.getPolicyNo() + "] | 富衛Savie自助息 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "savie\\uploadDocument.html";
 		}else if("savieComplete".equals(action)) {
-			subject = "Your online application of FWD Savie is completed! 您的富衛自助息網上申請已完成！";
+			subject = "Your online application of FWD Savie is completed! 您的富衛Savie自助息網上申請已完成！";
 			template = "savie\\savieComplete.html";
 		}else if("signLater".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD |	 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
 			template = "savie\\signLater.html";
 		}else if("offlineApplication".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
 			template = "savie\\offlineApplication.html";
 		}else if("offlineApplication-rp".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD | 自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
 			template = "savie\\offlineApplication-rp.html";
 		}else if("saveLater".equals(action)) {
 			subject = "Your Savie application has not yet been completed!您的Savie自助息申請尚未完成!";
