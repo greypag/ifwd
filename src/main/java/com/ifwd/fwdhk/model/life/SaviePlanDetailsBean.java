@@ -49,12 +49,17 @@ public class SaviePlanDetailsBean implements Serializable {
 		}
 	}
 	
+	
 	public String getInsuredAmount() {
 		return insuredAmount;
 	}
+
+
 	public void setInsuredAmount(String insuredAmount) {
 		this.insuredAmount = insuredAmount;
 	}
+
+
 	public String getDob() {
 		return dob;
 	}

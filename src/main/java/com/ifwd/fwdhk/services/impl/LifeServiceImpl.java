@@ -1509,6 +1509,14 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 	
+	public JSONObject getSavieHkidDiscount(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+
+	
 	public void contactCs(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
 		final Map<String,String> header = headerUtil.getHeader(request);

@@ -106,6 +106,7 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetails"})
 	public void lifePersonalDetails(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -336,6 +337,23 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	//Begin ---HKID discount ---by John Huang
+	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscount"})
+	public void getSavieHkidDiscount(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getSavieHkidDiscountByHkIdPlanAll(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}	
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})
 	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
@@ -507,7 +525,7 @@ public class AjaxLifeController extends BaseController{
 				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				savieOnlineService.getProductrRecommend(savieFna, request);
 				SaviePlanDetailsBean saviePlanDetails = new SaviePlanDetailsBean();
-				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString());
+				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString().replace(",", ""));
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
@@ -521,6 +539,7 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
