@@ -2231,6 +2231,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 //       }
 //    }
 	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
+		$(".errDue").html("");
 		$("#promo-code-body").fadeIn();
 		var selected_div;
 		var idArray = [];
