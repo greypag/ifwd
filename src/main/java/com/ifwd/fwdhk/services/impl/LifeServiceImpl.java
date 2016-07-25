@@ -3673,4 +3673,28 @@ public class LifeServiceImpl implements LifeService {
 			throw new Exception("hasSimpleChinese");
 		}
 	}
+	
+	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException{
+		String hkId = request.getParameter("hkId");
+		String saviePlan = request.getParameter("saviePlan");
+		
+		String Url="";
+		if (saviePlan==null||"".equals(saviePlan)){
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId;
+		} else{
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		}
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		request.getSession().setAttribute("hkId", hkId);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getSavieHkidDiscountByHkIdPlan(String hkId, String saviePlan,HttpServletRequest request) throws ECOMMAPIException{
+		String 	Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		request.getSession().setAttribute("hkId", hkId);
+		return responseJsonObj;
+	}	
 }

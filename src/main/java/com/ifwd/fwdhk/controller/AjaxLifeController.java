@@ -60,6 +60,8 @@ public class AjaxLifeController extends BaseController{
 	@RequestMapping(value = {"/ajax/savings-insurance/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
+		String hkId = (String) session.getAttribute("hkId");	
+		String saviePlan="";
 		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
@@ -71,6 +73,27 @@ public class AjaxLifeController extends BaseController{
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
+			
+			int amount = Integer.valueOf(saviePlanDetails.getInsuredAmount());
+			if (hkId!=null && !"".equals(hkId)){
+				if("SP".equals(saviePlanDetails.getPaymentType())){
+					if(amount>=200000) {
+						saviePlan="1";
+					}
+					else if(amount<200000) {
+						saviePlan="2";
+					}
+				}
+			    else if("RP".equals(saviePlanDetails.getPaymentType())){
+						saviePlan="3";
+				}
+				JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(hkId,saviePlan,request);
+				logger.info(jsonObject2.toJSONString());
+				int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+				saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+			}
+			
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
@@ -755,4 +778,20 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscountByHkIdPlan"})
+	public void getSavieHkidDiscountByHkIdPlan(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getSavieHkidDiscountByHkIdPlanAll(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}	
 }
