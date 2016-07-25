@@ -2305,6 +2305,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
     }
 
 	function BackMe() {
-		window.history.back();
+		window.location="<%=request.getContextPath()%>/${language}/travel-insurance";
+		//window.history.back();
 	}
 </script>
