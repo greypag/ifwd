@@ -78,7 +78,7 @@ public class OverseaServiceImpl implements OverseaService {
 		if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 			session.setAttribute("referralCode", "");
 		} else {
-			//session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
+			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
 		}
 		if (responseJsonObj != null && responseJsonObj.get("errMsgs") == null) {
 			
@@ -153,7 +153,7 @@ public class OverseaServiceImpl implements OverseaService {
 		if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 			session.setAttribute("referralCode", "");
 		} else {
-			//session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
+			session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
 		}
 		if (responseJsonObj.get("errMsgs") == null) {
 			QuoteDetails quoteDetails = new QuoteDetails();
