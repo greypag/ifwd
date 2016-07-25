@@ -3190,7 +3190,7 @@ public class LifeServiceImpl implements LifeService {
 		String template = "";
 		String subject = ""; 
 		if("paylater".equals(action)) {
-			subject = "Savie Appointment Acknowledgement from FWD |	Savie自助息理財預約申請確認";
+			subject = "Savie Appointment Acknowledgement from FWD | Savie自助息理財預約申請確認";
 			template = "savie\\payLater.html";
 		}else if("uploadDocument".equals(action)) {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
@@ -3232,7 +3232,7 @@ public class LifeServiceImpl implements LifeService {
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		
-		header.put("content-type", "application/json ");
+		header.put("content-type", "application/json");
 		logger.info("sendEmails : " + parameters.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST, Url, header, parameters);
 		
