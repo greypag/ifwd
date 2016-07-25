@@ -1509,6 +1509,40 @@ public class LifeServiceImpl implements LifeService {
 		return responseJsonObj;
 	}
 	
+	public JSONObject getSavieHkidDiscount(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+
+	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException{
+		String hkId = request.getParameter("hkId");
+		String saviePlan = request.getParameter("saviePlan");
+		
+		String Url="";
+		if (saviePlan==null||"".equals(saviePlan)){
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId;
+		} else{
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		}
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		//request.getSession().setAttribute("hkId", hkId);
+		//request.getSession().setAttribute("saviePlan", responseJsonObj.get("discount"));
+		return responseJsonObj;
+	}
+	
+	public JSONObject getSavieHkidDiscountByHkIdPlan(String hkId, String saviePlan,HttpServletRequest request) throws ECOMMAPIException{
+	
+		String 	Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		//request.getSession().setAttribute("hkId", hkId);
+		//request.getSession().setAttribute("saviePlan", responseJsonObj.get("discount"));
+		return responseJsonObj;
+	}	
+	
 	public void contactCs(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
 		final Map<String,String> header = headerUtil.getHeader(request);

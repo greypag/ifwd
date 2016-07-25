@@ -1,3 +1,4 @@
+var contextPath = context;
 var savieDiscount = {};
 
 savieDiscount = {
@@ -40,7 +41,28 @@ savieDiscount = {
 			if(isValidHKID){
 				$(".hkid-err-msg").empty();
 
-				var count = (hkidVal.match(/[023]/g) || []).length;
+				//var count = (hkidVal.match(/[023]/g) || []).length;
+				var count=0;
+				$.ajax({
+					url:contextPath+'/ajax/savings-insurance/getSavieHkidDiscountByHkIdPlanAll',
+					type:'get',
+				    cache:false,
+				    async:false,
+				    data:{
+				    	hkId : hkidVal
+		       		},
+				    error:function(){
+				    },
+				    success:function(data){
+				    	//alert(count);
+						if(data.discount){
+							count=data.discount;
+						}
+						else{
+						}
+				    }
+				});
+				
 				if(count > 0){
 
 					$(".tbl-spd, .tbl-spd-mobile").find(".b" + count).addClass("bingo");

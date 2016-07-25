@@ -25,6 +25,8 @@ public class SaviePlanDetailsBean implements Serializable {
 	private String promoCode;
 	private String dob1;
 	private String dob2;
+	private String insuredAmountDiscount;
+	
 	
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
@@ -47,12 +49,17 @@ public class SaviePlanDetailsBean implements Serializable {
 		}
 	}
 	
+	
 	public String getInsuredAmount() {
 		return insuredAmount;
 	}
+
+
 	public void setInsuredAmount(String insuredAmount) {
 		this.insuredAmount = insuredAmount;
 	}
+
+
 	public String getDob() {
 		return dob;
 	}
@@ -96,6 +103,14 @@ public class SaviePlanDetailsBean implements Serializable {
 
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
+	}
+
+	public String getInsuredAmountDiscount() {
+		return insuredAmountDiscount;
+	}
+
+	public void setInsuredAmountDiscount(String insuredAmountDiscount) {
+		this.insuredAmountDiscount = insuredAmountDiscount;
 	}
 	
 }
