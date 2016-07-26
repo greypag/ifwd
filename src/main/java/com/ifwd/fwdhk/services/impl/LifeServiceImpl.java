@@ -3694,7 +3694,6 @@ public class LifeServiceImpl implements LifeService {
 		}
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		request.getSession().setAttribute("hkId", hkId);
 		return responseJsonObj;
 	}
 	
@@ -3702,7 +3701,6 @@ public class LifeServiceImpl implements LifeService {
 		String 	Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		request.getSession().setAttribute("hkId", hkId);
 		return responseJsonObj;
 	}	
 }
