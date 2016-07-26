@@ -70,7 +70,8 @@ public class HomePageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase(plan)){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase(plan)
+					|| current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("home-insurance")){
 				current = UserRestURIConstants.PAGE_HOME_LIABILITY_LANDING;
 			} else {
 				current = getHomeLiabilityPage(current);

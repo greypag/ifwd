@@ -55,7 +55,17 @@ public class GAController extends BaseController{
 		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/" + plan);
+	}
+	
+	@RequestMapping(value = {"/{lang}/home-insurance"})
+	public ModelAndView getHomeInsurance(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
+		if (StringUtils.hasText(promo)) {
+			request.getSession().setAttribute("referralCode", promo);
+		}else {
+			request.getSession().removeAttribute("referralCode");
+		}
+		return HomePageFlowControl.pageFlow(UserRestURIConstants.URL_EASY_HOME_LANDING, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/screening"})
