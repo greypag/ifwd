@@ -993,7 +993,7 @@ function setDropArea(id) {
                             <div style="width: 80%;margin-left: 10%;">
                                   <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                  <c:choose>
-                                 <c:when test="${referralCode!=null && referralCode!=''}"><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h4></c:when>
+                                 <c:when test="${referralCode!=null && referralCode!=''}"><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4></c:when>
                                  <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="Overseas.PlanOptions.NoCodeused" bundle="${msg}" /></h4></c:otherwise>
                                  </c:choose> 
                                 <!--<c:if test="${referralCode!=null && referralCode!=''}">
