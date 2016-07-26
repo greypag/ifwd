@@ -112,12 +112,12 @@
 	font-size: 48px;
     line-height: 48px;
 }
-@media ( min-width : 414px) {
+/*@media ( min-width : 414px) {
 	.page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .fwdiscover {
 		font-size: 64px;
 	    line-height: 64px;
 	}
-}
+}*/
 
 @media ( min-width : 992px) {
 	.page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .fwdiscover {
@@ -2088,4 +2088,23 @@ body.chin #hotel-description-modal .carousel-description-container{
 	margin-top: 50px;
 	border-top: none;
 
+}
+
+@media (min-width: 414px & max-width: 767px) {
+    /* Fixed for the iPhone 6+ */
+	.page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .fwdiscover {
+	    font-size: 58px;
+	    line-height: 58px;
+	}
+}
+@media (max-width: 320px) {
+    /* Fixed for the iPhone 5 */
+    .page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .fwdiscover {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .welcome {
+        line-height: 28px;
+        font-size: 28px;
+    }
 }
