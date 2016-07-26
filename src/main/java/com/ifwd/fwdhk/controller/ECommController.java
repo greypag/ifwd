@@ -375,31 +375,31 @@ public class ECommController extends BaseController {
 						break;
 					case 5:
 						discount="Fanfare.discount0";
-						date="30-09-2016";
+						date="31-10-2016";
 						offername="Fanfare.offername0";
 						tnc="Fanfare.tnc0";
 						break;
 					case 6:
 						discount="Fanfare.discount1";
-						date="30-09-2016";
+						date="31-10-2016";
 						offername="Fanfare.offername1";
 						tnc="Fanfare.tnc1";
 						break;
 					case 7:
 						discount="Fanfare.discount2";
-						date="30-09-2016";
+						date="31-10-2016";
 						offername="Fanfare.offername2";
 						tnc="Fanfare.tnc2";
 						break;
 					case 8:
 						discount="Fanfare.discount3";
-						date="30-09-2016";
+						date="31-10-2016";
 						offername="Fanfare.offername3";
 						tnc="Fanfare.tnc3";
 						break;
 					case 9:
 						discount="Fanfare.discount4";
-						date="30-09-2016";
+						date="31-10-2016";
 						offername="Fanfare.offername4";
 						tnc="Fanfare.tnc4";
 						break;
@@ -435,7 +435,7 @@ public class ECommController extends BaseController {
 						break;
                     case 23:
                         discount="Fanfare.discount11";
-                        date="30-09-2016";
+                        date="31-10-2016";
                         offername="Fanfare.offername11";
                         tnc="Fanfare.tnc11";
                         break;
