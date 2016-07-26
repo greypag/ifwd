@@ -168,7 +168,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                    	$("#box0").show();
 	                    }
 	                    promoData = json;
-	                    setSystemError(json.errMsgs);
+	                    //setSystemError(messages);
 	                    setValue(json);
 	                }
 
@@ -222,8 +222,20 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
-		if(result['errMsgs'] !== null){
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		if(result['errMsgs'] != null){
+			var messages;
+			if(result['errMsgs']=="Day not match 6"){
+            	messages='<fmt:message key="travel.plan.6days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Day not match 10"){
+            	messages='<fmt:message key="travel.plan.10days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Day not match 16"){
+            	messages='<fmt:message key="travel.plan.16days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Person not match 1"){
+            	messages='<fmt:message key="travel.plan.1traveller" bundle="${msg}" />';
+            }else {
+            	messages=getBundle(getBundleLanguage, "system.promotion.error.notValid.message");
+            }
+			$("#errPromoCode").html(messages);
 			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
