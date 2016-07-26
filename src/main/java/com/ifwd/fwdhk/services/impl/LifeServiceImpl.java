@@ -495,6 +495,7 @@ public class LifeServiceImpl implements LifeService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 		String lang = UserRestURIConstants.getLanaguage(request);
 		
 		String bankName = "";
@@ -702,7 +703,16 @@ public class LifeServiceImpl implements LifeService {
 	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
 	    }
 	    
-	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    String limitForEachPayment = "";
+	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount())){
+	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
+	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
+	    }else{
+	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
+	    }
+	    
+	    //attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    attributeList.add(new PdfAttribute("LimitForEachPayment", limitForEachPayment));
 	    attributeList.add(new PdfAttribute("ExpiryDate", "N/A"));
 	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid().toUpperCase()));
