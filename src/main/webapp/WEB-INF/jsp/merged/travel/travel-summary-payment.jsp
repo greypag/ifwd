@@ -58,7 +58,41 @@ var clicked = false;
 	                    });
 	            return true;
 	        }else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
-	        		window.open(tapAndGoUrl, '_blank');
+	        		//window.open(tapAndGoUrl, '_blank');
+	        		var method = "<%=request.getContextPath()%>/ajax/annualTravel/caculateTgPaymentInfo";
+	        		var referenceNo = $('#referenceNo').val();
+	        		$.ajax({
+                        type : "POST",
+                        url : method,
+                        data : {"referenceNo":referenceNo},
+                        async : false,
+                        success : function(data) {
+                        	clicked = false;
+                        	var str = JSON.stringify(data)
+                        	
+                        	if(data.errMsg){
+                        		console.log(data);
+                            	$("#PaymentingDiv").hide();
+                                enablePayment=true;
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                           	}else{
+                           		$('#appId').val(data.appId);
+								$('#merTradeNo').val(data.merTradeNo);
+								$('#payload').val(data.payload);
+								$('#paymentType').val(data.paymentType);
+								$('#sign').val(data.sign);
+								setTimeout(function(){
+									$("#tgPaymentForm").attr('action', "https://gateway.sandbox.tapngo.com.hk/web/payments");
+									$("#tgPaymentForm").submit();
+									3000}
+								);
+								
+                           		
+                           	}
+                        }
+                    });
+	        		
 	        		return true;
 	        }else{
 	        	$("#PaymentingDiv").hide();
@@ -777,7 +811,7 @@ var clicked = false;
                     <input type="hidden" name="failUrl" value="${failurePath }">
                     <input type="hidden" name="errorUrl" value="${failurePath }">
                     <input type="hidden" name="payType" value="${createPolicy.paymentType}">
-                    <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
+                    <input type="hidden" id="referenceNo" name="referenceNo" value="${createPolicy.referenceNo}">
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
@@ -940,7 +974,6 @@ var clicked = false;
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    
                     
                     
                     
@@ -1139,5 +1172,16 @@ var clicked = false;
         style="width: 300px; height: 300px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
+
+<div>
+    <form id="tgPaymentForm" action="" method="post"><br><br>
+		<input type="hidden" id="appId" name="appId" value=""/>
+		<input type="hidden" id="merTradeNo" name="merTradeNo" value=""/>
+		<input type="hidden" id="payload" name="payload" value=""/>
+		<input type="hidden" id="paymentType" name="paymentType" value=""/>
+		<input type="hidden" id="sign" name="sign" value=""/>
+	</form>
+</div>
+
 </body>
 </html>

@@ -5,7 +5,10 @@ import java.text.ParseException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,8 @@ import com.ifwd.fwdhk.model.AnnualDetailsForm;
 import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.services.AnnualTravelService;
+import com.ifwd.fwdhk.util.EncryptionUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class AjaxAnnualTravelController {
 	
@@ -136,4 +141,58 @@ public class AjaxAnnualTravelController {
 			return "fail";
 		}
 	}
+	
+	@SuppressWarnings({ "unchecked"})
+	@RequestMapping(value = "/ajax/annualTravel/caculateTgPaymentInfo")
+	@ResponseBody
+	public JSONObject caculateTgPaymentInfo(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		HttpSession session = request.getSession();
+		JSONObject returnJson = new JSONObject();
+		
+		String appId = EncryptionUtils.APP_ID;
+		String referenceNo = request.getParameter("referenceNo");
+		String merTradeNo = referenceNo;
+		String paymentType = "S";
+		String payload = "";
+		String sign = "";
+		
+		JSONObject payloadObject = new JSONObject();
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		payloadObject.put("totalPrice", dueAmount);
+		payloadObject.put("currency", "HKD");
+		payloadObject.put("merTradeNo", merTradeNo);
+		payloadObject.put("notifyUrl", "http://127.0.0.1:8090/fwdhk/paymentNotify");
+		payloadObject.put("returnUrl", "http://127.0.0.1:8090/fwdhk/paymentReturn");
+		payloadObject.put("remark", "Single Merchant, web-based");
+		payloadObject.put("lang", "en");
+		
+		payload = payloadObject.toString();
+		try {
+			payload = EncryptionUtils.encryptByRSA(payload);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			returnJson.put("errMsg", e.getMessage());
+		}
+		
+		
+		sign="appId="+appId;
+		//if(StringUtils.isNotEmpty(extras)) sign=sign+"&extras="+extras;
+		if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
+		if(StringUtils.isNotEmpty(payload)) sign=sign+"&payload="+payload;
+		if(StringUtils.isNotEmpty(paymentType)) sign=sign+"&paymentType="+paymentType;
+		
+		sign=EncryptionUtils.encryptByHMACSHA512(sign);
+		
+		returnJson.put("appId", appId);
+		returnJson.put("merTradeNo", merTradeNo);
+		returnJson.put("payload", payload);
+		returnJson.put("paymentType", paymentType);
+		returnJson.put("sign", sign);
+		
+		return returnJson;
+	}
+	
+	
+	
 }

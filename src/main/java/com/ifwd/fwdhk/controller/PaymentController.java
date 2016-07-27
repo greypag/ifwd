@@ -93,16 +93,34 @@ public class PaymentController extends BaseController {
 
 	@RequestMapping(value = { "/paymentReturn" })
 	public ModelAndView paymentReturnPage(HttpServletRequest request, Model model) throws Exception {
-		String merTradeNo = request.getParameter("merTradeNo");
-		String msg = request.getParameter("msg");
-		String resultCode = request.getParameter("resultCode");
-		String sign = request.getParameter("sign");
 		
-		model.addAttribute("merTradeNo", merTradeNo);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		
+		//String merTradeNo = request.getParameter("merTradeNo");
+		//String msg = request.getParameter("msg");
+		String resultCode = request.getParameter("resultCode");
+		//String sign = request.getParameter("sign");
+		
+		/*model.addAttribute("merTradeNo", merTradeNo);
 		model.addAttribute("ReturnMsg", msg);
 		model.addAttribute("resultCode", resultCode);
-		model.addAttribute("sign", sign);
-		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-return");
+		model.addAttribute("sign", sign);*/
+		String redirect;
+		if("tc".equals(lang)){
+			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){
+				redirect = "redirect:/tc/travel-insurance/confirmation";
+			}else{
+				redirect = "redirect:/tc/travel-insurance/travel-summary";
+			}
+		}else{
+			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){
+				redirect = "redirect:/en/travel-insurance/confirmation";
+			}else{
+				redirect = "redirect:/en/travel-insurance/travel-summary";
+			}
+		}
+		return new ModelAndView(redirect);
+		//return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-return");
 	}
 	
 	
