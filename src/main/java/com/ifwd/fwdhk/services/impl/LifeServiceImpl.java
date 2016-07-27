@@ -704,7 +704,7 @@ public class LifeServiceImpl implements LifeService {
 	    }
 	    
 	    String limitForEachPayment = "";
-	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount())){
+	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
 	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
 	    }else{
@@ -3693,8 +3693,15 @@ public class LifeServiceImpl implements LifeService {
 	}
 	
 	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException{
-		String hkId = request.getParameter("hkId");	
-		String Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId;
+		String hkId = request.getParameter("hkId");
+		String saviePlan = request.getParameter("saviePlan");
+		
+		String Url="";
+		if (saviePlan==null||"".equals(saviePlan)){
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId;
+		} else{
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		}
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
