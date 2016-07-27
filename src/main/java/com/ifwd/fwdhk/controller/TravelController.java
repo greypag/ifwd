@@ -935,13 +935,18 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		UserRestURIConstants.setController("Travel");
-		if (planDetailsForm.getDepartureDate() != null) {
+		
+		String creditCardNo = (String)session.getAttribute("creditCardNo");
+		if(StringUtils.isEmpty(creditCardNo)){
+			session.removeAttribute("travelCreatePolicy");
+		}
+		/*if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
 			
-		} else {
+		}*/ else {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			//String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);

@@ -157,13 +157,16 @@ public class AjaxAnnualTravelController {
 		String payload = "";
 		String sign = "";
 		
+		String path = request.getRequestURL().toString();
+		path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
+		logger.debug("path: "+ path);
 		JSONObject payloadObject = new JSONObject();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
 		payloadObject.put("totalPrice", dueAmount);
 		payloadObject.put("currency", "HKD");
 		payloadObject.put("merTradeNo", merTradeNo);
-		payloadObject.put("notifyUrl", "http://127.0.0.1:8090/fwdhk/paymentNotify");
-		payloadObject.put("returnUrl", "http://127.0.0.1:8090/fwdhk/paymentReturn");
+		payloadObject.put("notifyUrl", path+"paymentNotify");
+		payloadObject.put("returnUrl", path+"paymentReturn");
 		payloadObject.put("remark", "Single Merchant, web-based");
 		payloadObject.put("lang", "en");
 		
