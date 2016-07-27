@@ -158,7 +158,7 @@ public class AjaxAnnualTravelController {
 		String sign = "";
 		
 		String path = request.getRequestURL().toString();
-		path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
+		path = path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
 		logger.debug("path: "+ path);
 		JSONObject payloadObject = new JSONObject();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
