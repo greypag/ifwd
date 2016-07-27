@@ -218,6 +218,11 @@
                                                 <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
                                             </p>
                                         </li>
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.711.desc2.part1" bundle="${msg}" />
+                                            </p>
+                                        </li>
                                     </ul>
                                 </div>
 	                            <div class="partner_tnc">
@@ -225,9 +230,7 @@
 	                                    <ul class="bullets">
 	                                        <li>
 	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.711.tnc.part1" bundle="${msg}" />
-	                                                <a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.tnc.part2" bundle="${msg}" /></a>
-	                                                <fmt:message key="partner.711.tnc.part3" bundle="${msg}" />
+	                                                <fmt:message key="partner.711.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.711.tnc.part3" bundle="${msg}" />
 	                                            </p>
 	                                        </li>
 	                                    </ul>
