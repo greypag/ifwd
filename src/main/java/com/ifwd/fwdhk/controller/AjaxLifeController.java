@@ -347,7 +347,7 @@ public class AjaxLifeController extends BaseController{
 			return;
 		}
 		try {
-			jsonObject=savieOnlineService.getSavieHkidDiscountByHkIdPlanAll(request);
+			jsonObject=savieOnlineService.getSavieHkidDiscount(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
