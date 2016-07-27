@@ -2995,13 +2995,13 @@ public class LifeServiceImpl implements LifeService {
 					compareService = (JSONObject) serviceCentresArr.get(j);
 					if(serviceCentreResult.getServiceCentreCode().equals(compareService.get("serviceCentreCode"))) {
 						datesArrB = (JSONArray) compareService.get("dates");
-						dateObjB = (JSONObject) datesArrB.get(getFirstDate(datesArrB));
+						dateObjB = getFirstDate(datesArrB);
 						dateTimeB = (long) dateObjB.get("date");
 						if(firstService == null) {
 							firstService = compareService;
 						}else {
 							datesArray = (JSONArray) firstService.get("dates");
-							dateObj = (JSONObject) datesArray.get(getFirstDate(datesArray));
+							dateObj = getFirstDate(datesArray);
 							dateTime = (long) dateObj.get("date");
 							if(dateTime>dateTimeB){
 								firstService = compareService;
@@ -3677,24 +3677,22 @@ public class LifeServiceImpl implements LifeService {
 	
 	
 	/**
-	 * 获限服务中心最早的日期并返回下标
+	 * 获取日期最早的服务中心
 	 * @param arr
 	 * @return
 	 */
-	public int getFirstDate(JSONArray arr) {
-		int index = -1;
-		int chooseIndex = 0;
+	private JSONObject getFirstDate(JSONArray arr) {
 		long arrDate = 0;
 		long firstDate = 0;
-		
+		JSONObject result = null;
+				
 		for(Object entity : arr) {
-			index++;
 			arrDate = (long)((JSONObject)entity).get("date");
 			if(firstDate == 0 || firstDate > arrDate) {
 				firstDate = arrDate;
-				chooseIndex = index;
+				result = (JSONObject)entity;
 			}
 		}
-		return chooseIndex;
+		return result;
 	}
 }
