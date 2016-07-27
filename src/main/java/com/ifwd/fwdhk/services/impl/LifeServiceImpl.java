@@ -72,6 +72,7 @@ import com.ifwd.fwdhk.util.PDFToImages;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+
 @Service
 public class LifeServiceImpl implements LifeService {
 	private final static Logger logger = LoggerFactory.getLogger(LifeServiceImpl.class);
@@ -2994,13 +2995,13 @@ public class LifeServiceImpl implements LifeService {
 					compareService = (JSONObject) serviceCentresArr.get(j);
 					if(serviceCentreResult.getServiceCentreCode().equals(compareService.get("serviceCentreCode"))) {
 						datesArrB = (JSONArray) compareService.get("dates");
-						dateObjB = (JSONObject) datesArrB.get(0);
+						dateObjB = (JSONObject) datesArrB.get(getFirstDate(datesArrB));
 						dateTimeB = (long) dateObjB.get("date");
 						if(firstService == null) {
 							firstService = compareService;
 						}else {
 							datesArray = (JSONArray) firstService.get("dates");
-							dateObj = (JSONObject) datesArray.get(0);
+							dateObj = (JSONObject) datesArray.get(getFirstDate(datesArray));
 							dateTime = (long) dateObj.get("date");
 							if(dateTime>dateTimeB){
 								firstService = compareService;
@@ -3672,5 +3673,28 @@ public class LifeServiceImpl implements LifeService {
 		if(ZHConverter.hasSimpleChinese(str)) {
 			throw new Exception("hasSimpleChinese");
 		}
+	}
+	
+	
+	/**
+	 * 获限服务中心最早的日期并返回下标
+	 * @param arr
+	 * @return
+	 */
+	public int getFirstDate(JSONArray arr) {
+		int index = -1;
+		int chooseIndex = 0;
+		long arrDate = 0;
+		long firstDate = 0;
+		
+		for(Object entity : arr) {
+			index++;
+			arrDate = (long)((JSONObject)entity).get("date");
+			if(firstDate == 0 || firstDate > arrDate) {
+				firstDate = arrDate;
+				chooseIndex = index;
+			}
+		}
+		return chooseIndex;
 	}
 }
