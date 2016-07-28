@@ -12256,4 +12256,19 @@ Be caution: <select> have customed made */
 .partner_image--711{
 	max-width: 240px;
 }
-
+/* added on 20160728 Screen Protector*/
+.faq_answer__step{
+	text-decoration: underline;
+}
+.faq_answer__list{
+	font-size: 18px;
+}
+.faq_answer_item__sublist{
+	list-style: none;
+	font-size: 18px;
+	padding-left: 20px;
+}
+.faq_answer_item__sublist li:before{
+	content: "-";
+	margin-right: 10px;
+}
