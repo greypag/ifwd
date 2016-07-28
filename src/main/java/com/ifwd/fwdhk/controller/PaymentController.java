@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -143,33 +144,36 @@ public class PaymentController extends BaseController {
 	
 	@RequestMapping(value = { "/paymentStatus" })
 	public ModelAndView status(HttpServletRequest request, Model model) throws Exception {
-		long timestamp = System.nanoTime();
-
-		
-		model.addAttribute("appId", APP_ID);
-		model.addAttribute("timestamp", timestamp);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-status");
 	}
 	
-	@RequestMapping(value = { "/getPaymentInfo" })
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/getPaymentStatus" })
 	@ResponseBody
-	public String getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
+	public JSONObject getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
+		JSONObject jsonObject = new JSONObject();
 		
 		String merTradeNo = request.getParameter("merTradeNo");
-		String timestamp = request.getParameter("timestamp");
+		//long timestamp = System.nanoTime();
+		long timestamp = System.currentTimeMillis()/1000L;
 		String sign = "";	
-		if(StringUtils.isBlank(merTradeNo)){
-			return "";
-		}
-		
 		sign="appId="+APP_ID;
 		if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
 		sign=sign+"&timestamp="+timestamp;
 		
 		sign=EncryptionUtils.encryptByHMACSHA512(sign);
 		
-		return sign;
+		/*JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		logger.debug("*******payment status********: " + jsonObject);*/
+		
+		jsonObject.put("appId", APP_ID);
+		jsonObject.put("timestamp", timestamp);
+		jsonObject.put("sign", sign);
+		
+		
+		return jsonObject;
 	}
 	
 
