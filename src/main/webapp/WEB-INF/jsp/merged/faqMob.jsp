@@ -28,7 +28,7 @@
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('f');"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('t');"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('h');"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
-	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector.mobile" bundle="${msg}" /></div>
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
@@ -39,7 +39,7 @@
                                 <i class="fa fa-arrow-left fa-2"></i>
                             </div>
                             <div class="faq_title">
-                               <fmt:message key="faq.screenProtector" bundle="${msg}" />
+                               <fmt:message key="faq.screenProtector.mobile" bundle="${msg}" />
                             </div>
                             
                             <div class="clearfix"></div>

@@ -12272,3 +12272,13 @@ Be caution: <select> have customed made */
 	content: "-";
 	margin-right: 10px;
 }
+.chin #faq_sp_mob .faq_back{
+	padding-top: 30px !important;
+}
+#faq_sp_mob .faq_back{
+	border-right: none;
+	padding-top: 40px !important;
+}
+#faq_sp_mob .faq_title{
+	border-left: 2px solid #fff;	
+}
