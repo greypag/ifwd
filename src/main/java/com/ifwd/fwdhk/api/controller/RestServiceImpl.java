@@ -5,15 +5,19 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -312,6 +316,62 @@ public class RestServiceImpl implements RestServiceDao {
 			e1.printStackTrace();
 		}
 
+	}
+	
+	
+	public JSONObject consumePaymentStatusAPI(String url, Map<String, String> header,
+			List<NameValuePair> params){
+		
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+
+			CloseableHttpClient restClient = (HttpClientBuilder.create())
+					.build();
+			HttpPost postMehod = new HttpPost();
+			URI uri = new URI(url);
+			postMehod.setURI(uri);
+			if (header != null) {
+				header.entrySet()
+						.stream()
+						.forEach(
+								(headParam) -> {
+									postMehod.addHeader(headParam.getKey(),
+											headParam.getValue());
+								});
+			}
+			HttpEntity he = new UrlEncodedFormEntity(params, "UTF-8");   
+			postMehod.setEntity(he); 
+			
+			responseJsonObj = restClient.execute(postMehod,
+					new ResponseHandler<JSONObject>() {
+						@Override
+						public JSONObject handleResponse(HttpResponse response)
+								throws ClientProtocolException, IOException {
+							
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response
+									.getEntity().getContent(), encoding);
+							JSONParser parser = new JSONParser();
+
+							try {
+								return (JSONObject) parser.parse(responseStr);
+							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+							return null;
+						}
+					});
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
+
+		return responseJsonObj;
+		
+		
 	}
 
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {

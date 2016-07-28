@@ -9,18 +9,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ifwd.fwdhk.services.PaymentService;
 import com.ifwd.fwdhk.util.EncryptionUtils;
 
 @Controller
 public class PaymentController extends BaseController {	
 
+	private final static Logger logger = LoggerFactory.getLogger(PaymentController.class);
 	private final static String APP_ID = EncryptionUtils.APP_ID;
+	
+	@Autowired
+	private PaymentService paymentService;
 	
 	public static String getTradeNo() {
 		SimpleDateFormat simpleDateFormat;
@@ -148,15 +156,13 @@ public class PaymentController extends BaseController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-status");
 	}
 	
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = { "/getPaymentStatus" })
 	@ResponseBody
 	public JSONObject getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
-		JSONObject jsonObject = new JSONObject();
 		
 		String merTradeNo = request.getParameter("merTradeNo");
 		//long timestamp = System.nanoTime();
-		long timestamp = System.currentTimeMillis()/1000L;
+		long timestamp = System.currentTimeMillis();
 		String sign = "";	
 		sign="appId="+APP_ID;
 		if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
@@ -164,14 +170,9 @@ public class PaymentController extends BaseController {
 		
 		sign=EncryptionUtils.encryptByHMACSHA512(sign);
 		
-		/*JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		logger.debug("*******payment status********: " + jsonObject);*/
-		
-		jsonObject.put("appId", APP_ID);
-		jsonObject.put("timestamp", timestamp);
-		jsonObject.put("sign", sign);
-		
+		JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		logger.debug("*******payment status********: " + jsonObject);
 		
 		return jsonObject;
 	}
