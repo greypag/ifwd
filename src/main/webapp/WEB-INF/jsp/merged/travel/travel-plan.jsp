@@ -151,7 +151,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                backdrop: 'static',
 	                keyboard: false
 	            })
-	            console.log($('#frmTravelPlan input').serialize());
+	            //console.log($('#frmTravelPlan input').serialize());
 	        	$.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
@@ -170,6 +170,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                    promoData = json;
 	                    //setSystemError(messages);
 	                    setValue(json);
+
+	                    //Scroll to plan if success
+	                    if(json['errMsgs']==null){
+	                    	scrollToElementEx('frmTravelPlan', 50);
+	                	}
 	                }
 
 	            });
@@ -193,7 +198,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#totalOtherTraveller").val(tempOtherTraveller);
 
             $('#myFWDropdown').toggleClass('open');
-            console.log($('#frmTravelPlan input').serialize());
+            //console.log($('#frmTravelPlan input').serialize());
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/updateTravelQuote',
@@ -201,7 +206,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				success : function(data) {
 					$('#loading-overlay').modal('hide');
 					updateQuoteFlag = true;
-					console.log("update");
+					//console.log("update");
 					var json = JSON.parse(data);
 					promoData = json;					
 					setValue(json);
@@ -2296,7 +2301,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	function sendEmail() {
         $('.proSuccess').addClass('hide');
         if (get_promo_val()) {
-        	console.log($("#sendmailofpromocode form").serialize());
+        	//console.log($("#sendmailofpromocode form").serialize());
             $.ajax({
                 type : "POST",
                 url : "<%=request.getContextPath()%>/sendEmail",
@@ -2306,7 +2311,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     if (data == 'success') {
                         $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                     } else {
-                    	console.log(data);
+                    	//console.log(data);
                         $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
                     }
                 },
