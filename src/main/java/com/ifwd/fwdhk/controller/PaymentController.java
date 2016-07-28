@@ -108,9 +108,11 @@ public class PaymentController extends BaseController {
 		String redirect;
 		if("tc".equals(lang)){
 			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){
-				redirect = "redirect:/tc/travel-insurance/confirmation?utm_nooverride=1";
-			}else{
+				//redirect = "redirect:/tc/travel-insurance/confirmation?utm_nooverride=1";
 				redirect = "redirect:/tc/travel-insurance/travel-summary?paymentGatewayFlag=true";
+			}else{
+				//redirect = "redirect:/tc/travel-insurance/travel-summary?paymentGatewayFlag=true";
+				redirect = "redirect:/tc/travel-insurance/confirmation?utm_nooverride=1";
 			}
 		}else{
 			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){

@@ -1918,6 +1918,25 @@ public class TravelController {
 			parameters.put("creditCardNo", creditCardNo); 
 		} else {
 			
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			parameters.put("creditCardNo", "0000000000000000");
+			parameters.put("expiryDate", "122030");
+			
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			new Thread(){
+				public void run() {
+					JSONObject responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
+					logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
+				};
+			}.start();
+			
+			
 			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
 			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 			model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
