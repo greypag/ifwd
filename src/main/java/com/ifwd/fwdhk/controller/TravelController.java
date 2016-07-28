@@ -604,65 +604,65 @@ public class TravelController {
 					header, null);
 
 			logger.info("Response Get Travel Quotes API " + JsonUtils.jsonPrint(responseJsonObj));
-			if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
-				session.setAttribute("referralCode", "");
-			} else {
+			
+			if(responseJsonObj.get("errMsgs") == null) {
 				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
-			}
-			
-			// in case responseJsonObj contains errors, likely promo code invalid, thus, still put the details to session
-			QuoteDetails quoteDetails = new QuoteDetails();			
-			JSONObject jsonPriceInfoA = new JSONObject();
-			jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
-			JSONObject jsonPriceInfoB = new JSONObject();
-			jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-			String planeName[] = { "A", "B" };
-			String grossPrem[] = {
-					StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
-					StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
-
-			String discountPercentage[] = {
-					StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
-					StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
-
-			String discountAmount[] = {
-					StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
-					StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
-
-			String totalNetPremium[] = {
-					StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
-					StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
-
-			String totalDue[] = {
-					StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
-					StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
-
-			quoteDetails.setGrossPremium(grossPrem);
-			quoteDetails.setDiscountPercentage(discountPercentage);
-			quoteDetails.setDiscountAmount(discountAmount);
-			quoteDetails.setTotalNetPremium(totalNetPremium);
-			quoteDetails.setToalDue(totalDue);
-			quoteDetails.setPlanName(planeName);
-			
-			JSONObject jsonPromoCodeDetail = new JSONObject();
-			jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
-			if(jsonPromoCodeDetail != null) {
-				PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
-				promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
-				promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
-				promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
-				promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
-				promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
-				session.setAttribute("promoCodeDetail", promoCodeDetail);
+				// in case responseJsonObj contains errors, likely promo code invalid, thus, still put the details to session
+				QuoteDetails quoteDetails = new QuoteDetails();			
+				JSONObject jsonPriceInfoA = new JSONObject();
+				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+				JSONObject jsonPriceInfoB = new JSONObject();
+				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+				String planeName[] = { "A", "B" };
+				String grossPrem[] = {
+						StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
+				
+				String discountPercentage[] = {
+						StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
+				
+				String discountAmount[] = {
+						StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
+				
+				String totalNetPremium[] = {
+						StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
+				
+				String totalDue[] = {
+						StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
+						StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
+				
+				quoteDetails.setGrossPremium(grossPrem);
+				quoteDetails.setDiscountPercentage(discountPercentage);
+				quoteDetails.setDiscountAmount(discountAmount);
+				quoteDetails.setTotalNetPremium(totalNetPremium);
+				quoteDetails.setToalDue(totalDue);
+				quoteDetails.setPlanName(planeName);
+				
+				JSONObject jsonPromoCodeDetail = new JSONObject();
+				jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
+				if(jsonPromoCodeDetail != null) {
+					PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
+					promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
+					promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
+					promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
+					promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
+					promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
+					session.setAttribute("promoCodeDetail", promoCodeDetail);
+				}else {
+					session.removeAttribute("promoCodeDetail");
+				}
+				
+				session.setAttribute("priceInfoA", jsonPriceInfoA);
+				session.setAttribute("priceInfoB", jsonPriceInfoB);
+				request.setAttribute("quoteDetails", quoteDetails);
+				
+				session.setAttribute("quoteDetails", quoteDetails);
 			}else {
-				session.removeAttribute("promoCodeDetail");
+				session.setAttribute("referralCode", "");
 			}
-			
-			session.setAttribute("priceInfoA", jsonPriceInfoA);
-			session.setAttribute("priceInfoB", jsonPriceInfoB);
-			request.setAttribute("quoteDetails", quoteDetails);
-			
-			session.setAttribute("quoteDetails", quoteDetails);
 			return responseJsonObj.toString();
 
 		} catch (Exception e) {
@@ -2301,14 +2301,12 @@ public class TravelController {
 				session.setAttribute("referralCode", "");
 			}else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "travel/travel");
+				new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/travel-insurance");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/travel-insurance");
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));

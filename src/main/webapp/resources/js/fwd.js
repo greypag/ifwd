@@ -7065,6 +7065,18 @@ function scrollToElement(elementId){
     }, 1000);
 }
 
+function scrollToElementEx(elementId, top){
+
+	var topAdjust = parseInt(top);
+	if( topAdjust == NaN || topAdjust == Infinity ){
+		topAdjust = 0;
+	}
+
+	$('html, body').animate({
+        scrollTop: $("#"+elementId).offset().top - topAdjust
+    }, 1000);
+}
+
 window.jQuery(function() {
   // detect browser scroll bar width
   var scrollDiv = $('<div class="scrollbar-measure"></div>')

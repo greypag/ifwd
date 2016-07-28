@@ -57,22 +57,18 @@ if(personalTraveller>familyTraveller){
 //bmg inline variable
 
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
-
-
-	function getuserDetails() {
-
-
-	}
+//hardcode 7-eleven variable for init
 	function chkPromoCode() {
+		showSubmitError("", false);
 		var flag = false;
-    var promoCode = document.getElementById("promoCode").value.trim();
-  	if (promoCode == "" || promoCode == promoCodePlaceholder) {
-  		$("#loadingPromo").hide();
-  		promoCodeInsertFlag = true;
-  		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
-  		$('#inputPromo').addClass('invalid-field');
-  		flag = false;
-  	} else {
+	    var promoCode = document.getElementById("promoCode").value.trim();
+	  	if (promoCode == "" || promoCode == promoCodePlaceholder) {
+	  		$("#loadingPromo").hide();
+	  		promoCodeInsertFlag = true;
+	  		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+	  		$('#inputPromo').addClass('invalid-field');
+	  		flag = false;
+	  	} else {
   		if ( promoCode == promoCodePlaceholder ) {
   			$("#loadingPromo").hide();
   			promoCodeInsertFlag = true;
@@ -155,17 +151,30 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                backdrop: 'static',
 	                keyboard: false
 	            })
-	            console.log($('#frmTravelPlan input').serialize());
+	            //console.log($('#frmTravelPlan input').serialize());
 	        	$.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
+	                	
 	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
 	                    var json = JSON.parse(data);
+	                    if(json.eligibiltyPlanCode=="B"){
+	                    	$("#box0").hide();
+	                    	$("#box1").click();	                    	
+	                    }else{
+	                    	$("#box0").show();
+	                    }
 	                    promoData = json;
+	                    //setSystemError(messages);
 	                    setValue(json);
+
+	                    //Scroll to plan if success
+	                    if(json['errMsgs']==null){
+	                    	scrollToElementEx('frmTravelPlan', 50);
+	                	}
 	                }
 
 	            });
@@ -189,7 +198,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#totalOtherTraveller").val(tempOtherTraveller);
 
             $('#myFWDropdown').toggleClass('open');
-            console.log($('#frmTravelPlan input').serialize());
+            //console.log($('#frmTravelPlan input').serialize());
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/updateTravelQuote',
@@ -197,9 +206,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				success : function(data) {
 					$('#loading-overlay').modal('hide');
 					updateQuoteFlag = true;
-
+					//console.log("update");
 					var json = JSON.parse(data);
-					promoData = json;
+					promoData = json;					
 					setValue(json);
 					$("#totalTravellingDays").val(json.totalDays);
 					$("#totalTravellingDaysSpan").html(json.totalDays);
@@ -209,12 +218,29 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 
 
-
+	function setSystemError(resultErr){
+		if(resultErr !== null){
+			showSubmitError(resultErr, true);
+		};
+	}
+	
 	function setValue(result) {
 
 		var selValue = document.getElementById("inputseletedplanname").value;
-		if(result['errMsgs'] !== null){
-			$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		if(result['errMsgs'] != null){
+			var messages;
+			if(result['errMsgs']=="Day not match 6"){
+            	messages='<fmt:message key="travel.plan.6days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Day not match 10"){
+            	messages='<fmt:message key="travel.plan.10days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Day not match 16"){
+            	messages='<fmt:message key="travel.plan.16days" bundle="${msg}" />';
+            }else if(result['errMsgs']=="Person not match 1"){
+            	messages='<fmt:message key="travel.plan.1traveller" bundle="${msg}" />';
+            }else {
+            	messages=getBundle(getBundleLanguage, "system.promotion.error.notValid.message");
+            }
+			$("#errPromoCode").html(messages);
 			$('#inputPromo').addClass('invalid-field');
 		}else{
 			$("#errPromoCode").html("");
@@ -2033,6 +2059,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 
                             </div>
+							<div class="col-xs-12 submit__error">
+                                <div class="text-center">
+                                    <span class="submit__errormsg" id="submit__errormsg">Testing</span>
+                                </div>
+                            </div>                            
                             <div class="clearfix"></div>
                             <div class="col-xs-14"><span class="text-red errDue"></span></div>
                             <br>
@@ -2217,6 +2248,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 //       }
 //    }
 	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
+		$(".errDue").html("");
 		$("#promo-code-body").fadeIn();
 		var selected_div;
 		var idArray = [];
@@ -2269,7 +2301,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	function sendEmail() {
         $('.proSuccess').addClass('hide');
         if (get_promo_val()) {
-        	console.log($("#sendmailofpromocode form").serialize());
+        	//console.log($("#sendmailofpromocode form").serialize());
             $.ajax({
                 type : "POST",
                 url : "<%=request.getContextPath()%>/sendEmail",
@@ -2279,7 +2311,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     if (data == 'success') {
                         $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                     } else {
-                    	console.log(data);
+                    	//console.log(data);
                         $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
                     }
                 },
@@ -2291,6 +2323,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
     }
 
 	function BackMe() {
-		window.history.back();
+		window.location="<%=request.getContextPath()%>/${language}/travel-insurance";
+		//window.history.back();
 	}
 </script>
