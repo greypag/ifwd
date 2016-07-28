@@ -1,7 +1,5 @@
 package com.ifwd.fwdhk.services.impl;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
 	    params.add(new BasicNameValuePair("sign", sign));
 		
 	    logger.debug("appId: "+appId + " merTradeNo: "+merTradeNo+" timestamp: "+timestamp+" sign: "+sign);
+	    logger.debug("url: "+url);
 	    
 		JSONObject loginJsonObj = restService.consumePaymentStatusAPI(url,header, params);
 		
