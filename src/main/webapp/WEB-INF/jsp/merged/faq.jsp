@@ -259,26 +259,6 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.screenProtector.group1.q9" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group1.a9" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
                                         <fmt:message key="faq.screenProtector.group1.q10" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
