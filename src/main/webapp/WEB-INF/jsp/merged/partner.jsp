@@ -216,6 +216,7 @@
                                         <li>
                                             <p class="h4-5">
                                                 <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
                                             </p>
                                         </li>
                                         <li>
