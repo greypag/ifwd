@@ -151,7 +151,7 @@ public class AjaxAnnualTravelController {
 		JSONObject returnJson = new JSONObject();
 		
 		String appId = EncryptionUtils.APP_ID;
-		String merTradeNo = request.getParameter("transNo");
+		String merTradeNo = (String)session.getAttribute("transNo");
 		String paymentType = "S";
 		String payload = "";
 		String sign = "";
