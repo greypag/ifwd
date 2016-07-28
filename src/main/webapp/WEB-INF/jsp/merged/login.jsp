@@ -422,7 +422,7 @@
         <div class="login-form-footer">
             <h5>
                 <span class="color-gray heading-h5"><fmt:message key="header.login.registration.heading" bundle="${msg}" /></span>
-                <a href="${pageContext.request.contextPath}/${language}/joinus?quarry=FNA" class="color-orange heading-h5"><fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
+                <a href="${pageContext.request.contextPath}/${language}/joinus" class="color-orange heading-h5"><fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
             </h5>
         </div>
 
