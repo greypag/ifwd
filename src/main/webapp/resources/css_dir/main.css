@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-05-25 13:47:46 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-07-29 17:44:03 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -300,7 +300,7 @@ body {
 }
 
 /* line 38, ../sass/base/general/_localize.scss */
-h1 {
+h1, .h1 {
   font-size: 48px;
   color: #fff;
   line-height: 48px;
@@ -308,13 +308,13 @@ h1 {
 }
 
 /* line 39, ../sass/base/general/_localize.scss */
-h2 {
+h2, .h2 {
   font-weight: 700;
   font-size: 36px;
 }
 
 /* line 40, ../sass/base/general/_localize.scss */
-h3 {
+h3, .h3 {
   font-size: 30px;
   color: #787878;
   font-weight: 400;
@@ -322,17 +322,17 @@ h3 {
 }
 
 /* line 41, ../sass/base/general/_localize.scss */
-h4 {
+h4, .h4 {
   font-size: 24px;
 }
 
 /* line 42, ../sass/base/general/_localize.scss */
-h5 {
+h5, .h5 {
   font-size: 16px;
 }
 
 /* line 43, ../sass/base/general/_localize.scss */
-h6 {
+h6, .h6 {
   font-size: 14px;
 }
 
@@ -514,6 +514,25 @@ hr {
   src: url("../fonts/Calibri-Light_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri-Light_gdi.woff") format("woff"), url("../fonts/Calibri-Light_gdi.ttf") format("truetype"), url("../fonts/Calibri-Light_gdi.svg#svgFontName") format("svg");
   /* Legacy iOS */
 }
+/*
+    Default Font Family
+*/
+/* line 63, ../sass/base/_font.scss */
+body {
+  font-family: Calibri, sans-serif !important;
+}
+
+/* line 67, ../sass/base/_font.scss */
+body .bold {
+  font-family: 'Calibri-bold', Calibri, sans-serif !important;
+}
+
+/* line 71, ../sass/base/_font.scss */
+body.chin,
+body.chin .bold {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
 /* line 2, ../sass/base/_button.scss */
 .btn .btn--bdr-curve-0 {
   border-radius: 0px !important;
@@ -2564,9 +2583,4 @@ body.chin .partner-headline-wrapper .headline-title {
     width: 100%;
     clear: both;
   }
-}
-
-/* line below not using scss */
-.mdlForm .mdl-textfield.is-invalid .mdl-textfield__label:after{
-	background-color: transparent;
 }
