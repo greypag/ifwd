@@ -50,6 +50,10 @@
 		<pattern>/*/fwdiscover</pattern>
 	</decorator>
 
+	<decorator name="fwdflight" page="template_flight.jsp">
+		<pattern>/*/flight-insurance*</pattern>
+	</decorator>
+
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
 		<pattern>/content/**</pattern>
 		<pattern>/*</pattern>
