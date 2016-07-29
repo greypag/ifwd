@@ -14,3 +14,5 @@
 
 <meta name='keywords' content="meta keywords here"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="icon" type="image/x-icon" href="<%=siteURL%>/resources/images/favicon.ico" />

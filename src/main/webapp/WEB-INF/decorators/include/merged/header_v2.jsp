@@ -1,7 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
+
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
 	scope="session" />
@@ -10,22 +12,8 @@
 
 <link rel="icon" type="image/x-icon"
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
-<!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+
 <script>
-
-var getBundleLanguage = "";
-var lang = UILANGUAGE;
-
-if(lang === "EN") {
-    getBundleLanguage = "en";
-} else {
-	if(lang === "tc") {
-	    getBundleLanguage = "zh";
-	} else {
-	    getBundleLanguage = "en";
-	}
-}
 
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
@@ -35,43 +23,6 @@ $(window).bind("pageshow", function(event) {
         $("#button_confirm").show();
     }
 });
-
-/*
-$( "#testajax" ).click(function() {
-
-
-  $('#loading-overlay').modal({
-	   backdrop: 'static',
-	   keyboard: false
-	})
-});
-*/
-
-
-var home_url = "<%=request.getContextPath()%>";
-
-/* New GetBundle */
-var _fwdErrMsg;
-
-$.i18n.properties({
-   name: 'Messages',
-   path: ''+home_url+'/resources/bundle/',
-   mode: 'map',
-   language: getBundleLanguage,
-   cache: false,
-   callback: function() {
-   	_fwdErrMsg = $.extend(true, {}, $.i18n);
-   }
-});
-
-
-function fwdGetBundle(lang, key){
-	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'['+key+']';
-}
-
-function getBundle(lang, key){
-	return fwdGetBundle(lang,key);
-}
 
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
@@ -324,8 +275,6 @@ function getStarted(){
 	}
 %>
 
-<!-- End Visual Website Optimizer Asynchronous Code -->
-<!--End VWO-->
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
@@ -383,7 +332,6 @@ function getStarted(){
 								target="_blank"><fmt:message key="header.menu.contactus"
 										bundle="${msg}" /></a></li></li>
 							<%
-								String username = (String) session.getAttribute("username");
 								//System.out.println("username " + username);
 								if (username == null) {
 							%>
@@ -618,37 +566,7 @@ function getStarted(){
 					src="<%=request.getContextPath()%>/resources/images/iFWD_logo_200px.jpg"
 					alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
-			<!--<div class="col-lg-8 col-md-7 pull-right">
-				<ul class="maintabs">
-					<li
-						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Savie")) {%> active"<%}%>"><a
-						href="<%=request.getContextPath()%>/${language}/savings-insurance"
-						class="travel-and-home-tab"><fmt:message
-								key="header.product.savie.part1" bundle="${msg}" /> <fmt:message
-								key="header.product.savie.part2" bundle="${msg}" /></a>
-						<div class="special-offer"></div></li>
-					<li
-						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("WorkingHoliday")) {%> active <%}%>"><a
-						href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"
-						class="workingholiday-tab"><fmt:message
-								key="header.product.workingholiday" bundle="${msg}" /></a></li>
-					<li
-						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Flight")) {%> active <%}%>"><a
-						href="<%=request.getContextPath()%>/${language}/flight-insurance"
-						class="travel-and-home-tab"><fmt:message
-								key="header.product.flight" bundle="${msg}" /></a>
-						<div class="offer"></div></li>
-					<li
-						class="col-lg-3 col-md-3 pad-0 main-tab <%if (actionName.equals("Travel")) {%> active <%}%>"><a
-						href="<%=request.getContextPath()%>/${language}/travel-insurance"
-						class="travel-and-home-tab"><fmt:message
-								key="header.product.travel" bundle="${msg}" /></a></li>
-					<li class="col-lg-3 col-md-3 pad-0 main-tab ext_content <%if (actionName.equals("Homecare")) {%> active <%}%>">
-						<a href="<%=request.getContextPath()%>/${language}/home-insurance" class="travel-and-home-tab"><fmt:message key="header.product.home" bundle="${msg}" /></a>
-					</li>
-				</ul>
-
-			</div>-->
+			
             <div class="col-lg-8 col-md-7 pull-right">
                 <ul class="col-lg-7 col-md-10 maintabs menutab-V2 pull-right">
                     <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
@@ -733,53 +651,12 @@ function getStarted(){
 </header>
 <!--End-Desktop-header-->
 
-<!-- hidden navbar -->
-<!--<div class="navbar_hidden_content">
-	<div class="container pad-0">
-		<div class="pull-right submenu_list">
-			<div class="product_type">
-				<div>Health Insurance</div>
-			</div>
-			<hr />
-			<div class="product_type">
-				<div>Home Insurance</div>
-			</div>
-			<hr />
-			<div class="product_type">
-				<div>Moter Insurance</div>
-			</div>
-		</div>
-		<div class="pull-right">image</div>
-		<div class="clearfix"></div>
-	</div>
-	<script>
-		$("li.main-tab.ext_content").hover(function() {
-			$(".navbar_hidden_content").toggle();
-		});
-
-		$(".navbar_hidden_content").hover(function() {
-			$(".navbar_hidden_content").toggle();
-		});
-	</script>
-</div>-->
-<!-- hidden navbar -->
-
 <div
 	style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"
 	id="test"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-0" role="navigation">
-<%-- 	<div class="mob-topbar">
-		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
-			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
-		<span id="toplefthotline" class="callus top-number"><fmt:message
-				key="header.hotlineSmall" bundle="${msg}" /></span> <a
-			href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><span
-			class="chat pull-right"><fmt:message key="header.menu.chatnow"
-					bundle="${msg}" /></span></a>
-			<a class="lang pull-right hehe" id="anchor-lang" href="<%=switchUrl%>"><fmt:message key="header.menu.language" bundle="${msg}" /></a>
-		<div class="clearfix"></div>
-	</div> --%>
+
 	<div class="logobox">
 		<div class="navbar-header" style="overflow: hidden;">
 			<button type="button"
@@ -801,15 +678,7 @@ function getStarted(){
     <div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
              <li class="pad-0 col-sm-12 dropdown border-bottom">
-            <!-- <div
-		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-		        class="bmg_mobile_login_mask"
-		        onclick="$('#fwd-login-mob').trigger('click');"></div>
-		        -->
-		         <!--<div
-                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-                class="bmg_mobile_login_mask"
-                onclick="$('body').removeClass('modal-open');"></div>-->
+
         <%
             if (session.getAttribute("authenticate") == null
                     || !"true".equals(session.getAttribute("authenticate")
@@ -820,73 +689,6 @@ function getStarted(){
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
                 bundle="${msg}" /> </a>
-        <!--<div class="dropdown-menu drop-width"
-            style="left: -32px; top: 105px; max-width: 300px;">-->
-            <!--<div class="dropdown-menu drop-width">
-            <form name="loginform" id="loginform2">
-                <div class="login-form" style="position: absolute;">
-                    <div
-                        style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-                        class="login-ajax-loading">
-                        <img
-                            style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
-                            src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                    </div>
-                    <div id="login-err-msg"
-                        class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
-                        style="display: none;"></div>
-                    <div class="form-container">
-                        <h2>
-                            <fmt:message key="header.login.heading" bundle="${msg}" />
-                        </h2>
-                        <h4 class="margin-shift">
-                            <fmt:message key="header.login.username" bundle="${msg}" />
-                            <a
-                                href="${pageContext.request.contextPath}/${language}/forgotUserName"
-                                class="pull-right sub-link"><fmt:message
-                                    key="header.login.username.forget" bundle="${msg}" /></a>
-                        </h4>
-
-                        <div class="form-group">
-                            <input type="text" name="userName" class="form-control"
-                                placeholder="" id="headerUserName">
-                        </div>
-                        <span id="errUserName" style="color: red"></span>
-                        <h4 class="margin-shift">
-                            <fmt:message key="header.login.password" bundle="${msg}" />
-                            <a
-                                href="${pageContext.request.contextPath}/${language}/forgotPassword"
-                                class="pull-right sub-link"><fmt:message
-                                    key="header.login.password.forget" bundle="${msg}" /></a>
-                        </h4>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control"
-                                autocomplete="off" id="headerPassword">
-                        </div>
-                        <span id="errPass" style="color: red"></span> <br>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-6">
-                                <button type="button" onclick="submitLoginForm('loginform2');"
-                                    class="bdr-curve btn btn-primary btn-lg wd5">
-                                    <fmt:message key="header.login.action" bundle="${msg}" />
-                                </button>
-                            </div>
-                            <h3
-                                class="text-left col-lg-6 col-md-6  col-xs-6 pad-0 margin-0">
-                                <span> <fmt:message
-                                        key="header.login.registration.heading" bundle="${msg}" /></span><br>
-                                <a href="${pageContext.request.contextPath}/${language}/joinus">
-                                    <fmt:message key="header.login.registration.action"
-                                        bundle="${msg}" />
-                                </a>
-                            </h3>
-                            <div class="clearfix"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-        </div>-->
 
         <%
             } else {
@@ -944,9 +746,7 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
-						<%--<li class="menu-link-grp-title">
-							<a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></a>
-						</li>--%>
+					
 				<li class="menu-link-grp-title">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></a>
 					<ul class="col-sm-12 dropdown-menu">
@@ -957,8 +757,7 @@ function getStarted(){
 				</li>
 					</ul>
             </li>
-						<li class="pad-0 col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu"> <%-- Saving Insurance --%>
-							<%-- <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a> --%>
+						<li class="pad-0 col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
 							<ul class="col-sm-12 dropdown-menu">
 								<li class="menu-link-grp-title">
@@ -988,152 +787,6 @@ function getStarted(){
         </div><!--/.nav-collapse -->
 </div>
 
-<!--Mobile side-menu-->
-<!--<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
-	style="">
-
-	<div
-		style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-		class="bmg_mobile_login_mask"
-		onclick="$('#fwd-login-mob').trigger('click');"></div>
-
-	<div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-
-		<%
-			if (session.getAttribute("authenticate") == null
-					|| !"true".equals(session.getAttribute("authenticate")
-							.toString())) {
-		%>
-		<a href="#" class="dropdown-toggle log-to-acc"
-			id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i
-			class="fa fa-lock"></i> <fmt:message key="header.login.heading"
-				bundle="${msg}" /> </a>
-		<div class="dropdown-menu drop-width"
-			style="left: -32px; top: 105px; max-width: 300px;">
-			<form name="loginform" id="loginform2">
-				<div class="login-form" style="position: relative;">
-					<div
-						style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
-						class="login-ajax-loading">
-						<img
-							style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
-							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-					</div>
-					<div id="login-err-msg"
-						class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
-						style="display: none;"></div>
-					<div class="form-container">
-						<h2>
-							<fmt:message key="header.login.heading" bundle="${msg}" />
-						</h2>
-						<h4 class="margin-shift">
-							<fmt:message key="header.login.username" bundle="${msg}" />
-							<a
-								href="${pageContext.request.contextPath}/${language}/forgotUserName"
-								class="pull-right sub-link"><fmt:message
-									key="header.login.username.forget" bundle="${msg}" /></a>
-						</h4>
-
-						<div class="form-group">
-							<input type="text" name="userName" class="form-control"
-								placeholder="" id="headerUserName">
-						</div>
-						<span id="errUserName" style="color: red"></span>
-						<h4 class="margin-shift">
-							<fmt:message key="header.login.password" bundle="${msg}" />
-							<a
-								href="${pageContext.request.contextPath}/${language}/forgotPassword"
-								class="pull-right sub-link"><fmt:message
-									key="header.login.password.forget" bundle="${msg}" /></a>
-						</h4>
-						<div class="form-group">
-							<input type="password" name="password" class="form-control"
-								autocomplete="off" id="headerPassword">
-						</div>
-						<span id="errPass" style="color: red"></span> <br>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-xs-6">
-								<button type="button" onclick="submitLoginForm('loginform2');"
-									class="bdr-curve btn btn-primary btn-lg wd5">
-									<fmt:message key="header.login.action" bundle="${msg}" />
-								</button>
-							</div>
-							<h3
-								class="text-left col-lg-6 col-md-6  col-xs-6 pad-0 margin-0">
-								<span> <fmt:message
-										key="header.login.registration.heading" bundle="${msg}" /></span><br>
-								<a href="${pageContext.request.contextPath}/${language}/joinus">
-									<fmt:message key="header.login.registration.action"
-										bundle="${msg}" />
-								</a>
-							</h3>
-							<div class="clearfix"></div>
-						</div>
-
-					</div>
-				</div>
-			</form>
-		</div>
-
-		<%
-			} else {
-		%>
-
-
-
-		<a href="#" class="dropdown-toggle" id="fwd-login"
-			data-toggle="dropdown"><fmt:message key="header.login.welcome"
-				bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
-			<i class="fa fa-caret-right"> </i> </a>
-		<div class="dropdown-menu drop-width">
-			<ul>
-				<%
-					if (!"direct".equalsIgnoreCase(request.getSession()
-								.getAttribute("authenticate").toString())) {
-				%>
-				<li><a href="<%=request.getContextPath()%>/${language}/account"
-					class="color1"> <fmt:message key="header.menu.member"
-							bundle="${msg}" /></a></li>
-				<%
-					}
-				%>
-				<li><a href="<%=request.getContextPath()%>/userLogout"
-					class="color1"><fmt:message key="header.menu.logout"
-							bundle="${msg}" /></a></li>
-			</ul>
-		</div>
-
-
-		<%
-			}
-		%>
-	</div>
-
-	<ul class="nav navmenu-nav sidepanel-menu">
-		<li><a href="<%=request.getContextPath()%>/${language}"><fmt:message
-					key="header.menu.home" bundle="${msg}" /></a></li>
-		<li class="<%if (actionName.equals("Savie")) {%>active<%}%>"><span><fmt:message
-					key="header.limitedOffer" bundle="${msg}" /></span><a
-			class="limited-offer-mobile"
-			href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message
-					key="header.product.savie.part1" bundle="${msg}" /> <br
-				class="visible-md visible-lg" />
-			<fmt:message key="header.product.savie.part2" bundle="${msg}" /></a>
-		<div class="special-offer"></div></li>
-		<li class="<%if (actionName.equals("WorkingHoliday")) {%>active<%}%>"><a
-			href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message
-					key="header.product.workingholiday" bundle="${msg}" /></a></li>
-		<li class="<%if (actionName.equals("Flight")) {%>active<%}%>"><a
-			href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message
-					key="header.product.flight" bundle="${msg}" /></a>
-		<div class="offer"></div></li>
-		<li class="<%if (actionName.equals("Travel")) {%>active<%}%>"><a
-			href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message
-					key="header.product.travel" bundle="${msg}" /></a></li>
-		<li class="<%if (actionName.equals("Homecare")) {%>active<%}%>"><a
-			href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
-					key="header.product.home" bundle="${msg}" /></a></li>
-	</ul>-->
 </div>
 
 <div id="myModal" class="mob-login-form-wrapper modal fade" role="dialog">
@@ -1144,16 +797,6 @@ function getStarted(){
         style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 </div>
-<!--
-<div
-        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
-        class="bmg_mobile_login_mask"
-        onclick="$('body').removeClass('modal-open');$('#fwd-login-mob').trigger('click');"></div>
-         -->
-         <!--<div
-        style="display: none; background: #000; left: 0; top: 0; bottom: -100px; right: 0; opacity: 0.8; z-index: 1500"
-        class="bmg_mobile_login_mask"
-        onclick="$('#fwd-login-mob').trigger('click');$('body').removeClass('modal-open');"></div>-->
 
     <div id="myDropdownMob" class="modal-dialog">
         <form name="loginform" id="loginform2" method="post">
@@ -1219,6 +862,7 @@ function getStarted(){
 <!--End Mobile header-->
 <!--/header-->
 <script>
+
 $(function() {
 	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
 	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){
@@ -1235,26 +879,9 @@ $(function() {
     var faqLinkRe = new RegExp(/^faq/);
     var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
 });
-	function centerModals($element) {
-	    var $modals;
-	    if ($element.length) {
-	      $modals = $element;
-	    } else {
-	      $modals = $('.modal-vcenter:visible');
-	    }
-	    $modals.each( function(i) {
-	      var $clone = $(this).clone().css('display', 'block').appendTo('body');
-	      var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
-	      top = top > 0 ? top : 0;
-	      $clone.remove();
-	      $(this).find('.modal-content').css("margin-top", top);
-	    });
-	  }
+	
 
-	var iosChromeAlertMsg = [];
-	iosChromeAlertMsg[0] = '抱歉，你的瀏覽器現時未受支援。';
-    iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
-    iosChromeAlertMsg[2] = '關閉';
+	
 
 
     function offerMenuActive(){
@@ -1289,15 +916,7 @@ $(function() {
                 }
 			});
 		}
-        $('.livechat_button').on("click",function(){
-        	//console.log("livechat clicked");
-            $('#livechat-compact-container').show();
-            $('#livechat-compact-container').css({
-                visibility: 'visible',
-                opacity: 1
-            });
-            LC_API.open_chat_window();
-        });
+        
         $('.copyright .options li').click(function() {
             var link = $(this).attr('data-raw-value');
             window.open( link , '_blank');
@@ -1306,17 +925,7 @@ $(function() {
 		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
 		//console.log(navigator.userAgent.match('CriOS'));
-		if(navigator.userAgent.match('CriOS')){
-			if(lang === "tc") {
-				$('#ios_chromeAlert .alert_header').html(iosChromeAlertMsg[0]);
-				$('#ios_chromeAlert').addClass("tc_alert");
-				$('#ios_chromeAlert .alert_suggest').html(iosChromeAlertMsg[1]);
-				$('#ios_chromeAlert .btn').html(iosChromeAlertMsg[2]);
-			}
-		    $('#ios_chromeAlert').modal('show');
-		    centerModals($('#ios_chromeAlert'));
-		    $(window).on('resize', centerModals);
-		}
+		
 	});
 
 	$('.navmenu').on('show.bs.offcanvas', function() {
@@ -1362,11 +971,7 @@ $(function() {
         }
     });
 </script>
-<jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
+
 <jsp:include page="/WEB-INF/jsp/merged/login2.jsp" />
-<%if (session.getAttribute("authenticate") == "true" && session.getAttribute("username") != null) {%>
-<jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
-<% } %>
-<%-- <%if ((actionName.equals("WorkingHoliday") && request.getRequestURI().indexOf("/user-details")>0) | (actionName.equals("Oversea") && request.getRequestURI().indexOf("/application")>0) | (actionName.equals("Travel") && request.getRequestURI().indexOf("/user-details")>0) ){%>
-<jsp:include page="/WEB-INF/jsp/merged/travel-alert.jsp" />
-<% } %> --%>
+
+
