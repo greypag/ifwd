@@ -194,7 +194,7 @@ $(function() {
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
-    function fbShare(method,name,link,picture,description){
+    function fbShare(method,link,name,picture,description){
     	FB.ui({
 			method: method,
         display: 'iframe',
