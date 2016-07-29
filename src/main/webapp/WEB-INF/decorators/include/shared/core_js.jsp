@@ -31,5 +31,6 @@
 
 	// global variables
 	var UILANGUAGE = '<%=session.getAttribute("language")%>';
+	UILANGUAGE = UILANGUAGE.toUpperCase();
 
 </script>
