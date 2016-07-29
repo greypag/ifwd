@@ -28,7 +28,7 @@
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('f');"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('t');"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('h');"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
-	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector" bundle="${msg}" /></div>
+	                        <div class="faq_menu_item" onclick="faqChangeCareMob('sp');"><fmt:message key="faq.screenProtector.mobile" bundle="${msg}" /></div>
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
@@ -39,7 +39,7 @@
                                 <i class="fa fa-arrow-left fa-2"></i>
                             </div>
                             <div class="faq_title">
-                               <fmt:message key="faq.screenProtector" bundle="${msg}" />
+                               <fmt:message key="faq.screenProtector.mobile" bundle="${msg}" />
                             </div>
                             
                             <div class="clearfix"></div>
@@ -239,25 +239,6 @@
                                         		</ul>                                        	
                                         	</li>                                      	
                                         </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.screenProtector.group1.q9" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group1.a9" bundle="${msg}" />   
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
