@@ -24,6 +24,8 @@ public class UserRestURIConstants {
 	
 	public static final String API_KEI = getConfigs("apiKei");
 	
+	public static final String TAG_GO_URL = getConfigs("tagGoUrl");
+	
 	
 	public static final String SERVICE_URL = getConfigs("url");
 
