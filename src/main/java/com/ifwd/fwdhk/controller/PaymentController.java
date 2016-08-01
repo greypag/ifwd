@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
 import com.ifwd.fwdhk.services.PaymentService;
 import com.ifwd.fwdhk.util.EncryptionUtils;
 
@@ -160,7 +161,7 @@ public class PaymentController extends BaseController {
 	@RequestMapping(value = { "/getPaymentStatus" })
 	@ResponseBody
 	public JSONObject getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
-		
+		JSONObject jsonObject = new JSONObject();
 		String merTradeNo = request.getParameter("merTradeNo");
 		//long timestamp = System.nanoTime();
 		long timestamp = System.currentTimeMillis();
@@ -171,9 +172,10 @@ public class PaymentController extends BaseController {
 		
 		sign=EncryptionUtils.encryptByHMACSHA512(sign);
 		
-		JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		//JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		PaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.queryByOrderReference(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
 		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		logger.debug("*******payment status********: " + jsonObject);
+		logger.debug("*******payment status********: " + paymentStatusQueryResponse.toString());
 		
 		return jsonObject;
 	}
