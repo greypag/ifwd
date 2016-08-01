@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
@@ -30,10 +28,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.PaymentQueryException;
 import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
 import com.ifwd.fwdhk.services.PaymentService;
+import com.ifwd.fwdhk.util.EncryptionUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Service
@@ -41,7 +39,9 @@ public class PaymentServiceImpl implements PaymentService {
 	
 	private final static Logger logger = LoggerFactory.getLogger(PaymentServiceImpl.class);
 	
-	private static final String url = UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
+	private final static String APP_ID = EncryptionUtils.APP_ID;
+	
+	private static final String url = "https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";//UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
 	
 	private static final String username = "";
 	
@@ -98,17 +98,26 @@ public class PaymentServiceImpl implements PaymentService {
         }            
 	}
 	
-	public PaymentStatusQueryResponse queryByOrderReference(String appId, String merTradeNo,String timestamp, String sign) throws PaymentQueryException{
+	public PaymentStatusQueryResponse queryByOrderReference(String merTradeNo) throws PaymentQueryException{
         try {
            final RestTemplate restTemplate = new RestTemplate();
            if(useProxy){
         	   PaymentServiceImpl.configure(restTemplate);
            }
+           
+           long timestamp = System.currentTimeMillis();
+   		   String sign = "";	
+   		   sign="appId="+APP_ID;
+   		   if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
+   		   sign=sign+"&timestamp="+timestamp;
+   		
+   		   sign=EncryptionUtils.encryptByHMACSHA512(sign);
+           
            final Map<String,String> vars = new HashMap<>();
            //vars.put("merchantApi", merchantApi);
-           vars.put("appId", appId);
+           vars.put("appId", APP_ID);
            vars.put("merTradeNo", merTradeNo);
-           vars.put("timestamp", timestamp);
+           vars.put("timestamp", String.valueOf(timestamp));
            vars.put("sign", "sign");
            
            HttpHeaders headers = new HttpHeaders();

@@ -163,17 +163,9 @@ public class PaymentController extends BaseController {
 	public JSONObject getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
 		JSONObject jsonObject = new JSONObject();
 		String merTradeNo = request.getParameter("merTradeNo");
-		//long timestamp = System.nanoTime();
-		long timestamp = System.currentTimeMillis();
-		String sign = "";	
-		sign="appId="+APP_ID;
-		if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
-		sign=sign+"&timestamp="+timestamp;
-		
-		sign=EncryptionUtils.encryptByHMACSHA512(sign);
 		
 		//JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		PaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.queryByOrderReference(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
+		PaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.queryByOrderReference(merTradeNo);
 		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
 		logger.debug("*******payment status********: " + paymentStatusQueryResponse.toString());
 		

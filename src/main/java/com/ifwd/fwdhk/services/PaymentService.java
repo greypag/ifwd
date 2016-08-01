@@ -9,5 +9,5 @@ public interface PaymentService {
 
 	public JSONObject getPaymentStatus(String appId,String merTradeNo,String timestamp,String sign);
 	
-	public PaymentStatusQueryResponse queryByOrderReference(String appId, String merTradeNo,String timestamp, String sign) throws PaymentQueryException;
+	public PaymentStatusQueryResponse queryByOrderReference(String merTradeNo) throws PaymentQueryException;
 }
