@@ -198,7 +198,28 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group1.a7" bundle="${msg}" />   
+                                        <fmt:message key="faq.screenProtector.group1.a7.list" bundle="${msg}" />
+                                        <ul class="faq_answer__list">
+                                        	<li><fmt:message key="faq.screenProtector.group1.a7.list.item1" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group1.a7.list.item2" bundle="${msg}" />
+                                        		<ul class="faq_answer_item__sublist">
+                                        			<li><fmt:message key="faq.screenProtector.group1.a7.list.item2.point1" bundle="${msg}" /></li>
+                                        			<li><fmt:message key="faq.screenProtector.group1.a7.list.item2.point2" bundle="${msg}" /></li>
+                                        			<li><fmt:message key="faq.screenProtector.group1.a7.list.item2.point3" bundle="${msg}" /></li>
+                                        			<img src="<%=request.getContextPath()%>/resources/images/sony_mobile_imei.png">
+                                        		</ul>
+                                        	</li>
+                                        	<li><fmt:message key="faq.screenProtector.group1.a7.list.item3" bundle="${msg}" />
+                                        		<ul class="faq_answer_item__sublist">
+                                        			<li>
+                                        				<fmt:message key="faq.screenProtector.group1.a7.list.item3.point1.part1" bundle="${msg}" />
+                                        				<img src="<%=request.getContextPath()%>/resources/images/sony_screen_menu.png">
+                                        				<fmt:message key="faq.screenProtector.group1.a7.list.item3.point1.part2" bundle="${msg}" />
+                                        			</li>
+                                        			<li><fmt:message key="faq.screenProtector.group1.a7.list.item3.point2" bundle="${msg}" /></li>
+                                        		</ul>                                        	
+                                        	</li>                                      	
+                                        </ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -217,47 +238,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group1.a8.list" bundle="${msg}" />
-                                        <ul class="faq_answer__list">
-                                        	<li><fmt:message key="faq.screenProtector.group1.a8.list.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a8.list.item2" bundle="${msg}" />
-                                        		<ul class="faq_answer_item__sublist">
-                                        			<li><fmt:message key="faq.screenProtector.group1.a8.list.item2.point1" bundle="${msg}" /></li>
-                                        			<li><fmt:message key="faq.screenProtector.group1.a8.list.item2.point2" bundle="${msg}" /></li>
-                                        			<li><fmt:message key="faq.screenProtector.group1.a8.list.item2.point3" bundle="${msg}" /></li>
-                                        			<img src="<%=request.getContextPath()%>/resources/images/sony_mobile_imei.png">
-                                        		</ul>
-                                        	</li>
-                                        	<li><fmt:message key="faq.screenProtector.group1.a8.list.item3" bundle="${msg}" />
-                                        		<ul class="faq_answer_item__sublist">
-                                        			<li>
-                                        				<fmt:message key="faq.screenProtector.group1.a8.list.item3.point1.part1" bundle="${msg}" />
-                                        				<img src="<%=request.getContextPath()%>/resources/images/sony_screen_menu.png">
-                                        				<fmt:message key="faq.screenProtector.group1.a8.list.item3.point1.part2" bundle="${msg}" />
-                                        			</li>
-                                        			<li><fmt:message key="faq.screenProtector.group1.a8.list.item3.point2" bundle="${msg}" /></li>
-                                        		</ul>                                        	
-                                        	</li>                                      	
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.screenProtector.group1.q10" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group1.a10" bundle="${msg}" />   
+                                        <fmt:message key="faq.screenProtector.group1.a8" bundle="${msg}" />   
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -279,6 +260,45 @@
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.screenProtector.group2.q9" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.screenProtector.group2.a9" bundle="${msg}" />
+                                        <fmt:message key="faq.screenProtector.group2.a9.address" bundle="${msg}" />  
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.screenProtector.group2.q10" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.screenProtector.group2.a10" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
                                         <fmt:message key="faq.screenProtector.group2.q11" bundle="${msg}" />
                                     </div>
                                     <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
@@ -289,7 +309,6 @@
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.screenProtector.group2.a11" bundle="${msg}" />
-                                        <fmt:message key="faq.screenProtector.group2.a11.address" bundle="${msg}" />  
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -314,7 +333,7 @@
                                 </div>
                                 
                                 <div class="clearfix"></div>
-                            </div>
+                            </div> 
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -352,7 +371,7 @@
                                 </div>
                                 
                                 <div class="clearfix"></div>
-                            </div> 
+                            </div>
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -371,7 +390,7 @@
                                 </div>
                                 
                                 <div class="clearfix"></div>
-                            </div>
+                            </div>                            
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -384,33 +403,14 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
-                                        <fmt:message key="faq.screenProtector.group2.a16" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div> 
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
-                                <div class="col-xs-12 col-sm-12 pad-none">
-                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
-                                        <fmt:message key="faq.screenProtector.group2.q17" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <ul class="faq_answer__list">
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item1" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item2" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item3" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item4" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item5" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item6" bundle="${msg}" /></li>
-                                        	<li><fmt:message key="faq.screenProtector.group2.a17.list.item7" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item1" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item2" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item3" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item4" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item5" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item6" bundle="${msg}" /></li>
+                                        	<li><fmt:message key="faq.screenProtector.group2.a16.list.item7" bundle="${msg}" /></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
