@@ -18,6 +18,13 @@ public class UserRestURIConstants {
 	/*
 	 * http://10.10.18.11:8080/eCommerce-ws
 	 */
+	public static final String APP_ID = getConfigs("appId");
+	
+	public static final String PUBLIC_KEY = getConfigs("publicKey");
+	
+	public static final String API_KEI = getConfigs("apiKei");
+	
+	
 	public static final String SERVICE_URL = getConfigs("url");
 
 	/* validate token */
