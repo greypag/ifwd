@@ -13,10 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -325,9 +327,13 @@ public class RestServiceImpl implements RestServiceDao {
 		JSONObject responseJsonObj = new JSONObject();
 		try {
 
-			CloseableHttpClient restClient = (HttpClientBuilder.create())
-					.build();
+			CloseableHttpClient restClient = (HttpClientBuilder.create()).build();
 			HttpPost postMehod = new HttpPost();
+			
+			HttpHost proxy = new HttpHost("10.12.251.5", 8080, "http");  
+	        RequestConfig config = RequestConfig.custom().setProxy(proxy).build(); 
+	        postMehod.setConfig(config);
+			
 			URI uri = new URI(url);
 			postMehod.setURI(uri);
 			if (header != null) {
