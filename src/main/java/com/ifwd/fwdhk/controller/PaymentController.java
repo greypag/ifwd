@@ -52,13 +52,14 @@ public class PaymentController extends BaseController {
 
 	  
 
-
+		String path = request.getRequestURL().toString();
+		path = path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
 		net.sf.json.JSONObject payloadObject = new net.sf.json.JSONObject();
 		payloadObject.put("totalPrice", "500.00");
 		payloadObject.put("currency", "HKD");
 		payloadObject.put("merTradeNo", merTradeNo);
-		payloadObject.put("notifyUrl", "http://127.0.0.1:8090/fwdhk/paymentNotify");
-		payloadObject.put("returnUrl", "http://127.0.0.1:8090/fwdhk/paymentReturn");
+		payloadObject.put("notifyUrl", path+"paymentNotify");
+		payloadObject.put("returnUrl", path+"paymentReturn");
 		payloadObject.put("remark", "Single Merchant, web-based");
 		payloadObject.put("lang", "en");
 		payload = payloadObject.toString();
