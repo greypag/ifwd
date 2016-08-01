@@ -9934,3 +9934,6 @@ select::-ms-value {
 	font-family: 'Calibri';
 	white-space: normal;
 }
+.cover-carousel-arrow{
+	z-index: 2;
+}
