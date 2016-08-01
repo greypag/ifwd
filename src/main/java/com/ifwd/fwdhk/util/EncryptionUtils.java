@@ -15,6 +15,7 @@ import org.apache.commons.codec.binary.Base64;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
 
+
 public class EncryptionUtils {
 	
 	public static String APP_ID = UserRestURIConstants.APP_ID;//"5302428092";
