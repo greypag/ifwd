@@ -42,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
 	
 	//private final static String APP_ID = UserRestURIConstants.APP_ID;
 	
-	private final static String url = "https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";//UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
+	//private final static String url = UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
 	
 	private final static String username = "";
 	
@@ -74,9 +74,9 @@ public class PaymentServiceImpl implements PaymentService {
 	    params.add(new BasicNameValuePair("sign", sign));
 		
 	    logger.debug("appId: "+appId + " merTradeNo: "+merTradeNo+" timestamp: "+timestamp+" sign: "+sign);
-	    logger.debug("url: "+url);
+	    logger.debug("url: "+UserRestURIConstants.TAG_GO_URL);
 	    
-		JSONObject loginJsonObj = restService.consumePaymentStatusAPI(url,header, params);
+		JSONObject loginJsonObj = restService.consumePaymentStatusAPI(UserRestURIConstants.TAG_GO_URL,header, params);
 		
 		return loginJsonObj;
 	}
@@ -127,7 +127,7 @@ public class PaymentServiceImpl implements PaymentService {
            headers.add("Accept", MediaType.APPLICATION_JSON.toString());
            net.sf.json.JSONObject jsonObj = net.sf.json.JSONObject.fromObject(vars);
            HttpEntity<String> formEntity = new HttpEntity<String>(jsonObj.toString(), headers);
-           return restTemplate.postForObject(url, formEntity, PaymentStatusQueryResponse.class);
+           return restTemplate.postForObject(UserRestURIConstants.TAG_GO_URL, formEntity, PaymentStatusQueryResponse.class);
            
            //return restTemplate.postForObject(url, vars, PaymentStatusQueryResponse.class, null);//getForObject("{merchantApi}?merchantId={merchantId}&loginId={loginId}&password={password}&actionType=Query&orderRef={orderRef}&payRef={payRef}", PaymentStatusQueryResponse.class, vars);
 
