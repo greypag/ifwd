@@ -26,7 +26,6 @@ import com.ifwd.fwdhk.util.EncryptionUtils;
 public class PaymentController extends BaseController {	
 
 	private final static Logger logger = LoggerFactory.getLogger(PaymentController.class);
-	private final static String APP_ID = EncryptionUtils.APP_ID;
 	
 	@Autowired
 	private PaymentService paymentService;
@@ -44,7 +43,7 @@ public class PaymentController extends BaseController {
 	@RequestMapping(value = { "/paymentPage" })
 	public ModelAndView paymentPage(HttpServletRequest request, Model model) throws Exception {
 
-		String appId = APP_ID;
+		String appId = UserRestURIConstants.APP_ID;
 		String merTradeNo = getTradeNo();
 		String paymentType = "S";
 		String payload = "";

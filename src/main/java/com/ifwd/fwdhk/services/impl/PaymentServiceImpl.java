@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.PaymentQueryException;
 import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
 import com.ifwd.fwdhk.services.PaymentService;
@@ -39,19 +40,19 @@ public class PaymentServiceImpl implements PaymentService {
 	
 	private final static Logger logger = LoggerFactory.getLogger(PaymentServiceImpl.class);
 	
-	private final static String APP_ID = EncryptionUtils.APP_ID;
+	//private final static String APP_ID = UserRestURIConstants.APP_ID;
 	
-	private static final String url = "https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";//UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
+	private final static String url = "https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";//UserRestURIConstants.TAG_GO_URL;//"https://gateway.sandbox.tapngo.com.hk/paymentApi/payment/status";
 	
-	private static final String username = "";
+	private final static String username = "";
 	
-	private static final String password = "";
+	private final static String password = "";
 	
-	private static final String ip = "10.12.251.5";
+	private final static String ip = "10.12.251.5";
 	
-	private static final String port = "8080";
+	private final static String port = "8080";
 	
-	private static final Boolean useProxy = false;
+	private final static Boolean useProxy = false;
 	
 	@Autowired
 	private RestServiceDao restService;
@@ -107,7 +108,7 @@ public class PaymentServiceImpl implements PaymentService {
            
            long timestamp = System.currentTimeMillis();
    		   String sign = "";	
-   		   sign="appId="+APP_ID;
+   		   sign="appId="+UserRestURIConstants.APP_ID;
    		   if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
    		   sign=sign+"&timestamp="+timestamp;
    		
@@ -115,7 +116,7 @@ public class PaymentServiceImpl implements PaymentService {
            
            final Map<String,String> vars = new HashMap<>();
            //vars.put("merchantApi", merchantApi);
-           vars.put("appId", APP_ID);
+           vars.put("appId", UserRestURIConstants.APP_ID);
            vars.put("merTradeNo", merTradeNo);
            vars.put("timestamp", String.valueOf(timestamp));
            vars.put("sign", "sign");

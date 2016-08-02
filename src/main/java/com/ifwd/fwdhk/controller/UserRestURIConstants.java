@@ -20,16 +20,16 @@ public class UserRestURIConstants {
 	/*
 	 * http://10.10.18.11:8080/eCommerce-ws
 	 */
-	public static final String APP_ID = getConfigs("appId");
+	public final static String APP_ID = getConfigs("appId");
 	
-	public static final String PUBLIC_KEY = getConfigs("publicKey");
+	public final static String PUBLIC_KEY = getConfigs("publicKey");
 	
-	public static final String API_KEI = getConfigs("apiKei");
+	public final static String API_KEI = getConfigs("apiKei");
 	
-	public static final String TAG_GO_URL = getConfigs("tagGoUrl");
+	public final static String TAG_GO_URL = getConfigs("tagGoUrl");
 	
 	
-	public static final String SERVICE_URL = getConfigs("url");
+	public final static String SERVICE_URL = getConfigs("url");
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";
