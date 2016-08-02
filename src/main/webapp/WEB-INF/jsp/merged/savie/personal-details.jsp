@@ -996,7 +996,7 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			url: "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
 			data: $("#soInsuredInfoForm").serialize(),
 			success: function (data) {
-				if (data != null && data.errorMsg != null && data.errorMsg != "" && !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+				if (data != null && data.errorMsg != null && data.errorMsg != "" || !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 					if(data.errorMsg == "you can only buy one savie"){
 			    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
 			    		$('#prev-savie-app-modal').modal('show');
