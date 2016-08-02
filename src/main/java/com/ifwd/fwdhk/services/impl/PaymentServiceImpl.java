@@ -126,7 +126,7 @@ public class PaymentServiceImpl implements PaymentService {
            vars.put("appId", UserRestURIConstants.APP_ID);
            vars.put("merTradeNo", merTradeNo);
            vars.put("timestamp", String.valueOf(timestamp));
-           vars.put("sign", "sign");
+           vars.put("sign", sign);
            
            HttpHeaders headers = new HttpHeaders();
            MediaType type = MediaType.parseMediaType("application/x-www-form-urlencoded; charset=UTF-8");
