@@ -9,6 +9,9 @@
   @media screen and (min-width: $min) and (max-width: $max) { @content; }
 }
 
+// #Mixins below are for the containers.
+
+
 // #Mixins below are for the base_localize //
 @mixin padding($value...) {             // How to use? @include padding(10px); OR  @include padding(10px 10px);
   padding: $value;

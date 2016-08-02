@@ -84,12 +84,14 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css"> --%>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
+<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" /> --%>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/fwd_bootstrap.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/sass/main_purify.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/main.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
@@ -295,7 +297,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	    new PNotify(opts);
 	}
 	</script>
-	
+
 	<%@ include file="include/merged/header2.jsp"%>
 	<dec:body />
 	<%@ include file="include/merged/footer2.jsp"%>

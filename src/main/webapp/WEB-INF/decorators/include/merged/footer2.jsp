@@ -36,7 +36,7 @@
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 <!--mob bottom-->
 <div class="footer-container">
-    <div class="footer-container__top-wrapper container">
+    <div class="footer-container__top-wrapper ifwd-container">
 	    <div class="footer-container__top-wrapper__contact">
 	        <div class="footer-container__top-wrapper__contact__wrapper">
 	           <a href="<fmt:message key="footer.menu.contactus.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.contactus" bundle="${msg}" />
@@ -74,7 +74,7 @@
         <div class="clearfix"></div>
     </div>
     <div class="footer-container__btm-wrapper">
-        <div class="footer-container__btm-wrapper__link container">
+        <div class="footer-container__btm-wrapper__link ifwd-container">
 		    <a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a> |
 		    <a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a> |
 		    <a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a>
@@ -153,7 +153,7 @@ $(function() {
     ogDesc = (ogDesc=='')?defaultOg[UILANGUAGE]['desc']:ogDesc;
     ogUrl = (ogUrl=='')?defaultOg[UILANGUAGE]['url']:ogUrl;
     ogImg = (ogImg=='')?defaultOg[UILANGUAGE]['img']:ogImg;
-    
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1684174765175679',
@@ -178,7 +178,7 @@ $(function() {
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
-    function fbShare(method,link,name,picture,description){
+    function fbShare(method,name,link,picture,description){
       FB.ui({
         method: method,
         display: 'iframe',
@@ -191,10 +191,10 @@ $(function() {
       } else {
         console.log('Post was not published.' + response);
       }
-    });    
+    });
     }
     $('#fb-dialog-share').on("click",function(){
-      fbShare('share', ogUrl, ogTitle, ogImg, ogDesc);
+      fbShare('share', ogTitle, ogUrl, ogImg, ogDesc);
     });
 
     /*

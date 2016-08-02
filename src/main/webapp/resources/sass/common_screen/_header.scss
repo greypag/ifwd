@@ -63,14 +63,14 @@
   padding-bottom: 0;
 	&.navbar-inverse {
 		padding-top:35px;
-    border: none;
-		.container {
+        border: none;
+		.ifwd-container {
 			@include padding(0px);
 			.navbar-brand {
-        margin-left: 0;
-        font-size: 36px;
-        line-height: 50px;
-        color: #fff;
+                margin-left: 0;
+                font-size: 36px;
+                line-height: 50px;
+                color: #fff;
 				img {
 					padding: 10px 0; /*Topbar*/
 				}
