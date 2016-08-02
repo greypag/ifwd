@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
+import com.ifwd.fwdhk.model.TapAndGoPaymentStatusQueryResponse;
 import com.ifwd.fwdhk.services.PaymentService;
 import com.ifwd.fwdhk.util.EncryptionUtils;
 
@@ -163,8 +163,8 @@ public class PaymentController extends BaseController {
 		JSONObject jsonObject = new JSONObject();
 		String merTradeNo = request.getParameter("merTradeNo");
 		
-		//JSONObject jsonObject = paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		PaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.queryByOrderReference(merTradeNo);
+		//JSONObject jsonObject = paymentService.getPaymentStatus(merTradeNo);
+		TapAndGoPaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.tapAndGoQueryByOrderReference(merTradeNo);
 		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
 		logger.debug("*******payment status********: " + paymentStatusQueryResponse.toString());
 		

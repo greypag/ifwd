@@ -30,7 +30,7 @@ import org.springframework.web.client.RestTemplate;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.PaymentQueryException;
-import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
+import com.ifwd.fwdhk.model.TapAndGoPaymentStatusQueryResponse;
 import com.ifwd.fwdhk.services.PaymentService;
 import com.ifwd.fwdhk.util.EncryptionUtils;
 import com.ifwd.fwdhk.utils.services.SendEmailDao;
@@ -61,19 +61,26 @@ public class PaymentServiceImpl implements PaymentService {
 	private SendEmailDao sendEmail;
 
 	@Override
-	public JSONObject getPaymentStatus(String appId, String merTradeNo,
-			String timestamp, String sign) {
+	public JSONObject getPaymentStatus(String merTradeNo) {
 		HashMap<String, String> header = new HashMap<String, String>();
 		header.put("Content-Type", "application/x-www-form-urlencoded");
 		header.put("Accept", "application/json");
 		
+		long timestamp = System.currentTimeMillis();
+	    String sign = "";	
+	    sign="appId="+UserRestURIConstants.APP_ID;
+	    if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
+	    sign=sign+"&timestamp="+timestamp;
+		
+	    sign=EncryptionUtils.encryptByHMACSHA512(sign);
+		
 		List<NameValuePair> params = new ArrayList<NameValuePair>();   
-	    params.add(new BasicNameValuePair("appId", appId));   
+	    params.add(new BasicNameValuePair("appId", UserRestURIConstants.APP_ID));   
 	    params.add(new BasicNameValuePair("merTradeNo", merTradeNo));
-	    params.add(new BasicNameValuePair("timestamp", timestamp));   
+	    params.add(new BasicNameValuePair("timestamp", String.valueOf(timestamp)));   
 	    params.add(new BasicNameValuePair("sign", sign));
 		
-	    logger.debug("appId: "+appId + " merTradeNo: "+merTradeNo+" timestamp: "+timestamp+" sign: "+sign);
+	    logger.debug("appId: "+UserRestURIConstants.APP_ID + " merTradeNo: "+merTradeNo+" timestamp: "+timestamp+" sign: "+sign);
 	    logger.debug("url: "+UserRestURIConstants.TAG_GO_URL);
 	    
 		JSONObject loginJsonObj = restService.consumePaymentStatusAPI(UserRestURIConstants.TAG_GO_URL,header, params);
@@ -99,7 +106,7 @@ public class PaymentServiceImpl implements PaymentService {
         }            
 	}
 	
-	public PaymentStatusQueryResponse queryByOrderReference(String merTradeNo) throws PaymentQueryException{
+	public TapAndGoPaymentStatusQueryResponse tapAndGoQueryByOrderReference(String merTradeNo) throws PaymentQueryException{
         try {
            final RestTemplate restTemplate = new RestTemplate();
            if(useProxy){
@@ -127,7 +134,7 @@ public class PaymentServiceImpl implements PaymentService {
            headers.add("Accept", MediaType.APPLICATION_JSON.toString());
            net.sf.json.JSONObject jsonObj = net.sf.json.JSONObject.fromObject(vars);
            HttpEntity<String> formEntity = new HttpEntity<String>(jsonObj.toString(), headers);
-           return restTemplate.postForObject(UserRestURIConstants.TAG_GO_URL, formEntity, PaymentStatusQueryResponse.class);
+           return restTemplate.postForObject(UserRestURIConstants.TAG_GO_URL, formEntity, TapAndGoPaymentStatusQueryResponse.class);
            
            //return restTemplate.postForObject(url, vars, PaymentStatusQueryResponse.class, null);//getForObject("{merchantApi}?merchantId={merchantId}&loginId={loginId}&password={password}&actionType=Query&orderRef={orderRef}&payRef={payRef}", PaymentStatusQueryResponse.class, vars);
 

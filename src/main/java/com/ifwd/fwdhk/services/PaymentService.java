@@ -3,11 +3,11 @@ package com.ifwd.fwdhk.services;
 import org.json.simple.JSONObject;
 
 import com.ifwd.fwdhk.exception.PaymentQueryException;
-import com.ifwd.fwdhk.model.PaymentStatusQueryResponse;
+import com.ifwd.fwdhk.model.TapAndGoPaymentStatusQueryResponse;
 
 public interface PaymentService {
 
-	public JSONObject getPaymentStatus(String appId,String merTradeNo,String timestamp,String sign);
+	public JSONObject getPaymentStatus(String merTradeNo);
 	
-	public PaymentStatusQueryResponse queryByOrderReference(String merTradeNo) throws PaymentQueryException;
+	public TapAndGoPaymentStatusQueryResponse tapAndGoQueryByOrderReference(String merTradeNo) throws PaymentQueryException;
 }
