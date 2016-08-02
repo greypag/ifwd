@@ -14,6 +14,8 @@ import com.ifwd.fwdhk.util.SpringUtil;
 
 
 public class UserRestURIConstants {
+	
+	static Object obj = SpringUtil.getObject("configBean");
 
 	/*
 	 * http://10.10.18.11:8080/eCommerce-ws
@@ -548,11 +550,14 @@ public class UserRestURIConstants {
 	 */
 	public static String getConfigs(String key) {
 		Method method;
-		Object obj;
+		//Object obj;
 		String value = "";
 		if(!StringUtils.isEmpty(key)) {
 			try {
-				obj = SpringUtil.getObject("configBean");
+				if(obj == null){
+					obj = SpringUtil.getObject("configBean");
+				}
+				
 				key = key.substring(0, 1).toUpperCase() + key.substring(1, key.length());
 				method = obj.getClass().getMethod("get" + key);
 				value = (String)method.invoke(obj);
