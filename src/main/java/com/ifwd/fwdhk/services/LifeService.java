@@ -63,4 +63,5 @@ public interface LifeService {
 	public void partnerRegister(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void sendMailToNewPartner(PartnerRegisterBean partnerRegisterDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void validateSimpleChinese(String str,HttpServletRequest request) throws Exception;
+	public void getSavieApplicationByHkId(String hkid,HttpServletRequest request) throws ECOMMAPIException;
 }

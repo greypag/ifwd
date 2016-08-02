@@ -3695,4 +3695,28 @@ public class LifeServiceImpl implements LifeService {
 		}
 		return result;
 	}
+	
+	public void getSavieApplicationByHkId(String hkid,HttpServletRequest request) throws ECOMMAPIException {
+		String Url = UserRestURIConstants.SERVICE_URL + "/savie/application/hkid";
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("hkId", hkid);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		logger.info("***********responseJsonObj****************:"+responseJsonObj);
+		
+		if(responseJsonObj==null){
+			throw new ECOMMAPIException("data error");
+		}
+		else{
+			if (responseJsonObj.get("errMsgs") == null) {
+				JSONArray jsonArray = (JSONArray) responseJsonObj.get("policies");
+				if(jsonArray.size()>0){
+					throw new ECOMMAPIException("you can only buy one savie");
+				}
+			}
+			else{
+				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+			}
+		}
+	}
 }

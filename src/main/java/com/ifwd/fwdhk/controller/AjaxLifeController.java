@@ -92,10 +92,14 @@ public class AjaxLifeController extends BaseController{
 		}
 		try {
 			lifePersonalDetails.validate(language);
+			savieOnlineService.getSavieApplicationByHkId(lifePersonalDetails.getHkid(), request);
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
+		} 
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);

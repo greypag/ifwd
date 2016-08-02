@@ -769,6 +769,17 @@ maxlength="19"/>
 </div>
 </div>
 </div>
+
+<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+     	<h4 class="text-center welcome-msg"><fmt:message key="label.savie.repeat.buy.title" bundle="${msg}" /><span id="fullName1" class="hidden">${userDetails.fullName }</span></h4>
+     	<p class="text-center description-msg"><fmt:message key="label.savie.repeat.buy.copy" bundle="${msg}" /></p>
+     	<center><button class="btn savie-common-btn" id="make-appointment-btn"><fmt:message key="button.backtohome" bundle="${msg}" /></button></center>
+    </div>
+  </div>
+</div>
 <!-- JS INCLUDES -->
 <script type="text/javascript">
 var language = "en";
@@ -986,7 +997,13 @@ $("#et-personal-info-next, #btn-back").click(function () {
 			data: $("#soInsuredInfoForm").serialize(),
 			success: function (data) {
 				if (data != null && data.errorMsg != null && data.errorMsg != "" && !$('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
-					show_stack_bar_top(data.errorMsg);
+					if(data.errorMsg == "you can only buy one savie"){
+			    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+			    		$('#prev-savie-app-modal').modal('show');
+					}
+					else{
+						show_stack_bar_top(data.errorMsg);
+					}
 				} else {
 					if ('${backSummary}' == "Y") {
 						window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
