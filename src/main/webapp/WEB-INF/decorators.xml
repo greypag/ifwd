@@ -47,10 +47,10 @@
 	</decorator>
 
 	<decorator name="ngdiscover" page="template_discover_ng.jsp">
-		<pattern>/*/fwdiscover</pattern>
+		<pattern>/*/fwdiscover*</pattern>
 	</decorator>
 
-	<decorator name="fwdlanding" page="template_default_css_revamp.jsp">
+	<decorator name="fwdhome" page="template_home_css_revamp.jsp">
 		<pattern>/tc</pattern>
 		<pattern>/en</pattern>
 	</decorator>

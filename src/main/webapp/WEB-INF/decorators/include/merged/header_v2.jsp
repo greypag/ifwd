@@ -278,7 +278,7 @@ function getStarted(){
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
-		<div class="container">
+		<div class="ifwd-container">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-0">
 					<ul class="nav navbar-nav lang-btn-grp">
@@ -559,14 +559,14 @@ function getStarted(){
 	%>
 
 	<nav class="navbar navbar-inverse">
-		<div class="container pad-0">
+		<div class="ifwd-container pad-0">
 			<div class="navbar-header">
 				<a class="navbar-brand"
 					href="<%=request.getContextPath()%>/${language}"><img
 					src="<%=request.getContextPath()%>/resources/images/iFWD_logo_200px.jpg"
 					alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
-			
+
             <div class="col-lg-8 col-md-7 pull-right">
                 <ul class="col-lg-7 col-md-10 maintabs menutab-V2 pull-right">
                     <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
@@ -644,7 +644,7 @@ function getStarted(){
 
             </div>
 		</div>
-		<!--/.container-->
+		<!--/.ifwd-container-->
 	</nav>
 	<!--/nav-->
 
@@ -746,7 +746,7 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
-					
+
 				<li class="menu-link-grp-title">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></a>
 					<ul class="col-sm-12 dropdown-menu">
@@ -879,9 +879,9 @@ $(function() {
     var faqLinkRe = new RegExp(/^faq/);
     var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
 });
-	
 
-	
+
+
 
 
     function offerMenuActive(){
@@ -916,7 +916,7 @@ $(function() {
                 }
 			});
 		}
-        
+
         $('.copyright .options li').click(function() {
             var link = $(this).attr('data-raw-value');
             window.open( link , '_blank');
@@ -925,7 +925,7 @@ $(function() {
 		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
 		//console.log(navigator.userAgent.match('CriOS'));
-		
+
 	});
 
 	$('.navmenu').on('show.bs.offcanvas', function() {
@@ -973,5 +973,3 @@ $(function() {
 </script>
 
 <jsp:include page="/WEB-INF/jsp/merged/login2.jsp" />
-
-

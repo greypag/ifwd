@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-08-02 20:10:54 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-08-03 14:29:50 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -18,12 +18,51 @@
   clear: both;
 }
 
-/* line 2, ../sass/base/general/_override.scss */
+/* line 3, ../sass/base/general/override/bootstrap/_buttons.scss */
+.btn-primary {
+  padding: 8px 20px;
+  background: #f6871e;
+  color: #fff;
+  border: none;
+  border: 1px solid #f6871e;
+}
+/* line 9, ../sass/base/general/override/bootstrap/_buttons.scss */
+.btn-primary:hover {
+  outline: none;
+  box-shadow: none;
+  background: #fff;
+  color: #f6871e;
+  border: 1px solid #f6871e;
+}
+/* line 16, ../sass/base/general/override/bootstrap/_buttons.scss */
+.btn-primary:active {
+  padding: 8px 20px;
+  background: #f6871e;
+  color: #fff;
+  border: none;
+  border: 1px solid #f6871e;
+}
+/* line 23, ../sass/base/general/override/bootstrap/_buttons.scss */
+.btn-primary.active {
+  padding: 8px 20px;
+  background: #f6871e;
+  border: none;
+  border: 1px solid #f6871e;
+}
+
+/* line 30, ../sass/base/general/override/bootstrap/_buttons.scss */
+.btn-lg {
+  padding: 12px 30px !important;
+  font-size: 30px;
+  line-height: 31.5px;
+}
+
+/* line 5, ../sass/base/general/override/_bootstrap.scss */
 a {
   color: #f6871e;
 }
 
-/* line 6, ../sass/base/general/_override.scss */
+/* line 9, ../sass/base/general/override/_bootstrap.scss */
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
@@ -31,29 +70,29 @@ a {
   padding: 0px;
   padding-bottom: 0;
 }
-/* line 12, ../sass/base/general/_override.scss */
+/* line 15, ../sass/base/general/override/_bootstrap.scss */
 .navbar .navbar-brand {
   padding: 0;
   margin: 0;
 }
 
-/* line 18, ../sass/base/general/_override.scss */
+/* line 21, ../sass/base/general/override/_bootstrap.scss */
 .modal-content {
   border-radius: 0px;
 }
 
-/* line 23, ../sass/base/general/_override.scss */
+/* line 26, ../sass/base/general/override/_bootstrap.scss */
 .loginpopup .modal-dialog {
   height: 100%;
   margin: auto;
 }
 
-/* line 28, ../sass/base/general/_override.scss */
+/* line 31, ../sass/base/general/override/_bootstrap.scss */
 .invalid-field {
   border: 2px solid red !important;
 }
 
-/* line 33, ../sass/base/general/_override.scss */
+/* line 36, ../sass/base/general/override/_bootstrap.scss */
 .alert .alert-danger {
   background-color: #fff;
   border: 0;
@@ -63,20 +102,86 @@ a {
 }
 
 /*Topbar*/
-/* line 42, ../sass/base/general/_override.scss */
+/* line 45, ../sass/base/general/override/_bootstrap.scss */
 .form-control {
   height: 50px;
   padding: 6px 20px;
 }
 
-/* line 43, ../sass/base/general/_override.scss */
+/* line 46, ../sass/base/general/override/_bootstrap.scss */
 .form-label {
   margin-bottom: 5px;
 }
 
-/* line 44, ../sass/base/general/_override.scss */
+/* line 47, ../sass/base/general/override/_bootstrap.scss */
 .form-group {
   margin-bottom: 20px;
+}
+
+/* line 49, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper {
+  position: absolute;
+  z-index: 10;
+}
+/* line 52, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb {
+  position: relative;
+  text-align: left;
+  background-color: transparent;
+}
+/* line 56, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb a, div.breadcrumb-wrapper > ol.breadcrumb li {
+  font-size: 24px;
+  font-weight: 600;
+}
+/* line 60, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb .fa {
+  color: #000000;
+}
+/* line 63, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb a {
+  color: #000000;
+}
+/* line 64, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb a:hover, div.breadcrumb-wrapper > ol.breadcrumb a:focus {
+  color: #000000;
+}
+/* line 69, ../sass/base/general/override/_bootstrap.scss */
+div.breadcrumb-wrapper > ol.breadcrumb .fa {
+  padding: 0 7px;
+}
+
+/* line 75, ../sass/base/general/override/_bootstrap.scss */
+.breadcrumb.container, .breadcrumb.ifwd-container {
+  margin-top: 20px;
+}
+/* line 78, ../sass/base/general/override/_bootstrap.scss */
+.breadcrumb.container > .active, .breadcrumb.ifwd-container > .active {
+  color: #f6871e;
+}
+
+/* line 84, ../sass/base/general/override/_bootstrap.scss */
+.navbar-collapse {
+  max-height: 9999px;
+}
+
+/* line 88, ../sass/base/general/override/_bootstrap.scss */
+.open .dropdown-toggle.btn-primary {
+  padding: 8px 20px;
+  background: #f6871e;
+  border: none;
+  border: 1px solid #f6871e;
+}
+
+/* line 95, ../sass/base/general/override/_bootstrap.scss */
+.btn-transparent {
+  border: 3px solid #fff;
+  background: transparent;
+  /*color: #fff;*/
+}
+/* line 99, ../sass/base/general/override/_bootstrap.scss */
+.btn-transparent:hover {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* line 1, ../sass/base/general/_localize.scss */
@@ -484,6 +589,11 @@ hr {
   color: #ffffff;
 }
 
+/* line 79, ../sass/base/general/_localize.scss */
+.bdr-curve {
+  border-radius: 0px !important;
+}
+
 @font-face {
   font-family: 'Foco-Regular';
   src: url("../font/Foco-Regular.otf");
@@ -553,6 +663,37 @@ body.chin .bold {
 /* line 2, ../sass/base/_button.scss */
 .btn .btn--bdr-curve-0 {
   border-radius: 0px !important;
+}
+
+/* line 7, ../sass/base/_button.scss */
+.wht-btn {
+  background: #fff !important;
+  color: #f6871e;
+  border: none;
+  margin-top: 10px;
+  border: 1px solid #f6871e;
+}
+/* line 13, ../sass/base/_button.scss */
+.wht-btn:hover, .wht-btn:focus {
+  background: #f6871e;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #f6871e;
+}
+
+/* line 21, ../sass/base/_button.scss */
+.wht-btn1 {
+  background: #fff !important;
+  color: #f6871e;
+  border: none;
+  border: 1px solid #f6871e;
+}
+/* line 26, ../sass/base/_button.scss */
+.wht-btn1:hover, .wht-btn1:focus {
+  background: #f6871e;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #f6871e;
 }
 
 /* line 3, ../sass/_other.scss */
@@ -1798,6 +1939,18 @@ body.chin .partner-headline-wrapper .headline-title {
   float: left;
   width: 33.3%;
   font-size: 16px;
+}
+
+/* line 5, ../sass/common_screen/_flight-insurance.scss */
+.content-disclaimer {
+  margin: 30px auto;
+  line-height: 15px;
+  font-size: 14px;
+  width: 80%;
+}
+/* line 10, ../sass/common_screen/_flight-insurance.scss */
+.content-disclaimer a {
+  color: #ff8200;
 }
 
 @media screen and (max-width: 991px) {

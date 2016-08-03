@@ -6,13 +6,12 @@
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
 <%
 	/*
 		Define Java variaibles
 	*/
 
-	String requestUri = request.getRequestURI(); 
+	String requestUri = request.getRequestURI();
 	String siteURL = request.getContextPath();
 
 	boolean langFlag = false;
@@ -30,7 +29,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	
+
 	<%-- Meta data--%>
 		<%@ include file="include/shared/meta_tag.jsp"%>
 		<%@ include file="include/shared/social_network.jsp"%>
@@ -55,7 +54,7 @@
 		<dec:head />
 
 	</head>
-	
+
 	<body class="<%=langBodyClass%>">
 
 	<%-- GTM Scripts--%>
@@ -64,7 +63,7 @@
 
 	<%-- Body Scripts--%>
 		<%@ include file="include/merged/header_v2.jsp"%>
-		<dec:body />	
+		<dec:body />
 		<%@ include file="include/merged/footer_v2.jsp"%>
 	<%-- End Body Scripts--%>
 
@@ -77,7 +76,7 @@
 			<%@ include file="/WEB-INF/jsp/merged/session.jsp"%>
 		<% } %>
 		<%@ include file="include/shared/timeout.jsp"%>
-		
+
 		<%@ include file="include/shared/i18n.jsp"%>
 		<%@ include file="/WEB-INF/jsp/merged/comp/notification.jsp"%>
 	<%-- End Module Scripts--%>
@@ -85,7 +84,7 @@
 	<%-- Third Party Scripts--%>
 		<%@ include file="include/shared/facebook_share.jsp"%>
 		<%@ include file="include/shared/livechat.jsp"%>
-	<%-- End Third Party Scripts--%>		
-	
+	<%-- End Third Party Scripts--%>
+
 	</body>
 </html>

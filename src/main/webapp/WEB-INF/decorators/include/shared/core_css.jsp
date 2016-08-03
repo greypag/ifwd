@@ -18,7 +18,8 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css"> --%>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
+<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" /> --%>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/fwd_bootstrap.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css" />
@@ -43,4 +44,3 @@ if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith(
 %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
-
