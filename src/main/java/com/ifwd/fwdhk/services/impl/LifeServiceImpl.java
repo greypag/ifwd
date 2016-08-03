@@ -703,10 +703,12 @@ public class LifeServiceImpl implements LifeService {
 	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
 	    }
 	    
-	    String limitForEachPayment = "";
+	    String limitForEachPayment = "SavieOnlineApplicationForm";
+	    String pdfName = "SavieOnlineApplicationForm";
 	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
 	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
+	    	pdfName = "SavieOnlineApplicationFormDiscound";
 	    }else{
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
 	    }
@@ -735,7 +737,7 @@ public class LifeServiceImpl implements LifeService {
 			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
 		}
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"SavieOnlineApplicationForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+ pdfName +".pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
