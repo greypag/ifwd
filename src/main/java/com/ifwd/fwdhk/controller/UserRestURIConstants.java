@@ -456,12 +456,16 @@ public class UserRestURIConstants {
 	public static final String ERROR_HEADER2_2 = "。";
 	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
 	
+	/*API For Hkid Discount*/ 
+	public static final String GET_SAVIE_HKID_DISCOUNT = SERVICE_URL + "/premium/savie/hkid/discount/all";
+	public static final String GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN = SERVICE_URL + "/premium/savie/hkid/discount";
+	
 	static String controller;
 
 	public static String getController() {
 		return controller;
 	}
-
+ 
 	public static void setController(String controller) {
 		UserRestURIConstants.controller = controller;
 	}

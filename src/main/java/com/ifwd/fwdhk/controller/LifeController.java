@@ -161,27 +161,29 @@ public class LifeController extends BaseController{
 			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 			date1 = DateApi.formatDate(savieFna.getDob());
 			
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
+			logger.info(saviePlanDetails.getInsuredAmount());
 			model.addAttribute("sliderMin", "30000");
 			String sliderValue = "100000";
 			if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))>400000){
 				model.addAttribute("sliderMax", "400000");
 				if (request.getSession().getAttribute("saviePlanDetails")!=null){
-					sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
+					sliderValue = saviePlanDetails.getInsuredAmount();
 				}
 			} else {
 				model.addAttribute("sliderMax", savieFna.getQ4_b_amount().replace(",", ""));
 				if (request.getSession().getAttribute("saviePlanDetails")!=null) {
-					if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))<=Integer.parseInt(((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount())){
+					if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))<=Integer.parseInt(saviePlanDetails.getInsuredAmount())){
 						sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 					} else {
-						sliderValue = ((SaviePlanDetailsBean)request.getSession().getAttribute("saviePlanDetails")).getInsuredAmount();
+						sliderValue = saviePlanDetails.getInsuredAmount();
 					}
 				} else {
 					sliderValue = savieFna.getQ4_b_amount().replace(",", "");
 				}
 			}
-			logger.info(sliderValue);
-			model.addAttribute("sliderValue", sliderValue);
+			logger.info(sliderValue.replace(",", ""));
+			model.addAttribute("sliderValue", sliderValue.replace(",", ""));
 			defaultDOB.setTime(date1);
 		}else if("3".equals(type)){
 			model.addAttribute("type", type);

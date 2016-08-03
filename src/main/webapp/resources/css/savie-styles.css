@@ -9934,6 +9934,12 @@ select::-ms-value {
 	font-family: 'Calibri';
 	white-space: normal;
 }
+
 .cover-carousel-arrow{
 	z-index: 2;
+}
+
+/* Added on 20160803 */
+a.to-orange{
+	color: #ff8200;
 }

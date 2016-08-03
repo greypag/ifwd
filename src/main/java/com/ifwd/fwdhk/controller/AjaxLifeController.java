@@ -83,6 +83,7 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetails"})
 	public void lifePersonalDetails(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -94,11 +95,33 @@ public class AjaxLifeController extends BaseController{
 			lifePersonalDetails.validate(language);
 			savieOnlineService.getSavieApplicationByHkId(lifePersonalDetails.getHkid(), request);
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
+			
+			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
+			
+			int amount = Integer.valueOf(saviePlanDetails.getInsuredAmount());
+			String saviePlan = "";
+			if("SP".equals(saviePlanDetails.getPaymentType())){
+				if(amount>=200000) {
+					saviePlan="1";
+				}
+				else if(amount<200000) {
+					saviePlan="2";
+				}
+			}
+		    else if("RP".equals(saviePlanDetails.getPaymentType())){
+					saviePlan="3";
+			}
+			JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
+			logger.info(jsonObject2.toJSONString());
+			int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+			saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+			saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+			
+			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
-		} 
-		catch (ECOMMAPIException e) {
+		} catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		logger.info(jsonObject.toString());
@@ -317,6 +340,23 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	//Begin ---HKID discount ---by John Huang
+	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscount"})
+	public void getSavieHkidDiscount(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getSavieHkidDiscount(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}	
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})
 	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
@@ -488,7 +528,7 @@ public class AjaxLifeController extends BaseController{
 				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				savieOnlineService.getProductrRecommend(savieFna, request);
 				SaviePlanDetailsBean saviePlanDetails = new SaviePlanDetailsBean();
-				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString());
+				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString().replace(",", ""));
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
@@ -502,6 +542,7 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
@@ -759,4 +800,20 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscountByHkIdPlan"})
+	public void getSavieHkidDiscountByHkIdPlan(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getSavieHkidDiscountByHkIdPlanAll(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}	
 }

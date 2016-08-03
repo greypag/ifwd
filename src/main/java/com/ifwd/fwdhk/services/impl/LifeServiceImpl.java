@@ -496,6 +496,7 @@ public class LifeServiceImpl implements LifeService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 		String lang = UserRestURIConstants.getLanaguage(request);
 		
 		String bankName = "";
@@ -703,7 +704,18 @@ public class LifeServiceImpl implements LifeService {
 	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
 	    }
 	    
-	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    String limitForEachPayment = "SavieOnlineApplicationForm";
+	    String pdfName = "SavieOnlineApplicationForm";
+	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
+	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
+	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
+	    	pdfName = "SavieOnlineApplicationFormDiscound";
+	    }else{
+	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
+	    }
+	    
+	    //attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    attributeList.add(new PdfAttribute("LimitForEachPayment", limitForEachPayment));
 	    attributeList.add(new PdfAttribute("ExpiryDate", "N/A"));
 	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getLastname()+" "+lifePersonalDetails.getFirstname()));
 	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid().toUpperCase()));
@@ -726,7 +738,7 @@ public class LifeServiceImpl implements LifeService {
 			attributeList.add(new PdfAttribute("authSign", path,"imagepath"));
 		}
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+"SavieOnlineApplicationForm.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/template/"+ pdfName +".pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
@@ -1509,6 +1521,14 @@ public class LifeServiceImpl implements LifeService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
 	}
+	
+	public JSONObject getSavieHkidDiscount(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+
 	
 	public void contactCs(HttpServletRequest request) throws ECOMMAPIException{
 		String Url = UserRestURIConstants.SAVIE_CONTACT_CS;
@@ -3675,7 +3695,6 @@ public class LifeServiceImpl implements LifeService {
 		}
 	}
 	
-	
 	/**
 	 * 获取日期最早的服务中心
 	 * @param arr
@@ -3718,5 +3737,27 @@ public class LifeServiceImpl implements LifeService {
 				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 			}
 		}
+	}
+
+	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException{
+		String hkId = request.getParameter("hkId");
+		String saviePlan = request.getParameter("saviePlan");
+		
+		String Url="";
+		if (saviePlan==null||"".equals(saviePlan)){
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId;
+		} else{
+			Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		}
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getSavieHkidDiscountByHkIdPlan(String hkId, String saviePlan,HttpServletRequest request) throws ECOMMAPIException{
+		String 	Url = UserRestURIConstants.GET_SAVIE_HKID_DISCOUNT_BY_HKID_PLAN + "?hkId="+hkId +"&saviePlan="+saviePlan;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
 	}
 }
