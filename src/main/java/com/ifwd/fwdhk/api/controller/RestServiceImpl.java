@@ -16,7 +16,10 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -24,8 +27,10 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -327,12 +332,26 @@ public class RestServiceImpl implements RestServiceDao {
 		JSONObject responseJsonObj = new JSONObject();
 		try {
 
-			CloseableHttpClient restClient = (HttpClientBuilder.create()).build();
+			//CloseableHttpClient restClient = (HttpClientBuilder.create()).build();
+			CloseableHttpClient restClient = null;
 			HttpPost postMehod = new HttpPost();
 			
-			HttpHost proxy = new HttpHost("10.12.251.5", 8080, "http");  
-	        RequestConfig config = RequestConfig.custom().setProxy(proxy).build(); 
-	        postMehod.setConfig(config);
+			
+			
+			
+			final CredentialsProvider credsProvider = new BasicCredentialsProvider();
+            final UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("username", "password");
+            credsProvider.setCredentials(new AuthScope(null, -1), credentials);
+            
+            //HttpClientBuilder httpClientBldr = HttpClients.custom();
+            HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+            HttpHost proxy = new HttpHost("10.12.251.5", Integer.parseInt("8080"));
+            clientBuilder.setDefaultCredentialsProvider(credsProvider).setProxy(proxy);
+            restClient = clientBuilder.build();
+			
+			//HttpHost proxy = new HttpHost("10.12.251.5", 8080, "http");  
+	        //RequestConfig config = RequestConfig.custom().setProxy(proxy).build(); 
+	        //postMehod.setConfig(config);
 			
 			URI uri = new URI(url);
 			postMehod.setURI(uri);

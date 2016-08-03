@@ -10,4 +10,6 @@ public interface PaymentService {
 	public JSONObject getPaymentStatus(String merTradeNo);
 	
 	public TapAndGoPaymentStatusQueryResponse tapAndGoQueryByOrderReference(String merTradeNo) throws PaymentQueryException;
+	
+	public JSONObject tapAndGoPaymentStatusAPI(String merTradeNo);
 }

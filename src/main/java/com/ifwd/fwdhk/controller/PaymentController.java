@@ -160,13 +160,14 @@ public class PaymentController extends BaseController {
 	@RequestMapping(value = { "/getPaymentStatus" })
 	@ResponseBody
 	public JSONObject getPaymentInfo(HttpServletRequest request,HttpServletResponse response){
-		JSONObject jsonObject = new JSONObject();
+		//JSONObject jsonObject = new JSONObject();
 		String merTradeNo = request.getParameter("merTradeNo");
 		
 		//JSONObject jsonObject = paymentService.getPaymentStatus(merTradeNo);
-		TapAndGoPaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.tapAndGoQueryByOrderReference(merTradeNo);
+		JSONObject jsonObject = paymentService.tapAndGoPaymentStatusAPI(merTradeNo);
+		//TapAndGoPaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.tapAndGoQueryByOrderReference(merTradeNo);
 		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
-		logger.debug("*******payment status********: " + paymentStatusQueryResponse.toString());
+		logger.debug("*******payment status********: " + jsonObject.toString());
 		
 		return jsonObject;
 	}
