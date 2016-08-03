@@ -9933,3 +9933,8 @@ select::-ms-value {
 	font-family: 'Calibri';
 	white-space: normal;
 }
+
+/* Added on 20160803 */
+a.to-orange{
+	color: #ff8200;
+}

@@ -241,7 +241,7 @@ var language = "${language}";
 								<label for="payment_confirm_authorize_hkid"></label>
 								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /></p>
 							</div>
-							<span id="chkPolicyErMsg_hkid" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
+							<span id="chkPolicyErMsg_hkid" class="error-msg hidden"><fmt:message key="error.payment.tick.box.02" bundle="${msg}" /></span>
 						</c:if>
 					</div>
 				</form>
