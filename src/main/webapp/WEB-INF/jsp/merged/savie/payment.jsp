@@ -236,7 +236,7 @@ var language = "${language}";
 						<span id="chkPolicyErMsg" class="error-msg hidden"><fmt:message key="error.payment.tick.box" bundle="${msg}" /></span>
 						
 						<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='0'}">
-							<div class="form-group payment-policy-wrapper" id="has-err">
+							<div class="form-group payment-policy-wrapper" id="has-err-hkid">
 								<input type="checkbox" id="payment_confirm_authorize_hkid" name="payment_confirm_authorize_hkid">
 								<label for="payment_confirm_authorize_hkid"></label>
 								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /></p>
@@ -1005,12 +1005,12 @@ var language = "${language}";
 	 function validateChkbox(chkboxId, errMsgId) {
 		if(!$('#' + chkboxId).is(':checked')) {
 			$('#' + errMsgId).removeClass('hidden');
-			$('#has-err').attr('style', 'margin-bottom:0;');
+			$('#has-err, #has-err-hkid').attr('style', 'margin-bottom:0;');
 			$('#chkPolicyErMsg, #chkPolicyErMsg_hkid').attr('style', 'margin-bottom:35px;');
 			return false;
 		} else {
 			$('#' + errMsgId).addClass('hidden');
-			$('#has-err').attr('style', 'margin-bottom:35px;');
+			$('#has-err, #has-err-hkid').attr('style', 'margin-bottom:35px;');
 			$('#chkPolicyErMsg, #chkPolicyErMsg_hkid').attr('style', 'margin-bottom:0;');
 			return true;
 		}
