@@ -140,33 +140,33 @@ var home_url = "<%=request.getContextPath()%>";
 			        			</tr>
 			        			<tr>
 			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> ≥ <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
-			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 			        			</tr>
 			        			<tr>
 			        				<th><fmt:message key="savie.online.home.discount.table.th2" bundle="${msg}" /> &lt; <fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 200,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></th>
-			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 			        			</tr>
 			        			<tr>
 			        				<th><fmt:message key="savie.online.home.discount.table.th3" bundle="${msg}" /></th>
-			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
-			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        				<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 			        			</tr>
 			        		</table>
 			        		<div class="tbl-spd-mobile visible-xs clearfix">
@@ -204,31 +204,31 @@ var home_url = "<%=request.getContextPath()%>";
 					                        <td class="b7">7</td>
 					                    </tr>
 					                    <tr>
-					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					                    </tr>
 					                    <tr>
-					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+					        				<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 					                    </tr>
 					                    <tr>
-					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        						<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        						<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        						<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        						<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-			        						<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
-			        						<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+					                    	<td class="b1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b4"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b5"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+			        						<td class="b6"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+			        						<td class="b7"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 					                    </tr>
 					                </table>
 					            </div>
@@ -297,45 +297,45 @@ var home_url = "<%=request.getContextPath()%>";
 												</tr>
 												<tr>
 													<td>1</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c11"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c21"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c31"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>2</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c12"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c22"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c32"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>3</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c13"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c23"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c33"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>4</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c14"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c24"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c34"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>5</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c15"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c25"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c35"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 												</tr>
 												<tr>
 													<td>6</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c16"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c26"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c36"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 												</tr>
 												<tr>
 													<td>7</td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span id="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c17"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c27"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+													<td><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> <span class="c37"></span><fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /><sup>*</sup></td>
 												</tr>
 											</table>
 											<p class="remarks"><sup>*</sup> <fmt:message key="savie.online.home.discount.table.remarks" bundle="${msg}" /></p>
@@ -953,29 +953,29 @@ $(document).ready(function(){
 			if(data.errMsgs != null && data.errMsgs != ''){
 			}
 			else{
-				$("#c11").text(data.discounts[0].c1.replace(",",""));
-				$("#c12").text(data.discounts[0].c2.replace(",",""));
-				$("#c13").text(data.discounts[0].c3.replace(",",""));
-				$("#c14").text(data.discounts[0].c4.replace(",",""));
-				$("#c15").text(data.discounts[0].c5.replace(",",""));
-				$("#c16").text(data.discounts[0].c6.replace(",",""));
-				$("#c17").text(data.discounts[0].c7.replace(",",""));
+				$(".c11").text(data.discounts[0].c1);
+				$(".c12").text(data.discounts[0].c2);
+				$(".c13").text(data.discounts[0].c3);
+				$(".c14").text(data.discounts[0].c4);
+				$(".c15").text(data.discounts[0].c5);
+				$(".c16").text(data.discounts[0].c6);
+				$(".c17").text(data.discounts[0].c7);
 
-				$("#c21").text(data.discounts[1].c1.replace(",",""));
-				$("#c22").text(data.discounts[1].c2.replace(",",""));
-				$("#c23").text(data.discounts[1].c3.replace(",",""));
-				$("#c24").text(data.discounts[1].c4.replace(",",""));
-				$("#c25").text(data.discounts[1].c5.replace(",",""));
-				$("#c26").text(data.discounts[1].c6.replace(",",""));
-				$("#c27").text(data.discounts[1].c7.replace(",",""));
+				$(".c21").text(data.discounts[1].c1);
+				$(".c22").text(data.discounts[1].c2);
+				$(".c23").text(data.discounts[1].c3);
+				$(".c24").text(data.discounts[1].c4);
+				$(".c25").text(data.discounts[1].c5);
+				$(".c26").text(data.discounts[1].c6);
+				$(".c27").text(data.discounts[1].c7);
 
-				$("#c31").text(data.discounts[2].c1.replace(",",""));
-				$("#c32").text(data.discounts[2].c2.replace(",",""));
-				$("#c33").text(data.discounts[2].c3.replace(",",""));
-				$("#c34").text(data.discounts[2].c4.replace(",",""));
-				$("#c35").text(data.discounts[2].c5.replace(",",""));
-				$("#c36").text(data.discounts[2].c6.replace(",",""));
-				$("#c37").text(data.discounts[2].c7.replace(",",""));
+				$(".c31").text(data.discounts[2].c1);
+				$(".c32").text(data.discounts[2].c2);
+				$(".c33").text(data.discounts[2].c3);
+				$(".c34").text(data.discounts[2].c4);
+				$(".c35").text(data.discounts[2].c5);
+				$(".c36").text(data.discounts[2].c6);
+				$(".c37").text(data.discounts[2].c7);
 			}
         },
 		error:function(){
