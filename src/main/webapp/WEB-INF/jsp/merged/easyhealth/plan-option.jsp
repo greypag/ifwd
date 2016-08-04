@@ -1706,6 +1706,9 @@ var ehPro = '${pro }';
                                     <c:if test="${backSummary == 'Y'}"><a href="javascript:void(0);" class="savie-common-btn" id="backSummary"><fmt:message key="button.back.summary" bundle="${msg}" /></a></c:if>
                                     <c:if test="${backSummary != 'Y'}"><a href="javascript:void(0);" class="savie-common-btn" id="btnLoginApply"><fmt:message key="easyhealth.plandetails.login" bundle="${msg}" /></a></c:if>
                                 </div>
+                                <div class="text-center">
+                                	<a href="<%=request.getContextPath()%>/${language}/medical-insurance/make-appointment" class="sub-link text-link-make-appointment"><fmt:message key="easyhealth.plandetails.cs" bundle="${msg}" /></a>
+                                </div>
                             </div>
                         </div>
                     </div>

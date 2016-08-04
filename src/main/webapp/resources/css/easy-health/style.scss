@@ -1034,6 +1034,12 @@ ol.lower-roman {
         }
         .plan-login {
             padding: 30px 0;
+
+            .savie-common-btn{
+                display:inline-block;
+            }
+
+
         }
     }
 }
@@ -1082,6 +1088,12 @@ ol.lower-roman {
 .savie-common-btn {
     padding: 13px 37px;
     max-width: 100%;
+}
+
+.text-link-make-appointment{
+    margin-top:10px;
+    display: inline-block;
+
 }
 
 table.tbl-esr{
