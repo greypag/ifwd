@@ -135,7 +135,7 @@ public class PaymentController extends BaseController {
 		//return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-return");
 	}
 	
-	
+/*	
 	@RequestMapping(value = { "/paymentNotify" })
 	public void paymentNotify(HttpServletRequest request) throws Exception {
 		String merTradeNo = request.getParameter("merTradeNo");
@@ -156,6 +156,9 @@ public class PaymentController extends BaseController {
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-status");
 	}
+*/	
+	
+	
 	
 	@RequestMapping(value = { "/getPaymentStatus" })
 	@ResponseBody
@@ -165,6 +168,31 @@ public class PaymentController extends BaseController {
 		
 		//JSONObject jsonObject = paymentService.getPaymentStatus(merTradeNo);
 		JSONObject jsonObject = paymentService.tapAndGoPaymentStatusAPI(merTradeNo);
+		
+		TapAndGoPaymentStatusQueryResponse result=new TapAndGoPaymentStatusQueryResponse();
+		if(jsonObject!=null)
+		{
+			JSONObject contentObject=(JSONObject) jsonObject.get("content");
+			
+			result.setChiMessage(contentObject.get("chiMessage").toString());
+			result.setEngMessage(contentObject.get("engMessage").toString());
+			result.setInternal(contentObject.get("internal").toString());
+			result.setResultCode(contentObject.get("resultCode").toString());
+			
+			JSONObject payloadObject=(JSONObject) contentObject.get("payload");
+			if(payloadObject!=null)
+			{
+				result.setMerTradeNo(payloadObject.get("merTradeNo").toString());
+				result.setTradeNo(payloadObject.get("tradeNo").toString());
+				result.setTradeStatus(payloadObject.get("tradeStatus").toString());
+			}
+				
+			
+			result.setSign(jsonObject.get("sign").toString());
+		}
+		
+	
+		
 		//TapAndGoPaymentStatusQueryResponse paymentStatusQueryResponse = paymentService.tapAndGoQueryByOrderReference(merTradeNo);
 		//paymentService.getPaymentStatus(APP_ID, merTradeNo, String.valueOf(timestamp), sign);
 		logger.debug("*******payment status********: " + jsonObject.toString());

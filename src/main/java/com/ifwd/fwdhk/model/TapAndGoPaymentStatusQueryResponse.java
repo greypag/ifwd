@@ -6,7 +6,10 @@ import org.apache.commons.lang3.StringUtils;
 public class TapAndGoPaymentStatusQueryResponse {
 	String resultCode;
 	
-	String message;
+	String chiMessage;
+	
+	String engMessage;
+	String internal;
 	
 	String merTradeNo;
 	
@@ -16,55 +19,105 @@ public class TapAndGoPaymentStatusQueryResponse {
 	
 	String sign;
 
+	
+	
 	public String getResultCode() {
 		return resultCode;
 	}
+
+
 
 	public void setResultCode(String resultCode) {
 		this.resultCode = resultCode;
 	}
 
-	public String getMessage() {
-		return message;
+
+
+	public String getChiMessage() {
+		return chiMessage;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+
+
+	public void setChiMessage(String chiMessage) {
+		this.chiMessage = chiMessage;
 	}
+
+
+
+	public String getEngMessage() {
+		return engMessage;
+	}
+
+
+
+	public void setEngMessage(String engMessage) {
+		this.engMessage = engMessage;
+	}
+
+
+
+	public String getInternal() {
+		return internal;
+	}
+
+
+
+	public void setInternal(String internal) {
+		this.internal = internal;
+	}
+
+
 
 	public String getMerTradeNo() {
 		return merTradeNo;
 	}
 
+
+
 	public void setMerTradeNo(String merTradeNo) {
 		this.merTradeNo = merTradeNo;
 	}
+
+
 
 	public String getTradeNo() {
 		return tradeNo;
 	}
 
+
+
 	public void setTradeNo(String tradeNo) {
 		this.tradeNo = tradeNo;
 	}
+
+
 
 	public String getTradeStatus() {
 		return tradeStatus;
 	}
 
+
+
 	public void setTradeStatus(String tradeStatus) {
 		this.tradeStatus = tradeStatus;
 	}
+
+
 
 	public String getSign() {
 		return sign;
 	}
 
+
+
 	public void setSign(String sign) {
 		this.sign = sign;
 	}
-	
-	public String toString(){
+
+
+
+	/*public String toString(){
 		String result = "";
 		
 		if(StringUtils.isNotBlank(this.resultCode)){
@@ -72,7 +125,7 @@ public class TapAndGoPaymentStatusQueryResponse {
 		}
 		
 		return result;
-	}
+	}*/
 	
 
 }
