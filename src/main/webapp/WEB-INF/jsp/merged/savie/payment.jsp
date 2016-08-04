@@ -97,14 +97,14 @@ var language = "${language}";
 									<div class="info-wrapper">
 										<p class="info-label"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></p>
 										<p class="info-value">
-											HK$ ${saviePlanDetails.insuredAmountDiscount}
+											HK$ <fmt:formatNumber value="${saviePlanDetails.insuredAmountDiscount}"/>
 											<input type="hidden" name="paymentAmountDiscount" value="${saviePlanDetails.insuredAmountDiscount}">
 										</p>
 									</div>
 									<div class="info-wrapper">
 										<p class="info-label"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></p>
 										<p class="info-value">
-											HK$ ${saviePlanDetails.insuredAmountDue}
+											HK$ <fmt:formatNumber value="${saviePlanDetails.insuredAmountDue}"/>
 											<input type="hidden" name="paymentAmountDue" value="${saviePlanDetails.insuredAmountDue}">
 										</p>
 									</div>
@@ -181,9 +181,9 @@ var language = "${language}";
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
 								</div>
-								<div class="form-group">
+								<div class="form-group payment-select-wrapper">
+									<p class="bank-info-select-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></p>
 									<div class="selectDiv centreDiv gray-text-bg">
-										<label class="mdl-textfield__label cstm-dropdown-label"><fmt:message key="placeholder.branch.name" bundle="${msg}" /></label>
 										<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
 											<option selected disabled value=""><fmt:message key="placeholder.branch.name" bundle="${msg}" /></option>
 											<c:if test="${language == 'en'}">
@@ -239,7 +239,12 @@ var language = "${language}";
 							<div class="form-group payment-policy-wrapper" id="has-err-hkid">
 								<input type="checkbox" id="payment_confirm_authorize_hkid" name="payment_confirm_authorize_hkid">
 								<label for="payment_confirm_authorize_hkid"></label>
-								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /></p>
+								
+								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" />
+									<a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.hkid.url" bundle="${msg}" />" target="_blank">
+										<fmt:message key="decleration.payment.policy.hkid.tc" bundle="${msg}" />
+									</a>
+								</p>
 							</div>
 							<span id="chkPolicyErMsg_hkid" class="error-msg hidden"><fmt:message key="error.payment.tick.box.02" bundle="${msg}" /></span>
 						</c:if>
@@ -516,7 +521,7 @@ var language = "${language}";
 		window.location.href= context + "/" + language + "/savings-insurance";
 	});
 	
-	$(document).ready(function() {	
+	$(document).ready(function() {
 		paymentFormValidation();
 		
 		//init next button text
