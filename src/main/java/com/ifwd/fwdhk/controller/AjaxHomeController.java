@@ -17,7 +17,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
-import com.ifwd.fwdhk.services.GAService;
+import com.ifwd.fwdhk.services.HomeService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
@@ -31,7 +31,7 @@ public class AjaxHomeController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@Autowired
-	private GAService gaService;
+	private HomeService homeService;
 	
 	@RequestMapping(value = {"/ajax/{plan}/processSummary"})
 	public void getQuote(@PathVariable("plan") String plan, @ModelAttribute("ef-form-application") HomeCareDetailsBean homeCareDetails,
@@ -41,9 +41,9 @@ public class AjaxHomeController extends BaseController{
 		}
 		JSONObject result = new JSONObject();
 		try {
-			CreatePolicy createdPolicy = gaService.createPolicy(plan, homeCareDetails, response, request);
+			CreatePolicy createdPolicy = homeService.createPolicy(plan, homeCareDetails, response, request);
 			if(createdPolicy.getErrMsgs() == null) {
-				result = gaService.confirmPolicy(plan, createdPolicy.getReferenceNo(), response, request);
+				result = homeService.confirmPolicy(plan, createdPolicy.getReferenceNo(), response, request);
 				
 			}else {
 				result.put("errMsgs", createdPolicy.getErrMsgs());
@@ -64,7 +64,7 @@ public class AjaxHomeController extends BaseController{
 		JSONObject result = new JSONObject();
 		String referenceNo = request.getParameter("referenceNo");
 		try {
-			result = gaService.SubmitPolicy(plan, referenceNo, response, request, session);
+			result = homeService.SubmitPolicy(plan, referenceNo, response, request, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,7 +78,7 @@ public class AjaxHomeController extends BaseController{
 			return;
 		}
 		try {
-			jsonObject = gaService.getHomeCareQuote(plan, request, session);
+			jsonObject = homeService.getHomeCareQuote(plan, request, session);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
