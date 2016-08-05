@@ -97,14 +97,14 @@ var language = "${language}";
 									<div class="info-wrapper">
 										<p class="info-label"><fmt:message key="placeholder.total.amount.discount" bundle="${msg}" /></p>
 										<p class="info-value">
-											HK$ <fmt:formatNumber value="${saviePlanDetails.insuredAmountDiscount}"/>
+											HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDiscount}"/>
 											<input type="hidden" name="paymentAmountDiscount" value="${saviePlanDetails.insuredAmountDiscount}">
 										</p>
 									</div>
 									<div class="info-wrapper">
 										<p class="info-label"><fmt:message key="placeholder.total.amount.due" bundle="${msg}" /></p>
 										<p class="info-value">
-											HK$ <fmt:formatNumber value="${saviePlanDetails.insuredAmountDue}"/>
+											HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDue}"/>
 											<input type="hidden" name="paymentAmountDue" value="${saviePlanDetails.insuredAmountDue}">
 										</p>
 									</div>
