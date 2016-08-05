@@ -824,10 +824,11 @@ public class LifeController extends BaseController{
 		String fnaFormJpgName = (String) request.getSession().getAttribute("fnaFormJpgName");
 		String salesIllustrationJpgName = (String) request.getSession().getAttribute("salesIllustrationJpgName");
 		
+		session.removeAttribute("hasPolicy");
 		if(StringUtils.isNotEmpty(policyNumber)){
 			try {
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
-				request.setAttribute("hasPolicy", "true");
+				session.setAttribute("hasPolicy", "true");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -902,7 +903,8 @@ public class LifeController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/{plan}/confirmation"})
-	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
+	public ModelAndView getSavieOnlineUploadConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request
+			,HttpSession session) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/"+plan);
@@ -933,6 +935,12 @@ public class LifeController extends BaseController{
 					}else {
 						savieOnlineService.sendEmails(request, "savieComplete", models);
 					}
+					
+					String policyNumber = (String)session.getAttribute("policyNumber");
+					if(policyNumber != null) {
+						savieOnlineService.finalizeLifePolicy(plan, request, session);
+					}
+					
 					request.getSession().setAttribute("sendEmailsYes", "sendEmailsYes");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -949,7 +957,8 @@ public class LifeController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/{plan}/confirmation-upload-later"})
-	public ModelAndView getSavieOnlineUploadLaterConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
+	public ModelAndView getSavieOnlineUploadLaterConfirmation(@PathVariable("plan") String plan,Model model, HttpServletRequest request,
+			HttpSession session) {
 		String userName = (String)request.getSession().getAttribute("username");
 		if(userName == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/" + plan);
@@ -992,6 +1001,9 @@ public class LifeController extends BaseController{
 				}else {
 					savieOnlineService.sendEmails(request, "uploadDocument", models);
 				}
+				
+				savieOnlineService.finalizeLifePolicy(plan, request, session);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.info(e.getMessage());

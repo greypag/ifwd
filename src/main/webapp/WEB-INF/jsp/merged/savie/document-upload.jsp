@@ -559,31 +559,6 @@ var languageP = "${language}";
 				// Uploading file validation
 				var up = true;
 				$('#updoc-complete-btn').on('click', function(e) {
-					
-					<%
-					String hasPolicy = (String)request.getAttribute("hasPolicy");
-					if(hasPolicy == null) {
-					%>
-					$.ajax({     
-					    url:context+'/ajax/savings-insurance/finalizeLifePolicy',
-					    type:'post',     
-					    data:{    
-					        "plan":"${plan }"
-				   		},     
-					    error:function(){       
-					    },     
-					    success:function(data){
-					    	if(data.errMsgs == null){
-								window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow2}';
-					    	}else {
-					    		
-					    	}
-					    }  
-					});
-					<%
-					}
-					%>
-					
 					if($("input[name='upload']:checked").val()=="true"){
 						var $self = $(this);
 						var isValid = isHkidValidity($self);

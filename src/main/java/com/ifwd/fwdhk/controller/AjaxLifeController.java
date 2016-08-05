@@ -816,21 +816,4 @@ public class AjaxLifeController extends BaseController{
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
-	
-	@RequestMapping(value = {"/ajax/savings-insurance/finalizeLifePolicy"})
-	public void getFinalizeLifePolicy(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			String plan = request.getParameter("plan");
-			savieOnlineService.finalizeLifePolicy(plan ,request, session);
-		}
-		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", "api error");
-		}
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}	
 }
