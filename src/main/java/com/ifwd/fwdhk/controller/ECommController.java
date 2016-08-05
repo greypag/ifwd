@@ -40,6 +40,14 @@ public class ECommController extends BaseController {
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	
+	@RequestMapping(value = {"/{lang}/home-insurance"}, method = RequestMethod.GET)
+	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
+	{
+		RedirectView rv = new RedirectView("household-insurance/easy-home-care");
+		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
+		return rv;
+	}
+	
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) throws IOException {
