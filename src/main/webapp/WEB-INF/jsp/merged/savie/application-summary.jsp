@@ -615,13 +615,13 @@ var language = "${language}";
 						<c:if test="${saviePlanDetails.insuredAmountDiscount!=null && saviePlanDetails.insuredAmountDiscount!='0'}">
 							<div class="form-group application-summ">
 								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="amountDiscount" name="amountDiscount" value="HK$ ${saviePlanDetails.insuredAmountDiscount}" readonly="readonly" />
+									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="amountDiscount" name="amountDiscount" value="HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDiscount}"/>" readonly="readonly" />
 									<label class="mdl-textfield__label" for="amountDiscount"><fmt:message key="placeholder.amount.discount" bundle="${msg}" /></label>
 								</div>
 							</div>
 							<div class="form-group application-summ">
 								<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
-									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="amountDue" name="amountDue" value="HK$ ${saviePlanDetails.insuredAmountDue}" readonly="readonly" />
+									<input class="mdl-textfield__input so-mdl-textfield-input" type="text" autocomplete="off" id="amountDue" name="amountDue" value="HK$ <fmt:formatNumber pattern="#,###" value="${saviePlanDetails.insuredAmountDue}"/>" readonly="readonly" />
 									<label class="mdl-textfield__label" for="amountDue"><fmt:message key="placeholder.amount.due" bundle="${msg}" /></label>
 								</div>
 							</div>
