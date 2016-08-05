@@ -161,7 +161,7 @@ public class InitApplicationMessage implements ApplicationListener{
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ContextStartedEvent || event instanceof ContextRefreshedEvent) {
-			//init(commonUtils,"start",connector,application);   //modify by ryan
+			init(commonUtils,"start",connector,application); 
 		}
 	}
 
