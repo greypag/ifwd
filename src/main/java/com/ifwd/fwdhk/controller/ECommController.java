@@ -51,14 +51,19 @@ public class ECommController extends BaseController {
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) throws IOException {
+		
+		if (action.contains("utm_source")||action.contains("utm_medium")||action.contains("utm_campaign")){
+			action=action.substring(0,action.indexOf("?"));
+			
+		}
 		if (!action.toLowerCase().contains("/tc/") && !action.toLowerCase().contains("/en/") && !action.contains("joinus") && !action.contains("/error/")) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
 			return null;
 		} 
-		//else if (action.contains(".") && !action.contains("/error/")) {   //change by ryan 
-		//	response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
-		//	return null;
-		//} 
+		else if (action.contains(".") && !action.contains("/error/")) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
+			return null;
+		} 
 		else {
 			HttpSession session = request.getSession();
 			String viewName = "";
