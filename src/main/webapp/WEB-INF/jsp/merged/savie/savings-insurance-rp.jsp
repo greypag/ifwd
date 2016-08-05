@@ -953,29 +953,29 @@ $(document).ready(function(){
 			if(data.errMsgs != null && data.errMsgs != ''){
 			}
 			else{
-				$(".c11").text(data.discounts[0].c1);
-				$(".c12").text(data.discounts[0].c2);
-				$(".c13").text(data.discounts[0].c3);
-				$(".c14").text(data.discounts[0].c4);
-				$(".c15").text(data.discounts[0].c5);
-				$(".c16").text(data.discounts[0].c6);
-				$(".c17").text(data.discounts[0].c7);
+				$(".c11").text(fmoney(data.discounts[0].c1));
+				$(".c12").text(fmoney(data.discounts[0].c2));
+				$(".c13").text(fmoney(data.discounts[0].c3));
+				$(".c14").text(fmoney(data.discounts[0].c4));
+				$(".c15").text(fmoney(data.discounts[0].c5));
+				$(".c16").text(fmoney(data.discounts[0].c6));
+				$(".c17").text(fmoney(data.discounts[0].c7));
 
-				$(".c21").text(data.discounts[1].c1);
-				$(".c22").text(data.discounts[1].c2);
-				$(".c23").text(data.discounts[1].c3);
-				$(".c24").text(data.discounts[1].c4);
-				$(".c25").text(data.discounts[1].c5);
-				$(".c26").text(data.discounts[1].c6);
-				$(".c27").text(data.discounts[1].c7);
+				$(".c21").text(fmoney(data.discounts[1].c1));
+				$(".c22").text(fmoney(data.discounts[1].c2));
+				$(".c23").text(fmoney(data.discounts[1].c3));
+				$(".c24").text(fmoney(data.discounts[1].c4));
+				$(".c25").text(fmoney(data.discounts[1].c5));
+				$(".c26").text(fmoney(data.discounts[1].c6));
+				$(".c27").text(fmoney(data.discounts[1].c7));
 
-				$(".c31").text(data.discounts[2].c1);
-				$(".c32").text(data.discounts[2].c2);
-				$(".c33").text(data.discounts[2].c3);
-				$(".c34").text(data.discounts[2].c4);
-				$(".c35").text(data.discounts[2].c5);
-				$(".c36").text(data.discounts[2].c6);
-				$(".c37").text(data.discounts[2].c7);
+				$(".c31").text(fmoney(data.discounts[2].c1));
+				$(".c32").text(fmoney(data.discounts[2].c2));
+				$(".c33").text(fmoney(data.discounts[2].c3));
+				$(".c34").text(fmoney(data.discounts[2].c4));
+				$(".c35").text(fmoney(data.discounts[2].c5));
+				$(".c36").text(fmoney(data.discounts[2].c6));
+				$(".c37").text(fmoney(data.discounts[2].c7));
 			}
         },
 		error:function(){

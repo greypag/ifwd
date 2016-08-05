@@ -114,8 +114,8 @@ public class AjaxLifeController extends BaseController{
 			JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
 			logger.info(jsonObject2.toJSONString());
 			int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
-			saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
-			saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+			saviePlanDetails.setInsuredAmountDiscount(NumberFormatUtils.formatNumber(String.valueOf(dis)));
+			saviePlanDetails.setInsuredAmountDue(NumberFormatUtils.formatNumber(String.valueOf(amount-dis)));
 			
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
