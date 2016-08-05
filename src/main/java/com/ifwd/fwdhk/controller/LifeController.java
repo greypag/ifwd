@@ -827,6 +827,7 @@ public class LifeController extends BaseController{
 		if(StringUtils.isNotEmpty(policyNumber)){
 			try {
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
+				request.setAttribute("hasPolicy", "true");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -870,13 +871,13 @@ public class LifeController extends BaseController{
 			}
 			else{
 				JSONObject jsonObject = new JSONObject();
-				try {
+				/*try {
 					savieOnlineService.finalizeLifePolicy(plan, request, session);
 				}
 				catch (ECOMMAPIException e) {
 				}
 				catch (Exception e) {
-				}
+				}*/
 				if("savings-insurance".equals(plan)){
 					try {
 						savieOnlineService.uploadSavieOnlineDocument(request);

@@ -31,7 +31,7 @@ public class PDFToImages {
 	        int[] imgArray = new int[width * height];
 	        BufferedImage imgNew = new BufferedImage(width, height * files.length, BufferedImage.TYPE_INT_RGB);
 	        for (int i = 0; i < imgs.length; i++) {
-	            imgs[i].getRGB(0, 0, width, height, imgArray, 0, width);
+	            imgs[i].getRGB(0, 0, imgs[i].getWidth(), imgs[i].getHeight(), imgArray, 0, imgs[i].getWidth());
 	            imgNew.setRGB(0, height * i, width, height, imgArray, 0, width);
 	        }
 	        File outFile = new File(path + newFileName);
