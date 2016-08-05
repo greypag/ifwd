@@ -54,10 +54,12 @@ public class ECommController extends BaseController {
 		if (!action.toLowerCase().contains("/tc/") && !action.toLowerCase().contains("/en/") && !action.contains("joinus") && !action.contains("/error/")) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
 			return null;
-		} else if (action.contains(".") && !action.contains("/error/")) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
-			return null;
-		} else {
+		} 
+		//else if (action.contains(".") && !action.contains("/error/")) {   //change by ryan 
+		//	response.sendError(HttpServletResponse.SC_BAD_REQUEST);			
+		//	return null;
+		//} 
+		else {
 			HttpSession session = request.getSession();
 			String viewName = "";
 			
