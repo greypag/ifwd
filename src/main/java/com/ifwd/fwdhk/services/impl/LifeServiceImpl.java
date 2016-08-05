@@ -704,7 +704,7 @@ public class LifeServiceImpl implements LifeService {
 	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
 	    }
 	    
-	    String limitForEachPayment = "SavieOnlineApplicationForm";
+	    String limitForEachPayment = "";
 	    String pdfName = "SavieOnlineApplicationForm";
 	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
