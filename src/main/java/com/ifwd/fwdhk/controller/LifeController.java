@@ -162,7 +162,7 @@ public class LifeController extends BaseController{
 			date1 = DateApi.formatDate(savieFna.getDob());
 			
 			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) request.getSession().getAttribute("saviePlanDetails");
-			logger.info(saviePlanDetails.getInsuredAmount());
+			//logger.info(saviePlanDetails.getInsuredAmount());
 			model.addAttribute("sliderMin", "30000");
 			String sliderValue = "100000";
 			if (Integer.parseInt(savieFna.getQ4_b_amount().replace(",", ""))>400000){
