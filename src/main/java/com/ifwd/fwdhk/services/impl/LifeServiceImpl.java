@@ -709,7 +709,7 @@ public class LifeServiceImpl implements LifeService {
 	    if(StringUtils.isNotBlank(saviePlanDetails.getInsuredAmountDiscount()) && Integer.valueOf(saviePlanDetails.getInsuredAmountDiscount()) > 0){
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDue()) + " (Discounted 已扣減 " + 
 	    						NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmountDiscount()) + " )";
-	    	pdfName = "SavieOnlineApplicationFormDiscound";
+	    	pdfName = "SavieOnlineApplicationFormDiscount";
 	    }else{
 	    	limitForEachPayment = NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount());
 	    }
