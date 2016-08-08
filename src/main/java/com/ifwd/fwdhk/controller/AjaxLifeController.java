@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.PolicyApplication;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -527,9 +528,34 @@ public class AjaxLifeController extends BaseController{
 				savieOnlineService.getFna(request);
 				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				savieOnlineService.getProductrRecommend(savieFna, request);
+				
+				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
+				HttpSession session = request.getSession();
+				int amount = Integer.valueOf(request.getSession().getAttribute("amount").toString().replace(",", ""));
+				String saviePlan = "";
+				String savieType = (String)session.getAttribute("savieType");
+				if("SP".equals(savieType)){
+					if(amount>=200000) {
+						saviePlan="1";
+					}
+					else if(amount<200000) {
+						saviePlan="2";
+					}
+				}
+			    else if("RP".equals(savieType)){
+						saviePlan="3";
+				}
+				
+				JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
+				logger.info(jsonObject2.toJSONString());
+				int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+				
+				
 				SaviePlanDetailsBean saviePlanDetails = new SaviePlanDetailsBean();
 				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString().replace(",", ""));
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
+				saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
