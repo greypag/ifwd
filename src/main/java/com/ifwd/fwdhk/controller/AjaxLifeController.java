@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -529,33 +530,36 @@ public class AjaxLifeController extends BaseController{
 				SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 				savieOnlineService.getProductrRecommend(savieFna, request);
 				
-				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
-				HttpSession session = request.getSession();
-				int amount = Integer.valueOf(request.getSession().getAttribute("amount").toString().replace(",", ""));
-				String saviePlan = "";
-				String savieType = (String)session.getAttribute("savieType");
-				if("SP".equals(savieType)){
-					if(amount>=200000) {
-						saviePlan="1";
-					}
-					else if(amount<200000) {
-						saviePlan="2";
-					}
-				}
-			    else if("RP".equals(savieType)){
-						saviePlan="3";
-				}
-				
-				JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
-				logger.info(jsonObject2.toJSONString());
-				int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
-				
-				
 				SaviePlanDetailsBean saviePlanDetails = new SaviePlanDetailsBean();
+				PolicyApplication policyApplication = apiResponse.getPolicyApplication();
+				
+				if(StringUtils.hasText(policyApplication.getApplicantHkId())) {
+					HttpSession session = request.getSession();
+					int amount = Integer.valueOf(request.getSession().getAttribute("amount").toString().replace(",", ""));
+					String saviePlan = "";
+					String savieType = (String)session.getAttribute("savieType");
+					if("SP".equals(savieType)){
+						if(amount>=200000) {
+							saviePlan="1";
+						}
+						else if(amount<200000) {
+							saviePlan="2";
+						}
+					}
+					else if("RP".equals(savieType)){
+						saviePlan="3";
+					}
+					
+					JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
+					logger.info(jsonObject2.toJSONString());
+					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+					saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+				}
+				
+				
 				saviePlanDetails.setInsuredAmount(request.getSession().getAttribute("amount").toString().replace(",", ""));
 				saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
-				saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
-				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
 				saviePlanDetails.setPaymentType("SP");
 				saviePlanDetails.setDob(savieFna.getDob());
 				savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, request.getSession());
