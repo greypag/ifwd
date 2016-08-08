@@ -150,9 +150,6 @@ public class AjaxAnnualTravelController {
 		HttpSession session = request.getSession();
 		JSONObject returnJson = new JSONObject();
 		
-		String paymentMethod = request.getParameter("selectedPaymentType");
-		session.setAttribute("paymentMethod", paymentMethod);
-		
 		String appId = UserRestURIConstants.APP_ID;
 		String merTradeNo = (String)session.getAttribute("transNo");
 		String paymentType = "S";
