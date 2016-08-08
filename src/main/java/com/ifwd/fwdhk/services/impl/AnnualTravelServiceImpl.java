@@ -663,7 +663,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			JSONObject responsObject = new JSONObject();
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			String paymentMethod = (String)session.getAttribute("paymentMethod");
-			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "".equals("tg")){
+			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
 				paymentMethod = "TapNGo";
 			}else{
 				paymentMethod = "CC";

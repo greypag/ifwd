@@ -559,6 +559,15 @@ public class AnnualTravelController {
 		JSONObject parameters = new JSONObject();
 		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
 		model.addAttribute("referenceNo", referenceNo);
+		
+		String paymentMethod = (String)session.getAttribute("paymentMethod");
+		if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
+			paymentMethod = "TapNGo";
+		}else{
+			paymentMethod = "CC";
+		}
+		
+		parameters.put("paymentMethod", paymentMethod);
 		parameters.put("referenceNo", referenceNo);
 		parameters.put("transactionNumber", session.getAttribute("transNo"));
 		parameters.put("transactionDate", session.getAttribute("transactionDate"));
