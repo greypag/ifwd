@@ -960,6 +960,13 @@ public class TravelController {
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "1");
+			String paymentMethod = (String)session.getAttribute("paymentMethod");
+			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
+				paymentMethod = "TapNGo";
+			}else{
+				paymentMethod = "CC";
+			}
+			parameters.put("paymentMethod", paymentMethod);
 			
 			if (creditCardNo !=null) { 
 				try {
