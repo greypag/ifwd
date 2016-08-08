@@ -936,8 +936,8 @@ public class LifeController extends BaseController{
 						savieOnlineService.sendEmails(request, "savieComplete", models);
 					}
 					
-					String policyNumber = (String)session.getAttribute("policyNumber");
-					if(policyNumber != null) {
+					String hasPolicy = (String)session.getAttribute("hasPolicy");
+					if(hasPolicy == null) {
 						savieOnlineService.finalizeLifePolicy(plan, request, session);
 					}
 					
