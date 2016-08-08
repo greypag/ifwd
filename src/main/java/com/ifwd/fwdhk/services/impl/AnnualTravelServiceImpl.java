@@ -677,8 +677,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
-			parameters.put("paymentMethod", paymentMethod);
 			parameters.put("paymentFail", "1");
+			parameters.put("paymentMethod", paymentMethod);
 			
 			if (creditCardNo !=null) { 
 				try {

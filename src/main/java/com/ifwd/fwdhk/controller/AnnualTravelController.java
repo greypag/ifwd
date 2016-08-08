@@ -567,11 +567,11 @@ public class AnnualTravelController {
 			paymentMethod = "CC";
 		}
 		
-		parameters.put("paymentMethod", paymentMethod);
 		parameters.put("referenceNo", referenceNo);
 		parameters.put("transactionNumber", session.getAttribute("transNo"));
 		parameters.put("transactionDate", session.getAttribute("transactionDate"));
 		parameters.put("paymentFail", "0");
+		parameters.put("paymentMethod", paymentMethod);
 		
 		String creditCardNo = (String)session.getAttribute("creditCardNo");
 		
