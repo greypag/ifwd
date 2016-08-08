@@ -26,26 +26,13 @@ public class PDFToImages {
 	        for (int i = 0; i < files.length; i++) {
 	            imgs[i] = ImageIO.read(files[i]);
 	        }
-	        
-	        int tWidth = imgs[0].getWidth();
-	        int tHeight = 0;
-	        
+	        int width = imgs[0].getWidth();
+	        int height = imgs[0].getHeight();
+	        int[] imgArray = new int[width * height];
+	        BufferedImage imgNew = new BufferedImage(width, height * files.length, BufferedImage.TYPE_INT_RGB);
 	        for (int i = 0; i < imgs.length; i++) {
-	        	tHeight += imgs[i].getHeight();
-	        }
-	        
-	        BufferedImage imgNew = new BufferedImage(tWidth, tHeight, BufferedImage.TYPE_INT_RGB);
-	        
-	        int mHeight = 0;
-	        for (int i = 0; i < imgs.length; i++) {
-	        	int width = imgs[i].getWidth();
-		        int height = imgs[i].getHeight();
-		        if(i>0){
-		        	mHeight += imgs[i-1].getHeight();
-		        }
-	        	int[] imgArray = new int[width * height];
 	            imgs[i].getRGB(0, 0, width, height, imgArray, 0, width);
-	            imgNew.setRGB(0, mHeight, width, height, imgArray, 0, width);
+	            imgNew.setRGB(0, height * i, width, height, imgArray, 0, width);
 	        }
 	        File outFile = new File(path + newFileName);
 	        ImageIO.write(imgNew, "jpg", outFile);// 写图片
