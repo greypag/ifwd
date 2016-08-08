@@ -948,6 +948,13 @@ public class TravelController {
 			JSONObject responsObject = new JSONObject();
 			//String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
+			String paymentMethod = (String)session.getAttribute("paymentMethod");
+			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
+				paymentMethod = "TapNGo";
+			}else{
+				paymentMethod = "CC";
+			}
+			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());
@@ -960,12 +967,6 @@ public class TravelController {
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "1");
-			String paymentMethod = (String)session.getAttribute("paymentMethod");
-			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
-				paymentMethod = "TapNGo";
-			}else{
-				paymentMethod = "CC";
-			}
 			parameters.put("paymentMethod", paymentMethod);
 			
 			if (creditCardNo !=null) { 
@@ -1893,6 +1894,14 @@ public class TravelController {
 		
 		JSONObject parameters = new JSONObject();
 		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+		
+		String paymentMethod = (String)session.getAttribute("paymentMethod");
+		if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
+			paymentMethod = "TapNGo";
+		}else{
+			paymentMethod = "CC";
+		}
+		
 		model.addAttribute("referenceNo", referenceNo);
 		parameters.put("referenceNo", referenceNo);
 		parameters
@@ -1900,6 +1909,7 @@ public class TravelController {
 		parameters.put("transactionDate",
 				session.getAttribute("transactionDate"));
 		parameters.put("paymentFail", "0");
+		parameters.put("paymentMethod", paymentMethod);
 		
 		String creditCardNo = (String)session.getAttribute("creditCardNo");
 		String dueAmount = (String)session.getAttribute("dueAmount");
