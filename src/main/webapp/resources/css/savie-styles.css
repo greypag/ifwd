@@ -9936,7 +9936,7 @@ select::-ms-value {
 }
 
 .cover-carousel-arrow{
-	z-index: 2;
+	/*z-index: 2;*/
 }
 
 /* Added on 20160803 */
