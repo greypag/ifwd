@@ -60,11 +60,10 @@ var clicked = false;
 	        }else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
 	        		//window.open(tapAndGoUrl, '_blank');
 	        		var method = "<%=request.getContextPath()%>/ajax/annualTravel/caculateTgPaymentInfo";
-	        		var referenceNo = $('#referenceNo').val();
 	        		$.ajax({
                         type : "POST",
                         url : method,
-                        data : {"referenceNo":referenceNo},
+                        data : {"selectedPaymentType":selectedPaymentType},
                         async : false,
                         success : function(data) {
                         	clicked = false;

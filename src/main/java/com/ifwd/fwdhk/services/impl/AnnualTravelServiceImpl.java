@@ -662,6 +662,12 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			String paymentMethod = (String)session.getAttribute("paymentMethod");
+			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "".equals("tg")){
+				paymentMethod = "TapNGo";
+			}else{
+				paymentMethod = "CC";
+			}
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -671,6 +677,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
+			parameters.put("paymentMethod", paymentMethod);
 			parameters.put("paymentFail", "1");
 			
 			if (creditCardNo !=null) { 
