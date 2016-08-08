@@ -146,7 +146,7 @@ var languageP = "${language}";
 						</ul>
 						<div class="fna-carousel" id="so-carousel">
 							<div class="tab-content">
-								<div role="tabpanel" class="cover-carousel-arrow fna-tab-content tab-pane active wow fadeIn" data-wow-delay="0s" id="navtabs-1">
+								<div role="tabpanel" class="fna-tab-content tab-pane active wow fadeIn" data-wow-delay="0s" id="navtabs-1">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-1.png" />
@@ -155,7 +155,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.support.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="cover-carousel-arrow fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-2">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-2">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-2.png" />
@@ -164,7 +164,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="cover-carousel-arrow fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-3">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-3">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-3.png" />
@@ -173,7 +173,7 @@ var languageP = "${language}";
 										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.claim.easy.link1" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.claim.easy.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy3" bundle="${msg}" /></p>
 									</div>
 								</div>
-								<div role="tabpanel" class="cover-carousel-arrow fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-4">
+								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-4">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/fna-4.png" />
@@ -443,12 +443,12 @@ var languageP = "${language}";
 						
 				if(getWidth() < 992) {
 					//console.log(getWidth());
-					$(window).scroll(function(){
-							setTimeout(function(){
-									if(!$(".wow.active").hasClass("animated")){$(".wow:not('.active')").removeClass("animated");new WOW().init();}
-								},100);
-						});
-						$(".navtabs-title").click(function(){$(window).scroll()});
+					//$(window).scroll(function(){
+					//		setTimeout(function(){
+					//				if(!$(".wow.active").hasClass("animated")){$(".wow:not('.active')").removeClass("animated//");new WOW().init();}
+					//			},100);
+					//	});
+					//	$(".navtabs-title").click(function(){$(window).scroll()});
 					$('.psa-btn').attr('data-toggle', 'collapse');
 					$('.psa-collapse-content').addClass('collapse');
 					$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
@@ -465,7 +465,7 @@ var languageP = "${language}";
                      $('.fna-tab-content').addClass('item');
                      
                      $('#so-carousel').on('slid.bs.carousel', function() {
-                    	 $(window).scroll();
+                    	 //$(window).scroll();
                          if($('#navtabs-1').hasClass('active')) {
                              $('.navtabs-li').removeClass('active');
                              $('#nav-title-1').addClass('active');
@@ -496,12 +496,12 @@ var languageP = "${language}";
 				}
 				$(window).resize(function() {
 					if(getWidth() < 992) {
-						$(window).scroll(function(){
-							setTimeout(function(){
-									if(!$(".wow.active").hasClass("animated")){$(".wow:not('.active')").removeClass("animated");new WOW().init();}
-								},100);
-						});
-						$(".navtabs-title").click(function(){$(window).scroll()});
+						//$(window).scroll(function(){
+						//	setTimeout(function(){
+						//			if(!$(".wow.active").hasClass("animated")){$(".wow:not('.active')").removeClass("animated//");new WOW().init();}
+						//		},100);
+						//});
+						//$(".navtabs-title").click(function(){$(window).scroll()});
 						$('.psa-btn').attr('data-toggle', 'collapse');
 						$('.psa-collapse-content').addClass('collapse');
 						$('.fna-tab-content').removeClass('col-lg-3 col-md-3 active');
@@ -517,7 +517,7 @@ var languageP = "${language}";
 	               $('.fna-tab-content').addClass('item');
 	               
 	               $('#so-carousel').on('slid.bs.carousel', function() {
-	            	   $(window).scroll();
+	            	   //$(window).scroll();
 	                   if($('#navtabs-1').hasClass('active')) {
 	                       $('.navtabs-li').removeClass('active');
 	                       $('#nav-title-1').addClass('active');
