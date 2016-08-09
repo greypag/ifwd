@@ -241,7 +241,7 @@ var home_url = "<%=request.getContextPath()%>";
 			        		</div>
 			        		<ul>
 			        			<li class="remarks grey"><fmt:message key="savie.online.home.discount.tnc1.prefix" bundle="${msg}" /> <b><u><fmt:message key="savie.online.home.discount.tnc1.highlight" bundle="${msg}" /></u></b> <fmt:message key="savie.online.home.discount.tnc1.suffix" bundle="${msg}" /></li>
-			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="javascript:void(0);" class="btn-spd-tnc"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
+			        			<li class="remarks"><fmt:message key="savie.online.home.discount.tnc2.prefix" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.hkid.url" bundle="${msg}" />" target="_blank"><fmt:message key="savie.online.home.discount.tnc2.linktext" bundle="${msg}" /></a><fmt:message key="savie.online.home.discount.tnc2.suffix" bundle="${msg}" /></li>
 			        		</ul>
 		        		</div>
 
