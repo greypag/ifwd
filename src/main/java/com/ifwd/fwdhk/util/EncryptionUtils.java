@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -11,6 +12,9 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+
+import sun.misc.BASE64Encoder;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
@@ -50,7 +54,16 @@ public class EncryptionUtils {
 		try {
 			Mac mac = Mac.getInstance(KEY_MAC);
 			mac.init(secretKey);
-			final byte[] macData = mac.doFinal(source.getBytes());
+			byte[] macData = null;
+			try {
+				macData = mac.doFinal(source.getBytes("utf-8"));
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//byte[] hex = new Hex().encode(macData);
 			//result = new String(hex, "ISO-8859-1");
 			result=Base64.encodeBase64String(macData);
@@ -62,6 +75,8 @@ public class EncryptionUtils {
 		}
 		return result;
 	}
+	
+	
 
 	
 }
