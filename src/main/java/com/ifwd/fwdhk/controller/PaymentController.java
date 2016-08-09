@@ -163,7 +163,8 @@ public class PaymentController extends BaseController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
-		header.put("language", "");
+		header.put("language", WebServiceUtils
+				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 
 		
 		JSONObject responsObject = new JSONObject();
