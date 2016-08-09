@@ -95,31 +95,35 @@ public class AjaxLifeController extends BaseController{
 		}
 		try {
 			lifePersonalDetails.validate(language);
-			savieOnlineService.getSavieApplicationByHkId(lifePersonalDetails.getHkid(), request);
-			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 			
 			SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
-			
-			int amount = Integer.valueOf(saviePlanDetails.getInsuredAmount());
-			String saviePlan = "";
-			if("SP".equals(saviePlanDetails.getPaymentType())){
-				if(amount>=200000) {
-					saviePlan="1";
+			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
+			if (saviePlanDetails != null) {
+				savieOnlineService.getSavieApplicationByHkId(lifePersonalDetails.getHkid(), request);
+				
+				
+				
+				int amount = Integer.valueOf(saviePlanDetails.getInsuredAmount());
+				String saviePlan = "";
+				if("SP".equals(saviePlanDetails.getPaymentType())){
+					if(amount>=200000) {
+						saviePlan="1";
+					}
+					else if(amount<200000) {
+						saviePlan="2";
+					}
 				}
-				else if(amount<200000) {
-					saviePlan="2";
+			    else if("RP".equals(saviePlanDetails.getPaymentType())){
+						saviePlan="3";
 				}
+				JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
+				logger.info(jsonObject2.toJSONString());
+				int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+				saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
+				
+				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 			}
-		    else if("RP".equals(saviePlanDetails.getPaymentType())){
-					saviePlan="3";
-			}
-			JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
-			logger.info(jsonObject2.toJSONString());
-			int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
-			saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
-			saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
-			
-			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());

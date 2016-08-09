@@ -889,6 +889,16 @@ public class LifeController extends BaseController{
 					catch (Exception e) {
 						jsonObject.put("errorMsg", e.getMessage());
 					}
+				} else {
+					try {
+						savieOnlineService.finalizeLifePolicy(plan, request, session);
+					}
+					catch (ECOMMAPIException e) {
+						e.printStackTrace();
+					}	
+					catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				model.addAttribute("plan", plan);
 				request.getSession().setAttribute("documentUploadYes", "documentUploadYes");
