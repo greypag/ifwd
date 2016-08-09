@@ -150,47 +150,23 @@ public class AjaxAnnualTravelController {
 		HttpSession session = request.getSession();
 		JSONObject returnJson = new JSONObject();
 		
-		String appId = UserRestURIConstants.APP_ID;
+		String appId = (String)session.getAttribute("tapNGoAppId");
 		String merTradeNo = (String)session.getAttribute("transNo");
 		String paymentType = "S";
 		String payload = "";
-		String sign = "";
-		
-		String path = request.getRequestURL().toString();
-		path = path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
-		logger.debug("path: "+ path);
-		JSONObject payloadObject = new JSONObject();
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
-		payloadObject.put("totalPrice", dueAmount);
-		payloadObject.put("currency", "HKD");
-		payloadObject.put("merTradeNo", merTradeNo);
-		payloadObject.put("notifyUrl", path+"paymentNotify");
-		payloadObject.put("returnUrl", path+"paymentReturn");
-		payloadObject.put("remark", "Single Merchant, web-based");
-		payloadObject.put("lang", "en");
-		
-		payload = payloadObject.toString();
-		try {
-			payload = EncryptionUtils.encryptByRSA(payload);
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			returnJson.put("errMsg", e.getMessage());
-		}
+		String sign = "";		
+		String payment="";
 		
 		
-		sign="appId="+appId;
-		//if(StringUtils.isNotEmpty(extras)) sign=sign+"&extras="+extras;
-		if(StringUtils.isNotEmpty(merTradeNo)) sign=sign+"&merTradeNo="+merTradeNo;
-		if(StringUtils.isNotEmpty(payload)) sign=sign+"&payload="+payload;
-		if(StringUtils.isNotEmpty(paymentType)) sign=sign+"&paymentType="+paymentType;
-		
-		sign=EncryptionUtils.encryptByHMACSHA512(sign);
-		
+		payload=(String)session.getAttribute("tapNGoPayload");
+		sign=(String)session.getAttribute("tapNGoSign");
+		payment=(String)session.getAttribute("tapNGoTransactionUrl");
 		returnJson.put("appId", appId);
 		returnJson.put("merTradeNo", merTradeNo);
 		returnJson.put("payload", payload);
 		returnJson.put("paymentType", paymentType);
 		returnJson.put("sign", sign);
+		returnJson.put("payment", payment);
 		
 		return returnJson;
 	}

@@ -15,10 +15,51 @@ public class CreatePolicy {
     private String transactionNo;
     private String secureHash;
     private String transactionDate;
+    
+    private String paymentGateway2;
+    private String tapNGoAppId;
+    private String tapNGoSign;
+    private String tapNGoTimeStamp;
+    private String tapNGoTransactionUrl;
+    private String tapNGoPayload;
+    private String tapNGoExtra;
+    
+
+    
    
    
    
-    public String getTransactionDate() {
+    public String getPaymentGateway2() {
+		return paymentGateway2;
+	}
+	public void setPaymentGateway2(String paymentGateway2) {
+		this.paymentGateway2 = paymentGateway2;
+	}
+	public String getTapNGoAppId() {
+		return tapNGoAppId;
+	}
+	public void setTapNGoAppId(String tapNGoAppId) {
+		this.tapNGoAppId = tapNGoAppId;
+	}
+	public String getTapNGoSign() {
+		return tapNGoSign;
+	}
+	public void setTapNGoSign(String tapNGoSign) {
+		this.tapNGoSign = tapNGoSign;
+	}
+	public String getTapNGoTimeStamp() {
+		return tapNGoTimeStamp;
+	}
+	public void setTapNGoTimeStamp(String tapNGoTimeStamp) {
+		this.tapNGoTimeStamp = tapNGoTimeStamp;
+	}
+	public String getTapNGoTransactionUrl() {
+		return tapNGoTransactionUrl;
+	}
+	public void setTapNGoTransactionUrl(String tapNGoTransactionUrl) {
+		this.tapNGoTransactionUrl = tapNGoTransactionUrl;
+	}
+	public String getTransactionDate() {
         return transactionDate;
     }
     public void setTransactionDate(String transactionDate) {
@@ -90,12 +131,25 @@ public class CreatePolicy {
     public void setPaymentGateway(String paymentGateway) {
         this.paymentGateway = paymentGateway;
     }
+    
     public String getPaymentType() {
         return paymentType;
     }
     public void setPaymentType(String paymentType) {
         this.paymentType = paymentType;
     }
+	public String getTapNGoPayload() {
+		return tapNGoPayload;
+	}
+	public void setTapNGoPayload(String tapNGoPayload) {
+		this.tapNGoPayload = tapNGoPayload;
+	}
+	public String getTapNGoExtra() {
+		return tapNGoExtra;
+	}
+	public void setTapNGoExtra(String tapNGoExtra) {
+		this.tapNGoExtra = tapNGoExtra;
+	}
 
    
 

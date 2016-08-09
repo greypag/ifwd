@@ -1641,6 +1641,9 @@ public class TravelController {
 			}
 		}
 		
+		
+		
+		
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
@@ -1746,10 +1749,17 @@ public class TravelController {
 				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
 				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
 
+		
+				
 				// Calling Api of Confirm Travel Care Policy
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
+				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);				
+
+				
+				confirmPolicyParameter.put("url", UserRestURIConstants.getWebsite(request));
+				session.setAttribute("url", UserRestURIConstants.getWebsite(request));
+				
 				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
 				JSONObject jsonResponse = restService.consumeApi(
 						HttpMethod.POST,
@@ -1763,7 +1773,26 @@ public class TravelController {
 						"transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
 						"transactionDate"));
+				
+				
+				createPolicy.setTapNGoAppId(checkJsonObjNull(responsObject, "tapNGoAppId"));
+				createPolicy.setTapNGoSign(checkJsonObjNull(responsObject, "tapNGoSign"));
+				createPolicy.setTapNGoTimeStamp(checkJsonObjNull(responsObject, "tapNGoTimeStamp"));
+				createPolicy.setTapNGoTransactionUrl(checkJsonObjNull(responsObject, "tapNGoTransactionUrl"));
+				createPolicy.setTapNGoPayload(checkJsonObjNull(responsObject, "tapNGoPayload"));
+				createPolicy.setTapNGoExtra(checkJsonObjNull(responsObject, "tapNGoExtra"));
+				
+				
+				session.setAttribute("tapNGoAppId", createPolicy.getTapNGoAppId());
+				session.setAttribute("tapNGoSign", createPolicy.getTapNGoSign());
+				session.setAttribute("tapNGoTimeStamp", createPolicy.getTapNGoTimeStamp());
+				session.setAttribute("tapNGoTransactionUrl", createPolicy.getTapNGoTransactionUrl());
+				session.setAttribute("tapNGoPayload", createPolicy.getTapNGoPayload());
+				session.setAttribute("tapNGoExtra", createPolicy.getTapNGoExtra());
+				
+				
 				session.setAttribute("travelCreatePolicy", createPolicy);
+				//logger.info("createPolicy : "+createPolicy.toString());
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			} else {
@@ -1795,6 +1824,8 @@ public class TravelController {
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
+		
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
         if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
@@ -1825,6 +1856,8 @@ public class TravelController {
 		model.addAttribute("canonical", canonical);
 		
 		session.removeAttribute("creditCardNo");
+		model.addAttribute("tapNGoTransactionUrl", session.getAttribute("tapNGoTransactionUrl"));
+		logger.info("tapNGoTransactionUrl:"+session.getAttribute("tapNGoTransactionUrl"));
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
