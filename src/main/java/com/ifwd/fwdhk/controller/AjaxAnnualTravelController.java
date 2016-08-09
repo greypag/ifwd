@@ -168,6 +168,14 @@ public class AjaxAnnualTravelController {
 		returnJson.put("sign", sign);
 		returnJson.put("payment", payment);
 		
+		logger.info("appId:"+appId);
+		logger.info("merTradeNo:"+merTradeNo);
+		logger.info("payload:"+payload);
+		logger.info("paymentType:"+paymentType);
+		logger.info("sign:"+sign);
+		logger.info("payment:"+payment);
+		
+		
 		return returnJson;
 	}
 	

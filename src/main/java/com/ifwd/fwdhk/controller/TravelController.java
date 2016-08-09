@@ -1775,12 +1775,12 @@ public class TravelController {
 						"transactionDate"));
 				
 				
-				createPolicy.setTapNGoAppId(checkJsonObjNull(responsObject, "tapNGoAppId"));
-				createPolicy.setTapNGoSign(checkJsonObjNull(responsObject, "tapNGoSign"));
-				createPolicy.setTapNGoTimeStamp(checkJsonObjNull(responsObject, "tapNGoTimeStamp"));
-				createPolicy.setTapNGoTransactionUrl(checkJsonObjNull(responsObject, "tapNGoTransactionUrl"));
-				createPolicy.setTapNGoPayload(checkJsonObjNull(responsObject, "tapNGoPayload"));
-				createPolicy.setTapNGoExtra(checkJsonObjNull(responsObject, "tapNGoExtra"));
+				createPolicy.setTapNGoAppId(checkJsonObjNull(jsonResponse, "tapNGoAppId"));
+				createPolicy.setTapNGoSign(checkJsonObjNull(jsonResponse, "tapNGoSign"));
+				createPolicy.setTapNGoTimeStamp(checkJsonObjNull(jsonResponse, "tapNGoTimeStamp"));
+				createPolicy.setTapNGoTransactionUrl(checkJsonObjNull(jsonResponse, "tapNGoTransactionUrl"));
+				createPolicy.setTapNGoPayload(checkJsonObjNull(jsonResponse, "tapNGoPayload"));
+				createPolicy.setTapNGoExtra(checkJsonObjNull(jsonResponse, "tapNGoExtra"));
 				
 				
 				session.setAttribute("tapNGoAppId", createPolicy.getTapNGoAppId());

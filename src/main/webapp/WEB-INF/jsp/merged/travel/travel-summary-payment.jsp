@@ -82,7 +82,7 @@ var clicked = false;
 								$('#paymentType').val(data.paymentType);
 								$('#sign').val(data.sign);
 								setTimeout(function(){
-									$("#"+form).attr('action', "https://gateway.sandbox.tapngo.com.hk/web/payments");
+									$("#"+form).attr('action', "${tapNGoTransactionUrl}");
 									$("#"+form).submit();
 									3000}
 								);

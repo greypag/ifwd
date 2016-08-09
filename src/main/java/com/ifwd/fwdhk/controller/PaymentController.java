@@ -153,21 +153,24 @@ public class PaymentController extends BaseController {
 	public ModelAndView tapNGoPaymentStatus(HttpServletRequest request, Model model) throws Exception {
 		
 		HttpSession session = request.getSession();
+		String merTradeNo = request.getParameter("merTradeNo");
 		
-		String statusUrl="/gi/payment/status?requestNo=RQZZ41578&paymentMethod=TapNGo";
-		
-		JSONObject parameters = new JSONObject();
-		parameters.put("requestNo", "RQZZ41578");
+		String statusUrl=UserRestURIConstants.getConfigs("url")+"/gi/payment/status?requestNo="+merTradeNo+"&paymentMethod=TapNGo";		
+
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
 		header.put("token", (String) session.getAttribute("token"));
 		header.put("language", "");
-		logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+
 		
 		JSONObject responsObject = new JSONObject();
-		responsObject = restService.consumeApi(HttpMethod.PUT,statusUrl, header,parameters);
+		responsObject = restService.consumeApi(HttpMethod.GET,statusUrl, header,null);
 		logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
+		
+		//String paymentStatus
+		
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		
 		//String merTradeNo = request.getParameter("merTradeNo");
