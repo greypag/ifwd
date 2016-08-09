@@ -154,10 +154,10 @@ public class PaymentController extends BaseController {
 		
 		HttpSession session = request.getSession();
 		String merTradeNo =(String) session.getAttribute("finalizeReferenceNo"); // request.getParameter("merTradeNo");
+		String paymentMethod=(String) session.getAttribute("paymentMethod");
 		
 		
-		
-		String statusUrl=UserRestURIConstants.getConfigs("url")+"/gi/payment/status?requestNo="+merTradeNo+"&paymentMethod=TapNGo";		
+		String statusUrl=UserRestURIConstants.getConfigs("url")+"/gi/payment/status?requestNo="+merTradeNo+"&paymentMethod="+paymentMethod;		
 
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
