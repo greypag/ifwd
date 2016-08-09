@@ -153,7 +153,9 @@ public class PaymentController extends BaseController {
 	public ModelAndView tapNGoPaymentStatus(HttpServletRequest request, Model model) throws Exception {
 		
 		HttpSession session = request.getSession();
-		String merTradeNo = request.getParameter("merTradeNo");
+		String merTradeNo =(String) session.getAttribute("finalizeReferenceNo"); // request.getParameter("merTradeNo");
+		
+		
 		
 		String statusUrl=UserRestURIConstants.getConfigs("url")+"/gi/payment/status?requestNo="+merTradeNo+"&paymentMethod=TapNGo";		
 
