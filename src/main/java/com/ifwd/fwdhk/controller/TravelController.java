@@ -1934,6 +1934,7 @@ public class TravelController {
 		}else{
 			paymentMethod = "CC";
 		}
+		session.setAttribute("paymentMethod", paymentMethod);
 		
 		model.addAttribute("referenceNo", referenceNo);
 		parameters.put("referenceNo", referenceNo);
@@ -1977,6 +1978,7 @@ public class TravelController {
 							.getLanaguage(request)));
 			parameters.put("creditCardNo", "0000000000000000");
 			parameters.put("expiryDate", "122030");
+			parameters.put("paymentMethod", session.getAttribute("paymentMethod").toString());
 			
 			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			new Thread(){
