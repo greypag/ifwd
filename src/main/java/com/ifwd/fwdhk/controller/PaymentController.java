@@ -168,14 +168,18 @@ public class PaymentController extends BaseController {
 		responsObject = restService.consumeApi(HttpMethod.GET,statusUrl, header,null);
 		logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 		
-		//String paymentStatus
-		
-		
+		String paymentStatus=responsObject.get("paymentStatus").toString();
+		String resultCode = request.getParameter("resultCode");
+		if(paymentStatus.equalsIgnoreCase("c"))
+		{
+			resultCode="0";
+		}
+			
 		String lang = UserRestURIConstants.getLanaguage(request);
 		
 		//String merTradeNo = request.getParameter("merTradeNo");
 		//String msg = request.getParameter("msg");
-		String resultCode = request.getParameter("resultCode");
+		
 		//String sign = request.getParameter("sign");
 		
 		/*model.addAttribute("merTradeNo", merTradeNo);
