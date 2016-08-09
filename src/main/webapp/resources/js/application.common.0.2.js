@@ -10,13 +10,15 @@ Create new restriction and strict event
 application.common = {
 	dataAttributes:[
 		"data-keyblock-alphabet",
+		"data-keyblock-alphabet-space",
 		"data-keyblock-num",
 		"data-keyblock-alphabet-num-space-dash",
 		"data-keyblock-alphabet-num-space"
 	],
 
 	pattern:{
-		Alphabet : /^[a-zA-Z\s]*$/,
+		Alphabet : /^[a-zA-Z]*$/,
+		AlphabetSpace : /^[a-zA-Z\s]*$/,
 		Num : /^[0-9]*$/,
 		Email : /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
 		Mobileno:/^1[0-9]{10}$|^[5689][0-9]{7}$/,
@@ -106,9 +108,8 @@ application.common = {
 			return that[s](evt);
 		}else if(that.pattern[s]){
 			var charCode = (evt.which) ? evt.which : evt.keyCode;
-			if(!$.inArray(charCode,that.kbFnKey)){
+			if($.inArray(charCode,that.kbFnKey) == -1){
 				var keychar = String.fromCharCode(charCode);
-				console.log("keychar",keychar);
 				return that.pattern[s].test(keychar);
 			}else{
 				return true;
