@@ -240,11 +240,7 @@ var language = "${language}";
 								<input type="checkbox" id="payment_confirm_authorize_hkid" name="payment_confirm_authorize_hkid">
 								<label for="payment_confirm_authorize_hkid"></label>
 								
-								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" />
-									<a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.hkid.url" bundle="${msg}" />" target="_blank">
-										<fmt:message key="decleration.payment.policy.hkid.tc" bundle="${msg}" />
-									</a>
-								</p>
+								<p class="policy-text"><fmt:message key="decleration.payment.policy.hkid" bundle="${msg}" /><a class="to-orange" href="<%=request.getContextPath()%>/<fmt:message key="decleration.payment.policy.hkid.url" bundle="${msg}" />" target="_blank"><fmt:message key="decleration.payment.policy.hkid.tc" bundle="${msg}" /></a><fmt:message key="decleration.payment.policy.hkid.tc.stop" bundle="${msg}" /></p>
 							</div>
 							<span id="chkPolicyErMsg_hkid" class="error-msg hidden"><fmt:message key="error.payment.tick.box.02" bundle="${msg}" /></span>
 						</c:if>
