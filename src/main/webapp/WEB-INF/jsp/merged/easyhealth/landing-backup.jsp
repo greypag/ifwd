@@ -1,4 +1,4 @@
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -332,7 +332,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
 			<div class="content-disclaimer">
 				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
-			</div>
+			</div> 
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
@@ -452,7 +452,7 @@ $(document).ready(function() {
                 $('body').css("position", "inital");
                 $('.hidden-benefits-info').css("font-family", "Calibri");
 				$('.hidden-benefits-info').css("font-size", "14px");
-                $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
             });
             $("#policyCoveragePopup").on('hide.bs.modal', function () {
                 //alert(itemTop.top);
@@ -462,12 +462,12 @@ $(document).ready(function() {
             });
             $("#policyCoveragePopup").on('hidden.bs.modal', function () {
                 $('body').attr("style", "");
-            });
+            });			
 		});
 
-	}
+	}	
 	$('#btn-blog-link').click(function(){
 		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
 	});
-});
+});	
 </script>
