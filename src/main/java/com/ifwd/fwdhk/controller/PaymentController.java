@@ -171,42 +171,25 @@ public class PaymentController extends BaseController {
 		responsObject = restService.consumeApi(HttpMethod.GET,statusUrl, header,null);
 		logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 		
-		String paymentStatus=responsObject.get("paymentStatus").toString();
-		String resultCode = request.getParameter("resultCode");
-		if(paymentStatus.equalsIgnoreCase("c"))
-		{
-			resultCode="0";
-		}
+		String paymentStatus=responsObject.get("paymentStatus").toString();		
 			
-		String lang = UserRestURIConstants.getLanaguage(request);
+		String lang = UserRestURIConstants.getLanaguage(request);		
 		
-		//String merTradeNo = request.getParameter("merTradeNo");
-		//String msg = request.getParameter("msg");
-		
-		//String sign = request.getParameter("sign");
-		
-		/*model.addAttribute("merTradeNo", merTradeNo);
-		model.addAttribute("ReturnMsg", msg);
-		model.addAttribute("resultCode", resultCode);
-		model.addAttribute("sign", sign);*/
 		String redirect;
 		if("tc".equals(lang)){
-			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){
+			if("c".equalsIgnoreCase(paymentStatus)){
 				redirect = "redirect:/tc/travel-insurance/confirmation?utm_nooverride=1";
-				//redirect = "redirect:/tc/travel-insurance/travel-summary?paymentGatewayFlag=true";
 			}else{
 				redirect = "redirect:/tc/travel-insurance/travel-summary?paymentGatewayFlag=true";
-				//redirect = "redirect:/tc/travel-insurance/confirmation?utm_nooverride=1";
 			}
 		}else{
-			if(StringUtils.isNoneBlank(resultCode) && "0".equals(resultCode)){
+			if("c".equalsIgnoreCase(paymentStatus)){
 				redirect = "redirect:/en/travel-insurance/confirmation?utm_nooverride=1";
 			}else{
 				redirect = "redirect:/en/travel-insurance/travel-summary?paymentGatewayFlag=true";
 			}
 		}
 		return new ModelAndView(redirect);
-		//return new ModelAndView(UserRestURIConstants.getSitePath(request) + "payment/payment-return");
 	}
 	
 /*	
