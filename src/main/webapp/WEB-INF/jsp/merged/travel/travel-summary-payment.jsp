@@ -63,7 +63,6 @@ var clicked = false;
 	        		$.ajax({
                         type : "POST",
                         url : method,
-                        data : {"selectedPaymentType":selectedPaymentType},
                         async : false,
                         success : function(data) {
                         	clicked = false;

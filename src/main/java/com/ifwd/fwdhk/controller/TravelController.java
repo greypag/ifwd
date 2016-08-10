@@ -949,11 +949,6 @@ public class TravelController {
 			//String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
 			String paymentMethod = (String)session.getAttribute("paymentMethod");
-			if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
-				paymentMethod = "TapNGo";
-			}else{
-				paymentMethod = "CC";
-			}
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -1869,6 +1864,8 @@ public class TravelController {
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		String referenceNo = request.getParameter("referenceNo");
+		session.setAttribute("paymentMethod", "CC");
+		
 		JSONObject submitPolicy = new JSONObject();
 		submitPolicy.put("referenceNo", referenceNo);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -1929,11 +1926,6 @@ public class TravelController {
 		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
 		
 		String paymentMethod = (String)session.getAttribute("paymentMethod");
-		if(org.apache.commons.lang.StringUtils.isNotBlank(paymentMethod) && "tg".equals(paymentMethod)){
-			paymentMethod = "TapNGo";
-		}else{
-			paymentMethod = "CC";
-		}
 		session.setAttribute("paymentMethod", paymentMethod);
 		
 		model.addAttribute("referenceNo", referenceNo);

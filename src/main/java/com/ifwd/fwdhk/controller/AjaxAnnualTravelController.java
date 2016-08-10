@@ -148,6 +148,8 @@ public class AjaxAnnualTravelController {
 	public JSONObject caculateTgPaymentInfo(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
+		session.setAttribute("paymentMethod", "TapNGo");
+		
 		JSONObject returnJson = new JSONObject();
 		
 		String appId = (String)session.getAttribute("tapNGoAppId");
