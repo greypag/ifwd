@@ -157,25 +157,25 @@ public class AjaxAnnualTravelController {
 		String paymentType = "S";
 		String payload = "";
 		String sign = "";		
-		String payment="";
+		String geteWayUrl="";
 		
 		
 		payload=(String)session.getAttribute("tapNGoPayload");
 		sign=(String)session.getAttribute("tapNGoSign");
-		payment=(String)session.getAttribute("tapNGoTransactionUrl");
+		geteWayUrl=(String)session.getAttribute("tapNGoTransactionUrl");
 		returnJson.put("appId", appId);
 		returnJson.put("merTradeNo", merTradeNo);
 		returnJson.put("payload", payload);
 		returnJson.put("paymentType", paymentType);
 		returnJson.put("sign", sign);
-		returnJson.put("payment", payment);
+		returnJson.put("payment", geteWayUrl);
 		
 		logger.info("appId:"+appId);
 		logger.info("merTradeNo:"+merTradeNo);
 		logger.info("payload:"+payload);
 		logger.info("paymentType:"+paymentType);
 		logger.info("sign:"+sign);
-		logger.info("payment:"+payment);
+		logger.info("geteWayUrl:"+geteWayUrl);
 		
 		
 		return returnJson;
