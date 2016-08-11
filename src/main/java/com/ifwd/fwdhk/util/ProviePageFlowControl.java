@@ -65,7 +65,7 @@ public class ProviePageFlowControl {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
 				referer = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
 			} else {
-				referer = getSavieOnlinePage(referer);
+				referer = getProvieOnlinePage(referer);
 			}
 		}
 
@@ -73,7 +73,7 @@ public class ProviePageFlowControl {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
 				current = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
 			} else {
-				current = getSavieOnlinePage(current);
+				current = getProvieOnlinePage(current);
 			}
 		}
 

@@ -831,7 +831,7 @@ function stickToHeader() {
    	});
 
     $("#btn-appointment-confirm").on('click', function(){
-      	window.location = '/fwdhk/en/savings-insurance/provie/customer-service-centre-confirmed';
+      	window.location = '/fwdhk/en/savings-insurance/provie/confirmation-appointment';
     	//var planCode = "";
 		//if('' == 'SP'){
 		//	planCode = "SAVIE-SP";
