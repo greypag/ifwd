@@ -143,7 +143,7 @@ public class AjaxAnnualTravelController {
 	}
 	
 	@SuppressWarnings({ "unchecked"})
-	@RequestMapping(value = "/ajax/annualTravel/caculateTgPaymentInfo")
+	@RequestMapping(value = "/ajax/caculateTgPaymentInfo")
 	@ResponseBody
 	public JSONObject caculateTgPaymentInfo(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {

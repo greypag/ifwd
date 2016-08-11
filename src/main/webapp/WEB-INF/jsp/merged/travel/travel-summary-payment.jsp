@@ -36,10 +36,8 @@ var clicked = false;
                 async : false,
                 success : function(data) {
                 	clicked = false;
-                    //$("#PaymentingDiv").hide();
                     if (data == 'success') {
                     	payment(form, gatewayUrlId, paymentFormId);
-                    	
                     } else {
                     	console.log(data);
                     	$("#PaymentingDiv").hide();
@@ -136,16 +134,16 @@ var clicked = false;
 
 	function payment(form, gatewayUrlId, paymentFormId){
 		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
-		$("#PaymentingDiv").show();
         clicked = true;
 		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			$("#PaymentingDiv").show();
 			setTimeout(function(){
         		$("#"+form).attr('action', geteWayUrl);
                 $("#"+form).submit();
             }, 3000);
 		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
 			
-    		var method = "<%=request.getContextPath()%>/ajax/annualTravel/caculateTgPaymentInfo";
+    		var method = "<%=request.getContextPath()%>/ajax/caculateTgPaymentInfo";
     		$.ajax({
                 type : "POST",
                 url : method,
