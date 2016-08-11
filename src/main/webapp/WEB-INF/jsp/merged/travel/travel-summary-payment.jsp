@@ -23,8 +23,6 @@ var clicked = false;
 		if(enablePayment){
 			console.log("enablePayment");
     		enablePayment=false;
-    		$("#PaymentingDiv").show();
-            clicked = true;
     		
     		var gatewayUrlId = '#' + gatewayUrlId;
             var paymentFormId = '#' + paymentFormId;
