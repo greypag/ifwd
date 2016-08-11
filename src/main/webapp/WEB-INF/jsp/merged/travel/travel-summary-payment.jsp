@@ -132,15 +132,15 @@ var clicked = false;
 
 	function payment(form, gatewayUrlId, paymentFormId){
 		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
-        clicked = true;
+        clicked = false;
 		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			 clicked = true;
 			$("#PaymentingDiv").show();
 			setTimeout(function(){
         		$("#"+form).attr('action', geteWayUrl);
                 $("#"+form).submit();
             }, 3000);
-		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
-			
+		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType)==true && clicked === false){
     		var method = "<%=request.getContextPath()%>/ajax/caculateTgPaymentInfo";
     		$.ajax({
                 type : "POST",
