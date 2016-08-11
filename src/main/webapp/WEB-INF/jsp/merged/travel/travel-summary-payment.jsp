@@ -17,7 +17,41 @@ var enablePayment=true;
 var tapAndGoUrl = "https://custportal.tapngo.com.hk/en/login";
 var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-    	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+    	clicked = false;
+    	console.log(enablePayment);
+        
+		if(enablePayment){
+			console.log("enablePayment");
+    		enablePayment=false;
+    		$("#PaymentingDiv").show();
+            clicked = true;
+    		
+    		var gatewayUrlId = '#' + gatewayUrlId;
+            var paymentFormId = '#' + paymentFormId;
+    		var method = "<%=request.getContextPath()%>/processTravePayment";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                data : $(paymentFormId).serialize(),
+                async : false,
+                success : function(data) {
+                	clicked = false;
+                    //$("#PaymentingDiv").hide();
+                    if (data == 'success') {
+                    	payment(form, gatewayUrlId, paymentFormId);
+                    	
+                    } else {
+                    	console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                    }
+                }
+            });
+		}
+
+    	<%-- var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
     	clicked = false;
     	console.log(enablePayment);
     	if(enablePayment){
@@ -97,8 +131,60 @@ var clicked = false;
                 enablePayment=true;
 	        	return false;
 	        }
-    	}
+    	} --%>
     }
+
+	function payment(form, gatewayUrlId, paymentFormId){
+		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+		$("#PaymentingDiv").show();
+        clicked = true;
+		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			setTimeout(function(){
+        		$("#"+form).attr('action', geteWayUrl);
+                $("#"+form).submit();
+            }, 3000);
+		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
+			
+    		var method = "<%=request.getContextPath()%>/ajax/annualTravel/caculateTgPaymentInfo";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                async : false,
+                success : function(data) {
+                	clicked = false;
+                	if(data.errMsg){
+                		console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                   	}else{
+                   		$('#appId').val(data.appId);
+						$('#merTradeNo').val(data.merTradeNo);
+						$('#payload').val(data.payload);
+						$('#paymentType').val(data.paymentType);
+						$('#sign').val(data.sign);
+						setTimeout(function(){
+							$("#"+form).attr('action', "${tapNGoTransactionUrl}");
+							$("#"+form).submit();
+							3000}
+						);
+                   	}
+                }
+            });
+    		return true;
+	    }else{
+	    	$("#PaymentingDiv").hide();
+	        enablePayment=true;
+	    	return false;
+	    }
+	}
+
+	
+
+
+
+
     
 	function switchPayment(selector){
 		selector = $(selector).attr('id');
