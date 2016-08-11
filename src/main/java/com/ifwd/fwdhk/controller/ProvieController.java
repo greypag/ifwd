@@ -116,10 +116,10 @@ public class ProvieController extends BaseController{
 		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre-confirmed"})
-	public ModelAndView getProvieAppointmentConfirmed(Model model, HttpServletRequest request) {
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED);
-	}
+	//@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre-confirmed"})
+	//public ModelAndView getProvieAppointmentConfirmed(Model model, HttpServletRequest request) {
+	//	return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED);
+	//}
 	
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/confirmation-appointment"})

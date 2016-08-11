@@ -93,11 +93,8 @@ public class ProviePageFlowControl {
 			current = "plan-details-sp";
 			break;
 			
-		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER:
-			to = UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED;
-			break;
 			
-		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED: 
+		case UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER: 
 			to = UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT;
 			break;
 
@@ -118,7 +115,7 @@ public class ProviePageFlowControl {
 
 	}
 	
-	public static String getSavieOnlinePage(String url){	
+	public static String getProvieOnlinePage(String url){	
 
 		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_PLANDETAILS)) {
 			return UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
@@ -126,9 +123,6 @@ public class ProviePageFlowControl {
 		
 		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED)) {
-			return UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT)) {
 			return UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT;

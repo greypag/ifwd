@@ -351,7 +351,7 @@ public class UserRestURIConstants {
 	//public static final String PAGE_PROVIE_LANDING = "O2O-landing";
 	public static final String PAGE_PROVIE_PLANDETAILS = "plan-details-sp";
 	public static final String PAGE_PROVIE_SERVICE_CENTER = "customer-service-centre";
-	public static final String PAGE_PROVIE_SERVICE_CENTER_CONFIRMED = "customer-service-centre-confirmed";
+	//public static final String PAGE_PROVIE_SERVICE_CENTER_CONFIRMED = "customer-service-centre-confirmed";
 	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment";
 
 	//public static final String PAGE_PROVIE_PLANDETAILS_SP = "plan-details-sp";
