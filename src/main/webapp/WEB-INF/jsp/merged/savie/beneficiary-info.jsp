@@ -774,6 +774,7 @@ var languageP = "${language}";
 				} */
          });
 			$("#beneficiary-next-btn, #back-summary-btn").click(function() {
+				$('#beneficiary-info-form\\[0\\]').bootstrapValidator('validate');
 				if(($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid() && form1Valid==true && form2Valid==true && totalBeneficiaryEntitlement() !="Exceed") || $('#own-estate-id').is(':checked')){
 					showSubmitError('', false);
 					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
@@ -785,6 +786,7 @@ var languageP = "${language}";
 						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
 						  data: formdata,
 						  success : function(data) {
+							  console.log(data);
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 									var bene_errmsg = '';
 									if( data.errorMsg == "Beneficiary's HKID cannot be the same as Insured Person's HKID."){
