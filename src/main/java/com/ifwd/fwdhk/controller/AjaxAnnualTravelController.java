@@ -168,7 +168,7 @@ public class AjaxAnnualTravelController {
 		returnJson.put("payload", payload);
 		returnJson.put("paymentType", paymentType);
 		returnJson.put("sign", sign);
-		returnJson.put("payment", geteWayUrl);
+		returnJson.put("geteWayUrl", geteWayUrl);
 		
 		logger.info("appId:"+appId);
 		logger.info("merTradeNo:"+merTradeNo);
