@@ -344,6 +344,30 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
 	
+	/* Page Flow Control For provie online */
+	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";
+	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";
+	
+	//public static final String PAGE_PROVIE_LANDING = "O2O-landing";
+	public static final String PAGE_PROVIE_PLANDETAILS = "plan-details-sp";
+	public static final String PAGE_PROVIE_SERVICE_CENTER = "customer-service-centre";
+	public static final String PAGE_PROVIE_SERVICE_CENTER_CONFIRMED = "customer-service-centre-confirmed";
+	public static final String PAGE_PROVIE_CONFIRMATION_APPOINTMENT = "confirmation-appointment";
+
+	//public static final String PAGE_PROVIE_PLANDETAILS_SP = "plan-details-sp";
+	//public static final String PAGE_PROVIE_PLANDETAILS_RP = "plan-details-rp";
+	
+	public static final String PAGE_PROPERTIES_PROVIE_LANDING = "savings.landing";
+	//public static final String PAGE_PROPERTIES_PROVIE_SINGLE_PREMIUM = "savie.landing.sp";
+	//public static final String PAGE_PROPERTIES_PROVIE_REGULAR_PREMIUM = "savie.landing.rp";
+	public static final String PAGE_PROPERTIES_PROVIE_PLANDETAILS = "provie.plan.details";
+	
+	public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER_CONFIRMED = "provie.customer.service.centre.confirmed";
+	public static final String PAGE_PROPERTIES_PROVIE_SERVICE_CENTER = "provie.customer.service.centre";
+	public static final String PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT = "provie.confirmation.appointment";
+	
+
+	
 	/* Page Flow Control For savie online */
 	public static final String URL_SAVIEONLINE_SINGLE_PREMIUM = "single-premium";
 	public static final String URL_SAVIEONLINE_REGULAR_PREMIUM = "regular-premium";
