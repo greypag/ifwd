@@ -28,10 +28,10 @@
 
 	if (request.getParameter("month")!=null && ((String)request.getParameter("month")).length() > 0) {
 		int month = Integer.parseInt((String)request.getParameter("month"));
-		if (month == 7) {
-			cCurrent = cformat.parse("2016-07-31 14:59:59").getTime();
+		if (month == 8) {
+			cCurrent = cformat.parse("2016-08-31 14:59:59").getTime();
 		} else {
-			cCurrent = cformat.parse("2016-07-31 15:00:00").getTime();
+			cCurrent = cformat.parse("2016-08-31 15:00:00").getTime();
 		}
 	}
 
@@ -40,8 +40,8 @@
     //hotel monthly campiagn display end time
     long hotelcStart = cformat.parse("2016-04-20 15:00:00").getTime();
     //GI monthly campiagn display end time
-    long cStart = cformat.parse("2016-08-31 14:59:59").getTime();
-    //cCurrent =  cformat.parse("2016-08-30 15:59:59").getTime();
+    long cStart = cformat.parse("2016-09-30 14:59:59").getTime();
+    //cCurrent =  cformat.parse("2016-09-30 15:59:59").getTime();
     /* For Debug and test the campaign switching logic
     set hotelVoucherCampaignId to -1 and cCurrent day <= 18 14:59:59 for the case between GI product paused and not yet start Hotel Voucher
     set hotelVoucherCampaignId to 14,15,16,17,18 and cCurrent day >=18 15:00:00 for the speific day of the hotel voucher
@@ -54,6 +54,7 @@
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
     String countDownDate_regular = "2016-08-31 14:59:59";
+    String countDownDate_regular_after = "2016-09-30 14:59:59";
     String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
@@ -94,10 +95,17 @@
             	break;
     	}
     } else {
-        //Regular Offer Period
+        //Regular Offer Period Before Start
         countDownDate = countDownDate_regular;
         countDownDD = "31";
         countDownMM = "Aug";
+
+        //Regular Offer Period Start
+        if(cCurrent >= cformat.parse(countDownDate_regular).getTime() ){
+            countDownDate = countDownDate_regular_after;
+            countDownDD = "30";
+            countDownMM = "Sep";
+        }
 
         //Special Offer Period
         if(cCurrent >= cformat.parse("2016-05-20 00:00:00").getTime() && cCurrent <= cformat.parse("2016-05-21 14:59:59").getTime() && request.getParameter("regular")==null){
@@ -753,7 +761,7 @@
             // -- ./ngPrivateFunct: offersAJAXLoader() --
 
             // -- Initialize the custom-made ngPrivateFunct --
-            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers_aug.json");
+            offersAJAXLoader("<%=request.getContextPath()%>/resources/js/fwdiscover/fwdiscover_offers_sep.json");
             // -- ./Initialize the custom-made ngPrivateFunct --
         });
         <%-- ./angular --%>
