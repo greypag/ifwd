@@ -1953,6 +1953,20 @@ body {
   width: 120px;
   margin: 10px auto;
 }
+
+/* VP3367 - replace pillar icon START*/
+.fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
+  width: 36px;
+  height: 36px;
+}
+@media (min-width: 992px) {
+  .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* VP3367 - replace pillar icon END*/
+
 /* line 389, ../sass/partials/savie/_homepage.scss */
 .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle span.fa {
  margin-top: 30px;

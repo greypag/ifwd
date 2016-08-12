@@ -139,10 +139,9 @@ var language = "${language}";
 							<div class="requirement-text-wrapper"><p><fmt:message key="info.savie.confirmation.bank.authorisation.rp" bundle="${msg}" /></p></div>
 						</div>
 					</div>
-					
-					<!--p class="note"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p-->
+					<hr>
+					<p class="note"><fmt:message key="info.savie.confirmation.oceanpark.annualpass" bundle="${msg}" /></p>
 				</div>
-				<hr>
 				<a href="javascript:window.print()" class="visible-md visible-lg print-doc-link">
 					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
 					<span><fmt:message key="label.printthisdocument" bundle="${msg}" /></span>

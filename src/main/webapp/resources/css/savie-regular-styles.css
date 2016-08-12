@@ -2159,6 +2159,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   border-radius: 100%;
   margin: 10px auto;
 }
+
 @media (min-width: 992px) {
   /* line 745, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle {
@@ -2188,6 +2189,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 770, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
+  width: 36px;/* VP3367 - replace pillar icon*/
   height: 36px;
   margin-top: 22px;
     -ms-transform: scale(2,2); /* IE 9 */
@@ -2197,7 +2199,8 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 @media (min-width: 992px) {
   /* line 770, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content .fna-icon-circle img {
-    height: initial;
+    width: 50px;/* VP3367 - replace pillar icon START*/
+    height: 50px;/* VP3367 - replace pillar icon START*/
   }
 }
 /* line 777, ../sass/partials/savie/_landing-page.scss */
