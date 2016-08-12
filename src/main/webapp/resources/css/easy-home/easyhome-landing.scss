@@ -257,14 +257,20 @@ $base-remark-color: #999;
 			background-color: #fff;
 			color: #fcb714;
 			display: inline-block;
-			margin: 0 0 10px 0;
-			padding: 5px;
+			font-size: 1.5em;
+			margin: 0;
 		}
 		.eh_hb_desc{
 			padding: 0.556em 0;
 		}
 	}
+}
 
+.chin .eh_moreProtect_banner{
+	.eh_sec_title{
+		font-size: 1.667em;
+		padding: 5px;
+	}
 }
 
 .example-container{
@@ -375,4 +381,8 @@ $base-remark-color: #999;
 //overwirte
 .start-btn{
 	font-weight: bold;
+}
+
+#o2o-landing-form .savie-product{
+	margin-top: 8px !important;
 }
