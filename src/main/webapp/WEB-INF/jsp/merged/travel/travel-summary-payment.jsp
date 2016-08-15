@@ -134,6 +134,7 @@ var clicked = false;
 		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
         clicked = false;
 		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			var geteWayUrl = $(gatewayUrlId).val();
 			 clicked = true;
 			$("#PaymentingDiv").show();
 			setTimeout(function(){
