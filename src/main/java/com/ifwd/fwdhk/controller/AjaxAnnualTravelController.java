@@ -143,9 +143,9 @@ public class AjaxAnnualTravelController {
 	}
 	
 	@SuppressWarnings({ "unchecked"})
-	@RequestMapping(value = "/ajax/caculateTgPaymentInfo")
+	@RequestMapping(value = "/ajax/calculateTapNGoPaymentInfo")
 	@ResponseBody
-	public JSONObject caculateTgPaymentInfo(HttpServletRequest request,
+	public JSONObject calculateTapNGoPaymentInfo(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("paymentMethod", "TapNGo");

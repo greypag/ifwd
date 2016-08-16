@@ -64,10 +64,10 @@ public class PaymentController extends BaseController {
 
 		String url = request.getRealPath("/");
 		System.out.println(url);
-		url = url.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
+		url = url.replace("ajax/annualTravel/calculateTapNGoPaymentInfo", "");
 
 		String path = request.getRequestURL().toString();
-		path = path.replace("ajax/annualTravel/caculateTgPaymentInfo", "");
+		path = path.replace("ajax/annualTravel/calculateTapNGoPaymentInfo", "");
 		net.sf.json.JSONObject payloadObject = new net.sf.json.JSONObject();
 		payloadObject.put("totalPrice", "500.00");
 		payloadObject.put("currency", "HKD");
