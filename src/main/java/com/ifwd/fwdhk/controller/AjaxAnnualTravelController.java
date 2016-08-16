@@ -142,44 +142,6 @@ public class AjaxAnnualTravelController {
 		}
 	}
 	
-	@SuppressWarnings({ "unchecked"})
-	@RequestMapping(value = "/ajax/calculateTapNGoPaymentInfo")
-	@ResponseBody
-	public JSONObject calculateTapNGoPaymentInfo(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("paymentMethod", "TapNGo");
-		
-		JSONObject returnJson = new JSONObject();
-		
-		String appId = (String)session.getAttribute("tapNGoAppId");
-		String merTradeNo = (String)session.getAttribute("transNo");
-		String paymentType = "S";
-		String payload = "";
-		String sign = "";		
-		String geteWayUrl="";
-		
-		
-		payload=(String)session.getAttribute("tapNGoPayload");
-		sign=(String)session.getAttribute("tapNGoSign");
-		geteWayUrl=(String)session.getAttribute("tapNGoTransactionUrl");
-		returnJson.put("appId", appId);
-		returnJson.put("merTradeNo", merTradeNo);
-		returnJson.put("payload", payload);
-		returnJson.put("paymentType", paymentType);
-		returnJson.put("sign", sign);
-		returnJson.put("geteWayUrl", geteWayUrl);
-		
-		logger.info("appId:"+appId);
-		logger.info("merTradeNo:"+merTradeNo);
-		logger.info("payload:"+payload);
-		logger.info("paymentType:"+paymentType);
-		logger.info("sign:"+sign);
-		logger.info("geteWayUrl:"+geteWayUrl);
-		
-		
-		return returnJson;
-	}
 	
 	
 	
