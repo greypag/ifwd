@@ -89,7 +89,7 @@ var clicked = false;
 	            return true;
 	        }else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
 	        		//window.open(tapAndGoUrl, '_blank');
-	        		var method = "<%=request.getContextPath()%>/ajax/annualTravel/caculateTgPaymentInfo";
+	        		var method = "<%=request.getContextPath()%>/ajax/annualTravel/calculateTapNGoPaymentInfo";
 	        		$.ajax({
                         type : "POST",
                         url : method,
@@ -142,7 +142,7 @@ var clicked = false;
                 $("#"+form).submit();
             }, 3000);
 		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType)==true && clicked === false){
-    		var method = "<%=request.getContextPath()%>/ajax/caculateTgPaymentInfo";
+    		var method = "<%=request.getContextPath()%>/ajax/calculateTapNGoPaymentInfo";
     		$.ajax({
                 type : "POST",
                 url : method,
