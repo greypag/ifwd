@@ -31,6 +31,45 @@
 					<fmt:message key="partner.heading" bundle="${msg}" />
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
+				    <!-- 7-Eleven -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+                            <img class="partner_image--711 partner_image" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+                            <div class="partner_title"><fmt:message key="partner.711.title" bundle="${msg}" /></div>
+                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
+                            <div class="partner_desc_list">
+                                    <ul class="bullets">
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
+                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="h4-5">
+                                                <fmt:message key="partner.711.desc2.part1" bundle="${msg}" />
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+	                            <div class="partner_tnc">
+	                                <div class="partner_tnc_list">
+	                                    <ul class="bullets">
+	                                        <li>
+	                                            <p class="h4-5">
+	                                                <fmt:message key="partner.711.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.711.tnc.part3" bundle="${msg}" />
+	                                            </p>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+                    		</div>
+	                	<div class="clearfix"></div>
+                	</div>
+                	<hr class="partner_hr"/>
+                	
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png"/>
@@ -202,45 +241,7 @@
 	                            <%-- </div> --%>
                     		</div>
 	                	<div class="clearfix"></div>
-                	</div>
-                	<!-- 7-Eleven -->
-                	<hr class="partner_hr"/>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image--711 partner_image" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png"/>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title"><fmt:message key="partner.711.title" bundle="${msg}" /></div>
-                            <!-- <div class="partner_description h4-5"><fmt:message key="partner.agoda.desc1" bundle="${msg}" /></div> -->
-                            <div class="partner_desc_list">
-                                    <ul class="bullets">
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.711.desc1.part1" bundle="${msg}" />
-                                                <a href="<fmt:message key="link.provisions.travel" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.desc1.part2" bundle="${msg}" /></a><fmt:message key="partner.711.desc1.part3" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="h4-5">
-                                                <fmt:message key="partner.711.desc2.part1" bundle="${msg}" />
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-	                            <div class="partner_tnc">
-	                                <div class="partner_tnc_list">
-	                                    <ul class="bullets">
-	                                        <li>
-	                                            <p class="h4-5">
-	                                                <fmt:message key="partner.711.tnc.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="partner.711.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.711.tnc.part2" bundle="${msg}" /></a><fmt:message key="partner.711.tnc.part3" bundle="${msg}" />
-	                                            </p>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-                    		</div>
-	                	<div class="clearfix"></div>
-                	</div>                	
+                	</div>              	
 				</div>
 			</div>
 		</div>
