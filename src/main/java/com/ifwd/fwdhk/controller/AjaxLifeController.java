@@ -116,10 +116,11 @@ public class AjaxLifeController extends BaseController{
 			    else if("RP".equals(saviePlanDetails.getPaymentType())){
 						saviePlan="3";
 				}
-				JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
-				logger.info(jsonObject2.toJSONString());
-				int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
-				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
+				//JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(lifePersonalDetails.getHkid(),saviePlan,request);
+				//logger.info(jsonObject2.toJSONString());
+				//int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+				int dis = 0;
+				saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));				
 				saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
 				
 				request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
@@ -554,9 +555,10 @@ public class AjaxLifeController extends BaseController{
 						saviePlan="3";
 					}
 					
-					JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
-					logger.info(jsonObject2.toJSONString());
-					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+//					JSONObject jsonObject2 = savieOnlineService.getSavieHkidDiscountByHkIdPlan(policyApplication.getApplicantHkId(),saviePlan,request);
+//					logger.info(jsonObject2.toJSONString());
+//					int dis = Integer.valueOf(jsonObject2.get("value").toString().replace(",",""));
+					int dis = 0;
 					saviePlanDetails.setInsuredAmountDue(String.valueOf(amount-dis));
 					saviePlanDetails.setInsuredAmountDiscount(String.valueOf(dis));
 				}
