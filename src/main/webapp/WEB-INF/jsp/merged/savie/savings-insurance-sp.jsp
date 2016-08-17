@@ -328,7 +328,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-7.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group7.section1.title" bundle="${msg}" /></h3>
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group7.title" bundle="${msg}" /></h3>
 											<p class="hidden-benefits-info"><fmt:message key="product.details.savie7.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
