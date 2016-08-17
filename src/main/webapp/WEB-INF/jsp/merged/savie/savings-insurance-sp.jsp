@@ -151,9 +151,9 @@ var home_url = "<%=request.getContextPath()%>";
 								</tr>
 								<tr>
 									<th><fmt:message key="savie.online.home.ocean.park.initial.premium" bundle="${msg}" /></th>
-									<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,185<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,035<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 798<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+									<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,190<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+									<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,040<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+									<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 								</tr>
 								<tr>
 									<th>
@@ -217,9 +217,9 @@ var home_url = "<%=request.getContextPath()%>";
 											<td class="card-img silver-img"><img src="<%=request.getContextPath()%>/resources/images/savie/savie-ocean-park/silverpass.jpg" class="img-responsive"></td>
 										</tr>
 										<tr>
-											<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,185<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,035<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 798<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+											<td class="premium-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 2,190<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+											<td class="gold-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 1,040<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+											<td class="silver-1"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 800<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 										</tr>
 										<tr>
 											<td class="premium-2"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 400,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
