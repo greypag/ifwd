@@ -517,11 +517,17 @@ var affordabilityPremium = ${sliderMax};
 			</div>
 		</div>
 		<div class="next-btn text-center">
-			<div class="btn__proceed_online js-display-savie-sp">
+		
+			<!-- for online -->
+			<!--div class="btn__proceed_online js-display-savie-sp">
 				<button id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button>
 			</div>
-			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a>
-			<!-- <a href="javascript:void(0);" onclick="applyCentre();" class="pd-link"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a> -->
+			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a-->
+			<!-- for offline -->
+			<div class="btn__proceed_online js-display-savie-sp">
+				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
+			</div>
+				<a id="btn-proceed" class="pd-link" style="color: #ff8200;"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
 
 			<a id="btn-login" class="pd-link hidden"><fmt:message key="button.proceed.login" bundle="${msg}" /></a>
 			<!-- <button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden white-btn"><fmt:message key="button.proceed.next" bundle="${msg}" /></button> -->

@@ -33,7 +33,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_container">
 
 				    <!-- 7-Eleven -->
-                    <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                    <div id="7eleven_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="7eleven">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image--711 partner_image" src="<%=request.getContextPath()%>/resources/images/7-Eleven_Bar_Logo.png"/>
                         </div>
@@ -71,7 +71,7 @@
                 	</div>
                 	<hr class="partner_hr"/>
                 	
-                    <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                    <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png"/>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <hr class="partner_hr"/>
-                    <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                    <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png"/>
                         </div>
@@ -154,7 +154,7 @@
 
                 	<!-- CSL -->
                 	<hr class="partner_hr"/>
-                    <div id="csl_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                    <div id="csl_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="csl">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/CSL_logo.png"/>
                         </div>
@@ -201,7 +201,7 @@
 
 					<%-- cFu Come --%>
                 	<hr class="partner_hr"/>
-                    <div id="cfucome_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+                    <div id="cfucome_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="cfucome">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_logo_cfucome.png"/>
                         </div>
