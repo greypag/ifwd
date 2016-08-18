@@ -170,8 +170,8 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="min-amount"><fmt:message key="savie.online.home.ocean.park.min.amount" bundle="${msg}" /></div>
 									</th>
 									<td class="premium-3"><fmt:message key="savie.online.home.ocean.park.not.available" bundle="${msg}" /></td>
-									<td class="gold-3"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-									<td class="silver-3"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+									<td class="gold-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+									<td class="silver-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 								</tr>
 							</table>
 							<div class="tbl-ocean-park-mobile visible-xs clearfix">
@@ -228,8 +228,8 @@ var home_url = "<%=request.getContextPath()%>";
 										</tr>
 										<tr>
 											<td class="premium-3"><fmt:message key="savie.online.home.ocean.park.not.available" bundle="${msg}" /></td>
-											<td class="gold-3"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
-											<td class="silver-3"><fmt:message key="savie.online.home.ocean.park.larger.sign" bundle="${msg}" /><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+											<td class="gold-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
+											<td class="silver-3"><fmt:message key="savie.online.home.discount.price.prefix" bundle="${msg}" /> 10,000<fmt:message key="savie.online.home.discount.price.suffix" bundle="${msg}" /></td>
 										</tr>
 									</table>
 								</div>
