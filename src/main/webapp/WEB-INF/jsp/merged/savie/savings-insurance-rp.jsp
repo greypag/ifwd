@@ -296,8 +296,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
+											<h3><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
+											<p><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>-->
@@ -307,8 +307,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-7.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group7.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie7.summary" bundle="${msg}" />  </p>
+											<h3><fmt:message key="product.details.savie.group7.title" bundle="${msg}" /></h3>
+											<p><fmt:message key="product.details.savie7.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -318,8 +318,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
+											<h3><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
+											<p><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -330,8 +330,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
+											<h3><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
+											<p><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -340,9 +340,9 @@ var home_url = "<%=request.getContextPath()%>";
 		        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
-										<div class="info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
+										<div class="info hidden-benefits-info">
+											<h3><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
+											<p><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -354,8 +354,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="savie.online.landing.partnership" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="savie.online.landing.partnership.content1" bundle="${msg}" />  </p>
+											<h3><fmt:message key="savie.online.landing.partnership" bundle="${msg}" /></h3>
+											<p><fmt:message key="savie.online.landing.partnership.content1" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>-->
@@ -367,8 +367,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="savie.online.landing.partnership" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="savie.online.landing.partnership.content1" bundle="${msg}" />  </p>
+											<h3><fmt:message key="savie.online.landing.partnership" bundle="${msg}" /></h3>
+											<p><fmt:message key="savie.online.landing.partnership.content1" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -736,8 +736,8 @@ var home_url = "<%=request.getContextPath()%>";
 					$("#policyCoveragePopup").modal("show");
 		            $("#policyCoveragePopup").on('show.bs.modal', function () {
 		                $('body').css("position", "inital");
-		                $('.hidden-benefits-info').css("font-family", "Calibri");
-						$('.hidden-benefits-info').css("font-size", "14px");
+		                //$('.hidden-benefits-info').css("font-family", "Calibri");
+						//$('.hidden-benefits-info').css("font-size", "14px");
 		                $('body').animate({scrollTop: itemTop.top - 60}, 0);
 		            });
 		            $("#policyCoveragePopup").on('hide.bs.modal', function () {
