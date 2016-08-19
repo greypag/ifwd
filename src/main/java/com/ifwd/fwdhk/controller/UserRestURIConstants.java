@@ -455,6 +455,8 @@ public class UserRestURIConstants {
 	public static final String ERROR_HEADER2_1 = "您已成功申請富衛保險。確認電郵將會發送至 ";
 	public static final String ERROR_HEADER2_2 = "。";
 	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
+
+	public static final String GET_VULNERABLE_BY_POLICYNO = "/policies/vc";
 	
 	static String controller;
 

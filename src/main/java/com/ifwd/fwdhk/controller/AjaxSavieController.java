@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonObject;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -272,4 +274,29 @@ public class AjaxSavieController extends BaseController{
 		}
 		
 	}
+	
+	/**
+	 * 保存聯繫時間
+	 * 
+	 */
+	@RequestMapping(value = {"/ajax/savie/contact-time-period/post"},method=RequestMethod.POST)
+	public void commitContactTime(Model model, HttpServletRequest request,HttpServletResponse response,
+			@RequestParam(value="timePeriod", required=false) String timePeriod ){
+				
+				
+			try {
+				logger.info("timePeriod:"+timePeriod);
+				//BaseResponse br = savieService.settTimePeriod(request,timePeriod);
+				//logger.info("apiJsonObj:"+br);
+				
+				//BaseResponse br=new BaseResponse();
+				
+				ajaxReturn(response,timePeriod);
+			} catch (Exception e) {
+			//catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
+	}
+	
 }
