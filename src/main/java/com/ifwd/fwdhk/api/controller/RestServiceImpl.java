@@ -123,6 +123,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+		    try {
+		    	
+		    	restClient.close();  
+		    	logger.debug("restClient.close();");
+            } catch (IOException e) {  
+                e.printStackTrace(); 
+            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -130,6 +137,8 @@ public class RestServiceImpl implements RestServiceDao {
 		} catch (URISyntaxException e1) {
 			e1.printStackTrace();
 		}
+		
+		
 
 		return responseJsonObj;
 	}
@@ -186,6 +195,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+			 try {
+			    	
+			    	restClient.close();  
+			    	logger.debug("restClient.close();");
+	            } catch (IOException e) {  
+	                e.printStackTrace(); 
+	            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -245,6 +261,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+			 try {
+			    	
+			    	restClient.close();  
+			    	logger.debug("restClient.close();");
+	            } catch (IOException e) {  
+	                e.printStackTrace(); 
+	            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
