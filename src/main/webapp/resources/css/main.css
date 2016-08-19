@@ -12282,3 +12282,8 @@ Be caution: <select> have customed made */
 #faq_sp_mob .faq_title{
 	border-left: 2px solid #fff;	
 }
+
+/* added on 20160819 */
+.text-underline{
+	text-decoration: underline !important;
+}

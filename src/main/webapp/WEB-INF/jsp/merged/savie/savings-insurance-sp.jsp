@@ -132,9 +132,6 @@ var home_url = "<%=request.getContextPath()%>";
 		        	<!-- Savie Discount Start -->
 
 					<div class="ocean-park-wrapper">
-						<div class="text-center">
-							<p class="txt-discount"><fmt:message key="savie.online.home.ocean.park.tagline" bundle="${msg}" /><br class="visible-xs"/><br class="visible-xs"/><a href="#ocean-park-wrapper-inner-anchor" class="btn-ocean-park-start hidden"><fmt:message key="savie.online.home.ocean.park.btn.promotion.detail" bundle="${msg}" /></a> </p>
-						</div>
 						<div id="ocean-park-wrapper-inner-anchor"></div>
 						<div class="ocean-park-wrapper-inner">
 							<table class="tbl-ocean-park hidden-xs">
@@ -550,7 +547,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 	        		</div>
 
-	        		<div class="partners">
+	        		<!--div class="partners">
 		       			<h4 class="text-center"><fmt:message key="partner.offer.exclusive" bundle="${msg}" /></h4>
 		       			<div class="gray-divide" id="bar-exclusive"></div>
 		       			<div class="row partners-holder">
@@ -558,9 +555,6 @@ var home_url = "<%=request.getContextPath()%>";
 		       				<div class="col-xs-4 col-md-4 col-lg-4 text-center">
 		       					<div class="desktop-center clearfix" >
 									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png" class="img-responsive">
-<!-- 		        					<div class="partner-desc"> -->
-<%-- 		        						<fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" /> --%>
-<!-- 		        					</div> -->
 		       					</div>
 		       				</div>
 		       				<div class="col-xs-4 col-md-4 col-lg-4 text-center">
@@ -571,7 +565,7 @@ var home_url = "<%=request.getContextPath()%>";
 		       				</div>
 		       				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">&nbsp;</div>
 		       			</div>
-		       		</div>
+		       		</div-->
 	        		<div class="fna-icons-body text-center clearfix">
 				<div class="fwd-container-limit" id="nav-holder">
 					<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
