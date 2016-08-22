@@ -361,11 +361,11 @@ function getStarted(){
 			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
 		    	}else{ */
-	                    $.ajax({     
-	                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
-	                        type:'get',     
-	                        error:function(){       
-	                        },     
+	                    $.ajax({
+	                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',
+	                        type:'get',
+	                        error:function(){
+	                        },
 	                        success:function(data){
 	                            if(data != null && data.errMsgs == null && data.nextPage !=null && $('#loginform-pop #forcefna').val()=="false"){
 	                                $('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
@@ -374,11 +374,11 @@ function getStarted(){
 	                                nextPage = data.nextPage;
 	                            }
 	                            else{
-	                                $.ajax({     
-	                                    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-	                                    type:'get',     
-	                                    error:function(){       
-	                                    },     
+	                                $.ajax({
+	                                    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
+	                                    type:'get',
+	                                    error:function(){
+	                                    },
 	                                    success:function(data){
 	                                        if(data != null && data.errMsgs == null && data.name !=null){
 	                                            $('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
@@ -388,10 +388,10 @@ function getStarted(){
 	                                        else{
 	                                            window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
 	                                        }
-	                                    }  
+	                                    }
 	                                });
 	                            }
-	                        }  
+	                        }
 	                    });
 		    	/* }
 		    }
@@ -414,11 +414,39 @@ function getStarted(){
 	}
 %>
 
+<script type="text/javascript">
+	function detectTopBarHeightDesktop() {
+		var topBarHeightDesktop = $('.top-bar').height();
+		$('nav.navbar.navbar-inverse').css('padding-top', topBarHeightDesktop+'px');
+		console.log('topBarHeightDesktop = '+topBarHeightDesktop);
+	}
+	function detectTopBarHeightMobile() {
+		var topBarHeightMobile = $('.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none').height();
+		console.log('topBarHeightMobile = '+topBarHeightMobile);
+	}
+	$(function() {
+		$(window).resize(function(){
+			if ( $(window).width() < 992 ) {
+				detectTopBarHeightMobile();
+			} else {
+				detectTopBarHeightDesktop();
+			}
+		});
+	});
+</script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
+		<a href="<%=request.getContextPath()%>/${language}/important-notice" class="alert alert-dismissible header-notification-msg-desktop" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true" onclick="detectTopBarHeightDesktop()">×</span>
+			</button>
+			<div class="container">
+				<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
+			</div>
+		</a>
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
@@ -856,11 +884,17 @@ function getStarted(){
 </div>-->
 <!-- hidden navbar -->
 
-<div
-	style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"
-	id="test"></div>
+<div id="test" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
+	<a href="<%=request.getContextPath()%>/${language}/important-notice" class="alert alert-dismissible header-notification-msg-mobile" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true" onclick="detectTopBarHeightMobile();">×</span>
+		</button>
+		<div class="container">
+			<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
+		</div>
+	</a>
 <%-- 	<div class="mob-topbar">
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
@@ -1388,7 +1422,7 @@ $(function() {
 					$(".mob-menu-btn").click();
 					//console.log(e);
 				}
-			});						
+			});
 			$(window).on("orientationchange load",function(){
                 if(window.orientation == 0 || window.orientation == 180) // Portrait
                 {

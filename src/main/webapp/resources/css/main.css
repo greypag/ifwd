@@ -11150,7 +11150,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 
 }
 .navbar-inverse{
-	padding-top:35px;
+	padding-top:40px;
 }
 .chatnow-btn{
 	background-color:#373a36;
@@ -12128,7 +12128,7 @@ Be caution: <select> have customed made */
 }
 
 #livechat-compact-container{
-	z-index: 1000 !important;	
+	z-index: 1000 !important;
 }
 
 .savie-common-btn.applicant-btn {
@@ -12280,5 +12280,29 @@ Be caution: <select> have customed made */
 	padding-top: 40px !important;
 }
 #faq_sp_mob .faq_title{
-	border-left: 2px solid #fff;	
+	border-left: 2px solid #fff;
+}
+
+/* 22Aug2016 - header notification bar */
+header .top-bar .alert.alert-dismissible,
+.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none .alert.alert-dismissible{
+    margin-bottom: 0;
+    background-color: #f1f1f1;
+    display: block;
+    color: #575757 !important;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.alert {
+    border-radius: 0;
+}
+.alert-dismissable, .alert-dismissible {
+    padding-right: 35px;
+}
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+}
+.alert, .thumbnail {
+    margin-bottom: 20px;
 }
