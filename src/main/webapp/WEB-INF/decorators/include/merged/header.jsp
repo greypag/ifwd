@@ -413,35 +413,18 @@ function getStarted(){
 		user = (UserDetails) session.getAttribute("userDetails");
 	}
 %>
+<script src="<%=request.getContextPath()%>/resources/js/header.cookies.handler.js" charset="utf-8"></script>
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 
-<script type="text/javascript">
-	function detectTopBarHeightDesktop() {
-		var topBarHeightDesktop = $('.top-bar').height();
-		$('nav.navbar.navbar-inverse').css('padding-top', topBarHeightDesktop+'px');
-		console.log('topBarHeightDesktop = '+topBarHeightDesktop);
-	}
-	function detectTopBarHeightMobile() {
-		var topBarHeightMobile = $('.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none').height();
-		console.log('topBarHeightMobile = '+topBarHeightMobile);
-	}
-	$(function() {
-		$(window).resize(function(){
-			if ( $(window).width() < 992 ) {
-				detectTopBarHeightMobile();
-			} else {
-				detectTopBarHeightDesktop();
-			}
-		});
-	});
-</script>
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
-		<a href="<%=request.getContextPath()%>/${language}/important-notice" class="alert alert-dismissible header-notification-msg-desktop" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true" onclick="detectTopBarHeightDesktop()">×</span>
+		<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-desktop"> -->
+		<a href="#" class="header-notification-box header-notification-box--desktop">
+			<button type="button" class="close" aria-label="Close">
+				<span aria-hidden="true" onclick="closeNotificationBox()">×</span>
 			</button>
 			<div class="container">
 				<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
@@ -887,9 +870,10 @@ function getStarted(){
 <div id="test" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
-	<a href="<%=request.getContextPath()%>/${language}/important-notice" class="alert alert-dismissible header-notification-msg-mobile" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true" onclick="detectTopBarHeightMobile();">×</span>
+	<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-mobile"> -->
+	<a href="#" class="header-notification-box header-notification-box--mobile">
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true" onclick="closeNotificationBox();">×</span>
 		</button>
 		<div class="container">
 			<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
@@ -924,7 +908,7 @@ function getStarted(){
 		</div>
 
 
-    <div class="navbar-collapse collapse mobile-menu-V2">
+    	<div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
              <li class="pad-none col-sm-12 dropdown border-bottom">
             <!-- <div
