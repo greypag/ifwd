@@ -52,7 +52,7 @@ import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class ProvieController extends BaseController{
 	
-	private final static Logger logger = LoggerFactory.getLogger(SavieController.class);
+	private final static Logger logger = LoggerFactory.getLogger(ProvieController.class);
 	
 	@Autowired
 	private RestServiceDao restService;
@@ -82,7 +82,7 @@ public class ProvieController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie", "/{lang}/savings-insurance/provie/plan-details-sp"})
 	public ModelAndView getProviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
 		HttpSession session = request.getSession();
-		logger.info(">>>>>>>>>>>>>>>>>getProviePlanDetail<<<<<<<<<<<<<<<<<<<");
+		//logger.info(">>>>>>>>>>>>>>>>>getProviePlanDetail<<<<<<<<<<<<<<<<<<<");
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
@@ -113,7 +113,7 @@ public class ProvieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre"})
 	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER);
+		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
 	}
 	
 	//@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre-confirmed"})
@@ -124,7 +124,7 @@ public class ProvieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/confirmation-appointment"})
 	public ModelAndView getProvieThankyou(Model model, HttpServletRequest request) {
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_CONFIRMATION_APPOINTMENT);
+		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT);
 	}
 	
 	/*

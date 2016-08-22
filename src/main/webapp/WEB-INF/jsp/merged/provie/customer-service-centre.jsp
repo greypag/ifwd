@@ -109,28 +109,10 @@ function stickToHeader() {
 		                   <div class="selectDiv centreDiv gray-text-bg">
 		                      <select name="centre" id="centre" class="form-control gray-dropdown">
 		                        <option value="" disabled selected>Customer Service Centre</option>
-		                         
-							         
-							             
-								             
 			                                     <option value="QB" >Quarry Bay</option>
-				                             
-		                                 
-								             
 			                                     <option value="TST" selected="selected">Tsim Sha Tsui</option>
-				                             
-		                                 
-								             
 			                                     <option value="SW" >Sheung Wan</option>
-				                             
-		                                 
-								             
 			                                     <option value="KF" >Kwai Fong</option>
-				                             
-		                                 
-							         
-							         
-							     
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
