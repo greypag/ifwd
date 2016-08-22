@@ -1794,9 +1794,10 @@ public class LifeServiceImpl implements LifeService {
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
-				JSONObject parameters1 = new JSONObject();
-				parameters1.put("policyNo", lifePolicy.getPolicyNo());
-				vulnerableCustomerResponse=connector.isVulnerable(parameters1,header);
+				/*JSONObject parameters1 = new JSONObject();
+				parameters1.put("policyNo", lifePolicy.getPolicyNo());*/
+				String policyNo=lifePolicy.getPolicyNo();
+				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
 				if(vulnerableCustomerResponse.hasError()){
 					request.getSession().setAttribute("isVulnerable", false);
 					throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);

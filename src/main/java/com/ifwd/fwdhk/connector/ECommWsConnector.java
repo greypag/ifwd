@@ -142,9 +142,14 @@ public class ECommWsConnector {
 	public CreateEliteTermPolicyResponse createLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.CREATE_LIFE_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
 	}
-	public GetVulnerableCustomerResponse isVulnerable(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+	public GetVulnerableCustomerResponse isVulnerable(String policyNo,final Map<String,String> header)throws ECOMMAPIException{
 		
-		return consumeECommWs(UserRestURIConstants.GET_VULNERABLE_BY_POLICYNO,HttpMethod.GET,parameters,GetVulnerableCustomerResponse.class,header);
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.GET_VULNERABLE_BY_POLICYNO);
+		url.append("?policyNo=");
+		url.append(policyNo);
+		
+		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetVulnerableCustomerResponse.class,header);
 		
 	}
 	public BaseResponse saveVulnerbaleCustomerContactTime(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{

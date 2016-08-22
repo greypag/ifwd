@@ -283,7 +283,7 @@
 				    error:function(){       
 				    },     
 				    success:function(data){  
-				    	alert("success!");
+				    	
 				    }  
 				});
 				return false;
@@ -303,11 +303,12 @@
 				    error:function(){       
 				    },     
 				    success:function(data){  
-				    	alert("success!");
+				    	
 				    }  
 				});
 				return false;
 		    });	
+			
         </script>
 	</body>
 </html>
