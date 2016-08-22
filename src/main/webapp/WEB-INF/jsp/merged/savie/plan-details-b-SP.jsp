@@ -525,7 +525,7 @@ var affordabilityPremium = ${sliderMax};
 			<a onclick="applyCentre();" class="pd-link" style="color: #ff8200;"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></a-->
 			<!-- for offline -->
 			<div class="">
-				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
+				<button onclick="applyCentre();" class="btn plan-details-btn savie-common-btn white-btn text-orange text-hover-orange"><fmt:message key="label.savie.makeanappointment" bundle="${msg}" /></button>
 			</div>
 			<div class="btn__proceed_online js-display-savie-sp">
 				<a id="btn-proceed" class="pd-link" style="color: #ff8200;"><fmt:message key="button.proceed.next" bundle="${msg}" /></a>
