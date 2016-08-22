@@ -76,22 +76,37 @@ var languageP = "${language}";
 
 			<!-- StepIndicator Component End-->
 
-	        <div class="container-fluid fwd-full-container" id="fatca-page-body">
-	        	<div class="fwd-container-limit clearfix sidebar">
-	  				<div id="fatca-content" class="text-center">
-	  					<h3><fmt:message key="info.fatca.copy1" bundle="${msg}" /></h3>
-	  					<p id="agreement"><fmt:message key="decleration.fatca.copy1" bundle="${msg}" /></p>
-	  					<div id="buttons-holder" class="text-center clearfix">
-	  						<button type="button" class="text-bold btn savie-common-btn" id="yes-btn"><fmt:message key="button.yes" bundle="${msg}" /></button>
-	  						<button type="button" class="text-bold btn savie-common-btn" id="no-btn"><fmt:message key="button.no" bundle="${msg}" /></button>
-	  					</div>
-	  					<div id="condition-holder" class="clearfix pull-right">
-	  						<p id="no-btn-call-hotline"><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
-	  					</div>
-	  				</div>
-		        </div>	
-	        </div>
-	        <div class="modal fade modal-fatca-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="container-fluid fwd-full-container" id="fatca-page-body">
+				<div class="fwd-container-limit clearfix sidebar">
+					<div id="fatca-content" class="text-center">
+						<h3><fmt:message key="info.fatca.copy1" bundle="${msg}" /></h3>
+						<p id="agreement"><fmt:message key="decleration.fatca.copy1" bundle="${msg}" /></p>
+						<div id="buttons-holder" class="text-center clearfix">
+							<button type="button" class="text-bold btn savie-common-btn btn-not-clicked" id="yes-btn"><fmt:message key="button.yes" bundle="${msg}" /></button>
+							<button type="button" class="text-bold btn savie-common-btn btn-not-clicked" id="no-btn"><fmt:message key="button.no" bundle="${msg}" /></button>
+						</div>
+						<div id="condition-holder" class="clearfix pull-right hidden">
+							<p id="no-btn-call-hotline"><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
+						</div>
+					</div>
+				</div>
+				<div class="fwd-container-limit clearfix sidebar">
+					<div id="fatca-content-02" class="text-center">
+						<p id="agreement-02"><fmt:message key="decleration.fatca.copy1.02" bundle="${msg}" /></p>
+						<div id="buttons-holder-02" class="text-center clearfix">
+							<button type="button" class="text-bold btn savie-common-btn btn-not-clicked" id="yes-btn-02"><fmt:message key="button.yes" bundle="${msg}" /></button>
+							<button type="button" class="text-bold btn savie-common-btn btn-not-clicked" id="no-btn-02"><fmt:message key="button.no" bundle="${msg}" /></button>
+						</div>
+						<div id="condition-holder-02" class="clearfix pull-right hidden">
+							<p id="no-btn-call-hotline-02"><fmt:message key="info.fatca.call.hotline" bundle="${msg}" /></p>
+						</div>
+					</div>
+				</div>
+				<div class="div-next-btn text-center">
+					<button type="button" class="text-bold btn savie-common-btn disabled-gray-btn" id="next-btn"><fmt:message key="button.next" bundle="${msg}" /></button>
+				</div>
+			</div>
+			<div class="modal fade modal-fatca-declaration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			  <div class="modal-dialog" id="dialog-fatca-declaration">
 				<div class="modal-content common-welcome-modal" id="modal-content-fatca">	
 					 <div class="modal-header">
@@ -123,9 +138,55 @@ var languageP = "${language}";
 		</div>
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
-			$("#yes-btn").click(function(){
-					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+			var clicked_yes_01 = false;
+			var clicked_yes_02 = false;
+			
+			$('#yes-btn').click(function(){
+				clicked_yes_01 = true;
+				$('#yes-btn').removeClass('btn-not-clicked');
+				$('#no-btn').addClass('btn-not-clicked');
+				
+				$('#condition-holder').addClass('hidden');
+				isEnableNext(clicked_yes_01, clicked_yes_02);
 			});
+			$('#no-btn').click(function(){
+				clicked_yes_01 = false;
+				$('#yes-btn').addClass('btn-not-clicked');
+				$('#no-btn').removeClass('btn-not-clicked');
+				
+				$('#condition-holder').removeClass('hidden');
+				isEnableNext(clicked_yes_01, clicked_yes_02);
+			});
+			$('#yes-btn-02').click(function(){
+				clicked_yes_02 = true;
+				$('#yes-btn-02').removeClass('btn-not-clicked');
+				$('#no-btn-02').addClass('btn-not-clicked');
+				
+				$('#condition-holder-02').addClass('hidden');
+				isEnableNext(clicked_yes_01, clicked_yes_02);
+			});
+			$('#no-btn-02').click(function(){
+				clicked_yes_02 = false;
+				$('#yes-btn-02').addClass('btn-not-clicked');
+				$('#no-btn-02').removeClass('btn-not-clicked');
+				
+				$('#condition-holder-02').removeClass('hidden');
+				isEnableNext(clicked_yes_01, clicked_yes_02);
+			});
+			
+			$('#next-btn').click(function(){
+				if(!$(this).hasClass('disabled-gray-btn')){
+					window.location = '<%=request.getContextPath()%>/${language}/${nextPageFlow}';
+				}
+			});
+			
+			function isEnableNext(yes_01, yes_02){
+				if(yes_01==true && yes_02==true){
+					$('#next-btn').removeClass('disabled-gray-btn');
+				}else{
+					$('#next-btn').addClass('disabled-gray-btn');
+				}
+			}
 		</script>
 	</body>
 </html>	

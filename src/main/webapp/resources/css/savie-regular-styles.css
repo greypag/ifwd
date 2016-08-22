@@ -1095,7 +1095,7 @@ body {
     top: initial;
   }
 }
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {*/
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing,
   .savie-regular-landing.sp-only .page-banner .img-banner-text.savie-landing {
@@ -1104,7 +1104,7 @@ body {
     text-align: center;
     padding-left: 0;
   }
-}
+/*}*/
 @media (min-width: 992px) {
   /* line 24, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text {
