@@ -1,5 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.JsonObject;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
 @Controller
@@ -30,8 +34,10 @@ public class AjaxSavieController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
-	
-
+	@Autowired 
+	protected ECommWsConnector connector;
+	@Autowired
+	protected HeaderUtil headerUtil;
 	@RequestMapping(value = {"/ajax/savie/planDetails/get"})
 	public void getPlanDetailsByAjax(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		if (Methods.isXssAjax(request))
@@ -279,9 +285,10 @@ public class AjaxSavieController extends BaseController{
 	 * 保存聯繫時間
 	 * 
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie/contact-time-period/post"},method=RequestMethod.POST)
 	public void commitContactTime(Model model, HttpServletRequest request,HttpServletResponse response,
-			@RequestParam(value="timePeriod", required=false) String timePeriod ){
+			@RequestParam(value="timePeriod", required=false) String timePeriod,@RequestParam(value="policyNo", required=false) String policyNo ){
 				
 				
 			try {
@@ -290,8 +297,12 @@ public class AjaxSavieController extends BaseController{
 				//logger.info("apiJsonObj:"+br);
 				
 				//BaseResponse br=new BaseResponse();
-				
-				ajaxReturn(response,timePeriod);
+				final Map<String,String> header = headerUtil.getHeader1(request);
+				JSONObject parameters = new JSONObject();
+				parameters.put("policyNo", policyNo);
+				parameters.put("contactTime", timePeriod);
+				BaseResponse br=connector.saveVulnerbaleCustomerContactTime(parameters, header);
+				ajaxReturn(response,br);
 			} catch (Exception e) {
 			//catch (ECOMMAPIException e) {
 				logger.info(e.getMessage());

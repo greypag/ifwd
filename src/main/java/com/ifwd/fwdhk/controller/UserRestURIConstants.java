@@ -457,6 +457,8 @@ public class UserRestURIConstants {
 	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
 
 	public static final String GET_VULNERABLE_BY_POLICYNO = "/policies/vc";
+
+	public static final String SAVE_VULNERBALE_CUSTOMER_CONTACT_TIME = "/policies/vc/contactTime";
 	
 	static String controller;
 

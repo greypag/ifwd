@@ -126,9 +126,9 @@
 							<%-- <form action="${pageContext.request.contextPath}/ajax/savie/contact-time-period/post"  method="post"> --%>
 							<div class="selectDiv gray-text-bg is-not-active col-md-7 text-bold" id="time-period-holder" style="margin-left: 27%;max-width: 230px;padding-top:0px !important;text-align: center;" >
 							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;background-color: #E4E4E4;">
-							<option value="0"><fmt:message key="msg.confirmation.contact.detail.text.time.first" bundle="${msg}" /></option>
-							<option value="1"><fmt:message key="msg.confirmation.contact.detail.text.time.second" bundle="${msg}" /></option>
-							<option value="2"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
+							<option value="9:00-11:00"><fmt:message key="msg.confirmation.contact.detail.text.time.first" bundle="${msg}" /></option>
+							<option value="14:00-17:00"><fmt:message key="msg.confirmation.contact.detail.text.time.second" bundle="${msg}" /></option>
+							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
 							</select>
 							<img src="/fwdhk/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
@@ -241,18 +241,19 @@
 			};
 			$("#commit-time-period-btn").on('click', function(){
 				var timePeriod = $("#timePeriod").val();
-				
+				var policyNo=${lifePolicy.policyNo };
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savie/contact-time-period/post',     
 				    type:'post',     
 				    data:{    
+				    	"policyNo": policyNo,
 				    	"timePeriod": timePeriod,
 				    	
 			   		},     
 				    error:function(){       
 				    },     
 				    success:function(data){  
-				    	alert("success! "+data.errMsgs);
+				    	alert("success!");
 				    }  
 				});
 				return false;
@@ -260,18 +261,19 @@
 			
 			$("#commit-time-period-btn-mb").on('click', function(){
 				var timePeriod = $("#timePeriod").val();
-				
+				var policyNo=${lifePolicy.policyNo };
 				$.ajax({     
 				    url:'${pageContext.request.contextPath}/ajax/savie/contact-time-period/post',     
 				    type:'post',     
 				    data:{    
+				    	"policyNo": policyNo,
 				    	"timePeriod": timePeriod,
 				    	
 			   		},     
 				    error:function(){       
 				    },     
 				    success:function(data){  
-				    	alert("success! "+data.errMsgs);
+				    	alert("success!");
 				    }  
 				});
 				return false;

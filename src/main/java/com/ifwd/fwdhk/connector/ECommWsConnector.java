@@ -147,6 +147,11 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.GET_VULNERABLE_BY_POLICYNO,HttpMethod.GET,parameters,GetVulnerableCustomerResponse.class,header);
 		
 	}
+	public BaseResponse saveVulnerbaleCustomerContactTime(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		
+		return consumeECommWs(UserRestURIConstants.SAVE_VULNERBALE_CUSTOMER_CONTACT_TIME,HttpMethod.POST,parameters,BaseResponse.class,header);
+		
+	}
 	
 	public BaseResponse finalizeLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.FINALIZE_LIFE_POLICY,HttpMethod.POST,parameters,BaseResponse.class,header);
