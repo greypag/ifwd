@@ -150,6 +150,24 @@ public class GAController extends BaseController{
 	public ModelAndView getSummary(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
+			
+			String homeCareCreditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+			if(org.apache.commons.lang.StringUtils.isNotBlank(homeCareCreditCardNo)){
+				new Thread(){
+					public void run(){
+						JSONObject result = new JSONObject();
+						String paymentFail = "1";
+						try {
+							result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
+							model.addAttribute("policyNo", result.get("policyNo"));
+						} catch (Exception e) {
+							logger.info(e.getMessage());
+							e.printStackTrace();
+						}
+					}
+				}.start();
+			}
+			
 			UserDetails userDetails = (UserDetails)session.getAttribute("applicantDetails");
 			HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean)session.getAttribute("homeCareDetails");
 			CreatePolicy confirm = (CreatePolicy)session.getAttribute("confirm");
