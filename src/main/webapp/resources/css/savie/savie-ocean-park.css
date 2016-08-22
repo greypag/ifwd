@@ -184,3 +184,10 @@
 	color: #ff8422;
 }
 
+/* only arrow need fix on this size */
+@media (max-width: 453px) {
+	.card-head .arrow{
+		top: 50px;
+	}
+}
+

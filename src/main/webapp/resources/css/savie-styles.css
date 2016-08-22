@@ -3,6 +3,7 @@ body.chin {
 }
 body .text-bold {
   font-family: "Calibri-bold", Calibri, sans-serif !important;
+  font-weight: bold;
 }
 body.chin .text-bold {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
@@ -9957,3 +9958,13 @@ select::-ms-value {
 a.to-orange{
 	color: #ff8200;
 }
+
+.text-orange{
+  color: #ff8200 !important;
+}
+
+.text-hover-orange:hover{
+  color: #ff8200 !important;
+}
+
+

@@ -5,12 +5,29 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://i.fwd.com.hk/tc/household-insurance/home-liability</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/household-insurance/home-liability</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/tc/household-insurance/easy-home-care</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/household-insurance/easy-home-care</loc>
+  <changefreq>weekly</changefreq>
+</url>
 <url>
   <loc>https://i.fwd.com.hk/tc/medical-insurance</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/tc/medical-insurance/plan-options</loc>
+  <loc>https://i.fwd.com.hk/tc/medical-insurance/plan-option</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
@@ -18,7 +35,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/en/medical-insurance/plan-options</loc>
+  <loc>https://i.fwd.com.hk/en/medical-insurance/plan-option</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
