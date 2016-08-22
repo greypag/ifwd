@@ -110,7 +110,7 @@
 	        			</div>
 	        			
 	        			<div class="row" id="contact-detail">
-	        				<c:if test="${isVulnerable}">
+	        				<c:if test="${isVulnerable=='true'}">
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 	        					
 	        					<p>
@@ -122,7 +122,7 @@
 							
 							<%-- <form action="${pageContext.request.contextPath}/ajax/savie/contact-time-period/post"  method="post"> --%>
 							<div class="selectDiv gray-text-bg is-not-active col-md-7 text-bold" id="time-period-holder" style="margin-left: 27%;max-width: 230px;padding-top:0px !important;text-align: center;" >
-							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;background-color: #E4E4E4;">
+							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="9:00-11:00"><fmt:message key="msg.confirmation.contact.detail.text.time.first" bundle="${msg}" /></option>
 							<option value="14:00-17:00"><fmt:message key="msg.confirmation.contact.detail.text.time.second" bundle="${msg}" /></option>
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
@@ -130,13 +130,13 @@
 							<img src="/fwdhk/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div class="col-md-5 visible-lg visible-md" id="confirm-time-period">
-							<button id="commit-time-period-btn" class="btn white-btn " style="color: #ff8200;" type="submit">
+							<button id="commit-time-period-btn" class="btn white-btn " style="color: #ff8200;" type="submit" onclick="commitTime(this)">
 							<!-- 遞交 -->
 							<fmt:message key="msg.confirmation.contact.detail.text.time.commit" bundle="${msg}" />
 							</button>
 							</div>
 							<div class="col-md-5 visible-xs visible-sm" id="confirm-time-period">
-							<button id="commit-time-period-btn-mb" class="btn white-btn " style="float:right;color: #ff8200;" type="submit">
+							<button id="commit-time-period-btn-mb" class="btn white-btn " style="float:right;color: #ff8200;" type="submit" onclick="commitTime(this)">
 							<!-- 遞交 -->
 							<fmt:message key="msg.confirmation.contact.detail.text.time.commit" bundle="${msg}" />
 							</button>
@@ -270,26 +270,8 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-			$("#commit-time-period-btn").on('click', function(){
-				var timePeriod = $("#timePeriod").val();
-				var policyNo=${lifePolicy.policyNo };
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savie/contact-time-period/post',     
-				    type:'post',     
-				    data:{    
-				    	"policyNo": policyNo,
-				    	"timePeriod": timePeriod,
-			   		},     
-				    error:function(){       
-				    },     
-				    success:function(data){  
-				    	
-				    }  
-				});
-				return false;
-		    });	
 			
-			$("#commit-time-period-btn-mb").on('click', function(){
+			function commitTime(btn){
 				var timePeriod = $("#timePeriod").val();
 				var policyNo=${lifePolicy.policyNo };
 				$.ajax({     
@@ -298,16 +280,24 @@
 				    data:{    
 				    	"policyNo": policyNo,
 				    	"timePeriod": timePeriod,
-				    	
 			   		},     
 				    error:function(){       
 				    },     
 				    success:function(data){  
 				    	
+				    	$(".white-btn").attr("disabled", true);
+				    	
 				    }  
 				});
 				return false;
-		    });	
+			};
+			
+			function changeSelect(){
+				$(".white-btn").attr("disabled", false);
+				
+			}
+			
+			
 			
         </script>
 	</body>

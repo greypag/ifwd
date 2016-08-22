@@ -1802,11 +1802,12 @@ public class LifeServiceImpl implements LifeService {
 					request.getSession().setAttribute("isVulnerable", false);
 					throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
 				}
-				if(vulnerableCustomerResponse.getVulnerableCustomer().equals("true")){
+				/*if(vulnerableCustomerResponse.getVulnerableCustomer().equals("true")){
 					request.getSession().setAttribute("isVulnerable", true);
 				}else{
 					request.getSession().setAttribute("isVulnerable", false);
-				}
+				}*/
+				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
 				
 				
 			}
