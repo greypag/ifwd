@@ -5,6 +5,9 @@
 	<excludes>
         <pattern>/google*</pattern>
         <pattern>/baidu*</pattern>
+        <pattern>/api*</pattern>
+        <pattern>/v2*</pattern>
+        <pattern>/swagger*</pattern>
         <pattern>/*/term-life-insurance/document-upload-hkid*</pattern>
         <pattern>/*/term-life-insurance/document-upload-passport*</pattern>
         <pattern>/*/term-life-insurance/document-upload-address*</pattern>
