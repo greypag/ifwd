@@ -25766,3 +25766,14 @@ label.et-bene-radio,#et-application-second-section label,
 .et-get-qoute {
 	bottom: 105px;
 }
+
+.fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start .elterm-btn-default{
+	color: #b7c3cd;
+	border: 1px solid #b7c3cd;
+}
+
+.fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start .elterm-btn-default:hover,
+.fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start input[type=radio]:checked+.elterm-btn-default{
+	background-color: #ff8200;
+	color: #fff;
+}

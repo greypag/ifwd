@@ -126,39 +126,50 @@ var home_url = "<%=request.getContextPath()%>";
 			<!--Elite Terms Before We Start Widget-->
 			<div class="container-fluid fwd-container">
 				<!--Before we start-->
-				<p class="et-bfr-start-txt">
-					<fmt:message key="eliteTerms.selectPlan.If.you.want.to.fill"
-						bundle="${msg}" />
-				</p>
-
 				<div class="et-before-we-start">
 					<h2 class="et-bfr-txt">
 						<fmt:message key="eliteTerms.selectPlan.Before.we.start"
 							bundle="${msg}" />
 					</h2>
+
 					<div class="et-broken-line et-padding"></div>
-
 					<p class="et-bfr-start-txt bottom">
-						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an"
-							bundle="${msg}" />
+						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an" bundle="${msg}" />
 					</p>
-
 					<div class="clearfix">
-						<input type="radio" id="et-before-yes" name="et-before"
-							value="et-before-yes"> <input type="hidden" id="channel">
-						<label class="et-before-we-start-yes pull-left"
-							for="et-before-yes" data-toggle="modal"
-							data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">
-							<span class="et-before-text"><fmt:message
-									key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
-						</label> <input type="radio" id="et-before-no" name="et-before"
-							value="et-before-no"> <label
-							class="et-before-we-start-no no pull-right" for="et-before-no">
-							<span class="et-before-text"><fmt:message
-									key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
+						<input type="radio" id="et-before-yes" name="et-before" value="et-before-yes">
+						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
+						</label>
+						<input type="radio" id="et-before-no" name="et-before" value="et-before-no">
+						<input type="hidden" id="channel">
+						<label class="et-before-we-start-no no pull-right elterm-btn-default" for="et-before-no" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
 						</label>
 					</div>
+
+					<div class="et-broken-line et-padding"></div>
+					<p class="et-bfr-start-txt bottom">
+						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an.2" bundle="${msg}" />
+					</p>
+					<div class="clearfix">
+						<input type="radio" id="et-before-yes-02" name="et-before-02" value="et-before-yes">
+						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes-02">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
+						</label>
+						<input type="radio" id="et-before-no-02" name="et-before-02" value="et-before-no">
+						<label class="et-before-we-start-no no pull-right elterm-btn-default" for="et-before-no-02" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">
+							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></span>
+						</label>
+					</div>
+
 				</div>
+
+				<p class="et-bfr-start-txt">
+					<fmt:message key="eliteTerms.selectPlan.If.you.want.to.fill"
+						bundle="${msg}" />
+				</p>
+
 				<div class="et-next-btn-div">
 					<button type="button" id="et-btn-before-start"
 						class="btn btn-orange hidden et-next-btn et-pad-bot-50"
@@ -4137,9 +4148,28 @@ var home_url = "<%=request.getContextPath()%>";
 	});
 
       //select-plan
-      $(document).on('click', '#et-before-no', function(e) {
+/*
+      $(document).on('click', '#et-before-yes', function(e) {
          $('#et-btn-before-start').removeClass('hidden');
       });
+*/
+		var et_before_01_is_yes = false;
+		var et_before_02_is_yes = false;
+		$('#et-before-yes').on('click', function(){
+			et_before_01_is_yes = true;
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+		});
+		$('#et-before-yes-02').on('click', function(){
+			et_before_02_is_yes = true;
+			isDisplayNext(et_before_01_is_yes, et_before_02_is_yes);
+		});
+		function isDisplayNext(yes_01, yes_02){
+			if(yes_01==true && yes_02==true){
+				$('#et-btn-before-start').removeClass('hidden');
+			}else{
+				$('#et-btn-before-start').addClass('hidden');
+			}
+		}
 
   		//applicant dob
   		$(document).on('click', '#et-personal-info-next', function(e) {
