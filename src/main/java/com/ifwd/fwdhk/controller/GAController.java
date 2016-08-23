@@ -159,7 +159,7 @@ public class GAController extends BaseController{
 						String paymentFail = "1";
 						try {
 							result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
-							model.addAttribute("policyNo", result.get("policyNo"));
+							//model.addAttribute("policyNo", result.get("policyNo"));
 						} catch (Exception e) {
 							logger.info(e.getMessage());
 							e.printStackTrace();
