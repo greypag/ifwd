@@ -144,7 +144,7 @@ public class MemberController extends BaseController {
 		}
 	}
 	
-	@RequestMapping(value = "/retrieveUserName", method = POST)
+	@RequestMapping(value = "/retrieveUserName", method = GET)
 	@ApiOperation(
 		value = "Retrieve user name",
 		response = MemberActionResult.class
@@ -184,7 +184,7 @@ public class MemberController extends BaseController {
 		}
 	}
 	
-	@RequestMapping(value = "/forgotPassword", method = POST)
+	@RequestMapping(value = "/forgotPassword", method = GET)
 	@ApiOperation(
 		value = "Reset password",
 		response = MemberActionResult.class
