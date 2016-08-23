@@ -181,13 +181,16 @@ function isFileValid(file, $fileObj, errorMsgCon) {
                     .trigger('click');
         }
             
-        addFormFieldError(errorMsgCon, 'File must not be greater than 2MB.');
+        //addFormFieldError(errorMsgCon, 'File must not be greater than 2MB.');
+        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage, "savie.doc.upload.size"));
         isValid = false;
     }
     // Check file extension and type validity
     // Accepted file format: application/pdf, image/jpg, image/jpeg, image/gif and image/png
     if ($.inArray(file.type, $fileObj.attr('accept').split(',')) < 0) {
-        addFormFieldError(errorMsgCon, 'File format must be a pdf, jpg, gif or png.');
+        //addFormFieldError(errorMsgCon, 'File format must be a pdf, jpg, gif or png.');
+        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage, "savie.doc.upload.format"));
+		  
         isValid = false;
     }
     return isValid;
