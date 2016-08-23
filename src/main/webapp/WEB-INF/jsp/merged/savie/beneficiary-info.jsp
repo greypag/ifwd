@@ -85,7 +85,7 @@ var languageP = "${language}";
 						<div id="fwd-container-beneficiary" class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page">
 							<h4 class="so-h4 text-bold"><fmt:message key="label.beneficiary.info" bundle="${msg}" /></h4>
 							<div id="errorMsg" style="color: red;"></div>
-							<form id="beneficiary-info-form[0]" class="beneficiary-form-content form-uppercase" method="post" action="">
+							<form id="beneficiary-info-form[0]" class="beneficiary-form-content" method="post" action="">
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
@@ -251,7 +251,7 @@ var languageP = "${language}";
 										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[1]"><i class="fa fa-minus-circle"></i><fmt:message key="remove.beneficiary" bundle="${msg}" /></button>
 									</div>
 								</div>
-								<form id="beneficiary-info-form[1]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
+								<form id="beneficiary-info-form[1]" class="beneficiary-form-content hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" autocomplete="off" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
@@ -391,7 +391,7 @@ var languageP = "${language}";
 										<button type="button" class="remove-bnfry-btn" id="remove-beneficiary[2]"><i class="fa fa-minus-circle"></i><fmt:message key="remove.beneficiary" bundle="${msg}" /></button>
 									</div>
 								</div>
-								<form id="beneficiary-info-form[2]" class="beneficiary-form-content form-uppercase hidden" method="post" action="">
+								<form id="beneficiary-info-form[2]" class="beneficiary-form-content hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" autocomplete="off" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />

@@ -87,7 +87,7 @@
 						<div id="personal-info" class="personal-info-widget page-application et-application-page">
 							<h4 class="so-h4"><fmt:message key="label.savie.application.insured.title" bundle="${msg}"/></h4>
 							<div id="errorMsg" style="color: red;"></div>
-							<form id="soInsuredInfoForm" method="post" class="form-horizontal form-uppercase" action="" onsubmit="return false">
+							<form id="soInsuredInfoForm" method="post" class="form-horizontal" action="" onsubmit="return false">
 								<div class="row margin">
 									<div class="col-sm-12 col-md-6 left">
 										<div class="clearfix form-group has-error">

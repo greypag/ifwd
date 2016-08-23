@@ -18,7 +18,7 @@ var languageP = "${language}";
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
-      
+
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -29,7 +29,7 @@ var languageP = "${language}";
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps employment-info-page" id="unemployed-page">
 			<!-- Breadcrumb Component Start-->
 
-			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" /> 
+			    <c:set var="breadcrumbItems" value="breadcrumb.item.home" />
 				<c:set var="breadcrumbActive" value="0" />
 
 			    <c:if test="${planIndex == 'medical-insurance'}">
@@ -54,7 +54,7 @@ var languageP = "${language}";
 
 			<!-- StepIndicator Component Start-->
 
-		     	<c:set var="stepItems" value="stepindicator.selectplan" /> 
+		     	<c:set var="stepItems" value="stepindicator.selectplan" />
 				<c:set var="stepActive" value="0" />
 
 				<c:if test="${planIndex == 'medical-insurance'}">
@@ -78,7 +78,7 @@ var languageP = "${language}";
 			     <!--</div>-->
 
 			<!-- StepIndicator Component End-->
-				
+
 	        <div class="container-fluid fwd-full-container headerStick" id="unemployed-page-body">
 	        	<div id="ie-select-emp" class="fwd-container-limit clearfix sidebar">
 	  				<div id="unemployed-content">
@@ -107,7 +107,7 @@ var languageP = "${language}";
 													</c:forEach>
 												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
 														<c:if test="${plan == 'savings-insurance' ? savieFna.employment_status == list.itemCode?'true':'false':lifeEmploymentInfo.employmentStatus == list.itemCode?'true':'false'}"><c:set var="employmentStatusCode" value="${list.itemCode }"/></c:if>
@@ -141,9 +141,9 @@ var languageP = "${language}";
 															<option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
-												</c:if>				                     
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
 														<c:if test="${plan == 'savings-insurance' ? savieFna.nature_of_business == list.itemCode?'true':'false':lifeEmploymentInfo.natureOfBusiness == list.itemCode?'true':'false'}"><c:set var="natureOfBusinessCode" value="${list.itemCode }"/></c:if>
@@ -177,9 +177,9 @@ var languageP = "${language}";
 														    <option value="${list.itemCode }" <c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
 														<c:if test="${plan == 'savings-insurance' ? savieFna.occupation == list.itemCode?'true':'false':lifeEmploymentInfo.occupation == list.itemCode?'true':'false'}"><c:set var="occupationCode" value="${list.itemCode }"/></c:if>
@@ -198,7 +198,7 @@ var languageP = "${language}";
 									<div id="otherOccupationDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" autocomplete="off" id="other-occupation" name="otherOccupation" value="${savieFna.occupation_others }" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation"><fmt:message key="placeholder.please.specify" bundle="${msg}" /></label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation"><fmt:message key="placeholder.please.specify" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="otherOccupationErMsg"></span>
 									</div>
@@ -210,10 +210,10 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" 
+														    <option value="${list.itemCode }"
 														    <c:choose>
-															 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}">selected="selected"</c:when>   
-															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}">selected="selected"</c:when>
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>
 															</c:choose>
 														    >${list.itemDesc }</option>
 														</enhance:out>
@@ -222,30 +222,30 @@ var languageP = "${language}";
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etAmountOtherSourceCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" 
+														    <option value="${list.itemCode }"
 														    <c:choose>
-															 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}">selected="selected"</c:when>   
-															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}">selected="selected"</c:when>
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>
 															</c:choose>
 														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etAmountOtherSourceEN}">
 												    <c:choose>
-													 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>   
-													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													 <c:when test="${fn:length(etAmountOtherSourceEN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>
 													</c:choose>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etAmountOtherSourceCN}">
 												    <c:choose>
-													 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>   
-													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													 <c:when test="${fn:length(etAmountOtherSourceCN) == '1'}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:when>
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}"><c:set var="amountOfOtherSourceOfIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>
 													</c:choose>
 												</c:forEach>
 											</c:if>
@@ -259,7 +259,7 @@ var languageP = "${language}";
 									<div id="employerNameDiv" class="form-group employment-field">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
 											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" autocomplete="off" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
-											<label class="mdl-textfield__label so-mdl-textfield-label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label> 
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="currentEmployer"><fmt:message key="placeholder.current.employer.name" bundle="${msg}" /></label>
 										</div>
 										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>
@@ -271,10 +271,10 @@ var languageP = "${language}";
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" 
+														    <option value="${list.itemCode }"
 														    <c:choose>
-															 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}">selected="selected"</c:when>   
-															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}">selected="selected"</c:when>
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>
 															</c:choose>
 														    >${list.itemDesc }</option>
 														</enhance:out>
@@ -283,30 +283,30 @@ var languageP = "${language}";
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
 														<enhance:out escapeXml="false">
-														    <option value="${list.itemCode }" 
+														    <option value="${list.itemCode }"
 														    <c:choose>
-															 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}">selected="selected"</c:when>   
-															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>  
+															 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}">selected="selected"</c:when>
+															 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if></c:otherwise>
 															</c:choose>
 														    >${list.itemDesc }</option>
 														</enhance:out>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 												    <c:choose>
-													 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>   
-													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													 <c:when test="${fn:length(monthlyPersonalIncomeEN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>
 													</c:choose>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
 												    <c:choose>
-													 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>   
-													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>  
+													 <c:when test="${fn:length(monthlyPersonalIncomeCN) == '1'}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:when>
+													 <c:otherwise><c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }"/></c:if></c:otherwise>
 													</c:choose>
 												</c:forEach>
 											</c:if>
@@ -322,58 +322,58 @@ var languageP = "${language}";
 											   <option value="" disabled="disabled" selected="selected"><fmt:message key="placeholder.education.level" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
-														<option value="${list.itemCode }" 
-														    <c:choose>  
+														<option value="${list.itemCode }"
+														    <c:choose>
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}">selected="selected"</c:when>
 															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }">selected="selected"</c:when>
-															   <c:otherwise></c:otherwise>  
+															   <c:otherwise></c:otherwise>
 															</c:choose>
 														>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etEducationLevelCN}">
-														<option value="${list.itemCode }" 
-														    <c:choose>  
+														<option value="${list.itemCode }"
+														    <c:choose>
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}">selected="selected"</c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}">selected="selected"</c:when>
 															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }">selected="selected"</c:when>
-															   <c:otherwise></c:otherwise>  
+															   <c:otherwise></c:otherwise>
 															</c:choose>
 														>${list.itemDesc }</option>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
-														    <c:choose>  
+														    <c:choose>
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
-															   <c:otherwise></c:otherwise>  
+															   <c:otherwise></c:otherwise>
 															</c:choose>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etEducationLevelCN}">
-														    <c:choose>  
+														    <c:choose>
 															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
 															   <c:when test="${lifeEmploymentInfo.education == list.itemCode }"><c:set var="educationCode" value="${list.itemCode }"/></c:when>
-															   <c:otherwise></c:otherwise>  
+															   <c:otherwise></c:otherwise>
 															</c:choose>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											<input type="hidden" id="education" name="education" value="${educationCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
@@ -386,7 +386,7 @@ var languageP = "${language}";
 											   <option value="" disabled selected><fmt:message key="placeholder.liquid.assets" bundle="${msg}" /></option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
-														<option value="${list.itemCode }" 
+														<option value="${list.itemCode }"
 														<c:choose>
 															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:when>
@@ -401,7 +401,7 @@ var languageP = "${language}";
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${etLiquidAssetCN}">
-														<option value="${list.itemCode }" 
+														<option value="${list.itemCode }"
 														<c:choose>
 															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}">selected="selected"</c:when>
@@ -413,13 +413,13 @@ var languageP = "${language}";
 														</c:choose>
 														>${list.itemDesc }</option>
 													</c:forEach>
-												</c:if>	
+												</c:if>
 											</select>
-											
+
 											<c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${etLiquidAssetEN}">
 														<c:choose>
-															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when> 
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
@@ -432,7 +432,7 @@ var languageP = "${language}";
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${etLiquidAssetCN}">
 														<c:choose>
-															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when> 
+															<c:when test="${savieFna.getQ4_b_amount() == null || savieFna.getQ4_b_amount() <= 0}"><c:set var="amountOfLiquidAssetsCode" value=""/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() <= 10000 && list.itemCode == 'LA1'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() >= 10001 && savieFna.getQ4_b_amount() <= 50000 && list.itemCode == 'LA2'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
 															<c:when test="${savieFna.getQ4_b_amount() >= 50001 && savieFna.getQ4_b_amount() <= 100000 && list.itemCode == 'LA3'}"><c:set var="amountOfLiquidAssetsCode" value="${list.itemCode }"/></c:when>
@@ -441,28 +441,57 @@ var languageP = "${language}";
 															<c:otherwise><c:set var="amountOfLiquidAssetsCode" value=""/></c:otherwise>
 														</c:choose>
 												</c:forEach>
-											</c:if>	
+											</c:if>
 											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${amountOfLiquidAssetsCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
 									</div>
 								</div>
+
+                                <div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
+                                    <div class="form-group">
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                            <div class="has-regular-income-question">
+                                                <fmt:message key="employment.has.regular.income" bundle="${msg}" />
+                                            </div>
+                                            <span id="has_regular_incomeErMsg" class="text-red"> </span>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none has-regular-income-btn-grp">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none ">
+                                                <label class="field-label bold-500">
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income" type="" value="true" onclick="" maxlength="50" onblur="" required="">
+                                                    <span id="" class="radio-inline oversea-lb has-regular-income-selection">
+                                                        <fmt:message key="employment.has.regular.income.yes" bundle="${msg}" />
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
+                                                <label class="field-label bold-500">
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income" type="" value="false" onclick="" maxlength="50" onblur="" required="">
+                                                    <span id="" class="radio-inline oversea-lb has-regular-income-selection">
+                                                        <fmt:message key="employment.has.regular.income.no" bundle="${msg}" />
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="text-bold btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
 	  								<button type="button" class="text-bold btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
 									<c:if test="${plan == 'savings-insurance'}">
 									   <a href="#" id="save-cont-link"><fmt:message key="label.save.and.continue.later" bundle="${msg}" /></a>
 									</c:if>
-								</div>	
+								</div>
 	  						</form>
 	  					</div>
-	  				</div>		        	
-		        </div>	
+	  				</div>
+		        </div>
 	        </div>
 			<!-- FOOTER -->
 		</div>
-		
+
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -476,8 +505,8 @@ var languageP = "${language}";
 				</div>
 			</div>
 		  </div>
-		</div>		 
-		
+		</div>
+
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -492,11 +521,11 @@ var languageP = "${language}";
 			</div>
 		  </div>
 		</div>
-		
+
 		<!-- Application saved modal -->
 		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog" id="modal-save-app">
-			<div class="modal-content modal-content-appsave common-welcome-modal">	
+			<div class="modal-content modal-content-appsave common-welcome-modal">
 				 <div class="modal-header" id="modal-header-appsave">
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<p class="text-center"><fmt:message key="label.saved.application.title" bundle="${msg}" /></p>
@@ -510,11 +539,20 @@ var languageP = "${language}";
 			 </div>
 		  </div>
 		</div>
-		
+
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
+            var IsVisibleHasRegularIncome = true;
+            $(document).ready(function () {
+                if ( IsVisibleHasRegularIncome == false ) {
+                    $('#has-regular-income').addClass('hide');
+                } else {
+                    $('#has-regular-income').removeClass('hide');
+                }
+            });
+
 			var getpath =  "<%=request.getContextPath()%>";
-		
+
 			$(document).ready(function () {
 				if('${plan }' == 'savings-insurance'){
 					setSelectReadonly('tmpEmploymentStatus', true);
@@ -539,7 +577,7 @@ var languageP = "${language}";
 					setStyleOfIsNotActive('tmpMonthlyPersonalIncome');
 					setStyleOfIsNotActive('tmpOtherIncomeAmount');
 				}
-				
+
 				var employmentS = '${plan == "savings-insurance" ? savieFna.employment_status : lifeEmploymentInfo.employmentStatus}';
 				if(employmentS == 'ES4' || employmentS == 'ES5' || employmentS == 'ES7' || employmentS == 'ES6'){
 					$('#amountOfOtherSourceOfIncomeDiv').removeClass('hidden');
@@ -564,7 +602,7 @@ var languageP = "${language}";
 						$('#otherOccupationDiv').addClass('hidden');
 					}
 				}
-				
+
 				var dummy = true;
 				if('${backSummary}' == 'Y'){
 					dummy = false;
@@ -579,22 +617,22 @@ var languageP = "${language}";
 					$('#next-btn, #save-cont-link').addClass('hidden');
 					$('#back-summary-btn').removeClass('hidden');
 				}
-				
+
 				$('.save-exit-btn1').click(function() {
 					$('#save-and-continue-modal').modal('hide');
 				});
-                
+
                 $('#keep-going-btn').click(function() {
 					$('#save-and-continue-batch5-modal').modal('hide');
 				});
-				
-				// application saved modal will show after clicking 'Save and exit' button 
+
+				// application saved modal will show after clicking 'Save and exit' button
 				// no full fill type = 1
 				$('.save-exit-btn2').click(function() {
 					$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",
-						  async:false, 
+						  async:false,
 						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfoSaveforLater",
 						  data: $("#employmentInfoForm").serialize()+"&type="+1,
 						  success : function(data) {
@@ -615,7 +653,7 @@ var languageP = "${language}";
 					$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",
-						  async:false, 
+						  async:false,
 						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfoSaveforLater",
 						  data: $("#employmentInfoForm").serialize()+"&type="+2,
 						  success : function(data) {
@@ -631,24 +669,24 @@ var languageP = "${language}";
 						  }
 				    });
 				});
-				
+
 				$('#btn-app-save').click(function() {
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
-				
+
 				if(msieversion() >= 9) {
 					//fix for IE8 highlight blue when selected
 					$('option').click(function() {
 					    $('select').blur();
 					});
-				}	
+				}
 				// detect IE browsers
 				if (window.clipboardData) {
 					$('.selectDiv .gray-dropdown').addClass('ie-select');
 				} else {
 					$('.selectDiv .gray-dropdown').removeClass('ie-select');
 				}
-				
+
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
@@ -720,7 +758,7 @@ var languageP = "${language}";
 						   container: '#otherIncomeAmountErMsg',
 						   selector: '#tmpOtherIncomeAmount',
 						   validators: {
-							  notEmpty: {								 
+							  notEmpty: {
 								 message: '<fmt:message key="error.other.sources.of.income.empty" bundle="${msg}" />'
 							  }
 						   }
@@ -733,13 +771,22 @@ var languageP = "${language}";
 								 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
 							  }
 						   }
-						}
+                        },
+                        has_regular_income: {
+                            container: '#has_regular_incomeErMsg',
+                            validators: {
+                                notEmpty: {
+                                    message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
+                                }
+                            }
+                        }
+
 					}
 				}).on('success.form.bv', function(e) {
 					e.preventDefault();
 				}).on('error.form.bv', function(e) {
 				});
-				
+
 				$('#save-cont-link').on('click', function (e) {
 					$('#employmentInfoForm').bootstrapValidator('validate');
                     if($('#employmentInfoForm').data('bootstrapValidator').isValid()) {
@@ -748,18 +795,18 @@ var languageP = "${language}";
 						$('#save-and-continue-modal').modal('show');
                     }
                 });
-				
+
 				$('.occupation').on('change', function () {
 					showHideOtherOccupationField($(this).val());
 				});
-				
+
 				/*
 				$('#tmpEmploymentStatus').on('change', function() {
 					if($(this).val().split("-")[0] != 'ES3') {
 						// Show employment fields. Hide unemployment fields
 						$('.employment-field').removeClass('hidden');
 						$('.unemployment-field').addClass('hidden');
-						
+
 						showHideOtherOccupationField($('.occupation').val());
 					} else {
 						// Hide employment fields. Show unemployment fields
@@ -768,7 +815,7 @@ var languageP = "${language}";
 					}
 				});
 				*/
-				
+
 				//Update employment info fields
 				/*
 					ES1 - Full Time Employed
@@ -785,7 +832,7 @@ var languageP = "${language}";
 
 					var status = $(this).val();
 					$(this).val(status);
-					
+
 					if (value === 'ES1' || value === 'ES2' || value === 'ES3') {
 						$('#natureOfBusinessDiv').removeClass('hidden');
 						$('#occupationDiv').removeClass('hidden');
@@ -808,7 +855,7 @@ var languageP = "${language}";
 				$('#tmpOccupation').on('change', function(e) {
 					$businessNature = $('#tmpBusinessNature');
 					$self = $('#tmpOccupation');
-					
+
 					if($businessNature.val() == 'NoB23' && $self.val() == 'NoBD16'){
 						$('#otherOccupationDiv').removeClass('hidden');
 					}else{
@@ -821,9 +868,9 @@ var languageP = "${language}";
 					var htmlObj = document.getElementById('next-btn');
 					htmlObj.innerHTML = 'Back to application summary';
 				}
-				
+
 			});
-			
+
 			function showHideOtherOccupationField(val) {
 				if(val == 'other') {
 					$('#other-occupation').parent().parent().removeClass('hidden');
@@ -831,14 +878,14 @@ var languageP = "${language}";
 					$('#other-occupation').parent().parent().addClass('hidden');
 				}
 			}
-			
+
 			$("#next-btn, #back-summary-btn").click(function(){
 				$('#employmentInfoForm').bootstrapValidator('validate');
 				if($('#employmentInfoForm').data('bootstrapValidator').isValid()){
 					$("#errorMsg").html("");
 					$.ajax({
 						  type : "POST",
-						  async:false, 
+						  async:false,
 						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfo",
 						  data: $("#employmentInfoForm").serialize(),
 						  success : function(data) {
@@ -857,11 +904,11 @@ var languageP = "${language}";
 				     });
 				}
 			});
-			
+
 			function getOccupation(value, language) {
 				var code = value.replace(/[^0-9]/ig, "");
 				$.get(contextPath+'/ajax/savie/application/getOccupation',
-				{ 
+				{
 					value : value,
 					language : language
 				},
@@ -881,4 +928,4 @@ var languageP = "${language}";
 			}
 		</script>
 	</body>
-</html>	
+</html>

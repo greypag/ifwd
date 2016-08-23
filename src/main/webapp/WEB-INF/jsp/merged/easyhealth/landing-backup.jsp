@@ -1,4 +1,4 @@
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+﻿<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -288,7 +288,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
                                 <div class="so-fna-content">
                                     <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png">
+                                        <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
                                     </div>
                                     <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
                                      <p><fmt:message key="pillar.support.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
@@ -297,7 +297,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
                                 <div class="so-fna-content">
                                     <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png">
+                                        <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
                                     </div>
                                     <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
                                     <p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
@@ -306,7 +306,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
                                 <div class="so-fna-content">
                                     <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png">
+                                        <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
                                     </div>
                                     <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
                                     <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
@@ -315,7 +315,7 @@ var home_url = "<%=request.getContextPath()%>";
                             <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
                                 <div class="so-fna-content">
                                     <div class="fna-icon-circle">
-                                        <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png">
+                                        <img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
                                     </div>
                                     <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
                                     <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
@@ -332,7 +332,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
 			<div class="content-disclaimer">
 				<p><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
-			</div>
+			</div> 
         <!-- OUR BLOG -->
         <div class="blog">
                 <div class="hidden-md hidden-lg">
@@ -452,7 +452,7 @@ $(document).ready(function() {
                 $('body').css("position", "inital");
                 $('.hidden-benefits-info').css("font-family", "Calibri");
 				$('.hidden-benefits-info').css("font-size", "14px");
-                $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
             });
             $("#policyCoveragePopup").on('hide.bs.modal', function () {
                 //alert(itemTop.top);
@@ -462,12 +462,12 @@ $(document).ready(function() {
             });
             $("#policyCoveragePopup").on('hidden.bs.modal', function () {
                 $('body').attr("style", "");
-            });
+            });			
 		});
 
-	}
+	}	
 	$('#btn-blog-link').click(function(){
 		window.open('<fmt:message key="blog.easyhealth.post1.link" bundle="${msg}" />');
 	});
-});
+});	
 </script>

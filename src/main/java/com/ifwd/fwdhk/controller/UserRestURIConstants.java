@@ -466,6 +466,10 @@ public class UserRestURIConstants {
 	public static final String ERROR_HEADER2_1 = "您已成功申請富衛保險。確認電郵將會發送至 ";
 	public static final String ERROR_HEADER2_2 = "。";
 	public static final String ERROR_DESCRIPTION2 = "申請編號： ";
+
+	public static final String GET_VULNERABLE_BY_POLICYNO = "/policies/vc";
+
+	public static final String SAVE_VULNERBALE_CUSTOMER_CONTACT_TIME = "/policies/vc/contactTime";
 	
 	/*API For Hkid Discount*/ 
 	public static final String GET_SAVIE_HKID_DISCOUNT = SERVICE_URL + "/premium/savie/hkid/discount/all";

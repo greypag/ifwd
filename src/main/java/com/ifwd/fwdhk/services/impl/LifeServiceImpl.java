@@ -39,6 +39,7 @@ import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
 import com.ifwd.fwdhk.connector.response.life.PolicyApplication;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
@@ -1808,9 +1809,27 @@ public class LifeServiceImpl implements LifeService {
 			throw new ECOMMAPIException("Some input information contains simplified Chinese");
 		}
 		else{*/
+		GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
+		
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
+				/*JSONObject parameters1 = new JSONObject();
+				parameters1.put("policyNo", lifePolicy.getPolicyNo());*/
+				String policyNo=lifePolicy.getPolicyNo();
+				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+				if(vulnerableCustomerResponse.hasError()){
+					request.getSession().setAttribute("isVulnerable", false);
+					throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
+				}
+				/*if(vulnerableCustomerResponse.getVulnerableCustomer().equals("true")){
+					request.getSession().setAttribute("isVulnerable", true);
+				}else{
+					request.getSession().setAttribute("isVulnerable", false);
+				}*/
+				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+				
+				
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);

@@ -41,6 +41,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.connector.response.ga.HomeCareUwQuestionsResponse;
 import com.ifwd.fwdhk.connector.response.life.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
@@ -140,6 +141,21 @@ public class ECommWsConnector {
 	
 	public CreateEliteTermPolicyResponse createLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.CREATE_LIFE_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
+	}
+	public GetVulnerableCustomerResponse isVulnerable(String policyNo,final Map<String,String> header)throws ECOMMAPIException{
+		
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.GET_VULNERABLE_BY_POLICYNO);
+		url.append("?policyNo=");
+		url.append(policyNo);
+		
+		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetVulnerableCustomerResponse.class,header);
+		
+	}
+	public BaseResponse saveVulnerbaleCustomerContactTime(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		
+		return consumeECommWs(UserRestURIConstants.SAVE_VULNERBALE_CUSTOMER_CONTACT_TIME,HttpMethod.POST,parameters,BaseResponse.class,header);
+		
 	}
 	
 	public BaseResponse finalizeLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{

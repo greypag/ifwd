@@ -12128,7 +12128,7 @@ Be caution: <select> have customed made */
 }
 
 #livechat-compact-container{
-	z-index: 1000 !important;	
+	z-index: 1000 !important;
 }
 
 .savie-common-btn.applicant-btn {
@@ -12281,6 +12281,16 @@ Be caution: <select> have customed made */
 }
 #faq_sp_mob .faq_title{
 	border-left: 2px solid #fff;	
+}
+
+/* easy-health: 20160810 */
+.fwd-savie-wrapper .has-regular-income-btn-grp input.has-regular-income-radio {
+    border-radius: 50%;
+}
+.radio-inline.has-regular-income-selection,
+.has-regular-income-question {
+	font-size: 18px;
+	color: #000000;
 }
 
 /* added on 20160819 */
