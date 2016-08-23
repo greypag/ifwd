@@ -14,13 +14,48 @@
 perventRedirect=true;
 
 var enablePayment=true;
-
-    var clicked = false;
+var tapAndGoUrl = "https://custportal.tapngo.com.hk/en/login";
+var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-    	if(enablePayment){
+    	clicked = false;
+    	console.log(enablePayment);
+        
+		if(enablePayment){
+			console.log("enablePayment");
     		enablePayment=false;
-    		$("#PaymentingDiv").show();
-	        if (payValid() && clicked === false) {
+    		
+    		var gatewayUrlId = '#' + gatewayUrlId;
+            var paymentFormId = '#' + paymentFormId;
+    		var method = "<%=request.getContextPath()%>/processTravePayment";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                data : $(paymentFormId).serialize(),
+                async : false,
+                success : function(data) {
+                	clicked = false;
+                    if (data == 'success') {
+                    	payment(form, gatewayUrlId, paymentFormId);
+                    } else {
+                    	console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                    }
+                }
+            });
+		}
+
+    	<%-- var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+    	clicked = false;
+    	console.log(enablePayment);
+    	if(enablePayment){
+    		console.log("enablePayment");
+    		enablePayment=false;
+	        if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+	        	//console.log("aaa");
+	        	$("#PaymentingDiv").show();
 	            clicked = true;
 	            
 	            var gatewayUrlId = '#' + gatewayUrlId;
@@ -52,14 +87,112 @@ var enablePayment=true;
 	                        }
 	                    });
 	            return true;
-	        }else{ 
+	        }else if(selectedPaymentType=="tg" && payValid(selectedPaymentType) && clicked === false){
+	        		//window.open(tapAndGoUrl, '_blank');
+	        		var method = "<%=request.getContextPath()%>/ajax/annualTravel/calculateTapNGoPaymentInfo";
+	        		$.ajax({
+                        type : "POST",
+                        url : method,
+                        async : false,
+                        success : function(data) {
+                        	clicked = false;
+                        	var str = JSON.stringify(data)
+                        	
+                        	if(data.errMsg){
+                        		console.log(data);
+                            	$("#PaymentingDiv").hide();
+                                enablePayment=true;
+                                $('#paymentErrorPopup').modal('show');
+                                return false;
+                           	}else{
+                           		$('#appId').val(data.appId);
+								$('#merTradeNo').val(data.merTradeNo);
+								$('#payload').val(data.payload);
+								$('#paymentType').val(data.paymentType);
+								$('#sign').val(data.sign);
+								setTimeout(function(){
+									$("#"+form).attr('action', "${tapNGoTransactionUrl}");
+									$("#"+form).submit();
+									3000}
+								);
+								
+                           		
+                           	}
+                        }
+                    });
+	        		
+	        		return true;
+	        }else{
 	        	$("#PaymentingDiv").hide();
-                enablePayment=true;	
+                enablePayment=true;
 	        	return false;
-	        };
-    	}
+	        }
+    	} --%>
     }
 
+	function payment(form, gatewayUrlId, paymentFormId){
+		var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
+        clicked = false;
+		if (payValid(selectedPaymentType) && clicked === false && selectedPaymentType=="cc") {
+			var geteWayUrl = $(gatewayUrlId).val();
+			 clicked = true;
+			$("#PaymentingDiv").show();
+			setTimeout(function(){
+        		$("#"+form).attr('action', geteWayUrl);
+                $("#"+form).submit();
+            }, 3000);
+		}else if(selectedPaymentType=="tg" && payValid(selectedPaymentType)==true && clicked === false){
+    		var method = "<%=request.getContextPath()%>/ajax/calculateTapNGoPaymentInfo";
+    		$.ajax({
+                type : "POST",
+                url : method,
+                async : false,
+                success : function(data) {
+                	clicked = false;
+                	if(data.errMsg){
+                		console.log(data);
+                    	$("#PaymentingDiv").hide();
+                        enablePayment=true;
+                        $('#paymentErrorPopup').modal('show');
+                        return false;
+                   	}else{
+                   		$('#appId').val(data.appId);
+						$('#merTradeNo').val(data.merTradeNo);
+						$('#payload').val(data.payload);
+						$('#paymentType').val(data.paymentType);
+						$('#sign').val(data.sign);
+						setTimeout(function(){
+							$("#"+form).attr('action', data.geteWayUrl);
+							$("#"+form).submit();
+							3000}
+						);
+                   	}
+                }
+            });
+    		return true;
+	    }else{
+	    	$("#PaymentingDiv").hide();
+	        enablePayment=true;
+	    	return false;
+	    }
+	}
+
+	
+
+
+
+
+    
+	function switchPayment(selector){
+		selector = $(selector).attr('id');
+		if(selector=="visaMaster"){
+			$("#payment-detail-section").show();
+			//console.log(selector);
+		}else if (selector=="tapAndGo"){
+			$("#payment-detail-section").hide();
+			//console.log(selector);
+		}
+	}
     $(document).ready(function(){
         $('#cardNo1').payment('formatCardNumber');
         $('#cardNo1').keyup(function() {
@@ -67,6 +200,19 @@ var enablePayment=true;
             var result = replaceSpace.replace(/\s/g,'');
             $("#cardnumber").val(result);
         });
+        $( ".paymentType__btn" ).on( "click", function() {
+        	switchPayment($(this));
+       	});
+        $( "#button_confirm" ).on( "click", function(e) {
+        	e.stopPropagation();
+        	if(lang=="en"){
+	        	kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');
+        	}else{
+        		kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');	
+        	}
+        	perventRedirect=false;
+        	confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');
+       	});
     })
 </script>
 
@@ -746,7 +892,7 @@ var enablePayment=true;
                     <input type="hidden" name="failUrl" value="${failurePath }">
                     <input type="hidden" name="errorUrl" value="${failurePath }">
                     <input type="hidden" name="payType" value="${createPolicy.paymentType}">
-                    <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
+                    <input type="hidden" id="referenceNo" name="referenceNo" value="${createPolicy.referenceNo}">
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
@@ -765,20 +911,38 @@ var enablePayment=true;
                         type="hidden" id="gateway" name="gateway"
                         value="${createPolicy.paymentGateway}">
 
+					
+					<input type="hidden" id="appId" name="appId" value=""/>
+					<input type="hidden" id="merTradeNo" name="merTradeNo" value=""/>
+					<input type="hidden" id="payload" name="payload" value=""/>
+					<input type="hidden" id="paymentType" name="paymentType" value=""/>
+					<input type="hidden" id="sign" name="sign" value=""/>
 
 
-
-
-                    <div class="col-xs-12 pad-none product_payment_details">
-                        <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
+					<div class="form-group float product-payment-type">
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+							<label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">                           
+							<div class="radio paymentType paymentType--first">
+								<input id="visaMaster" class="paymentType__btn" type="radio" name="paymentGroup" value="cc" checked>
+								<label for="visaMaster" class="paymentType__btnLabel">
+									<fmt:message key="payment.type1" bundle="${msg}" />
+									<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
+								</label>																	
+							</div>
+							<div class="radio paymentType paymentType">
+								<input id="tapAndGo" class="paymentType__btn" type="radio" name="paymentGroup" value="tg">
+								<label for="tapAndGo" class="paymentType__btnLabel">
+									<fmt:message key="payment.type2" bundle="${msg}" />
+									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/tap&go.png">
+								</label>																
+							</div>
+							<%--<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">--%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+                    <div id="payment-detail-section" class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float" style="display: none;">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <label class="control-label h4-5">Payment Method</label>
@@ -899,7 +1063,6 @@ var enablePayment=true;
                     
                     
                     
-                    
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
@@ -938,11 +1101,11 @@ var enablePayment=true;
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
        <c:when test="${language=='en'}">
-                                	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                	<a id="button_confirm"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
        </c:when>
        <c:otherwise>
-	                                <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+	                                <a id="button_confirm"
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
 </c:otherwise>
 </c:choose>
@@ -1095,5 +1258,16 @@ var enablePayment=true;
         style="width: 300px; height: 300px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
+
+<!-- <div>
+    <form id="tgPaymentForm" action="" method="post"><br><br>
+		<input type="hidden" id="appId" name="appId" value=""/>
+		<input type="hidden" id="merTradeNo" name="merTradeNo" value=""/>
+		<input type="hidden" id="payload" name="payload" value=""/>
+		<input type="hidden" id="paymentType" name="paymentType" value=""/>
+		<input type="hidden" id="sign" name="sign" value=""/>
+	</form>
+</div> -->
+
 </body>
 </html>

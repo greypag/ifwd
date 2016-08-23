@@ -935,13 +935,20 @@ public class TravelController {
 			BindingResult result, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		UserRestURIConstants.setController("Travel");
-		if (planDetailsForm.getDepartureDate() != null) {
+		
+		String creditCardNo = (String)session.getAttribute("creditCardNo");
+		if(StringUtils.isEmpty(creditCardNo)){
+			session.removeAttribute("travelCreatePolicy");
+		}
+		/*if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
 			
-		} else {
+		}*/ else {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			//String creditCardNo = (String)session.getAttribute("creditCardNo");
+			
+			String paymentMethod = (String)session.getAttribute("paymentMethod");
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -955,6 +962,7 @@ public class TravelController {
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "1");
+			parameters.put("paymentMethod", paymentMethod);
 			
 			if (creditCardNo !=null) { 
 				try {
@@ -1628,6 +1636,9 @@ public class TravelController {
 			}
 		}
 		
+		
+		
+		
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
@@ -1733,10 +1744,17 @@ public class TravelController {
 				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
 				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
 
+		
+				
 				// Calling Api of Confirm Travel Care Policy
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
+				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);				
+
+				
+				confirmPolicyParameter.put("url", UserRestURIConstants.getWebsite(request));
+				session.setAttribute("url", UserRestURIConstants.getWebsite(request));
+				
 				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
 				JSONObject jsonResponse = restService.consumeApi(
 						HttpMethod.POST,
@@ -1750,7 +1768,26 @@ public class TravelController {
 						"transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
 						"transactionDate"));
+				
+				
+				createPolicy.setTapNGoAppId(checkJsonObjNull(jsonResponse, "tapNGoAppId"));
+				createPolicy.setTapNGoSign(checkJsonObjNull(jsonResponse, "tapNGoSign"));
+				createPolicy.setTapNGoTimeStamp(checkJsonObjNull(jsonResponse, "tapNGoTimeStamp"));
+				createPolicy.setTapNGoTransactionUrl(checkJsonObjNull(jsonResponse, "tapNGoTransactionUrl"));
+				createPolicy.setTapNGoPayload(checkJsonObjNull(jsonResponse, "tapNGoPayload"));
+				createPolicy.setTapNGoExtra(checkJsonObjNull(jsonResponse, "tapNGoExtra"));
+				
+				
+				session.setAttribute("tapNGoAppId", createPolicy.getTapNGoAppId());
+				session.setAttribute("tapNGoSign", createPolicy.getTapNGoSign());
+				session.setAttribute("tapNGoTimeStamp", createPolicy.getTapNGoTimeStamp());
+				session.setAttribute("tapNGoTransactionUrl", createPolicy.getTapNGoTransactionUrl());
+				session.setAttribute("tapNGoPayload", createPolicy.getTapNGoPayload());
+				session.setAttribute("tapNGoExtra", createPolicy.getTapNGoExtra());
+				
+				
 				session.setAttribute("travelCreatePolicy", createPolicy);
+				//logger.info("createPolicy : "+createPolicy.toString());
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			} else {
@@ -1782,6 +1819,8 @@ public class TravelController {
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		
+		
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
         if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
@@ -1812,6 +1851,8 @@ public class TravelController {
 		model.addAttribute("canonical", canonical);
 		
 		session.removeAttribute("creditCardNo");
+		model.addAttribute("tapNGoTransactionUrl", session.getAttribute("tapNGoTransactionUrl"));
+		logger.info("tapNGoTransactionUrl:"+session.getAttribute("tapNGoTransactionUrl"));
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
@@ -1823,6 +1864,8 @@ public class TravelController {
 			HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();
 		String referenceNo = request.getParameter("referenceNo");
+		session.setAttribute("paymentMethod", "CC");
+		
 		JSONObject submitPolicy = new JSONObject();
 		submitPolicy.put("referenceNo", referenceNo);
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -1881,6 +1924,10 @@ public class TravelController {
 		
 		JSONObject parameters = new JSONObject();
 		String referenceNo = (String)session.getAttribute("finalizeReferenceNo");
+		
+		String paymentMethod = (String)session.getAttribute("paymentMethod");
+		session.setAttribute("paymentMethod", paymentMethod);
+		
 		model.addAttribute("referenceNo", referenceNo);
 		parameters.put("referenceNo", referenceNo);
 		parameters
@@ -1888,6 +1935,7 @@ public class TravelController {
 		parameters.put("transactionDate",
 				session.getAttribute("transactionDate"));
 		parameters.put("paymentFail", "0");
+		parameters.put("paymentMethod", paymentMethod);
 		
 		String creditCardNo = (String)session.getAttribute("creditCardNo");
 		String dueAmount = (String)session.getAttribute("dueAmount");
@@ -1912,6 +1960,26 @@ public class TravelController {
 		if (creditCardNo !=null) {
 			parameters.put("creditCardNo", creditCardNo); 
 		} else {
+			
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			parameters.put("creditCardNo", "0000000000000000");
+			parameters.put("expiryDate", "122030");
+			parameters.put("paymentMethod", session.getAttribute("paymentMethod").toString());
+			
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			new Thread(){
+				public void run() {
+					JSONObject responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
+					logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
+				};
+			}.start();
+			
 			
 			model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
 			model.addAttribute("emailAddress", session.getAttribute("emailAddress"));

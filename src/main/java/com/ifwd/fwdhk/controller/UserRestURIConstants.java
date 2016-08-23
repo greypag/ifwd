@@ -14,11 +14,22 @@ import com.ifwd.fwdhk.util.SpringUtil;
 
 
 public class UserRestURIConstants {
+	
+	static Object obj = SpringUtil.getObject("configBean");
 
 	/*
 	 * http://10.10.18.11:8080/eCommerce-ws
 	 */
-	public static final String SERVICE_URL = getConfigs("url");
+	public final static String APP_ID = getConfigs("appId");
+	
+	public final static String PUBLIC_KEY = getConfigs("publicKey");
+	
+	public final static String API_KEI = getConfigs("apiKei");
+	
+	public final static String TAG_GO_URL = getConfigs("tagGoUrl");
+	
+	
+	public final static String SERVICE_URL = getConfigs("url");
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";
@@ -543,11 +554,14 @@ public class UserRestURIConstants {
 	 */
 	public static String getConfigs(String key) {
 		Method method;
-		Object obj;
+		//Object obj;
 		String value = "";
 		if(!StringUtils.isEmpty(key)) {
 			try {
-				obj = SpringUtil.getObject("configBean");
+				if(obj == null){
+					obj = SpringUtil.getObject("configBean");
+				}
+				
 				key = key.substring(0, 1).toUpperCase() + key.substring(1, key.length());
 				method = obj.getClass().getMethod("get" + key);
 				value = (String)method.invoke(obj);
@@ -651,6 +665,17 @@ public class UserRestURIConstants {
         else{
             return "EN";
         }
+    }
+    
+    public static String getWebsite(HttpServletRequest request)
+    {
+    	String url = request.getScheme() //当前链接使用的协议
+			    +"://" + request.getServerName()//服务器地址 
+			    + ":" + request.getServerPort() //端口号 
+			    + request.getContextPath()+"/"; //应用名称，如果应用名称为
+			    //+ request.getServletPath() //请求的相对url 
+			    //+ "?" + request.getQueryString(); //请求参数
+    	return url;
     }
     
     public void updateLanguage(HttpServletRequest request)

@@ -5,21 +5,32 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -112,6 +123,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+		    try {
+		    	
+		    	restClient.close();  
+		    	logger.debug("restClient.close();");
+            } catch (IOException e) {  
+                e.printStackTrace(); 
+            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -119,6 +137,8 @@ public class RestServiceImpl implements RestServiceDao {
 		} catch (URISyntaxException e1) {
 			e1.printStackTrace();
 		}
+		
+		
 
 		return responseJsonObj;
 	}
@@ -175,6 +195,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+			 try {
+			    	
+			    	restClient.close();  
+			    	logger.debug("restClient.close();");
+	            } catch (IOException e) {  
+	                e.printStackTrace(); 
+	            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -234,6 +261,13 @@ public class RestServiceImpl implements RestServiceDao {
 							return null;
 						}
 					});
+			 try {
+			    	
+			    	restClient.close();  
+			    	logger.debug("restClient.close();");
+	            } catch (IOException e) {  
+	                e.printStackTrace(); 
+	            } 
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -312,6 +346,80 @@ public class RestServiceImpl implements RestServiceDao {
 			e1.printStackTrace();
 		}
 
+	}
+	
+	
+	public JSONObject consumePaymentStatusAPI(String url, Map<String, String> header,
+			List<NameValuePair> params){
+		
+		JSONObject responseJsonObj = new JSONObject();
+		try {
+
+			//CloseableHttpClient restClient = (HttpClientBuilder.create()).build();
+			CloseableHttpClient restClient = null;
+			HttpPost postMehod = new HttpPost();
+			
+			
+			
+			
+			final CredentialsProvider credsProvider = new BasicCredentialsProvider();
+            final UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("username", "password");
+            credsProvider.setCredentials(new AuthScope(null, -1), credentials);
+            
+            //HttpClientBuilder httpClientBldr = HttpClients.custom();
+            HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+            HttpHost proxy = new HttpHost("10.12.251.5", Integer.parseInt("8080"));
+            clientBuilder.setDefaultCredentialsProvider(credsProvider).setProxy(proxy);
+            restClient = clientBuilder.build();
+			
+			//HttpHost proxy = new HttpHost("10.12.251.5", 8080, "http");  
+	        //RequestConfig config = RequestConfig.custom().setProxy(proxy).build(); 
+	        //postMehod.setConfig(config);
+			
+			URI uri = new URI(url);
+			postMehod.setURI(uri);
+			if (header != null) {
+				header.entrySet()
+						.stream()
+						.forEach(
+								(headParam) -> {
+									postMehod.addHeader(headParam.getKey(),
+											headParam.getValue());
+								});
+			}
+			HttpEntity he = new UrlEncodedFormEntity(params, "UTF-8");   
+			postMehod.setEntity(he); 
+			
+			responseJsonObj = restClient.execute(postMehod,
+					new ResponseHandler<JSONObject>() {
+						@Override
+						public JSONObject handleResponse(HttpResponse response)
+								throws ClientProtocolException, IOException {
+							
+							String encoding = "UTF-8";
+							String responseStr = IOUtils.toString(response
+									.getEntity().getContent(), encoding);
+							JSONParser parser = new JSONParser();
+
+							try {
+								return (JSONObject) parser.parse(responseStr);
+							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+							return null;
+						}
+					});
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		}
+
+		return responseJsonObj;
+		
+		
 	}
 
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {

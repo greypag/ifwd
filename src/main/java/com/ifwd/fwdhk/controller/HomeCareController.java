@@ -520,6 +520,29 @@ public class HomeCareController {
 		urc.updateLanguage(request);
 		
 		HttpSession session = request.getSession();
+		String creditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+		if(StringUtils.isNotBlank(creditCardNo)){
+			String referenceNo = (String) session.getAttribute("HomeCareReferenceNo");
+			String transactionNumber = (String) session.getAttribute("HomeCareTransactionNo");
+			String requestNo = (String) session.getAttribute("HomeCareTransactionNo");
+			String transactionDate = (String) session.getAttribute("HomeCareTransactionDate");
+			String paymentFail = "1";
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc"))
+				lang = "CN";
+			
+			String expiryDate = (String) session.getAttribute("HomeCareCardexpiryDate");
+			String userName = (String) session.getAttribute("username");
+			String token = (String) session.getAttribute("token");
+			String emailId = (String) session.getAttribute("emailAddress");
+			String email = (String) session.getAttribute("emailAddress");
+			
+			HomeCareService homecareService = new HomeCareServiceImpl();
+			CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(
+					userName, token, referenceNo, transactionNumber,
+					transactionDate, creditCardNo, expiryDate, emailId,
+					lang, paymentFail);
+		}
 		
 		if (session.getAttribute("token") == null) {
 			return getHomeCarePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");

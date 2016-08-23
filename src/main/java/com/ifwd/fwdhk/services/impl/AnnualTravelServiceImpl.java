@@ -662,7 +662,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
-			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			header.put("userName", username);

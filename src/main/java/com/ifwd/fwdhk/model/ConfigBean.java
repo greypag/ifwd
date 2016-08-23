@@ -33,6 +33,18 @@ public class ConfigBean {
 	@Value("#{configProperties['becomePartnerMailTo']}")
 	private String becomePartnerMailTo;
 
+	@Value("#{configProperties['appId']}")
+	private String appId;
+	
+	@Value("#{configProperties['publicKey']}")
+	private String publicKey;
+	
+	@Value("#{configProperties['apiKei']}")
+	private String apiKei;
+	
+	@Value("#{configProperties['tagGoUrl']}")
+	private String tagGoUrl;
+	
 	public String getUrl_SZWS() {
 		return Url_SZWS;
 	}
@@ -135,6 +147,38 @@ public class ConfigBean {
 
 	public void setBecomePartnerMailTo(String becomePartnerMailTo) {
 		this.becomePartnerMailTo = becomePartnerMailTo;
+	}
+
+	public String getAppId() {
+		return appId;
+	}
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+	}
+
+	public String getPublicKey() {
+		return publicKey;
+	}
+
+	public void setPublicKey(String publicKey) {
+		this.publicKey = publicKey;
+	}
+
+	public String getApiKei() {
+		return apiKei;
+	}
+
+	public void setApiKei(String apiKei) {
+		this.apiKei = apiKei;
+	}
+
+	public String getTagGoUrl() {
+		return tagGoUrl;
+	}
+
+	public void setTagGoUrl(String tagGoUrl) {
+		this.tagGoUrl = tagGoUrl;
 	}
 	
 

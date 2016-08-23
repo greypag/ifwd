@@ -5,7 +5,10 @@ import java.text.ParseException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,8 @@ import com.ifwd.fwdhk.model.AnnualDetailsForm;
 import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.services.AnnualTravelService;
+import com.ifwd.fwdhk.util.EncryptionUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class AjaxAnnualTravelController {
 	
@@ -136,4 +141,8 @@ public class AjaxAnnualTravelController {
 			return "fail";
 		}
 	}
+	
+	
+	
+	
 }

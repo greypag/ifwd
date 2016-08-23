@@ -29,19 +29,19 @@ import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.services.HomeService;
+import com.ifwd.fwdhk.services.GAService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
-public class HomeController extends BaseController{
+public class GAController extends BaseController{
 	
 	@Autowired
-	private HomeService homeService;
+	private GAService gaService;
 	
-	private final static Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}"})
 	public ModelAndView getInsurance(@PathVariable("plan") String plan, @RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
@@ -55,17 +55,7 @@ public class HomeController extends BaseController{
 		}else if(UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			return HomePageFlowControl.pageFlow(plan, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
 		}
-		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/" + plan);
-	}
-	
-	@RequestMapping(value = {"/{lang}/home-insurance"})
-	public ModelAndView getHomeInsurance(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
-		if (StringUtils.hasText(promo)) {
-			request.getSession().setAttribute("referralCode", promo);
-		}else {
-			request.getSession().removeAttribute("referralCode");
-		}
-		return HomePageFlowControl.pageFlow(UserRestURIConstants.URL_EASY_HOME_LANDING, model, request, UserRestURIConstants.PAGE_PROPERTIES_EASY_HOME_LANDING);
+		return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request) + "/household-insurance/"+plan);
 	}
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}/screening"})
@@ -160,6 +150,24 @@ public class HomeController extends BaseController{
 	public ModelAndView getSummary(@PathVariable("plan") String plan,Model model, HttpServletRequest request) {
 		if(UserRestURIConstants.URL_HOME_LIABILITY_LANDING.equals(plan) || UserRestURIConstants.URL_EASY_HOME_LANDING.equals(plan)) {
 			HttpSession session = request.getSession();
+			
+			String homeCareCreditCardNo = (String)session.getAttribute("HomeCareCreditCardNo");
+			if(org.apache.commons.lang.StringUtils.isNotBlank(homeCareCreditCardNo)){
+				new Thread(){
+					public void run(){
+						JSONObject result = new JSONObject();
+						String paymentFail = "1";
+						try {
+							result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
+							model.addAttribute("policyNo", result.get("policyNo"));
+						} catch (Exception e) {
+							logger.info(e.getMessage());
+							e.printStackTrace();
+						}
+					}
+				}.start();
+			}
+			
 			UserDetails userDetails = (UserDetails)session.getAttribute("applicantDetails");
 			HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean)session.getAttribute("homeCareDetails");
 			CreatePolicy confirm = (CreatePolicy)session.getAttribute("confirm");
@@ -275,7 +283,7 @@ public class HomeController extends BaseController{
 					JSONObject result = new JSONObject();
 					String paymentFail = "0";
 					try {
-						result = homeService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
+						result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
 						model.addAttribute("policyNo", result.get("policyNo"));
 					} catch (Exception e) {
 						logger.info(e.getMessage());
