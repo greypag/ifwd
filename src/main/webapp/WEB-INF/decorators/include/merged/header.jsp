@@ -13,6 +13,7 @@
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 <script>
 
 var getBundleLanguage = "";
@@ -413,8 +414,6 @@ function getStarted(){
 		user = (UserDetails) session.getAttribute("userDetails");
 	}
 %>
-<script src="<%=request.getContextPath()%>/resources/js/header.cookies.handler.js" charset="utf-8"></script>
-<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
@@ -422,7 +421,7 @@ function getStarted(){
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
 		<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-desktop"> -->
-		<a href="#" class="header-notification-box header-notification-box--desktop">
+		<a href='<fmt:message key="header.notification.url" bundle="${msg}" />' target="_blank" class="header-notification-box header-notification-box--desktop">
 			<button type="button" class="close" aria-label="Close">
 				<span aria-hidden="true" onclick="closeNotificationBox()">×</span>
 			</button>
@@ -871,7 +870,7 @@ function getStarted(){
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
 	<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-mobile"> -->
-	<a href="#" class="header-notification-box header-notification-box--mobile">
+	<a href='<fmt:message key="header.notification.url" bundle="${msg}" />' target="_blank" class="header-notification-box header-notification-box--desktop">
 		<button type="button" class="close" aria-label="Close">
 			<span aria-hidden="true" onclick="closeNotificationBox();">×</span>
 		</button>

@@ -12293,13 +12293,15 @@ header .top-bar .header-notification-box,
 	font-size: 16px;
 	line-height: 1.5;
 }
-.header-notification-box {
+.header-notification-box.header-notification-box--desktop,
+.header-notification-box.header-notification-box--mobile  {
     border-radius: 0;
-}
-.header-notification-box {
     padding-right: 35px;
-}
-.header-notification-box {
     padding: 15px;
     border: 1px solid transparent;
+	text-decoration: none;
+}
+.header-notification-box.header-notification-box--desktop:hover,
+.header-notification-box.header-notification-box--mobile:hover {
+	text-decoration: none;
 }
