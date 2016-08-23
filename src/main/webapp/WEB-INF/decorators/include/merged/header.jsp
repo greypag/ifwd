@@ -420,15 +420,7 @@ function getStarted(){
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
-		<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-desktop"> -->
-		<a href='<fmt:message key="header.notification.url" bundle="${msg}" />' target="_blank" class="header-notification-box header-notification-box--desktop">
-			<button type="button" class="close" aria-label="Close">
-				<span aria-hidden="true" onclick="closeNotificationBox()">×</span>
-			</button>
-			<div class="container">
-				<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
-			</div>
-		</a>
+		<%@include file="header.notification.bar.desktop.jsp" %>
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
@@ -869,15 +861,7 @@ function getStarted(){
 <div id="test" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
-	<!-- <a href="<%=request.getContextPath()%>/${language}/important-notice" class="header-notification-box header-notification-msg-mobile"> -->
-	<a href='<fmt:message key="header.notification.url" bundle="${msg}" />' target="_blank" class="header-notification-box header-notification-box--desktop">
-		<button type="button" class="close" aria-label="Close">
-			<span aria-hidden="true" onclick="closeNotificationBox();">×</span>
-		</button>
-		<div class="container">
-			<span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
-		</div>
-	</a>
+	<%@include file="header.notification.bar.mobile.jsp" %>
 <%-- 	<div class="mob-topbar">
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>

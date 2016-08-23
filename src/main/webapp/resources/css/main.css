@@ -12305,3 +12305,6 @@ header .top-bar .header-notification-box,
 .header-notification-box.header-notification-box--mobile:hover {
 	text-decoration: none;
 }
+.header-notification-box.close {
+	font-size: 14px;
+}
