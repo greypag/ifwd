@@ -33,7 +33,6 @@ import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
-import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -50,8 +49,6 @@ public class OverseaController extends BaseController{
 	@Autowired
 	private RestServiceDao restService;
 	@Autowired
-	private SavieService savieService;
-	@Autowired
 	private CommonUtils commonUtils;
 
 	@RequestMapping(value = {"/{lang}/overseas-study-insurance"})
@@ -59,6 +56,7 @@ public class OverseaController extends BaseController{
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
+		session.removeAttribute("referralCode");
 		if (promo != null) {
 			if (!promo.equals("")) {
 				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
