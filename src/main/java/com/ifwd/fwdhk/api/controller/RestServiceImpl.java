@@ -126,7 +126,7 @@ public class RestServiceImpl implements RestServiceDao {
 		    try {
 		    	
 		    	restClient.close();  
-		    	logger.debug("restClient.close();");
+		    	//logger.debug("restClient.close();");
             } catch (IOException e) {  
                 e.printStackTrace(); 
             } 
@@ -198,7 +198,7 @@ public class RestServiceImpl implements RestServiceDao {
 			 try {
 			    	
 			    	restClient.close();  
-			    	logger.debug("restClient.close();");
+			    	//logger.debug("restClient.close();");
 	            } catch (IOException e) {  
 	                e.printStackTrace(); 
 	            } 
@@ -264,7 +264,7 @@ public class RestServiceImpl implements RestServiceDao {
 			 try {
 			    	
 			    	restClient.close();  
-			    	logger.debug("restClient.close();");
+			    	//logger.debug("restClient.close();");
 	            } catch (IOException e) {  
 	                e.printStackTrace(); 
 	            } 
