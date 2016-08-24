@@ -167,6 +167,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[0]:"");
 				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[0]:"");
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
+				employmentStatus.put("regularIncome", lifeEmploymentInfo.getRegularIncome());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", "1".equals(planDetail.getSmoker())?true:false);
 			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():false);
