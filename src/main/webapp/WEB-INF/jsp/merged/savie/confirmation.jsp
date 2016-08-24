@@ -103,26 +103,27 @@
 	        					<h2 id="policy-no">${lifePolicy.policyNo }</h2>
 	        				</div>
 	        				<div class="col-md-12 border-gray visible-md visible-lg" id="border-desktop"></div>
-	        				
-							
-							
-							
+
+
+
+
 	        			</div>
-	        			
+
 	        			<div class="row" id="contact-detail">
-	        				<c:if test="${isVulnerable=='true'}">
+	        				<c:if test="${'true'=='true'}">
+							<%-- <c:if test="${isVulnerable=='true'}"> --%>
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
-	        					
+
 	        					<p>
 	        						<%-- <fmt:message key="msg.confirmation.upload.later.contact.text" bundle="${msg}" /> --%>
 	        						<fmt:message key="msg.confirmation.contact.detail.text" bundle="${msg}" />
 	        						<!-- 於核保申請期間，我們的客戶服務代表或會致電跟進。請提供您的首選時間，一邊聯絡。 -->
 	        					</p>
 							</div>
-							
+
 							<%-- <form action="${pageContext.request.contextPath}/ajax/savie/contact-time-period/post"  method="post"> --%>
-							<div class="selectDiv gray-text-bg is-not-active col-md-7 text-bold" id="time-period-holder" style="margin-left: 27%;max-width: 230px;padding-top:0px !important;text-align: center;" >
-							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;background-color: #E4E4E4;" onchange="changeSelect()">
+							<div class="selectDiv gray-text-bg is-not-active col-md-7 text-bold" id="time-period-holder" style="margin-left: 27%;max-width: 230px;padding-top:0px !important;text-align: center;border-radius: 0;background-color: #E4E4E4;" >
+							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="9:00-11:00"><fmt:message key="msg.confirmation.contact.detail.text.time.first" bundle="${msg}" /></option>
 							<option value="14:00-17:00"><fmt:message key="msg.confirmation.contact.detail.text.time.second" bundle="${msg}" /></option>
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
@@ -130,7 +131,7 @@
 							<img src="/fwdhk/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div class="col-md-5 visible-lg visible-md" id="confirm-time-period">
-							<button id="commit-time-period-btn" class="btn white-btn " style="color: #ff8200;" type="submit" onclick="commitTime(this)">
+							<button id="commit-time-period-btn" class="btn btn-default--vc" type="submit" onclick="commitTime(this)">
 							<!-- 遞交 -->
 							<fmt:message key="msg.confirmation.contact.detail.text.time.commit" bundle="${msg}" />
 							</button>
@@ -270,35 +271,30 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-			
+
 			function commitTime(btn){
 				var timePeriod = $("#timePeriod").val();
-				var policyNo=${lifePolicy.policyNo };
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savie/contact-time-period/post',     
-				    type:'post',     
-				    data:{    
+				var policyNo='${lifePolicy.policyNo }';
+				$.ajax({
+				    url:'${pageContext.request.contextPath}/ajax/savie/contact-time-period/post',
+				    type:'post',
+				    data:{
 				    	"policyNo": policyNo,
 				    	"timePeriod": timePeriod,
-			   		},     
-				    error:function(){       
-				    },     
-				    success:function(data){  
-				    	
-				    	$(".white-btn").attr("disabled", true);
-				    	
-				    }  
+			   		},
+				    error:function(){
+						$('#timePeriod').prop('disabled', false);
+				    },
+				    success:function(data){
+						$('#timePeriod').prop('disabled', true);
+				    	$("#commit-time-period-btn").attr("disabled", true);
+				    }
 				});
 				return false;
 			};
-			
-			function changeSelect(){
-				$(".white-btn").attr("disabled", false);
-				
-			}
-			
-			
-			
+			// function changeSelect(){
+			// 	$("#commit-time-period-btn").attr("disabled", false);
+			// }
         </script>
 	</body>
 </html>

@@ -12280,7 +12280,7 @@ Be caution: <select> have customed made */
 	padding-top: 40px !important;
 }
 #faq_sp_mob .faq_title{
-	border-left: 2px solid #fff;	
+	border-left: 2px solid #fff;
 }
 
 /* easy-health: 20160810 */
@@ -12297,3 +12297,55 @@ Be caution: <select> have customed made */
 .text-underline{
 	text-decoration: underline !important;
 }
+
+/* 2786 overwrited vulnerable customer */
+.selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:active, .selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:focus, .selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:hover {
+  background: none;
+  border-bottom: 0px !important;
+}
+
+.btn.btn-default--vc {
+    background-color: #ff8200;
+	border: 1px solid #ff8200;
+	outline: none;
+    padding: 10px 35px;
+    color: #ffffff;
+	font-size: 18px;
+    font-family: 'Calibri-Bold';
+    border-radius: 0px;
+}
+.btn.btn-default--vc:hover, .btn.btn-default--vc:focus {
+    background-color: #ffffff;
+	border: 1px solid #ff8200;
+	outline: none;
+    padding: 10px 35px;
+    color: #ff8200;
+	font-size: 18px;
+    font-family: 'Calibri-Bold';
+    border-radius: 0px;
+}
+button[disabled].btn.btn-default--vc {
+    background-color: #e4e4e4;
+	border: 1px solid #e4e4e4;
+	outline: none;
+    padding: 10px 35px;
+    color: #ffffff;
+	font-size: 18px;
+    font-family: 'Calibri-Bold';
+    border-radius: 0px;
+}
+/*.white-btn {
+  color: #ff8200;
+  background-color: #fff;
+  border: 2px solid #ff8200;
+  outline: none;
+  padding: 10px 35px;
+  font-size: 18px;
+  font-family: 'Calibri-Bold';
+  border-radius: 4px;
+}*/
+/*@media screen and (min-width: 992px) {
+  .btn.btn-default--vc {
+    border: 1px solid #ff8200;
+  }
+}*/

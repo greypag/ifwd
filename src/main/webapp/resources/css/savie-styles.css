@@ -498,7 +498,7 @@ a:hover {
 }
 /* line 131, ../sass/partials/savie/_common.scss */
 .savie-online-container .container-fluid .application-page-header.et-header-browse .et-mobile-header-info .et-header-tex h3 {
-  padding-top: 14px;  
+  padding-top: 14px;
   padding-bottom: 14px;
   font-size: 18px;
 }
@@ -717,7 +717,7 @@ a:hover {
   			display: block;
   			font-size: 24px;
   			line-height: 16px;
-  
+
   			@media(min-width: 992px){
   				font-size: 14px;
   				display: inline-block;
@@ -1334,7 +1334,7 @@ h6 {
   padding-bottom: 30px;
 }
 @media (max-width: 992px) {
-	#amount-slide-holder {	
+	#amount-slide-holder {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
@@ -2078,13 +2078,13 @@ body {
 /* line 491, ../sass/partials/savie/_homepage.scss */
 
 @media screen and (min-width: 922px) {
-	
+
 #index-logo{
 		display:block;
 	}
 #index-logo-mobile{
 		display:none;
-	}		
+	}
 }
 
 #index-logo-mobile{
@@ -4197,7 +4197,7 @@ a.eserv-link:hover {
   }
   #offline-online-modal .modal-dialog .modal-content #steps-holder #step-offline .step{
     height: 263px;
-  } 
+  }
 }
 /* line 48, ../sass/partials/savie/_online-offline-fna.scss */
 #offline-online-modal .modal-dialog .modal-content #steps-holder .step#step-2 {
@@ -4399,7 +4399,7 @@ a.eserv-link:hover {
   }
   body.chin #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 42px;
-  }  
+  }
 }
 
 /* line 3, ../sass/partials/savie/_footer.scss */
@@ -5871,7 +5871,7 @@ p .payment-policy-wrapper{
 
 .form-group application-summ label .mdl-textfield__label{
 	font-size: 14px;
-} 
+}
 
 /* line 341, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield .mdl-textfield__label {
@@ -6064,7 +6064,7 @@ p .payment-policy-wrapper{
   margin-top: 8px;
 }
 /* line 122, ../sass/partials/savie/_beneficiary-info-name-others.scss */
-#beneficiary-name-others-page 
+#beneficiary-name-others-page
  {
   font-size: 18px;
   color: #373a36;
@@ -7120,7 +7120,7 @@ h6.so-h6 {
   }
 }
 /* line 76, ../sass/partials/savie/_upload-later-confirmation.scss */
-#upload-later-confirmation-page #upload-later-confirmation-content #partner-care-holder #care-holder 
+#upload-later-confirmation-page #upload-later-confirmation-content #partner-care-holder #care-holder
  {
   /*margin-left: 15px;*/
 }
@@ -7844,7 +7844,7 @@ h6.so-h6 {
   left:0;
   right:0;
   margin-left:auto;
-  margin-right:auto; 
+  margin-right:auto;
 }
 /* line 48, ../sass/partials/savie/_signature-box.scss */
 .signature-box .modal-dialog .modal-content .modal-body .correct-signature {
@@ -9628,14 +9628,14 @@ h3 .heading-title{
   font-size: 18px;
 }
 
-.one-off-premium  .amount-selected  .pull-left, 
+.one-off-premium  .amount-selected  .pull-left,
 .one-off-premium  .amount-selected  .pull-right{
   font-size: 18px;
 }
 
 #pd-sf-nav-tabs .pd-sf-tab .bold{
 	font-size:18px;
-	
+
 }
 
 .pdf-image-container {
@@ -9686,18 +9686,18 @@ h3 .heading-title{
 .pdf-image-zoom .glyphicon {
 	line-height: 34px;
 }
- 
+
  #currentEmployer{
  	height: 54px !important;
  }
- 
+
 #personal-info-label{
  	padding-top: 6px;
  	font-size:14px;
  }
 #upload-document-page .iframe-holder {
 	position: relative;
-	overflow: hidden; 
+	overflow: hidden;
 	margin-top: 5px;
 }
 /*iframes*/
@@ -9833,7 +9833,7 @@ select::-ms-value {
 	#spaceHolder{
 		visibility:hidden;
 	}
-	
+
 	#educationLevel{
 	float:left;
 	width:100%;
