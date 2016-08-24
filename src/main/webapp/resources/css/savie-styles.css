@@ -4351,6 +4351,8 @@ a.eserv-link:hover {
   /* line 121, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-online #online-application-btn {
     margin-top: 60px;
+    position: absolute;
+    bottom: 10px;
   }
 }
 @media (max-width: 992px) {
@@ -4396,6 +4398,8 @@ a.eserv-link:hover {
   /* line 151, ../sass/partials/savie/_online-offline-fna.scss */
   #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 25px;
+  	position: absolute;
+  	bottom: 10px;
   }
   body.chin #offline-online-modal .modal-dialog .modal-content #steps-holder #on-of-holder #step-offline #offline-application-btn {
     margin-top: 42px;
