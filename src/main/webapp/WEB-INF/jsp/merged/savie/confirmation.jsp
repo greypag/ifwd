@@ -123,7 +123,7 @@
 
 							<%-- <form action="${pageContext.request.contextPath}/ajax/savie/contact-time-period/post"  method="post"> --%>
 							<div class="selectDiv gray-text-bg is-not-active col-md-7 text-bold" id="time-period-holder" style="margin-left: 27%;max-width: 230px;padding-top:0px !important;text-align: center;border-radius: 0;background-color: #E4E4E4;" >
-							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-size: 20px;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
+							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="9:00-11:00"><fmt:message key="msg.confirmation.contact.detail.text.time.first" bundle="${msg}" /></option>
 							<option value="14:00-17:00"><fmt:message key="msg.confirmation.contact.detail.text.time.second" bundle="${msg}" /></option>
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
