@@ -1470,7 +1470,7 @@
                    }
                 }
              },
-             "has_regular_income": {
+             "regularIncome": {
                  container: '#has_regular_incomeErMsg',
                  validators: {
                      notEmpty: {

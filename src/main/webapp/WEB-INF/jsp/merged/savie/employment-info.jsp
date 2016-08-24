@@ -14,6 +14,12 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var languageP = "${language}";
+var is_medical = false;
+<c:set var="is_medical" value="false" />
+<c:if test="${planIndex == 'medical-insurance'}">
+	<c:set var="is_medical" value="true" />
+	is_medical = true;
+</c:if>
 </script>
 <html lang="en">
 	<head>
@@ -448,7 +454,8 @@ var languageP = "${language}";
 										<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
 									</div>
 								</div>
-
+								
+								<c:if test="${is_medical}">
                                 <div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
                                     <div class="form-group">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -460,7 +467,7 @@ var languageP = "${language}";
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none has-regular-income-btn-grp">
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none ">
                                                 <label class="field-label bold-500">
-                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="1" />
+                                                    <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="1" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">
                                                         <fmt:message key="employment.has.regular.income.yes" bundle="${msg}" />
                                                     </span>
@@ -468,7 +475,7 @@ var languageP = "${language}";
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
                                                 <label class="field-label bold-500">
-                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="0" />
+                                                    <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="0" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">
                                                         <fmt:message key="employment.has.regular.income.no" bundle="${msg}" />
                                                     </span>
@@ -477,6 +484,9 @@ var languageP = "${language}";
                                         </div>
                                     </div>
                                 </div>
+                                </c:if>
+                                
+                                
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="text-bold btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
 	  								<button type="button" class="text-bold btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
@@ -686,102 +696,104 @@ var languageP = "${language}";
 				} else {
 					$('.selectDiv .gray-dropdown').removeClass('ie-select');
 				}
-
+				var validateFields = {
+						tmpEmploymentStatus: {
+							   container: '#employmentStatusErMsg',
+							   selector: '#tmpEmploymentStatus',
+							   validators: {
+								  notEmpty: {
+									  message: '<fmt:message key="error.employment.status.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpBusinessNature: {
+							   container: '#businessNatureErMsg',
+							   selector: '#tmpBusinessNature',
+							   validators: {
+								  notEmpty: {
+							  		message: '<fmt:message key="error.nature.of.business.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpOccupation: {
+							   container: '#occupationErMsg',
+							   selector: '#tmpOccupation',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.occupation.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							otherOccupation: {
+							   container: '#otherOccupationErMsg',
+							   selector: '#other-occupation',
+							   validators: {
+								  notEmpty: {
+									 message: "Please input your occupation."
+								  }
+							   }
+							},
+							currentEmployer: {
+							   container: '#currentEmployerErMsg',
+							   selector: '#currentEmployer',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.employer.name.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpMonthlyPersonalIncome: {
+							   container: '#monthlyPersonalIncomeErMsg',
+							   selector: '#tmpMonthlyPersonalIncome',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.monthly.personal.income.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpEducationLevel: {
+							   container: '#educationLevelErMsg',
+							   selector: '#tmpEducationLevel',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.education.level.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpOtherIncomeAmount: {
+							   container: '#otherIncomeAmountErMsg',
+							   selector: '#tmpOtherIncomeAmount',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.other.sources.of.income.empty" bundle="${msg}" />'
+								  }
+							   }
+							},
+							tmpLiquidAssetsAmount: {
+							   container: '#liquidAssetsAmountErMsg',
+							   selector: '#tmpLiquidAssetsAmount',
+							   validators: {
+								  notEmpty: {
+									 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
+								  }
+							   }
+	                        },
+						};
+				
+				if(is_medical){
+					validateFields['regularIncome']= {
+                        container: '#has_regular_incomeErMsg',
+                        validators: {
+                            notEmpty: {
+                                message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
+                            }
+                        }
+                    };
+				}
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
-					fields: {
-						tmpEmploymentStatus: {
-						   container: '#employmentStatusErMsg',
-						   selector: '#tmpEmploymentStatus',
-						   validators: {
-							  notEmpty: {
-								  message: '<fmt:message key="error.employment.status.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpBusinessNature: {
-						   container: '#businessNatureErMsg',
-						   selector: '#tmpBusinessNature',
-						   validators: {
-							  notEmpty: {
-						  		message: '<fmt:message key="error.nature.of.business.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpOccupation: {
-						   container: '#occupationErMsg',
-						   selector: '#tmpOccupation',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.occupation.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						otherOccupation: {
-						   container: '#otherOccupationErMsg',
-						   selector: '#other-occupation',
-						   validators: {
-							  notEmpty: {
-								 message: "Please input your occupation."
-							  }
-						   }
-						},
-						currentEmployer: {
-						   container: '#currentEmployerErMsg',
-						   selector: '#currentEmployer',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.employer.name.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpMonthlyPersonalIncome: {
-						   container: '#monthlyPersonalIncomeErMsg',
-						   selector: '#tmpMonthlyPersonalIncome',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.monthly.personal.income.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpEducationLevel: {
-						   container: '#educationLevelErMsg',
-						   selector: '#tmpEducationLevel',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.education.level.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpOtherIncomeAmount: {
-						   container: '#otherIncomeAmountErMsg',
-						   selector: '#tmpOtherIncomeAmount',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.other.sources.of.income.empty" bundle="${msg}" />'
-							  }
-						   }
-						},
-						tmpLiquidAssetsAmount: {
-						   container: '#liquidAssetsAmountErMsg',
-						   selector: '#tmpLiquidAssetsAmount',
-						   validators: {
-							  notEmpty: {
-								 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
-							  }
-						   }
-                        },
-                        has_regular_income: {
-                            container: '#has_regular_incomeErMsg',
-                            validators: {
-                                notEmpty: {
-                                    message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
-                                }
-                            }
-                        }
-
-					}
+					fields: validateFields
 				}).on('success.form.bv', function(e) {
 					e.preventDefault();
 				}).on('error.form.bv', function(e) {
