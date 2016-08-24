@@ -460,7 +460,7 @@ var languageP = "${language}";
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none has-regular-income-btn-grp">
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none ">
                                                 <label class="field-label bold-500">
-                                                    <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="1" />
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="1" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">
                                                         <fmt:message key="employment.has.regular.income.yes" bundle="${msg}" />
                                                     </span>
@@ -468,7 +468,7 @@ var languageP = "${language}";
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
                                                 <label class="field-label bold-500">
-                                                    <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="0" />
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="0" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">
                                                         <fmt:message key="employment.has.regular.income.no" bundle="${msg}" />
                                                     </span>

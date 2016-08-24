@@ -2133,6 +2133,37 @@ var home_url = "<%=request.getContextPath()%>";
 									<span class="error-msg" id="educationLevelMessage"></span>
 								</div>
 							</div>
+							
+							<!-- regular income -->
+							<div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
+                                    <div class="form-group">
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                            <div class="has-regular-income-question">
+                                                <fmt:message key="employment.has.regular.income" bundle="${msg}" />
+                                            </div>
+                                            <span id="has_regular_incomeErMsg" class="text-red"> </span>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none has-regular-income-btn-grp">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none ">
+                                                <label class="field-label bold-500">
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="1" />
+                                                    <span id="" class="radio-inline oversea-lb has-regular-income-selection">
+                                                        <fmt:message key="employment.has.regular.income.yes" bundle="${msg}" />
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
+                                                <label class="field-label bold-500">
+                                                    <input type="radio" class="has-regular-income-radio" name="has_regular_income"  value="0" />
+                                                    <span id="" class="radio-inline oversea-lb has-regular-income-selection">
+                                                        <fmt:message key="employment.has.regular.income.no" bundle="${msg}" />
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
 							<div class="button-row text-center">
 								<button id="et-employment-info-next" type="submit" class="next">
 									<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />

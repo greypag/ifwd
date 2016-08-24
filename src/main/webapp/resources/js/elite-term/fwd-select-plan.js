@@ -21,7 +21,6 @@
 
 // get resource bundle
    function getBundle(lang, key) {
-
       return fwdGetBundle(lang, key); // New Shared Error Message Bundle
 
       //var rtn;
@@ -1470,6 +1469,14 @@
                       message: getBundle(getBundleLanguage, "form.employer.name.empty")
                    }
                 }
+             },
+             "has_regular_income": {
+                 container: '#has_regular_incomeErMsg',
+                 validators: {
+                     notEmpty: {
+                         message: getBundle(getBundleLanguage, "error.has.regular.income.empty")
+                     }
+                 }
              }
          }
       }).on('success.form.bv', function(e) {
