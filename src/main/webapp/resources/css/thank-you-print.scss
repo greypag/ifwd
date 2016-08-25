@@ -1,0 +1,109 @@
+@media print{
+
+.fwd-savie-wrapper .thank-you-container .details-container {
+  border: 1px solid #9ba5a7;
+  padding: 33px 17px 0 17px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container {
+    padding: 36px 85px 15px 85px;
+    border: 1px solid #b7c3cd;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container .detail {
+  padding-bottom: 20px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container .detail {
+    padding-bottom: 4px;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container h2 {
+  font-size: 24px;
+  font-family: 'Calibri-Bold';
+  margin: 0;
+  padding-bottom: 13px;
+  color: #ff8200;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container h2 {
+    padding-bottom: 14px;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container p {
+  line-height: 23px;
+  margin-bottom: 13px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container p {
+    margin-right: 15px;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container p span {
+  font-family: 'Calibri-Bold';
+}
+.fwd-savie-wrapper .thank-you-container .details-container p.steps {
+  margin: 0;
+}
+.fwd-savie-wrapper .thank-you-container .details-container hr {
+  border-top: 1px solid #cdd2d3;
+  margin-bottom: 33px;
+}
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail label {
+  width: 35%;
+  padding-right: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container .appointment-detail label {
+    width: 40%;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail span {
+  width: 65%;
+  padding-bottom: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container .appointment-detail span {
+    width: 60%;
+    padding-bottom: 5px;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container .reminder {
+  font-size: 14px;
+  line-height: 14px;
+  padding-top: 5px;
+}
+.fwd-savie-wrapper .thank-you-container .details-container .reminder span {
+  color: #ff8200;
+}
+.fwd-savie-wrapper .thank-you-container .details-container .print-document {
+  font-size: 14px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 41px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .details-container .print-document {
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 31px;
+  }
+}
+.fwd-savie-wrapper .thank-you-container .details-container .print-document a {
+  position: relative;
+  border-bottom: 1px solid #ff8200;
+  margin-left: 33px;
+  line-height: 14px;
+  color: #ff8200;
+}
+.fwd-savie-wrapper .thank-you-container .details-container .print-document a:hover, .fwd-savie-wrapper .thank-you-container .details-container .print-document a:active {
+  color: #ff8200;
+  text-decoration: none;
+  outline: 0;
+}
+.fwd-savie-wrapper .thank-you-container .details-container .print-document img {
+  position: absolute;
+  left: -33px;
+  top: -3px;
+}
+}
