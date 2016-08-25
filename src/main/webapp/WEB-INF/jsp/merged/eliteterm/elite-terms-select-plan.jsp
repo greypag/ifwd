@@ -172,7 +172,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 				<div class="et-next-btn-div">
 					<button type="button" id="et-btn-before-start"
-						class="btn btn-orange hidden et-next-btn et-pad-bot-50"
+						class="btn btn-orange et-next-btn et-pad-bot-50"
 						data-toggle="">
 						<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 					</button>
@@ -724,16 +724,16 @@ var home_url = "<%=request.getContextPath()%>";
 														<div class="col-xs-6 et-pad-right-reduce-7">
 															<a href="#" class="btn et-btn-medic btn et-btn-medic-yes"
 																data-current-target="et-medi-question-1"
-																data-next-target="et-medi-question-2" title="Yes"
+																data-next-target="et-medi-question-2" title="No"
 																data-toggle="modal" data-target="#cannot-apply-modal"
 																onclick="getCsChannel('ETMD1');"><fmt:message
-																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
 															<a id="medi-question-no-1" href="#" class="btn et-btn-medic et-btn-medic-no"
-																title="No" data-current-target="et-medi-question-1"
+																title="Yes" data-current-target="et-medi-question-1"
 																data-next-target="et-medi-question-2"><fmt:message
-																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
+																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 													</div>
 												</div>
@@ -769,12 +769,12 @@ var home_url = "<%=request.getContextPath()%>";
 												<div class="col-xs-12 col-md-4">
 													<div class="row">
 														<div class="col-xs-6 et-pad-right-reduce-7">
-															<a href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="Yes" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD2');">
-																<fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+															<a href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="No" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD2');">
+																<fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" />
 															</a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
-															<a id="medi-question-no-2" href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
+															<a id="medi-question-no-2" href="#" class="btn et-btn-medic et-btn-medic-no" title="Yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 													</div>
 												</div>
@@ -841,16 +841,16 @@ var home_url = "<%=request.getContextPath()%>";
 														<div class="col-xs-6 et-pad-right-reduce-7">
 															<a href="#" class="btn et-btn-medic et-btn-medic-yes"
 																data-current-target="et-medi-question-3"
-																data-next-target="" title="Yes" data-toggle="modal"
+																data-next-target="" title="No" data-toggle="modal"
 																data-target="#cannot-apply-modal"
 																onclick="getCsChannel('ETMD3');"><fmt:message
-																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
 														</div>
 														<div class="col-xs-6 et-pad-left-reduce-7">
 															<a id="medi-question-no-3" href="#" class="btn et-btn-medic et-btn-medic-no last"
-																title="No" data-current-target="et-medi-question-3"
+																title="Yes" data-current-target="et-medi-question-3"
 																data-next-target="et-medi-question-3"><fmt:message
-																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
+																	key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
 														</div>
 													</div>
 												</div>
