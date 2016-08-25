@@ -11,15 +11,13 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
-<script type="text/javascript">
-var context = "${pageContext.request.contextPath}";
-var languageP = "${language}";
-var is_medical = false;
 <c:set var="is_medical" value="false" />
 <c:if test="${planIndex == 'medical-insurance'}">
 	<c:set var="is_medical" value="true" />
-	is_medical = true;
 </c:if>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
 </script>
 <html lang="en">
 	<head>
@@ -777,19 +775,20 @@ var is_medical = false;
 									 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
 								  }
 							   }
-	                        },
+	                        }
 						};
-				
-				if(is_medical){
-					validateFields['regularIncome']= {
-                        container: '#has_regular_incomeErMsg',
-                        validators: {
-                            notEmpty: {
-                                message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
-                            }
-                        }
-                    };
-				}
+		
+				<c:if test="${is_medical}">
+						validateFields['regularIncome']= {
+	                        container: '#has_regular_incomeErMsg',
+	                        validators: {
+	                            notEmpty: {
+	                                message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
+	                            }
+	                        }
+	                    };
+				</c:if>
+
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
