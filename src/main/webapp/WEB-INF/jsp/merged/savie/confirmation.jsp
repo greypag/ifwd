@@ -14,7 +14,12 @@
       <script type="text/javascript" src="assets/js/pdfobject.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
-	<body>
+	
+	<c:set var="is_medical" value="false" />
+	<c:if test="${planIndex == 'medical-insurance'}">
+		<c:set var="is_medical" value="true" />
+	</c:if>
+	
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -110,7 +115,7 @@
 	        			</div>
 
 	        			<div class="row" id="contact-detail">
-	        				<c:if test="${'true'=='true'}">
+	        				<c:if test="${!is_medical}">
 							<%-- <c:if test="${isVulnerable=='true'}"> --%>
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 
@@ -287,7 +292,14 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-
+			
+			// function changeSelect(){
+			// 	$("#commit-time-period-btn").attr("disabled", false);
+			// }
+		</script>
+			
+	        <c:if test="${!is_medical}">
+	        <script type="text/javascript">
 			function commitTime(btn){
 				var contactTime = $("#timePeriod").val();
 				//alert(contactTime);
@@ -309,9 +321,8 @@
 				});
 				return false;
 			};
-			// function changeSelect(){
-			// 	$("#commit-time-period-btn").attr("disabled", false);
-			// }
+			</script>
+			</c:if>
         </script>
 	</body>
 </html>
