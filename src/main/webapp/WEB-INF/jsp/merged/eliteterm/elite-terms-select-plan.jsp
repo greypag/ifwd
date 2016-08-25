@@ -172,7 +172,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 				<div class="et-next-btn-div">
 					<button type="button" id="et-btn-before-start"
-						class="btn btn-orange hidden et-next-btn et-pad-bot-50"
+						class="btn btn-orange et-next-btn et-pad-bot-50"
 						data-toggle="">
 						<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 					</button>
