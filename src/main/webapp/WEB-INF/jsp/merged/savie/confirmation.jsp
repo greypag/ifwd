@@ -14,7 +14,12 @@
       <script type="text/javascript" src="assets/js/pdfobject.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
-	<body>
+	
+	<c:set var="bShowVC" value="false" />
+	<c:if test="${(planIndex == 'savings-insurance') and isVulnerable}">
+		<c:set var="bShowVC" value="true" />
+	</c:if>
+	
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -110,8 +115,9 @@
 	        			</div>
 
 	        			<div class="row" id="contact-detail">
-	        				<%--<c:if test="${'true'=='true'}"> --%>
-							<c:if test="${isVulnerable}">
+
+	        				<c:if test="${bShowVC}">
+							
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 
 	        					<p>
@@ -145,7 +151,7 @@
 								</c:if>
 							</select>
                             <% } %>
-							<img src="/fwdhk/resources/images/orange-caret.png" class="orange-caret-bg">
+							<img src="resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div class="col-md-5 visible-lg visible-md" id="confirm-time-period">
 							<button id="commit-time-period-btn" class="btn btn-default--vc" type="submit" onclick="commitTime(this)">
@@ -288,7 +294,12 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-
+			
+			// function changeSelect(){
+			// 	$("#commit-time-period-btn").attr("disabled", false);
+			// }
+			
+	    <c:if test="${bShowVC}">
 			function commitTime(btn){
 				var contactTime = $("#timePeriod").val();
 				//alert(contactTime);
@@ -309,10 +320,9 @@
 				    }
 				});
 				return false;
-			};
-			// function changeSelect(){
-			// 	$("#commit-time-period-btn").attr("disabled", false);
-			// }
+			};			
+		</c:if>
+
         </script>
 	</body>
 </html>
