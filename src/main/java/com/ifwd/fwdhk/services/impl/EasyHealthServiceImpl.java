@@ -277,7 +277,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 		
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
-		GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
+		//GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
 		
 		/*if(ZHConverter.hasSimpleChinese(inputMsg.toString())){
 			logger.info("Some input information contains simplified Chinese");
@@ -287,13 +287,13 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 			lifePolicy = connector.createLifePolicy(parameters, header);
 			if(!lifePolicy.hasError()){
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
-				String policyNo=lifePolicy.getPolicyNo();
-				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
-				if(vulnerableCustomerResponse.hasError()){
-					request.getSession().setAttribute("isVulnerable", false);
-					throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
-				}
-				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+				//String policyNo=lifePolicy.getPolicyNo();
+				//vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+				//if(vulnerableCustomerResponse.hasError()){
+				// request.getSession().setAttribute("isVulnerable", false);
+				//	throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
+				//}
+				request.getSession().setAttribute("isVulnerable", false);
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);

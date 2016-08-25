@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +30,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.life.GetVulnerableCustomerResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -64,6 +67,9 @@ public class LifeController extends BaseController{
 	private LifeService savieOnlineService;
 	@Autowired
 	private CommonUtils commonUtils;
+	
+	@Autowired 
+	protected ECommWsConnector connector;
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
@@ -959,6 +965,18 @@ public class LifeController extends BaseController{
 			}
 			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
 			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
+			GetVulnerableCustomerResponse vulnerableCustomerResponse=new GetVulnerableCustomerResponse();
+			String policyNo=lifePolicy.getPolicyNo();
+			final Map<String,String> header = headerUtil.getHeader1(request);
+			try {
+				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+			} catch (ECOMMAPIException e) {
+				request.getSession().setAttribute("isVulnerable", false);
+				e.printStackTrace();
+			}
+
+			
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_CONFIRMATION);
 			}

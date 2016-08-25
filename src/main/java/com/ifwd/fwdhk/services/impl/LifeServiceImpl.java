@@ -1816,18 +1816,18 @@ public class LifeServiceImpl implements LifeService {
 				request.getSession().setAttribute("lifePolicy", lifePolicy);
 				/*JSONObject parameters1 = new JSONObject();
 				parameters1.put("policyNo", lifePolicy.getPolicyNo());*/
-				String policyNo=lifePolicy.getPolicyNo();
-				vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
-				if(vulnerableCustomerResponse.hasError()){
-					request.getSession().setAttribute("isVulnerable", false);
-					throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
-				}
+				//String policyNo=lifePolicy.getPolicyNo();
+				//vulnerableCustomerResponse=connector.isVulnerable(policyNo,header);
+				//if(vulnerableCustomerResponse.hasError()){
+				//	request.getSession().setAttribute("isVulnerable", false);
+				//	throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
+				//}
 				/*if(vulnerableCustomerResponse.getVulnerableCustomer().equals("true")){
 					request.getSession().setAttribute("isVulnerable", true);
 				}else{
 					request.getSession().setAttribute("isVulnerable", false);
 				}*/
-				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
+				//request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
