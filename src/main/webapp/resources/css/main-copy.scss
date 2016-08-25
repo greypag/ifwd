@@ -1,0 +1,37 @@
+/*
+Error: Inconsistent indentation: "\t    " was used for indentation, but the rest of the document was indented using 1 tab.
+        on line 292 of main-copy.css
+
+287: .btn-primary {
+288: 	padding: 8px 20px;
+289: 	background: #f6871e;
+290: 	color: #fff;
+291: 	border: none;
+292: 	    border: 1px solid #f6871e;
+293: }
+294: .btn-primary:hover, .btn-primary:focus {
+295: 	outline: none;
+296: 	box-shadow: none;
+297: 	background: #fff;
+
+Backtrace:
+main-copy.css:292
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:486:in `block in tabulate'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:444:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:444:in `each_with_index'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:444:in `tabulate'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:409:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:391:in `run'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+/usr/bin/sass:22:in `load'
+/usr/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Inconsistent indentation: \"\t    \" was used for indentation, but the rest of the document was indented using 1 tab.\A         on line 292 of main-copy.css\A \A 287: .btn-primary {\A 288: 	padding: 8px 20px;\A 289: 	background: #f6871e;\A 290: 	color: #fff;\A 291: 	border: none;\A 292: 	    border: 1px solid #f6871e;\A 293: }\A 294: .btn-primary:hover, .btn-primary:focus {\A 295: 	outline: none;\A 296: 	box-shadow: none;\A 297: 	background: #fff;"; }

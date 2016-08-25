@@ -1,0 +1,186 @@
+﻿/* Ocean Park */
+.ocean-park-wrapper .ocean-park-wrapper-inner{
+	display: block;
+	background-color: #fff;
+	margin: 0 auto;
+	max-width: 980px;
+	color: #071d29;
+	border-radius: 5px;
+	padding: 20px 10px;
+}
+.ocean-park-wrapper>.text-center{
+	padding: 15px 0 25px;
+}
+.ocean-park-wrapper .txt-discount{
+	color: #fff;
+	font-size: 20px;
+}
+.ocean-park-wrapper .btn-ocean-park-start{
+	background-color: #fcb919;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+.ocean-park-wrapper .btn-ocean-park-start:hover{
+	background-color: #f48921;
+}
+
+/* large table */
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park{
+	font-size: 16px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park th{
+	width: 28%;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park td{
+	width: 24%;
+	text-align: center;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park th,
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park td{
+	border: 1px solid #dadada;
+	padding: 5px 10px;
+	vertical-align: middle;
+}
+
+/* mobile table */
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile{
+	margin-top: 20px;
+	font-size: 16px;
+	position: relative;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-header{
+	float: left;
+	width: 60%;
+	background-color: #f8f8f8;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-header table{
+	width: 100%;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile th,
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile td{
+	border: 1px solid #dadada;
+	font-weight: normal;
+	padding: 5px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-btns{
+	width: 40%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-btns .btn-left{
+	float: left;
+	margin-left: 1px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-btns .btn-right{
+	float: right;
+	margin-right: 1px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-btns .btn-left,
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .sticky-btns .btn-right{
+	background-color: #ff8201;
+	padding: 10px;
+	color: #fff;
+	border-radius: 5px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .overflow-body{
+	visibility: hidden;
+	float: left;
+	overflow: hidden;
+	overflow-x: scroll;
+	width: 40%;
+	-webkit-overflow-scrolling: touch;
+	background-color: #ebebeb;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .overflow-body table{
+	width: 300%;
+	max-width: initial;
+	margin: 0 -1px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .tbl-ocean-park-mobile .overflow-body table td{
+	width: calc(100% / 3);
+	text-align: center;
+}
+
+/* common */
+.ocean-park-wrapper .ocean-park-wrapper-inner .min-amount{
+	color: #ff8422;
+	font-size: 11px;
+}
+
+/* card styles */
+.card-head{
+	position: relative;
+}
+.card-head .arrow{
+	position: absolute;
+	top: 30px;
+	left: 44%;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+}
+.premium-head{
+	background-color: #4C5C6C;
+}
+.premium-head .arrow{
+	border-top: 10px solid #4C5C6C;
+}
+.gold-head{
+	background-color: #AA8E47;
+}
+.gold-head .arrow{
+	border-top: 10px solid #AA8E47;
+}
+.silver-head{
+	background-color: #99AAB2;
+}
+.silver-head .arrow{
+	border-top: 10px solid #99AAB2;
+}
+.card-img img{
+	padding: 5% 14%;
+}
+
+/* remarks */
+.ocean-park-wrapper .ocean-park-wrapper-inner .grey.remarks{
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5em;
+	margin: 10px 0;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .remarks a{
+	color: #ff8422;
+	text-decoration: underline;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .pans{
+	margin: 15px 0;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner .btn-ocean-park{
+	background-color: #fcb919;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 20px;
+	border: none;
+	margin-left: 10px;
+	height: 44px;
+	display: inline-block;
+	min-width: 200px;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner ul{
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner ul li{
+	padding-left: 1em;
+	text-indent: -.7em;
+}
+.ocean-park-wrapper .ocean-park-wrapper-inner ul li:before{
+	content: "• ";
+	color: #ff8422;
+}
+
