@@ -1828,8 +1828,6 @@ public class LifeServiceImpl implements LifeService {
 					request.getSession().setAttribute("isVulnerable", false);
 				}*/
 				request.getSession().setAttribute("isVulnerable", vulnerableCustomerResponse.getVulnerableCustomer());
-				
-				
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);

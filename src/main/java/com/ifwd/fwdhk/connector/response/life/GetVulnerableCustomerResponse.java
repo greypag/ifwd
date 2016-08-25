@@ -5,13 +5,13 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 public class GetVulnerableCustomerResponse extends BaseResponse {
 	private static final long serialVersionUID = 1L;
 
-	private String vulnerableCustomer;
+	private boolean vulnerableCustomer;
 
-	public String getVulnerableCustomer() {
+	public boolean getVulnerableCustomer() {
 		return vulnerableCustomer;
 	}
 
-	public void setVulnerableCustomer(String vulnerableCustomer) {
+	public void setVulnerableCustomer(boolean vulnerableCustomer) {
 		this.vulnerableCustomer = vulnerableCustomer;
 	}
 	

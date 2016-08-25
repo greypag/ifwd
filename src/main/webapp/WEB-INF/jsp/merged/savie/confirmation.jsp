@@ -110,8 +110,8 @@
 	        			</div>
 
 	        			<div class="row" id="contact-detail">
-	        				<c:if test="${'true'=='true'}">
-							<%-- <c:if test="${isVulnerable=='true'}"> --%>
+	        				<%--<c:if test="${'true'=='true'}"> --%>
+							<c:if test="${isVulnerable}">
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 
 	        					<p>
@@ -130,7 +130,6 @@
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
 							</select>
 							--%>
-							<!-- <select  name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown"> -->
 							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="" disabled="disabled" selected="selected"></option>
 								<c:if test="${language == 'en'}">

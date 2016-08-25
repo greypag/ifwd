@@ -1020,6 +1020,8 @@ public class LifeController extends BaseController{
 				e.printStackTrace();
 				logger.info(e.getMessage());
 			}
+			model.addAttribute("contactTimeEN", InitApplicationMessage.contactTimeEN);
+			model.addAttribute("contactTimeCN", InitApplicationMessage.contactTimeCN);
 			if("medical-insurance".equals(plan)){
 				return SavieOnlinePageFlowControl.pageFlow(plan,model,request, UserRestURIConstants.PAGE_PROPERTIES_EASYHEALTH_UPLOAD_LATER_CONFIRMATION);
 			}
