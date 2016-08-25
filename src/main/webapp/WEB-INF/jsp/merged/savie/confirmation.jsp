@@ -115,7 +115,7 @@
 	        			</div>
 
 	        			<div class="row" id="contact-detail">
-	        				<c:if test="${!is_medical}">
+	        				<c:if test="${not is_medical}">
 							<%-- <c:if test="${isVulnerable=='true'}"> --%>
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 
@@ -296,10 +296,8 @@
 			// function changeSelect(){
 			// 	$("#commit-time-period-btn").attr("disabled", false);
 			// }
-		</script>
 			
-	        <c:if test="${!is_medical}">
-	        <script type="text/javascript">
+	        <c:if test="${not is_medical}">
 			function commitTime(btn){
 				var contactTime = $("#timePeriod").val();
 				//alert(contactTime);
@@ -321,7 +319,6 @@
 				});
 				return false;
 			};
-			</script>
 			</c:if>
         </script>
 	</body>
