@@ -130,6 +130,7 @@
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
 							</select>
 							--%>
+                            <% if(request.getRequestURI().indexOf("/medical-insurance")>0) { %>
 							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="" disabled="disabled" selected="selected"></option>
 								<c:if test="${language == 'en'}">
@@ -143,6 +144,7 @@
 									</c:forEach>
 								</c:if>
 							</select>
+                            <% } %>
 							<img src="/fwdhk/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div class="col-md-5 visible-lg visible-md" id="confirm-time-period">
