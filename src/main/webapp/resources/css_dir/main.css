@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-05-25 13:47:46 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-08-26 11:22:20 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -2566,7 +2566,4 @@ body.chin .partner-headline-wrapper .headline-title {
   }
 }
 
-/* line below not using scss */
-.mdlForm .mdl-textfield.is-invalid .mdl-textfield__label:after{
-	background-color: transparent;
-}
+/*# sourceMappingURL=main.css.map */

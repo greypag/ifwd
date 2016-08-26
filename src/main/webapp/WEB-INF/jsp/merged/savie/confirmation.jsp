@@ -14,12 +14,12 @@
       <script type="text/javascript" src="assets/js/pdfobject.js"></script>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
-	
+
 	<c:set var="bShowVC" value="false" />
 	<c:if test="${(planIndex == 'savings-insurance') and isVulnerable}">
-		<c:set var="bShowVC" value="true" />
+	    <c:set var="bShowVC" value="true" />
 	</c:if>
-	
+
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -117,7 +117,7 @@
 	        			<div class="row" id="contact-detail">
 
 	        				<c:if test="${bShowVC}">
-							
+
 	        				<div class="col-md-12 " id="contact-time-holder" style="margin-top:20px;margin-bottom:20px">
 
 	        					<p>
@@ -136,7 +136,7 @@
 							<option value="19:00-21:00"><fmt:message key="msg.confirmation.contact.detail.text.time.third" bundle="${msg}" /></option>
 							</select>
 							--%>
-                            
+
 							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
 							<option value="" disabled="disabled" selected="selected"></option>
 								<c:if test="${language == 'en'}">
@@ -150,7 +150,7 @@
 									</c:forEach>
 								</c:if>
 							</select>
-                            
+
 							<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div class="col-md-5 visible-lg visible-md" id="confirm-time-period">
@@ -160,7 +160,7 @@
 							</button>
 							</div>
 							<div class="col-md-5 visible-xs visible-sm" id="confirm-time-period">
-							<button id="commit-time-period-btn-mb" class="btn white-btn " style="float:right;color: #ff8200;" type="submit" onclick="commitTime(this)">
+							<button id="commit-time-period-btn-mb" class="btn btn-default--vc" style="float:right;" type="submit" onclick="commitTime(this)">
 							<!-- 遞交 -->
 							<fmt:message key="msg.confirmation.contact.detail.text.time.commit" bundle="${msg}" />
 							</button>
@@ -294,11 +294,11 @@
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
-			
+
 			// function changeSelect(){
 			// 	$("#commit-time-period-btn").attr("disabled", false);
 			// }
-			
+
 	    <c:if test="${bShowVC}">
 			function commitTime(btn){
 				var contactTime = $("#timePeriod").val();
@@ -317,10 +317,11 @@
 				    success:function(data){
 						$('#timePeriod').prop('disabled', true);
 				    	$("#commit-time-period-btn").attr("disabled", true);
+						$("#commit-time-period-btn-mb").attr("disabled", true);
 				    }
 				});
 				return false;
-			};			
+			};
 		</c:if>
 
         </script>

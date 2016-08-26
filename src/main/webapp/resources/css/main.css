@@ -12298,7 +12298,7 @@ Be caution: <select> have customed made */
 	text-decoration: underline !important;
 }
 
-/* 2786 overwrited vulnerable customer */
+/* 2786 & 3466 overwrited vulnerable customer */
 .selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:active, .selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:focus, .selectDiv.gray-text-bg #timePeriod.form-control.gray-dropdown:hover {
   background: none;
   border-bottom: 0px !important;
@@ -12334,6 +12334,7 @@ button[disabled].btn.btn-default--vc {
     font-family: 'Calibri-Bold';
     border-radius: 0px;
 }
+/* ./ 2786 & 3466 overwrited vulnerable customer */
 /*.white-btn {
   color: #ff8200;
   background-color: #fff;
