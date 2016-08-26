@@ -94,11 +94,11 @@
 	            
 	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
 	            
-	            <c:choose>
-				   <c:when test="${paymentMethod=='TapNGo'}">
+	            <%--c:choose>
+				   <c:when test="${paymentMethod=='TapNGo'}>
 				       <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h4>
 				   </c:when>
-			   </c:choose>
+			   </c:choose--%>
 	            
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
