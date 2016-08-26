@@ -931,13 +931,13 @@ var clicked = false;
 									<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
 								</label>																	
 							</div>
-							<div class="radio paymentType paymentType">
+							<%--<div class="radio paymentType paymentType">
 								<input id="tapAndGo" class="paymentType__btn" type="radio" name="paymentGroup" value="tg">
 								<label for="tapAndGo" class="paymentType__btnLabel">
 									<fmt:message key="payment.type2" bundle="${msg}" />
 									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/tap&go.png">
 								</label>																
-							</div>
+							</div>-->
 							<%--<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">--%>
 						</div>
 						<div class="clearfix"></div>
