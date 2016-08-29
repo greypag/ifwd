@@ -1537,7 +1537,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 					<!--Employement Info Widget-->
 					<div id="employment-info"
-						class="page-application container-fluid fwd-container et-employement-info">
+						class="page-application container-fluid fwd-container">
 						<h2 class="text-center">
 							<fmt:message key="eliteTerms.selectPlan.Employment.Info"
 								bundle="${msg}" />
@@ -2135,16 +2135,16 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 							
 							<!-- regular income -->
-							<div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
+							<div id="has-regular-income" class="clearfix form-group has-error" >
                                     <div class="form-group">
-                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none regular-income-specific">
                                             <div class="has-regular-income-question">
                                                 <fmt:message key="employment.has.regular.income" bundle="${msg}" />
                                             </div>
                                             <span id="has_regular_incomeErMsg" class="text-red"> </span>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none has-regular-income-btn-grp">
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none ">
+                                            <div class="radio-choice">
                                                 <label class="field-label bold-500">
                                                     <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="1" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">
@@ -2152,7 +2152,7 @@ var home_url = "<%=request.getContextPath()%>";
                                                     </span>
                                                 </label>
                                             </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pad-none">
+                                            <div class="radio-choice">
                                                 <label class="field-label bold-500">
                                                     <input type="radio" class="has-regular-income-radio" name="regularIncome"  value="0" />
                                                     <span id="" class="radio-inline oversea-lb has-regular-income-selection">

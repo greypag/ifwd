@@ -25766,3 +25766,33 @@ label.et-bene-radio,#et-application-second-section label,
 .et-get-qoute {
 	bottom: 105px;
 }
+.fwd-savie-wrapper #employment-info .content #has-regular-income .regular-income-specific{
+    font-family: 'Calibri-bold';
+    font-size: 18px;
+    margin-bottom: 7px;
+    color: #061d2a;
+    font-weight: normal;
+    width: 100%;
+ }
+ 
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper #employment-info .content #has-regular-income .regular-income-specific{
+	    width: 27%;
+	 }
+	 #employmentInfoForm #has-regular-income .easyhealth_q{
+	 	width:29%;
+	 }
+}
+#employmentInfoForm #has-regular-income{
+	margin-left: 16px;
+	margin-top: 6px;
+}
+ 
+.fwd-savie-wrapper #employment-info .content #has-regular-income .has-regular-income-selection{
+   font-family: 'Calibri-bold';
+}
+.fwd-savie-wrapper #employment-info .content #has-regular-income .radio-choice,#employmentInfoForm .radio-choice{
+   margin-right: 30px;
+   display: inline-block;
+}
+
