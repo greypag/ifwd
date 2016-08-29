@@ -137,7 +137,7 @@
 							</select>
 							--%>
 
-							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;" onchange="changeSelect()">
+							<select class="form-control gray-dropdown " id="timePeriod" style="padding-top:0px !important;font-weight: bold;margin-top:0px;border-radius: 0; background-color: #E4E4E4;">
 							<option value="" disabled="disabled" selected="selected"></option>
 								<c:if test="${language == 'en'}">
 									<c:forEach var="list" items="${contactTimeEN}">
