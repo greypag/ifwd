@@ -98,6 +98,9 @@
 				   <c:when test="${paymentMethod=='TapNGo'}">
 				       <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h4>
 				   </c:when>
+				   <c:otherwise>
+				   		<h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h4>
+				   </c:otherwise>
 			   </c:choose>
 	            
             </div>
