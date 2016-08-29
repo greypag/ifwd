@@ -25767,7 +25767,7 @@ label.et-bene-radio,#et-application-second-section label,
 	bottom: 105px;
 }
 
-.fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start .elterm-btn-default{
+.fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start .et-before-we-start-no.elterm-btn-default{
 	color: #b7c3cd;
 	border: 1px solid #b7c3cd;
 }
@@ -25776,4 +25776,10 @@ label.et-bene-radio,#et-application-second-section label,
 .fwd-savie-wrapper #et-select-plan-section .container-fluid.fwd-container .et-before-we-start input[type=radio]:checked+.elterm-btn-default{
 	background-color: #ff8200;
 	color: #fff;
+}
+.fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start label.et-before-we-start-yes{
+	border-radius: 0;
+	color: #ff8200;
+	border: solid 1px #ff8200;
+	font-family: "Calibri-Bold";
 }

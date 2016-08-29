@@ -137,7 +137,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an" bundle="${msg}" />
 					</p>
 					<div class="clearfix">
-						<input type="radio" id="et-before-yes" name="et-before" value="et-before-yes" checked="true">
+						<input type="radio" id="et-before-yes" name="et-before" value="et-before-yes">
 						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes">
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
 						</label>
@@ -153,7 +153,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<fmt:message key="eliteTerms.selectPlan.Do.you.have.an.2" bundle="${msg}" />
 					</p>
 					<div class="clearfix">
-						<input type="radio" id="et-before-yes-02" name="et-before-02" value="et-before-yes" checked="true">
+						<input type="radio" id="et-before-yes-02" name="et-before-02" value="et-before-yes">
 						<label class="et-before-we-start-yes pull-left elterm-btn-default" for="et-before-yes-02">
 							<span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
 						</label>
@@ -172,7 +172,7 @@ var home_url = "<%=request.getContextPath()%>";
 
 				<div class="et-next-btn-div">
 					<button type="button" id="et-btn-before-start"
-						class="btn btn-orange et-next-btn et-pad-bot-50"
+						class="btn btn-orange hidden et-next-btn et-pad-bot-50"
 						data-toggle="">
 						<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 					</button>
