@@ -17,10 +17,13 @@ var enablePayment=true;
 var tapAndGoUrl = "https://custportal.tapngo.com.hk/en/login";
 var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
+		
+
+    	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
     	clicked = false;
     	console.log(enablePayment);
         
-		if(enablePayment){
+		if(payValid(selectedPaymentType) && enablePayment){
 			console.log("enablePayment");
     		enablePayment=false;
     		
