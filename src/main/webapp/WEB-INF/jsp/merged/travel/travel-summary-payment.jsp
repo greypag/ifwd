@@ -923,10 +923,10 @@ var clicked = false;
 
 
 					<div class="form-group float product-payment-type">
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
 							<label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">                           
+						<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">                           
 							<div class="radio paymentType paymentType--first">
 								<input id="visaMaster" class="paymentType__btn" type="radio" name="paymentGroup" value="cc" checked>
 								<label for="visaMaster" class="paymentType__btnLabel">
@@ -938,7 +938,7 @@ var clicked = false;
 								<input id="tapAndGo" class="paymentType__btn" type="radio" name="paymentGroup" value="tg">
 								<label for="tapAndGo" class="paymentType__btnLabel">
 									<fmt:message key="payment.type2" bundle="${msg}" />
-									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/tap&go.png">
+									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/FWD_pay_withTapngo_button.png">
 								</label>																
 							</div>
 							<%--<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">--%>
@@ -947,10 +947,10 @@ var clicked = false;
 					</div>
                     <div id="payment-detail-section" class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float" style="display: none;">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
                                 <label class="control-label h4-5">Payment Method</label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
                                 <label class="radio-inline">                            
                                  <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
                                 </label>    
@@ -967,10 +967,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
                                 <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
 
                                 <span id="errcardno" class="error-msg"></span>
@@ -979,10 +979,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
                                 <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
@@ -1002,7 +1002,7 @@ var clicked = false;
                                 <span id="errmonth"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
                                 <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
@@ -1031,10 +1031,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.holderName" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
                                 <input id="holdername" name="cardHolder" type="text"
                                             class="input-block-level"
                                             onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
@@ -1044,10 +1044,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.cvv" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
                                 <input id="seccode" type="password" name="securityCode"
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
@@ -1056,7 +1056,7 @@ var clicked = false;
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
                                 <img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt="">
                             </div>
                             <div class="clearfix"></div>

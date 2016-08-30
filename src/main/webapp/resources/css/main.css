@@ -12178,8 +12178,9 @@ Be caution: <select> have customed made */
 	padding: 0;
 }
 .img-payment__tagAndGo{
-	width: 60px;
-	height: 60px;
+	width: 154px;
+	height: 42px;
+	padding-top: 5px;
 }
 
 /* line 142, ../sass/partials/_et-cannot-apply-modal.scss */
