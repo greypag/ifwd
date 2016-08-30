@@ -48,8 +48,8 @@
 			        <li class="active"><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /></li>
 			     </ol>
 			</div>			  
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image.mobile" bundle="${msg}" />" alt="Team Insurance" class="hidden-md hidden-lg img-responsive">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image" bundle="${msg}" />" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive desktop-cover">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="image.alt_4" bundle="${msg}" />" class="hidden-md hidden-lg img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image" bundle="${msg}" />" alt="<fmt:message key="image.alt_4" bundle="${msg}" />" class="hidden-sm hidden-xs img-responsive desktop-cover">
             <div class="tagline-holder">
             	<img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive elite-term-tagline">
             </div>
@@ -76,13 +76,13 @@
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
                                  <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="protection.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="<fmt:message key="image.alt_14" bundle="${msg}" />" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Fill.the.Protection" bundle="${msg}" /></h2>
                                     <div class="text-center">
                                        <div class="hidden-xs hidden-sm">
-                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="protection.png">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="<fmt:message key="image.alt_14" bundle="${msg}" />">
                                        </div>
                                        <p><fmt:message key="eliteTerms.landing.Regardless.of.your" bundle="${msg}" /></p>
                                     </div>
@@ -95,13 +95,13 @@
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
                                  <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="guarantee.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="<fmt:message key="image.alt_15" bundle="${msg}" />" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Guaranteed.Level.premium" bundle="${msg}" /></h2>
                                     <div class="text-center">
                                        <div class="hidden-xs hidden-sm">
-                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="guarantee.png">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="<fmt:message key="image.alt_15" bundle="${msg}" />">
                                        </div>
                                        <p><fmt:message key="eliteTerms.landing.The.premiums.payable" bundle="${msg}" /></p>
                                     </div>
@@ -114,13 +114,13 @@
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
                                  <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="flexible.png" class="img-responsive">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="<fmt:message key="image.alt_16" bundle="${msg}" />" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Flexible.in.choosing" bundle="${msg}" /></h2>
                                     <div class="text-center">
                                        <div class="hidden-xs hidden-sm">
-                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="flexible.png">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="<fmt:message key="image.alt_16" bundle="${msg}" />">
                                        </div>
                                        <p><fmt:message key="eliteTerms.landing.It.is.flexible" bundle="${msg}" /></p>
                                     </div>
@@ -152,11 +152,11 @@
                      <div class="col-xs-12 et-benefit-lists">
                         <div class="row">
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="protection-95.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="<fmt:message key="image.alt_17" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Protection.till.age.95" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="protection-95.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="<fmt:message key="image.alt_17" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Protection.till.age.95" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">
@@ -168,11 +168,11 @@
                               </div>
                            </div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="pure-protection.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="<fmt:message key="image.alt_18" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Pure.protection" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="pure-protection.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="<fmt:message key="image.alt_18" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Pure.protection" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">
@@ -185,11 +185,11 @@
                            </div>
                            <div class="clearfix hidden-md hidden-lg"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="tailor-lifestyle.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="<fmt:message key="image.alt_19" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Tailored.to.your" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="tailor-lifestyle.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="<fmt:message key="image.alt_19" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Tailored.to.your" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">
@@ -202,11 +202,11 @@
                            </div>
                            <div class="clearfix hidden-xs hidden-sm"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="purchase-process.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="<fmt:message key="image.alt_20" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Simplified.purchase.process" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="purchase-process.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="<fmt:message key="image.alt_20" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Simplified.purchase.process" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">
@@ -219,11 +219,11 @@
                            </div>
                            <div class="clearfix hidden-md hidden-lg"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="peace-mind.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="<fmt:message key="image.alt_21" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Protection.peace.of.mind" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="peace-mind.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="<fmt:message key="image.alt_21" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Protection.peace.of.mind" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">
@@ -235,11 +235,11 @@
                               </div>
                            </div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
-                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="claim-ambassador.png" />
+                              <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="<fmt:message key="image.alt_22" bundle="${msg}" />" />
                               <h4><fmt:message key="eliteTerms.landing.Claim.Ambassador" bundle="${msg}" /></h4>
                               <div class="hidden-content">
                                  <div class="col-xs-12 hidden-md hidden-lg">
-                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="claim-ambassador.png" />
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="<fmt:message key="image.alt_22" bundle="${msg}" />" />
                                  </div>
                                  <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Claim.Ambassador" bundle="${msg}" /></div>
                                  <div class="col-xs-12 hidden-content-p">

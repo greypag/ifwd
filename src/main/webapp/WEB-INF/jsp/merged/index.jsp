@@ -47,10 +47,10 @@ var languageP = "${language}";
 		<div>
 			<div class="hero-banner">
 				<div class="hidden-xs hidden-sm">
-					<img src="<%=request.getContextPath()%>/resources/images/slider/main_en.jpg" class="img-responsive banner-image" />
+					<img src="<%=request.getContextPath()%>/resources/images/slider/main_en.jpg" class="img-responsive banner-image" alt="<fmt:message key="image.alt_1" bundle="${msg}"/>" />
 				</div>
 				<div class="hidden-md hidden-lg">
-					<img src="<%=request.getContextPath()%>/resources/images/slider/main_en_m.jpg" class="img-responsive banner-image" />
+					<img src="<%=request.getContextPath()%>/resources/images/slider/main_en_m.jpg" class="img-responsive banner-image" alt="<fmt:message key="image.alt_1" bundle="${msg}"/>" />
 				</div>
 				<div class="banner-text">
 					<fmt:message key="jumbo.homepage.homepage" bundle="${msg}" />

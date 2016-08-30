@@ -535,7 +535,7 @@ $(document).ready(function() {
 	                <fmt:message key="flight.main.feature1.heading" bundle="${msg}" />
 	              </h2>
 	              <div style="margin-top:25px;">
-	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" />
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon1.png" alt="<fmt:message key="image.alt_23" bundle="${msg}" />"/>
 	              </div>
 	              <div style="margin-top:10px;">
 	                   <fmt:message key="flight.main.feature1.paragraph" bundle="${msg}" />
@@ -548,7 +548,7 @@ $(document).ready(function() {
 	                 <fmt:message key="flight.main.feature2.heading" bundle="${msg}" />
 	              </h2>
 	              <div style="margin-top:25px;">
-	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" />
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon2.png" alt="<fmt:message key="image.alt_24" bundle="${msg}" />"/>
 	              </div>
 	              <div style="margin-top:10px;">
 	                    <fmt:message key="flight.main.feature2.paragraph" bundle="${msg}" />
@@ -561,7 +561,7 @@ $(document).ready(function() {
 	                     <fmt:message key="flight.main.feature3.heading" bundle="${msg}" />
 	                  </h2>
 	                  <div style="margin-top:25px;">
-	                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" />
+	                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_flight_icon3.png" alt="<fmt:message key="image.alt_25" bundle="${msg}" />"/>
 	                  </div>
 	                  <div style="margin-top:10px;">
 	                      <fmt:message key="flight.main.feature3.paragraph" bundle="${msg}" />

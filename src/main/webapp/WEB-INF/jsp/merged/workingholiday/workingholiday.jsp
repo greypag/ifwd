@@ -126,7 +126,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		        <fmt:message key="workingholiday.main.feature1.heading" bundle="${msg}" />
 		      </h2>
 	          <div style="margin-top:25px;">
-	               <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png" />
+	               <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon1.png" alt="<fmt:message key="image.alt_44" bundle="${msg}" />"/>
 	          </div>
 	          <div style="margin-top:10px;">
                    <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" />
@@ -142,7 +142,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	             <fmt:message key="workingholiday.main.feature2.heading" bundle="${msg}" />
 	          </h2>
 	          <div style="margin-top:25px;">
-                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon2.png" />
+                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon2.png" alt="<fmt:message key="image.alt_45" bundle="${msg}" />"/>
               </div>
               <div style="margin-top:10px;">
                     <fmt:message key="workingholiday.main.feature2.paragraph" bundle="${msg}" />
@@ -155,7 +155,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	                 <fmt:message key="workingholiday.main.feature3.heading" bundle="${msg}" />
 	              </h2>
 	              <div style="margin-top:25px;">
-	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon3.png" />
+	                   <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_working-holiday_icon3.png" alt="<fmt:message key="image.alt_46" bundle="${msg}" />"/>
 	              </div>
 	              <div style="margin-top:10px;">
 	                  <fmt:message key="workingholiday.main.feature3.paragraph" bundle="${msg}" />

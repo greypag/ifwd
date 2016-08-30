@@ -148,8 +148,8 @@
                 </div>
                 <div class="fwdiscover-info clearfix">
                     <div class="fwd-full-container container-fluid fwdiscover-banner clearfix">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="image.alt_7" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs" alt="<fmt:message key="image.alt_7" bundle="${msg}" />">
                         <div class="banner-title">
                             <p class="welcome"><fmt:message key="jumbo.fwdiscover1" bundle="${msg}" /></p>
                             <p class="fwdiscover"><fmt:message key="jumbo.fwdiscover2" bundle="${msg}" /></p>
