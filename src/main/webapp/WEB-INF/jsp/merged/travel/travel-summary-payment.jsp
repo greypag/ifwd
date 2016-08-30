@@ -182,14 +182,17 @@ var clicked = false;
 
 
 
-    
+    var paymentDelcareMsg = '<fmt:message key="travel.payment.declarations" bundle="${msg}" />';
+    var paymentDelcareMsgTagAndGo = '<fmt:message key="travel.payment.declarations.tagAndGo" bundle="${msg}" />';
 	function switchPayment(selector){
 		selector = $(selector).attr('id');
 		if(selector=="visaMaster"){
 			$("#payment-detail-section").show();
+			$("#checkbox3").next().html(paymentDelcareMsg);
 			//console.log(selector);
 		}else if (selector=="tapAndGo"){
 			$("#payment-detail-section").hide();
+			$("#checkbox3").next().html(paymentDelcareMsgTagAndGo);
 			//console.log(selector);
 		}
 	}
