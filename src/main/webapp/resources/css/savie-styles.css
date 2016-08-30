@@ -682,7 +682,7 @@ a:hover {
 	}
 }
 
-@media screen (min-width: 922px){
+@media screen and (min-width: 922px){
 /* line 302, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
@@ -1296,7 +1296,7 @@ h6 {
 /* line 772, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
-}#plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a
+}
 @media (min-width: 992px) {
   /* line 776, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
@@ -2311,7 +2311,7 @@ a.eserv-link:hover {
 /* line 707, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item .img-container {
   width: 550px;
-  //height: 313px;
+  /*height: 313px;*/
 }
 /* line 712, ../sass/partials/savie/_homepage.scss */
 .container-products .portfolio-item .caption {
@@ -9133,7 +9133,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq .tab-content .panel-collapse .panel-body {
   font-size: 18px;
   line-height: 20px;
-  padding: :20px;
+  padding :20px;
 }
 /* line 351, ../sass/partials/savie/_plan-details-table.scss */
 #plan-details-sample-and-faq .tab-content .panel-title a {
