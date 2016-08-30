@@ -29,19 +29,19 @@ import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.HomeCareDetailsBean;
 import com.ifwd.fwdhk.model.HomeQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
-import com.ifwd.fwdhk.services.GAService;
+import com.ifwd.fwdhk.services.HomeService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HomePageFlowControl;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
-public class GAController extends BaseController{
+public class HomeController extends BaseController{
 	
 	@Autowired
-	private GAService gaService;
+	private HomeService homeService;
 	
-	private final static Logger logger = LoggerFactory.getLogger(GAController.class);
+	private final static Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = {"/{lang}/household-insurance/{plan}"})
 	public ModelAndView getInsurance(@PathVariable("plan") String plan, @RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
@@ -158,7 +158,7 @@ public class GAController extends BaseController{
 						JSONObject result = new JSONObject();
 						String paymentFail = "1";
 						try {
-							result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
+							result = homeService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
 							//model.addAttribute("policyNo", result.get("policyNo"));
 						} catch (Exception e) {
 							logger.info(e.getMessage());
@@ -283,7 +283,7 @@ public class GAController extends BaseController{
 					JSONObject result = new JSONObject();
 					String paymentFail = "0";
 					try {
-						result = gaService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
+						result = homeService.finalizeHomeCarePolicy(plan, paymentFail, request, session);
 						model.addAttribute("policyNo", result.get("policyNo"));
 					} catch (Exception e) {
 						logger.info(e.getMessage());

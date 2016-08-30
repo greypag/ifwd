@@ -82,7 +82,7 @@ var language = "${language}";
 					<div class="col-xs-12 cstm-md-col-1"><p class="panel-title"><fmt:message key="msg.confirmation.pay.later.savie.copy1" bundle="${msg}" /></p></div>
 					<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 						<span class="policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></span>
-						<span class="policy-number">${accessCode }</span>
+						<span class="policy-number">${applicationNumber }</span>
 					</div>
 					<div class="col-xs-12 cstm-md-col-2">
 						<p><fmt:message key="msg.confirmation.pay.later.savie.copy2" bundle="${msg}" /></p>
@@ -91,7 +91,7 @@ var language = "${language}";
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="policy-number-label"><fmt:message key="label.referenceno" bundle="${msg}" /></p>
-						<p class="policy-number">${accessCode }</p>
+						<p class="policy-number">${applicationNumber }</p>
 					</div>
 				</div>
 				<hr>

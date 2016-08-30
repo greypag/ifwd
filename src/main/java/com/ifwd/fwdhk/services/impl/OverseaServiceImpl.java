@@ -77,8 +77,6 @@ public class OverseaServiceImpl implements OverseaService {
 		logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
 		if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
 			session.setAttribute("referralCode", "");
-		} else {
-			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
 		}
 		if (responseJsonObj != null && responseJsonObj.get("errMsgs") == null) {
 			

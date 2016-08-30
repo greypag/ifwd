@@ -288,11 +288,11 @@ public class AjaxSavieController extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie/contact-time-period/post"},method=RequestMethod.POST)
 	public void commitContactTime(Model model, HttpServletRequest request,HttpServletResponse response,
-			@RequestParam(value="timePeriod", required=false) String timePeriod,@RequestParam(value="policyNo", required=false) String policyNo ){
+			@RequestParam(value="contactTime", required=false) String contactTime,@RequestParam(value="policyNo", required=false) String policyNo ){
 				
 				
 			try {
-				logger.info("timePeriod:"+timePeriod);
+				logger.info("contactTime:"+contactTime);
 				//BaseResponse br = savieService.settTimePeriod(request,timePeriod);
 				//logger.info("apiJsonObj:"+br);
 				
@@ -300,7 +300,7 @@ public class AjaxSavieController extends BaseController{
 				final Map<String,String> header = headerUtil.getHeader1(request);
 				JSONObject parameters = new JSONObject();
 				parameters.put("policyNo", policyNo);
-				parameters.put("contactTime", timePeriod);
+				parameters.put("contactTime", contactTime);
 				BaseResponse br=connector.saveVulnerbaleCustomerContactTime(parameters, header);
 				ajaxReturn(response,br);
 			} catch (Exception e) {

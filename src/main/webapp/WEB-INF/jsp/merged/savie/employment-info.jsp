@@ -449,7 +449,7 @@ var languageP = "${language}";
 									</div>
 								</div>
 
-                                <div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
+                                <!-- <div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
                                     <div class="form-group">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                             <div class="has-regular-income-question">
@@ -476,7 +476,7 @@ var languageP = "${language}";
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="text-bold btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
 	  								<button type="button" class="text-bold btn savie-common-btn hidden" id="back-summary-btn"><fmt:message key="button.back.summary" bundle="${msg}" /></button>
@@ -542,14 +542,14 @@ var languageP = "${language}";
 
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
-            var IsVisibleHasRegularIncome = true;
-            $(document).ready(function () {
-                if ( IsVisibleHasRegularIncome == false ) {
-                    $('#has-regular-income').addClass('hide');
-                } else {
-                    $('#has-regular-income').removeClass('hide');
-                }
-            });
+            //var IsVisibleHasRegularIncome = true;
+            //$(document).ready(function () {
+            //    if ( IsVisibleHasRegularIncome == false ) {
+            //        $('#has-regular-income').addClass('hide');
+            //    } else {
+            //        $('#has-regular-income').removeClass('hide');
+            //    }
+            //});
 
 			var getpath =  "<%=request.getContextPath()%>";
 
@@ -771,16 +771,7 @@ var languageP = "${language}";
 								 message: '<fmt:message key="error.liquid.assets.empty" bundle="${msg}" />'
 							  }
 						   }
-                        },
-                        has_regular_income: {
-                            container: '#has_regular_incomeErMsg',
-                            validators: {
-                                notEmpty: {
-                                    message: '<fmt:message key="error.has.regular.income.empty" bundle="${msg}" />'
-                                }
-                            }
                         }
-
 					}
 				}).on('success.form.bv', function(e) {
 					e.preventDefault();

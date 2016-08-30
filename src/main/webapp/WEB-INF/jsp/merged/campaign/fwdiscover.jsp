@@ -447,17 +447,17 @@
 	            <div class="modal-dialog">
 	                <div class="modal-content">
 	                    <p class="title"></p>
-	
+
 	                    <div class="promo-code-holder">
 	                        <p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
 	                        <p class="code">FWD987654321</p>
 	                        <p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
 	                    </div>
-	
+
 	                    <div class="details-button-holder text-center">
 	                        <a class="url" href="" target="_blank"><button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button></a>
 	                    </div>
-	
+
 	                    <div class="terms-and-condition offer-details">
 	                        <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
 	                        <ul>
@@ -469,12 +469,12 @@
 	                            <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
 	                         </ul>
 	                    </div>
-	
+
 	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 	                </div>
 	            </div>
 	        </div>
-	
+
 	        <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-once" role="dialog" aria-hidden="true">
 	            <div class="modal-dialog">
 	                <div class="modal-content">
@@ -482,12 +482,12 @@
 	                        <p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
 	                        <p class="lower close-modal-link"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
 	                    </div>
-	
+
 	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 	                </div>
 	            </div>
 	        </div>
-	
+
 	        <div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-sold" role="dialog" aria-hidden="true">
 	            <div class="modal-dialog">
 	                <div class="modal-content">
@@ -495,14 +495,14 @@
 	                        <p><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle1" bundle="${msg}" /></p>
 	                        <p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle2" bundle="${msg}" /></p>
 	                    </div>
-	
+
 	                    <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 	                </div>
 	            </div>
-	        </div>    
-	        <!--  End Modal for promotion code and sold out and expire -->        
+	        </div>
+	        <!--  End Modal for promotion code and sold out and expire -->
         </div>
-        
+
         <!-- JS INCLUDES -->
         <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
@@ -599,35 +599,35 @@
                 $(document).on("click", "#modal-grab-button-first", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("5");
-                    }else {
+                    } else {
                         assignPromoCode("5");
                     }
                 });
                 $(document).on("click", "#modal-grab-button-second", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("6");
-                    }else {
+                    } else {
                         assignPromoCode("6");
                     }
                 });
                 $(document).on("click", "#modal-grab-button-third", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("7");
-                    }else {
+                    } else {
                         assignPromoCode("7");
                     }
                 });
                 $(document).on("click", "#modal-grab-button-fourth", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("8");
-                    }else {
+                    } else {
                         assignPromoCode("8");
                     }
                 });
                 $(document).on("click", "#modal-grab-button-fifth", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("9");
-                    }else {
+                    } else {
                         assignPromoCode("9");
                     }
                 });
@@ -635,7 +635,7 @@
                 $(document).on("click", "#modal-grab-button-twenty-third", function() {
                     if('<%=username2%>' == 'null') {
                         loginpopup("23");
-                    }else {
+                    } else {
                         assignPromoCode("23");
                     }
                 });
@@ -692,9 +692,7 @@
                         var desktopGutterWidth = (100 / $scope.offersItems.length) + '%';
                         var mobileGutterWidth = (100 / $scope.miniCarousel.config.mobile.numItemPerRow) + '%';
 
-                        //init offers quota
-                        $scope.offerCount = [${count0},${count1},${count2},${count3},${count4},${count5}];
-
+                        $scope.offerCount = [${count0},${count1},${count2},${count3},${count4},${count5}]; // init offers quota
                         $scope.miniCarousel.config.desktop.hoverHidden = genArrObjTrue($scope.offersItems);
 
                         $(document).ready(function() {
@@ -713,8 +711,7 @@
                                                 $scope.miniCarousel.config.desktop.isDesktop = false;
                                             });
                                         }
-                	                }
-                	                else // Landscape
+                	                } else // Landscape
                 	                {
                 	                    if ( getWidth() > 991 ) {
                 	                        $('#myCarousel-fwdiscover').removeClass('carousel slide');
@@ -751,7 +748,6 @@
                                     });
                                 }
                         	}
-                            // console.log( $scope.miniCarousel.config.current.gutterWidth );
                             });
                         });
                         $scope.miniCarousel.offerItems = _.chunk($scope.offersItems, $scope.miniCarousel.config.mobile.numItemPerRow);
@@ -905,8 +901,8 @@
         });
         $( document ).ajaxComplete(function() {
             $('body').css("display","block");
-        });       
-        
+        });
+
         function loginpopup(campaignId) {
             $.ajax({
                 type : "POST",
@@ -1018,7 +1014,7 @@
             $("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
                 $('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);
             });
-        }        
+        }
         // -- Fanfare JS - assignPromoCode() --
         // -- ./Fanfare JS - assignPromoCode() --
 
@@ -1086,7 +1082,7 @@
             } else { // If another browser, return 0
                 return 0;
             }
-        }        
+        }
         </script>
     </body>
 </html>

@@ -1941,8 +1941,8 @@ public class TravelController {
 		String dueAmount = (String)session.getAttribute("dueAmount");
 		
 		if("0.00".equals(dueAmount) && creditCardNo == null) {
-			creditCardNo = "0000000000000000";
-			parameters.put("expiryDate", "122030");
+			creditCardNo = "";
+			parameters.put("expiryDate", "");
 		} else {
 			if(session.getAttribute("creditCardNo") !=null && session.getAttribute("creditCardNo") != ""){
 				try {
@@ -1968,8 +1968,8 @@ public class TravelController {
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
-			parameters.put("creditCardNo", "0000000000000000");
-			parameters.put("expiryDate", "122030");
+			parameters.put("creditCardNo", "");
+			parameters.put("expiryDate", "");
 			parameters.put("paymentMethod", session.getAttribute("paymentMethod").toString());
 			
 			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
@@ -1994,9 +1994,9 @@ public class TravelController {
 		}
 			
 		
-		if(JsonUtils.hasEmpty(parameters)) {
-			return UserRestURIConstants.getSitePath(request) + "travel/travel";
-		}
+//		if(JsonUtils.hasEmpty(parameters)) {
+//			return UserRestURIConstants.getSitePath(request) + "travel/travel";
+//		}
 
 		HashMap<String, String> header = new HashMap<String, String>(
 				COMMON_HEADERS);

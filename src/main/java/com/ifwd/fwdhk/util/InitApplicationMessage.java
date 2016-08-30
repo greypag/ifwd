@@ -156,6 +156,8 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> bankCodeCN;
 	public static List<OptionItemDesc> branchCodeEN;
 	public static List<OptionItemDesc> branchCodeCN;
+	public static List<OptionItemDesc> contactTimeEN;
+	public static List<OptionItemDesc> contactTimeCN;
 	
 
 	@Override
@@ -351,6 +353,26 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("natureOfBusinessCN : " + natureOfBusinessCN);
+		
+		try {
+			contactTimeEN = commonUtils.getOptionItemDescList("VCCT","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("contactTimeEN : " + contactTimeEN);
+		
+		try {
+			contactTimeCN = commonUtils.getOptionItemDescList("VCCT","CN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("contactTimeCN : " + contactTimeCN);
 		
 		try {
 			nob_occListEN = new HashMap<String, List<OptionItemDesc>>();

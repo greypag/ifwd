@@ -1301,12 +1301,13 @@ function soFormValidation() {
 	}).on('error.form.bv', function (e) {});
 }
 
-$('.chinese-input').bind('keypress', function (event) {
+$('.chinese-input').bind('keydown', function (event) {
 	var regex = new RegExp("/^[\s\u4e00-\u9fa5]*$/");
 	var key = String.fromCharCode(!event.charCode
 		? event.which
 		: event.charCode);
-	if (!regex.test(key)) {
+	var keycode = event.keyCode || event.which;
+	if (!regex.test(key) && keycode != 8) {
 		event.preventDefault();
 		return false;
 	}

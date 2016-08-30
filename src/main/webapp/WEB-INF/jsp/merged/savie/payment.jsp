@@ -521,10 +521,12 @@ var language = "${language}";
 		paymentFormValidation();
 		
 		//init next button text
+		//???????????(who do this)
+				/*
 		if('${backSummary}'=="Y"){
 			var htmlObj = document.getElementById('btn-next');
 			htmlObj.innerHTML = 'Back to application summary';
-		}
+		}*/
 
 		<%
 		if(!result) {
@@ -608,10 +610,12 @@ var language = "${language}";
 			// hide the back button and display the Next button
 			$('.save-link').removeClass('hidden');
 			$('#btn-back').addClass('hidden');
+			$('#btn-next').removeClass('hidden');
 		} else {
 			// display the back button and hide the Next button
 			$('.save-link').addClass('hidden');
 			$('#btn-back').removeClass('hidden');
+			$('#btn-next').addClass('hidden');
 		}
 		
 		$('.save-exit-btn1, #keep-going-btn').click(function() {
