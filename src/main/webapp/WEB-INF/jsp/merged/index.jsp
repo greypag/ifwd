@@ -149,7 +149,7 @@ var languageP = "${language}";
 								<div role="tabpanel" class="fna-tab-content tab-pane active wow fadeIn" data-wow-delay="0s" id="navtabs-1">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
-											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png" />
+											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png" alt="<fmt:message key="image.alt_13" bundle="${msg}" />" />
 										</div>
 										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.support.copy1" bundle="${msg}" /></p>
@@ -158,7 +158,7 @@ var languageP = "${language}";
 								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-2">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
-											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png" />
+											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png" alt="<fmt:message key="image.alt_11" bundle="${msg}" />" />
 										</div>
 										<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
@@ -167,7 +167,7 @@ var languageP = "${language}";
 								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-3">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
-											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png" />
+											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />" />
 										</div>
 										<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.claim.easy.link1" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.claim.easy.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy3" bundle="${msg}" /></p>
@@ -176,7 +176,7 @@ var languageP = "${language}";
 								<div role="tabpanel" class="fna-tab-content tab-pane wow fadeIn" data-wow-delay="0s" id="navtabs-4">
 									<div class="so-fna-content">
 										<div class="fna-icon-circle">
-											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png" />
+											<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png" alt="<fmt:message key="image.alt_12" bundle="${msg}" />" />
 										</div>
 										<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></h3>
 										<p><fmt:message key="pillar.eservice.app.copy1" bundle="${msg}" /> <a href="<fmt:message key="link.eservice.app" bundle="${msg}" />" class="eserv-link ui-link"><fmt:message key="pillar.eservice.app.copy2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy3" bundle="${msg}" /></p>

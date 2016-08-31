@@ -107,7 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+          <div class="recent-work-inner"> <img src="resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
             <h1>常在您左右</h1>
             <p>富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上富衛流動應用程式，隨時為您解答任何查詢。</p>
           </div>
@@ -125,7 +125,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+          <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  />
             <h1>賞您所想</h1>
             <p>富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。</p>
             <img src="resources/images/agoda-logo.png" alt=""/> </div>
@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/time.png" alt=""  />
+              <div class="recent-work-inner"> <img src="resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
                 <h2>常在您左右</h2>
                 <p>富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上富衛流動應用程式，隨時為您解答任何查詢。</p>
               </div>
@@ -172,7 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt=""  />
+              <div class="recent-work-inner"> <img src="resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  />
                 <h2>賞您所想</h2>
                 <p>富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。</p>
               </div>

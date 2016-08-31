@@ -294,7 +294,7 @@
                      <div class="col-xs-12 col-sm-4 col-md-4 et-pad-none">
                         <div class="et-recent-work-wrap et-wrap text-center">
                            <div class="et-recent-work-inner"> 
-                              <div class="et-recent-work-img"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-time.png" alt="feature-time.png" /></div>
+                              <div class="et-recent-work-img"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />" /></div>
                               <h1><fmt:message key="eliteTerms.landing.Here.when.you.need.us" bundle="${msg}" /></h1>
                               <p>
                                  <fmt:message key="eliteTerms.landing.Our.24x7.call" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> <fmt:message key="eliteTerms.landing.ensures.you.get" bundle="${msg}" />
@@ -316,7 +316,7 @@
                      <div class="col-xs-12 col-sm-4 col-md-4 et-pad-none ">
                         <div class="et-recent-work-wrap et-wrap text-center">
                            <div class="et-recent-work-inner"> 
-                              <div class="et-recent-work-img"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-reward.png" alt="feature-reward.png" /></div>
+                              <div class="et-recent-work-img"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-reward.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />" /></div>
                               <h1><fmt:message key="eliteTerms.landing.Rewards.benefits" bundle="${msg}" /></h1>
                               <p><fmt:message key="eliteTerms.landing.We.continue.to.find" bundle="${msg}" /></p>
                            </div>
@@ -338,7 +338,7 @@
                         <div>
                            <div class="slide-margin">
                               <div class="et-recent-work-wrap text-center">
-                              <div class="et-recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-time.png" alt="feature-time.png" />
+                              <div class="et-recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />" />
                                  <h2><fmt:message key="eliteTerms.landing.Here.when.you.need.us" bundle="${msg}" /></h2>
                                  <p>
                                  <fmt:message key="eliteTerms.landing.Our.24x7.call" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> <fmt:message key="eliteTerms.landing.ensures.you.get" bundle="${msg}" />
@@ -366,7 +366,7 @@
                         <div>
                            <div class="row slide-margin">
                               <div class="et-recent-work-wrap text-center">
-                              <div class="et-recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-reward.png" alt="feature-reward.png" />
+                              <div class="et-recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-reward.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />" />
                                  <h2><fmt:message key="eliteTerms.landing.Rewards.benefits" bundle="${msg}" /></h2>
                                  <p><fmt:message key="eliteTerms.landing.We.continue.to.find" bundle="${msg}" /></p>
                               </div>

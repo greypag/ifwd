@@ -328,7 +328,7 @@ function mouseout2div(obj) {
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h1>
                   <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
           </div>
@@ -336,7 +336,7 @@ function mouseout2div(obj) {
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center claim-pillar-wrapper">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
           </div>
@@ -344,7 +344,7 @@ function mouseout2div(obj) {
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar3.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar3.copy" bundle="${msg}" /></p>
             <!--<img src="<%=request.getContextPath()%>/resources/images/agoda-logo.png" alt=""/>--> </div>
@@ -372,7 +372,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
+              <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />">
 				  <h2><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h2>
 				  <!-- <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>-->
 				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
@@ -386,7 +386,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt=""> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />"> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
               </div>
@@ -399,7 +399,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar3.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar3.copy" bundle="${msg}" /></p>
               </div>

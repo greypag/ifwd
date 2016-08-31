@@ -976,7 +976,7 @@ function getParameterByUrl(name){
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
             <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
             </h1>
@@ -998,7 +998,7 @@ function getParameterByUrl(name){
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  />
             <h1><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h1>
             <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
@@ -1020,7 +1020,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
                 <h2><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
                   <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
@@ -1047,7 +1047,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  /> 
               <h2><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
               </div>
