@@ -105,7 +105,6 @@ public class ECommWsConnector {
 	}
 	
 	
-	
 	public SalesIllustrationResponse generateSalesIllustration(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.GENERATE_SALES_ILLUSTRATION,HttpMethod.PUT,parameters,SalesIllustrationResponse.class,header);
 	}
