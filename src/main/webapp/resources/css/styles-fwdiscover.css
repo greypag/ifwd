@@ -1,5 +1,5 @@
 @font-face {
-	//font-family: 'lato_regular';
+	/*font-family: 'lato_regular';*/
 	src: url("../fonts/lato-regular-webfont.eot");
 	/* IE9 Compat Modes */
 	src: url("../fonts/lato-regular-webfont.eot?#iefix")
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-	//font-family: 'lato_italic';
+	/*font-family: 'lato_italic';*/
 	src: url("../fonts/lato-italic-webfont.eot");
 	/* IE9 Compat Modes */
 	src: url("../fonts/lato-italic-webfont.eot?#iefix")
@@ -21,7 +21,7 @@
 }
 
 @font-face {
-	//font-family: 'lato_bold';
+	/*font-family: 'lato_bold';*/
 	src: url("../fonts/lato-bold-webfont.eot");
 	/* IE9 Compat Modes */
 	src: url("../fonts/lato-bold-webfont.eot?#iefix")
@@ -32,7 +32,7 @@
 }
 
 @font-face {
-	//font-family: 'helvetica_neue_bold';
+	/*font-family: 'helvetica_neue_bold';*/
 	src: url("../fonts/helvetica-neue-bold.eot");
 	/* IE9 Compat Modes */
 	src: url("../fonts/helvetica-neue-bold.eot?#iefix")
@@ -43,7 +43,7 @@
 }
 
 @font-face {
-	//font-family: 'lato_black';
+	/*font-family: 'lato_black';*/
 	src: url("../fonts/lato-black-webfont.eot");
 	/* IE9 Compat Modes */
 	src: url("../fonts/lato-black-webfont.eot?#iefix")
@@ -94,7 +94,7 @@
 
 .page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title p {
 	color: #fff;
-    //font-family: 'foco_bold';
+    /*font-family: 'foco_bold';*/
 }
 
 .page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .welcome {
@@ -140,7 +140,7 @@
 
 .page-fwdiscover .fwdiscover-info .fwdiscover-description p {
     color: #666666;
-    //font-family: 'lato_regular';
+    /*font-family: 'lato_regular';*/
     font-size: 24px;
     line-height: 28px;
 }
@@ -157,7 +157,7 @@
 }
 
 .page-fwdiscover .fwdiscover-info .fwdiscover-description .register {
-	//font-family: 'lato_italic';
+	/*font-family: 'lato_italic';*/
     margin-top: 18px;
     font-size: 21px;
     color: #ff9900;
@@ -188,7 +188,7 @@
 }
 
 .fwdiscover-timer .hurry {
-	//font-family: 'lato_bold';
+	/*font-family: 'lato_bold';*/
     color: #f88b00;
     font-size: 23px;
     text-align: center;
@@ -213,7 +213,7 @@
 
 .fwdiscover-timer .timer-holder {
 	margin-top: 6px;
-	//font-family: 'helvetica_neue_bold';
+	/*font-family: 'helvetica_neue_bold';*/
 	max-width: 215px;
 	display: inline-block;
 }
@@ -303,7 +303,7 @@
 /*ie9 carousel control*/
 .page-fwdiscover .carousel-control.left, .carousel-control.right {
 	background: none !important;
-	filter: progid:none !important;
+	filter: progid\:none !important;
 }
 .page-fwdiscover .carousel {
 	margin-top: 54px;
@@ -338,15 +338,14 @@
     cursor: pointer;
 }
 
-.page-fwdiscover .carousel .carousel-inner .item span {
+.page-fwdiscover .carousel .carousel-inner .item span{
     display: block;
     color: #999999;
-    //font-family: 'lato_bold';
     margin-top: 8px;
 }
 
 /*plans*/
-.fwdiscover-plan .desc-and-button-holder .date{
+.fwdiscover-plan .desc-and-button-holder .date {
 	cursor: initial;
 }
 
@@ -417,7 +416,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc {
-	//font-family: 'foco_bold';
+	/*font-family: 'foco_bold';*/
     text-align: center;
 }
 
@@ -495,7 +494,7 @@
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc ul {
 	padding-left: 20px;
-    //font-family: arial;
+    /*font-family: arial;*/
     font-size: 18px;
     line-height: 40px;
 }
@@ -549,7 +548,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .title {
-	//font-family: 'lato_regular';
+	/*font-family: 'lato_regular';*/
     /*font-size: 28px;*/
     font-size: 24px;
     padding-bottom: 10px;
@@ -562,7 +561,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value {
-	//font-family: 'lato_bold';
+	/*font-family: 'lato_bold';*/
     /*font-size: 56px;
     padding: 40px 0 20px;*/
     font-size: 24px;
@@ -626,7 +625,7 @@
 .page-fwdiscover .details-btn {
 	border: none;
     background: #fbb713;
-    //font-family: 'foco_bold';
+    /*font-family: 'foco_bold';*/
     width: 52%;
     border-radius: 8px;
     border-bottom: 4px solid #d09310;
@@ -738,7 +737,7 @@
 }
 
 .page-fwdiscover .fwdiscover-footer #myCarousel-footer .carousel-inner .item .footer-image-info-holder .promo-info-holder p {
-	//font-family: Arial;
+	/*font-family: Arial;*/
     font-size: 21px;
     color: #666666;
 }
@@ -762,7 +761,7 @@
 }
 
 .page-fwdiscover .fwdiscover-footer #myCarousel-footer .carousel-inner .item .footer-image-info-holder .promo-info-holder .save span {
-	//font-family: inherit;
+	/*font-family: inherit;*/
     margin-top: 0;
     font-size: 17px;
     line-height: 11px;
@@ -849,7 +848,7 @@
     margin-right: 10px;
     border-bottom: 2px solid #cccccc;
     border-top: 2px solid #cccccc;
-    //font-family: arial;
+    /*font-family: arial;*/
     color: #666666;
 
     margin-top: 30px;
@@ -956,7 +955,7 @@
 
 .page-fwdiscover .fwdiscover-footer .our-partners .partners-holder p {
     font-size: 32px;
-    //font-family: 'lato_bold';
+    /*font-family: 'lato_bold';*/
     color: #999999;
     margin-bottom: 48px;
 }
@@ -995,7 +994,7 @@
 }
 
 .fwdiscover-modal .modal-content p {
-    //font-family: 'foco_bold';
+    /*font-family: 'foco_bold';*/
     font-size: 35px;
     color: #fa8200;
     text-align: center;
@@ -1032,7 +1031,7 @@
     top: 15px;
     right: 18px;
     font-size: 18px;
-    //font-family: arial;
+    /*font-family: arial;*/
     color: #989898;
     cursor: pointer;
 }
@@ -1044,7 +1043,7 @@
 
 .fwdiscover-modal .modal-content ul {
 	margin-top: 36px;
-    //font-family: arial;
+    /*font-family: arial;*/
     color: #666666;
     line-height: 30px;
     font-size: 21px;
@@ -1076,7 +1075,7 @@
 	}
 }
 .fwdiscover-modal .modal-content .terms-and-condition p {
-	//font-family: arial;
+	/*font-family: arial;*/
 	font-size: 16.5px;
 	color: #666666;
 	text-align: left;
@@ -1122,7 +1121,7 @@
 }
 
 .fwdiscover-modal .modal-content .promo-code-holder p {
-	//font-family: arial;
+	/*font-family: arial;*/
     font-weight: bold;
 }
 
@@ -1222,7 +1221,7 @@
 
 .fwd-savie-wrapper .page-fwdiscover .breadcrumbs-holder .breadcrumbs ol {
 	margin-top: 0;
-    //font-family: 'lato_bold';
+    /*font-family: 'lato_bold';*/
 }
 
 .fwd-savie-wrapper .page-fwdiscover .breadcrumbs-holder .breadcrumbs ol li a {
@@ -1230,7 +1229,7 @@
 }
 
 .fwd-savie-wrapper .page-fwdiscover .breadcrumbs-holder .breadcrumbs ol li.active-bc {
-	//font-family: 'lato_black';
+	/*font-family: 'lato_black';*/
 }
 
 .fwd-savie-wrapper .page-fwdiscover .breadcrumbs-holder .breadcrumbs ol li.divider.last {
@@ -1252,7 +1251,7 @@
     margin: 0 auto;
     cursor: pointer;
 
-    //font-family: 'foco_bold';
+    /*font-family: 'foco_bold';*/
     color: #fff;
 }
 
@@ -1307,7 +1306,7 @@
 	#myCarousel-fwdiscover .carousel-inner .desktop-img-align span {
 	    color: #989898;
 	    font-size: 13px;
-	    //font-family: 'lato_bold';
+	    /*font-family: 'lato_bold';*/
 	}
 
 	#myCarousel-fwdiscover .carousel-inner .desktop-img-align span p {
@@ -1353,7 +1352,7 @@
 
 	.fwdiscover-wrapper header .navbar-fixed-top .header-hotline p {
 		font-size: 19px;
-	    //font-family: arial;
+	    /*font-family: arial;*/
 	    padding-left: 5px;
 	    height: 65px;
 	    line-height: 19px;
@@ -1463,7 +1462,7 @@
 	.fwdiscover-wrapper header .navbar-fixed-top .buttons-and-chat p {
 	    width: 250px;
 	    font-size: 16px;
-	    //font-family: 'Calibri';
+	    /*font-family: 'Calibri';*/
 	    color: #ccc;
 	    padding-top: 10px;
 	    text-align: right;
@@ -2090,7 +2089,7 @@ body.chin #hotel-description-modal .carousel-description-container{
 
 }
 
-@media (min-width: 414px & max-width: 767px) {
+@media (min-width: 414px) and (max-width: 767px) {
     /* Fixed for the iPhone 6+ */
 	.page-fwdiscover .fwdiscover-info .fwdiscover-banner .banner-title .fwdiscover {
 	    font-size: 58px;

@@ -1695,6 +1695,7 @@ public class LifeServiceImpl implements LifeService {
 				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[0]:"");
 				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[0]:"");
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
+				
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
 			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
