@@ -188,10 +188,12 @@ var clicked = false;
 		selector = $(selector).attr('id');
 		if(selector=="visaMaster"){
 			$("#payment-detail-section").show();
+			$(".support-reminder--hide").hide();
 			$("#checkbox3").next().html(paymentDelcareMsg);
 			//console.log(selector);
 		}else if (selector=="tapAndGo"){
 			$("#payment-detail-section").hide();
+			$(".support-reminder--hide").show();
 			$("#checkbox3").next().html(paymentDelcareMsgTagAndGo);
 			//console.log(selector);
 		}
@@ -1067,6 +1069,13 @@ var clicked = false;
                     
                     
                     <div class="clearfix"></div>
+                    <div class="support-reminder support-reminder--hide">
+                    	<span class="support-reminder__title"><fmt:message key="travel.payment.reminder.title" bundle="${msg}" /></span>
+                    	<ul class="support-reminder__list">
+                    		<li><span><fmt:message key="travel.payment.reminder.list.item1" bundle="${msg}" /></span></li>
+                    		<li><span><fmt:message key="travel.payment.reminder.list.item2" bundle="${msg}" /></span></li>
+                    	</ul>
+                    </div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
                             <input id="checkbox3" type="checkbox"> <label

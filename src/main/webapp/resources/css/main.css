@@ -12351,3 +12351,23 @@ button[disabled].btn.btn-default--vc {
     border: 1px solid #ff8200;
   }
 }*/
+
+/* ticket 3490 Add tag and go payment reminder 31-08-2016 By Irvine*/
+.support-reminder{
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+.support-reminder--hide{
+	display:none;
+}
+.support-reminder__title{
+	font-weight: bold;
+}
+.support-reminder__list{
+	color: #f68a1d;
+	font-size: 16px;
+}
+.support-reminder__list li span{
+	color: #333;
+}
+/* End ticket 3490 Add tag and go payment reminder 31-08-2016 By Irvine*/
