@@ -128,17 +128,18 @@ var languageP = "${language}";
 				<hr>
 				<div class="requirements-panel">
 					<p class="requirements-panel-title visible-xs visible-sm"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" /></p>
-					<p class="text-bold requirements-panel-title hidden-xs hidden-sm"><fmt:message key="info.savie.confirmation.signoff.procedure" bundle="${msg}" /></p>
+					<!--p class="text-bold requirements-panel-title hidden-xs hidden-sm"><fmt:message key="info.savie.confirmation.signoff.procedure" bundle="${msg}" /></p-->
+					<p class="text-bold requirements-panel-title hidden-xs hidden-sm"><fmt:message key="info.savie.confirmation.docs.to.bring.payment" bundle="${msg}" /></p>
 					<div class="row requirements-list">
 						<div class="col-xs-12 col-md-6">
-							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/customer-service-center.png" /></div>
+							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
 							<div class="requirement-text-wrapper">
-								<p><fmt:message key="label.visit.selected.service.centre" bundle="${msg}" /><br>
+								<p><fmt:message key="savie.label.addressproof.prefix" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.label.addressproof.url" bundle="${msg}" />" target="_blank"><fmt:message key="savie.label.addressproof.url.text" bundle="${msg}" /></a><fmt:message key="savie.label.addressproof.suffix" bundle="${msg}" /><br>
 							</div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 col-md-6">
-							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid-proof-of-address.png" /></div>
+							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png" /></div>
 							<div class="requirement-text-wrapper"><p><fmt:message key="label.hkid.passport.proof.of.address.policy.number" bundle="${msg}" /></p></div>
 						</div>
 					</div>
