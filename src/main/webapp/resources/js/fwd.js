@@ -5113,7 +5113,9 @@ function validatecardnumber(cardnumber) {
 
 function payValid(paymentType)
 {
-
+	if (paymentType == null) {
+		paymentType = "cc";
+	}
 	var flag=true;
 	var cardno=(document.getElementById("cardnumber"))?document.getElementById("cardnumber").value:'';
 
