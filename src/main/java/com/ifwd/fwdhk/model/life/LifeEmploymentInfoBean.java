@@ -43,7 +43,11 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String amountOfLiquidAssetsEnName;
 	private String amountOfLiquidAssetsCnName;
 	private String type;
+	private String regularIncome;
 	
+	
+
+
 	public void validate(CommonUtils commonUtils,String language) throws ValidateExceptions {
 		if(this.employmentStatus!=null && !"".equals(this.employmentStatus)){
 			for(OptionItemDesc item:InitApplicationMessage.employmentStatusEN){
@@ -373,7 +377,14 @@ public class LifeEmploymentInfoBean implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public String getRegularIncome() {
+		return regularIncome;
+	}
 
+	public void setRegularIncome(String regularIncome) {
+		this.regularIncome = regularIncome;
+	}
 	
 	
 }

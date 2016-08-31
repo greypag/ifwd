@@ -3062,7 +3062,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 .fwd-savie-wrapper .breadcrumbs {
 	display: none;
 	text-align: left;
-	//font-family: 'foco_bold';
+	/*font-family: 'foco_bold';*/
 	font-size: 18px;
 }
 
@@ -4010,7 +4010,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 }
 /* line 15, ../sass/partials/_login.scss */
 .fwd-savie-wrapper .modal.fade {
-	//font-family: 'Calibri';
+	/*font-family: 'Calibri';*/
 	font-size: 24px;
 	color: #061d2a;
 	padding-right: 0 !important;
@@ -21530,134 +21530,42 @@ button#thank-you-continue {
 	}
 }
 
-/* line 1, ../sass/partials/_chinese.scss */
+/*../sass/partials/_chinese.scss */
 body.chin {
-	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
-/* line 5, ../sass/partials/_chinese.scss */
-body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd-savie-wrapper h3,
-	body.chin .fwd-savie-wrapper h4, body.chin .fwd-savie-wrapper h5 {
-	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
-	font-weight: bold;
+body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd-savie-wrapper h3, body.chin .fwd-savie-wrapper h4, body.chin .fwd-savie-wrapper h5 {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+  font-weight: bold;
 }
-/* line 13, ../sass/partials/_chinese.scss */
-body
-.chin
-
-.fwd-savie-wrapper
-
-p
-,
-body
-.chin
-
-.fwd-savie-wrapper
-
-a
-,
-body
-.chin
-
-.fwd-savie-wrapper
-
-li
-,
-body
-.chin
-
-.fwd-savie-wrapper
-
-span
-:not
-
-(
-.icon
-
-)
-:not
-
-(
-.glyphicon
-
-)
-:not
-
-(
-.fa
-
-
-)
-:not
-
-(
-[
-class
-*=
-" icon-"
-]
-
-)
-:not
-
-(
-[
-class
-^=
-icon-
-]
-
-)
-{
-font-family
-:
-
-"
-Microsoft
-
-JhengHei
-"
-,
-Calibri
-,
-sans-serif
-
-!
-important
-;
-
-
+body.chin .fwd-savie-wrapper p,
+body.chin .fwd-savie-wrapper a,
+body.chin .fwd-savie-wrapper li,
+body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon) {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
-/* line 18, ../sass/partials/_chinese.scss */
-body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a
-	{
-	font-weight: bold;
+body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a {
+  font-weight: bold;
 }
-/* line 22, ../sass/partials/_chinese.scss */
-body.chin .fwd-savie-wrapper footer .fwd-full-container.footer-tm .footer-max-width .footer-copyright
-	{
-	font-family: "Microsoft JhengHei", "foco_regular";
+body.chin .fwd-savie-wrapper footer .fwd-full-container.footer-tm .footer-max-width .footer-copyright {
+  font-family: "Microsoft JhengHei","foco_regular";
 }
-/* line 29, ../sass/partials/_chinese.scss */
-body.chin .fwd-savie-wrapper .teaser-confirmation h3, body.chin .fwd-savie-wrapper .teaser-confirmation p
-	{
-	line-height: normal;
+body.chin .fwd-savie-wrapper .teaser-confirmation h3,
+body.chin .fwd-savie-wrapper .teaser-confirmation p {
+  line-height: normal;
 }
-/* line 33, ../sass/partials/_chinese.scss */
 body.chin .fwd-savie-wrapper .teaser-confirmation a.back-at-home {
-	font-weight: bold;
+  font-weight: bold;
 }
-/* line 40, ../sass/partials/_chinese.scss */
 body.chin .fwd-savie-wrapper .sign-up-teaser .pull-left.text {
-	line-height: normal;
+  line-height: normal;
 }
-/* line 44, ../sass/partials/_chinese.scss */
 body.chin .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
-	font-weight: bold;
+  font-weight: bold;
 }
-/* line 50, ../sass/partials/_chinese.scss */
-body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb
-	{
-	width: 230px;
+body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn,
+body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
+  width: 230px;
 }
 
 /* line 5, ../sass/partials/_elite-terms-widget.scss */
@@ -23526,7 +23434,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	{
 	height: 40px;
 	border: none;
-	padding: 0; //
+	padding: 0;
 	color: #000;
 	font-family: 'Calibri';
 	font-size: 17.92px;
@@ -25711,9 +25619,6 @@ label.et-bene-radio,#et-application-second-section label,
 		-ms-transition: background 0.1s ease-in;
 		-o-transition: background 0.1s ease-in;
 		transition: background 0.1s ease-in;
-		background 0.1s ease-in;
-		-o-transition: background 0.1s ease-in;
-		transition: background 0.1s ease-in;
 	}
 
 
@@ -25782,4 +25687,34 @@ label.et-bene-radio,#et-application-second-section label,
 	color: #ff8200;
 	border: solid 1px #ff8200;
 	font-family: "Calibri-Bold";
+}
+
+.fwd-savie-wrapper #employment-info .content #has-regular-income .regular-income-specific{
+    font-family: 'Calibri-bold';
+    font-size: 18px;
+    margin-bottom: 7px;
+    color: #061d2a;
+    font-weight: normal;
+    width: 100%;
+ }
+ 
+@media ( min-width : 992px) {
+	.fwd-savie-wrapper #employment-info .content #has-regular-income .regular-income-specific{
+	    width: 27%;
+	 }
+	 #employmentInfoForm #has-regular-income .easyhealth_q{
+	 	width:29%;
+	 }
+}
+#employmentInfoForm #has-regular-income{
+	margin-left: 16px;
+	margin-top: 6px;
+}
+ 
+.fwd-savie-wrapper #employment-info .content #has-regular-income .has-regular-income-selection{
+   font-family: 'Calibri-bold';
+}
+.fwd-savie-wrapper #employment-info .content #has-regular-income .radio-choice,#employmentInfoForm .radio-choice{
+   margin-right: 30px;
+   display: inline-block;
 }

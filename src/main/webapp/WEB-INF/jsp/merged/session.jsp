@@ -59,7 +59,7 @@
 
 
 <script type="text/javascript">
-   console.log(<%=session.getMaxInactiveInterval() %>);
+   
    var sessionTimer = <%=creationTime%>;
    <% if (session.getAttribute("userDetails") != null) {%>  
    function sessionPopup(nextTimer){

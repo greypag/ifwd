@@ -9,9 +9,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/css/style.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="application/ld+json">
 {
@@ -494,11 +491,7 @@
 		<script type="text/javascript">
 			var language = "en";
 		</script>
-		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.animateSprite.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
+		
       <script>
 	      $("#get-quote-link").click(function(){
 	    	  setTimeout(function(){
