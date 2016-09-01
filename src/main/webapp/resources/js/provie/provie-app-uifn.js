@@ -269,8 +269,7 @@ $(document).ready(function(){
 		    		
 		    		$(".after-login").find(".fld-val").text(response[0].UserDetails.fullName);
 		    		userName = response[0].UserDetails.userName;
-		    		//$(".after-login").show();		    		
-		    		$(".before-login").show();		    		
+		    		$(".after-login").show();
 		    	}
 		    	
 		    }
