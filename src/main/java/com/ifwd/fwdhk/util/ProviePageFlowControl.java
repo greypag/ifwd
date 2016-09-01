@@ -63,7 +63,7 @@ public class ProviePageFlowControl {
 		String current = request.getServletPath();
 		if (referer != null) {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
-				referer = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
+				referer = UserRestURIConstants.PAGE_PROVIE_LANDING;
 			} else {
 				referer = getProvieOnlinePage(referer);
 			}
@@ -71,7 +71,7 @@ public class ProviePageFlowControl {
 
 		if (current != null) {
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("provie")){
-				current = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
+				current = UserRestURIConstants.PAGE_PROVIE_LANDING;
 			} else {
 				current = getProvieOnlinePage(current);
 			}
@@ -86,6 +86,11 @@ public class ProviePageFlowControl {
 		logger.debug("current : " + current);
 
 		switch (current) {
+		
+		case UserRestURIConstants.PAGE_PROVIE_LANDING:
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
+			filePath = "provie/";
+			break;
 
 		case UserRestURIConstants.PAGE_PROVIE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER;
@@ -99,8 +104,8 @@ public class ProviePageFlowControl {
 			break;
 
 		default:
-			to = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
-
+			//to = UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
+			to = UserRestURIConstants.PAGE_PROVIE_LANDING;
 		}
 
 		logger.debug("nextPageFlow : " + to);
@@ -117,6 +122,10 @@ public class ProviePageFlowControl {
 	
 	public static String getProvieOnlinePage(String url){	
 
+		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_LANDING)) {
+			return UserRestURIConstants.PAGE_PROVIE_LANDING;
+		}
+		
 		if(url.endsWith(UserRestURIConstants.PAGE_PROVIE_PLANDETAILS)) {
 			return UserRestURIConstants.PAGE_PROVIE_PLANDETAILS;
 		}

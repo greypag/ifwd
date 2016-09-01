@@ -41,12 +41,14 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
-import com.ifwd.fwdhk.services.SavieService;
+import com.ifwd.fwdhk.services.LifeService;
+//import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.ProviePageFlowControl;
+import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
@@ -56,8 +58,10 @@ public class ProvieController extends BaseController{
 	
 	@Autowired
 	private RestServiceDao restService;
+//	@Autowired
+//	private SavieService savieService;
 	@Autowired
-	private SavieService savieService;
+	private LifeService provieOnlineService;
 	@Autowired
 	private CommonUtils commonUtils;
 		
@@ -77,9 +81,29 @@ public class ProvieController extends BaseController{
 		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
 	}
 	*/
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
+	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
+		provieOnlineService.removeProvieOnlineSession(request);
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
+	}
+		
 	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie", "/{lang}/savings-insurance/provie/plan-details-sp"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/provie/plan-details-sp","/{lang}/savings-insurance/plan-details-rp"})
 	public ModelAndView getProviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
 		HttpSession session = request.getSession();
 		//logger.info(">>>>>>>>>>>>>>>>>getProviePlanDetail<<<<<<<<<<<<<<<<<<<");
@@ -103,6 +127,9 @@ public class ProvieController extends BaseController{
 			defaultDOB.setTime(date); 
 			defaultDOB.add(defaultDOB.YEAR, -18);
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
+			model.addAttribute("sliderMin", "30000");
+			model.addAttribute("sliderMax", "400000");
+			model.addAttribute("sliderValue", "100000");
 			return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
 		}else {
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)

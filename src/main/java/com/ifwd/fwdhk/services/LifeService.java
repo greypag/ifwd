@@ -22,6 +22,7 @@ import com.ifwd.fwdhk.model.life.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.life.PartnerRegisterBean;
 import com.ifwd.fwdhk.model.life.SavieFnaBean;
 import com.ifwd.fwdhk.model.life.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 
 public interface LifeService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
@@ -45,6 +46,7 @@ public interface LifeService {
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage,String plan) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	public void removeSavieOnlineSession(HttpServletRequest request);
+	public void removeProvieOnlineSession(HttpServletRequest request);
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
@@ -67,4 +69,6 @@ public interface LifeService {
 	public JSONObject getSavieHkidDiscount(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieHkidDiscountByHkIdPlanAll(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getSavieHkidDiscountByHkIdPlan(String hkId, String saviePlan,HttpServletRequest request) throws ECOMMAPIException;
+	public net.sf.json.JSONObject getProvieOnlinePlandetails(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request, HttpSession session) throws ECOMMAPIException;
+
 }
