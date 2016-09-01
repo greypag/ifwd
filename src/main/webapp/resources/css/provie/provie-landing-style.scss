@@ -1,0 +1,698 @@
+body{font-size: 16px;}
+//override
+body, .fwd-savie-wrapper h1, .fwd-savie-wrapper h2, .fwd-savie-wrapper h3, .fwd-savie-wrapper h4, .fwd-savie-wrapper h5{
+	font-family: Microsoft JhengHei !important;
+}
+ul, menu, dir{
+	-webkit-padding-start: 0;
+}
+sup{
+	top: 0;
+}
+
+//========================//
+$base-title-font-size: 2.250em;
+//not in used
+$sub-title-font-size: 1.125em;
+$base-txt-font-size: 0.889em;
+$base-remark-font-size: 0.722em;
+
+$base-title-color: #333333;
+$base-remark-color: #cccccc;
+
+%pv_base_section{
+	padding: 26px 0;
+	text-align: center;
+}
+
+%flipcardHoverEffetContainer{
+	perspective: 1000px;
+}
+%flipcardHoverEffet{
+	transform-style: preserve-3d;
+	transition: 0.6s;
+	&:hover{
+		transform: rotateY(180deg);
+	}
+	.front, .back{
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+		*{
+			-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+		}
+	}
+	.back{
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: rotateY(180deg);
+	}
+}
+
+
+
+.nopadding{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.img-responsive.center{
+	margin: 0 auto;
+}
+
+
+
+.pv_title{
+	color: $base-title-color;
+	font-weight: bold;
+	font-size: $base-title-font-size;
+	line-height: 1.278em;
+	text-align: center;
+	padding-bottom: 0.361em;
+}
+.pv_sub_heading{
+	font-weight: bold;
+	font-size: $sub-title-font-size;
+	padding-bottom: 0.625em;
+}
+.pv_remark{
+	color: $base-remark-color;
+}
+.pv_btn{
+	background-color: #fbb631;
+	border-radius: 5px;
+	border: #fbb631 solid 1px;
+	border-bottom: #ce9528 solid 2px;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.167em;
+	line-height: 2.381em;
+	min-width: 200px;
+	text-align: center;
+	&:hover{
+		background-color: #ffffff;
+		border: #fbb631 solid 1px;
+		border-bottom: #fbb631 solid 2px;
+		color: #fbb631;
+	}
+}
+
+button.dropdown-toggle{
+	box-shadow: none !important; 
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px #999999;
+	color: #999999;
+	&:after{
+		content: " ";
+		display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+	}
+}
+
+
+.pv_overlay_text_wrap{
+	bottom: 40%;
+	color:white;
+	left: 0;
+	position: absolute;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	z-index: 2;
+	.pv_title{
+		color:white;
+		font-size: 1.389em;
+	}
+}
+
+.pv_productInfo{
+	@extend %pv_base_section;
+	background-color: #041d29;
+	color: #ffffff;
+	.pv_desc{
+		max-width: 500px;
+		margin: 0 auto;
+	}
+	.pv_highlight{
+		color: #f59331;
+		font-size: 1.250em;
+		font-weight: bold;
+		line-height: 1.667em;
+	}
+	.pv_link{
+		display: inline-block;
+		margin: 0.938em 0;		
+		text-decoration: underline;
+	}
+	.pv_product_table{
+		max-width: 560px;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+		td, th {
+		    border: 1px solid #dddddd;
+		    line-height: 2.813em;
+		}
+		.pv_table_head{
+			color: #ff8200;
+			font-weight: bold;
+			text-align: right;
+			width: 30%;
+		}
+		td{
+			width: 14%;
+		}
+	}
+}
+
+.pv_plan{
+	@extend %pv_base_section;
+	background: url(../../images/provie/landing-bg-desktop.jpg) 50% 50%;
+	color: #ffffff;
+	.pv_title{
+		color: #ffffff;
+	}
+	.pv_plan_wrap{
+		max-width: 510px;
+		margin: 0 auto;
+		width: 100%;
+		.pv_hint{
+			position: absolute;
+		    left: -28%;
+		    width: 150px;
+		    &.hint1{
+		    	background-color: #fbb631;
+		    	border-radius: 4px;
+		    	color: #000000;
+		    	font-weight: bold;
+		    	padding: 0 5px; 
+		    	text-align: right;
+		    }
+		    &.hint2{
+		    	top: 71px;
+		    }
+		}
+		#slider{
+			border: none;
+			height: 6px;
+			margin: 0 auto;
+			width: 90%;
+			.noUi-origin.noUi-background .grayBox{
+				background-color: #666666;
+				height: 100%;
+				position: absolute;
+				right: 0;
+				width: 33.3333%;
+				top: 0;
+				z-index: 1;
+			}
+			.noUi-handle{
+				border-radius: 20px;
+				height: 20px;
+				left: -10px;
+				width: 20px;
+				z-index: 2;
+				&:before, &:after{
+					display: none;
+				}
+			}
+			.noUi-handle.noUi-handle-lower{
+				display: none;
+			}
+			.noUi-connect{
+				background-color: orange;
+			}
+			.noUi-background{
+				background-color: #cccccc;
+			}
+		}
+		.scale{
+			height: 34px;
+			margin: 10px 0;
+			position: relative;
+			&.scaleBottom{
+				margin-top: 21px;
+				.floatNum{
+					vertical-align: bottom;
+					&:after{
+						top: -14px;
+					}
+				}
+			}
+		}
+		.floatNum{
+			font-weight: bold;
+			position: absolute;
+			transform: translate(-50%, 0%);
+			&:after{
+				background-color: #cccccc;
+				content: "";
+				display: inline-block;
+				height: 11px;
+				left: 50%;
+				position: absolute;
+				width: 2px;
+				top: 25px;
+			}
+			&.num1{left: 4.8%;}
+			&.num2{left: 19.8%;}
+			&.num3{left: 34.8%;}
+			&.num4{left: 50%;}
+			&.num5{left: 64.8%;}
+			&.num6{left: 79.8%;}
+			&.num7{left: 95%;}
+		}
+		.yearWarp{
+			font-weight: bold;
+			margin: -20px auto 12px auto;
+			width: 90%;
+			text-align: left;
+			.year{
+				background: url(../../images/provie/provie_landing_slider_line.png) 50% 50% no-repeat;
+				background-size: contain;
+				display: inline-block;
+				width: 66.8%;
+			}
+		}
+		.money{
+			font-weight: bold;
+			margin: 0 auto;
+			width: 90%;
+			.left, .right{
+				border-left: 2px solid #666666;
+				border-right: 2px solid #666666;
+				display: inline-block;
+				box-sizing: border-box;
+				width: 50%;
+			}
+			.right{
+				border-left: none;
+			}
+		}
+		.accValue{
+			background-color: #f8882d;
+			border-radius: 2px;
+			margin: 1em auto;
+			padding: 1.25em 0;
+			width: 90%;
+			.img-responsive{
+				display: inline-block;
+				vertical-align: top;
+			}
+			.txt{
+				display: inline-block;
+				text-align: left;
+				.amount{
+					font-size: 2em;
+					font-weight: bold;
+				}
+			}
+		}
+		.extra{
+			text-align: center;
+			margin: 0 auto;
+			width: 90%;
+			.pv_title_extra{
+				color: #fa7d18;
+				font-size: 1.313em;
+				font-weight: bold;
+				.imgPlus{
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+			.line{
+				max-width: 66%;
+			}
+			.card{
+				background-color: #ffffff;
+				display: inline-block;
+				padding: 1em 0;
+				width: 32%;
+				.name{
+					font-size: 1em;
+					font-weight: bold;
+				}
+				.price{
+					font-size: 1.5em;
+					margin-top: 1em;
+				}
+				&.card1{
+					color: #fbb616;
+				}
+				&.card2{
+					color: #12a6b7;
+				}
+				&.card3{
+					color: #f5531a;
+				}
+			}
+
+		}		
+	}
+}
+
+.pv_sec_calculator{
+	@extend %pv_base_section;
+	.pv_title{
+		font-size: 1.778em;
+	}
+	.pv_statement{
+		font-size: 1.5em;
+		line-height: 2.250em;
+		margin: 0.625em auto;
+		max-width: 500px;
+		.btn-group{
+			line-height: 1.188em;
+		}
+	}
+}
+
+.pv_sec_features{
+	@extend %pv_base_section;
+	.pv_feature_box{
+		padding-bottom: 1.111em;
+		.pv_feature_title{
+			color: $base-title-color;
+			font-size: 1.313em;
+			font-weight: bold;
+		}
+		.pv_feature_desc{
+			color: #999999;
+			font-size: 0.938em;
+			.pv_remark{
+				display: block;
+				font-size: 0.813em;
+			}
+		}
+	}
+}
+
+.pv_sec_extra{
+	@extend %pv_base_section;
+	@extend %flipcardHoverEffetContainer;
+	background-color: #f3f3f3;
+	.pv_title sup{ font-size: 8px; vertical-align: top;}
+	.pv_extra_card{
+		@extend %flipcardHoverEffet;
+		margin: 0.833em 0;
+		.front, .back{
+			height: 250px;
+			margin: 0 auto;
+			width: 250px;
+		}
+		.front{
+			background-color: white;
+			padding: 20px 0;
+			.pv_extra_icon{
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				position: absolute;
+				right:0;
+				top: 0;
+			}
+			.pv_title{
+				font-size: 1.167em;
+			}
+		}
+		.back{
+			color: #ffffff;
+			padding: 0.833em;
+			right: 0;
+		}
+	}
+	.pv_extra_mobile .pv_extra_point{
+		margin: 0.883em 0;
+	}
+	.pv_extra_remark{
+		ul li{
+			list-style: none;
+			text-align: left;
+		}
+	}
+}
+.pv_extra_card.card1 .back{
+	background-color: #fbb616;
+}
+.pv_extra_card.card2 .back{
+	background-color: #12a6b7;
+}
+.pv_extra_card.card3 .back{
+	background-color: #f5531a;
+}
+
+.pv_sec_action{
+	@extend %pv_base_section;
+	background: url(../../images/provie/provie_landing_s5_bg.jpg) 50% 50%;
+	background-size: cover;
+	padding-bottom: 50px;
+	.pv_title{
+		color: #ffffff;
+	}
+}
+
+.pv_compareTable{
+	@extend %pv_base_section;
+	background-color: #f3f3f3;
+	padding-bottom: 90px;
+	.carousel-indicators{ bottom: -50px;}
+	.carousel-control{
+		z-index: 999;
+		background-image: none;
+		top: 45px;
+		width: 60px;
+		bottom: initial;
+	}
+	.mobile table td{
+		width: 35%;
+	}
+	.mobile table td:nth-child(1){
+		width: 30%;
+	}
+	table{
+		border-collapse: separate;
+		font-weight: bold;
+		font-size: 0.875em;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+		tr{
+			height: 3.214em;
+			&:nth-child(even) {background: #ffffff;}
+			&:nth-child(odd) {background: #f3f3f3;}
+			&:last-child .inner{
+				border-bottom: 1px solid #cecece;
+			}
+			td{
+				border-left: 1px solid #cecece;
+				&:nth-child(1){
+					width: 33%;
+				}
+				&:last-child{
+					border-right: 1px solid #cecece; 
+				}
+				.hideborderLeft{
+					border-left: none; 	
+				}
+			}
+		}
+		th .inner, td .inner{
+			display: block;
+			font-weight: bold;
+		}
+		th{
+			padding: 0;
+			.inner{
+				color: #ffffff;
+				background-color: #f8882d;
+				display: block;
+				font-size: 1.5em;
+				line-height: 2.50em;
+				margin-top: 30px;
+				text-align: center;
+				&.highlight{
+					line-height: 82px;
+					margin-top: 0;
+					border-left: 1px solid #cecece;
+					border-right: 1px solid #cecece;
+				}
+			}
+		}
+		td{
+			padding: 0;
+			width: 16.6%;
+			&.highlight{
+				background-color: rgba(254,242,232,.5);
+			}
+			&.sep{
+				background-color: #333333;
+				color: #ffffff;
+			}
+			.inner{
+				line-height: 1.5em;
+				padding: 12px 0;
+				.pv_sub_heading{
+					font-size: 1.286em;
+				}
+				.sub_title{
+					display: block;
+					font-size: 2em;
+					padding: 10px 0;
+				}
+				.remark{
+					color: #999999;
+					display: block;
+					font-size: 0.786em;
+				}
+			}
+		}
+	}
+}
+
+.pv_experience{
+	@extend %pv_base_section;
+	.pv_experience_card{
+		.inner{
+			background-color: #f0f0f0;
+			margin: 0 10px;
+			padding: 1.667em;
+		}
+		.name, .title{
+			font-weight: bold;
+		}
+		.name{
+			font-size: 1.375em;
+			margin-top: 1em;
+		}
+		.title{
+			font-size: 0.938em;
+			padding: 1em 0;
+		}
+		.comment{
+			border-top: 1px solid black;
+			padding-top: 1.5em;
+		}
+	}
+	.pv_experience_wrap{
+		overflow: hidden;
+		padding-bottom: 70px;
+		.carousel-indicators{
+			bottom: -60px;
+			li{
+				background-color: #f0f0f0;
+				height: 15px;
+				transition: all 0.8s;
+				width: 15px;
+				&.active{
+					background-color: black;
+				}
+			}
+		}
+	}
+}
+
+.pv_fna{
+	@extend %pv_base_section;
+	background-color: #fbb631;
+	.pv_title{
+		color: #ffffff;
+		&+.pv_desc{
+			color: #ffffff;
+		}
+	}
+	.pv_desc{
+		color: #333333;
+	}
+	.pv_btn{
+		background-color: #f8882d;
+	}
+	.pv_fna_input{
+		margin-top: 1.389em;
+		margin-bottom: 1.389em;
+		
+	}
+	.link{
+		font-size: 0.722em;
+		padding: 0.556em 0;
+	}
+	.pv_fna_reg{
+		margin: 0.725em 0;
+	}
+}
+
+.pv_share{
+	@extend %pv_base_section;
+	background-color: #f8882d;
+	.pv_title{
+		color: #ffffff;
+		&+.pv_desc{
+			color: #ffffff;
+			font-size: 1.167em;
+			margin-bottom: 1.389em;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.pv_plan .pv_plan_wrap .extra{
+		width: 100%;
+		.card .name{
+			font-size: 11px;
+		}
+		.card .price{
+			font-size: 16px;
+		}
+	}
+}
+
+@media (min-width: 544px) {
+	.pv_productInfo .pv_product_table .pv_table_head{
+		padding-right: 1.25em;
+	}
+	.pv_compareTable table{padding: 0 15px;}
+}
+
+@media (min-width: 640px) and (max-width: 960px){
+	.pv_overlay_text_wrap{
+		.pv_title{
+			font-size: 45px;
+		}
+		.pv_desc{
+			font-size: 25px;
+		}
+	}
+}	
+@media (min-width: 1024px){
+	.pv_overlay_text_wrap{
+		.pv_title{
+			font-size: 80px;
+		}
+		.pv_desc{
+			font-size: 25px;
+		}
+	}
+}
+
+
+
+//override to always align center
+.savie-regular-landing .page-banner .img-banner-text{
+	width: 100%;
+    left: 0;
+    text-align: center;
+    padding-left: 0;	
+}
+.carousel-inner{overflow: hidden;}
+
+.fwd-savie-wrapper h2{
+	font-size: 2.25em;
+}

@@ -1021,7 +1021,7 @@
 	$("#btn-proceed").on('click', function(){
 		apply=false;
 		if('2'=='2'){
-			alert("clicked");
+			//alert("clicked");
 			window.location = '<%=request.getContextPath()%>/tc/savings-insurance/provie/customer-service-centre';
 			//proceedLogin('/tc/savings-insurance/sales-illustration');
 		}else {
