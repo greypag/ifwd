@@ -771,7 +771,7 @@ body {
   margin-top: 5px;
   margin-right: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_header.scss */
   .navbar-toggle.shown-sm {
     float: none;
@@ -794,7 +794,7 @@ body {
   float: right;
   width: 56%;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 48, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position {
     float: left;
@@ -842,7 +842,7 @@ body {
   background-color: #071d2a;
   height: 50px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 87, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-fixed-top {
     height: 35px;
@@ -905,7 +905,7 @@ body {
   height: auto;
   background-color: #222222;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 141, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu {
     padding-top: 35px;
@@ -946,7 +946,7 @@ body {
 .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position img {
   padding: 15px 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 185, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position img {
     padding: 8px 0;
@@ -963,7 +963,7 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
 	.mobile-menu-V2 .dropdown.open:hover ul.dropdown-menu,.mobile-menu-V2 .dropdown.open:hover div.dropdown-menu {
 	   display: block;
 	}
@@ -971,7 +971,7 @@ body {
        display: none;
     }	
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
 	#myDropdown.dropdown:hover .dropdown-menu {
 	   display: none; 	
 	}
@@ -1114,23 +1114,23 @@ body {
   }
   
 }
-@media screen and (min-width:992px) and (min-resolution: +72dpi) {
+@media (min-width:992px) and (min-resolution: +72dpi) {
   .savie-regular-landing .page-banner .img-banner-text {
     top: 78px;
    }
 }
-@media screen and (min-width:1300px) and (min-resolution: +72dpi) {
+@media (min-width:1300px) and (min-resolution: +72dpi) {
   .savie-regular-landing .page-banner .img-banner-text {
     top: 178px ;
    }
 }
-@media screen and (min-width:1400px) and (min-resolution: +72dpi) {
+@media (min-width:1400px) and (min-resolution: +72dpi) {
   .savie-regular-landing .page-banner .img-banner-text {
     top: 212px ;
     left: 110px;
    }
 }
-@media screen and (min-width:1500px) and (min-resolution: +72dpi) {
+@media (min-width:1500px) and (min-resolution: +72dpi) {
   .savie-regular-landing .page-banner .img-banner-text {
     top: 244px ;
     left: 156px;
@@ -1283,7 +1283,7 @@ body {
   padding: 20px 30px 28px;
   background: #f5f6f6;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 132, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion {
     position: absolute;
@@ -1299,7 +1299,7 @@ body {
     padding-left: 0;
   }
 }
-@media screen and (min-width: 1900px) {
+@media (min-width: 1900px) {
   /* line 132, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion {
     
@@ -1317,14 +1317,14 @@ body {
   padding-top: 12px;
   color: #373a36;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 156, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section {
     color: #fff;
     text-align: left;
   }
 }
-@media screen and (min-width: 1920px) {
+@media (min-width: 1920px) {
   .savie-regular-landing .landing-promotion .promo-section {
     padding-top: 3px;
   }
@@ -1336,7 +1336,7 @@ body {
   max-width: 230px;
   line-height: 21px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 163, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section h4 {
     margin-left: 0;
@@ -1364,7 +1364,7 @@ body {
   max-width: 330px;
   margin: 12px auto 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 185, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section .description {
     font-size: 18px;
@@ -1380,7 +1380,7 @@ body {
   max-width: 300px;
   margin: 18px auto 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 198, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section .terms-condition {
     margin-left: 0;
@@ -1402,7 +1402,7 @@ body {
   background: #fdb714;
   border-color: #cf9611;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 216, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section button {
     margin-top: 22px;
@@ -1828,7 +1828,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   min-height: 84px;
 }
 
-@media screen and (min-width:992px) and (min-resolution: +72dpi) {
+@media (min-width:992px) and (min-resolution: +72dpi) {
 	.savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .so-fna-row .navtabs-li {
 		  min-height: 86px;
 	}
@@ -2013,7 +2013,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   background-color: #061d29;
   color: #ffffff;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 623, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body {
     position: relative;
@@ -2027,7 +2027,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 .savie-regular-landing .fna-icons-body .so-fna-row {
   margin: auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 635, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row {
     position: absolute;
@@ -2048,13 +2048,13 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   height: 68px;
 }
 
-@media screen and (min-width: 635px) {
+@media (min-width: 635px) {
   /* line 645, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
     height: inherit;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 645, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
     border: none;
@@ -2074,13 +2074,13 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   border: none;
 }
 
-@media screen and (min-width: 330px) {
+@media (min-width: 330px) {
   /* line 662, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li .navtabs-title {
     line-height: 24px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 662, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li .navtabs-title {
     font-size: 20px;
@@ -2103,7 +2103,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li.active {
   border-bottom: 3px solid #f28000;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 694, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li.active {
     border-bottom: none;
@@ -2142,7 +2142,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
     padding-right: 0;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 736, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content {
     margin-top: 10px;
@@ -2209,7 +2209,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   font-weight: bold;
   color: #FFF;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 777, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content .tab-head {
     margin-top: 10px;
@@ -2222,14 +2222,14 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   max-width: 245px;
   margin: 0 auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 787, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content p {
     line-height: 18px;
     padding: 0 5px;
   }
 }
-@media screen and (min-width: 1400px) {
+@media (min-width: 1400px) {
   /* line 787, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .fna-tab-content .so-fna-content p {
     padding: 0;
@@ -2239,7 +2239,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 .savie-regular-landing .blog {
 
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 805, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .blog {
     padding-top: 36px;
@@ -2384,7 +2384,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   margin-top: 20px;
   padding: 0 30px;
 }
-@media screen and (min-width: 1400px) {
+@media (min-width: 1400px) {
   /* line 922, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .blog .blog-notice {
     padding: 0;
