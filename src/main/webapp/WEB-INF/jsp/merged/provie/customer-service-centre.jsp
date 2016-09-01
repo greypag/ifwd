@@ -108,17 +108,11 @@ function stickToHeader() {
 							<p class="bank-info-select-label">Customer Service Centre</p>
 		                   <div class="selectDiv centreDiv gray-text-bg">
 		                      <select name="centre" id="centre" class="form-control gray-dropdown">
-		                        <option value="" disabled selected>Customer Service Centre</option>
-			                                     <option value="QB" >Quarry Bay</option>
-			                                     <option value="TST" selected="selected">Tsim Sha Tsui</option>
-			                                     <option value="SW" >Sheung Wan</option>
-			                                     <option value="KF" >Kwai Fong</option>
+		                        
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
-		                   <div class="centre-info visible-xs visible-sm" id="centre-info">
-		                      
-		                   </div>
+		                   <span class="error-msg centreErrMsg"></span>
 		               </div>
 		           </div>  
 		           <div class="">
@@ -128,6 +122,7 @@ function stickToHeader() {
 		                      <input name="app-date" id="app-date" value="" class="form-control" />
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
+		                   <span class="error-msg app-dateErrMsg"></span>
 		                </div>
 		            </div>
 		            <div class="">
@@ -139,18 +134,20 @@ function stickToHeader() {
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
+		                   <span class="error-msg preferred-timeErrMsg"></span>
 		                </div>
 		           </div>
 		           <div class="after-login">
 						<div class="form-group">
                             <div class="fld-wrapper">
                                 <p class="fld-label">Confirm log in as</p>
-                                <p class="fld-val">Mr. Pang siu ming</p>
+                                <p class="fld-val"></p>
                             </div>
                         </div>
 		           </div>
 		           <div class="confirm-button-group text-center">
 						<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-confirm" id="btn-appointment-confirm">Confirm</button>
+						<span class="error-msg generalErrMsg"></span>
 						<div class="login-error-wrapper">
 							<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
 						</div>
@@ -193,9 +190,7 @@ function stickToHeader() {
 													</div>
 													<div class="login-button-group text-center">
 														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-login">Log in</button>
-														<div class="login-error-wrapper">
-															<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
-														</div>
+														<span class="error-msg loginPanErrMsg"></span>
 													</div>
 												</form>
 											</div>
@@ -228,6 +223,7 @@ function stickToHeader() {
 
 													<div class="login-button-group forgot-group text-center">
 														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-username">Submit</button>
+														<span class="error-msg forgotUsernamePanErrMsg"></span>
 													</div>
 							                    </form>
 
@@ -272,6 +268,7 @@ function stickToHeader() {
 
 													<div class="login-button-group forgot-group text-center">
 														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-pwd">Submit</button>
+														<span class="error-msg forgotPwdPanErrMsg"></span>
 
 													</div>
 												</form>
@@ -345,9 +342,7 @@ function stickToHeader() {
 												</div>
 												<div class="login-button-group text-center">
 													<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-register">Activate</button>
-													<div class="login-error-wrapper">
-														<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
-													</div>
+													<span class="error-msg regPanErrMsg"></span>
 												</div>
 										</form>
 										</div>
@@ -359,7 +354,10 @@ function stickToHeader() {
                 </div>
                 <div class="col-xs-12 col-md-6" id="right-side-form">
                    <div class="centre-info visible-md visible-lg" id="centre-info">
-                      
+                      <img class="img-centre img-responsive">
+                      <h4>Address</h4>
+                      <p class="centre-address"></p>
+                      <a target="_blank" class="viewmap-link" href="#">View map</a>
                    </div>
                 </div>
                 <div class="col-xs-12">
@@ -374,6 +372,15 @@ function stickToHeader() {
        </div>
 	<!-- FOOTER -->
 		<!--Modal in Customer Service Centre-->
+		<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg loading-dialog">
+				<div class="modal-content plan-modal loading-modal">
+					<img src="/resources/images/loading.gif"
+						width="300" />
+				</div>
+			</div>
+		</div>
+				
 		<div class="modal fade" role="dialog" aria-labelledby="pickAnotherCentre" id="pickAnotherCentre">
 			<div class="modal-dialog teaserSurvey" role="document">
 				<div class="modal-content teaserSurvey">
@@ -483,6 +490,8 @@ function stickToHeader() {
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
+		
+		return;
 //Check is more than 2 tries from backend
 		var isMoreThan2Tries = false;
 		if(isMoreThan2Tries){
@@ -812,7 +821,7 @@ function stickToHeader() {
 		}
    	});
 
-    $("#btn-appointment-confirm").on('click', function(){
+    /* $("#btn-appointment-confirm").on('click', function(){
       	window.location = '/fwdhk/en/savings-insurance/provie/confirmation-appointment';
     	//var planCode = "";
 		//if('' == 'SP'){
@@ -826,7 +835,7 @@ function stickToHeader() {
 		//var perferredDate = $("#preferred-date").val();
 		//var perferredTime = $("#preferred-time").val();
 
-   	});
+   	}); */
     
     
     function setCentre(centre){

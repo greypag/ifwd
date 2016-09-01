@@ -340,6 +340,15 @@
 		margin-bottom:10px;
 	}
 
+	.help-block {
+		color: #e4002b !important;
+		font-family: 'Calibri';
+	}
+
+	.after-login, .before-login{
+		display: none;
+	}
+
 	.before-login{
 		h4{
 			font-size:16px;
@@ -651,4 +660,25 @@
 
 .plan-calculator-holder .plan-form-holder #amount-slide-holder{
 	padding-bottom:0;
+}
+
+/* Override modal again...... */
+.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content {
+    border-radius: 0;
+    padding:0;
+    position: relative;
+    outline: 0;
+    box-shadow: none;
+}    
+
+
+@media screen and (min-width: 768px){
+	.modal-dialog {
+	    margin: 230px auto;
+	}
+}
+
+
+.fwd-savie-wrapper .modal.fade{
+	background:inherit;
 }
