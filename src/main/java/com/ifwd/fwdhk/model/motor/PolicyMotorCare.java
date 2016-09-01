@@ -9,6 +9,7 @@ public class PolicyMotorCare {
 	private PolicyDeclaration ppPolicyDeclaration;
 	private String coverNote;
 	private String refNumber;
+	private String paymentTxnRef;
 	
 	public String getPolicyId() {
 		return policyId;
@@ -52,5 +53,12 @@ public class PolicyMotorCare {
 	public void setRefNumber(String refNumber) {
 		this.refNumber = refNumber;
 	}
+	public String getPaymentTxnRef() {
+		return paymentTxnRef;
+	}
+	public void setPaymentTxnRef(String paymentTxnRef) {
+		this.paymentTxnRef = paymentTxnRef;
+	}
+	
 
 }
