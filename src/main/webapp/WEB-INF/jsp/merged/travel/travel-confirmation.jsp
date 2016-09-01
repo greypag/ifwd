@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page import="com.ifwd.fwdhk.util.Constants"%>
@@ -95,7 +96,7 @@
 	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
 	            
 	       <c:choose>
-				   <c:when test="${paymentMethod=='TapNGo'}>
+				   <c:when test="${paymentMethod=='TapNGo'}">
 				       <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h4>
 				   </c:when>
 			   </c:choose>
