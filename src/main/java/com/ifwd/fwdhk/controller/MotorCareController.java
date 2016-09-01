@@ -25,6 +25,7 @@ import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.OccupationBean;
 import com.ifwd.fwdhk.model.motor.CarDetail;
+import com.ifwd.fwdhk.model.motor.ContactMe;
 import com.ifwd.fwdhk.model.motor.MotorFileDetails;
 import com.ifwd.fwdhk.model.motor.PolicyCarDetails;
 import com.ifwd.fwdhk.model.motor.PolicyDeclaration;
@@ -34,12 +35,6 @@ import com.ifwd.fwdhk.model.motor.PolicyMotorCare;
 import com.ifwd.fwdhk.model.motor.QuoteMotorCare;
 import com.ifwd.fwdhk.model.motor.SaveForLater;
 import com.ifwd.fwdhk.model.motor.UnderWriting;
-import com.ifwd.fwdhk.model.motor.ContactMe;
-
-
-
-
-
 
 @Controller
 @RequestMapping(value = "/api/iMotor", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE} )
@@ -117,28 +112,28 @@ public class MotorCareController extends BaseController{
 		}
 	}	
 		
-	@SuppressWarnings("rawtypes")
 	@ApiOperation(
 			value = "This API is used to register email to get promo code",
-			response = ResponseEntity.class	
+			response = String.class	
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid Email address"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = "/email/promoCodes", method = POST)
-	public ResponseEntity getPromoCodes(
+	public ResponseEntity<String> getPromoCodes(
 			@ApiParam(value = "Email address to get the promo code", required = true) @RequestBody String email,				
 			HttpServletRequest request) {
 		
 		//super.IsAuthenticate(request);	
 				
 		try {			
+			String apiResponse = new String();
+			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {
 			throw new RuntimeException("System error");
 		}
-		return Responses.ok();
 	}
 	
 	@ApiOperation(
@@ -344,7 +339,7 @@ public class MotorCareController extends BaseController{
 	@RequestMapping(value = {"/policy/confirmation"}, method = POST)
 	public ResponseEntity<String> confirmPolicy(
 			@ApiParam(value = "Motor Care info (Type: e.g. Comp, Third)", required = true) @RequestBody PolicyMotorCare policyMotorCare,
-			@ApiParam(value = "Transaction no.", required = true) @RequestBody String txnNo,
+			
 			HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -367,7 +362,7 @@ public class MotorCareController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/saveForLater"}, method = POST)
-	public ResponseEntity<SaveForLater> confirmPolicy(
+	public ResponseEntity<SaveForLater> saveForLater(
 			@ApiParam(value = "Save for Later Info", required = true) @RequestBody SaveForLater saveForLater,			
 			HttpServletRequest request) {
 		
