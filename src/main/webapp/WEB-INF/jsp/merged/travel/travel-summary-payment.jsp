@@ -191,12 +191,12 @@ var clicked = false;
 		selector = $(selector).attr('id');
 		if(selector=="visaMaster"){
 			$("#payment-detail-section").show();
-			$(".support-reminder--hide").hide();
+			$(".support-reminder").hide();
 			$("#checkbox3").next().html(paymentDelcareMsg);
 			//console.log(selector);
 		}else if (selector=="tapAndGo"){
 			$("#payment-detail-section").hide();
-			$(".support-reminder--hide").show();
+			$(".support-reminder").show();
 			$("#checkbox3").next().html(paymentDelcareMsgTagAndGo);
 			//console.log(selector);
 		}
@@ -1072,7 +1072,7 @@ var clicked = false;
 
 
                     <div class="clearfix"></div>
-                    <div class="support-reminder">
+                    <div class="support-reminder" style="display:none;">
                     	<span class="support-reminder__title"><fmt:message key="travel.payment.reminder.title" bundle="${msg}" /></span>
                     	<ul class="support-reminder__list">
                     		<li><span><fmt:message key="travel.payment.reminder.list.item1" bundle="${msg}" /></span></li>
