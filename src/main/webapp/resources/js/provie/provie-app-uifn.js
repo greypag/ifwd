@@ -1,17 +1,17 @@
 /*** This part may need move to JSP??? ***/
 var language = "EN";
-var typeId = 4;
+var typeId = "SAVIE_OFFLINE";
 var fwdApi = {
 		url:{
-			getAvailableCentre			:"http://192.168.0.133:10010/fwdhk/api/appointment/getAvailableCentre",
-			findAvailableDateByCentre	:"http://192.168.0.133:10010/fwdhk/api/appointment/findAvailableDateByCentre",
-			findAvailableTimeByCentre 	:"http://192.168.0.133:10010/fwdhk/api/appointment/findAvailableTimeByCentre",
-			appointment					:"http://192.168.0.133:10010/fwdhk/api/appointment",
-			session						:"http://192.168.0.133:10010/fwdhk/api/member/session",
-			login						:"http://192.168.0.133:10010/fwdhk/api/member/login",
-			member						:"http://192.168.0.133:10010/fwdhk/api/member",
-			forgotPassword				:"http://192.168.0.133:10010/fwdhk/api/member/forgotPassword",
-			retrieveUserName			:"http://192.168.0.133:10010/fwdhk/api/member/retrieveUserName"
+			getAvailableCentre			:"http://localhost:7000/fwdhk/api/appointment/centre",
+			findAvailableDateByCentre	:"http://localhost:7000/fwdhk/api/appointment/timeSlotEntity",
+			findAvailableTimeByCentre 	:"http://localhost:7000/fwdhk/api/appointment/timeSlotEntity",
+			appointment					:"http://localhost:7000/fwdhk/api/appointment",
+			session						:"http://localhost:7000/fwdhk/api/member/session",
+			login						:"http://localhost:7000/fwdhk/api/member/login",
+			member						:"http://localhost:7000/fwdhk/api/member",
+			forgotPassword				:"http://localhost:7000/fwdhk/api/member/forgotPassword",
+			retrieveUserName			:"http://localhost:7000/fwdhk/api/member/retrieveUserName"
 		}
 };
 
@@ -81,8 +81,8 @@ $(document).ready(function(){
 					url:fwdApi.url.findAvailableTimeByCentre,
 					type:"get",
 					data:{
-						typeId:typeId,
-						preferredDate:d,
+						type:typeId,
+						date:d,
 						centreCode:$("#centre").val()
 					},	
 					cache:false,
@@ -94,7 +94,7 @@ $(document).ready(function(){
 				    	if(response){
 				    		$("#preferred-time").empty();
 				    		for(var i in response){
-				    			var d = response[i].TimeSlotEntity;
+				    			var d = response[i];
 				    			var option = $("<option/>");
 				    			option.data(d);
 				    			option.val(d.timeSlot);
@@ -164,13 +164,12 @@ $(document).ready(function(){
 			}
 
 			if(isValid){
-				var postData = {
-					centreCode:	$("#centre").val(),
+				var postData = {centreCode:	$("#centre").val(),
 					preferredDate:	$("#app-date").val(),
 					preferredTime:	$("#preferred-time").val(),
 					planCode:	"PROVIE",
 					userName:	userName,
-					typeId: typeId
+					type: typeId
 				}
 				$.ajax({
 					beforeSend:function(){
@@ -179,7 +178,7 @@ $(document).ready(function(){
 					contentType: "application/json",
 					url:fwdApi.url.appointment,
 					type:"post",
-					data:JSON.stringify(postData),
+					data:postData,
 					cache:false,
 					async:false,
 					error:function(response){
@@ -225,7 +224,8 @@ $(document).ready(function(){
 					},
 					url:fwdApi.url.findAvailableDateByCentre,
 					type:"get",
-					data:{typeId:typeId,centreCode:d.serviceCentreCode},
+					contentType: "application/json",
+					data:{type:typeId,centreCode:d.serviceCentreCode,date:"15-07-2016"},
 					cache:false,
 					async:false,
 					error:function(){
@@ -236,7 +236,7 @@ $(document).ready(function(){
 				    		var dates = [];
 				    		for(var i in response){
 				    			var d = response[i];
-				    			var from = d.TimeSlotEntity.date.split("-");
+				    			var from = d.date.split("-");
 				    			dates.push(new Date(from[2],from[1] -1, from[0]));
 				    		}
 				    		//dates.push(new Date(2016,8,1));
@@ -257,6 +257,7 @@ $(document).ready(function(){
 		$.ajax({
 			url:fwdApi.url.session,
 			type:"get",
+			contentType: "application/json",
 			data:{typeId:typeId,language:language},
 			cache:false,
 			async:false,
@@ -267,8 +268,8 @@ $(document).ready(function(){
 		    	if(response){
 		    		isLogged = true;
 		    		
-		    		$(".after-login").find(".fld-val").text(response[0].UserDetails.fullName);
-		    		userName = response[0].UserDetails.userName;
+		    		$(".after-login").find(".fld-val").text(response.fullName);
+		    		userName = response.userName;
 		    		$(".after-login").show();
 		    	}
 		    	
@@ -285,7 +286,8 @@ $(document).ready(function(){
 			},
 			url:fwdApi.url.getAvailableCentre,
 			type:"get",
-			data:{typeId:typeId,language:language},
+			contentType: "application/json",
+			data:{type:typeId,language:language},
 			cache:false,
 			async:false,
 			error:function(){
@@ -300,7 +302,7 @@ $(document).ready(function(){
 		    		$("#centre").append(o0);*/
 		    		
 		    		for(var i in response){
-		    			var centre = response[i].ServiceCentreResult;
+		    			var centre = response[i];
 		    			console.log(centre);
 		    			var option = $("<option/>");
 		    			option.text(centre.serviceCentreName);
@@ -353,8 +355,8 @@ function bsvFormLogin(form){
 
 			    		isLogged = true;
 		    		
-			    		$(".after-login").find(".fld-val").text(response[0].MemberActionResult.fullName);
-			    		userName = response[0].MemberActionResult.userName;
+			    		$(".after-login").find(".fld-val").text(response.fullName);
+			    		userName = response.userName;
 			    		$(".before-login").hide();
 			    		$(".after-login").show();	
 
@@ -693,8 +695,8 @@ function bsvFormRegister(form){
 
 			    		isLogged = true;
 		    			console.log(response);
-			    		$(".after-login").find(".fld-val").text(response.MemberActionResult.fullName);
-			    		userName = response.MemberActionResult.userName;
+			    		$(".after-login").find(".fld-val").text(response.fullName);
+			    		userName = response.userName;
 			    		$(".before-login").hide();
 			    		$(".after-login").show();	
 

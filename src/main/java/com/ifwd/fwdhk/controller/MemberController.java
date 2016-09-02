@@ -46,11 +46,16 @@ public class MemberController extends BaseController {
 		value = "Get User Details from session",
 		response = UserDetails.class
 		)
-	@ApiResponses(value = {@ApiResponse(code = 500, message = "System error")})
+	@ApiResponses(value = {@ApiResponse(code = 404, message = "Not login")
+							, @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<UserDetails> getUserDetails(HttpServletRequest request) {
 		super.IsAuthenticate(request);
 		
-		return Responses.ok((UserDetails)request.getSession(true).getAttribute("userDetails"));
+		if (request.getSession(true).getAttribute("userDetails") != null) {
+			return Responses.ok((UserDetails)request.getSession(true).getAttribute("userDetails"));
+		} else {
+			return Responses.notFound(null);
+		}
 	}
 	
 	@RequestMapping(method = POST)
@@ -99,7 +104,7 @@ public class MemberController extends BaseController {
 				logger.info(member.getUserName()+" "+washGIMessage(jsonResponse.get("errMsgs").toString()));
 				MemberActionResult result = new MemberActionResult();
 				result.setMessage(washGIMessage(jsonResponse.get("errMsgs").toString()));
-				return Responses.ok(result);
+				return Responses.error(result);
 			}
 		} catch (Exception e) {
 			logger.error(ExceptionUtils.getStackTrace(e));

@@ -6,6 +6,7 @@ public class AppointmentBooking {
 	private String preferredDate;
 	private String preferredTime;
 	private String centreCode;
+	private String planCode;
 	
 	public String getUserName() {
 		return this.userName;
@@ -46,4 +47,12 @@ public class AppointmentBooking {
 	public void setCentreCode(String centreCode) {
 		this.centreCode = centreCode;
 	}
+	
+	public String getPlanCode() {
+		return this.planCode;
+	}
+	
+	public void setPlanCode(String planCode) {
+		this.planCode = planCode;
+	}	
 }

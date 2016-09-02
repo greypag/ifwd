@@ -7,6 +7,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,18 +38,35 @@ import com.ifwd.fwdhk.model.TimeSlotEntity;
 @RequestMapping(value = "/api/appointment", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})
 @Api(value = "/appointment", description = "Operations about appointment")
 public class AppointmentController extends BaseController {
+	
+	public enum AppointmentType {
+		SAVIE_OFFLINE(1),
+		PAY_LATER(2),
+		EASY_HEALTH_OFFLINE(3),
+		PROVIE_OFFLINE(4);
 		
-	@RequestMapping(value = "/getAvailableCentre", method = GET)
+	    private final int value;
+	    
+	    private AppointmentType(int value) {
+	        this.value = value;
+	    }
+
+	    public int getValue() {
+	        return value;
+	    }
+	}
+	
+	@RequestMapping(value = "/centre", method = GET)
 	@ApiOperation(
-		value = "Get available customer service center for appointment",
+		value = "Get available customer service centre for appointment",
 		response = ServiceCentreResult.class,
 		responseContainer = "List"
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
 			@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<List<ServiceCentreResult>> getAvailableCentre(
-			@ApiParam(value = "Appointment type ID", required = true) @RequestParam("typeId") String typeId
-			, @ApiParam(value = "Display language",  allowableValues = "EN,CH", required = true) @RequestParam("language") String language
+			@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
+			, @ApiParam(value = "Display language",  allowableValues = "EN,ZH", required = true) @RequestParam("language") String language
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -61,46 +80,23 @@ public class AppointmentController extends BaseController {
 
 			return Responses.ok(apiResponse.getServiceCentres());
 		} catch (Exception e) {
-			throw new RuntimeException("System error");
+			return Responses.error(null);
 		}
 	}
 
-	@RequestMapping(value = "/findAvailableDateByCentre", method = GET)
+	@RequestMapping(value = "/timeSlotEntity", method = GET)
 	@ApiOperation(
-		value = "Find available date by customer service center for appointment type",
+		value = "Find available date and time",
 		response = TimeSlotEntity.class,
 		responseContainer = "List"
 		)
-	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
-			@ApiResponse(code = 500, message = "System error")})
-	public ResponseEntity<List<String>> findAvailableDateByCentre(
-			@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
-			,@ApiParam(value = "Appointment type ID", required = true) @RequestParam("typeId") String typeId
-			, HttpServletRequest request) {
-		
-		super.IsAuthenticate(request);
-
-		List<String> availDate = new ArrayList<String>();
-		try {
-			// TODO
-		} catch (Exception e) {
-			return Responses.ok(availDate);
-		}
-		return Responses.ok(availDate);
-	}
-	
-	@RequestMapping(value = "/findAvailableTimeByCentre", method = GET)
-	@ApiOperation(
-		value = "Find available time by customer service center for appointment type",
-		response = TimeSlotEntity.class,
-		responseContainer = "List"
-		)
-	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
-			@ApiResponse(code = 500, message = "System error")})
-	public ResponseEntity<List<TimeSlotEntity>> findAvailableTimeByCentre(
-			@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
-			,@ApiParam(value = "Appointment date (in dd-MM-yyyy)", required = true) @RequestParam("preferredDate") String preferredDate
-			,@ApiParam(value = "Appointment type ID", required = true) @RequestParam("typeId") String typeId
+	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type")
+							, @ApiResponse(code = 404, message = "No available timeslot")	
+							, @ApiResponse(code = 500, message = "System error")})
+	public ResponseEntity<List<TimeSlotEntity>> findAvailableDateByCentre(
+			@ApiParam(value = "Service centre code", required = true) @RequestParam("centreCode") String centreCode
+			,@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
+			,@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = false) @RequestParam("date") String preferredDate
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -109,18 +105,25 @@ public class AppointmentController extends BaseController {
 		try {
 			org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
 			String url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + preferredDate
-					+ "&serviceCentreCode=" + centreCode + "&appointmentTypeId=" + typeId;
+					+ "&serviceCentreCode=" + centreCode + "&appointmentTypeId=" + type.value;
 				
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
 			if(responseJsonObj.get("timeSlots") != null 
 					&& responseJsonObj.get("timeSlots").toString().length() > 0) {
 				ObjectMapper mapper = new ObjectMapper();
 				timeSlots = mapper.readValue(responseJsonObj.get("timeSlots").toString(), mapper.getTypeFactory().constructCollectionType(List.class, TimeSlotEntity.class));
+				if (preferredDate != null) {
+					for (TimeSlotEntity slot: timeSlots) {
+						slot.setDate(preferredDate);
+					}
+				}
+				return Responses.ok(timeSlots);
+			} else {
+				return Responses.notFound(null);
 			}
 		} catch (Exception e) {
-			return Responses.ok(timeSlots);
+			return Responses.error(null);
 		}
-		return Responses.ok(timeSlots);
 	}
 	
 	@RequestMapping(method = POST)
@@ -129,14 +132,17 @@ public class AppointmentController extends BaseController {
 		response = AppointmentBooking.class
 		)
 	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
-			@ApiResponse(code = 500, message = "System error")})
+							@ApiResponse(code = 405, message = "The number of appointments must be less than 2"),
+							@ApiResponse(code = 406, message = "Access code has already been used"),
+							@ApiResponse(code = 409, message = "Reservation is invalid"),
+							@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> bookAppointment(
 			@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
 			,@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = true) @RequestParam("preferredDate") String preferredDate
 			,@ApiParam(value = "Appointment time (in HH:Mi format)", required = true) @RequestParam("preferredTime") String preferredTime
 			,@ApiParam(value = "Plan code", required = true) @RequestParam("planCode") String planCode
 			,@ApiParam(value = "User name", required = true) @RequestParam("userName") String userName
-			,@ApiParam(value = "Appointment type ID", required = true) @RequestParam("typeId") String typeId
+			,@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -144,10 +150,9 @@ public class AppointmentController extends BaseController {
 		String url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
 		if(responseJsonObj.get("errMsgs")!=null){
-			throw new RuntimeException("Cannot get access code");
+			return Responses.error(null); // cannot get access code
 		}
 		String accessCode = responseJsonObj.get("accessCode").toString();
-
 
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("planCode", planCode);
@@ -170,7 +175,7 @@ public class AppointmentController extends BaseController {
 			parameters.put("remarks", "");
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", "");
-			parameters.put("appointmentTypeId", typeId);
+			parameters.put("appointmentTypeId", type.value);
 			
 			String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, COMMON_HEADERS, parameters);
@@ -181,16 +186,26 @@ public class AppointmentController extends BaseController {
 				booking.setCentreCode(centreCode);
 				booking.setPreferredDate(preferredDate);
 				booking.setPreferredTime(preferredTime);
+				booking.setPlanCode(planCode);
+				booking.setUserName(userName);
 				return Responses.ok(booking);
 			} else {
-				throw new RuntimeException(makeJsonObj.get("errMsgs").toString());			
+				if (makeJsonObj.get("errMsgs").toString().equals("[\"Access code has already been used\"]")) {
+					return Responses.notAcceptable(null);
+				} else if (makeJsonObj.get("errMsgs").toString().equals("[\"The number of appointments must be less than 2\"]")) {
+					return Responses.methodNotAllowed(null);
+				} else if (makeJsonObj.get("errMsgs").toString().equals("[\"Reservation is invalid\"]")) {
+					return Responses.conflict(null);
+				} else {
+					return Responses.error(null);
+				}
 			}
 		} else {
-			throw new RuntimeException("Application error");
+			return Responses.error(null);
 		}					
 	}
 	
-	@RequestMapping(method = GET)
+	@RequestMapping(value = "/{refNum}", method = GET)
 	@ApiOperation(
 		value = "Find appointment booking",
 		response = AppointmentBooking.class
@@ -199,22 +214,26 @@ public class AppointmentController extends BaseController {
 			@ApiResponse(code = 404, message = "System cannot find appointment booking"),
 			@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> findAppointmentBooking(
-			@ApiParam(value = "Booking reference number", required = true) @RequestParam("referenceNum") String referenceNum
+			@ApiParam(value = "Booking reference number", required = true) @PathVariable("refNum") String refNum
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
 
 		AppointmentBooking booking = new AppointmentBooking();
-		booking.setReferenceNum(referenceNum);
+		booking.setReferenceNum(refNum);
 		booking.setCentreCode("");
 		booking.setPreferredDate("");
 		booking.setPreferredTime("");
 		booking.setUserName("");
 		
-		if (!booking.getUserName().equals(MemberController.GetUserName(request))) {
-			return Responses.unauthorized(null);
-		} else {					
-			return Responses.ok(booking);
-		}					
+		if (booking != null) {
+			if (!booking.getUserName().equals(MemberController.GetUserName(request))) {
+				return Responses.unauthorized(null);
+			} else {					
+				return Responses.ok(booking);
+			}					
+		} else {
+			return Responses.notFound(null);
+		}
 	}
 }

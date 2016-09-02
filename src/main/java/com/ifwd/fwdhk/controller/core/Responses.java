@@ -23,6 +23,18 @@ public class Responses {
   public static <T> ResponseEntity<T> badRequest(T model) {
 	    return new ResponseEntity<T>(model, HttpStatus.BAD_REQUEST);
   }
+
+  public static <T> ResponseEntity<T> notAcceptable(T model) {
+	    return new ResponseEntity<T>(model, HttpStatus.NOT_ACCEPTABLE);
+  }
+
+  public static <T> ResponseEntity<T> methodNotAllowed(T model) {
+	    return new ResponseEntity<T>(model, HttpStatus.METHOD_NOT_ALLOWED);
+  }
+
+  public static <T> ResponseEntity<T> conflict(T model) {
+	    return new ResponseEntity<T>(model, HttpStatus.CONFLICT);
+  }
   
   public static <T> ResponseEntity<T> error(T model) {
 	    return new ResponseEntity<T>(model, HttpStatus.INTERNAL_SERVER_ERROR);
