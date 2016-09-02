@@ -6,7 +6,7 @@ public class PolicyMotorCare {
 	private PolicyCarDetails policyCarDetails;
 	private PolicyDriverDetails policyDriverDetails;
 	private PolicyInfo policyInfo;
-	private PolicyDeclaration ppPolicyDeclaration;
+	private PolicyDeclaration policyDeclaration;
 	private String coverNote;
 	private String refNumber;
 	private String paymentTxnRef;
@@ -35,11 +35,11 @@ public class PolicyMotorCare {
 	public void setPolicyInfo(PolicyInfo policyInfo) {
 		this.policyInfo = policyInfo;
 	}
-	public PolicyDeclaration getPpPolicyDeclaration() {
-		return ppPolicyDeclaration;
+	public PolicyDeclaration getPolicyDeclaration() {
+		return policyDeclaration;
 	}
-	public void setPpPolicyDeclaration(PolicyDeclaration ppPolicyDeclaration) {
-		this.ppPolicyDeclaration = ppPolicyDeclaration;
+	public void setPolicyDeclaration(PolicyDeclaration policyDeclaration) {
+		this.policyDeclaration = policyDeclaration;
 	}
 	public String getCoverNote() {
 		return coverNote;

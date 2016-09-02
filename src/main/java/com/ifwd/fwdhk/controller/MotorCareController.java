@@ -379,21 +379,21 @@ public class MotorCareController extends BaseController{
 	
 	@ApiOperation(
 			value = "This API is used to upload files for the policy application of MotorCare",
-			response = MotorFileDetails.class			
+			response = String.class			
 			)
 	@ApiResponses(value = {			
 			@ApiResponse(code = 400, message = "Invalid file(s)"),
 			@ApiResponse(code = 500, message = "System error")
 			})
 	@RequestMapping(value = {"/policy/fileUpload"}, method = POST)
-	public ResponseEntity<MotorFileDetails> uploadFile4Policy(
+	public ResponseEntity<String> uploadFile4Policy(
 			@ApiParam(value = "Files for upload", required = true) @RequestBody MotorFileDetails motorFileDetails,			
 			HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
 		
 		try {
-			MotorFileDetails apiResponse = new MotorFileDetails();
+			String apiResponse = new String();
 			return Responses.ok(apiResponse);
 			
 		} catch (Exception e) {
