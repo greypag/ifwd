@@ -16,7 +16,7 @@
 	</head>
 
 	<c:set var="bShowVC" value="false" />
-	<c:if test="${(planIndex == 'savings-insurance'||planIndex == 'medical-insurance' ) and isVulnerable}"> 
+	<c:if test="${( planIndex == 'savings-insurance' ) and isVulnerable}"> 
 	    <c:set var="bShowVC" value="true" />
 	</c:if>
 
