@@ -11,6 +11,7 @@
 <c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<fmt:setBundle basename="provie" var="provieMsg" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -87,7 +88,7 @@ var home_url = "<%=request.getContextPath()%>";
             		<div class="row">
             			<div class="col-xs-12">
 	            			<div class="pv_desc">
-	            				主動出擊，實現儲蓄大計！Provie 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！
+	            				主動出擊，實現儲蓄大計！<fmt:message key="provie.title" bundle="${provieMsg}" /> 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！
 	            			</div>
             			</div>
             			<div class="col-xs-12 text-center">
