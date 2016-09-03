@@ -1,6 +1,13 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -26,6 +33,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,10 +44,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
+import com.ifwd.fwdhk.controller.AppointmentController.AppointmentType;
+import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.ProviePlanDetails;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.LifeService;
 //import com.ifwd.fwdhk.services.SavieService;
@@ -52,35 +67,19 @@ import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
+@Api(value = "/provie", description = "Operations about provie")
 public class ProvieController extends BaseController{
 	
 	private final static Logger logger = LoggerFactory.getLogger(ProvieController.class);
 	
 	@Autowired
 	private RestServiceDao restService;
-//	@Autowired
-//	private SavieService savieService;
 	@Autowired
 	private LifeService provieOnlineService;
 	@Autowired
 	private CommonUtils commonUtils;
-		
-	/*
-	@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
-	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
-	{
-		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
-		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return rv;
-	}	
-	*/
-   
-	/*
-	@RequestMapping(value = {"/{lang}/savings-insurance/provie","/{lang}/savings-insurance/provie/plan-details"})
-	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
-		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
-	}
-	*/
+	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		provieOnlineService.removeProvieOnlineSession(request);
@@ -102,11 +101,11 @@ public class ProvieController extends BaseController{
 		return ProviePageFlowControl.pageFlow("savings-insurance",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_LANDING);
 	}
 		
-	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/plan-details-sp","/{lang}/savings-insurance/plan-details-rp"})
 	public ModelAndView getProviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
 		HttpSession session = request.getSession();
-		//logger.info(">>>>>>>>>>>>>>>>>getProviePlanDetail<<<<<<<<<<<<<<<<<<<");
+
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
@@ -137,372 +136,90 @@ public class ProvieController extends BaseController{
 		}
 	}	
 	
-	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre"})
 	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
 		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
 	}
 	
-	//@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre-confirmed"})
-	//public ModelAndView getProvieAppointmentConfirmed(Model model, HttpServletRequest request) {
-	//	return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROVIE_SERVICE_CENTER_CONFIRMED);
-	//}
-	
-	
+	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/confirmation-appointment"})
 	public ModelAndView getProvieThankyou(Model model, HttpServletRequest request) {
 		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_CONFIRMATION_APPOINTMENT);
 	}
 	
-	/*
-	@RequestMapping(value = {"/{lang}/savings-insurance/application"})
-	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
-		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
-		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
-		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
-		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
-		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
-		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
-		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
-		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
-		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
-		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
-		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
-		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
-		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
-		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
-		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
-		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
-		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
-		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
-		return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_APPLICATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"}, method = RequestMethod.POST)
-	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,HttpSession httpSession,
-			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
-			@RequestParam String appGender,
-			@RequestParam String maritalStatus,
-			@RequestParam String beneficiaryBeansGenders1) throws ParseException {
-		//@RequestParam String birthday
+	@RequestMapping(value = "/api/provie/planDetails", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@ApiOperation(
+		value = "Get Provie plan details",
+		response = ProviePlanDetails.class
+		)
+	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
+			@ApiResponse(code = 500, message = "System error")})
+	public ResponseEntity<ProviePlanDetails> getPlanDetails(
+			@ApiParam(value = "Premium", required = true) @RequestParam("premium") Float premium
+			, @ApiParam(value = "Plan Code (SP/RP)", allowableValues = "SP,RP", required = true) @RequestParam("planCode") String planCode
+			, @ApiParam(value = "Currency", allowableValues = "USD,HKD",  required = true) @RequestParam("currency") String currency
+			, @ApiParam(value = "DOB of applicant (in dd/MM/yyyy format)",  required = true) @RequestParam("dob") String dob
+			, @ApiParam(value = "Additional rider",  required = true) @RequestParam("rider") String rider
+			, HttpServletRequest request) {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");                
-		String birthOfDay = (String) httpSession.getAttribute("birthOfDay");
-		//05/28/1995
-		if(null != birthOfDay){
-			String[] date= birthOfDay.split("/");
-			birthOfDay = date[2]+"-"+date[0]+"-"+date[1];
-			logger.info(birthOfDay);
-			savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthOfDay));
-		}
-		if("F".equals(appGender)){
-			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
-		}
-		else{
-			savieDetail.getSavieApplicantBean().setGender(GenderEnum.MALE);
-		}
+		super.IsAuthenticate(request);
 		
-		savieDetail.getSavieApplicantBean().setResidentialDistrictDesc(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setResidentialDistrict(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[0]);
-		savieDetail.getSavieApplicantBean().setMaritalStatusDesc(maritalStatus.split("-")[1]);
-		savieDetail.getSavieApplicantBean().setMaritalStatus(maritalStatus.split("-")[0]);
-		savieDetail.getSavieApplicantBean().setPlaceOfBirthDesc(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setPlaceOfBirth(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[0]);
-		savieDetail.getSavieApplicantBean().setNationalityDesc(savieDetail.getSavieApplicantBean().getNationality().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setNationality(savieDetail.getSavieApplicantBean().getNationality().split("-")[0]);
-		
-		savieDetail.getSavieEmploymentBean().setEmploymentStatusDesc(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setEmploymentStatus(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setOccupationDesc(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setOccupation(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setNatureOfBusinessDesc(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setNatureOfBusiness(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncomeDesc(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncome(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[0]);
-		
-		if("male".equals(beneficiaryBeansGenders1)){
-			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.MALE);
-		}
-		else{
-			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.FEMALE);
-		}
-		
-		if(savieDetail.getSavieBeneficiaryBeans() !=null && savieDetail.getSavieBeneficiaryBeans().size()>0){
-			for(int a=0;a<savieDetail.getSavieBeneficiaryBeans().size();a++){
-				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationshipDesc(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[1]);
-				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationship(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[0]);
-			}
-		}
-		request.getSession().setAttribute("savieDetail", savieDetail);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SUMMARY);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
-	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
-		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
-		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
-		model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
-	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
-	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
-	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DECLARATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/signature"})
-	public ModelAndView getSavieSignature(Model model, HttpServletRequest request) {
-		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering"})
-	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
-
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/o2o-landing/{affiliate}"})
-	public void getSavieEmailConfirmedId(Model model, HttpServletRequest request,HttpServletResponse response,@PathVariable int affiliate) {
 		try {
-			request.setAttribute("affiliate", affiliate+"");
-			String url =  request.getServletPath();
-			url = url.substring(0,url.lastIndexOf("/"));
-			request.getRequestDispatcher(url).forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
-	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
-		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
-				|| referer.endsWith("/savings-insurance/o2o-landing") || referer.endsWith("/savings-insurance/")
-				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
-				|| referer.indexOf("/savings-insurance/o2o-landing?affiliate") > 1)) {
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
-		}else {
-			return getSavieEmailConfirmed(model, request);
-		//}
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
- 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
-		request.getSession().setAttribute("pdfName", pdfName);
-		request.getSession().setAttribute("requestNo", requestNo);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
- 	}
-	
-	
-	
-	*//**
-	 * 
-	 * @param model
-	 * @param request
-	 * @return download page
-	 *//*
-	@RequestMapping(value = {"/{lang}/downloadPage"})
-	public ModelAndView goDownloadPage(Model model, HttpServletRequest request){
-		logger.info("go to download page");
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "downloadTest");
-	}
-	
-	*//**
-	 * 
-	 * @param request download target file
-	 * @param response
-	 *//*
-	@RequestMapping(value = {"/{lang}/fileDownload"})
-	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CN";
-		}
-		
-		//String path = servletContext.getRealPath("/"); 
-		logger.info(request.getServletPath());
-		logger.info(request.getSession().getServletContext().getRealPath("\\"));
-		
-		response.setContentType("multipart/form-data");  
-		
-		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
-		ServletOutputStream out;  
-		out = response.getOutputStream();  
-		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
-		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
-		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
-		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
-		InputStream is = new FileInputStream(pdfTemplatePath);
-		PDFGeneration.generatePdf(is, out, attributeList);
-		out.close();  
-		out.flush();
-		
-		
+			ProviePlanDetails plans = new ProviePlanDetails();
+			plans.setPlanCode("Provie-SP");
+			plans.setCurrency("HKD");
+			plans.setRider("PA");
+			List<ProviePlanDetails.Plan> list = new ArrayList<ProviePlanDetails.Plan>();
+			ProviePlanDetails.Plan plan = plans.new Plan();
+			plan.setPremiumYear(1);
+			plan.setRate(1);
+			plan.setTotalPaid(10000);
+			plan.setAccountValue(10001);
+			plan.setDeathBenefit(10002);
+			plan.setRiderValue(10003);
+			list.add(plan);
+			
+			plan = plans.new Plan();
+			plan.setPremiumYear(2);
+			plan.setRate(1.1);
+			plan.setTotalPaid(10000);
+			plan.setAccountValue(10001);
+			plan.setDeathBenefit(10002);
+			plan.setRiderValue(10003);
+			list.add(plan);
 
-	}
-	
-	*//**
-	 * @param request reload init message
-	 * @param response
-	 *//*
-	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
-	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
-		InitApplicationMessage.init(commonUtils, "reload");
-		
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "downloadTest");
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
-	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
-			}else {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
-			}
-			
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
-			if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
-				HeaderUtil hu = new HeaderUtil();
-				header = hu.getHeader(request);
-			}
-			else{
-				header.put("userName", "*DIRECTGI");
-				header.put("token", commonUtils.getToken("reload"));
-			}
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-			if(responseJsonObj.get("serviceCentres") == null || responseJsonObj.get("serviceCentres") == ""){
-				logger.info(responseJsonObj.toString());
-			}
-			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
-			org.json.simple.JSONObject serviceCentreObj = new JSONObject();
-			if(serviceCentresArr!=null && serviceCentresArr.size()>0){
-				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			}
-			if(serviceCentresArr!=null && serviceCentresArr.size()>1){
-				for(int i=1;i<serviceCentresArr.size();i++){
-					org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-					org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
-					long date = (long) dateObj.get("date");
-					
-					org.json.simple.JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
-					org.json.simple.JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
-					org.json.simple.JSONObject dateObjB = (JSONObject) datesArrB.get(0);
-					long dateB = (long) dateObjB.get("date");
-					if(date>dateB){
-						serviceCentreObj = serviceCentreObjB;
-					}
-				}
-			}
-			else if(serviceCentresArr!=null && serviceCentresArr.size()==1){
-				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			}
-			
-			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
-			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
-				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
-			}
-			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
-		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
-		        logger.info(formatter.format(date));
-				session.setAttribute("perferredDate", formatter.format(date));
-			}
-			logger.info(session.getAttribute("perferredDate").toString());
-			
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
-		} else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance");
+			plan = plans.new Plan();
+			plan.setPremiumYear(3);
+			plan.setRate(1.2);
+			plan.setTotalPaid(10000);
+			plan.setAccountValue(10001);
+			plan.setDeathBenefit(10002);
+			plan.setRiderValue(10003);
+			list.add(plan);
+
+			plan = plans.new Plan();
+			plan.setPremiumYear(4);
+			plan.setRate(1.3);
+			plan.setTotalPaid(10000);
+			plan.setAccountValue(10001);
+			plan.setDeathBenefit(10002);
+			plan.setRiderValue(10003);
+			list.add(plan);
+
+			plan = plans.new Plan();
+			plan.setPremiumYear(5);
+			plan.setRate(1.4);
+			plan.setTotalPaid(10000);
+			plan.setAccountValue(10001);
+			plan.setDeathBenefit(10002);
+			plan.setRiderValue(10003);
+			list.add(plan);
+
+			plans.setPlans(list);
+			return Responses.ok(plans);
+		} catch (Exception e) {
+			return Responses.error(null);
 		}
 	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
-	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
-	}
-	
-	*//**
-	 * 预约成功跳转页面
-	 * @param model
-	 * @param request
-	 * @return
-	 *//*
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
-	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
-			savieService.confirmationOffline(model, request);
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-		}else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance");
-		}
-		
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
-	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
-		
-		
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
-	}
-	*/
 }
