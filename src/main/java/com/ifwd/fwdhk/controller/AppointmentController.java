@@ -23,6 +23,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -137,12 +138,15 @@ public class AppointmentController extends BaseController {
 							@ApiResponse(code = 409, message = "Reservation is invalid"),
 							@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> bookAppointment(
-			@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
-			,@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = true) @RequestParam("preferredDate") String preferredDate
+			@ApiParam(value = "Appointment booking", required = true) @RequestBody AppointmentBooking booking
+			/*
+			@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = true) @RequestParam("preferredDate") String preferredDate
 			,@ApiParam(value = "Appointment time (in HH:Mi format)", required = true) @RequestParam("preferredTime") String preferredTime
+			,@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
 			,@ApiParam(value = "Plan code", required = true) @RequestParam("planCode") String planCode
 			,@ApiParam(value = "User name", required = true) @RequestParam("userName") String userName
 			,@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
+			*/
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -155,7 +159,7 @@ public class AppointmentController extends BaseController {
 		String accessCode = responseJsonObj.get("accessCode").toString();
 
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-		parameters.put("planCode", planCode);
+		parameters.put("planCode", booking.getPlanCode());
 		parameters.put("accessCode", accessCode);
 
 		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
@@ -164,30 +168,24 @@ public class AppointmentController extends BaseController {
 		
 		if(appJsonObj != null) {
 			parameters = new org.json.simple.JSONObject();
-			parameters.put("serviceCentreCode", centreCode);
-			parameters.put("date", preferredDate);
-			parameters.put("timeSlot", preferredTime);
-			parameters.put("planCode", planCode);
+			parameters.put("serviceCentreCode", booking.getCentreCode());
+			parameters.put("date", booking.getPreferredDate());
+			parameters.put("timeSlot", booking.getPreferredTime());
+			parameters.put("planCode", booking.getPlanCode());
 			parameters.put("policyNumber", "");
 			parameters.put("applicationNumber", applicationNumber);
-			parameters.put("userName", userName);
+			parameters.put("userName", booking.getUserName());
 			parameters.put("status", "Active");
 			parameters.put("remarks", "");
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", "");
-			parameters.put("appointmentTypeId", type.value);
+			parameters.put("appointmentTypeId", 1);
 			
 			String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, COMMON_HEADERS, parameters);
 			
 			if (makeJsonObj.get("errMsgs") == null) {
-				AppointmentBooking booking = new AppointmentBooking();
 				booking.setReferenceNum(applicationNumber);
-				booking.setCentreCode(centreCode);
-				booking.setPreferredDate(preferredDate);
-				booking.setPreferredTime(preferredTime);
-				booking.setPlanCode(planCode);
-				booking.setUserName(userName);
 				return Responses.ok(booking);
 			} else {
 				if (makeJsonObj.get("errMsgs").toString().equals("[\"Access code has already been used\"]")) {

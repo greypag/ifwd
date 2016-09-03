@@ -164,21 +164,22 @@ $(document).ready(function(){
 			}
 
 			if(isValid){
-				var postData = {centreCode:	$("#centre").val(),
-					preferredDate:	$("#app-date").val(),
-					preferredTime:	$("#preferred-time").val(),
-					planCode:	"PROVIE",
-					userName:	userName,
-					type: typeId
+				var postData = {
+					preferredDate:$("#app-date").val(),
+					preferredTime:$("#preferred-time").val(),
+					centreCode:$("#centre").val(),
+					planCode:"PROVIE",
+					userName:userName,
+					type:typeId
 				}
 				$.ajax({
 					beforeSend:function(){
 						$("#loading-overlay").modal("show");
 					},
-					contentType: "application/json",
 					url:fwdApi.url.appointment,
 					type:"post",
-					data:postData,
+					contentType: "application/json",
+					data:JSON.stringify(postData),
 					cache:false,
 					async:false,
 					error:function(response){
@@ -675,7 +676,7 @@ function bsvFormRegister(form){
 				optOut1:$("#checkbox3").val(),
 				optOut2:$("#checkbox4").val(),
 				password:$("#appointmentRegisterPassword").val(),
-				userName:$("#appointmentRegisterUserName").val(),
+				userName:$("#appointmentRegisterUserName").val()
 			}
 			$.ajax({
 				beforeSend:function(){
