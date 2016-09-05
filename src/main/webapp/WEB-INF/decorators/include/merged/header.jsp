@@ -23,7 +23,6 @@
 	        'desktop': 42,
 	        'classname': {
 	            'mobile': 'div.closeMobileMenu',
-	            // 'mobile':   'div.navbar-header',
 	            'desktop': 'nav.navbar.navbar-inverse'
 	        }
 	    },
