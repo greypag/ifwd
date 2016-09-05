@@ -10,6 +10,7 @@
    String[] stepItems = request.getParameter("stepItems").replace(" ", "").split(",");
    int stepActive = Integer.parseInt(request.getParameter("stepActive"));
    String lang = ((String)session.getAttribute("uiLocale")).substring(0, 2);
+
 %>
 
 <%!
@@ -37,14 +38,17 @@
       template_divider += "<img src=\"" +contextPath+"/resources/images/savie-2016/header-browse-arrow.png\" class=\"browse-arrow\">";
       template_divider += "</li>";
 
-      String path_to_resources = "";
+      String path_to_resources[]= new String[2];
       if(lang.equalsIgnoreCase("EN")){
-         path_to_resources = "messages_en_US";
+         path_to_resources[0] = "messages_en_US";
+         path_to_resources[1] = "provie_en_US";
       } else {
-         path_to_resources = "messages_zh_HK";
+         path_to_resources[0] = "messages_zh_HK";
+         path_to_resources[1] = "provie_zh_HK";
       }
 
-      ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
+      ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
+      ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
    
       for( int i=0; i<stepList.length; i++ ){
 
@@ -70,7 +74,13 @@
          //render breadcrumb item
          //output += String.format(template_item, itemCls, stepList.get(i));
 
-         output += String.format(template_item, numberCls, (i+1), contentCls, resource.getString(stepList[i]));
+         String translated_str = "";
+         if(resource.containsKey(stepList[i])){         
+            translated_str = resource.getString(stepList[i]); 
+         } else if(resource_provie.containsKey(stepList[i])){       
+            translated_str = resource_provie.getString(stepList[i]);
+         }
+         output += String.format(template_item, numberCls, (i+1), contentCls, translated_str);
       }
 
       return output;
@@ -96,19 +106,27 @@
 
       template_stepof += "<span class=\"stepIndicator__stepof\">%s out of %s</span>";
 
-
-      String path_to_resources = "";
+      String path_to_resources[]= new String[2];
       if(lang.equalsIgnoreCase("EN")){
-         path_to_resources = "messages_en_US";
+         path_to_resources[0] = "messages_en_US";
+         path_to_resources[1] = "provie_en_US";
       } else {
-         path_to_resources = "messages_zh_HK";
+         path_to_resources[0] = "messages_zh_HK";
+         path_to_resources[1] = "provie_zh_HK";
       }
 
-      ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
-   
+      ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
+      ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
+
+      String translated_str = "";
+      if(resource.containsKey(stepList[stepActive])){         
+         translated_str = resource.getString(stepList[stepActive]); 
+      } else if(resource_provie.containsKey(stepList[stepActive])){       
+         translated_str = resource_provie.getString(stepList[stepActive]);
+      }
       
       output += String.format(template_arrow);
-      output += String.format(template_content, resource.getString(stepList[stepActive]));
+      output += String.format(template_content, translated_str);
       output += String.format(template_stepof, stepActive+1, stepList.length);
 
       return output;
@@ -132,15 +150,6 @@
       template_item += "<li class=\"stepIndicator__item %s\">";
       template_item += "<a href=\"#\" class=\"stepIndicator__number %s\">%s</a>";
       template_item += "</li>";
-
-      String path_to_resources = "";
-      if(lang.equalsIgnoreCase("EN")){
-         path_to_resources = "messages_en_US";
-      } else {
-         path_to_resources = "messages_zh_HK";
-      }
-
-      ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
    
       for( int i=0; i<stepList.length; i++ ){
 
@@ -159,7 +168,8 @@
             content = String.format(template_number, i+1);
          }
          
-         itemCls = (isLast)?"stepIndicator__item--last":"";
+         itemCls = (stepList.length==3)?"stepIndicator__item--3":"";
+         itemCls = (isLast)?"stepIndicator__item--last":itemCls+"";
 
 
          output += String.format(template_item, itemCls, numCls, content);
