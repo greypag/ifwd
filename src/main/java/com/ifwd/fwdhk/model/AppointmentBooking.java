@@ -1,12 +1,31 @@
 package com.ifwd.fwdhk.model;
 
 public class AppointmentBooking {
+	
+	public enum AppointmentType {
+		SAVIE_OFFLINE(1),
+		PAY_LATER(2),
+		EASY_HEALTH_OFFLINE(3),
+		PROVIE_OFFLINE(4);
+		
+	    public final int value;
+	    
+	    private AppointmentType(int value) {
+	        this.value = value;
+	    }
+
+	    public int getValue() {
+	        return value;
+	    }
+	}
+	
 	private String userName;
 	private String referenceNum;
 	private String preferredDate;
 	private String preferredTime;
 	private String centreCode;
 	private String planCode;
+	private AppointmentType type;
 	
 	public String getUserName() {
 		return this.userName;
@@ -54,5 +73,14 @@ public class AppointmentBooking {
 	
 	public void setPlanCode(String planCode) {
 		this.planCode = planCode;
-	}	
+	}
+	
+	public AppointmentType getAppointmentType() {
+		return this.type;
+	}
+	
+	public void setAppointmentType(AppointmentType type) {
+		this.type = type;
+	}
+	
 }

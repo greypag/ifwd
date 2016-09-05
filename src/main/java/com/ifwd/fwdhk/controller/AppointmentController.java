@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.AppointmentBooking;
+import com.ifwd.fwdhk.model.AppointmentBooking.AppointmentType;
 import com.ifwd.fwdhk.model.TimeSlotEntity;
 import com.ifwd.fwdhk.services.LifeService;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
@@ -46,23 +47,6 @@ public class AppointmentController extends BaseController {
 
 	@Autowired
 	private LifeService savieOnlineService;
-	
-	public enum AppointmentType {
-		SAVIE_OFFLINE(1),
-		PAY_LATER(2),
-		EASY_HEALTH_OFFLINE(3),
-		PROVIE_OFFLINE(4);
-		
-	    private final int value;
-	    
-	    private AppointmentType(int value) {
-	        this.value = value;
-	    }
-
-	    public int getValue() {
-	        return value;
-	    }
-	}
 	
 	@RequestMapping(value = "/centre", method = GET)
 	@ApiOperation(
@@ -178,7 +162,7 @@ public class AppointmentController extends BaseController {
 			parameters.put("remarks", "");
 			parameters.put("accessCode", accessCode);
 			parameters.put("servicingAgent", "");
-			parameters.put("appointmentTypeId", 1);
+			parameters.put("appointmentTypeId", booking.getAppointmentType().value);
 			
 			String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
 			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, COMMON_HEADERS, parameters);
@@ -274,6 +258,7 @@ public class AppointmentController extends BaseController {
 		booking.setPreferredDate("");
 		booking.setPreferredTime("");
 		booking.setUserName("");
+		booking.setAppointmentType(null);
 		
 		if (booking != null) {
 			if (!booking.getUserName().equals(MemberController.GetUserName(request))) {
