@@ -146,21 +146,21 @@ function stickToHeader() {
 
 					<div class="row requirements-list">
 						<div class="col-xs-12 cstm-md-col-1">
-							<div class="requirment-img-wrapper"><img src="/resources/images/savie-2016/hkid.png"></div>
+							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png"></div>
 							<div class="requirement-text-wrapper">
 								<p>Your HKID card and passport<br><span class="small">(for non-permanent resident only)</span></p>
 							</div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
-							<div class="requirment-img-wrapper"><img src="/resources/images/savie-2016/proof-of-address.png"></div>
+							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png"></div>
 							<div class="requirement-text-wrapper"><p>A valid proof of address within the last 3 months. Click <a href="/resources/address_proof.pdf">here</a></p></div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-3">
 							<div class="requirment-img-wrapper">
-								<img class="visible-xs visible-sm" src="/resources/images/savie-2016/check-or-bank-info.png">
-								<img class="hidden-xs hidden-sm" src="/resources/images/savie-2016/check-or-bank-info-desktop.png">
+								<img class="visible-xs visible-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png">
+								<img class="hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png">
 							</div>
 							<div class="requirement-text-wrapper"><p>Your cheque or Bank of Communications FWD Credit Card for first 2 months' regular premium payment; and Bank information for completing the direct debit authorization form for future premium payment.</p></div>
 						</div>
@@ -170,7 +170,7 @@ function stickToHeader() {
 				</div>
 				<hr>
 				<a class="visible-md visible-lg print-doc-link" href="javascript:window.print()">
-					<img src="/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
+					<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png">&nbsp;&nbsp;&nbsp;
 					<span>Print this document</span>
 				</a>
 				<center>

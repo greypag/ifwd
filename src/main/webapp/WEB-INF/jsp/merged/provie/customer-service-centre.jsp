@@ -376,7 +376,7 @@ function stickToHeader() {
 		<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog">
 			<div class="modal-dialog modal-lg loading-dialog">
 				<div class="modal-content plan-modal loading-modal">
-					<img src="/resources/images/loading.gif"
+					<img src="<%=request.getContextPath()%>/resources/images/loading.gif"
 						width="300" />
 				</div>
 			</div>
@@ -742,7 +742,7 @@ function stickToHeader() {
 			    success:function(data){
 			    	if(data.errMsgs == null){
 			    		//send email
-			    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
+			    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment');
 				    	$("#paymentForm").submit();
 			    	}else if(data.errMsgs == "Access code has already been used"){
 			    		$('#accessCodeUsed').modal('show');

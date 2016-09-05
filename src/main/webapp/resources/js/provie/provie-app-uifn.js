@@ -194,6 +194,7 @@ $(document).ready(function(){
 
 				    	if(response){
 				    		console.log(response);
+				    		window.location.href= context + "/" + language + "/savings-insurance/provie/confirmation-appointment-sp";
 				    	}
 				    },
 				    complete:function(){
@@ -335,6 +336,10 @@ function bsvFormLogin(form){
 	form.find(".btn-submit").on("click",function(){
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
+			
+			//Save Login Username
+			userName = $("#appointmentloginUsername").val();
+
 			var postData = {
 				userName:$("#appointmentloginUsername").val(),
 				password:$("#appointmentloginPassword").val()
@@ -358,7 +363,7 @@ function bsvFormLogin(form){
 			    		isLogged = true;
 		    		
 			    		$(".after-login").find(".fld-val").text(response.fullName);
-			    		userName = response.userName;
+			    		//userName = response.userName;
 			    		$(".before-login").hide();
 			    		$(".after-login").show();	
 
