@@ -858,26 +858,7 @@ function stickToHeader() {
         }
         
     }
-</script></div>
-		
-
-
-
-
-
-  
-     <!-- Start of LiveChat (www.livechatinc.com) code -->
-    <script type="text/javascript">
-    var __lc = {};
-    __lc.license = 6320751;
-    __lc.group = 1;
-    (function() {
-    var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-    lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-    })();
-    </script>
-    <!-- End of LiveChat code -->
+</script>
 
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
