@@ -157,10 +157,10 @@ public class ProvieController extends BaseController{
 			@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<ProviePlanDetails> getPlanDetails(
 			@ApiParam(value = "Premium", required = true) @RequestParam("premium") Float premium
-			, @ApiParam(value = "Plan Code (SP/RP)", allowableValues = "SP,RP", required = true) @RequestParam("planCode") String planCode
+			, @ApiParam(value = "Plan Code (SP/RP)", allowableValues = "PROVIE-SP,PROVIE-RP", required = true) @RequestParam("planCode") String planCode
 			, @ApiParam(value = "Currency", allowableValues = "USD,HKD",  required = true) @RequestParam("currency") String currency
 			, @ApiParam(value = "DOB of applicant (in dd/MM/yyyy format)",  required = true) @RequestParam("dob") String dob
-			, @ApiParam(value = "Additional rider",  required = true) @RequestParam("rider") String rider
+			, @ApiParam(value = "Additional rider", allowableValues = "ACCIDENTIAL_DEATH_BENEFIT,CANCER_BENEFIT,TERM_LIFE_BENEFIT",  required = true) @RequestParam("rider") String rider
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
