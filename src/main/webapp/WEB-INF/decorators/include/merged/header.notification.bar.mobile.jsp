@@ -5,7 +5,7 @@
         <span aria-hidden="true" onclick="closeNotificationBox();">&#215;</span>
     </button>
     <div class="container">
-        <span><fmt:message key="header.notification.msg" bundle="${msg}" /></span>
+        <span id="notification-bar-content-mobile"></span>
     </div>
 </div>
 <!-- ./header.notification.bar.mobile.jsp -->

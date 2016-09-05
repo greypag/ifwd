@@ -15,6 +15,43 @@
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
 <!-- header.notification.bar -->
+<script type="text/javascript">
+	var obj = {
+	    'topBar': {
+	        'mobile': 0,
+	        // 'mobile':   106,
+	        'desktop': 42,
+	        'classname': {
+	            'mobile': 'div.closeMobileMenu',
+	            // 'mobile':   'div.navbar-header',
+	            'desktop': 'nav.navbar.navbar-inverse'
+	        }
+	    },
+	    'notificationBarOnly': {
+	        'mobile': 56,
+	        'desktop': 56,
+	        'classname': {
+	            'mobile': '.header-notification-box.header-notification-box--mobile',
+	            'desktop': '.header-notification-box.header-notification-box--desktop'
+	        },
+	        'content': {
+			    'repair': {
+			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			    },
+				'fraud' : {
+			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
+			    },
+			    'flight': {
+			        'mobile': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />'
+			    }
+			}
+	    }
+	};
+var pageIndex = 'flight';
+</script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 <!-- ./header.notification.bar -->
