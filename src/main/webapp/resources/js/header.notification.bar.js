@@ -37,21 +37,25 @@ function closeNotificationBox() {
     $('.header-notification-box').remove();
 }
 
-function updateNotificationBox(content, pageIndex) {
-    var mobileBoxElem = document.getElementById("notification-bar-content-mobile");
-    var desktopBoxElem = document.getElementById("notification-bar-content-desktop");
+function updateNotificationBox(content, contentIndex) {
+    if ( typeof contentIndex !== "undefined" && contentIndex !== null ) {
+        var mobileBoxElem = document.getElementById("notification-bar-content-mobile");
+        var desktopBoxElem = document.getElementById("notification-bar-content-desktop");
 
-    if ( typeof mobileBoxElem !== "undefined" && mobileBoxElem !== null ) {
-        mobileBoxElem.innerHTML = "";
-        mobileBoxElem.innerHTML = content[pageIndex].mobile;
+        if ( typeof mobileBoxElem !== "undefined" && mobileBoxElem !== null ) {
+            mobileBoxElem.innerHTML = "";
+            mobileBoxElem.innerHTML = content[contentIndex].mobile;
+        } else {
+            console.error( "Element with the class \"notification-bar-content-mobile\" may not existed." );
+        }
+        if ( typeof desktopBoxElem !== "undefined" && desktopBoxElem !== null ) {
+            desktopBoxElem.innerHTML = "";
+            desktopBoxElem.innerHTML = content[contentIndex].desktop;
+        } else {
+            console.error( "Element with the class \"notification-bar-content-desktop\" may not existed." );
+        }
     } else {
-        console.error( "Element with class \"notification-bar-content-mobile\" may not existed." );
-    }
-    if ( typeof desktopBoxElem !== "undefined" && desktopBoxElem !== null ) {
-        desktopBoxElem.innerHTML = "";
-        desktopBoxElem.innerHTML = content[pageIndex].desktop;
-    } else {
-        console.error( "Element with class \"notification-bar-content-desktop\" may not existed." );
+        console.error("Failure to updated the content in Notification Bar.");
     }
 }
 
@@ -65,7 +69,7 @@ $(function() {
         console.error('"obj.notificationBarOnly.content" ' + err);
     }
 
-    updateNotificationBox(obj.notificationBarOnly.content, pageIndex);
+    updateNotificationBox(obj.notificationBarOnly.content, notificationBarContentIndex);
 
     screenJob(obj);
     $(window).resize(function() {

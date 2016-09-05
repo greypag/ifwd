@@ -49,14 +49,20 @@
 			}
 	    }
 	};
-var pageIndex = 'flight';
+var notificationBarContentIndex = '';
+<c:if test="${planIndex != 'flight-insurance'}">
+	notificationBarContentIndex = 'fraud';
+</c:if>
+<c:if test="${planIndex == 'flight-insurance'}">
+	notificationBarContentIndex = 'flight';
+</c:if>
+
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 <!-- ./header.notification.bar -->
 
 <script>
-
 var getBundleLanguage = "";
 var lang = UILANGUAGE;
 
