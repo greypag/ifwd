@@ -86,7 +86,6 @@ public class SwaggerConfig {
                 .build()))
         .securitySchemes(newArrayList(apiKey()))
         .securityContexts(newArrayList(securityContext()))
-        .tags(new Tag("Pet Service", "All apis relating to pets")) 
         ;
   }
 

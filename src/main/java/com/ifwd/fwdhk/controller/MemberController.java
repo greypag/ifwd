@@ -35,7 +35,7 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.Methods;
 
 @Controller
-@RequestMapping(value = "/api/member", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})
+@RequestMapping(value = "/api/member", produces = {APPLICATION_JSON_VALUE})
 @Api(value = "/member", description = "Operations about members")
 public class MemberController extends BaseController {
 
