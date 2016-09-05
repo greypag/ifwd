@@ -19,6 +19,8 @@ import io.swagger.annotations.ApiResponses;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -33,12 +35,17 @@ import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.AppointmentBooking;
 import com.ifwd.fwdhk.model.TimeSlotEntity;
+import com.ifwd.fwdhk.services.LifeService;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 
 
 @Controller
-@RequestMapping(value = "/api/appointment", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})
+@RequestMapping(value = "/api/appointment", produces = {APPLICATION_JSON_VALUE})
 @Api(value = "/appointment", description = "Operations about appointment")
 public class AppointmentController extends BaseController {
+
+	@Autowired
+	private LifeService savieOnlineService;
 	
 	public enum AppointmentType {
 		SAVIE_OFFLINE(1),
@@ -139,14 +146,6 @@ public class AppointmentController extends BaseController {
 							@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> bookAppointment(
 			@ApiParam(value = "Appointment booking", required = true) @RequestBody AppointmentBooking booking
-			/*
-			@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = true) @RequestParam("preferredDate") String preferredDate
-			,@ApiParam(value = "Appointment time (in HH:Mi format)", required = true) @RequestParam("preferredTime") String preferredTime
-			,@ApiParam(value = "CS centre code", required = true) @RequestParam("centreCode") String centreCode
-			,@ApiParam(value = "Plan code", required = true) @RequestParam("planCode") String planCode
-			,@ApiParam(value = "User name", required = true) @RequestParam("userName") String userName
-			,@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
-			*/
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
@@ -186,7 +185,59 @@ public class AppointmentController extends BaseController {
 			
 			if (makeJsonObj.get("errMsgs") == null) {
 				booking.setReferenceNum(applicationNumber);
-				return Responses.ok(booking);
+				
+				String centerEn = "";
+				String centerCh = "";
+				String centerAddEn = "";
+				String centerAddCh = "";
+				ServiceCentreResult entityEn = null;
+				ServiceCentreResult entityCh = null;
+				for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreEN.getServiceCentres()) {
+					if(entity.getServiceCentreCode().equals(booking.getCentreCode())) {
+						centerEn = entity.getServiceCentreName();
+						centerAddEn = entity.getAddress();
+						entityEn = entity;
+						break;
+					}
+				}
+				for(ServiceCentreResult entity :InitApplicationMessage.serviceCentreCN.getServiceCentres()) {
+					if(entity.getServiceCentreCode().equals(booking.getCentreCode())) {
+						centerCh = entity.getServiceCentreName();
+						centerAddCh = entity.getAddress();
+						entityCh = entity;
+						break;
+					}
+				}
+								
+				JSONObject models = new JSONObject();
+				models.put("name", booking.getUserName());
+				models.put("accessCode", accessCode);
+				models.put("dateEn", booking.getPreferredDate());
+				models.put("timeSlotEn", booking.getPreferredTime());
+				models.put("centerEn", centerEn);
+				models.put("centerAddEn", centerAddEn);
+				
+				models.put("dateCh", booking.getPreferredDate());
+				models.put("timeSlotCh", booking.getPreferredTime());
+				models.put("centerCh", centerCh);
+				models.put("centerAddCh", centerAddCh);
+				
+				String action = null;
+				switch (booking.getPlanCode())
+				{
+					case "PROVIE-SP":
+						action = "provie-o2o-sp";
+						break;
+					case "PROVIE-RP":
+						action = "provie-o2o-rp";
+						break;
+				}
+				try {
+					savieOnlineService.sendEmails(request, action, models);
+					return Responses.ok(booking);
+				} catch (Exception e) {
+					return Responses.error(null); 
+				}
 			} else {
 				if (makeJsonObj.get("errMsgs").toString().equals("[\"Access code has already been used\"]")) {
 					return Responses.notAcceptable(null);

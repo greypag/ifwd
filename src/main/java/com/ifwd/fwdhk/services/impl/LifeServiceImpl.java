@@ -3384,6 +3384,12 @@ public class LifeServiceImpl implements LifeService {
 			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 			subject = "FWD Medical Insurance Plan – Document Upload [" + lifePolicy.getPolicyNo() + "] | 富衛醫療保險 – 上載檔案 [" + lifePolicy.getPolicyNo() + "]";
 			template = "rophi\\uploadDocument.html";
+		}else if("provie-o2o-rp".equals(action)) {
+			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
+			template = "provie\\provie-o2o-rp.html";
+		}else if("provie-o2o-sp".equals(action)) {
+			subject = "Provie Appointment Acknowledgement from FWD | Provie真息揀理財壽險計劃申請確認";
+			template = "provie\\provie-o2o-sp.html";
 		}
 		
 		JSONObject parameters = new JSONObject();

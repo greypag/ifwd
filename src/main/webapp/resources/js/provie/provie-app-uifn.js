@@ -168,7 +168,7 @@ $(document).ready(function(){
 					preferredDate:$("#app-date").val(),
 					preferredTime:$("#preferred-time").val(),
 					centreCode:$("#centre").val(),
-					planCode:"PROVIE",
+					planCode:"PROVIE-SP",
 					userName:userName,
 					type:typeId
 				}
