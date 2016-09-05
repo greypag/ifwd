@@ -319,7 +319,7 @@ var lang1 = "${language}";
                 <div class="tab-content carousel-inner clearfix" role="listbox">
                     <div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
                         <div class="so-fna-content">
-                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png"> </div>
+                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png" alt="<fmt:message key="image.alt_13" bundle="${msg}" />"> </div>
                             <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
                             <p><fmt:message key="pillar.support.copy1" bundle="${msg}" />
                                 <!--<a href="#" class="eserv-link ui-link">eServices</a>-->
@@ -328,21 +328,21 @@ var lang1 = "${language}";
                     </div>
                     <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
                         <div class="so-fna-content">
-                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png"> </div>
+                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png" alt="<fmt:message key="image.alt_11" bundle="${msg}" />"> </div>
                             <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
                             <p><fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
                         <div class="so-fna-content">
-                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png"> </div>
+                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />"> </div>
                             <h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claims.easy.title" bundle="${msg}" /></h3>
                             <p><fmt:message key="pillar.claims.easy.copy1.part1" bundle="${msg}" /><a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claims.easy.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.claims.easy.copy1.part3" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
                         <div class="so-fna-content">
-                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png"> </div>
+                            <div class="fna-icon-circle"> <img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png" alt="<fmt:message key="image.alt_12" bundle="${msg}" />"> </div>
                             <h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eService.app.title" bundle="${msg}" /></h3>
                             <p><fmt:message key="pillar.eService.app.copy1.part1" bundle="${msg}" /><a href="<fmt:message key="link.eservice.app" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eService.app.copy1.part2" bundle="${msg}" /></a><fmt:message key="pillar.eService.app.copy1.part3" bundle="${msg}" /></p>
                         </div>

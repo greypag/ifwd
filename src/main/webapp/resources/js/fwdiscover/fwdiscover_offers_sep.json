@@ -149,6 +149,10 @@
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">09月30日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-09-30T14:59:59"
+            },
+            "img_alt": {
+                "en-US": "1-year Home Insurance Plan- FWD Insurance Offers",
+                "zh-HK": "1年家居保險 - 富衛香港 限時優惠"
             }
         }, {
             "_id":  5,
@@ -265,6 +269,10 @@
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">09月30日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-09-30T14:59:59"
+            },
+            "img_alt": {
+                "en-US": "1-year Working Holiday Plan - FWD Insurance Offers",
+                "zh-HK": "1年工作假期保險 - 富衛香港 限時優惠"
             }
         }, {
             "_id":  23,
@@ -500,6 +508,10 @@
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">09月30日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-09-30T14:59:59"
+            },
+            "img_alt": {
+                "en-US": "Annual Travel Plan - FWD Insurance Offers",
+                "zh-HK": "全年旅遊保險 - 富衛香港 限時優惠"
             }
         }, {
             "_id":  2,
@@ -616,6 +628,10 @@
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">09月30日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-09-30T14:59:59"
+            },
+            "img_alt": {
+                "en-US": "14-day Single Trip Travel Plan - FWD Insurance Offers",
+                "zh-HK": "14天單次旅遊保險 - 富衛香港 限時優惠"
             }
         }, {
             "_id":  3,
@@ -732,6 +748,10 @@
                     "zh-HK": "<p class=\"value date\"><br></p><p class=\"value date day\">09月30日</p><p class=\"title\">結束</p>"
                 },
                 "timestamp": "2016-09-30T14:59:59"
+            },
+            "img_alt": {
+                "en-US": "4-day Single Trip Travel Plan - FWD Insurance Offers",
+                "zh-HK": "4天單次旅遊保險 - 富衛香港 限時優惠"
             }
         }
     ]

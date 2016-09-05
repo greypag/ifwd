@@ -78,8 +78,8 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="savie-regular-container savie-regular-landing sp-only">
 				<div class="whole-banner">
               	<div class="page-banner">
-						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
-						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.mobile.sp" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="image.alt_6" bundle="${msg}" />">
+						<img src="<%=request.getContextPath()%>/<fmt:message key="savie.online.hero.image.sp" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm" alt="<fmt:message key="image.alt_6" bundle="${msg}" />">
 						<%--<a class="img-bg" href="#vModal" data-toggle="modal">
 							<img class="play-btn" src="<%=request.getContextPath()%>/resources/images/savie-2016/videoplay.png">
 						</a>--%>
@@ -269,7 +269,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        		<div class="usp row">
 	        			<div class="usp-item clearfix col-xs-12 col-md-4">
 	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie1.title" bundle="${msg}" /></h5>
-	        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="" alt="<fmt:message key="image.alt_52" bundle="${msg}" />">
 	        				<div class="item-desc">
 	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie1.title" bundle="${msg}" /></h5>
 	        					<p><fmt:message key="usp.savie1.copy" bundle="${msg}" /></p>
@@ -277,7 +277,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        			</div>
 	        			<div class="usp-item clearfix col-xs-12 col-md-4">
 	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie2.title" bundle="${msg}" /></h5>
-	        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="" alt="<fmt:message key="image.alt_53" bundle="${msg}" />">
 	        				<div class="item-desc">
 	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie2.title" bundle="${msg}" /></h5>
 	        					<p class="padded"><fmt:message key="usp.savie2.copy" bundle="${msg}" /></p>
@@ -285,7 +285,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        			</div>
 	        			<div class="usp-item clearfix col-xs-12 col-md-4">
 	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie3.title" bundle="${msg}" /></h5>
-	        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="" alt="<fmt:message key="image.alt_54" bundle="${msg}" />">
 	        				<div class="item-desc">
 	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie3.title" bundle="${msg}" /></h5>
 	        					<p class="padded"><fmt:message key="usp.savie3.copy" bundle="${msg}" /></p>
@@ -353,10 +353,10 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
-		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" alt="<fmt:message key="image.alt_55" bundle="${msg}" />">
 		        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" alt="<fmt:message key="image.alt_55" bundle="${msg}" />"/>
 										<div class="info hidden-benefits-info">
 											<h3><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
 											<p><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
@@ -475,7 +475,7 @@ var home_url = "<%=request.getContextPath()%>";
 											</div> -->
 										<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
 											<div class="benefits-content clearfix">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" alt="<fmt:message key="image.alt_55" bundle="${msg}" />">
 												<div class="info">
 													<h3><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
 													<p><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
@@ -501,27 +501,27 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="carousel-inner" role="listbox">
 									<div class="item active">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part1" bundle="${msg}" />" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part1" bundle="${msg}" />" class="img-responsive" alt="<fmt:message key="image.alt_51" bundle="${msg}" />">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part2" bundle="${msg}" />" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part2" bundle="${msg}" />" class="img-responsive" alt="<fmt:message key="image.alt_47" bundle="${msg}" />">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part3" bundle="${msg}" />" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part3" bundle="${msg}" />" class="img-responsive" alt="<fmt:message key="image.alt_48" bundle="${msg}" />">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part4" bundle="${msg}" />" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part4" bundle="${msg}" />" class="img-responsive" alt="<fmt:message key="image.alt_49" bundle="${msg}" />">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part5" bundle="${msg}" />" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/<fmt:message key="infographic.savie.landing.part5" bundle="${msg}" />" class="img-responsive" alt="<fmt:message key="image.alt_50" bundle="${msg}" />">
 										</div>
 									</div>
 								</div>
@@ -587,7 +587,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
-										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png">
+										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-01.png" alt="<fmt:message key="image.alt_13" bundle="${msg}" />">
 									</div>
 									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
 									 <p><fmt:message key="pillar.support.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
@@ -596,7 +596,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
-										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png">
+										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-02.png" alt="<fmt:message key="image.alt_11" bundle="${msg}" />">
 									</div>
 									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
 									<p> <fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
@@ -605,7 +605,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
-										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png">
+										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-03.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />">
 									</div>
 									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
 									<p><fmt:message key="pillar.claim.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claim.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy1.part3" bundle="${msg}" /></p>
@@ -614,7 +614,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
-										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png">
+										<img src="<%=request.getContextPath()%>/resources/images/pillar/pillar-04.png" alt="<fmt:message key="image.alt_12" bundle="${msg}" />">
 									</div>
 									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></h3>
 									<p><fmt:message key="pillar.eservice.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eservice.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy1.part3" bundle="${msg}" /></p>

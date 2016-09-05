@@ -1720,7 +1720,7 @@ label {
 	}
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1020px) {
+@media (min-width: 992px) and (max-width: 1020px) {
 	/* line 211, ../sass/partials/_footer.scss */
 	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li.faq
 		{
@@ -1733,7 +1733,7 @@ label {
 	display: none;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1020px) {
+@media (min-width: 992px) and (max-width: 1020px) {
 	/* line 218, ../sass/partials/_footer.scss */
 	.fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu span
 		{
@@ -2709,7 +2709,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 	padding-top: 40px;
 }
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
 	/* line 4, ../sass/partials/_benefits.scss */
 	.fwd-savie-wrapper .benefits {
 		text-align: center;
@@ -3865,7 +3865,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 	padding: 7px 18px;
 }
 
-@media screen and (min-width: 0 \0) {
+@media (min-width: 0 \0) {
 	/* line 89, ../sass/partials/_email.scss */
 	.fwd-savie-wrapper .email-row .email-input .email-btn {
 		top: -7px;
@@ -21541,7 +21541,7 @@ body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd
 body.chin .fwd-savie-wrapper p,
 body.chin .fwd-savie-wrapper a,
 body.chin .fwd-savie-wrapper li,
-body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon) {
+body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.dw-mon) {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
 body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a {
@@ -25588,7 +25588,7 @@ label.et-bene-radio,#et-application-second-section label,
 #et-plan-option-section .mask img {
 	margin-top: 25%;
 }
-@media screen and ( max-width : 991px) {
+@media ( max-width : 991px) {
     .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link,
     .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3{
         font-size: 18px;

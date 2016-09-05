@@ -259,7 +259,7 @@ hr {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
 	#loginpopup .modal-dialog {
 		width: 600px;
 	}
@@ -271,7 +271,7 @@ hr {
 	}
 }
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
 	.modal-dialog {
 		width: 800px;
 	}
@@ -6386,7 +6386,7 @@ input[type='radio']:checked:before {
 }
 
 /******Summary Table*****/
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
 	/* Force table to not be like tables anymore */
 	#no-more-tables table, #no-more-tables thead, #no-more-tables tbody,
 		#no-more-tables th, #no-more-tables td, #no-more-tables tr {
@@ -7169,7 +7169,7 @@ select#selectHkidPass, .selectHkidPass { /*width:98% !important;*/
 /*border-bottom: 2px solid #f68a1d;
     padding-bottom: 30px;
 }*/
-@media screen and (max-width:991px) {
+@media (max-width:991px) {
 	.navbar-header {
 		float: none;
 	}
@@ -7211,7 +7211,7 @@ select#selectHkidPass, .selectHkidPass { /*width:98% !important;*/
 	font-weight: 700;
 }
 
-@media screen and (min-width:992px) and (max-width:1199px) {
+@media (min-width:992px) and (max-width:1199px) {
 	.plan-box3 h3 {
 		margin-left: 30px;
 		font-size: 28px;
@@ -9456,7 +9456,7 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	}
 }
 /** annual travel **/
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 	/* Force table to not be like tables anymore */
 	#plan-no-more-tables table, #plan-no-more-tables thead,
 		#plan-no-more-tables tbody, #plan-no-more-tables th,
@@ -9957,7 +9957,7 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 }
 /** annual travel **/
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
 	/* Force table to not be like tables anymore */
 	#plan-no-more-tables table,
 	#plan-no-more-tables thead,
@@ -10165,7 +10165,7 @@ ul.promotion-sub-tnc.bullets {
     list-style-type: disc;
     padding: 0;
 }
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
     ul.promotion-sub-tnc.bullets p{
         color: #333;
     }
@@ -10258,7 +10258,7 @@ ul.promotion-sub-tnc.bullets {
 .mob-login-form-wrapper{
 	display: none;
 }
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
     body {
        /*padding-top: 35%;*/
        padding-top: 50px;
@@ -10384,7 +10384,7 @@ ul.promotion-sub-tnc.bullets {
         display:none;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
 	.navbar-nav .open .dropdown-menu {
 		position: static;
 		float: none;
@@ -10449,7 +10449,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     max-height: 9999px;
 }
 /******** Mobile header fix ********/
-@media screen and (max-width: 767px){
+@media (max-width: 767px){
 	.mob-topbar .chat,.mob-topbar .lang{
 	   font-size: 14px;
 	}
@@ -10460,7 +10460,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	   padding: 0 18px;
 	}
 }
-@media screen and (max-width: 320px){
+@media (max-width: 320px){
 	 .mob-topbar .callus{
 	   font-size: 12px;
 	   padding: 0 10px 0 10px !important;
@@ -10470,7 +10470,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	 }
 
 }
-@media screen and (max-width: 991px){
+@media (max-width: 991px){
 	#myDropdownMob.modal-dialog{
 	   margin-top: 35%;
 	}
@@ -11155,7 +11155,7 @@ _:-ms-fullscreen, :root #loginpopup .login-input {
 .chatnow-btn{
 	background-color:#373a36;
 }
-@media screen and (max-width: 991px){
+@media (max-width: 991px){
 	/* fix for conflict .dropdown:hover .dropdown-menu display block issue  in savie-styles.css */
 	div.mobile-menu-V2 .navbar-nav>li.dropdown.fwd-header-navgation-menu:hover ul.dropdown-menu{
 	   display: none;
@@ -11862,7 +11862,7 @@ body.chin .partner-headline-wrapper .headline-title{
     line-height: 1.1;
     margin: 2px 0 10px 0;
 }
-@media screen and (min-width: 992px) and (max-width: 1070px) {
+@media (min-width: 992px) and (max-width: 1070px) {
 	#tdp1 input.datepicker.form-control.border-radius, #tdp2 input.datepicker.form-control.border-radius {
 	font-size: 18px;
 }
@@ -12155,7 +12155,7 @@ Be caution: <select> have customed made */
 	font-size: 65px;
 }
 
-@media screen and (max-width: 991px){
+@media (max-width: 991px){
 	.banner-title .dot-font{
 		font-size: 40px;
 	}
@@ -12178,8 +12178,8 @@ Be caution: <select> have customed made */
 	padding: 0;
 }
 .img-payment__tagAndGo{
-	width: 60px;
-	height: 60px;
+	width: 154px;
+	padding-top: 5px;
 }
 
 /* line 142, ../sass/partials/_et-cannot-apply-modal.scss */
@@ -12350,3 +12350,23 @@ button[disabled].btn.btn-default--vc {
     border: 1px solid #ff8200;
   }
 }*/
+
+/* ticket 3490 Add tag and go payment reminder 31-08-2016 By Irvine*/
+.support-reminder{
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+.support-reminder--hide{
+	display:none;
+}
+.support-reminder__title{
+	font-weight: bold;
+}
+.support-reminder__list{
+	color: #f68a1d;
+	font-size: 16px;
+}
+.support-reminder__list li span{
+	color: #333;
+}
+/* End ticket 3490 Add tag and go payment reminder 31-08-2016 By Irvine*/

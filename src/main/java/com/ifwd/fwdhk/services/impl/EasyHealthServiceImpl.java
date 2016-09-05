@@ -294,7 +294,7 @@ public class EasyHealthServiceImpl implements EasyHealthService {
 				// request.getSession().setAttribute("isVulnerable", false);
 				//	throw new ECOMMAPIException(vulnerableCustomerResponse.getErrMsgs()[0]);
 				//}
-				request.getSession().setAttribute("isVulnerable", false);
+				//request.getSession().setAttribute("isVulnerable", false);
 			}
 			else{
 				throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);

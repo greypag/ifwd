@@ -211,7 +211,7 @@ public class PaymentController extends BaseController {
 		responsObject = restService.consumeApi(HttpMethod.GET,statusUrl, header,null);
 		logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 		
-		String paymentStatus=responsObject.get("paymentStatus").toString();		
+		String paymentStatus=responsObject.get("paymentStatus")==null?"":responsObject.get("paymentStatus").toString();		
 			
 		String lang = UserRestURIConstants.getLanaguage(request);		
 		

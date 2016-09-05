@@ -86,7 +86,7 @@
 	        							<fmt:message key="msg.confirmation.upload.later.easyhealth.copy1" bundle="${msg}" />
 	        						</c:if>
 	        					</h3>
-	        					<h3 class="visible-xs visible-sm" id="policy-no-mb">Policy no. <span class="policy-no">${lifePolicy.policyNo }</span></h3>
+	        					<h3 class="visible-xs visible-sm" id="policy-no-mb"><fmt:message key="label.policyno" bundle="${msg}" /> <span class="policy-no">${lifePolicy.policyNo }</span></h3>
 	        					<p id="success-purchase">
 	        						<c:if test="${planIndex == 'savings-insurance'}">
 	        							<fmt:message key="msg.confirmation.upload.later.savie.copy2" bundle="${msg}" />

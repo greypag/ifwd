@@ -1820,11 +1820,20 @@ public class TravelController {
 		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 		
-		
+		String paymentMethod = (String)session.getAttribute("paymentMethod");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
-        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";     
+        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){
+        	if("TapNGo".equals(paymentMethod)){
+				String lang = UserRestURIConstants.getLanaguage(request);
+				if("tc".equals(lang)){
+					errorMsg = "是次交易 ("+session.getAttribute("transNo")+") 未能完成。";
+				}else{
+					errorMsg = "This transaction ("+session.getAttribute("transNo")+") is incomplete.";
+				}
+			}else{
+				errorMsg = "Payment failure";     
+			}
         }        
         model.addAttribute("errormsg", errorMsg);        
         model.addAttribute("referralCode", session.getAttribute("referralCode"));        

@@ -454,7 +454,7 @@ var languageP = "${language}";
 								</div>
 
 								
-								<c:if test="${is_medical}">
+								<%--c:if test="${is_medical}">
                                 <div id="has-regular-income" class="col-xs-12 col-sm-12 col-md-12" >
                                     <div class="form-group">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none easyhealth_q">
@@ -483,7 +483,7 @@ var languageP = "${language}";
                                         </div>
                                     </div>
                                 </div>
-                                </c:if>
+                                </c:if--%>
                                 
 	  							<div class="col-xs-12 text-center">
 	  								<button type="submit" class="text-bold btn savie-common-btn" id="next-btn"><fmt:message key="button.Next" bundle="${msg}" /></button><br />
@@ -550,14 +550,6 @@ var languageP = "${language}";
 
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
-            //var IsVisibleHasRegularIncome = true;
-            //$(document).ready(function () {
-            //    if ( IsVisibleHasRegularIncome == false ) {
-            //        $('#has-regular-income').addClass('hide');
-            //    } else {
-            //        $('#has-regular-income').removeClass('hide');
-            //    }
-            //});
 
 			var getpath =  "<%=request.getContextPath()%>";
 
@@ -778,7 +770,7 @@ var languageP = "${language}";
 	                        }
 						};
 		
-				<c:if test="${is_medical}">
+				<%--c:if test="${is_medical}">
 						validateFields['regularIncome']= {
 	                        container: '#has_regular_incomeErMsg',
 	                        validators: {
@@ -787,7 +779,7 @@ var languageP = "${language}";
 	                            }
 	                        }
 	                    };
-				</c:if>
+				</c:if--%>
 
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({

@@ -73,7 +73,7 @@
                 	
                     <div id="theclub_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="theclub">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png"/>
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="<fmt:message key="image.alt_61" bundle="${msg}" />"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
                             <div class="partner_title"><fmt:message key="partner.the.club.title" bundle="${msg}" /></div>
@@ -114,7 +114,7 @@
                     <hr class="partner_hr"/>
                     <div id="agoda_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="agoda">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png"/>
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="<fmt:message key="image.alt_62" bundle="${msg}" />"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
                             <div class="partner_title"><fmt:message key="partner.agoda.title" bundle="${msg}" /></div>
@@ -156,7 +156,7 @@
                 	<hr class="partner_hr"/>
                     <div id="csl_nodefault" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content" name="csl">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
-                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/CSL_logo.png"/>
+                            <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/CSL_logo.png" alt="<fmt:message key="image.alt_63" bundle="${msg}" />"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
                             <div class="partner_title"><fmt:message key="partner.csl.title" bundle="${msg}" /></div>

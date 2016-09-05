@@ -657,7 +657,7 @@ function getParameterByUrl(name){
 	                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
 	                  </h3>
 	                  <div style="margin-top:25px;">
-	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp2.png" />
+	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp2.png" alt="<fmt:message key="image.alt_26" bundle="${msg}" />"/>
 	                  </div>
 	                  <div style="margin-top:10px;">
 	                       <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
@@ -670,7 +670,7 @@ function getParameterByUrl(name){
 	                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
 	                  </h3>
 	                  <div style="margin-top:25px;">
-	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp3.png" />
+	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp3.png" alt="<fmt:message key="image.alt_27" bundle="${msg}" />"/>
 	                  </div>
 	                  <div style="margin-top:10px;">
 	                        <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
@@ -683,7 +683,7 @@ function getParameterByUrl(name){
 	                         <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
 	                      </h3>
 	                      <div style="margin-top:25px;">
-	                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
+	                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" alt="<fmt:message key="image.alt_28" bundle="${msg}" />"/>
 	                      </div>
 	                      <div style="margin-top:10px;">
 	                          <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
@@ -771,60 +771,60 @@ function getParameterByUrl(name){
         <h4><strong></strong></h4>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png" alt="<fmt:message key="image.alt_29" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png" alt="<fmt:message key="image.alt_29" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.medicalexpenses.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png" alt="<fmt:message key="image.alt_30" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.baggage" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png" alt="<fmt:message key="image.alt_30" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.baggage" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.baggage.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png" alt="<fmt:message key="image.alt_31" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png" alt="<fmt:message key="image.alt_31" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.lostofpersonal.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png" alt="<fmt:message key="image.alt_32" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.personalliability" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png" alt="<fmt:message key="image.alt_32" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.personalliability" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.personalliability.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png" alt="<fmt:message key="image.alt_33" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png" alt="<fmt:message key="image.alt_33" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.rentalvehicleexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png" alt="<fmt:message key="image.alt_34" bundle="${msg}" />">
                 <h5><fmt:message key="annual.main.noexcess" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png" alt="<fmt:message key="image.alt_34" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.noexcess" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.noexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
@@ -976,7 +976,7 @@ function getParameterByUrl(name){
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
             <h1><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" />
             </h1>
@@ -998,7 +998,7 @@ function getParameterByUrl(name){
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  />
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  />
             <h1><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /><br/>
               <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h1>
             <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
@@ -1020,7 +1020,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt=""  />
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />"  />
                 <h2><fmt:message key="travel.main.highlight1.heading.line1" bundle="${msg}" /><br/>
                   <fmt:message key="travel.main.highlight1.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight1.desc.part1" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank" ><u><fmt:message key="travel.main.highlight1.desc.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.highlight1.desc.part3" bundle="${msg}" /></p>
@@ -1047,7 +1047,7 @@ function getParameterByUrl(name){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""  /> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"  /> 
               <h2><fmt:message key="travel.main.highlight3.heading.line1" bundle="${msg}" /> <fmt:message key="travel.main.highlight3.heading.line2" bundle="${msg}" /></h2>
                 <p><fmt:message key="travel.main.highlight3.desc" bundle="${msg}" /></p>
               </div>

@@ -17,16 +17,16 @@ var enablePayment=true;
 var tapAndGoUrl = "https://custportal.tapngo.com.hk/en/login";
 var clicked = false;
     function confirmTravelPayment(form, gatewayUrlId, paymentFormId) {
-		
+
 
     	var selectedPaymentType = $("input:radio[name=paymentGroup]:checked").val();
     	clicked = false;
     	console.log(enablePayment);
-        
+
 		if(payValid(selectedPaymentType) && enablePayment){
 			console.log("enablePayment");
     		enablePayment=false;
-    		
+
     		var gatewayUrlId = '#' + gatewayUrlId;
             var paymentFormId = '#' + paymentFormId;
     		var method = "<%=request.getContextPath()%>/processTravePayment";
@@ -60,11 +60,11 @@ var clicked = false;
 	        	//console.log("aaa");
 	        	$("#PaymentingDiv").show();
 	            clicked = true;
-	            
+
 	            var gatewayUrlId = '#' + gatewayUrlId;
 	            var paymentFormId = '#' + paymentFormId;
 	            var method = "<%=request.getContextPath()%>/processTravePayment";
-	            
+
 	            var geteWayUrl = $(gatewayUrlId).val();
 	            console.log($(paymentFormId).serialize());
 	            $.ajax({
@@ -100,7 +100,7 @@ var clicked = false;
                         success : function(data) {
                         	clicked = false;
                         	var str = JSON.stringify(data)
-                        	
+
                         	if(data.errMsg){
                         		console.log(data);
                             	$("#PaymentingDiv").hide();
@@ -118,12 +118,12 @@ var clicked = false;
 									$("#"+form).submit();
 									3000}
 								);
-								
-                           		
+
+
                            	}
                         }
                     });
-	        		
+
 	        		return true;
 	        }else{
 	        	$("#PaymentingDiv").hide();
@@ -180,7 +180,7 @@ var clicked = false;
 	    }
 	}
 
-	
+
 
 
 
@@ -191,10 +191,12 @@ var clicked = false;
 		selector = $(selector).attr('id');
 		if(selector=="visaMaster"){
 			$("#payment-detail-section").show();
+			$(".support-reminder").hide();
 			$("#checkbox3").next().html(paymentDelcareMsg);
 			//console.log(selector);
 		}else if (selector=="tapAndGo"){
 			$("#payment-detail-section").hide();
+			$(".support-reminder").show();
 			$("#checkbox3").next().html(paymentDelcareMsgTagAndGo);
 			//console.log(selector);
 		}
@@ -202,7 +204,7 @@ var clicked = false;
     $(document).ready(function(){
         $('#cardNo1').payment('formatCardNumber');
         $('#cardNo1').keyup(function() {
-            var replaceSpace = $(this).val(); 
+            var replaceSpace = $(this).val();
             var result = replaceSpace.replace(/\s/g,'');
             $("#cardnumber").val(result);
         });
@@ -214,7 +216,7 @@ var clicked = false;
         	if(lang=="en"){
 	        	kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');
         	}else{
-        		kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');	
+        		kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');
         	}
         	perventRedirect=false;
         	confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');
@@ -289,7 +291,7 @@ var clicked = false;
                                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
                                 <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
                             </div>
-                            <!-- 
+                            <!--
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
                                     <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
@@ -331,7 +333,7 @@ var clicked = false;
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                             <%
-                                                if (planDetailsForm != null) 
+                                                if (planDetailsForm != null)
                                                 {
                                                     if (planDetailsForm.getPlanSelected().equals("personal"))
                                                     {
@@ -343,7 +345,7 @@ var clicked = false;
                                                                      planDetailsForm.getTotalChildTraveller() +
                                                                      planDetailsForm.getTotalOtherTraveller()   );
                                                     }
-                                                }               
+                                                }
                                             %>
                                             </div>
                                         </div>
@@ -355,7 +357,7 @@ var clicked = false;
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${totalTravellingDays}</div>
                                         </div>
-                                        
+
                                         <fmt:formatNumber var="totalA" value="${quoteDetails.toalDue[0]}" pattern="#"/>
 						                <fmt:formatNumber var="totalB" value="${quoteDetails.toalDue[1]}" pattern="#"/>
 	                                    <div class="row summary-row">
@@ -364,7 +366,7 @@ var clicked = false;
 	                                    </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" /></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
@@ -394,8 +396,8 @@ var clicked = false;
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
                                                             <fmt:message key="travel.quote.plan1.benefits.desc2.price" bundle="${msg}" />
                                                             </div>
-                                                        </div> 
-                                                        
+                                                        </div>
+
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
                                                             <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
@@ -437,8 +439,8 @@ var clicked = false;
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
                                                             <fmt:message key="travel.quote.plan2.benefits.desc2.price" bundle="${msg}" />
                                                             </div>
-                                                        </div> 
-                                                        
+                                                        </div>
+
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
                                                             <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
@@ -456,8 +458,8 @@ var clicked = false;
                                                                 </div>
                                                         </div>
                                                     </c:if>
-                                                    
-                                                    
+
+
                                                     <div class="clearfix"></div>
                                                 </div>
                                             <!-- / Plan benefits -->
@@ -470,9 +472,9 @@ var clicked = false;
                            </div>
                         </div>
                         <div class="clearfix"></div>
-                        
+
                         <hr class="hidden-lg hidden-md"/>
-                        
+
                         <!-- ******************* NEW ********************** -->
                         <div id="no-more-tables2" class="hidden-md hidden-lg" style="margin-bottom:30px;">
                           <div style="width:80%;margin-left:10%;">
@@ -516,7 +518,7 @@ var clicked = false;
                                             }else{
                                         %>
                                         <%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> 
+                                        <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -530,7 +532,7 @@ var clicked = false;
                                 <%
                                     }
                                 %>
-                                
+
                                 <%
                                     for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
                                 %>
@@ -567,7 +569,7 @@ var clicked = false;
                                             }else{
                                         %>
                                         <%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> 
+                                        <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedAdBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -581,7 +583,7 @@ var clicked = false;
                                 <%
                                     }
                                 %>
-                                
+
                                 <%
                                     for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
                                 %>
@@ -620,7 +622,7 @@ var clicked = false;
                                             }else{
                                         %>
                                         <%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> 
+                                        <div style="margin-top:10px;"><%=planDetailsForm.getChildBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedChldBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -634,7 +636,7 @@ var clicked = false;
                                 <%
                                     }
                                 %>
-                                
+
                                 <%
                                     for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
                                 %>
@@ -673,7 +675,7 @@ var clicked = false;
                                             }else{
                                         %>
                                         <%=planDetailsForm.getOtherBenificiaryFullName()[i]%> (<%=planDetailsForm.getOtherBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%> 
+                                        <div style="margin-top:10px;"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -687,14 +689,14 @@ var clicked = false;
                                 <%
                                     }
                                 %>
-                                
+
                             </div>
                             <div class="clearfix"></div>
                             </div>
                         </div>
-                        
-                        
-                        
+
+
+
                         <!-- ******* new ******* -->
                         <div id="no-more-tables" class="hidden-sm hidden-xs" style="margin-bottom:30px;">
                             <div style="width:80%;margin-left:10%;">
@@ -733,7 +735,7 @@ var clicked = false;
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Age range"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> 
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -743,7 +745,7 @@ var clicked = false;
                                             }
                                         }
                                     %>
-                                    
+
                                     <%
                                         for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
                                     %>
@@ -767,7 +769,7 @@ var clicked = false;
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Age range"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> 
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedAdBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -777,7 +779,7 @@ var clicked = false;
                                             }
                                         }
                                     %>
-                                    
+
                                     <%
                                         for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
                                     %>
@@ -801,7 +803,7 @@ var clicked = false;
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Age range"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> 
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedChldBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -811,7 +813,7 @@ var clicked = false;
                                             }
                                         }
                                     %>
-                                    
+
                                     <%
                                         for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
                                     %>
@@ -835,7 +837,7 @@ var clicked = false;
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Age range"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%> 
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%>
                                             <% if("HKID".equals(planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[i])) { %>(<fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />)
                                             <% }else { %>(<fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />)
                                             <% } %>
@@ -852,7 +854,7 @@ var clicked = false;
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                
+
                 <c:if test="${(selectPlanName=='A' && totalA<=0) || (selectPlanName=='B' && totalB<=0)}">
                     <div class="gray-bg1 product_payment_detail_form_container">
                         <div style="width:80%;margin-left:10%;">
@@ -872,7 +874,7 @@ var clicked = false;
 	                    </div>
                     </div>
                 </c:if>
-                
+
                 <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && totalA<=0}">hidden</c:if><c:if test="${selectPlanName=='B' && totalB<=0}">hidden</c:if>">
                     <div style="width:80%;margin-left:10%;">
                     <!-- Payment Form -->
@@ -902,11 +904,11 @@ var clicked = false;
                     <%
                         String payLang = (String) session.getAttribute("language");
                         //payLang = payLang.substring(0, 1);
-                        
+
                         payLang = "C";
-                        
+
                         //if (payLang.equals("t"))
-                        
+
                     %>
 <%--                    <input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
                     <input type="hidden" name="lang" value="C"> <input
@@ -917,7 +919,7 @@ var clicked = false;
                         type="hidden" id="gateway" name="gateway"
                         value="${createPolicy.paymentGateway}">
 
-					
+
 					<input type="hidden" id="appId" name="appId" value=""/>
 					<input type="hidden" id="merTradeNo" name="merTradeNo" value=""/>
 					<input type="hidden" id="payload" name="payload" value=""/>
@@ -926,54 +928,54 @@ var clicked = false;
 
 
 					<div class="form-group float product-payment-type">
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
 							<label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">                           
+						<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
 							<div class="radio paymentType paymentType--first">
 								<input id="visaMaster" class="paymentType__btn" type="radio" name="paymentGroup" value="cc" checked>
 								<label for="visaMaster" class="paymentType__btnLabel">
 									<fmt:message key="payment.type1" bundle="${msg}" />
 									<img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
-								</label>																	
+								</label>
 							</div>
-							<%--<div class="radio paymentType paymentType">
+							<div class="radio paymentType paymentType">
 								<input id="tapAndGo" class="paymentType__btn" type="radio" name="paymentGroup" value="tg">
 								<label for="tapAndGo" class="paymentType__btnLabel">
 									<fmt:message key="payment.type2" bundle="${msg}" />
-									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/tap&go.png">
-								</label>																
-							</div>-->
+									<img class="img-responsive img-payment__tagAndGo" src="<%=request.getContextPath()%>/resources/images/FWD_pay_withTapngo_button.png">
+								</label>
+							</div>
 							<%--<img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">--%>
 						</div>
 						<div class="clearfix"></div>
 					</div>
                     <div id="payment-detail-section" class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float" style="display: none;">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
                                 <label class="control-label h4-5">Payment Method</label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <label class="radio-inline">                            
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                                <label class="radio-inline">
                                  <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
-                                </label>    
-                                <label class="radio-inline">        
-                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
                                 </label>
-                                
+                                <label class="radio-inline">
+                                    <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard
+                                </label>
+
                                 <!-- <input type="radio" name="pMethod" value="Diners">Diners
                                     Club <input type="radio" name="pMethod" value="JCB">JCB
                                     <input type="radio" name="pMethod" value="AMEX">AMEX
-                                    
+
                                     -->
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
                                 <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
 
                                 <span id="errcardno" class="error-msg"></span>
@@ -982,10 +984,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
                                 <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
@@ -1005,7 +1007,7 @@ var clicked = false;
                                 <span id="errmonth"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
                                 <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
@@ -1034,10 +1036,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.holderName" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
                                 <input id="holdername" name="cardHolder" type="text"
                                             class="input-block-level"
                                             onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
@@ -1047,10 +1049,10 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none product_payment_details_title">
                                 <label class="control-label  h4-5"><fmt:message key="travel.payment.card.cvv" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
                                 <input id="seccode" type="password" name="securityCode"
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
@@ -1059,17 +1061,24 @@ var clicked = false;
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
                                 <img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt="">
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    
-                    
-                    
+
+
+
                     <div class="clearfix"></div>
+                    <div class="support-reminder" style="display:none;">
+                    	<span class="support-reminder__title"><fmt:message key="travel.payment.reminder.title" bundle="${msg}" /></span>
+                    	<ul class="support-reminder__list">
+                    		<li><span><fmt:message key="travel.payment.reminder.list.item1" bundle="${msg}" /></span></li>
+                    		<li><span><fmt:message key="travel.payment.reminder.list.item2" bundle="${msg}" /></span></li>
+                    	</ul>
+                    </div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
                             <input id="checkbox3" type="checkbox"> <label
@@ -1081,14 +1090,14 @@ var clicked = false;
                         <div class="clearfix"></div>
                         <!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
                         <!-- <div class="hidden-sm hidden-xs pad-none">
-                            
+
                                 class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
                                 type="submit"
                                 class="bdr-curve btn btn-primary nxt-btn margin-left"
                                 value="確�付款" onclick="confirmPayment()" />
                         </div>
                         <br> <br>
-                        
+
                         <div class="pad-none hidden-md hidden-lg">
                             <a href="travel-plan-details.html"
                                 class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
@@ -1100,9 +1109,9 @@ var clicked = false;
                                 type="submit"
                                 class="bdr-curve btn btn-primary nxt-btn"
                                 value="確�付款" onclick="confirmPayment()" /> -->
-                        <!-- vincent add a button for paymnet confirmation (mobile) --> 
-                        
-                        
+                        <!-- vincent add a button for paymnet confirmation (mobile) -->
+
+
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
@@ -1115,18 +1124,18 @@ var clicked = false;
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
 </c:otherwise>
 </c:choose>
-                                
-                                
+
+
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
                                 <!-- <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="travel.action.back" bundle="${msg}" /> 
+                                    <fmt:message key="travel.action.back" bundle="${msg}" />
                                 </a> -->
-                                
+
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                         </div>
-                        
+
                         <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
                                 <a href="#" onclick="BackMe()"
                                     class="bdr-curve btn btn-primary bck-btn">返� </a>
@@ -1135,19 +1144,19 @@ var clicked = false;
                                 <input type="submit"
                                     class="bdr-curve-none btn btn-primary nxt-btn "
                                     value="確�付款" onclick="confirmPayment()" />
-                                
+
 
                             </div> -->
-                            <!-- 
+                            <!--
                             <div class="hidden-sm hidden-xs pad-none">
                             <a href="<%=request.getContextPath()%>/${language}/travel-insurance/user-details"
                                 class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             <input type="submit"
-                                class="bdr-curve btn btn-primary nxt-btn margin-left" 
+                                class="bdr-curve btn btn-primary nxt-btn margin-left"
                                 value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
-                                
+
                               </div>
-                              
+
                         <br> <br>
                         <div class="row hidden-md hidden-lg">
                             <div class="clearfix"></div>
@@ -1157,7 +1166,7 @@ var clicked = false;
                                     class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" />  </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-                                
+
                                 <input type="submit"
                                     class="bdr-curve-none btn btn-primary nxt-btn"
                                     value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" />
@@ -1167,12 +1176,12 @@ var clicked = false;
                             <div class="clearfix"></div>
                         </div>
                              -->
-                            
-                            
-                                                    
+
+
+
                             <div class="clearfix"></div>
                         </div>
-                        
+
                         <!--/ Payment Form -->
                         <!-- Show the following buttons when hiding the payment form, update the link for Confirm button
                         <div class="row">
@@ -1187,20 +1196,20 @@ var clicked = false;
                                     class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
 </c:otherwise>
 </c:choose>
-                                
-                                
+
+
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">       
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         -->
-                        
+
                         <hr class="summary-hr"/>
 
-                        
-                        
+
+
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="paydollar-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
@@ -1235,8 +1244,8 @@ var clicked = false;
                         <br/>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="form-wrap" style="margin-bottom: 10px;">
                     <h4 class="h4-4 product_landing_download_button pull-left">
                         <i class="fa fa-download"></i> <a
@@ -1250,7 +1259,7 @@ var clicked = false;
                     </h4>
                     <div class="clearfix"></div>
                     </div>
-                    
+
                 </div>
             </form>
         </div>

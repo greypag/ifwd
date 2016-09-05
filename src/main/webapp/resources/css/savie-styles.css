@@ -84,7 +84,7 @@ body.chin .text-bold {
   margin-top: 5px;
   margin-right: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 3, ../sass/partials/savie/_header.scss */
   .navbar-toggle.shown-sm {
     float: none;
@@ -109,7 +109,7 @@ body.chin .text-bold {
   float: right;
   width: 56%;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 22, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position {
     float: left;
@@ -157,7 +157,7 @@ body.chin .text-bold {
   background-color: #222222;
   height: 50px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 61, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-fixed-top {
     height: 35px;
@@ -198,7 +198,7 @@ body.chin .text-bold {
   height: auto;
   background-color: #222222;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 94, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu {
     padding-top: 35px;
@@ -229,7 +229,7 @@ body.chin .text-bold {
   height: 70px;
 }
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 125, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu .header-menu li.full-width {
     position: relative;
@@ -244,7 +244,7 @@ body.chin .text-bold {
 .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position img {
   padding: 15px 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 140, ../sass/partials/savie/_header.scss */
   .fwd-savie-wrapper header .navbar-menu .navbar-position .logo-position img {
     padding: 8px 0;
@@ -677,13 +677,13 @@ a:hover {
   }
 }
 
-@media screen and (max-width:992px){
+@media (max-width:992px){
 #index-logo{
 		width:556px ;
 	}
 }
 
-@media screen and (min-width: 922px){
+@media (min-width: 922px){
 /* line 302, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
@@ -1491,19 +1491,19 @@ h6 {
   padding: 5px 30px 7px !important;
   width: 160px;
 }
-@media screen and (min-width: 414px) {
+@media (min-width: 414px) {
   /* line 5, ../sass/partials/savie/_homepage.scss */
   .savie-common-btn.get-btn {
     width: 165px;
   }
 }
-@media screen and (min-width: 480px) {
+@media (min-width: 480px) {
   /* line 5, ../sass/partials/savie/_homepage.scss */
   .savie-common-btn.get-btn {
     margin: 20px 0;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 5, ../sass/partials/savie/_homepage.scss */
   .savie-common-btn.get-btn {
     margin: 27px 0;
@@ -1519,7 +1519,7 @@ h6 {
 .savie-common-btn.read-more-btn:focus {
   outline: none;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 24, ../sass/partials/savie/_homepage.scss */
   .savie-common-btn.read-more-btn {
     padding: 20px 0;
@@ -1543,7 +1543,7 @@ h6 {
 body {
   position: inherit;
 }
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
   /* line 51, ../sass/partials/savie/_homepage.scss */
   body {
     /*padding-top: 0;*/
@@ -1554,7 +1554,7 @@ body {
 #savie-online {
   margin-top: 50px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 59, ../sass/partials/savie/_homepage.scss */
   #savie-online {
     margin-top: 0;
@@ -1583,7 +1583,7 @@ body {
   bottom: 10%;
   left: 30px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 84, ../sass/partials/savie/_homepage.scss */
   .hero-banner .banner-text {
     bottom: 20%;
@@ -1608,7 +1608,7 @@ body {
 		text-shadow: 1px 2px 10px rgba(0, 0, 0, 0.6);
 	}
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 94, ../sass/partials/savie/_homepage.scss */
   .hero-banner .banner-text p {
     line-height: 60px;
@@ -1623,7 +1623,7 @@ body {
 .hero-banner .banner-text .lower-text {
   font-size: 48px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 108, ../sass/partials/savie/_homepage.scss */
   .hero-banner .banner-text .lower-text {
     font-size: 90px;
@@ -1650,7 +1650,7 @@ body {
   color: #ffffff;
   font-size: 24px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 128, ../sass/partials/savie/_homepage.scss */
   .product-list .content-container .product-col h1 {
     color: #f28000;
@@ -1765,7 +1765,7 @@ body {
   left: 6%;
   color: #fff;
 }
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
   /* line 220, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box {
   	width: 68%;
@@ -1780,18 +1780,18 @@ body {
   margin-bottom: 4px;
   font-size: 30px;
 }
-@media screen and (min-width: 320px) {
+@media (min-width: 320px) {
   .fna-body .fna-box h3 {
     margin-top: 24px;
   }
 }
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
   .fna-body .fna-box h3 {
     margin-top: 16px;
     margin-bottom: 8px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 233, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box h3 {
     margin-top: 24px;
@@ -1806,12 +1806,12 @@ body {
   margin: 0;
   display: none;
 }
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
   .fna-body .fna-box p {
     display: block;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 247, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box p {
     font-size: 25px;
@@ -1826,14 +1826,14 @@ body {
   background-color: #cccccc;
   text-align: left;
 }
-@media screen and (min-width: 414px) {
+@media (min-width: 414px) {
   /* line 265, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box .fna-box-hr {
     margin-top: 25px;
     font-size: 14px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 265, ../sass/partials/savie/_homepage.scss */
   .fna-body .fna-box .fna-box-hr {
     margin-top: 28px;
@@ -1845,7 +1845,7 @@ body {
   background-color: #061d29;
   color: #ffffff;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 285, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body {
     position: relative;
@@ -1855,7 +1855,7 @@ body {
 .fna-icons-body .so-fna-row {
   margin: auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 293, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row {
     position: absolute;
@@ -1871,13 +1871,13 @@ body {
   border-left: none;
   height: 68px;
 }
-@media screen and (min-width: 635px) {
+@media (min-width: 635px) {
   /* line 303, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row .navtabs-li {
     height: inherit;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 303, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row .navtabs-li {
     border: none;
@@ -1891,13 +1891,13 @@ body {
   padding: 8px;
   line-height: 18px;
 }
-@media screen and (min-width: 330px) {
+@media (min-width: 330px) {
   /* line 317, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row .navtabs-li .navtabs-title {
     line-height: 24px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 317, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row .navtabs-li .navtabs-title {
     font-size: 20px;
@@ -1920,7 +1920,7 @@ body {
 .fna-icons-body .so-fna-row .navtabs-li.active {
   border-bottom: 3px solid #f28000;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 349, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .so-fna-row .navtabs-li.active {
     border-bottom: none;
@@ -1942,7 +1942,7 @@ body {
     padding-right: 0;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 376, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .fna-tab-content {
     margin-top: 10px;
@@ -1990,7 +1990,7 @@ body {
 .fna-icons-body .fna-tab-content .so-fna-content p {
   font-size: 16px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 403, ../sass/partials/savie/_homepage.scss */
   .fna-icons-body .fna-tab-content .so-fna-content p {
     margin-top: 6%;
@@ -2077,7 +2077,7 @@ body {
 }
 /* line 491, ../sass/partials/savie/_homepage.scss */
 
-@media screen and (min-width: 922px) {
+@media (min-width: 922px) {
 
 #index-logo{
 		display:block;
@@ -2100,7 +2100,7 @@ body {
 #business-partners-container a:hover {
   text-decoration: underline;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 474, ../sass/partials/savie/_homepage.scss */
   #business-partners-container {
     max-width: 756px;
@@ -2202,7 +2202,7 @@ a.eserv-link:hover {
 .psa-divider .psa-btn:hover, .psa-divider .psa-btn:focus, .psa-divider .psa-btn:active {
   color: #ffffff;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 579, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-btn {
     color: #ff8200;
@@ -2219,7 +2219,7 @@ a.eserv-link:hover {
 .psa-divider .psa-title {
   float: left;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 609, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-title {
     float: none;
@@ -2238,7 +2238,7 @@ a.eserv-link:hover {
 .psa-divider .psa-collapse-content .psa-content .description{
 	font-size: 16px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 623, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-collapse-content .psa-content {
     text-align: center;
@@ -2271,7 +2271,7 @@ a.eserv-link:hover {
 .psa-divider .psa-collapse-content .psa-content .description {
   min-height: inherit;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 651, ../sass/partials/savie/_homepage.scss */
   .psa-divider .psa-collapse-content .psa-content .description {
     min-height: 170px;
@@ -3128,14 +3128,14 @@ a.eserv-link:hover {
 #offline-signature-confirmation-page .policy-number-panel .policy-number {
   color: #ff8200;
 }
-@media only screen and (max-width: 991px) {
+@media (max-width: 991px) {
   /* line 76, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .policy-number-panel > div:first-child,
   #offline-signature-confirmation-page .policy-number-panel > div:first-child {
     border: none;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 46, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .policy-number-panel,
   #offline-signature-confirmation-page .policy-number-panel {
@@ -3224,7 +3224,7 @@ a.eserv-link:hover {
   color: #9ba5a7;
   font-size: 11px;
 }
-@media only screen and (max-width: 380px) {
+@media (max-width: 380px) {
   /* line 142, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .appointment-details-panel > div,
   #offline-signature-confirmation-page .appointment-details-panel > div {
@@ -3258,7 +3258,7 @@ a.eserv-link:hover {
     margin-bottom: 9px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 168, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .appointment-details-panel .cstm-md-col-1,
   #offline-signature-confirmation-page .appointment-details-panel .cstm-md-col-1 {
@@ -3346,14 +3346,14 @@ a.eserv-link:hover {
   vertical-align: middle;
   width: 100%;
 }
-@media only screen and (max-width: 320px) {
+@media (max-width: 320px) {
   /* line 228, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list > div .requirment-img-wrapper,
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div .requirment-img-wrapper {
     width: 130px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 206, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list > div,
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div {
@@ -3377,7 +3377,7 @@ a.eserv-link:hover {
     padding-bottom: 0;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 206, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list > div,
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div {
@@ -3408,7 +3408,7 @@ a.eserv-link:hover {
 #offline-signature-confirmation-page .requirements-panel .requirements-list .cstm-md-col-3 {
   padding-top: 8px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 200, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .requirements-list,
   #offline-signature-confirmation-page .requirements-panel .requirements-list {
@@ -3477,7 +3477,7 @@ a.eserv-link:hover {
   margin-bottom: 18px;
   padding: 11px 20px 11px 20px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 329, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page .requirements-panel .note,
   #offline-signature-confirmation-page .requirements-panel .note {
@@ -3510,7 +3510,7 @@ a.eserv-link:hover {
   margin-bottom: 8px;
   padding: 5px 30px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 15, ../sass/partials/savie/_appointment-confirmation.scss */
   #appointment-confirmation-page,
   #offline-signature-confirmation-page {
@@ -3582,7 +3582,7 @@ a.eserv-link:hover {
   margin-left: 25px;
   margin-top: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page h2 {
     font-size: 30px;
@@ -3662,7 +3662,7 @@ a.eserv-link:hover {
   border-left: 1px solid #d4d5d4;
   font-weight: bold;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 107, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs {
     border-left: 0;
@@ -3673,7 +3673,7 @@ a.eserv-link:hover {
   border-right: 1px solid #d4d5d4;
   border-bottom: 0;
 }
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
   /* line 116, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
     float: left;
@@ -3696,7 +3696,7 @@ a.eserv-link:hover {
   padding: 14px;
   border: none;
 }
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
   /* line 129, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li a {
     margin-bottom: 0;
@@ -3713,7 +3713,7 @@ a.eserv-link:hover {
   color: #373a36;
   border-bottom: 3px solid #ff8200;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 144, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li.active a {
     border-bottom: 2px solid #ff8200;
@@ -3727,7 +3727,7 @@ a.eserv-link:hover {
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content {
   padding: 0px 40px 0 40px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 158, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content {
     border-right: 1px solid #d4d5d4;
@@ -3946,7 +3946,7 @@ a.eserv-link:hover {
   padding-top: 2px;
   margin-bottom: 3px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 56, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-left p.left-header {
     padding-top: 23px;
@@ -3961,7 +3961,7 @@ a.eserv-link:hover {
 #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-left img {
   width: 100%;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 32, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-left {
     margin-left: 15px;
@@ -4005,7 +4005,7 @@ a.eserv-link:hover {
   margin-bottom: 8px;
   width: 100%;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 97, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right form input {
     height: 34px;
@@ -4032,14 +4032,14 @@ a.eserv-link:hover {
 #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right form .btn-wrapper .forgot-password-link:hover {
   text-decoration: underline;
 }
-@media only screen and (max-width: 320px) {
+@media (max-width: 320px) {
   /* line 122, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right form .btn-wrapper .forgot-password-link {
     display: block;
     padding-top: 7px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 137, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right form .btn-wrapper button {
     padding-left: 39px;
@@ -4077,7 +4077,7 @@ a.eserv-link:hover {
 #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right .register-link-wrapper .register-link:hover {
   text-decoration: underline;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 78, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body .body-content-right {
     padding: 34px 70px 0 38px;
@@ -4095,7 +4095,7 @@ a.eserv-link:hover {
     margin-bottom: 35px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 24, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog .modal-content .modal-body {
     margin-right: -15px;
@@ -4107,7 +4107,7 @@ a.eserv-link:hover {
     float: left;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 2, ../sass/partials/savie/_login-overlay.scss */
   #login-overlay-modal .modal-dialog {
     margin: 230px auto;
@@ -4580,7 +4580,7 @@ a.eserv-link:hover {
 #save-and-continue-modal .modal-content.save-con-modal-content {
   padding: 25px 25px 35px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 4, ../sass/partials/savie/_save-and-con.scss */
   #save-and-continue-modal .modal-content.save-con-modal-content {
     max-width: 425px;
@@ -4595,7 +4595,7 @@ a.eserv-link:hover {
 #save-and-continue-modal .modal-content.save-con-modal-content .save-con-btns {
   margin-top: 15px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 16, ../sass/partials/savie/_save-and-con.scss */
   #save-and-continue-modal .modal-content.save-con-modal-content .save-con-btns {
     margin: 15px 9% 0;
@@ -4627,19 +4627,19 @@ a.eserv-link:hover {
 .save-con-modal-b5 .modal-content .save-con-btns {
   margin: 15px 0 0 0 !important;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 49, ../sass/partials/savie/_save-and-con.scss */
   .save-con-modal-b5 .modal-content .save-con-btns #keep-going-btn {
     margin-right: 5px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 54, ../sass/partials/savie/_save-and-con.scss */
   .save-con-modal-b5 .modal-content .save-con-btns #save-exit-btn {
     margin-left: 5px;
   }
 }
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
   /* line 54, ../sass/partials/savie/_save-and-con.scss */
   .save-con-modal-b5 .modal-content .save-con-btns #save-exit-btn {
     margin-top: 10px;
@@ -4651,7 +4651,7 @@ a.eserv-link:hover {
   max-width: 362px;
   margin: 150px auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 1, ../sass/partials/savie/_fatca-declaration.scss */
   #dialog-fatca-declaration {
     max-width: 857px;
@@ -4666,7 +4666,7 @@ a.eserv-link:hover {
   padding-bottom: 13px;
   padding-top: 25px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 8, ../sass/partials/savie/_fatca-declaration.scss */
   #dialog-fatca-declaration #modal-content-fatca,
   #dialog-pics-declaration #modal-content-pics {
@@ -4927,7 +4927,7 @@ a.eserv-link:hover {
 #modal-save-app {
   max-width: 355px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 1, ../sass/partials/savie/_application-save.scss */
   #modal-save-app {
     max-width: 460px;
@@ -4984,7 +4984,7 @@ a.eserv-link:hover {
   text-align: left;
   color: #ff8200;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 9, ../sass/partials/savie/_applicant-info.scss */
   #savie-online .left-desktop.text-box {
     width: 100%;
@@ -5096,7 +5096,7 @@ a.eserv-link:hover {
 #savie-online .applicant-btn {
   padding: 5px 55px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 121, ../sass/partials/savie/_applicant-info.scss */
   #savie-online .applicant-btn {
     padding: 5px 90px;
@@ -5146,7 +5146,7 @@ a.eserv-link:hover {
 #savie-online .et-application-page {
   padding-bottom: 20px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 161, ../sass/partials/savie/_applicant-info.scss */
   #savie-online .et-application-page {
     padding-bottom: 50px;
@@ -5535,7 +5535,7 @@ a.eserv-link:hover {
 #payment-page .payment-content-wrapper .radio-button-group {
   margin-bottom: 10px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 12, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .radio-button-group {
     margin-bottom: 25px;
@@ -5557,7 +5557,7 @@ a.eserv-link:hover {
 #payment-page .payment-content-wrapper .select-wrapper .bank-info-label {
   display: none;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 35, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .info-wrapper .bank-info-label,
   #payment-page .payment-content-wrapper .select-wrapper .bank-info-label {
@@ -5570,7 +5570,7 @@ a.eserv-link:hover {
 #payment-page .payment-content-wrapper .col-xs-12 .info-wrapper:first-child {
   margin-top: 9px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 44, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .col-xs-12 .info-wrapper:first-child {
     margin-top: 0;
@@ -5600,7 +5600,7 @@ a.eserv-link:hover {
   padding-left: 0;
   padding-right: 0;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 76, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .info-wrapper .form-control {
     padding-top: 0;
@@ -5651,7 +5651,7 @@ a.eserv-link:hover {
 #payment-page .payment-content-wrapper .select-wrapper select:focus {
   border-color: transparent;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 86, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .select-wrapper {
     padding-bottom: 5px;
@@ -5727,7 +5727,7 @@ p .payment-policy-wrapper{
 #payment-page .payment-content-wrapper .payment-policy-wrapper .policy-text:hover {
   cursor: pointer;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 137, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .payment-policy-wrapper {
     margin-bottom: 35px;
@@ -5754,7 +5754,7 @@ p .payment-policy-wrapper{
   opacity: 0.9;
   color: #ffffff;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 202, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .btn-payment {
     padding: 9px 105px;
@@ -5770,7 +5770,7 @@ p .payment-policy-wrapper{
 #payment-page .payment-content-wrapper .save-link:hover {
   text-decoration: underline;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 3, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper {
     max-width: 890px;
@@ -5850,7 +5850,7 @@ p .payment-policy-wrapper{
   padding-left: 7.5px;
   padding-right: 0;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 301, ../sass/partials/savie/_payment.scss */
   #payment-page .make-an-appointment {
     margin-top: 0;
@@ -5904,7 +5904,7 @@ p .payment-policy-wrapper{
 #payment-page #direct-debit-panel .so-mdl-textfield {
   margin-bottom: 0 !important;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 347, ../sass/partials/savie/_payment.scss */
   #payment-page #direct-debit-panel {
     margin-bottom: 35px;
@@ -5992,7 +5992,7 @@ p .payment-policy-wrapper{
   line-height: 18px;
   font-family: 'Calibri';
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 54, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-note > p {
     padding: 0 17px 0 15px;
@@ -6046,7 +6046,7 @@ p .payment-policy-wrapper{
 #beneficiary-name-others-page .radio-group {
   margin-bottom: 20px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 104, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page .radio-group .left {
     float: left;
@@ -6153,7 +6153,7 @@ p .payment-policy-wrapper{
   border: 1px dashed #b7c3cd;
   overflow: auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 196, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-beneficiary {
     margin-bottom: 0;
@@ -6168,7 +6168,7 @@ p .payment-policy-wrapper{
   outline: 0;
   width: 100%;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 209, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-beneficiary .circle {
     text-align: center;
@@ -6199,7 +6199,7 @@ p .payment-policy-wrapper{
   padding: 0;
   position: relative;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 242, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-on-beneficiary {
     padding: 0 0 0 15px;
@@ -6210,7 +6210,7 @@ p .payment-policy-wrapper{
   position: inherit;
   top: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 251, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-on-header {
     position: absolute;
@@ -6717,7 +6717,7 @@ h6.so-h6 {
 #upload-document-page .next-btn {
   margin-top: 20px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 23, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .next-btn {
     margin-top: 0;
@@ -6735,7 +6735,7 @@ h6.so-h6 {
   padding: 25px 0 0;
   margin-bottom: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 38, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page h4.so-h4 {
     padding: 35px 0 0;
@@ -6748,19 +6748,19 @@ h6.so-h6 {
   text-align: left;
   padding-bottom: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 55, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page h6.so-h6 {
     margin-bottom: 15px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 60, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page h6.so-h6.upload-bottom {
     margin-bottom: 30px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 68, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .radio-button-group {
     margin-top: 12px;
@@ -6776,7 +6776,7 @@ h6.so-h6 {
 #upload-document-page .upload-now-section {
   padding: 10px 0 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 80, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-now-section {
     padding: 10px 0 15px;
@@ -6791,7 +6791,7 @@ h6.so-h6 {
 #upload-document-page .upload-now-section .document-upload-progress .progress {
   margin: 5px auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 91, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-now-section .document-upload-progress .progress {
     margin-top: 10px;
@@ -6806,7 +6806,7 @@ h6.so-h6 {
   font-size: 14px;
   padding: 25px 0 5px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 106, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .document-upload .description {
     padding: 40px 0 25px;
@@ -6821,7 +6821,7 @@ h6.so-h6 {
 #upload-document-page .document-upload .description ol {
   padding: 0 0 0 15px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 119, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .document-upload .description ol {
     padding: 6px 0 0 15px;
@@ -6832,7 +6832,7 @@ h6.so-h6 {
   padding: 9px 0;
   line-height: 17px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 126, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .document-upload .description ol li.second-desc {
     padding: 5px 0 0;
@@ -6904,7 +6904,7 @@ h6.so-h6 {
 #upload-document-page .upload-form {
   height: 140px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 196, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-form {
     height: 165px;
@@ -6914,7 +6914,7 @@ h6.so-h6 {
 #upload-document-page .upload-form .finish-upload {
   height: 142px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 203, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-form .finish-upload {
     height: 167px;
@@ -6934,7 +6934,7 @@ h6.so-h6 {
 #upload-document-page .upload-form .select-file-section {
   height: inherit;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 226, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page #so-upload-document-section {
     padding-left: 50px;
@@ -6944,7 +6944,7 @@ h6.so-h6 {
 #upload-document-page #so-upload-document-section .up-doc-page {
   padding: 0 20px;
 }
-@media screen and (min-width: 414px) {
+@media (min-width: 414px) {
   /* line 234, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page #so-upload-document-section .up-doc-page {
     padding: 0 30px;
@@ -6954,7 +6954,7 @@ h6.so-h6 {
 #upload-document-page .fwd-container-limit.clearfix.sidebar {
   margin-bottom: 30px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 243, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .fwd-container-limit.clearfix.sidebar {
     margin-bottom: 31px;
@@ -6964,7 +6964,7 @@ h6.so-h6 {
 #upload-document-page .so-upload {
   padding: 20px 7px 0 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 251, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .so-upload {
     padding: 25px 7px 0;
@@ -6979,7 +6979,7 @@ h6.so-h6 {
   font-family: 'Calibri';
   font-size: 14px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 268, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .clearfix.desktop-align.left {
     float: left;
@@ -6990,7 +6990,7 @@ h6.so-h6 {
 #upload-document-page .desc {
   max-width: 230px;
 }
-@media screen and (min-width: 355px) {
+@media (min-width: 355px) {
   /* line 275, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .desc {
     max-width: none;
@@ -7015,7 +7015,7 @@ h6.so-h6 {
   padding-left: 40px;
   padding-right: 40px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 289, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .btn.savie-common-btn.upload-btn {
     margin-top: 11px;
@@ -7392,14 +7392,14 @@ h6.so-h6 {
 #offline-signature-confirmation-page .appointment-details-panel .appointment-details-note p:first-child {
   margin-bottom: 11px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 7, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .appointment-details-panel .appointment-details-note {
     margin-top: 3px;
     padding: 18px 20px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 4, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .appointment-details-panel {
     margin-bottom: 20px;
@@ -7422,7 +7422,7 @@ h6.so-h6 {
 #offline-signature-confirmation-page .requirements-panel .requirements-list > div .requirement-text-wrapper {
   vertical-align: top;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 42, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child:after {
     content: ' ';
@@ -7442,13 +7442,13 @@ h6.so-h6 {
     margin-top: -3px;
   }
 }
-@media only screen and (min-width: 992px) and (min-width: 992px) {
+@media (min-width: 992px) and (min-width: 992px) {
   /* line 53, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:first-child .requirement-text-wrapper p {
     padding: 0 35px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 62, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-list > div:last-child .requirment-img-wrapper {
     padding-top: 20px;
@@ -7464,7 +7464,7 @@ h6.so-h6 {
   margin-top: 22px;
   margin-bottom: -4px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 79, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .requirements-panel .requirements-panel-title {
     color: #ff8200;
@@ -7484,7 +7484,7 @@ h6.so-h6 {
   padding-bottom: 4px;
   margin-bottom: 10px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 98, ../sass/partials/savie/_offline-signature-confirmation.scss */
   #offline-signature-confirmation-page .print-doc-link {
     margin-top: 14px;
@@ -7619,7 +7619,7 @@ h6.so-h6 {
 #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .chkboxText:hover {
   cursor: pointer;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 107, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .desktop-left {
     float: left;
@@ -7669,7 +7669,7 @@ h6.so-h6 {
   color: #9ba5a7;
   font-family: Calibri;
 }
-@media only screen and (max-width: 991px) {
+@media (max-width: 991px) {
   /* line 145, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .gray-text {
     margin-left: 27px;
@@ -7682,7 +7682,7 @@ h6.so-h6 {
   display: inline;
   font-weight: bold;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 162, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .radio-button-group {
     margin-top: 0;
@@ -7698,7 +7698,7 @@ h6.so-h6 {
   color: #000;
   margin-bottom: 10px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 173, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .replacement-declarations {
     margin-top: 10px;
@@ -7708,7 +7708,7 @@ h6.so-h6 {
 #declaration-page .declaration-content-wrapper .cstm-panel .with-margin-bottom {
   margin-bottom: 10px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 42, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel {
     margin-bottom: 52px;
@@ -7745,7 +7745,7 @@ h6.so-h6 {
 #declaration-page .declaration-content-wrapper .save-link:hover {
   text-decoration: underline;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 4, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper {
     padding-top: 32px;
@@ -7814,7 +7814,7 @@ h6.so-h6 {
   text-align: center;
   margin-bottom: 0;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 14, ../sass/partials/savie/_signature-box.scss */
   .signature-box .modal-dialog .modal-content .modal-title {
     color: #ff8200;
@@ -7825,7 +7825,7 @@ h6.so-h6 {
 .signature-box .modal-dialog .modal-content .modal-header {
   padding: 12px 20px 12px 30px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 27, ../sass/partials/savie/_signature-box.scss */
   .signature-box .modal-dialog .modal-content .modal-header {
     border-bottom: none;
@@ -7874,7 +7874,7 @@ h6.so-h6 {
   padding-left: 60px;
   padding-right: 60px;
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 35, ../sass/partials/savie/_signature-box.scss */
   .signature-box .modal-dialog .modal-content .modal-body {
     padding-top: 2px;
@@ -7895,7 +7895,7 @@ h6.so-h6 {
     padding-right: 84px;
   }
 }
-@media only screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 4, ../sass/partials/savie/_signature-box.scss */
   .signature-box .modal-dialog {
     max-width: 592px;
@@ -7983,7 +7983,7 @@ h6.so-h6 {
   max-width: 355px;
   margin: 30px auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 1, ../sass/partials/savie/_address-prof.scss */
   #dialog-address-prof {
     max-width: 648px;
@@ -7998,7 +7998,7 @@ h6.so-h6 {
   padding-bottom: 13px;
   padding-top: 25px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 9, ../sass/partials/savie/_address-prof.scss */
   #dialog-address-prof #modal-content-addressprof {
     padding-left: 35px;
@@ -8042,7 +8042,7 @@ h6.so-h6 {
   margin-bottom: 0;
   padding-right: 15px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 46, ../sass/partials/savie/_address-prof.scss */
   #dialog-address-prof #modal-content-addressprof #modal-body-addressprof {
     padding-right: 0;
@@ -8791,7 +8791,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-wrapper {
   padding: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 5, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-wrapper {
     padding-left: 30px;
@@ -8815,7 +8815,7 @@ form#table-info #id-policy, form#table-info #id-application {
   font-family: 'Calibri-Bold';
   border-radius: 4px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 20, ../sass/partials/savie/_plan-details-table.scss */
   .white-btn {
     border: 1px solid #ff8200;
@@ -8831,7 +8831,7 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .glyphicon.glyphicon-info-sign {
   font-size: 12px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 41, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .glyphicon.glyphicon-info-sign {
     display: inline-block !important;
@@ -8841,13 +8841,13 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .summary-table-head {
   padding: 0 0 0 20px;
 }
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
   /* line 49, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head {
     padding: 0 0 0 30px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 49, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head {
     margin: 30px auto 5px;
@@ -8867,7 +8867,7 @@ form#table-info #id-policy, form#table-info #id-application {
   font-size: 14px;
 }
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 61, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head .summary-note-title {
     float: left;
@@ -8883,7 +8883,7 @@ form#table-info #id-policy, form#table-info #id-application {
 
 
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 73, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .summary-table-head .summary-note {
     float: right;
@@ -8912,7 +8912,7 @@ form#table-info #id-policy, form#table-info #id-application {
   background-color: #ff8200;
   border: 0;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 107, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content {
     padding: 0 30px;
@@ -8949,13 +8949,13 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .table-content .table thead tr th.first-head {
   padding-left: 20px;
 }
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
   /* line 132, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content .table thead tr th.first-head {
     padding-left: 30px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 132, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content .table thead tr th.first-head {
     padding-left: 8px;
@@ -8970,19 +8970,19 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .table-content .table tbody tr td.policy-number {
   padding-left: 35px;
 }
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
   /* line 153, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content .table tbody tr td.policy-number {
     padding-left: 45px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 153, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content .table tbody tr td.policy-number {
     padding-left: 30px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 165, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .table-content .table tbody tr td.policy-credit {
     padding-left: 30px;
@@ -9008,7 +9008,7 @@ form#table-info #id-policy, form#table-info #id-application {
   font-size: 18px;
   margin-top: -2px !important;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 189, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .crediting-rate .crediting-rate-title {
     float: left;
@@ -9020,7 +9020,7 @@ form#table-info #id-policy, form#table-info #id-application {
 .pd-summary-table .summary-table .crediting-rate .rate-buttons {
   margin: 20px auto;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 201, ../sass/partials/savie/_plan-details-table.scss */
   .pd-summary-table .summary-table .crediting-rate .rate-buttons {
     margin: 20px auto 10px;
@@ -9059,7 +9059,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq {
   margin-top: 20px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 238, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq {
     margin-top: 30px;
@@ -9069,7 +9069,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq .pd-sf-tabs-content {
   padding: 0 15px;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 245, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq .pd-sf-tabs-content {
     padding: 0 30px;
@@ -9091,7 +9091,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq .next-btn .plan-details-btn {
   padding: 8px 30px;
 }
-@media screen and (min-width: 330px) {
+@media (min-width: 330px) {
   /* line 265, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq .next-btn .plan-details-btn {
     padding: 8px 37px;
@@ -9119,7 +9119,7 @@ form#table-info #id-policy, form#table-info #id-application {
   min-width: 95px;
   border-right: 1px solid #e6e6e6;
 }
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
   /* line 288, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab {
     min-width: 110px;
@@ -9138,7 +9138,7 @@ form#table-info #id-policy, form#table-info #id-application {
   border: 0;
   background: transparent;
 }
-@media screen and (min-width: 400px) {
+@media (min-width: 400px) {
   /* line 303, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab a {
     padding: 10px;
@@ -9153,7 +9153,7 @@ form#table-info #id-policy, form#table-info #id-application {
 #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.pd-sf-tab-right {
   border-right: none;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   /* line 320, ../sass/partials/savie/_plan-details-table.scss */
   #plan-details-sample-and-faq #pd-sf-nav-tabs .pd-sf-tab.pd-sf-tab-right {
     border-left: none;
@@ -9833,7 +9833,7 @@ select::-ms-value {
     pointer-events: auto;
     opacity: 1;
 }
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
 	#spaceHolder{
 		visibility:hidden;
 	}
@@ -9996,4 +9996,17 @@ a.to-orange{
 
 .text-hover-orange:hover{
   color: #ff8200 !important;
+}
+
+@media print{
+	a[href]:after {
+		content: none !important;
+	}
+	#appointment-confirmation-page-top .browse-holder,
+	.navbar-default{
+		display: none !important;
+	}
+	#appointment-confirmation-page-top .breadcrumbs{
+		padding-top: 0;
+	}
 }

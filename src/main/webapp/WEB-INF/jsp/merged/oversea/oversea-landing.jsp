@@ -61,7 +61,7 @@ function mouseout2div(obj) {
 </script>
 <section id="main-slider" class="p_oversea no-margin"> 
   <!--Mobilebanner--> 
-  <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
+  <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="image.alt_5" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
   <div class="tagline-holder hidden-lg hidden-md">
       <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.tagline" bundle="${msg}" />" class="img-responsive">
   </div>
@@ -80,7 +80,7 @@ function mouseout2div(obj) {
 <div class="carousel-inner">
 <div class="item active">
 <!--/#middle-->
-        <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />">
+        <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image" bundle="${msg}" />" alt="<fmt:message key="image.alt_5" bundle="${msg}" />" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
@@ -142,7 +142,7 @@ function mouseout2div(obj) {
 								<fmt:message key="Overseas.Landing.USP.TopUp" bundle="${msg}" />
 						  </h3>
 						  <div style="margin-top:25px;">
-							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical-250.png">
+							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical-250.png" alt="<fmt:message key="image.alt_35" bundle="${msg}" />">
 						  </div>
 						  <div class="ups-message-wrapper">
 							   <fmt:message key="Overseas.Landing.USP.TopUp.Copy" bundle="${msg}" />
@@ -155,7 +155,7 @@ function mouseout2div(obj) {
 								<fmt:message key="Overseas.Landing.USP.Education" bundle="${msg}" />
 						  </h3>
 						  <div style="margin-top:25px;">
-							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_edu-250.png">
+							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_edu-250.png" alt="<fmt:message key="image.alt_36" bundle="${msg}" />">
 						  </div>
 						  <div class="ups-message-wrapper">
 								<fmt:message key="Overseas.Landing.USP.Education.Copy" bundle="${msg}" />
@@ -168,7 +168,7 @@ function mouseout2div(obj) {
 								<fmt:message key="Overseas.Landing.USP.Leisure" bundle="${msg}" />
 	                      </h3>
 	                      <div style="margin-top:25px;">
-	                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_sport-250.png">
+	                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_sport-250.png" alt="<fmt:message key="image.alt_37" bundle="${msg}" />">
 	                      </div>
 	                      <div class="ups-message-wrapper">
 	                          <fmt:message key="Overseas.Landing.USP.Leisure.Copy" bundle="${msg}" />
@@ -191,7 +191,7 @@ function mouseout2div(obj) {
 	            <div class="col-xs-12 col-sm-12 col-md-4 landing-feature-item-wrapper pad-none" style="padding:5px !important;">
 	                <div>
 					  <div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
-	                       <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical-250.png">
+	                       <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical-250.png" alt="<fmt:message key="image.alt_35" bundle="${msg}" />">
 	                  </div>
 					  <div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
 						  <h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
@@ -206,7 +206,7 @@ function mouseout2div(obj) {
 	              <div class="col-xs-12 col-sm-12 col-md-4 landing-feature-item-wrapper pad-none" style="padding:5px !important;">
 	                   <div>
 						  <div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
-							   <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_edu-250.png">
+							   <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_edu-250.png" alt="<fmt:message key="image.alt_36" bundle="${msg}" />">
 						  </div>
 						  <div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
 							  <h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px;">
@@ -221,7 +221,7 @@ function mouseout2div(obj) {
 	              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	                  <div>
 							<div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
-							   <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_sport-250.png">
+							   <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_sport-250.png" alt="<fmt:message key="image.alt_37" bundle="${msg}" />">
 							</div>
 							<div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
 								<h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
@@ -248,60 +248,60 @@ function mouseout2div(obj) {
         <h4><strong></strong></h4>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_24hr.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_24hr.png" alt="<fmt:message key="image.alt_38" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.24hours" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_24hr.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_24hr.png" alt="<fmt:message key="image.alt_38" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.24hours" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><fmt:message key="Overseas.Landing.Coverage.24hours.hover" bundle="${msg}" /></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical_personal.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical_personal.png" alt="<fmt:message key="image.alt_39" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Medical" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical_personal.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_medical_personal.png" alt="<fmt:message key="image.alt_39" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Medical" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Medical.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_liability.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_liability.png" alt="<fmt:message key="image.alt_40" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Personal" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_liability.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_liability.png" alt="<fmt:message key="image.alt_40" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Personal" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Personal.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_terrorist.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_terrorist.png" alt="<fmt:message key="image.alt_41" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Act" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_terrorist.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_terrorist.png" alt="<fmt:message key="image.alt_41" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Act" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Act.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_kidnapping.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_kidnapping.png" alt="<fmt:message key="image.alt_42" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Kidnapping" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_kidnapping.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_kidnapping.png" alt="<fmt:message key="image.alt_42" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Kidnapping" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Kidnapping.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_life-edu.png">
+                <img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_life-edu.png" alt="<fmt:message key="image.alt_43" bundle="${msg}" />">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Lifelong" bundle="${msg}" /></h5>
                 <div class="hidden-content">
-                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_life-edu.png"></div>
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/landing/icon_life-edu.png" alt="<fmt:message key="image.alt_43" bundle="${msg}" />"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Lifelong" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Lifelong.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
@@ -328,7 +328,7 @@ function mouseout2div(obj) {
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h1>
                   <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
           </div>
@@ -336,7 +336,7 @@ function mouseout2div(obj) {
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center claim-pillar-wrapper">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
           </div>
@@ -344,7 +344,7 @@ function mouseout2div(obj) {
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />">
             <h1><fmt:message key="Overseas.Landing.Platformpillar3.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar3.copy" bundle="${msg}" /></p>
             <!--<img src="<%=request.getContextPath()%>/resources/images/agoda-logo.png" alt=""/>--> </div>
@@ -372,7 +372,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
+              <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />">
 				  <h2><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h2>
 				  <!-- <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>-->
 				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
@@ -386,7 +386,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt=""> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="<fmt:message key="image.alt_9" bundle="${msg}" />"> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
               </div>
@@ -399,7 +399,7 @@ function mouseout2div(obj) {
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center recent-work-fixed-height">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />"> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar3.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar3.copy" bundle="${msg}" /></p>
               </div>

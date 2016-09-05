@@ -481,7 +481,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-xs-12 col-sm-4 col-md-4 pad-none">
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
-							<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />" />
 							<h1>
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
 							</h1>
@@ -507,7 +507,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				<div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
 					<div class="recent-work-wrap wrap text-center">
 						<div class="recent-work-inner">
-							<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
+							<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />" />
 							<h1><fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" /></h1>
 							<p>
 								<fmt:message key="home.main.highlight3.desc" bundle="${msg}" /><br>
@@ -532,7 +532,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row slide-margin">
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
-									<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="" />
+									<img src="<%=request.getContextPath()%>/resources/images/time.png" alt="<fmt:message key="image.alt_8" bundle="${msg}" />" />
 									
 									<h1>
 								<fmt:message key="home.main.highlight1.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight1.heading.line2" bundle="${msg}" />
@@ -573,7 +573,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						<div class="row slide-margin">
 							<div class="recent-work-wrap text-center">
 								<div class="recent-work-inner">
-									<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="" />
+									<img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt="<fmt:message key="image.alt_10" bundle="${msg}" />" />
 									<h1>
 										<fmt:message key="home.main.highlight3.heading.line1" bundle="${msg}" /><br> <fmt:message key="home.main.highlight3.heading.line2" bundle="${msg}" />
 									</h1>

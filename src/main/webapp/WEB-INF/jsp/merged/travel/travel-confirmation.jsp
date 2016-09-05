@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page import="com.ifwd.fwdhk.util.Constants"%>
@@ -39,7 +40,7 @@
   String key_row4col2 = "travel.referral.benefits." + userType + ".table.row4.col2";
   String key_row4col3 = "travel.referral.benefits." + userType + ".table.row4.col3";
   String key_row4col4 = "travel.referral.benefits." + userType + ".table.row4.col4";
-  
+
   String key_row6col1 = "travel.referral.benefits." + userType + ".table.row6.col1";
   String key_row6col2 = "travel.referral.benefits." + userType + ".table.row6.col2";
   String key_row6col3 = "travel.referral.benefits." + userType + ".table.row6.col3";
@@ -51,7 +52,7 @@
   String key_disclaimer2Part3 = "travel.referral.benefits." + userType + ".disclaimer2.part3";
   String key_disclaimer3Part1 = "travel.referral.benefits." + userType + ".disclaimer3.part1";
   String key_disclaimer3Part2 = "travel.referral.benefits." + userType + ".disclaimer3.part2";
-  String key_disclaimer3Part3 = "travel.referral.benefits." + userType + ".disclaimer3.part3";  
+  String key_disclaimer3Part3 = "travel.referral.benefits." + userType + ".disclaimer3.part3";
 %>
 
 <!--/#main-Content-->
@@ -75,10 +76,10 @@
           <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="travel.breadcrumb1.item6" bundle="${msg}" /></li>
         </ol>
 
-        
+
       <c:if test="${not empty errormsg}"><br><div id="confirm-error-msg" class="alert alert-danger hide"
                         role="alert">${errormsg}</div><br></c:if>
-        
+
         <div class="container pad-none bdr" style="margin-top:0px;">
           <div class="col-sm-12 pad-none" >
             <div style="width:80%;margin-left:10%">
@@ -91,22 +92,22 @@
 	              <strong>${emailAddress}</strong>
 	              <fmt:message key="travel.confirmation.msg.part6" bundle="${msg}" />
 	            </h3>
-	            
+
 	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.reference.no" bundle="${msg}" /></strong><span id="policyNo"> ${referenceNo}</span></h4>
-	            
+
 	       <c:choose>
-				   <c:when test="${paymentMethod=='TapNGo'}>
-				       <h4 class="bmg-confirmation-h4"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h4>
+				   <c:when test="${paymentMethod=='TapNGo'}">
+				       <h3 class="bmg-confirmation-h3"><strong><fmt:message key="label.tapNGo.transaction.no" bundle="${msg}" /></strong><span id="transNo"> ${transNo}</span></h3>
 				   </c:when>
 			   </c:choose>
-	            
+
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
               <h5 class="bmg-confirmation-h5">
                   <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span><%=session.getAttribute("myTravelReferralCode")%></span>
               </h5>
-				
+
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
                 <fmt:message key="<%=key_referralCodeDesc%>" bundle="${msg}" />
                 <!-- <span class="orange-star">*</span> -->
@@ -153,11 +154,11 @@
                                       <td><strong><fmt:message key="<%=key_row6col2%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row6col3%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row6col4%>" bundle="${msg}" /></strong></td>
-                                  </tr>  --%>                                 
+                                  </tr>  --%>
                               </tbody>
                           </table>
                       </div>
-                      
+
                       <div class="hidden-md hidden-lg margin-bottom-10">
                          <div style="margin-top:15px;margin-bottom:15px;">
                               <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row1col1%>" bundle="${msg}" /></strong></h4>
@@ -171,7 +172,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -181,7 +182,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -192,7 +193,7 @@
                                   <div class="clearfix"></div>
                               </div>
                               <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -202,7 +203,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -212,7 +213,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -224,7 +225,7 @@
                               </div>
                               <div style="border: 1px solid #f68a1d;width: 100%;"></div>
                           </div>
-                          
+
                           <div style="margin-top:15px;margin-bottom:15px;">
                               <h4 style="color: #f68a1d"><strong><fmt:message key="<%=key_row3col1%>" bundle="${msg}" /></strong></h4>
                               <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
@@ -237,7 +238,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -247,7 +248,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -258,7 +259,7 @@
                                   <div class="clearfix"></div>
                               </div>
                               <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
-                              
+
                               <%-- <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -268,7 +269,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -278,7 +279,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -289,7 +290,7 @@
                                   <div class="clearfix"></div>
                               </div>
                               <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -298,8 +299,8 @@
                                       <fmt:message key="<%=key_row6col2%>" bundle="${msg}" />
                                   </div>
                                   <div class="clearfix"></div>
-                              </div>                              
-                              
+                              </div>
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -309,7 +310,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              
+
                               <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -346,7 +347,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <div class="hidden-md hidden-lg margin-bottom-10">
                         <div style="border: 1px solid #f68a1d;width: 100%;"></div>
                         <div class="confirmation-table-margin">
@@ -359,7 +360,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-                        
+
                         <div class="confirmation-table-margin">
                             <div class="col-sm-12 col-xs-12">
                                 <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
@@ -370,7 +371,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-                        
+
                         <div class="confirmation-table-margin">
                             <div class="col-sm-12 col-xs-12">
                                 <strong><fmt:message key="<%=key_header3%>" bundle="${msg}" /></strong>
@@ -381,7 +382,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div style="border: 1px solid #f68a1d;width: 100%;"></div>
-                        
+
                         <div class="confirmation-table-margin">
                             <div class="col-sm-12 col-xs-12">
                                 <strong><fmt:message key="<%=key_header4%>" bundle="${msg}" /></strong>
@@ -393,11 +394,11 @@
                         </div>
                         <div style="border: 1px solid #f68a1d;width: 100%;"></div>
                     </div>
-                <% } %>         
+                <% } %>
               <!-- END Referral Code Table -->
                 </div>
               </div>
-            
+
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <!-- <div><fmt:message key="travel.confirmation.main.content.copy13" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.main.content.copy14" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.main.content.copy15" bundle="${msg}" /></div>
@@ -415,11 +416,11 @@
                     <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="link.copy.mobile" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
+                <div class="col-md-5 col-sm-12 col-xs-12 pad-none">
                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div> -->
-                    
+
                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');">
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div>
@@ -429,13 +430,13 @@
                 <div class="clearfix"></div>
                 </div>
               </div>
-              
-              
-              
-              
-              <!-- 
-              
-              
+
+
+
+
+              <!--
+
+
               <div class="clearfix"></div><br>
 
               <div class="h4-2"><fmt:message key="travel.confirmation.sharenow" bundle="${msg}" /></div>
@@ -444,15 +445,15 @@
                     <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
+                <div class="col-md-5 col-sm-12 col-xs-12 pad-none">
                     <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
                         <fmt:message key="travel.referral.copy" bundle="${msg}" />
                     </div>
 
                     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
-              </div> 
-              
+              </div>
+
               <div class="clearfix"></div>
               <br>
               <div class="col-lg-12 col-md-12 travel-b">
@@ -473,12 +474,12 @@
                   </p></div>
                 -/->
               </div>
-              
+
                -->
               <div class="clearfix"></div>
             </div>
           </div>
-          
+
           <div class="container pad-none hidden-xs hidden-sm travel-homecare" style="margin-top:30px;">
             <div class="row-fluid">
               <div class="center " style="visibility: visible;">
@@ -486,7 +487,7 @@
                   <img src="<%=request.getContextPath()%>/resources/images/home7.png" alt=""> </div>
                 <div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
                   <div>
-                    <h4 class="center-h2"><fmt:message key="travel.confirmation.heading" bundle="${msg}" /></h4>                  
+                    <h4 class="center-h2"><fmt:message key="travel.confirmation.heading" bundle="${msg}" /></h4>
                     <div class="h2-32" style="margin-top:30px;">
                       <strong><fmt:message key="travel.confirmation.subheading" bundle="${msg}" /></strong>
                     </div>
@@ -496,14 +497,14 @@
                     <fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
                   </div>
                 </div>
-              </div>  
+              </div>
             </div>
           </div>
 
         </div>
       </form>
     </div>
-    <!--/.row--> 
+    <!--/.row-->
   </div>
   <!--/.container-->
 </section>
@@ -542,14 +543,14 @@ $(document).ready(function() {
     'id': '${transNo}', // Transaction ID. Required.
     'revenue': '${dueAmount}', // Grand Total.
     'affiliation': 'Protect', // Insurance type, e.g. Life
-    'currency': 'HKD'            
+    'currency': 'HKD'
     });
   ga('ecommerce:addItem', {
       'id': '${transNo}', // Transaction ID. Required
       'name': 'TravelCare', // Product name. Required
       'category': 'Travel', // Category or variation
       'price': '${dueAmount}', // Unit price
-      'quantity': '1',      
+      'quantity': '1',
       'currency': 'HKD'
     });
   ga('ecommerce:send');

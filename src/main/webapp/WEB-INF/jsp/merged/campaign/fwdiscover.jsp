@@ -160,8 +160,8 @@
                 </div>
                 <div class="fwdiscover-info clearfix">
                     <div class="fwd-full-container container-fluid fwdiscover-banner clearfix">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg" alt="<fmt:message key="image.alt_7" bundle="${msg}" />">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs" alt="<fmt:message key="image.alt_7" bundle="${msg}" />">
                         <div class="banner-title">
                             <p class="welcome"><fmt:message key="jumbo.fwdiscover1" bundle="${msg}" /></p>
                             <p class="fwdiscover"><fmt:message key="jumbo.fwdiscover2" bundle="${msg}" /></p>
@@ -260,7 +260,7 @@
                             <div class="row">
                                 <div class="col-xs-4" ng-repeat="item in items | filter: { isActive: true }" ng-style="{ 'width': miniCarousel.config.current.gutterWidth }">
                                     <a href="#offer{{item._id}}" du-smooth-scroll du-scrollspy offset="0" ng-mouseenter="miniCarousel.config.desktop.hoverHidden[item._id] = false" ng-mouseleave="miniCarousel.config.desktop.hoverHidden[item._id] = true">
-                                        <img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}">
+                                        <img class="img-responsive" ng-src="<%=request.getContextPath()%>/{{ item.miniCarousel.img[currentLang] }}" alt="{{ item.img_alt[currentLang] }}">
                                         <div class="gray-hover hidden-xs hidden-sm" ng-class="{'hidden': !!miniCarousel.config.desktop.hoverHidden[item._id]}">
                                             <p class="price" ng-bind-html="item.miniCarousel.price[currentLang]"></p>
                                             <p class="discount" ng-bind-html="item.miniCarousel.discount[currentLang]"></p>
@@ -309,8 +309,8 @@
                     <!-- Json-generated: 1st-6th plan -->
                     <div id="offer{{item._id}}" ng-repeat="item in offersItems">
                         <div class="fwdiscover-plan <%=disableOfferClass%>">
-                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.mobile[currentLang] }}" class="img-responsive hidden-md hidden-lg">
-                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.desktop[currentLang] }}" class="img-responsive hidden-xs hidden-sm">
+                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.mobile[currentLang] }}" alt="{{ item.img_alt[currentLang] }}" class="img-responsive hidden-md hidden-lg">
+                            <img ng-src="<%=request.getContextPath()%>/{{ item.bgImg.desktop[currentLang] }}" alt="{{ item.img_alt[currentLang] }}" class="img-responsive hidden-xs hidden-sm">
 
                             <div class="plan-details-box gray-bg" ng-class="{'left': isLeft( item.detailMsgBox.orientation ), 'right': !isLeft( item.detailMsgBox.orientation )}" ng-style="{'background-color': item.detailMsgBox.backgroundColor}">
                                 <div class="plan-desc">

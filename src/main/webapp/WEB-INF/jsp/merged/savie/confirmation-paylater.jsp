@@ -137,7 +137,7 @@ var language = "${language}";
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-2">
 							<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
-							<div class="requirement-text-wrapper"><p><fmt:message key="label.addressproof" bundle="${msg}" /></p></div>
+							<div class="requirement-text-wrapper"><p><fmt:message key="savie.label.addressproof.prefix" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.label.addressproof.url" bundle="${msg}" />" target="_blank"><fmt:message key="savie.label.addressproof.url.text" bundle="${msg}" /></a><fmt:message key="savie.label.addressproof.suffix" bundle="${msg}" /></p></div>
 						</div>
 						<hr class="visible-xs visible-sm">
 						<div class="col-xs-12 cstm-md-col-3">
