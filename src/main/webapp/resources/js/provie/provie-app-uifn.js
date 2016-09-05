@@ -1,17 +1,19 @@
 /*** This part may need move to JSP??? ***/
 var language = "EN";
 var typeId = "SAVIE_OFFLINE";
+var APIServer = "";
 var fwdApi = {
 		url:{
-			getAvailableCentre			:"http://localhost:7000/fwdhk/api/appointment/centre",
-			findAvailableDateByCentre	:"http://localhost:7000/fwdhk/api/appointment/timeSlotEntity",
-			findAvailableTimeByCentre 	:"http://localhost:7000/fwdhk/api/appointment/timeSlotEntity",
-			appointment					:"http://localhost:7000/fwdhk/api/appointment",
-			session						:"http://localhost:7000/fwdhk/api/member/session",
-			login						:"http://localhost:7000/fwdhk/api/member/login",
-			member						:"http://localhost:7000/fwdhk/api/member",
-			forgotPassword				:"http://localhost:7000/fwdhk/api/member/forgotPassword",
-			retrieveUserName			:"http://localhost:7000/fwdhk/api/member/retrieveUserName"
+			getAvailableCentre			: APIServer + "/fwdhk/api/appointment/centre",
+			findAvailableDateByCentre	: APIServer + "/fwdhk/api/appointment/timeSlotEntity",
+			findAvailableTimeByCentre 	: APIServer + "/fwdhk/api/appointment/timeSlotEntity",
+			appointment					: APIServer + "/fwdhk/api/appointment",
+			session						: APIServer + "/fwdhk/api/member/session",
+			login						: APIServer + "/fwdhk/api/member/login",
+			member						: APIServer + "/fwdhk/api/member",
+			forgotPassword				: APIServer + "/fwdhk/api/member/forgotPassword",
+			retrieveUserName			: APIServer + "/fwdhk/api/member/retrieveUserName",
+			planDetails					: APIServer + "/fwdhk/api/provie/planDetails"
 		}
 };
 
@@ -24,7 +26,7 @@ $(document).ready(function(){
 	//Select Plan
 	if($(".provie-plan-select").length > 0){
 
-		$('#plan-dob-date').mobiscroll().calendar({
+		$('#plan-dob-datepicker').mobiscroll().calendar({
 			controls: ['date'],
 		 	maxDate:new Date(),
 		 	showLabel: true,
@@ -39,7 +41,8 @@ $(document).ready(function(){
 
 		$("#type-of-extra-rider").change(function(e){
 
-			var cls = $(e.currentTarget).val();
+			var cls = $(e.currentTarget).find("option:selected").data("cls");
+			console.log(cls);
 			$(".er-color-swap").each(function(){
 				$(this).removeClass("p50 p100 p500");
 				$(this).addClass(cls);
@@ -52,7 +55,87 @@ $(document).ready(function(){
 		$("#after-5-years-container").on("shown.bs.collapse",function(){
         	$(window).resize();
         });
-
+		
+		
+		$("#plan-calculate-btn").click(function(){
+			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
+				$('#promoCodeErrorMsg').removeClass('hidden');
+			}else if ($('#promoCode').val()!='' && !$('#promoCodeErrorMsg').hasClass('hidden')){
+				//do nothing
+			}else{
+				$('#promoCodeErrorMsg').addClass('hidden');
+			}
+			
+			
+			var paymentMethod = $("#type-of-payment option:selected").data("val").split("-"); 
+			$.ajax({
+			    beforeSend:function(){
+			    	$("#loading-overlay").modal("show");
+			    },
+				url:fwdApi.url.planDetails,
+				type:"get",
+				data:{
+					premium: (paymentMethod[0] == "rp") ? $("#amount-slide-holder input").val() : $("#plan-amount").val(),
+					planCode:paymentMethod[0],
+					currency:paymentMethod[1],
+					dob:$("#plan-dob-datepicker").val(),
+					rider:$("#type-of-extra-rider").val()
+				},	
+				cache:false,
+				async:false,
+				error:function(){
+					console.log("expected error");
+			    },
+			    success:function(response){
+			    	if(response){
+			    		
+			    		$("table.tbl_desktop tbody").empty();
+			    		$("table.tbl_mob tbody").empty();
+			    		$("table.tbl_mob_header tbody").empty();
+			    		
+			    		console.log(response.plans);
+			    		for(var i = 0; i <response.plans.length; i++){
+			    			var plan = response.plans[i];
+			    			console.log(plan);
+			    			var dt = $("#template .tbl_desktop").clone();
+			    			var mob_head = $("#template .tbl_mob_header").clone();
+			    			var mob = $("#template .tbl_mob").clone();
+			    			
+			    			dt.find(".premiumYear").text(plan.premiumYear);
+			    			mob_head.find(".premiumYear").text(plan.premiumYear);
+			    			
+			    			dt.find(".rate").text(plan.rate);
+			    			mob.find(".rate").text(plan.rate);
+			    			
+			    			dt.find(".totalPaid").text(plan.totalPaid);
+			    			mob.find(".totalPaid").text(plan.totalPaid);
+			    			
+			    			dt.find(".accountValue").text(plan.accountValue);
+			    			mob.find(".accountValue").text(plan.accountValue);
+			    			
+			    			dt.find(".deathBenefit").text(plan.deathBenefit);
+			    			mob.find(".deathBenefit").text(plan.deathBenefit);
+			    			
+			    			dt.find(".riderValue").text(plan.riderValue);
+			    			mob.find(".riderValue").text(plan.riderValue);
+			    			
+			    			console.log(dt);
+			    			
+			    			$("table.tbl_desktop tbody").append(dt);
+			    			$("table.tbl_mob_header tbody").append(mob_head);
+			    			$("table.tbl_mob tbody").append(mob);
+			    		}
+			    	}
+			    	
+			    },
+			    complete:function(){
+			    	$("#loading-overlay").modal("hide");
+			    }
+			});
+			
+		});
+		
+		
 
 		
 	}
@@ -94,15 +177,21 @@ $(document).ready(function(){
 				    success:function(response){
 				    	if(response){
 				    		$("#preferred-time").empty();
-				    		for(var i in response){
-				    			var d = response[i];
-				    			var option = $("<option/>");
-				    			option.data(d);
-				    			option.val(d.timeSlot);
-				    			option.text(d.timeSlot);
-				    			
-				    			$("#preferred-time").append(option);
+				    		
+				    		if(response.length > 0){
+				    			for(var i in response){
+					    			var d = response[i];
+					    			var option = $("<option/>");
+					    			option.data(d);
+					    			option.val(d.timeSlot);
+					    			option.text(d.timeSlot);
+					    			
+					    			$("#preferred-time").append(option);
+					    		}
+				    		}else{
+				    			 $("#preferedTimeIsNull").modal("show");
 				    		}
+				    		
 				    	}
 				    	
 				    },
@@ -191,10 +280,9 @@ $(document).ready(function(){
 						
 				    },
 				    success:function(response){
-
+				    	
 				    	if(response){
-				    		console.log(response);
-				    		window.location.href= context + "/" + language + "/savings-insurance/provie/confirmation-appointment-sp";
+				    		window.location.href= context + "/" + language + "/savings-insurance/provie/confirmation-appointment-sp?referenceNum=" + response.referenceNum;
 				    	}
 				    },
 				    complete:function(){
@@ -235,15 +323,22 @@ $(document).ready(function(){
 						alert("something error");
 				    },
 				    success:function(response){
+				    	$("#preferedTimeIsNull").modal("show");
 				    	if(response){
-				    		var dates = [];
-				    		for(var i in response){
-				    			var d = response[i];
-				    			var from = d.date.split("-");
-				    			dates.push(new Date(from[2],from[1] -1, from[0]));
+				    		
+				    		if(response.length > 0){
+				    			var dates = [];
+					    		for(var i in response){
+					    			var d = response[i];
+					    			var from = d.date.split("-");
+					    			dates.push(new Date(from[2],from[1] -1, from[0]));
+					    		}
+					    		//dates.push(new Date(2016,8,1));
+					    		changeAppointmentDate('#app-date',dates);
+				    		}else{
+				    			 $("#preferedTimeIsNull").modal("show");
 				    		}
-				    		//dates.push(new Date(2016,8,1));
-				    		changeAppointmentDate('#app-date',dates);
+				    		
 				    	}
 				    	
 				    },
@@ -274,6 +369,7 @@ $(document).ready(function(){
 		    		$(".after-login").find(".fld-val").text(response.fullName);
 		    		userName = response.userName;
 		    		$(".after-login").show();
+		    		$("#btn-appointment-confirm").show();
 		    	}
 		    	
 		    }
@@ -297,6 +393,7 @@ $(document).ready(function(){
 				alert("something error");
 		    },
 		    success:function(response){
+		    	
 		    	if(response){
 		    		$("#centre").empty();
 		    		/*var o0 = $("<option/>");
@@ -304,24 +401,59 @@ $(document).ready(function(){
 		    		o0.data({abc:1});
 		    		$("#centre").append(o0);*/
 		    		
-		    		for(var i in response){
-		    			var centre = response[i];
-		    			console.log(centre);
-		    			var option = $("<option/>");
-		    			option.text(centre.serviceCentreName);
-		    			option.val(centre.serviceCentreCode);
-		    			option.data(centre);
-		    			$("#centre").append(option);
-		    			
+		    		if(response.length > 0){
+		    			for(var i in response){
+			    			var centre = response[i];
+			    			console.log(centre);
+			    			var option = $("<option/>");
+			    			option.text(centre.serviceCentreName);
+			    			option.val(centre.serviceCentreCode);
+			    			option.data(centre);
+			    			$("#centre").append(option);
+			    			
+			    		}
+			    		
+			    		$("#centre").change();
+		    		}else{
+		    			$("#fullyBooked").modal('show');
 		    		}
 		    		
-		    		$("#centre").change();
+		    		
 		    	}
 		    },
 		    complete:function(){
 		    	$("#loading-overlay").modal("hide");
 		    }
 		});
+	}
+	
+	//Confirmation Page
+	if($("#appointment-confirmation-page").length > 0){
+		var referenceNum;
+		try{
+			referenceNum = getParameterByName("referenceNum");
+		}catch(e){}
+		$(".policy-number").text(referenceNum);
+		
+		$.ajax({
+			url:fwdApi.url.appointment,
+			type:"get",
+			contentType: "application/json",
+			data:{referenceNum:referenceNum},
+			cache:false,
+			async:false,
+			error:function(){
+				$(".before-login").show();
+		    },
+		    success:function(response){
+		    	if(response){
+		    		console.log(response);
+		    	}
+		    	
+		    }
+		});
+		
+		
 	}
 });
 
@@ -366,6 +498,7 @@ function bsvFormLogin(form){
 			    		//userName = response.userName;
 			    		$(".before-login").hide();
 			    		$(".after-login").show();	
+			    		$("#btn-appointment-confirm").show();
 
 			    	}
 			    },
@@ -705,7 +838,8 @@ function bsvFormRegister(form){
 			    		$(".after-login").find(".fld-val").text(response.fullName);
 			    		userName = response.userName;
 			    		$(".before-login").hide();
-			    		$(".after-login").show();	
+			    		$(".after-login").show();
+			    		$("#btn-appointment-confirm").show();
 
 			    	}
 			    },
@@ -948,4 +1082,14 @@ function showBubble(){
 	}else{
 		$(".checkboxBubble").fadeOut();
 	}
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }

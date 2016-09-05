@@ -22,7 +22,7 @@ var language = "${language}";
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
 
-<div id="make-an-appointment-page" class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment">			
+<div id="make-an-appointment-page" class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps">			
 <!-- Breadcrumb Component Start-->
 <link href="<%=request.getContextPath()%>/resources/css_dir/breadcrumb.css" rel="stylesheet">
 <div class="comp breadcrumb">
@@ -110,7 +110,7 @@ function stickToHeader() {
 					</div>
 					<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 						<p class="text-bold policy-number-label">Reference no.</p>
-						<p class="policy-number">CVVLVA</p>
+						<p class="policy-number"></p>
 					</div>
 				</div>
 				<hr>

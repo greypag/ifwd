@@ -77,10 +77,10 @@
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" >
-										   <option value="regular-payment">月繳供款 - 港幣</option>
-										   <option value="regular-payment">月繳供款 - 美元</option>
-										   <option value="one-off-premium" selected>一筆過供款 - 港幣</option>
-										   <option value="one-off-premium">一筆過供款 - 美元</option>
+										   <option value="regular-payment" data-val="rp-HKD">月繳供款 - 港幣</option>
+										   <option value="regular-payment" data-val="rp-USD">月繳供款 - 美元</option>
+										   <option value="one-off-premium" data-val="sp-HKD" selected>一筆過供款 - 港幣</option>
+										   <option value="one-off-premium"  data-val="sp-USD">一筆過供款 - 美元</option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">繳費方式</label>
@@ -197,9 +197,9 @@
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 										<select name="payment-type" id="type-of-extra-rider" class="form-control gray-dropdown pd-dropdown">
-										   <option value="p50">50% Death Benefit</option>
-										   <option value="p100">100% Death Benefit</option>
-										   <option value="p500">500% Death Benefit</option>
+										   <option value="AccidentalDeathBenefit" data-cls="p50">50% Death Benefit</option>
+										   <option value="CancerBenefit" data-cls="p100">100% Death Benefit</option>
+										   <option value="TermLifeBenefit" data-cls="p500">500% Death Benefit</option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">Extra riders</label>
@@ -240,7 +240,30 @@
 			</div>
 			<div class="table-content">
 				<div class="rate-table hidden-xs hidden-sm">
-					<table class="table">
+					<table class="hidden" id="template">
+						<tr id="">
+							<tr class="tbl_desktop">
+								<td class="policy-credit policy-number bold premiumYear">1</td>
+								<td class="policy-credit hidden-sm hidden-xs rate">1.5</td>
+								<td class="totalPaid">100,000</td>
+								<td class="hidden-sm hidden-xs accountValue">100,997</td>
+								<td class="hidden-sm hidden-xs deathBenefit">103,047</td>
+								<td class="cell-extra-rider er-color-swap riderValue"><span>503,047</span></td>
+							</tr>
+							<tr class="tbl_mob_header">
+								<td class="premiumYear">1</td>
+							</tr>
+							
+							<tr class="tbl_mob">
+								<td class="rate">1.5</td>
+								<td class="totalPaid">100,000</td>
+								<td class="accountValue">100,997</td>
+								<td class="deathBenefit">103,047</td>
+								<td class="cell-extra-rider er-color-swap riderValue">503,047</td>
+							</tr>
+						</tr>
+					</table>	
+					<table class="table tbl_desktop">
 						<thead>
 							<tr>
 								<th class="first-head">保單年度終結</th>
@@ -296,13 +319,15 @@
 					</table>
 				</div>
 
-				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table">
+				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table tbl_mob_header">
 					<div class="sticky-header">
 						<table>
-							<tbody>
+							<thead>
 								<tr>
 									<th>保單年度終結</th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr class="pinkish-shade">
 									<td>1</td>
 								</tr>
@@ -327,8 +352,8 @@
 					</div>
 					<div class="overflow-body">
 
-						<table>
-							<tbody>
+						<table class="tbl_mob">
+							<thead>
 								<tr>
 									<th>保證派息率(%)</th>
 									<th>繳付保費總額 （港元）</th>
@@ -336,6 +361,8 @@
 									<th>身故賠償（港元）</th>
 									<th class="cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental<br>Death Benefit</th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr class="pinkish-shade">
 									<td>1.5</td>
 									<td>100,000</td>
@@ -899,6 +926,7 @@
 
 
 		$("#plan-calculate-btn").click(function(){
+			return;
 			$('#loadingDiv').toggle();
 			$('body').addClass('modal-open');
 
