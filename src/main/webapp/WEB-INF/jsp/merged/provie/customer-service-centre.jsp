@@ -657,9 +657,9 @@ function stickToHeader() {
 		$("#"+ id).show();
 	}
 	
-       $(window).bind('scroll', function() {
-          stickHeaderBrowse();
-       });
+       //$(window).bind('scroll', function() {
+       //   stickHeaderBrowse();
+       //});
 
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",

@@ -17,6 +17,7 @@ var fwdApi = {
 
 var isLogged = false;
 var userName = "";
+var IMG_DIR = context + "/resources/images";
 
 $(document).ready(function(){
 
@@ -213,7 +214,7 @@ $(document).ready(function(){
 			
 			//Switch Image/ Address etc.
 			if(d){
-				$(".img-centre").attr("src",d.photo)
+				$(".img-centre").attr("src", IMG_DIR + '/csc/' + d.photo);
 				
 				$(".centre-address").text(d.address);
 				$(".viewmap-link").attr("href",d.map);
