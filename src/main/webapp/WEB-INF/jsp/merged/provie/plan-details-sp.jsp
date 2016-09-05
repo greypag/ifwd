@@ -27,58 +27,45 @@
  
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-select" id="plan-details-b-page">
 	<!-- HEADER -->
-	<div class="fwd-container container-fluid breadcrumbs">
-		<div class="breadcrumb-container">
-			<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-			   <li><a href="#">主頁</a></li>
-			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">儲蓄</a></li>
-			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">Provie 自助息理財壽險</a></li>
-			   <li class="divider last"><i class="fa fa-play"></i></i></li>
-			   <li class="active-bc" id="et-active-bc-menu">計劃詳情</li>
-			</ol>
-		 </div>
-	</div>
-	<!-- STEPS -->
-	<div class="container-fluid fwd-full-container browse-holder">
-		<div class="application-page-header et-header-browse">
-		   <div class="browse-container">
-			  <div class="row reset-margin hidden-xs hidden-sm">
-				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span></i>計劃詳情</button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span>預約申請</button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>確認</button></li>
-				 </ul>
-			 </div>
-		   </div>
-		   <div class="et-mobile-header-info hidden-md hidden-lg">
-			  <div class="clearfix">
-				 <div class="et-back-arrow">
-					<a href="#" class="back-arrow-link">
-					   <span class="icon-arrow-left2 arrow-left"></span>
-					</a>
-				 </div>
-				 <div class="et-header-tex">
-					<h3 id="">計劃詳情</h3>
-				 </div>
-				 <p id="step-of">1 of 3</p>
-			  </div>
-		   </div>
-		</div>
-	</div>
-	<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-		<div class="step-indicator-container clearfix">
-			<ul class="common-step-indicator three-steps nav nav-pills">
-				 <li id="first-step"><a href="#" class="active"><span class="step-no">1</span></a></li>
-				 <li><a href="#"><span class="step-no">2</span></a></li>
-				 <li id="last-step"><a href="#"><span class="step-no">3</span></a></li>
-			</ul>
-			<div class="step-line"></div>
-		</div>
-	</div>
+
+	<!-- Breadcrumb Component Start-->
+
+	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+	<c:set var="breadcrumbActive" value="0"/>
+
+	<c:set var="breadcrumbItems">
+		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.plan.details
+	</c:set>
+	<c:set var="breadcrumbActive">3</c:set>
+
+	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+	</jsp:include>
+
+	<!-- Breadcrumb Component End-->
+
+	<!-- StepIndicator Component Start-->
+
+	<c:set var="stepItems" value="stepindicator.selectplan"/>
+	<c:set var="stepActive" value="0"/>
+
+	<c:set var="stepItems">
+		stepindicator.plan.details,stepindicator.appointment,stepindicator.confirmation
+	</c:set>
+	<c:set var="stepActive">0</c:set>
+
+	<!--<div class="container-fluid fwd-full-container browse-holder">-->
+	<jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+		<jsp:param name="stepItems" value="${stepItems}"/>
+		<jsp:param name="stepActive" value="${stepActive}"/>
+	</jsp:include>
+	<!--</div>-->
+
+	<!-- StepIndicator Component End-->
+
+	<div class="clearfix"></div>
+
 	<div class="container-fluid fwd-full-container headerStick">
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
