@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +23,7 @@ import io.swagger.annotations.ApiResponses;
 import javax.servlet.http.HttpServletRequest;
 
 import org.joda.time.DateTime;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -40,7 +42,10 @@ import com.ifwd.fwdhk.model.AppointmentBooking;
 import com.ifwd.fwdhk.model.AppointmentBooking.AppointmentType;
 import com.ifwd.fwdhk.model.TimeSlotEntity;
 import com.ifwd.fwdhk.services.LifeService;
+import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 
 @Controller
@@ -98,29 +103,64 @@ public class AppointmentController extends BaseController {
 		
 		super.IsAuthenticate(request);
 
+		
 		List<TimeSlotEntity> timeSlots = new ArrayList<TimeSlotEntity>();
-		try {
-			org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
-			String url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + preferredDate
-					+ "&serviceCentreCode=" + centreCode + "&appointmentTypeId=" + type.value;
-				
-			responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
-			if(responseJsonObj.get("timeSlots") != null 
-					&& responseJsonObj.get("timeSlots").toString().length() > 0) {
-				ObjectMapper mapper = new ObjectMapper();
-				timeSlots = mapper.readValue(responseJsonObj.get("timeSlots").toString(), mapper.getTypeFactory().constructCollectionType(List.class, TimeSlotEntity.class));
-				if (preferredDate != null) {
-					for (TimeSlotEntity slot: timeSlots) {
-						slot.setDate(preferredDate);
+		
+		if (preferredDate == null || preferredDate.length() == 0) {
+
+			String timeSlotUrl = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all?appointmentTypeId=" + type.value;
+			JSONObject centres = restService.consumeApi(HttpMethod.GET, timeSlotUrl, COMMON_HEADERS, null);
+			if (centres != null) {
+				JSONArray arr = (JSONArray)centres.get("serviceCentres");
+				for (int i=0; i<arr.size(); i++) {
+					if ((((JSONObject)arr.get(i)).get("serviceCentreCode")).toString().equals(centreCode)) {
+						JSONObject centre = (JSONObject)(((JSONObject)arr.get(i)));
+						JSONArray arr2 = (JSONArray)centre.get("dates");
+						for (int j=0; j<arr2.size(); j++) {
+							JSONArray arr3 = (JSONArray)((JSONObject)arr2.get(j)).get("timeSlots");
+							for (int k=0; k<arr3.size(); k++) {
+								TimeSlotEntity timeSlot = new TimeSlotEntity();
+								timeSlot.setAppointmentTypeId(type.value);
+								timeSlot.setDate(dateFormat.format(new Date(Long.parseLong(((JSONObject)arr2.get(j)).get("date").toString()))));
+								timeSlot.setManPower(Integer.parseInt(((JSONObject)arr3.get(k)).get("manPower").toString()));
+								timeSlot.setManRemainder(Integer.parseInt(((JSONObject)arr3.get(k)).get("manRemainder").toString()));
+								timeSlot.setServiceCentreCode(centreCode);
+								timeSlot.setTimeSlot(((JSONObject)arr3.get(k)).get("timeSlot").toString());
+								timeSlots.add(timeSlot);
+							}
+						}
 					}
 				}
-				return Responses.ok(timeSlots);
-			} else {
-				return Responses.notFound(null);
 			}
-		} catch (Exception e) {
-			return Responses.error(null);
+			return Responses.ok(timeSlots);
+			
+		} else {
+
+			try {
+				org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
+				String url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + preferredDate
+						+ "&serviceCentreCode=" + centreCode + "&appointmentTypeId=" + type.value;
+					
+				responseJsonObj = restService.consumeApi(HttpMethod.GET, url, COMMON_HEADERS, null);
+				if(responseJsonObj.get("timeSlots") != null 
+						&& responseJsonObj.get("timeSlots").toString().length() > 0) {
+					ObjectMapper mapper = new ObjectMapper();
+					timeSlots = mapper.readValue(responseJsonObj.get("timeSlots").toString(), mapper.getTypeFactory().constructCollectionType(List.class, TimeSlotEntity.class));
+					if (preferredDate != null) {
+						for (TimeSlotEntity slot: timeSlots) {
+							slot.setDate(preferredDate);
+						}
+					}
+					return Responses.ok(timeSlots);
+				} else {
+					return Responses.notFound(null);
+				}
+			} catch (Exception e) {
+				return Responses.error(null);
+			}
+			
 		}
+		
 	}
 	
 	@RequestMapping(method = POST)
