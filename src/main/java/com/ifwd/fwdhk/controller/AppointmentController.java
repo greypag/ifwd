@@ -6,6 +6,8 @@ import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import io.swagger.annotations.ApiResponses;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.joda.time.DateTime;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -45,6 +48,8 @@ import com.ifwd.fwdhk.util.InitApplicationMessage;
 @Api(value = "/appointment", description = "Operations about appointment")
 public class AppointmentController extends BaseController {
 
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+	
 	@Autowired
 	private LifeService savieOnlineService;
 	
@@ -238,7 +243,7 @@ public class AppointmentController extends BaseController {
 		}					
 	}
 	
-	@RequestMapping(value = "/{refNum}", method = GET)
+	@RequestMapping(value = "/{applicationNumber}", method = GET)
 	@ApiOperation(
 		value = "Find appointment booking",
 		response = AppointmentBooking.class
@@ -247,25 +252,29 @@ public class AppointmentController extends BaseController {
 			@ApiResponse(code = 404, message = "System cannot find appointment booking"),
 			@ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<AppointmentBooking> findAppointmentBooking(
-			@ApiParam(value = "Booking reference number", required = true) @PathVariable("refNum") String refNum
+			@ApiParam(value = "Booking application number", required = true) @PathVariable("applicationNumber") String applicationNumber
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
 
-		AppointmentBooking booking = new AppointmentBooking();
-		booking.setReferenceNum(refNum);
-		booking.setCentreCode("");
-		booking.setPreferredDate("");
-		booking.setPreferredTime("");
-		booking.setUserName("");
-		booking.setAppointmentType(null);
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+
+		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/appointment/booking?applicationNumber=" + applicationNumber;
+		org.json.simple.JSONObject appJsonObj = (org.json.simple.JSONObject)restService.consumeApi(HttpMethod.GET, applicationUrl, COMMON_HEADERS, parameters).get("appointment");
 		
-		if (booking != null) {
+		if (appJsonObj != null) {
+			AppointmentBooking booking = new AppointmentBooking();
+			booking.setReferenceNum((String)appJsonObj.get("applicationNumber"));
+			booking.setCentreCode((String)appJsonObj.get("serviceCentreCode"));
+			booking.setPreferredDate(dateFormat.format(new Date(Long.parseLong(appJsonObj.get("date").toString()))));
+			booking.setPreferredTime((String)appJsonObj.get("timeSlot"));
+			booking.setUserName((String)appJsonObj.get("createdBy"));
+			booking.setPlanCode((String)appJsonObj.get("planCode"));
 			if (!booking.getUserName().equals(MemberController.GetUserName(request))) {
 				return Responses.unauthorized(null);
 			} else {					
 				return Responses.ok(booking);
-			}					
+			}
 		} else {
 			return Responses.notFound(null);
 		}
