@@ -51,7 +51,7 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
-import com.ifwd.fwdhk.controller.AppointmentController.AppointmentType;
+import com.ifwd.fwdhk.model.AppointmentBooking.AppointmentType;
 import com.ifwd.fwdhk.controller.core.Responses;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.ProviePlanDetails;
