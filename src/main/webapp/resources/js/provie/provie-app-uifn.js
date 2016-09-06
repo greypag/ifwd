@@ -316,7 +316,7 @@ $(document).ready(function(){
 					url:fwdApi.url.findAvailableDateByCentre,
 					type:"get",
 					contentType: "application/json",
-					data:{type:typeId,centreCode:d.serviceCentreCode,date:"15-07-2016"},
+					data:{type:typeId,centreCode:d.serviceCentreCode,date:""},
 					cache:false,
 					async:false,
 					error:function(){
