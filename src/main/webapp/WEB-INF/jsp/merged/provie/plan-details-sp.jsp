@@ -71,19 +71,19 @@
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="col-md-8">
 					<div class="row mob-full">
-						<h3 class="heading-title">計劃詳情 <i data-toggle="tooltip" data-html="true" data-placement="right" title="<p class='bold'>一筆過供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p><p class='bold'>定期供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p>" class="fa hidden fa-info-circle info-tooltip"></i></h3>
+						<h3 class="heading-title"><fmt:message key="provie.plandetails.title.plandeatils" bundle="${provieMsg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<p class='bold'>一筆過供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p><p class='bold'>定期供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p>" class="fa hidden fa-info-circle info-tooltip"></i></h3>
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" >
-										   <option value="regular-payment" data-val="rp-HKD">月繳供款 - 港幣</option>
-										   <option value="regular-payment" data-val="rp-USD">月繳供款 - 美元</option>
-										   <option value="one-off-premium" data-val="sp-HKD" selected>一筆過供款 - 港幣</option>
-										   <option value="one-off-premium"  data-val="sp-USD">一筆過供款 - 美元</option>
+										   <option value="regular-payment" data-val="rp-HKD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.hkd" bundle="${provieMsg}" /></option>
+										   <option value="regular-payment" data-val="rp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.usd" bundle="${provieMsg}" /></option>
+										   <option value="one-off-premium" data-val="sp-HKD" selected><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.hkd" bundle="${provieMsg}" /></option>
+										   <option value="one-off-premium"  data-val="sp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.usd" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">繳費方式</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="provie.plandetails.text1" bundle="${provieMsg}" /></label>
 									</div>
 								</div>								
 							</div>
@@ -94,7 +94,7 @@
 									<div class="selectDiv centreDiv gray-text-bg">
 										<input  name="plan-dob" id="plan-dob-datepicker" value="" class="form-control" />
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob">出生日期</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="provie.plandetails.dropdown.dob" bundle="${provieMsg}" /></label>
 									</div>
 								</div>
 <!-- 								
@@ -173,7 +173,7 @@
 								<div class="col-xs-12 plan-promo-code">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 										<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode">推廣編號(如適用)</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="provie.plandetails.promocode" bundle="${provieMsg}" /></label>
 									</div>
 									<span class="error-msg hidden" id="promoCodeErrorMsg">推廣編號無效。</span>
 								</div>
@@ -182,7 +182,7 @@
 						<div class="col-md-12 visible-md visible-lg">
 							<div class="row">
 								<div class="col-md-6 col-md-push-6 col-xs-12 plan-calculate text-center">
-									<button type="button" class="btn savie-common-btn" id="plan-calculate-btn">計算</button>
+									<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -191,15 +191,15 @@
 				</div>
 				<div class="col-md-4 extra-rider er-color-swap">
 					<div class="row">
-						<h3 class="heading-title">Get an Extra rider out of 3 choices</h3>
+						<h3 class="heading-title"><fmt:message key="provie.plandetails.riders.title" bundle="${provieMsg}" /></h3>
 						<div class="col-xs-12">
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 										<select name="payment-type" id="type-of-extra-rider" class="form-control gray-dropdown pd-dropdown">
-										   <option value="AccidentalDeathBenefit" data-cls="p50">50% Death Benefit</option>
-										   <option value="CancerBenefit" data-cls="p100">100% Death Benefit</option>
-										   <option value="TermLifeBenefit" data-cls="p500">500% Death Benefit</option>
+										   <option value="AccidentalDeathBenefit" data-cls="p50"><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
+										   <option value="CancerBenefit" data-cls="p100"><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
+										   <option value="TermLifeBenefit" data-cls="p500"><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">Extra riders</label>
@@ -223,7 +223,7 @@
 				<div class="col-xs-12 hidden-md hidden-lg">
 					<div class="row">
 						<div class="col-md-6 col-md-push-6 col-xs-12 plan-calculate text-center">
-							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn">計算</button>
+							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
 						</div>
 					</div>
 				</div>
@@ -235,7 +235,7 @@
 	<div class="pd-summary-table" id="table-content-pd">
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
-				<h4 class="summary-note-title">摘要</h4>
+				<h4 class="summary-note-title"><fmt:message key="provie.plandetails.title.summary" bundle="${provieMsg}" /></h4>
 				<!-- <p class="summary-note">如您於第三個保單年度退保，可獲得港幣<span id="3rd_policy_year" class="received-money">0</span></p> -->
 			</div>
 			<div class="table-content">
@@ -266,12 +266,12 @@
 					<table class="table tbl_desktop">
 						<thead>
 							<tr>
-								<th class="first-head">保單年度終結</th>
-								<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-								<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-								<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-								<th class="hidden-sm hidden-xs">身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-								<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>
+								<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+								<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+								<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -324,7 +324,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th>保單年度終結</th>
+									<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -355,11 +355,11 @@
 						<table class="tbl_mob">
 							<thead>
 								<tr>
-									<th>保證派息率(%)</th>
-									<th>繳付保費總額 （港元）</th>
-									<th>退保價值（港元）/<br>退保價值（港元）</th>
-									<th>身故賠償（港元）</th>
-									<th class="cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental<br>Death Benefit</th>
+									<th><fmt:message key="provie.plandetails.riders.interestrate" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.riders.totalpremium" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.riders.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.riders.acctvalue2" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.riders.deathbenefit" bundle="${provieMsg}" /></th>
+									<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.riders.extrabenefit" bundle="${provieMsg}" /></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -568,10 +568,10 @@
 		<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
 		   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
 				<li class="pd-sf-tab text-center active" role="presentation">
-					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab">主要產品<br class="visible-xs"/>風險及不保事項</a>
+					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab" bundle="${provieMsg}" /><br class="visible-xs"/><fmt:message key="provie.plandetails.risks.exclusions.tab.suffix" bundle="${provieMsg}" /></a>
 				</li>
 				<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
-					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">詞彙表</a>
+					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab2" bundle="${provieMsg}" /></a>
 				</li>
 		   </ul>
 		</div>
@@ -584,7 +584,7 @@
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									主要產品風險
+									<fmt:message key="provie.plandetails.productrisks.title" bundle="${provieMsg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -594,7 +594,43 @@
 						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
 							  <div class="panel-body">
 								<div class="js-display-savie-sp">
-									<p>信貸風險</p><p>本產品是由富衛發出的保單。投保本保險產品或其任何保單利益須承受富衛的信貸風險。您將承擔富衛無法履行保單財務責任的違約風險。</p><br/><p>流動性風險</p><p>本產品為長期保險保單。此長期保險保單有既定的保單期限，保單期限由保單生效日至期滿日止。保單提供一定價值，如您於期滿日前作退保，或在保單生效早期提取戶口價值，您可能會損失將來利息及保單保障。投保本產品有機會對您的財務狀況構成流動性風險，您須承擔本產品之流動性風險。</p><br/><p>外幣匯率及貨幣風險</p><p>投保外幣為保單貨幣的保險產品須承受外幣匯率及貨幣風險。請注意外幣或會受相關監管機構控制及管理（例如，外匯限制）。若保險產品的貨幣單位與您的本國貨幣不同，任何保單貨幣對您的本國貨幣匯率之變動將直接影響您的應付保費及可取利益。舉例來說，如果保單貨幣對您的本國貨幣大幅貶值，這種匯率波動可能對您的應付保費及可取利益帶來潛在損失。</p><br/><p>通脹風險</p><p>請注意通脹會導致未來生活費用增加。即使富衛履行所有合約責任，實際保單權益可能不足以應付將來的保障需要。</p><br/><p>提早退保風險</p><p>如您在保單期滿日前提早退保，或在保單生效早期提取戶口價值，您可能會損失將來派息及保單保障。</p><br/><p>終止保單</p><p>保單將在下列其中一個日期終止，以最早者為準: 1. 被保人身故 2. 被保人100歲生日前之保單週年日 3. 保單之退保日。此日期為依富衛退保相關規定所認定之退保日 4. 當保單戶口價值低於零。</p><br/><p>不保證保障</p><p>不保證保障包括派息率是非保證的，並按照釐定派息率的理念由富衛自行決定。</p><br/><p>保費年期及欠繳保費（只適用於月供計劃）</p><p>保單的供款年期的終結日為被保人100歲生日前之保單週年日。任何到期應繳付之保費均可獲富衛30天寬限期。若在寬限期後仍未繳付保費，富衛將為保單執行保費假期。若保單已行使保費假期，保單應繳的基本計劃保費、附加於本保單之附約保費（如適用）及相關的收費將會持續從保單戶口內扣除。當保單戶口價值不足以支付基本計劃保費，任何附加於本保單之附約保費及相關的收費，或當保單戶口價值低於最低戶口結餘時，保單將會自動被終止。請注意，如保單是因此而自動終止，您可能會失去全部權益。
+									<p><fmt:message key="provie.plandetails.risk1.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk1.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk2.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk2.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk3.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk3.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk4.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk4.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk5.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk5.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.termination.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.termination.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.rider.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.rider.text1" bundle="${provieMsg}" /></p>
+									<ol>
+										<li><fmt:message key="provie.plandetails.rider.text2" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text3" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text4" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text5" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text6" bundle="${provieMsg}" /></li>
+									</ol>
+									<p><fmt:message key="provie.plandetails.rider.text7" bundle="${provieMsg}" /></p>
+									<ol>
+										<li><fmt:message key="provie.plandetails.rider.text8" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text9" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text10" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text11" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text12" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text13" bundle="${provieMsg}" /></li>
+									</ol>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.title" bundle="${provieMsg}" /></p>
+									<p>
+										<fmt:message key="provie.plandetails.nonguranteedbenefits.text1" bundle="${provieMsg}" /><br>
+										<fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /><br>
+										<fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /><br>
+
+									</p>
 								</div>
 								<div class="js-display-savie-rp">
 									<p>信貸風險</p><p>本產品是由富衛發出的保單。投保本保險產品或其任何保單利益須承受富衛的信貸風險。您將承擔富衛無法履行保單財務責任的違約風險。</p><br/><p>流動性風險</p><p>本產品為長期保險保單。此長期保險保單有既定的保單期限，保單期限由保單生效日至期滿日止。保單提供一定價值，如您於期滿日前作退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來利息及保單保障。投保本產品有機會對您的財務狀況構成流動性風險，您須承擔本產品之流動性風險。</p><br/><p>外幣匯率及貨幣風險</p><p>投保外幣為保單貨幣的保險產品須承受外幣匯率及貨幣風險。請注意外幣或會受相關監管機構控制及管理（例如，外匯限制）。若保險產品的貨幣單位與您的本國貨幣不同，任何保單貨幣對您的本國貨幣匯率之變動將直接影響您的應付保費及可取利益。舉例來說，如果保單貨幣對您的本國貨幣大幅貶值，這種匯率波動可能對您的應付保費及可取利益帶來潛在損失。</p><br/><p>通脹風險</p><p>請注意通脹會導致未來生活費用增加。即使富衛履行所有合約責任，實際保單權益可能不足以應付將來的保障需要。</p><br/><p>提早退保風險</p><p>如您在保單期滿日前提早退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來派息及保單保障。</p><br/><p>終止保單</p><p>保單將在下列其中一個日期終止，以最早者為準: 1. 被保人身故 2. 被保人100歲生日前之保單週年日 3. 保單之退保日。此日期為依富衛退保相關規定所認定之退保日 4. 當保單戶口價值低於零。</p><br/><p>不保證保障</p><p>不保證保障包括派息率是非保證的，並按照釐定派息率的理念由富衛自行決定。</p><br/><p>保費年期及欠繳保費（只適用於月供計劃）</p><p>保單的供款年期的終結日為被保人100歲生日前之保單週年日。任何到期應繳付之保費均可獲富衛30天寬限期。若在寬限期後仍未繳付保費，富衛將為保單執行保費假期。若保單已行使保費假期，保單應繳的基本計劃保費、附加於本保單之附約保費（如適用）及相關的收費將會持續從保單戶口內扣除。當保單戶口價值不足以支付基本計劃保費，任何附加於本保單之附約保費及相關的收費，或當保單戶口價值低於最低戶口結餘時，保單將會自動被終止。請注意，如保單是因此而自動終止，您可能會失去全部權益。
@@ -606,7 +642,7 @@
 						   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									不保事項
+									<fmt:message key="provie.plandetails.keyexclusion.title" bundle="${provieMsg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -614,7 +650,21 @@
 							  </h4>
 						   </div>
 						   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
-							  <div class="panel-body"><p>意外身故權益限於每名被保人(於所有由富衛發出的本產品保單下)最高保障額400,000港元，保障至七十一歲生日之前的保單週年日。若被保人直接或間接由下列任何原因引致死亡，將不獲發此額外意外身故權益：</p><ol><li>疾病或任何感染（由意外受傷之傷口引發之細菌感染則除外）。</li><li>懷孕、分娩（包括任何方式）、流產或墮胎（因意外而提前或導致分娩或流產亦屬不保事項）。</li><li>蓄意自我毀傷或自殺，不論當時神智是否清醒，或是否受藥物或酒精影響。</li><li>任何未經認可註冊醫生合法處方之藥物。</li><li>被保人受酒精/藥物影響而遭受或導致意外。</li><li>自願或非自願服用毒藥或吸入氣體或煙霧（若被保人因工作關係遭遇危險，引起意外而吸入或服用上述物品則除外）。</li><li>戰爭或軍事行為、恐怖主義或恐怖份子行動（包括已宣告或未宣告），敵對行動、暴動、革命、反叛、政變或篡權；或在任何國家或國際權力機構之海、陸、空部隊中服役。</li><li>除以乘客身份購票乘搭合格持牌之商業飛機以外的飛行活動。</li><li>參與任何犯罪的活動。</li><li>除賽跑外的各種競速比賽。</li><li>核輻射、核污染或使用任何核子武器的游離或燃燒所產生的污染。 </li><li>參與任何形式有報酬及收入的專業運動競賽。</li></ol></div>
+							  <div class="panel-body">
+							  	<p>
+							  		<fmt:message key="provie.plandetails.keyexclusion.text0" bundle="${provieMsg}" /><br>
+							  		<fmt:message key="provie.plandetails.keyexclusion.text1" bundle="${provieMsg}" />
+							  	</p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text2" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text3" bundle="${provieMsg}" /></li>
+							  	</ol>
+							  	<p><fmt:message key="provie.plandetails.keyexclusion.text4" bundle="${provieMsg}" /></p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text5" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text6" bundle="${provieMsg}" /></li>
+							  	</ol>
+							  </div>
 						   </div>
 						</div>
 					</div>
@@ -638,20 +688,20 @@
 						</div>
 					</div>
 				</div>
-				<p>註：<br>本公司會就以下情況邀請閣下親身蒞臨本公司的客戶服務中心辦理手續：1)更換受益人；2)選擇於客戶服務中心繳交首期保費；3)部份退保；4)退保；或5)抵押轉讓。</p>
+				<p><fmt:message key="provie.plandetails.note.title" bundle="${provieMsg}" /><br><fmt:message key="provie.plandetails.note.text1" bundle="${provieMsg}" /></p>
+				<br/>
+
+				<p><fmt:message key="provie.plandetails.note.text2" bundle="${provieMsg}" /></p>
+				<br/>
+				<p><fmt:message key="provie.plandetails.note.text3" bundle="${provieMsg}" /></p>
+				<br/>
+				<p><fmt:message key="provie.plandetails.note.text4" bundle="${provieMsg}" /></p>
 				<br/>
 				
-				<ul class="availability-notice" style="padding-left: 15px;">
-					<li>Savie自助息理財壽險 (包括一筆過及月繳計劃) (「本計劃」) 只供香港身份證持有人申請。		</li>
-					<li>由於反應熱烈，在2016年7月4日至2016年8月21日期間，無論以任何形式申請，每位申請人只限申請一(1)份本計劃新保單。</li>
-					<li>每位申請人只可透過網上申請購入最多一份本計劃保單。		</li>
-					<li>在任何情況下，無論以任何形式申請，每位申請人最多只可持有五(5)份本計劃保單(包括任何已終止之保單)。		</li>
-					<li>本計劃為限額發售產品，供應視乎情況而定。富衛保留不接受保單申請之權利，並退回全數已繳交之保費及不會計算及支付任何利息。</li>
-				</ul>
 			</div>
 		</div>
 		<div class="next-btn text-center">
-			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn" style="color: #ff8200;">預約申請</button>
+			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn" style="color: #ff8200;"><fmt:message key="provie.plandetails.cta.appointment" bundle="${provieMsg}" /></button>
 				<!-- <a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">預約申請</a> -->
 
 				<a id="btn-login" class="pd-link hidden">登入以繼續</a>

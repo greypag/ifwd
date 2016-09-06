@@ -10,6 +10,8 @@ sup{
 	top: 0;
 }
 
+
+
 //========================//
 $base-title-font-size: 2.250em;
 //not in used
@@ -372,6 +374,15 @@ button.dropdown-toggle{
 		max-width: 500px;
 		.btn-group{
 			line-height: 1.188em;
+		}
+		.input_amount, .input_age{
+			border: none;
+			border-bottom: solid 1px #999999;
+			width: 4.167em;
+			text-align: center;
+			&::-webkit-input-placeholder {
+			  font-size: 1em !important;
+			}
 		}
 	}
 }

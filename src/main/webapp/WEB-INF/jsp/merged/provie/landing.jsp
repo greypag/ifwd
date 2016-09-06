@@ -23,11 +23,10 @@ var home_url = "<%=request.getContextPath()%>";
 	boolean isEservicesActiveClass = false;
 %>
 
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
 
 
@@ -66,17 +65,17 @@ var home_url = "<%=request.getContextPath()%>";
                 <div class="page-banner"> 
                 	<img src="<%=request.getContextPath()%>/resources/images/provie/landing-bg-mobile.jpg" class="img-responsive hidden-sm hidden-md hidden-lg"> <img src="<%=request.getContextPath()%>/resources/images/provie/landing-bg-desktop.jpg" class="img-responsive hidden-xs">
                 	<div class="pv_overlay_text_wrap">
-            			<h2 class="pv_title">隨時拎 , 零收費 , 升級保障</h2>
-            			<p class="pv_desc">讓 您 自 主 升 級 理 財 大 計</p>	
+            			<h2 class="pv_title"><fmt:message key="provie.landing.breadcrumb" bundle="${provieMsg}" /></h2>
+            			<p class="pv_desc"><fmt:message key="provie.landing.title1" bundle="${provieMsg}" /></p>	
                 	</div>
                 	
                     <div class="fwd-container-limit">
                         <form id="o2o-landing-form" action="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}"  method="post">                       
                             <div class="img-banner-text savie-landing">
                                 <div id="clearfix-height-rp">
-                                    <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn">Apply Now</button>
+                                    <button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="provie.landing.cta.start" bundle="${provieMsg}" /></button>
                                 </div>
-                                <div class="savie-product text-bold"> <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank">Product brochure</a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank">Product provisions</a> </div>
+                                <div class="savie-product text-bold"> <a href="/resources/brochure-pdf/savie_brochure_rp.pdf" target="_blank"><fmt:message key="provie.landing.link.productbrochure" bundle="${provieMsg}" /></a> | <a href="/resources/policy-provisions-pdf/Savie_En_Provisions.pdf" target="_blank"><fmt:message key="provie.landing.link.policyprovision" bundle="${provieMsg}" /></a> </div>
                             </div>
                         </form>
                     </div>
@@ -105,7 +104,15 @@ var home_url = "<%=request.getContextPath()%>";
 									<td>5</td>
 								</tr>
 								<tr>
-									<td class="pv_table_head">保証派息率</td>
+									<td class="pv_table_head">保証派息率()</td>
+									<td>1.5%</td>
+									<td>1.5%</td>
+									<td>2%</td>
+									<td>2%</td>
+									<td>3%</td>
+								</tr>
+								<tr>
+									<td class="pv_table_head">保証派息率()</td>
 									<td>1.5%</td>
 									<td>1.5%</td>
 									<td>2%</td>
@@ -122,64 +129,58 @@ var home_url = "<%=request.getContextPath()%>";
             	<div class="container">
             		<div class="row">
             			<div class="col-xs-12">
-            				<h2 class="pv_title">您好，我們知道您想展開儲蓄大計！</h2>
-			            	<p class="pv_sub_heading">請告訴我們您的想法及希望如何達成目標。</p>
+            				<h2 class="pv_title"><fmt:message key="provie.landing.calculation.title1" bundle="${provieMsg}" /></h2>
+			            	<p class="pv_sub_heading"><fmt:message key="provie.landing.calculation.title2" bundle="${provieMsg}" /></p>
 							<div class="pv_statement">
-								我是
+								<fmt:message key="provie.landing.calculation.text1" bundle="${provieMsg}" />
 								<div class="btn-group">
-								  <button data-toggle="dropdown" class="dropdown-toggle">性別</button>
+								  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.sex" bundle="${provieMsg}" /></button>
 								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="genderM" name="gender" value="0"><label for="genderM">男性</label></li>
-								      <li><input type="radio" id="genderF" name="gender" value="1"><label for="genderF">女性</label></li>
+								      <li><input type="radio" id="genderM" name="gender" value="M"><label for="genderM"><fmt:message key="provie.landing.calculation.dropdown.sexM" bundle="${provieMsg}" /></label></li>
+								      <li><input type="radio" id="genderF" name="gender" value="F"><label for="genderF"><fmt:message key="provie.landing.calculation.dropdown.sexF" bundle="${provieMsg}" /></label></li>
 								    </ul>
 								</div>
-								，現時
+								<fmt:message key="provie.landing.calculation.text3" bundle="${provieMsg}" />
 								<div class="btn-group">
-								  <button data-toggle="dropdown" class="dropdown-toggle">年齡</button>
-								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="age26" name="age" value="0"><label for="age26">26</label></li>
-								      <li><input type="radio" id="age30" name="age" value="1"><label for="age30">30</label></li>
-								    </ul>
+								  <input type="text" name="age" class="input_age" placeholder='<fmt:message key="provie.landing.calculation.dropdown.age" bundle="${provieMsg}" />'>
 								</div>
-								歲，
+								<fmt:message key="provie.landing.calculation.text4" bundle="${provieMsg}" />
 								
-								正打算以
+								<fmt:message key="provie.landing.calculation.text5" bundle="${provieMsg}" />
 								<div class="btn-group">
-								  <button data-toggle="dropdown" class="dropdown-toggle">供款方式</button>
+								  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.method" bundle="${provieMsg}" /></button>
 								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="type1" name="type" value="0"><label for="type1">每月供款</label></li>
-								      <li><input type="radio" id="type2" name="type" value="1"><label for="type2">一次性供款</label></li>
+								      <li><input type="radio" id="method1" name="method" value="SP"><label for="method1">每月供款</label></li>
+								      <li><input type="radio" id="method2" name="method" value="RP"><label for="method2">一次性供款</label></li>
 								    </ul>
 								</div> 
 								
 								<div class="btn-group">
-								  <button data-toggle="dropdown" class="dropdown-toggle">金額</button>
-								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="amount1" name="amount" value="0"><label for="amount1">1500</label></li>
-								      <li><input type="radio" id="amount2" name="amount" value="1"><label for="amount2">3000</label></li>
-								    </ul>
+								  <input type="text" name="amount" class="input_amount" placeholder='<fmt:message key="provie.landing.calculation.dropdown.amount" bundle="${provieMsg}" />'>
 								</div> 
 
 								<div class="btn-group">
-								  <button data-toggle="dropdown" class="dropdown-toggle">貨幣</button>
+								  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.currency" bundle="${provieMsg}" /></button>
 								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="currency1" name="currency" value="0"><label for="currency1">港元</label></li>
-								      <li><input type="radio" id="currency" name="currency" value="1"><label for="currency2">美金</label></li>
+								      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1">港元</label></li>
+								      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2">美金</label></li>
 								    </ul>
 								</div> 
 
 								為期
 								<div class="btn-group">
 								  <button data-toggle="dropdown" class="dropdown-toggle">年期</button>
-								    <ul class="dropdown-menu">
-								      <li><input type="radio" id="period1" name="currency" value="0"><label for="period1">1年</label></li>
-								      <li><input type="radio" id="period2" name="currency" value="1"><label for="period2">3年</label></li>
+								    <ul class="dropdown-menu yearList">
+								      <li><input type="radio" id="year1" name="year" value="0"><label for="year1">1</label></li>
+								      <li><input type="radio" id="year2" name="year" value="1"><label for="year2">3</label></li>
 								    </ul>
 								</div> 
-								年，為未來做好準備！
+								<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
 							</div>
 							
-							<a href="#" class="pv_btn">計算</a>	
+							<ul class="error_list"></ul>
+							
+							<a href="#" class="pv_btn"><fmt:message key="provie.landing.calculation.cta.calculate" bundle="${provieMsg}" /></a>	
             			</div>
             			
             		</div>
@@ -190,14 +191,14 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<h2 class="pv_title">您的Provie真息揀計劃</h2>
-        					<p class="pv_sub_heading">於首 5個保單年度，可享有年度保證派息率，讓您的儲蓄金額延續生息，輕鬆增值。</p>		
+							<h2 class="pv_title"><fmt:message key="provie.landing.calculation.title3" bundle="${provieMsg}" /></h2>
+        					<p class="pv_sub_heading"><fmt:message key="provie.landing.calculation.text11" bundle="${provieMsg}" /></p>		
 						</div>
 						<div class="col-xs-12">
 							<div class="pv_plan_wrap">
 								<div class="col-xs-12 visible-md visible-lg">
 									<span class="pv_hint hint1">移動按鈕以查看各年度的戶口總值</span>
-									<span class="pv_hint hint2">保單年期</span>
+									<span class="pv_hint hint2"><fmt:message key="provie.landing.calculation.year" bundle="${provieMsg}" /></span>
 								</div>
     							<div class="scale">
     								<span class="floatNum num1">1</span>
@@ -211,48 +212,48 @@ var home_url = "<%=request.getContextPath()%>";
 								<div id="slider"></div>
 								
 								<div class="scale scaleBottom">
-    								<span class="floatNum num1">1.5%</span>
-    								<span class="floatNum num2">1.5%</span>
-    								<span class="floatNum num3">2%</span>
-    								<span class="floatNum num4">2%</span>
-    								<span class="floatNum num5">3%</span>
+    								<span class="floatNum num1"></span>
+    								<span class="floatNum num2"></span>
+    								<span class="floatNum num3"></span>
+    								<span class="floatNum num4"></span>
+    								<span class="floatNum num5"></span>
     							</div>
 
 								<div class="yearWarp">
-									<span class="year center">保證派息年度</span>
+									<span class="year center"><fmt:message key="provie.landing.calculation.interestrate" bundle="${provieMsg}" /></span>
 								</div>
 
     							<div class="money">
-									<div class="left">每月供款<br>$3,600</div><!--
-									--><div class="right">已繳保費總額<br>$108,000</div>
+									<div class="left"><fmt:message key="provie.landing.calculation.premium" bundle="${provieMsg}" /><br><span class="monthlyFee"></span></div><!--
+									--><div class="right"><fmt:message key="provie.landing.calculation.totalpremium" bundle="${provieMsg}" /><br><span class="totalPaid"></span></div>
 								</div>
 
 								<div class="accValue">
-									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_icon.png" alt="戶口價值" class="img-responsive">
-									<div class="txt">戶口價值<br><span class="amount">$116,388</span></div>
-									<div>更提供相等於105%戶口價值的身故權益</div>
+									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_icon.png" alt='<fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" />' class="img-responsive">
+									<div class="txt"><fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" /><br><span class="amount">$116,388</span></div>
+									<div><fmt:message key="provie.landing.calculation.year.acctvalue" bundle="${provieMsg}" /></div>
 								</div>
 
 								<div class="extra">
 									<h3 class="pv_title_extra">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_slider_plus.png" alt="+" class="img-responsive imgPlus">三選一免費額外保障
+											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_slider_plus.png" alt="+" class="img-responsive imgPlus"><fmt:message key="provie.landing.calculation.3riders.title" bundle="${provieMsg}" />
 									</h3>
 									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_slider_line_b.png" alt="line" class="img-responsive center line">
 										
 									<div class="card card1">
-										<h3 class="name">100%人壽保障</h3>
+										<h3 class="name"><fmt:message key="provie.landing.calculation.rider1.title" bundle="${provieMsg}" /></h3>
 										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" alt="" class="img-responsive center">
-										<p class="price">$116,388</p>
+										<p class="price"></p>
 									</div>
 									<div class="card card2">
-										<h3 class="name">100%人壽保障</h3>
+										<h3 class="name"><fmt:message key="provie.landing.calculation.rider2.title" bundle="${provieMsg}" /></h3>
 										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" alt="" class="img-responsive center">
-										<p class="price">$116,388</p>
+										<p class="price"></p>
 									</div>
 									<div class="card card3">
-										<h3 class="name">100%人壽保障</h3>
+										<h3 class="name"><fmt:message key="provie.landing.calculation.rider3.title" bundle="${provieMsg}" /></h3>
 										<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" alt="" class="img-responsive center">
-										<p class="price">$116,388</p>
+										<p class="price"></p>
 									</div>
 								</div>
 							</div>
@@ -265,48 +266,48 @@ var home_url = "<%=request.getContextPath()%>";
             	<div class="container">
             		<div class="row">
             			<div class="col-xs-12">
-            				<h2 class="pv_title">儲錢無難度	隨時隨心隨你揀</h2>
+            				<h2 class="pv_title"><fmt:message key="provie.landing.features.title" bundle="${provieMsg}" /></h2>
             			</div>
 						<div class="pv_feature_wrap">
 			
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt="5年保證派息" class="img_responsive">
-								<h3 class="pv_feature_title">5年保證派息</h3>	
-								<p class="pv_feature_desc hidden-xs">於首5個保單年度內，可享有年度保證派息率*，讓您的儲蓄日日生息，持續增值。<span class="pv_remark"><sup>*</sup>於首5個保單年度後，您可選擇繼續維持保單並賺取富衛決定之派息率。</span></p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_01.png" alt='<fmt:message key="provie.landing.features.1.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.1.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.1.text1" bundle="${provieMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="provie.landing.features.1.text2" bundle="${provieMsg}" /></span></p>
 							</div>
 							
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt="三選一免費額外保障" class="img_responsive">
-								<h3 class="pv_feature_title">三選一免費額外保障</h3>	
-								<p class="pv_feature_desc hidden-xs">讓您於三項自選升級保障中任選其一，配合自身需要，靈活配搭。儲蓄之外，更添安心。</p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_02.png" alt='<fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.2.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.2.text" bundle="${provieMsg}" /></p>
 							</div>
 
 							<div class="clearfix hidden-lg"></div>
 							
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_03.png" alt="隨時供、隨時停、$0 收費" class="img_responsive">
-								<h3 class="pv_feature_title">隨時供、隨時停、$0 收費</h3>	
-								<p class="pv_feature_desc hidden-xs">您可於保單期內隨時暫時或恢復繳交月繳保費，讓您靈活調動資金。您也可於任何時間（包括保證派息率年度期內）從保單提取您的戶口價值而無須繳付任何費用*，絕無任何收費。<span class="pv_remark"><sup>*</sup>提款須受制於富衛規定之最低戶口結餘。</span></p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_03.png" alt='<fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.3.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.3.text" bundle="${provieMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="provie.landing.features.3.remarks" bundle="${provieMsg}" /></span></p>
 							</div>
 
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_04.png" alt="美元港元同時支援" class="img_responsive">
-								<h3 class="pv_feature_title">美元港元同時支援</h3>	
-								<p class="pv_feature_desc hidden-xs">您可自由選擇以美元或港元繳付供款，靈活兼具彈性。</p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_04.png" alt='<fmt:message key="provie.landing.features.4.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.4.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.4.text" bundle="${provieMsg}" /></p>
 							</div>
 							
 							<div class="clearfix hidden-lg"></div>
 							
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_05.png" alt="供款‧由您話事" class="img_responsive">
-								<h3 class="pv_feature_title">供款‧由您話事</h3>	
-								<p class="pv_feature_desc hidden-xs">Provie真息揀就您的儲蓄習慣設有一筆過及月繳保費計劃以供選擇。我們接受支票、銀行直接付款或交通銀行的FWD信用卡付款方法。</p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_05.png" alt='<fmt:message key="provie.landing.features.5.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.5.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.5.text" bundle="${provieMsg}" /></p>
 							</div>
 
 							<div class="col-xs-6 col-lg-4 pv_feature_box text-center">
-								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_06.png" alt="身故權益" class="img_responsive">
-								<h3 class="pv_feature_title">身故權益</h3>	
-								<p class="pv_feature_desc hidden-xs">如受保人不幸辭世，本計劃提供投保金額 105%*作為身故權益，保障直至100歲。<span class="pv_remark"><sup>*</sup>*所有已繳保費及利息的累積金額，減去部份提款（如有）。</span></p>
+								<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s3_icon_06.png" alt='<fmt:message key="provie.landing.features.6.title" bundle="${provieMsg}" />' class="img_responsive">
+								<h3 class="pv_feature_title"><fmt:message key="provie.landing.features.6.title" bundle="${provieMsg}" /></h3>	
+								<p class="pv_feature_desc hidden-xs"><fmt:message key="provie.landing.features.6.text" bundle="${provieMsg}" /><span class="pv_remark"><sup>*</sup><fmt:message key="provie.landing.features.6.remarks" bundle="${provieMsg}" /></span></p>
 							</div>
 						</div>
             		</div>
@@ -317,7 +318,7 @@ var home_url = "<%=request.getContextPath()%>";
             	<div class="container">
             		<div class="row">
             			<div class="col-xs-12">
-            				<h2 class="pv_title">三選一免費額外保障<sup>1,2</sup></h2>
+            				<h2 class="pv_title"><fmt:message key="provie.landing.riders.title" bundle="${provieMsg}" /><sup>1,2</sup></h2>
 			            	<p class="pv_sub_heading">Provie 自選保讓您於三項自選升級保障中任選其一，配合自身需要，靈活配搭。儲蓄之外，更添安心。</p>
 			            </div>
 						
@@ -327,31 +328,31 @@ var home_url = "<%=request.getContextPath()%>";
 
 									<div class="col-xs-12 col-md-4 pv_extra_card card1">
 	                                    <div class="front">
-	                                        <h5 class="text-center pv_title">額外100%人壽保障</h5>
-	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon" alt="額外100%人壽保障">
+	                                        <h5 class="text-center pv_title"><fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" /></h5>
+	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" />'>
 	                                    </div>
 	                                    <div class="back">
-	                                        <p class="pv_extra_desc">若受保人不幸身故，可額外獲賠償戶口價值3之100%作為額外人壽保障， 為其家人提供財政保障或其生意提供援手，協助周轉。</p>
+	                                        <p class="pv_extra_desc"><fmt:message key="provie.landing.riders.1.text" bundle="${provieMsg}" /></p>
 	                                    </div>
 	                                </div>
 
 	                                <div class="col-xs-12 col-md-4 pv_extra_card card2">
 	                                    <div class="front">
-	                                        <h5 class="text-center pv_title">500%意外身故保障</h5>
-	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon" alt="500%意外身故保障">
+	                                        <h5 class="text-center pv_title"><fmt:message key="provie.landing.riders.2.title" bundle="${provieMsg}" /></h5>
+	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="provie.landing.riders.2.title" bundle="${provieMsg}" />'>
 	                                    </div>
 	                                    <div class="back">
-	                                        <p class="pv_extra_desc">若受保人不幸意外身故，可額外獲賠償戶口價值3之500%，即使天有不測，您及摯愛可得到經濟支援，以解燃眉之急。 </p>
+	                                        <p class="pv_extra_desc"><fmt:message key="provie.landing.riders.2.text" bundle="${provieMsg}" /></p>
 	                                    </div>
 	                                </div>
 
 	                                <div class="col-xs-12 col-md-4 pv_extra_card card3">
 	                                    <div class="front">
-	                                        <h5 class="text-center pv_title">50% 癌症保障</h5>
-	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon" alt="50% 癌症保障">
+	                                        <h5 class="text-center pv_title"><fmt:message key="provie.landing.riders.3.title" bundle="${provieMsg}" /></h5>
+	                                        <img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon" alt='<fmt:message key="provie.landing.riders.3.title" bundle="${provieMsg}" />'>
 	                                    </div>
 	                                    <div class="back">
-	                                        <p class="pv_extra_desc">萬一受保人確診首次患上癌症，可獲賠償戶口價值3之50%，助您儘早進行治療，面對癌症也可以迎難而上。</p>
+	                                        <p class="pv_extra_desc"><fmt:message key="provie.landing.riders.3.text" bundle="${provieMsg}" /></p>
 	                                    </div>
 	                                </div>
 
@@ -360,31 +361,31 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="col-xs-12 pv_extra_mobile hidden-lg hidden-md nopadding">
 									<div class="col-xs-12 pv_extra_point">
 										<div class="col-xs-3 nopadding">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon center" alt="額外100%人壽保障">
+											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_a.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" />'>
 										</div>
 										<div class="col-xs-9">
-											<h5 class="text-center pv_title text-left">額外100%人壽保障</h5>
-											<p class="pv_extra_desc text-left">若受保人不幸身故，可額外獲賠償戶口價值3之100%作為額外人壽保障， 為其家人提供財政保障或其生意提供援手，協助周轉。</p>
+											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.1.title" bundle="${provieMsg}" /></h5>
+											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.1.text" bundle="${provieMsg}" /></p>
 										</div>
 									</div>
 
 									<div class="col-xs-12 pv_extra_point">
 										<div class="col-xs-3 nopadding">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon center" alt="500%意外身故保障">
+											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_b.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="provie.landing.riders.2.title" bundle="${provieMsg}" />'>
 										</div>
 										<div class="col-xs-9">
-											<h5 class="text-center pv_title text-left">500%意外身故保障</h5>
-											<p class="pv_extra_desc text-left">若受保人不幸意外身故，可額外獲賠償戶口價值3之500%，即使天有不測，您及摯愛可得到經濟支援，以解燃眉之急。</p>
+											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.2.title" bundle="${provieMsg}" /></h5>
+											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.2.text" bundle="${provieMsg}" /></p>
 										</div>
 									</div>
 
 									<div class="col-xs-12 pv_extra_point">
 										<div class="col-xs-3 nopadding">
-											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon center" alt="50% 癌症保障">
+											<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_rider_c.png" class="img-responsive pv_extra_icon center" alt='<fmt:message key="provie.landing.riders.3.title" bundle="${provieMsg}" />'>
 										</div>
 										<div class="col-xs-9">
-											<h5 class="text-center pv_title text-left">50% 癌症保障</h5>
-											<p class="pv_extra_desc text-left">萬一受保人確診首次患上癌症，可獲賠償戶口價值3之50%，助您儘早進行治療，面對癌症也可以迎難而上。</p>
+											<h5 class="text-center pv_title text-left"><fmt:message key="provie.landing.riders.3.title" bundle="${provieMsg}" /></h5>
+											<p class="pv_extra_desc text-left"><fmt:message key="provie.landing.riders.3.text" bundle="${provieMsg}" /></p>
 										</div>
 									</div>
 								</div>
@@ -392,9 +393,11 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 							<div class="col-xs-12 pv_extra_remark">
 								<ul>
-									<li class="pv_remark"><sup>1</sup>免費保障的保障年期為被保人的六十六歲生日之前的保單週年日。</li>
-									<li class="pv_remark"><sup>2</sup>在申請本產品時，保單權益人必須選擇其中一個額外保障。在保單生效期間，保單權益人不得更改保障附約。如富衛不接納/拒絕所選擇的保障附約，保單權益人只可投保基本計劃而沒有任何保障附約。</li>
-									<li class="pv_remark"><sup>3</sup>戶口價值指已繳保費，加上派息（如有），減去部份退保（如有）和所有附約下之保費（如有）。</li>
+									<li class="pv_remark"><sup>1</sup><fmt:message key="provie.landing.riders.remarks1" bundle="${provieMsg}" /></li>
+									<li class="pv_remark"><sup>2</sup><fmt:message key="provie.landing.riders.remarks2" bundle="${provieMsg}" /></li>
+									<li class="pv_remark"><sup>3</sup><fmt:message key="provie.landing.riders.remarks3" bundle="${provieMsg}" /></li>
+									<li class="pv_remark"><sup>4</sup><fmt:message key="provie.landing.riders.remarks4" bundle="${provieMsg}" /></li>
+									<li class="pv_remark"><sup>5</sup><fmt:message key="provie.landing.riders.remarks5" bundle="${provieMsg}" /></li>
 								</ul>
 							</div>
 						</div>
@@ -424,81 +427,81 @@ var home_url = "<%=request.getContextPath()%>";
 							<table>
 								<tr>
 									<th colspan="2"><span class="inner">&nbsp;</span></th>
-									<th colspan="2"><span class="inner highlight">Provie 真息揀</span></th>
-									<th colspan="2"><span class="inner">Savie 自助息</span></th>
+									<th colspan="2"><span class="inner highlight"><fmt:message key="provie.landing.table.title.provie" bundle="${provieMsg}" /></span></th>
+									<th colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.savie" bundle="${provieMsg}" /></span></th>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">投保年齡<br>(下次生日年齡)</span></td>
-									<td colspan="2" class="highlight"><span class="inner">19 至 60 歲</span></td>
-									<td colspan="2"><span class="inner">19至70歲</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.age" bundle="${provieMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="provie.landing.table.age.provie" bundle="${provieMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.age.savie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">保單年期</span></td>
-									<td colspan="2" class="highlight"><span class="inner">至100歲</span></td>
-									<td colspan="2"><span class="inner">至100歲</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.benefitterm" bundle="${provieMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="provie.landing.table.benefitterm.provie" bundle="${provieMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.benefitterm.savie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">保單貨幣</span></td>
-									<td colspan="2" class="highlight"><span class="inner">港元 / 美元</span></td>
-									<td colspan="2"><span class="inner">港元</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.currency" bundle="${provieMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="provie.landing.table.currency.provie" bundle="${provieMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.currency.savie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">保證派息率</span></td>
-									<td colspan="2" class="highlight"><span class="inner"><span class="pv_sub_heading">以港元計算保單：</span><br>
-										1.5% （首個及第二個保單年度）<br>2% （第三及第四個保單年度）<br>
-										3% （第五個保單年度）<br>
-										<span class="pv_sub_heading">以美元計算保單：</span><br>
-										2% (首四個保單年度)<br>3%(第五個保單年度)</span>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.interestrate" bundle="${provieMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><span class="pv_sub_heading"><fmt:message key="provie.landing.table.interestrate.remarks" bundle="${provieMsg}" /></span><br>
+										<fmt:message key="provie.landing.table.interestrate.provie1" bundle="${provieMsg}" /><br><fmt:message key="provie.landing.table.interestrate.provie2" bundle="${provieMsg}" /><br>
+										<fmt:message key="provie.landing.table.interestrate.provie3" bundle="${provieMsg}" /><br>
+										<span class="pv_sub_heading"><fmt:message key="provie.landing.table.interestrate.provie.usd" bundle="${provieMsg}" /></span><br>
+										<fmt:message key="provie.landing.table.interestrate.provie1.usd" bundle="${provieMsg}" /><br><fmt:message key="provie.landing.table.interestrate.provie2.usd" bundle="${provieMsg}" /></span>
 									</td>
-									<td colspan="2"><span class="inner">2% (首三保單年度)</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.interestrate.savie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">身故權益</span></td>
-									<td colspan="2" class="highlight"><span class="inner">戶口價值<sup>3</sup>之105%</span></td>
-									<td colspan="2"><span class="inner">戶口價值<sup>3</sup>之105%</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.deathbenefit" bundle="${provieMsg}" /></span></td>
+									<td colspan="2" class="highlight"><span class="inner"><fmt:message key="provie.landing.table.deathbenefit.provie" bundle="${provieMsg}" /></span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.deathbenefit.savie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
-									<td colspan="2" class="sep highlight"><span class="inner">三選一</span></td>
+									<td colspan="2" class="sep highlight"><span class="inner"><fmt:message key="provie.landing.table.title2.rider" bundle="${provieMsg}" /></span></td>
 									<td colspan="2"></td>
 								</tr>
 								<tr>
-									<td colspan="2"><span class="inner">額外保障</span></td>
+									<td colspan="2"><span class="inner"><fmt:message key="provie.landing.table.title.riders" bundle="${provieMsg}" /></span></td>
 									<td colspan="2" class="highlight">
 										<span class="inner">
 											<span class="sub_title">
-												意外身故保障 
+												<fmt:message key="provie.landing.table.title.rider1" bundle="${provieMsg}" /> 
 											</span>
-											戶口價值*之500% 保障直至65歲
-											<span class="remark">（每名受保人可得意外身故權益上限為<br>12,000,000港元/1,500,000美元）</span>
+											<fmt:message key="provie.landing.table.rider1.text" bundle="${provieMsg}" />
+											<span class="remark"><fmt:message key="provie.landing.table.rider1.remarks" bundle="${provieMsg}" /></span>
 											<span class="sub_title">
-												人壽保障 
+												<fmt:message key="provie.landing.table.title.rider2" bundle="${provieMsg}" /> 
 											</span>
-											戶口價值*之100% 保障直至65歲
-											<span class="remark">（每名被保人可得人壽保障權益上限為<br>4,000,000港元/500,000美元）</span>
+											<fmt:message key="provie.landing.table.rider2.text" bundle="${provieMsg}" />
+											<span class="remark"><fmt:message key="provie.landing.table.rider2.remarks" bundle="${provieMsg}" /></span>
 											<span class="sub_title">
-												癌症保障 
+												<fmt:message key="provie.landing.table.title.rider3" bundle="${provieMsg}" /> 
 											</span>
-											戶口價值*之50% 保障直至65歲
-											<span class="remark">（每名受保人可得癌症保障權益上限為<br>2,000,000港元/250,000美元）</span>
+											<fmt:message key="provie.landing.table.rider3.text" bundle="${provieMsg}" />
+											<span class="remark"><fmt:message key="provie.landing.table.rider3.remarks" bundle="${provieMsg}" /></span>
 										</span>
 									</td>
 									<td colspan="2">
 										<span class="inner">
 											<span class="sub_title">
-												意外身故保障 
+												<fmt:message key="provie.landing.table.rider1.savie.title" bundle="${provieMsg}" /> 
 											</span>
-											戶口價值*之500% 保障直至65歲
-											<span class="remark">（每名受保人可得意外身故權益上限為<br>12,000,000港元/1,500,000美元）</span>
+											<fmt:message key="provie.landing.table.rider1.savie.text1" bundle="${provieMsg}" />
+											<span class="remark"><fmt:message key="provie.landing.table.rider1.savie.text2" bundle="${provieMsg}" /></span>
 										</span>
 									</td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
-									<td class="sep"><span class="inner">月繳計劃</span></td>
-									<td class="sep hideborderLeft"><span class="inner">一筆過計劃</span></td>
-									<td class="sep"><span class="inner">月繳計劃</span></td>
-									<td class="sep hideborderLeft"><span class="inner">一筆過計劃</span></td>
+									<td class="sep"><span class="inner"><fmt:message key="provie.landing.table.monthly.provie" bundle="${provieMsg}" /></span></td>
+									<td class="sep hideborderLeft"><span class="inner"><fmt:message key="provie.landing.table.oneoff.provie" bundle="${provieMsg}" /></span></td>
+									<td class="sep"><span class="inner"><fmt:message key="provie.landing.table.monthly.provie" bundle="${provieMsg}" /></span></td>
+									<td class="sep hideborderLeft"><span class="inner"><fmt:message key="provie.landing.table.oneoff.provie" bundle="${provieMsg}" /></span></td>
 								</tr>
 								<tr>
 									<td colspan="2">最高供款金額</td>
@@ -810,30 +813,29 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
-							<h2 class="pv_title">財務需要分析</h2>
-            				<p class="pv_desc">開始儲蓄前，不如以互動的形式進行財務需要分析，以確保Provie真息揀符合您的需要。</p>	
+							<h2 class="pv_title"><fmt:message key="provie.landing.fna.title" bundle="${provieMsg}" /></h2>
+            				<p class="pv_desc"><fmt:message key="provie.landing.fna.text1" bundle="${provieMsg}" /></p>	
 						</div>
 						<div class="col-xs-12">
 							<div class="col-md-4 col-md-offset-2 pv_fna_input">
-								<input type="text" class="form-control" id="fnaUser" placeholder="用戶名稱">
+								<input type="text" class="form-control" id="fnaUser" placeholder='<fmt:message key="provie.landing.fna.username" bundle="${provieMsg}" />'>
 								<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotUser">忘記用戶名稱?</a></div>
 							</div>
 							<div class="col-md-4 pv_fna_input">
-								<input type="password" class="form-control" id="fnaPwd" placeholder="個人密碼">
-								<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotPwd">忘記密碼?</a></div>
+								<input type="password" class="form-control" id="fnaPwd" placeholder='<fmt:message key="provie.landing.fna.pw" bundle="${provieMsg}" />'>
+								<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotPwd"><fmt:message key="provie.landing.fna.forgetpw" bundle="${provieMsg}" /></a></div>
 							</div>
 						</div>
 						<div class="col-xs-12">
 							<p class="pv_desc">
-								我在此同意通過本網站購買指定保險計劃（以下簡稱「計劃」），並將我的個人資料從富衛電子服務轉移到計劃的承保公司。<br>
-								Provie 自助息理財壽險計劃不支援網上申請，顧客須親臨客戶服務中心，完成財務分析（FNA）後方可購買。
+								<fmt:message key="provie.landing.fna.disclaimer" bundle="${provieMsg}" />
 							</p>
 						</div>
 						<div class="col-xs-12 pv_fna_reg">
-							<p class="pv_desc"><b>新會員？ </b><a href="#" class="link">請註冊</a></p>
+							<p class="pv_desc"><b><fmt:message key="provie.landing.fna.newmb" bundle="${provieMsg}" /></b><a href="#" class="link"><fmt:message key="provie.landing.fna.register" bundle="${provieMsg}" /></a></p>
 						</div>
 
-						<a href="#" class="pv_btn btnStart">開始</a>
+						<a href="#" class="pv_btn btnStart"><fmt:message key="provie.landing.fna.cta.start" bundle="${provieMsg}" /></a>
 					</div>
 				</div>
 			</div>
@@ -915,6 +917,7 @@ var home_url = "<%=request.getContextPath()%>";
 		
 </div>
 
-<script src="<%=request.getContextPath()%>/resources/js/provie/dropdowns-enhancement.js"></script>
+<script src="http://refreshless.com/noUiSlider/distribute/nouislider.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-landing-uifn.js"></script>
 
 

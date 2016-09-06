@@ -102,6 +102,13 @@
 </div>
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+<%
+if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) {
+%>
+<script src="<%=request.getContextPath()%>/resources/js/provie/dropdowns-enhancement.js"></script>
+<%
+}
+%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
