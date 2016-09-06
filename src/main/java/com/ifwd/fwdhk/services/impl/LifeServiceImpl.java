@@ -340,7 +340,90 @@ public class LifeServiceImpl implements LifeService {
 		}
 	}
 	
-	
+	@Override
+	public net.sf.json.JSONObject getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails, 
+			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
+		
+		int issueAge = DateApi.getAge(DateApi.formatDate(proviePlanDetails.getDob())) + 1;
+		
+		int paymentTerm = 0;
+		if("SP".equals(proviePlanDetails.getPaymentType())) {
+			session.setAttribute("provieType", "SP");
+			paymentTerm = 100-issueAge;
+		}else if("RP".equals(proviePlanDetails.getPaymentType())) {
+			session.setAttribute("provieType", "RP");
+			String paymentYear = request.getParameter("paymentYear");
+			paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
+		}
+		
+		ProviePlanDetailsResponse apiResponse = connector.proviePlanDetails("PROVIE", issueAge, paymentTerm,
+				proviePlanDetails.getInsuredAmount(), proviePlanDetails.getPromoCode(), proviePlanDetails.getPaymentType(), proviePlanDetails.getCurrency());
+		
+		request.getSession().setAttribute("proviePlanDetailData", apiResponse);
+		
+		if(apiResponse.hasError()){
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}else{
+			//jsonObject.put("planDetails0Rate", apiResponse.getPlanDetails0Rate());
+			
+			net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
+			if(!apiResponse.hasError()){
+				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate(); 
+				//List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate(); 
+				//List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
+				//List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				
+				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
+					//net.sf.json.JSONObject plansWithRider = new net.sf.json.JSONObject();
+					resultJsonObject.put("planCode", "Provie-SP");
+					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
+					resultJsonObject.put("rider", "PA");
+					
+					net.sf.json.JSONObject planRider;
+					net.sf.json.JSONObject riderPlans;
+					riderPlans = new net.sf.json.JSONObject();
+					for(int i =0;i<planDetails0Rate.size();i++){
+						planRider = new net.sf.json.JSONObject();
+						planRider.put("premiumYear", formartNumber(planDetails0Rate.get(i).getPolicyYear()));
+						Double drate = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
+						String rate= "";
+						if(drate.compareTo(new Double("0.00"))==0) {
+							rate="0";
+						} else {
+						    rate=new java.text.DecimalFormat("#.0").format(drate);
+						}
+						planRider.put("rate", rate);
+						planRider.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+						planRider.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						if ("p100".equals(proviePlanDetails.getRider())) {
+							planRider.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+						} else if ("p50".equals(proviePlanDetails.getRider())){
+							//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
+							planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
+						} else if ("p500".equals(proviePlanDetails.getRider())) {
+							planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
+						}
+						planRider.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
+						resultJsonObject.accumulate("plans", planRider);
+					}
+					//resultJsonObject.put("plans", riderPlans);
+					resultJsonObject.accumulate("errMsgs", "");
+					resultJsonObject.accumulate("result", "success");
+					request.getSession().setAttribute("provieRiderPlan", resultJsonObject);
+				}
+				else{
+					resultJsonObject.accumulate("result", "fail");
+					resultJsonObject.accumulate("errMsgs", "Data exception");
+					throw new ECOMMAPIException("Data exception!");
+				}
+			}
+			else{
+				resultJsonObject.accumulate("result", "fail");
+				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
+			}
+			return resultJsonObject;
+		}
+	}	
 	
 	@SuppressWarnings("deprecation")
 	public void createSalesIllustrationPdf(String type,HttpServletRequest request) throws Exception {

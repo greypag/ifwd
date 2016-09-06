@@ -926,7 +926,7 @@
 
 
 		$("#plan-calculate-btn").click(function(){
-			return;
+			//return;
 			$('#loadingDiv').toggle();
 			$('body').addClass('modal-open');
 
@@ -940,7 +940,8 @@
 			}else{
 				$('#promoCodeErrorMsg').addClass('hidden');
 			}
-			getSavieOnlinePlandetails(false);
+			//getSavieOnlinePlandetails(false);
+			getProvieRiderPlan(false);
 		});
 
 		$('#rate-0').on('click', function() {

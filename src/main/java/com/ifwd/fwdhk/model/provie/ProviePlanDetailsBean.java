@@ -28,8 +28,8 @@ public class ProviePlanDetailsBean implements Serializable {
 	private String insuredAmountDiscount;
 	private String insuredAmountDue;
 	private String currency;
+	private String rider;
 	
-
 
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
@@ -133,5 +133,13 @@ public class ProviePlanDetailsBean implements Serializable {
 		this.currency = currency;
 	}
 
-	
+	public String getRider() {
+		return rider;
+	}
+
+	public void setRider(String rider) {
+		this.rider = rider;
+	}
+
+
 }
