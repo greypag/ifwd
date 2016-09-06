@@ -1618,7 +1618,9 @@ function getProvieRiderPlan(isSavedReturn) {
 	
 	var amount = $('#R').val();
 	var amount_rp = $('#plan-amount').val();
-	var paymentMode = $('#type-of-payment').val();
+	//var paymentMode = $('#type-of-payment').val();
+	var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
+	alert(paymentMode);
 	var paymentYear;
 	if($('#total-years-holder').is(":hidden")){
 		paymentYear = 4
@@ -1628,7 +1630,7 @@ function getProvieRiderPlan(isSavedReturn) {
 	
 	var premium = amount;
 	var currency="";
-	if('one-off-premium-usd' == paymentMode||'regular-payment-usd' == paymentMode) {
+	if('rp-USD' == paymentMode||'sp-USD' == paymentMode) {
 		currency="USD";
 	} else{
 		currency="HKD";
@@ -1637,9 +1639,9 @@ function getProvieRiderPlan(isSavedReturn) {
 	var birthOfDay = $('#plan-dob-datepicker').val();
 	
 	var issueAge = jsGetAge(birthOfDay);
-	var rider=$("#type-of-extra-rider").val();
+	var rider=$("#type-of-extra-rider option:selected").attr('data-cls');
 	//alert(rider);
-	if('one-off-premium-hkd' == paymentMode ||'one-off-premium-usd' == paymentMode ) {
+	if('sp-USD' == paymentMode ||'sp-HKD' == paymentMode ) {
 		paymentMode='SP';
 		premium = amount;
 	}else {
