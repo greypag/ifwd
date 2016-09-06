@@ -27,14 +27,16 @@
 </div>
 
 <%
-/*  session = request.getSession(false);
+    /*  
+    session = request.getSession(false);
     if(session==null){
         session.invalidate();
     }   
     if (session.getAttribute("userDetails") != null) {
         //session.setMaxInactiveInterval(60);
         out.println(session.getAttribute("username"));
-    } */
+    } 
+    */
     long creationTime = session.getLastAccessedTime() + (session.getMaxInactiveInterval()* 1000);
     long now = new Date().getTime();
     

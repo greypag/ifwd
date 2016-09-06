@@ -8,13 +8,6 @@
 <fmt:setBundle basename="messages" var="msg" />
 
 
-<%
-	String actionName="";
-
-	if (request.getAttribute("controller") != null) {
-	    actionName = request.getAttribute("controller").toString();
-	}
-%>
 <div class="modal fade loginpopup" id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1052"

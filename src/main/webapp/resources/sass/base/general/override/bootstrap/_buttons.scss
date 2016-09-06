@@ -1,0 +1,34 @@
+// Special to override the Bootstrap 3.3.7
+
+.btn-primary {
+  padding: 8px 20px;
+  background: #f6871e;
+  color: #fff;
+  border: none;
+  border: 1px solid #f6871e;
+  &:hover {
+    outline: none;
+    box-shadow: none;
+    background: #fff;
+    color: #f6871e;
+    border: 1px solid #f6871e;
+  }
+  &:active {
+    padding: 8px 20px;
+    background: #f6871e;
+    color: #fff;
+    border: none;
+    border: 1px solid #f6871e;
+  }
+  &.active {
+    padding: 8px 20px;
+    background: #f6871e;
+    border: none;
+    border: 1px solid #f6871e;
+  }
+}
+.btn-lg {
+	padding: 12px 30px !important;
+	font-size: 30px;
+	line-height: 31.5px;	
+}

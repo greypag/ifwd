@@ -6,10 +6,12 @@
 **/
 
 // @import "normalize";        // #Insert the normalized css for eliminate the difference of browsers [Optional use]
+@import "color";
 @import "variable";         // #Define all scss variables
 @import "mixin";            // #Contains all kinds of @mixin & @funct
 
-@import "base/general/override";    // #Overwrite the Bootstrap, Material Design or other CSS frameworks.
+@import "base/general/override/bootstrap";
+@import "base/general/override/material_design";
 @import "base/general/localize";    // #Localize the internal css applying for ALL SCREENs and THEMEs, e.g. block properties / font
 @import "base/font";
 @import "base/input_textarea";
@@ -23,6 +25,7 @@
 @import "common_screen/loginpopup";
 @import "common_screen/becomeOurPartner";
 @import "common_screen/faq"; // BEM Naming for faq page 20160513
+//@import "common_screen/flight-insurance";
 
 @media screen and #{$mobile} {
   @import "mobile/header";
