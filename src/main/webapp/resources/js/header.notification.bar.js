@@ -7,26 +7,26 @@ function inlinePaddingTop(classname, px) {
 function screenJob(obj) {
 
     var nBarDesktopElem = document.getElementById('notification-bar-desktop');
-    var defaultedDesktopPaddingTop = obj.topBar.desktop;
-    var notificationBarDesktopHeight = ( typeof nBarDesktopElem !== "undefined" && nBarDesktopElem !== null ) ? nBarDesktopElem.clientHeight : 0 ;
+    var defaultDesktopPaddingTop = obj.topBar.desktop;
+    var nBarDesktopHeight = ( typeof nBarDesktopElem !== "undefined" && nBarDesktopElem !== null ) ? nBarDesktopElem.clientHeight : 0 ;
 
-    if ( defaultedDesktopPaddingTop <= obj.topBar.desktop ) {
-        defaultedDesktopPaddingTop += notificationBarDesktopHeight;
+    if ( defaultDesktopPaddingTop <= obj.topBar.desktop ) {
+        defaultDesktopPaddingTop += nBarDesktopHeight;
     } else {
-        defaultedDesktopPaddingTop = obj.topBar.desktop;
+        defaultDesktopPaddingTop = obj.topBar.desktop;
     }
-    // console.log( 'defaultedDesktopPaddingTop = ' + defaultedDesktopPaddingTop );
-    // console.log( 'notificationBarDesktopHeight = ' + notificationBarDesktopHeight );
+    // console.log( 'defaultDesktopPaddingTop = ' + defaultDesktopPaddingTop );
+    // console.log( 'nBarDesktopHeight = ' + nBarDesktopHeight );
 
     if ($(window).width() < 992) {
         inlinePaddingTop(
             obj.topBar.classname.mobile,
-            (isClicked == false) ? obj.topBar.mobile : (obj.topBar.mobile - obj.notificationBarOnly.mobile)
+            (isClicked == false) ? obj.topBar.mobile : (obj.topBar.mobile - obj.nBarOnly.mobile)
         );
     } else {
         inlinePaddingTop(
             obj.topBar.classname.desktop,
-            (isClicked == false) ? defaultedDesktopPaddingTop : (defaultedDesktopPaddingTop - notificationBarDesktopHeight)
+            (isClicked == false) ? defaultDesktopPaddingTop : (defaultDesktopPaddingTop - nBarDesktopHeight)
         );
     }
 }
@@ -63,13 +63,13 @@ $(function() {
     isClicked = false;
 
     try {
-        if (typeof obj.notificationBarOnly.content === "undefined") throw 'has not been defined yet.';
-        if (obj.notificationBarOnly.content === null) throw 'is NULL value.';
+        if (typeof obj.nBarOnly.content === "undefined") throw 'has not been defined yet.';
+        if (obj.nBarOnly.content === null) throw 'is NULL value.';
     } catch (err) {
-        console.error('"obj.notificationBarOnly.content" ' + err);
+        console.error('Variable "obj.nBarOnly.content" ' + err);
     }
 
-    updateNotificationBox(obj.notificationBarOnly.content, notificationBarContentIndex);
+    updateNotificationBox(obj.nBarOnly.content, nBarContentIndex);
 
     screenJob(obj);
     $(window).resize(function() {

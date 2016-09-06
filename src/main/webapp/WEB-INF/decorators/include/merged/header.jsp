@@ -26,7 +26,7 @@
 	            'desktop': 'nav.navbar.navbar-inverse'
 	        }
 	    },
-	    'notificationBarOnly': {
+	    'nBarOnly': {
 	        'mobile': 56,
 	        'desktop': 56,
 	        'classname': {
@@ -49,12 +49,12 @@
 			}
 	    }
 	};
-var notificationBarContentIndex = '';
+var nBarContentIndex = '&nbsp;';
 <c:if test="${planIndex != 'flight-insurance'}">
-	notificationBarContentIndex = 'fraud';
+	nBarContentIndex = 'repair';
 </c:if>
 <c:if test="${planIndex == 'flight-insurance'}">
-	notificationBarContentIndex = 'flight';
+	nBarContentIndex = 'flight';
 </c:if>
 
 </script>
