@@ -4,16 +4,16 @@ var typeId = "SAVIE_OFFLINE";
 var APIServer = "";
 var fwdApi = {
 		url:{
-			getAvailableCentre			: APIServer + "/fwdhk/api/appointment/centre",
-			findAvailableDateByCentre	: APIServer + "/fwdhk/api/appointment/timeSlotEntity",
-			findAvailableTimeByCentre 	: APIServer + "/fwdhk/api/appointment/timeSlotEntity",
-			appointment					: APIServer + "/fwdhk/api/appointment",
-			session						: APIServer + "/fwdhk/api/member/session",
-			login						: APIServer + "/fwdhk/api/member/login",
-			member						: APIServer + "/fwdhk/api/member",
-			forgotPassword				: APIServer + "/fwdhk/api/member/forgotPassword",
-			retrieveUserName			: APIServer + "/fwdhk/api/member/retrieveUserName",
-			planDetails					: APIServer + "/fwdhk/api/provie/planDetails"
+			getAvailableCentre			: APIServer + context + "/api/appointment/centre",
+			findAvailableDateByCentre	: APIServer + context + "/api/appointment/timeSlotEntity",
+			findAvailableTimeByCentre 	: APIServer + context + "/api/appointment/timeSlotEntity",
+			appointment					: APIServer + context + "/api/appointment",
+			session						: APIServer + context + "/api/member/session",
+			login						: APIServer + context + "/api/member/login",
+			member						: APIServer + context + "/api/member",
+			forgotPassword				: APIServer + context + "/api/member/forgotPassword",
+			retrieveUserName			: APIServer + context + "/api/member/retrieveUserName",
+			planDetails					: APIServer + context + "/api/provie/planDetails"
 		}
 };
 
