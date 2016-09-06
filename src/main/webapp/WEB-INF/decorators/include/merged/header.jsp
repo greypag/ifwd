@@ -34,7 +34,7 @@
 	            'desktop': '.header-notification-box.header-notification-box--desktop'
 	        },
 	        'content': {
-			    'repair': {
+			    'ifwd_repair': {
 			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
 			    },
@@ -42,21 +42,27 @@
 			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
 			    },
-			    'flight': {
+			    'flightcare_moncare': {
 			        'mobile': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />'
 			    }
 			}
 	    }
 	};
-var nBarContentIndex = '&nbsp;';
-<c:if test="${planIndex != 'flight-insurance'}">
-	nBarContentIndex = 'repair';
-</c:if>
-<c:if test="${planIndex == 'flight-insurance'}">
-	nBarContentIndex = 'flight';
-</c:if>
 
+// Default value
+var nBarConfig = {
+	'contentIndex': 'ifwd_repair',
+	'isVisible': true
+}
+
+// Customized value
+<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
+nBarConfig = {
+	'contentIndex': 'flightcare_moncare',
+	'isVisible': true
+}
+<% } %>
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
