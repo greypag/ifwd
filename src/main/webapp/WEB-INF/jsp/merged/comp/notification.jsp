@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pnotify.custom.min.js"></script>
+
 <script>
 	PNotify.prototype.options.styling = "bootstrap3";
 	function show_stack_bar_top(msg_type, titleToShown, message) {

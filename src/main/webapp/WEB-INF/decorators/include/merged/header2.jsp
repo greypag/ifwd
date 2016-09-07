@@ -330,7 +330,7 @@ function getStarted(){
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
-		<div class="container">
+		<div class="ifwd-container">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-0">
 					<ul class="nav navbar-nav lang-btn-grp">
@@ -600,7 +600,7 @@ function getStarted(){
 				</div>
 			</div>
 		</div>
-		<!--/.container-->
+		<!--/.ifwd-container-->
 	</div>
 	<!--/.top-bar-->
 
@@ -612,7 +612,7 @@ function getStarted(){
 	%>
 
 	<nav class="navbar navbar-inverse">
-		<div class="container pad-0">
+		<div class="ifwd-container pad-0">
 			<div class="navbar-header">
 				<a class="navbar-brand"
 					href="<%=request.getContextPath()%>/${language}"><img
@@ -655,21 +655,21 @@ function getStarted(){
                     <li class="col-lg-4 col-md-4 pad-0 main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
 		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab" style="word-break: normal; word-wrap: break-all">
-														<li class="nav-group no-padding" style="width:22%;">
-															<ul class="col-lg-12 col-md-12 no-padding">
-																<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}"/></li>
-																<li class="menu-link">
-																	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-																	<a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}"/></a>
-																</li>
-																<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}"/></li>
-																<li class="menu-link">
-																	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-																	<a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}"/></a>
-																</li>
-															</ul>
-														</li>
-	                          <li class="nav-group no-padding middle-group" style="width:31%;">
+							<li class="nav-group no-padding">
+								<ul class="col-lg-12 col-md-12 no-padding">
+									<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title1" bundle="${msg}"/></li>
+									<li class="menu-link">
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}"/></a>
+									</li>
+									<li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title2" bundle="${msg}"/></li>
+									<li class="menu-link">
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+										<a href="<%=request.getContextPath()%>/${language}/medical-insurance"><fmt:message key="header.product.type1.group1.linkname2" bundle="${msg}"/></a>
+									</li>
+								</ul>
+							</li>
+	                          <li class="nav-group no-padding middle-group">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
@@ -678,12 +678,11 @@ function getStarted(){
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
 	                             </ul>
 	                          </li>
-	                          <li class="nav-group no-padding" style="width:35%;">
+	                          <li class="nav-group no-padding">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
-	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
 	                             </ul>
 	                          </li>
 		                 </ul>
@@ -727,7 +726,7 @@ function getStarted(){
 
             </div>
 		</div>
-		<!--/.container-->
+		<!--/.ifwd-container-->
 	</nav>
 	<!--/nav-->
 
@@ -736,7 +735,7 @@ function getStarted(){
 
 <!-- hidden navbar -->
 <!--<div class="navbar_hidden_content">
-	<div class="container pad-0">
+	<div class="ifwd-container pad-0">
 		<div class="pull-right submenu_list">
 			<div class="product_type">
 				<div>Health Insurance</div>
@@ -953,7 +952,6 @@ function getStarted(){
 					<ul class="col-sm-12 dropdown-menu">
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
-                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
                     </ul>
 				</li>
 					</ul>
@@ -1363,10 +1361,11 @@ $(function() {
         }
     });
 </script>
-<jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
-<jsp:include page="/WEB-INF/jsp/merged/login2.jsp" />
+<%@include file="/WEB-INF/jsp/merged/iosChromeAlert.jsp" %>
+<%@include file="/WEB-INF/decorators/include/merged/login_v2.jsp" %>
+<%-- <jsp:include page="/WEB-INF/jsp/merged/login2.jsp" /> --%>
 <%if (session.getAttribute("authenticate") == "true" && session.getAttribute("username") != null) {%>
-<jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
+<%@include file="/WEB-INF/jsp/merged/session.jsp" %>
 <% } %>
 <%-- <%if ((actionName.equals("WorkingHoliday") && request.getRequestURI().indexOf("/user-details")>0) | (actionName.equals("Oversea") && request.getRequestURI().indexOf("/application")>0) | (actionName.equals("Travel") && request.getRequestURI().indexOf("/user-details")>0) ){%>
 <jsp:include page="/WEB-INF/jsp/merged/travel-alert.jsp" />

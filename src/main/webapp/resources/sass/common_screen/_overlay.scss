@@ -1,0 +1,18 @@
+.overlay__wrapper{
+	margin-top: 150px;
+}
+
+.overlay__content{
+	outline: none;
+	box-shadow: none;
+    border: none;
+    /* background-clip: padding-box; */
+    background-color: transparent;
+    border-radius: 0px !important;
+}
+
+#loading-overlay{
+	.overlay__wrapper{
+		width: 300px;
+	}
+}

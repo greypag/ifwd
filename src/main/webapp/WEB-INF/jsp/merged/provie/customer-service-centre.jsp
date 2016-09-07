@@ -147,7 +147,7 @@ function stickToHeader() {
                         </div>
 		           </div>
 		           <div class="confirm-button-group text-center">
-						<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-confirm" id="btn-appointment-confirm">Confirm</button>
+						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm">Confirm</button>
 						<span class="error-msg generalErrMsg"></span>
 						<div class="login-error-wrapper">
 							<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
@@ -190,7 +190,7 @@ function stickToHeader() {
 														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd">Forgot password?</a>
 													</div>
 													<div class="login-button-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-login">Log in</button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-login">Log in</button>
 														<span class="error-msg loginPanErrMsg"></span>
 													</div>
 												</form>
@@ -223,7 +223,7 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-username">Submit</button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-username">Submit</button>
 														<span class="error-msg forgotUsernamePanErrMsg"></span>
 													</div>
 							                    </form>
@@ -268,7 +268,7 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-pwd">Submit</button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-pwd">Submit</button>
 														<span class="error-msg forgotPwdPanErrMsg"></span>
 
 													</div>
@@ -342,7 +342,7 @@ function stickToHeader() {
 													<div class="checkboxBubble">You may not be able to receive our latest promotion and benefits!</div>
 												</div>
 												<div class="login-button-group text-center">
-													<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-register">Activate</button>
+													<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-register">Activate</button>
 													<span class="error-msg regPanErrMsg"></span>
 												</div>
 										</form>
@@ -650,18 +650,8 @@ function stickToHeader() {
 				getTimeSlot('', '1');
 			}
 		});
-	});
-	
-	function togglePreferred(id) {
-		$(".col-xs-12 .preferred-date .date").hide();
-		$("#"+ id).show();
-	}
-	
-       //$(window).bind('scroll', function() {
-       //   stickHeaderBrowse();
-       //});
 
-       $('#preferred-date').datepicker({
+		$('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
           //format: 'yy-mm-dd',
           container: "#date",
@@ -694,151 +684,140 @@ function stickToHeader() {
           }
        }
        
-	$('#pick-another-centre-btn').click(function(){
-		$('#pickAnotherCentre').modal('hide');
-	});
-	$('#fullyBooked-button').click(function(){
-		$('#fullyBooked').modal('hide');
-		window.location = '/fwdhk/en/FNA/review';
-		//window.location = '/fwdhk/en/savings-insurance/plan-details-sp?type=3';
-	});
-	$('#moreThan2Tries-button').click(function(){
-		window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-	});
-	$('#perferredTimeIsNull-btn').click(function(){
-		$('#perferredTimeIsNull').modal('hide');
-	});
-	$('#reservationInvalid-btn').click(function(){
-		$('#reservationInvalid').modal('hide');
-	});
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		$('#fullyBooked-button').click(function(){
+			$('#fullyBooked').modal('hide');
+			window.location = '/fwdhk/en/FNA/review';
+			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp?type=3';
+		});
+		$('#moreThan2Tries-button').click(function(){
+			window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
+		});
+		$('#perferredTimeIsNull-btn').click(function(){
+			$('#perferredTimeIsNull').modal('hide');
+		});
+		$('#reservationInvalid-btn').click(function(){
+			$('#reservationInvalid').modal('hide');
+		});
 
-	$('#back-to-home-btn').click(function(){
-		window.location.href= context + "/" + language + "/savings-insurance";
+		$('#back-to-home-btn').click(function(){
+			window.location.href= context + "/" + language + "/savings-insurance";
+		});
+		$("#btn-cstmr-srvc-cnter-eh").on('click', function(){
+	    	var planCode = "ROPHI1";
+			
+	    	var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
+				$('#perferredTimeIsNull').modal('show');
+			}else{
+				$.ajax({     
+				    url:context+'/ajax/savings-insurance/upsertAppointment',
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime,
+				        "planCode":planCode,
+				        "remarks":"",
+				        "type":"4"
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment');
+					    	$("#paymentForm").submit();
+				    	}else if(data.errMsgs == "Access code has already been used"){
+				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}else if(data.errMsgs == "Reservation is invalid"){
+				    		$('#reservationInvalid').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    	else if(data.errMsgs == "The number of appointments must be less than 2"){
+				    		//Check is more than 2 tries from backend
+							$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+							$('#moreThan2Tries').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
+	   	});
+	       
+	    $("#btn-cstmr-srvc-cnter").on('click', function(){
+	      	//window.location = '/fwdhk/en/savings-insurance/confirmation-appointment-sp';
+	    	var planCode = "";
+			if('' == 'SP'){
+				planCode = "SAVIE-SP";
+			}
+			else{
+				planCode = "SAVIE-RP";
+			}
+			
+	    	var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
+				$('#perferredTimeIsNull').modal('show');
+			}else{
+				$.ajax({     
+				    url:context+'/ajax/savings-insurance/upsertAppointment',
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime,
+				        "planCode":planCode,
+				        "remarks":"",
+				        "type":"4",
+				        "appointmentTypeId":"1"
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		if('' == 'SP'){
+				    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
+				    		}
+				    		else{
+				    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-rp');
+				    		}
+					    	$("#paymentForm").submit();
+				    	}else if(data.errMsgs == "Access code has already been used"){
+				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}else if(data.errMsgs == "Reservation is invalid"){
+				    		$('#reservationInvalid').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    	else if(data.errMsgs == "The number of appointments must be less than 2"){
+				    		//Check is more than 2 tries from backend
+							$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+							$('#moreThan2Tries').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
+	   	});
 	});
-	$("#btn-cstmr-srvc-cnter-eh").on('click', function(){
-    	var planCode = "ROPHI1";
-		
-    	var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		}else if(perferredTime == null || perferredTime.trim() == ""){
-			$('#perferredTimeIsNull').modal('show');
-		}else{
-			$.ajax({     
-			    url:context+'/ajax/savings-insurance/upsertAppointment',
-			    type:'post',     
-			    data:{    
-			    	"csCenter": csCenter,
-			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime,
-			        "planCode":planCode,
-			        "remarks":"",
-			        "type":"4"
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data.errMsgs == null){
-			    		//send email
-			    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment');
-				    	$("#paymentForm").submit();
-			    	}else if(data.errMsgs == "Access code has already been used"){
-			    		$('#accessCodeUsed').modal('show');
-			    		console.log(data.errMsgs);
-			    	}else if(data.errMsgs == "Reservation is invalid"){
-			    		$('#reservationInvalid').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    	else if(data.errMsgs == "The number of appointments must be less than 2"){
-			    		//Check is more than 2 tries from backend
-						$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
-						$('#moreThan2Tries').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    }  
-			});
-		}
-   	});
-       
-    $("#btn-cstmr-srvc-cnter").on('click', function(){
-      	//window.location = '/fwdhk/en/savings-insurance/confirmation-appointment-sp';
-    	var planCode = "";
-		if('' == 'SP'){
-			planCode = "SAVIE-SP";
-		}
-		else{
-			planCode = "SAVIE-RP";
-		}
-		
-    	var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		}else if(perferredTime == null || perferredTime.trim() == ""){
-			$('#perferredTimeIsNull').modal('show');
-		}else{
-			$.ajax({     
-			    url:context+'/ajax/savings-insurance/upsertAppointment',
-			    type:'post',     
-			    data:{    
-			    	"csCenter": csCenter,
-			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime,
-			        "planCode":planCode,
-			        "remarks":"",
-			        "type":"4",
-			        "appointmentTypeId":"1"
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data.errMsgs == null){
-			    		//send email
-			    		if('' == 'SP'){
-			    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
-			    		}
-			    		else{
-			    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-rp');
-			    		}
-				    	$("#paymentForm").submit();
-			    	}else if(data.errMsgs == "Access code has already been used"){
-			    		$('#accessCodeUsed').modal('show');
-			    		console.log(data.errMsgs);
-			    	}else if(data.errMsgs == "Reservation is invalid"){
-			    		$('#reservationInvalid').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    	else if(data.errMsgs == "The number of appointments must be less than 2"){
-			    		//Check is more than 2 tries from backend
-						$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
-						$('#moreThan2Tries').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    }  
-			});
-		}
-   	});
-
-    /* $("#btn-appointment-confirm").on('click', function(){
-      	window.location = '/fwdhk/en/savings-insurance/provie/confirmation-appointment';
-    	//var planCode = "";
-		//if('' == 'SP'){
-		//	planCode = "SAVIE-SP";
-		//}
-		//else{
-		//	planCode = "SAVIE-RP";
-		//}
-		
-    	//var csCenter = $("#centre").val();
-		//var perferredDate = $("#preferred-date").val();
-		//var perferredTime = $("#preferred-time").val();
-
-   	}); */
-    
-    
+	
+	function togglePreferred(id) {
+		$(".col-xs-12 .preferred-date .date").hide();
+		$("#"+ id).show();
+	}
+  
     function setCentre(centre){
     	
         if(centre == 'QB') {
@@ -863,6 +842,5 @@ function stickToHeader() {
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.3.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-app-uifn.js"></script>

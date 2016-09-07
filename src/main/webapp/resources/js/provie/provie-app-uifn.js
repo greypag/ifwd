@@ -21,6 +21,15 @@ var isLogged = false;
 var userName = "";
 var IMG_DIR = context + "/resources/images";
 
+// 18 year ago date
+var dob_end_date = new Date();
+dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+
+// 70 year ago date
+var dob_start_date = new Date();
+dob_start_date.setFullYear(dob_start_date.getFullYear()-66);
+dob_start_date.setDate(dob_start_date.getDate()+1);
+
 $(document).ready(function(){
 
 	//Select Plan
@@ -152,7 +161,8 @@ $(document).ready(function(){
 		 	showLabel: true,
 		 	dateOrder: 'ddmmyy',
         	dateFormat: 'dd-mm-yyyy',
-        	invalid:["w0","w1","w2","w3","w4","w5","w6"],
+        	invalid: ["w0","w1","w2","w3","w4","w5","w6"],
+        	defaultValue: null,
 	        theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
 	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
@@ -331,7 +341,7 @@ $(document).ready(function(){
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
-					    			dates.push(new Date(from[2],from[1] -1, from[0]));
+					    			dates.push(new Date(from[0],from[1] -1, from[2].substr(0,2)));
 					    		}
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
@@ -356,11 +366,15 @@ $(document).ready(function(){
 			url:fwdApi.url.session,
 			type:"get",
 			contentType: "application/json",
-			data:{typeId:typeId,language:language},
 			cache:false,
 			async:false,
-			error:function(){
-				$(".before-login").show();
+		    error:function (xhr, textStatus, errorThrown){
+
+		        if(xhr.status == 404){		        
+		        	$(".before-login").show();
+		        } else {
+		        	$(".before-login").show();
+		        }
 		    },
 		    success:function(response){
 		    	if(response){
@@ -465,7 +479,7 @@ function bsvFormLogin(form){
 		validationUsername(evt);
 	});
 
-	form.find(".btn-submit").on("click",function(){
+	form.find(".js-btn-submit").on("click",function(){
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			
@@ -552,7 +566,7 @@ function bsvFormLogin(form){
 
 function bsvFormForgotUsername(form){
 
-	form.find(".btn-submit").on("click",function(){
+	form.find(".js-btn-submit").on("click",function(){
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			var postData = {
@@ -671,7 +685,7 @@ function bsvFormForgotPwd(form){
 		return validationUsername(evt);
 	});
 
-	form.find(".btn-submit").on("click",function(){
+	form.find(".js-btn-submit").on("click",function(){
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			var postData = {
@@ -804,7 +818,7 @@ function bsvFormForgotPwd(form){
 
 function bsvFormRegister(form){
 
-	form.find(".btn-submit").on("click",function(){
+	form.find(".js-btn-submit").on("click",function(){
 		form.data('bootstrapValidator').validate();
 		if(form.data('bootstrapValidator').isValid()){
 			var postData = {

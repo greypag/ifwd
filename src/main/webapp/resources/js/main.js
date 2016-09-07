@@ -6,8 +6,8 @@ jQuery(function($) {'use strict',
         if(isMobileHead){
         headerHeight = $('.logobox').height()+$('.mob-topbar').height();
         }else{
-            headerHeight = $('.top-bar').height();  
-        }		
+            headerHeight = $('.top-bar').height();
+        }
 		$('#main-slider.carousel').carousel({
 			interval: 8000
 		});
@@ -19,7 +19,7 @@ jQuery(function($) {'use strict',
 		$(this).closest('.panel-group').children().each(function(){
 		$(this).find('>.panel-heading').removeClass('active');
 		 });
-		
+
 	 	$(this).closest('.panel-heading').toggleClass('active');
 	});
 
@@ -34,7 +34,7 @@ jQuery(function($) {'use strict',
 //			itemSelector : '.portfolio-item',
 //			layoutMode : 'fitRows'
 //		});
-		
+
 //		$portfolio_selectors.on('click', function(){
 //			$portfolio_selectors.removeClass('active');
 //			$(this).addClass('active');
@@ -60,20 +60,20 @@ jQuery(function($) {'use strict',
 		});
 	});
 
-	
+
 	//goto top
 	$('.gototop').click(function(event) {
 		event.preventDefault();
 		$('html, body').animate({
 			scrollTop: $("body").offset().top
 		}, 500);
-	});	
+	});
 
 	//Pretty Photo
 //	$("a[rel^='prettyPhoto']").prettyPhoto({
 //		social_tools: false
-//	});	
-	
+//	});
+
 });
 
 //Account Drop Down
@@ -83,19 +83,19 @@ jQuery(function($) {'use strict',
 		var param = $(this).attr("href").replace("#","");
 		var concept = $(this).text();
 		$('#acc_drop span#search_concept').text(concept);
-	
+
 	});
 });
 
 
 // travel plan
 
-	
+
 $(".product_header_path_item.back").click(function(){
 	BackMe();
 });
-	
-	
+
+
 // PANELS
 
 var chk = 0;
@@ -105,21 +105,21 @@ var chk = 0;
     	chk = 1;
     var $target = $(this).parent().parent().parent().next('.fwdpanel-body');
     $(this).children('i').toggleClass('fa-minus');
-    
-    
+
+
     $target.slideToggle("slow", function(){
     	chk = 0;
     });
     //chk = 0;
     }
  });
-  
+
 var product_plan_panel_valid=true;
 $('.product_plan_panel').click(function(e){
 	if(product_plan_panel_valid){
 		product_plan_panel_valid=false;
 		$panel=$(this);
-		
+
 		if($panel.next('.product_plan_panel_content:visible').length>0){
 			$('.product_plan_panel').find('.fa-chevron-up').addClass('fa-chevron-down');
 			$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
@@ -132,12 +132,12 @@ $('.product_plan_panel').click(function(e){
 			$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
 			$('.product_plan_panel_content:visible').slideUp("slow",function(){
 				$(".product_plan_panel_content").mCustomScrollbar("destroy");
-				
+
 				var $target = $panel.next('.fwdpanel-body');
 				scrollDownProductPanel($target);
 			});
 		}else{
-			var $target = $panel.next('.fwdpanel-body');		
+			var $target = $panel.next('.fwdpanel-body');
 			scrollDownProductPanel($target);
 		}
 	}
@@ -156,11 +156,11 @@ $('.product_plan_inner_panel').click(function(e){
 			$('.product_plan_inner_panel_content:visible').slideUp("slow",function(){
 				var $target = $panel.next('.fwdpanel-body');
 				$target.find('table').parent().removeAttr('id');
-				
+
 				product_plan_inner_panel_valid=true;
 				//console.log($panel.parents(".mCustomScrollbar"));
 				$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
-				
+
 			});
 		}else if($('.product_plan_inner_panel_content:visible').length>0){
 			$("#plan-no-more-tables").removeAttr('id');
@@ -172,7 +172,7 @@ $('.product_plan_inner_panel').click(function(e){
 				$target.slideDown("slow", function(){
 					$panel.find('i').removeClass('fa-plus');
 					$panel.find('i').addClass('fa-minus');
-					
+
 					product_plan_inner_panel_valid=true;
 					$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 					$('html, body').animate({
@@ -187,7 +187,7 @@ $('.product_plan_inner_panel').click(function(e){
 			$target.slideDown("slow", function(){
 				$panel.find('i').removeClass('fa-plus');
 				$panel.find('i').addClass('fa-minus');
-				
+
 				product_plan_inner_panel_valid=true;
 				$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 				$('html, body').animate({
@@ -207,9 +207,9 @@ function scrollDownProductPanel($element){
 		$(".product_plan_panel_content").mCustomScrollbar({
 			theme:"light-2"
 		});
-		
+
 		product_plan_panel_valid=true;
-		
+
 		$('html, body').animate({
 			scrollTop: $panel.offset().top - headerHeight
 		}, 500);
@@ -219,9 +219,9 @@ function scrollDownProductPanel($element){
 
 
 
-//Scroll top  Get more link 
+//Scroll top  Get more link
 $(document).ready(function(){
-  
+
   //Check to see if the window is top if not then display button
   $(window).scroll(function(){
     if ($(this).scrollTop() > 100) {
@@ -230,7 +230,7 @@ $(document).ready(function(){
       $('.scroll-to-top').fadeOut();
     }
   });
-  
+
   var scrollToTopValid=true;
   //Click event to scroll to top
   $('.scroll-to-top').click(function(){
@@ -241,7 +241,7 @@ if(scrollToTopValid){
 	});
 }
   });
-  
+
 //Check to see if the window is top if not then display button
   $(window).scroll(function(){
     if ($(this).scrollTop() > 100) {
@@ -250,13 +250,13 @@ if(scrollToTopValid){
       $('.scrollToTop').fadeOut();
     }
   });
-  
+
   //Click event to scroll to top
   $('.scrollToTop').click(function(){
     $('html, body').animate({scrollTop : 0},400);
     return false;
   });
-  
+
 });
 /// Auto fill inputbox on   plan details
 //$("#inputFullName").keyup(function() {
@@ -268,16 +268,10 @@ if(scrollToTopValid){
 //	$("#txtInsuHkid1").val(this.value).css("color", "#000000");
 //});
 
-jQuery('ul.maintabs li').hover(function () {
-	jQuery("a", this).addClass('maintabs-hover');
-}, function () {
-    jQuery("a", this).removeClass('maintabs-hover');
-});
-
 
 
 jQuery(document).ready(function() {
-	
+
 	/* fixed-content js */
 
 	/*if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#middle').height()){
@@ -287,7 +281,7 @@ jQuery(document).ready(function() {
 		    var scroll = $(window).scrollTop();
 		    var winh = $(window).height();
 		    var diff = $('.carousel').height() + 40 + 131 + $('#middle').height() - winh;
-		   
+
 		    // Do something
 		    if (scroll > diff) {
 			    jQuery('#middle').removeClass("fixed-content");
@@ -296,8 +290,8 @@ jQuery(document).ready(function() {
 			  }
 		});
 	}
-	
-	
+
+
 	if($(window).height() > $('.carousel').height()  + 40 + 131 + $('#homecare-scroll').height()){
 		jQuery('#homecare-scroll').removeClass("fixed-content");
 	}else if($('#homecare-scroll').length){
@@ -306,7 +300,7 @@ jQuery(document).ready(function() {
 	            var scroll = $(window).scrollTop();
 	            var winh = $(window).height();
 	            var diff = $('.carousel').height()  + 40 + 131 + $('#homecare-scroll').height() - winh;
-	            
+
 	            // Do something
 	            if (scroll > diff) {
 	                jQuery('#homecare-scroll').removeClass("fixed-content");
@@ -361,20 +355,20 @@ $('.faq_content').click(function(e){
 	e.preventDefault();
 	if(chk_cat == 0){
 		$panel=$(this);
-		
+
 		chk_cat = 1;
 		var $target = $(this).next('.faq_cat_detail');
-		
+
 		$(this).children('.faq_cat_arrow').children('.faq_cat_mini').children('i').toggleClass('fa-chevron-down');
 		$(this).children('.faq_cat_arrow').children('.faq_cat_mini').children('i').toggleClass('fa-chevron-up');
-		
+
 		$target.slideToggle(function(){
 			chk_cat = 0;
-			
+
 			$('html, body').animate({
 				scrollTop: ($panel.offset().top - 50)
 			}, 800);
-			
+
 		});
 	}
 });
@@ -392,19 +386,19 @@ $('.faq_qna').click(function(e){
 		e.preventDefault();
 		if(chk_qna == 0){
 			$panel=$(this);
-			
+
 			chk_qna = 1;
 			var $target = $(this).children('.faq_answer_container');
-	
+
 			$(this).children().children('.faq_question_arrow').children('.faq_qna_mini').children('i').toggleClass('fa-minus');
-			
+
 			var $question = $(this).parent().prev('.faq_question');
-			
+
 			$question.toggleClass("active");
-			
+
 			$target.slideToggle(function(){
 				chk_qna = 0;
-				
+
 				$('html, body').animate({
 					scrollTop: ($panel.offset().top - 50)
 				}, 800);
@@ -422,17 +416,17 @@ function faqChangeCare(element, care, remote){
 	}else if(remote == true){
 		$("#"+element).addClass('active');
 	}
-	
+
 	$(".faq_care_container").hide();
 	$("#faq_"+care).show();
 }
 
-function faqChangeCareMob(care){	
+function faqChangeCareMob(care){
 	$("#faq_main_menu_mob").hide();
 	$("#faq_"+care+"_mob").show();
 }
 
-function faqMainMenuMob(care){	
+function faqMainMenuMob(care){
 	$("#faq_"+care+"_mob").hide();
 	$("#faq_main_menu_mob").show();
 }

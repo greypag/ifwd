@@ -12,12 +12,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="provie" var="provieMsg" />
-<script type="text/javascript">
-var context = "${pageContext.request.contextPath}";
-var language = "${language}";
-var affiliate = "${affiliate}";
-var home_url = "<%=request.getContextPath()%>";
-</script>
+
 <%
 	boolean isSaleActiveClass = false;
 	boolean isEservicesActiveClass = false;
@@ -29,12 +24,10 @@ var home_url = "<%=request.getContextPath()%>";
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
 
-
-
 <link rel="stylesheet" type="text/css" href="http://refreshless.com/noUiSlider/distribute/nouislider.min.css">
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
-<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
+<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-landing" id="provie-plan-landing">			
        
        <!-- Breadcrumb Component Start-->
 		<div class="fwd-savie-wrapper ">
@@ -919,5 +912,3 @@ var home_url = "<%=request.getContextPath()%>";
 
 <script src="http://refreshless.com/noUiSlider/distribute/nouislider.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-landing-uifn.js"></script>
-
-
