@@ -386,6 +386,7 @@ public class LifeServiceImpl implements LifeService {
 					net.sf.json.JSONObject credit3Rates;
 					net.sf.json.JSONObject credit4Rates;
 					net.sf.json.JSONObject planRider;
+					net.sf.json.JSONObject plan0;
 					net.sf.json.JSONObject plan2;
 					net.sf.json.JSONObject plan3;
 					net.sf.json.JSONObject plan4;
@@ -396,27 +397,29 @@ public class LifeServiceImpl implements LifeService {
 					for(int i =0;i<planDetails0Rate.size();i++){
 						planRider = new net.sf.json.JSONObject();
 						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
-						planRider.put("premiumYear", yearNum);
-						Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
-						float rate0= 0;
-						if(drate0.compareTo(new Double("0.00"))==0) {
-							rate0=0;
-						} else {
-						    rate0=Float.parseFloat(new java.text.DecimalFormat("#.0").format(drate0));
+						//only retrieve 5 years data from 0 Rate
+						if (yearNum <= 5) {
+							planRider.put("premiumYear", yearNum);
+							Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
+							float rate0= 0;
+							if(drate0.compareTo(new Double("0.00"))==0) {
+								rate0=0;
+							} else {
+								rate0=Float.parseFloat(new java.text.DecimalFormat("#.0").format(drate0));
+							}
+							planRider.put("rate", rate0);
+							planRider.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+							planRider.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+							if ("p100".equals(proviePlanDetails.getRider())) {
+								planRider.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+							} else if ("p50".equals(proviePlanDetails.getRider())){
+								planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
+							} else if ("p500".equals(proviePlanDetails.getRider())) {
+								planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
+							}
+							planRider.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
+							resultJsonObject.accumulate("plans", planRider);
 						}
-						planRider.put("rate", rate0);
-						planRider.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						planRider.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
-						if ("p100".equals(proviePlanDetails.getRider())) {
-							planRider.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						} else if ("p50".equals(proviePlanDetails.getRider())){
-							//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
-							planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
-						} else if ("p500".equals(proviePlanDetails.getRider())) {
-							planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
-						}
-						planRider.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
-						resultJsonObject.accumulate("plans", planRider);
 						
 						if (yearNum==10||yearNum==15||yearNum==100) {
 							//logger.info("i==>>"+ i + "<<<<<<<<<<<" + "yearNum=>>" + yearNum + "<<<<<<<<<<<<<");
@@ -426,8 +429,22 @@ public class LifeServiceImpl implements LifeService {
 							//	logger.info("4Rate Year:>>" +Integer.valueOf(planDetails4Rate.get(i).getType().substring(1))+"<<<<");
 							//}
 							//0 rate
+							plan0 = new net.sf.json.JSONObject();
+							plan0.put("premiumYear", yearNum);
+							plan0.put("rate", 0);
+							plan0.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+							plan0.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+							if ("p100".equals(proviePlanDetails.getRider())) {
+								plan0.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+							} else if ("p50".equals(proviePlanDetails.getRider())){
+								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
+								plan0.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
+							} else if ("p500".equals(proviePlanDetails.getRider())) {
+								plan0.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
+							}
+							plan0.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 							credit0Rates.put("rate", 0);
-							credit0Rates.accumulate("plans", planRider);
+							credit0Rates.accumulate("plans", plan0);
 							//2 rate
 							plan2 = new net.sf.json.JSONObject();
 							plan2.put("premiumYear", Integer.valueOf(planDetails2Rate.get(i).getType().substring(1)));
