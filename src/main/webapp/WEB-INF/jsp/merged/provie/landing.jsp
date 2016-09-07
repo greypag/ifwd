@@ -478,7 +478,7 @@ var home_url = "<%=request.getContextPath()%>";
 								為未來做足準備<br>今天開始精明儲蓄，建立無憂精彩人生
 							</h2>
 
-							<a href="#" class="pv_btn">開始儲蓄</a>		
+							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}" class="pv_btn">開始儲蓄</a>		
 						</div>
 						
 					</div>

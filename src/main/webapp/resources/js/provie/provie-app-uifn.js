@@ -153,7 +153,10 @@ $(document).ready(function(){
 			    		
 			    		//Rate Table
 			    		
-			    		
+			    		if(!response.creditRates){
+			    			
+			    			response.creditRates = [{"rate":0,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":1,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":2,"plans":[{"premiumYear":10,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]	}];
+			    		}
 			    		if(response.creditRates){
 				    		for (var k = 0; k < 3; k++){
 				    			
