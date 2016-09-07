@@ -133,6 +133,8 @@ var home_url = "<%=request.getContextPath()%>";
 							
 							<%-- is display tc ?? --%>
 							
+							<c:if test="${language == 'tc'}">
+							
 							      <div class="pv_statement">
 									<fmt:message key="provie.landing.calculation.text1" bundle="${provieMsg}" />
 									<div class="btn-group">
@@ -180,7 +182,8 @@ var home_url = "<%=request.getContextPath()%>";
 									</div> 
 									<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
 								</div>
-							
+							</c:if>
+							<c:if test="${language == 'en'}">
 							      <div class="pv_statement">
 									<fmt:message key="provie.landing.calculation.text1" bundle="${provieMsg}" />
 									<div class="btn-group">
@@ -224,7 +227,7 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 									<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
 								</div>
-							
+							</c:if>
 
 							
 							<ul class="error_list errorMsg"></ul>
