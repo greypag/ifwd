@@ -23,6 +23,7 @@
 @import "common_screen/header";
 @import "common_screen/footer";
 @import "common_screen/loginpopup";
+@import "common_screen/overlay";
 @import "common_screen/becomeOurPartner";
 @import "common_screen/faq"; // BEM Naming for faq page 20160513
 //@import "common_screen/flight-insurance";
@@ -44,5 +45,6 @@
 // # Other rules and diff. screen standards for overwrite above
 @import "customize_screen/header";
 @import "customize_screen/loginpopup";
+@import "customize_screen/overlay";
 @import "customize_screen/faq"; // BEM Naming for faq page 20160513
 // @import "customize_screen/footer";

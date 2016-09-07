@@ -12,7 +12,6 @@
 <fmt:setBundle basename="provie" var="provieMsg" />
 <!DOCTYPE html>
 <script type="text/javascript">
-	var context = "${pageContext.request.contextPath}";
 	var languageP = "${language}";
 	var affordabilityMin = 3000;
 	var affordabilityPremium = 40000;
@@ -855,8 +854,6 @@
 		}
 	}
 
-	var language = "en";
-	var getpath = "";
 	$(document).ready(function () {
 		/**20160725 - commented for initial html development**/
 		//$('#loadingDiv').toggle();

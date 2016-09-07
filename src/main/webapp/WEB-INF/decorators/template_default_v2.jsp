@@ -53,6 +53,9 @@
 			var language = "${language}";
 			var affiliate = "${affiliate}";
 			var home_url = "<%=request.getContextPath()%>";
+			<%--For Savie online 2016 JS --%>
+			var getpath = "<%=request.getContextPath()%>";
+			<%--For Savie online 2016 JS END--%>
 			var actionName = "<%=actionName%>";
 		</script>
 	<%-- End Core Header Scripts--%>

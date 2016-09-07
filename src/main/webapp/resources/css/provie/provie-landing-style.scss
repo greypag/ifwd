@@ -1,7 +1,11 @@
-body{font-size: 16px;}
+body{
+	font-size: 16px;
+	font-family: Calibri, Arial, sans-serif !important;
+}
+
 //override
-body, .fwd-savie-wrapper h1, .fwd-savie-wrapper h2, .fwd-savie-wrapper h3, .fwd-savie-wrapper h4, .fwd-savie-wrapper h5{
-	font-family: Microsoft JhengHei !important;
+body.chin, .chin .fwd-savie-wrapper h1, .fwd-savie-wrapper h2, .fwd-savie-wrapper h3, .fwd-savie-wrapper h4, .fwd-savie-wrapper h5{
+	font-family: "Microsoft JhengHei", Calibri, Arial, sans-serif !important;
 }
 ul, menu, dir{
 	-webkit-padding-start: 0;
@@ -9,7 +13,6 @@ ul, menu, dir{
 sup{
 	top: 0;
 }
-
 
 
 //========================//
@@ -374,6 +377,9 @@ button.dropdown-toggle{
 		max-width: 500px;
 		.btn-group{
 			line-height: 1.188em;
+			.dropdown-menu li{
+				text-align: center;
+			}
 		}
 		.input_amount, .input_age{
 			border: none;

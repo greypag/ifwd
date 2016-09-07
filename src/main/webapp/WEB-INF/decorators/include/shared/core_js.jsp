@@ -3,14 +3,9 @@
 	Vendor JS
 	**********/
 %>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/html5shiv.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 <!--[if IE]>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/es5-shim.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/savie-2016/classList.min.js"></script>
@@ -19,7 +14,7 @@
 
 <% 
 	/**********
-	Page Specific JS
+	Page Specific Vendor JS
 	**********/
 %>
 
@@ -57,16 +52,14 @@
 <% } %>
 
 <% if(request.getRequestURI().indexOf("/savings-insurance/provie")>0) { %>
-<script src="<%=request.getContextPath()%>/resources/js/provie/dropdowns-enhancement.js"></script>
+  <% if(request.getRequestURI().indexOf("/savings-insurance/provie/")==-1) { %>
+  <% } %>
 <% } %>
 
 <%
 if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith("FNA/review")
 		 || requestUri.endsWith("FNA/product-recommendation"))) {
 %>
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/styles.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie-styles.css">
 <%
 }
 %>

@@ -581,16 +581,13 @@
 	</div>
 </div>
 
-<div id="loading-overlay" class="modal fade bs-loading-modal-lg"
-	tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog modal-lg loginpopup__modal-dialog loginpopup__modal-dialog--loading-dialog">
-		<div class="modal-content plan-modal loginpopup__modal__content loading-modal">
-			<img src="<%=request.getContextPath()%>/resources/images/loading.gif"
-				width="300" />
+<div class="modal fade overlay" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;" id="loading-overlay">
+	<div class="modal-dialog overlay__wrapper">
+		<div class="modal-content overlay__content">
+			<img class="overlay__img" src="<%=request.getContextPath()%>/resources/images/loading.gif" />
 		</div>
 	</div>
 </div>
-
 
 
 <script>

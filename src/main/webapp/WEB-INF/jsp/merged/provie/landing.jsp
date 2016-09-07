@@ -12,12 +12,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <fmt:setBundle basename="provie" var="provieMsg" />
-<script type="text/javascript">
-var context = "${pageContext.request.contextPath}";
-var language = "${language}";
-var affiliate = "${affiliate}";
-var home_url = "<%=request.getContextPath()%>";
-</script>
+
 <%
 	boolean isSaleActiveClass = false;
 	boolean isEservicesActiveClass = false;
@@ -28,8 +23,6 @@ var home_url = "<%=request.getContextPath()%>";
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
-
-
 
 <link rel="stylesheet" type="text/css" href="http://refreshless.com/noUiSlider/distribute/nouislider.min.css">
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
