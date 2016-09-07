@@ -157,38 +157,38 @@ public class LifeServiceImpl implements LifeService {
 						plansList = new ArrayList<net.sf.json.JSONObject>();
 						
 						plan0 = new net.sf.json.JSONObject();
-						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
-						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
-						plan0.accumulate("accidentalDeathBenefit", formartNumber(planDetails0Rate.get(i).getAccidentalDeathBenefit()));
+						plan0.accumulate("accountBalance", formatNumber(planDetails0Rate.get(i).getAccountEOP()));
+						plan0.accumulate("totalPremium", formatNumber(planDetails0Rate.get(i).getTotalPremium()));
+						plan0.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan0.accumulate("guaranteedDeathBenefit", formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						plan0.accumulate("accidentalDeathBenefit", formatNumber(planDetails0Rate.get(i).getAccidentalDeathBenefit()));
 						plan0.accumulate("rate","zero");
 						plansList.add(plan0);
 						
 						plan2 = new net.sf.json.JSONObject();
-						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", formartNumber(planDetails2Rate.get(i).getTotalPremium()));
-						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
-						plan2.accumulate("accidentalDeathBenefit", formartNumber(planDetails2Rate.get(i).getAccidentalDeathBenefit()));
+						plan2.accumulate("accountBalance", formatNumber(planDetails2Rate.get(i).getAccountEOP()));
+						plan2.accumulate("totalPremium", formatNumber(planDetails2Rate.get(i).getTotalPremium()));
+						plan2.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan2.accumulate("guaranteedDeathBenefit", formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+						plan2.accumulate("accidentalDeathBenefit", formatNumber(planDetails2Rate.get(i).getAccidentalDeathBenefit()));
 						plan2.accumulate("rate","two");
 						plansList.add(plan2);
 						
 						plan3 = new net.sf.json.JSONObject();
-						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", formartNumber(planDetails3Rate.get(i).getTotalPremium()));
-						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
-						plan3.accumulate("accidentalDeathBenefit", formartNumber(planDetails3Rate.get(i).getAccidentalDeathBenefit()));
+						plan3.accumulate("accountBalance", formatNumber(planDetails3Rate.get(i).getAccountEOP()));
+						plan3.accumulate("totalPremium", formatNumber(planDetails3Rate.get(i).getTotalPremium()));
+						plan3.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan3.accumulate("guaranteedDeathBenefit", formatNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+						plan3.accumulate("accidentalDeathBenefit", formatNumber(planDetails3Rate.get(i).getAccidentalDeathBenefit()));
 						plan3.accumulate("rate","three");
 						plansList.add(plan3);
 						
 						plan4 = new net.sf.json.JSONObject();
-						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", formartNumber(planDetails4Rate.get(i).getTotalPremium()));
-						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
-						plan4.accumulate("accidentalDeathBenefit", formartNumber(planDetails4Rate.get(i).getAccidentalDeathBenefit()));
+						plan4.accumulate("accountBalance", formatNumber(planDetails4Rate.get(i).getAccountEOP()));
+						plan4.accumulate("totalPremium", formatNumber(planDetails4Rate.get(i).getTotalPremium()));
+						plan4.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan4.accumulate("guaranteedDeathBenefit", formatNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+						plan4.accumulate("accidentalDeathBenefit", formatNumber(planDetails4Rate.get(i).getAccidentalDeathBenefit()));
 						plan4.accumulate("rate","four");
 						plansList.add(plan4);
 						
@@ -284,38 +284,38 @@ public class LifeServiceImpl implements LifeService {
 						plansList = new ArrayList<net.sf.json.JSONObject>();
 						
 						plan0 = new net.sf.json.JSONObject();
-						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
-						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
-						plan0.accumulate("accidentalDeathBenefit", formartNumber(planDetails0Rate.get(i).getAccidentalDeathBenefit()));
+						plan0.accumulate("accountBalance", formatNumber(planDetails0Rate.get(i).getAccountEOP()));
+						plan0.accumulate("totalPremium", formatNumber(planDetails0Rate.get(i).getTotalPremium()));
+						plan0.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan0.accumulate("guaranteedDeathBenefit", formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						plan0.accumulate("accidentalDeathBenefit", formatNumber(planDetails0Rate.get(i).getAccidentalDeathBenefit()));
 						plan0.accumulate("rate","zero");
 						plansList.add(plan0);
 						
 						plan2 = new net.sf.json.JSONObject();
-						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", formartNumber(planDetails2Rate.get(i).getTotalPremium()));
-						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
-						plan2.accumulate("accidentalDeathBenefit", formartNumber(planDetails2Rate.get(i).getAccidentalDeathBenefit()));
+						plan2.accumulate("accountBalance", formatNumber(planDetails2Rate.get(i).getAccountEOP()));
+						plan2.accumulate("totalPremium", formatNumber(planDetails2Rate.get(i).getTotalPremium()));
+						plan2.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan2.accumulate("guaranteedDeathBenefit", formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+						plan2.accumulate("accidentalDeathBenefit", formatNumber(planDetails2Rate.get(i).getAccidentalDeathBenefit()));
 						plan2.accumulate("rate","two");
 						plansList.add(plan2);
 						
 						plan3 = new net.sf.json.JSONObject();
-						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", formartNumber(planDetails3Rate.get(i).getTotalPremium()));
-						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
-						plan3.accumulate("accidentalDeathBenefit", formartNumber(planDetails3Rate.get(i).getAccidentalDeathBenefit()));
+						plan3.accumulate("accountBalance", formatNumber(planDetails3Rate.get(i).getAccountEOP()));
+						plan3.accumulate("totalPremium", formatNumber(planDetails3Rate.get(i).getTotalPremium()));
+						plan3.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan3.accumulate("guaranteedDeathBenefit", formatNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+						plan3.accumulate("accidentalDeathBenefit", formatNumber(planDetails3Rate.get(i).getAccidentalDeathBenefit()));
 						plan3.accumulate("rate","three");
 						plansList.add(plan3);
 						
 						plan4 = new net.sf.json.JSONObject();
-						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", formartNumber(planDetails4Rate.get(i).getTotalPremium()));
-						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
-						plan4.accumulate("accidentalDeathBenefit", formartNumber(planDetails4Rate.get(i).getAccidentalDeathBenefit()));
+						plan4.accumulate("accountBalance", formatNumber(planDetails4Rate.get(i).getAccountEOP()));
+						plan4.accumulate("totalPremium", formatNumber(planDetails4Rate.get(i).getTotalPremium()));
+						plan4.accumulate("guaranteedSurrenderBenefit", formatNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan4.accumulate("guaranteedDeathBenefit", formatNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+						plan4.accumulate("accidentalDeathBenefit", formatNumber(planDetails4Rate.get(i).getAccidentalDeathBenefit()));
 						plan4.accumulate("rate","four");
 						plansList.add(plan4);
 						
@@ -408,16 +408,16 @@ public class LifeServiceImpl implements LifeService {
 								rate0=Float.parseFloat(new java.text.DecimalFormat("#.0").format(drate0));
 							}
 							planRider.put("rate", rate0);
-							planRider.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-							planRider.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+							planRider.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
+							planRider.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
-								planRider.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+								planRider.put("riderValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							} else if ("p50".equals(proviePlanDetails.getRider())){
-								planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
+								planRider.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2)))));
 							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								planRider.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
+								planRider.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
-							planRider.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
+							planRider.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
 							resultJsonObject.accumulate("plans", planRider);
 						}
 						
@@ -432,51 +432,48 @@ public class LifeServiceImpl implements LifeService {
 							plan0 = new net.sf.json.JSONObject();
 							plan0.put("premiumYear", yearNum);
 							plan0.put("rate", 0);
-							plan0.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-							plan0.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
+							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan0.put("riderValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
+								plan0.put("riderValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							} else if ("p50".equals(proviePlanDetails.getRider())){
-								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
-								plan0.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2))));
+								plan0.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2)))));
 							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan0.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5))));
+								plan0.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
-							plan0.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
+							plan0.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
 							credit0Rates.put("rate", 0);
 							credit0Rates.accumulate("plans", plan0);
 							//2 rate
 							plan2 = new net.sf.json.JSONObject();
 							plan2.put("premiumYear", Integer.valueOf(planDetails2Rate.get(i).getType().substring(1)));
 							plan2.put("rate", 0);
-							plan2.put("accountValue", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-							plan2.put("deathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
+							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan2.put("riderValue", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
+								plan2.put("riderValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
 							} else if ("p50".equals(proviePlanDetails.getRider())){
-								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
-								plan2.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getAccountEOP())/2))));
+								plan2.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getAccountEOP())/2)))));
 							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan2.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getGuranteedDeathBenefit())*5))));
+								plan2.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
-							plan2.put("totalPaid", formartNumber(planDetails2Rate.get(i).getTotalPremium()));
+							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
 							credit2Rates.put("rate", 1);
 							credit2Rates.accumulate("plans", plan2);
 							//3 rate
 							plan3 = new net.sf.json.JSONObject();
 							plan3.put("premiumYear", Integer.valueOf(planDetails3Rate.get(i).getType().substring(1)));
 							plan3.put("rate", 0);
-							plan3.put("accountValue", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-							plan3.put("deathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+							plan3.put("accountValue", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getAccountEOP())));
+							plan3.put("deathBenefit", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan3.put("riderValue", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
+								plan3.put("riderValue", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getAccountEOP())));
 							} else if ("p50".equals(proviePlanDetails.getRider())){
-								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
-								plan3.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getAccountEOP())/2))));
+								plan3.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getAccountEOP())/2)))));
 							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan3.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getGuranteedDeathBenefit())*5))));
+								plan3.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
-							plan3.put("totalPaid", formartNumber(planDetails3Rate.get(i).getTotalPremium()));
+							plan3.put("totalPaid", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getTotalPremium())));
 							credit3Rates.put("rate", 0);
 							credit3Rates.accumulate("plans", plan3);
 							//4 rate
@@ -484,16 +481,16 @@ public class LifeServiceImpl implements LifeService {
 							plan4 = new net.sf.json.JSONObject();
 							plan4.put("premiumYear", Integer.valueOf(planDetails4Rate.get(i).getType().substring(1)));
 							plan4.put("rate", 0);
-							plan4.put("accountValue", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-							plan4.put("deathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+							plan4.put("accountValue", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getAccountEOP())));
+							plan4.put("deathBenefit", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan4.put("riderValue", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
+								plan4.put("riderValue", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getAccountEOP())));
 							} else if ("p50".equals(proviePlanDetails.getRider())){
-								plan4.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getAccountEOP())/2))));
+								plan4.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getAccountEOP())/2)))));
 							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan4.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getGuranteedDeathBenefit())*5))));
+								plan4.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
-							plan4.put("totalPaid", formartNumber(planDetails4Rate.get(i).getTotalPremium()));
+							plan4.put("totalPaid", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getTotalPremium())));
 							credit4Rates.put("rate", 0);
 							credit4Rates.accumulate("plans", plan4);
 							}
@@ -2926,7 +2923,7 @@ public class LifeServiceImpl implements LifeService {
 		return apiResponse;
 	}
 	
-	private String formartNumber(String num){
+	private String formatNumber(String num){
 		if(num.contains(".")){
 			num = num.split("\\.")[0];
 		}
