@@ -4,6 +4,34 @@
   }
 }
 
+.wht-btn {
+  background: #fff !important;
+  color: #f6871e;
+  border: none;
+  margin-top: 10px;
+  border: 1px solid #f6871e;
+  &:hover, &:focus {
+    background: #f6871e;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #f6871e;
+  }
+}
+
+.wht-btn1 {
+  background: #fff !important;
+  color: #f6871e;
+  border: none;
+  border: 1px solid #f6871e;
+  &:hover, &:focus {
+    background: #f6871e;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #f6871e;
+  }
+}
+
+
 // //
 // // Buttons
 // // --------------------------------------------------

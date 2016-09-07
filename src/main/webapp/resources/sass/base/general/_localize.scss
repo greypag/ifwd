@@ -76,6 +76,15 @@ hr{border-top:1px solid #e5e5e5;border-bottom:1px solid #fff}
 	color: #ffffff;
 }
 
+.bdr-curve {
+	border-radius: 0px !important;
+}
+
+.invalid-field {
+	border: 2px solid red !important;
+}
+
+
 // ----------- Pls Ignore ---------- sample code for reference
 // -webkit-transition: color 300ms, background-color 300ms;
 // -moz-transition: color 300ms, background-color 300ms;

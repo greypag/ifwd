@@ -1,0 +1,12 @@
+//
+// Input groups
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+.input-group {
+
+  .form-control {
+    float: none; // original >>>  float: left;
+  }
+}

@@ -288,7 +288,7 @@ if(request.getRequestURI().indexOf("/become-our-partner")>0) {
 %>
 <script src="<%=request.getContextPath()%>/resources/js/savie-2016/material.min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script>
+<!--script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/custom.js"></script-->
 <script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 
 <%

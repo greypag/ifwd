@@ -417,7 +417,7 @@ function getStarted(){
 <!-- End Visual Website Optimizer Asynchronous Code -->
 <!--End VWO-->
 <!--desktop header-->
-<header id="header" class="hidden-xs hidden-sm">
+<header id="header" class="header hidden-xs hidden-sm">
 	<div class="top-bar">
 		<div class="container ">
 			<div class="row">

@@ -16,8 +16,8 @@
 <![endif]-->
     <!--/.container-->
     <!--  Become partner form start -->
-    <div class="partnership container">
-        
+    <div class="partnership ifwd-container">
+
         <div class="partner-headline-wrapper">
             <h4 class="headline-title"><fmt:message key="partner.title" bundle="${msg}" /></h4>
             <div class="h4-5"><fmt:message key="partner.headline.description" bundle="${msg}" /></div>
