@@ -52,7 +52,7 @@ var language = "${language}";
 
 <div class="comp stepIndicator stepIndicator--mobile hidden-lg hidden-md js-sticky-bar">
    <div class="stepIndicator__container">
-      <div class="stepIndicator__arrow"><a href="#"><span class="icon-arrow-left2"></span></a></div><div class="stepIndicator__content">Make appointment</div><span class="stepIndicator__stepof">2 out of 3</span>
+      <div class="stepIndicator__arrow"><a href="#"><span class="icon-arrow-left2"></span></a></div><div class="stepIndicator__content"><fmt:message key="provie.appoint.title1" bundle="${provieMsg}" /></div><span class="stepIndicator__stepof">2 out of 3</span>
    </div>
 </div>
 
@@ -101,12 +101,12 @@ function stickToHeader() {
          <div class="row" id="appointment-form-holder">
              
                <div class="col-xs-12 col-md-6" id="left-side-form">
-                   <h5>Please choose a Customer Service Centre</h5>
-					<p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
-					<p class="confirm-call">Please note each appointment time slot can serve only one applicant for Financial Needs Analysis or application. The person who makes the appointment must be the same person as the applicant.</p>
+                   <h5><fmt:message key="provie.appoint.text1" bundle="${provieMsg}" /></h5>
+					<p class="confirm-call"><fmt:message key="provie.appoint.text2" bundle="${provieMsg}" /></p>
+					<p class="confirm-call"><fmt:message key="provie.appoint.text3" bundle="${provieMsg}" /></p>
 					<div class="">
 						<div class="payment-select-wrapper">
-							<p class="bank-info-select-label">Customer Service Centre</p>
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.cscentre" bundle="${provieMsg}" /></p>
 		                   <div class="selectDiv centreDiv gray-text-bg">
 		                      <select name="centre" id="centre" class="form-control gray-dropdown">
 		                        
@@ -118,7 +118,7 @@ function stickToHeader() {
 		           </div>  
 		           <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label">Date</p>  
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.date" bundle="${provieMsg}" /></p>  
 		                   <div class="selectDiv preferred-date gray-text-bg">
 		                      <input name="app-date" id="app-date" value="" class="form-control" />
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
@@ -128,7 +128,7 @@ function stickToHeader() {
 		            </div>
 		            <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label">Time</p>
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.time" bundle="${provieMsg}" /></p>
 		                    <div class="selectDiv timeslot gray-text-bg">
 		                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
 		                          <option value=""></option>
@@ -159,7 +159,7 @@ function stickToHeader() {
 							<div class="panel-group" id="accordion">
 								<div class="panel">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login">Log in to confirm appointment<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login"><fmt:message key="provie.appoint.text4" bundle="${provieMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
 									</div>
 									<div id="pan-login" class="panel-collapse collapse in">
 										<div class="panel-body">
@@ -169,7 +169,7 @@ function stickToHeader() {
 														<!--使用者名 -->
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentloginUsername">
-															<label class="mdl-textfield__label" for="appointmentloginUsername">Username</label>
+															<label class="mdl-textfield__label" for="appointmentloginUsername"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
 															
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
@@ -181,13 +181,13 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentloginPassword">
-															<label class="mdl-textfield__label" for="appointmentloginPassword">Password</label>												
+															<label class="mdl-textfield__label" for="appointmentloginPassword"><fmt:message key="provie.appoint.password" bundle="${provieMsg}" /></label>												
 														</div>
 														<span class="error-msg passwordErrMsg"></span>
 													</div>
 													<div class="text-right">
 														<!--忘記密碼 -->
-														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd">Forgot password?</a>
+														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd"><fmt:message key="provie.appoint.forget.password" bundle="${provieMsg}" /></a>
 													</div>
 													<div class="login-button-group text-center">
 														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-login">Log in</button>
@@ -258,7 +258,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdUsername">
-															<label class="mdl-textfield__label" for="userName">Username</label>
+															<label class="mdl-textfield__label" for="userName"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
 													</div>

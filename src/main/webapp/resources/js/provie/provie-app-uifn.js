@@ -34,6 +34,15 @@ $(document).ready(function(){
 
 	//Select Plan
 	if($(".provie-plan-select").length > 0){
+		
+		var current_date = new Date();
+		var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
+		var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+		/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
+		
+		
+		; // minus the date
+
 
 		$('#plan-dob-datepicker').mobiscroll().calendar({
 			controls: ['date'],
@@ -47,15 +56,27 @@ $(document).ready(function(){
 	        onClosed:onClosed,
 	        lang: UILANGUAGE  == "en" ? "en_fwd" : "zh_fwd"
 		});
+		$('#plan-dob-datepicker').css("cursor","default");
+		//$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+		var eighteen = new Date((new Date()).setYear((new Date()).getFullYear() - 18));		
+		$('#plan-dob-datepicker').mobiscroll("setVal",eighteen,true);
+		
+		
+		
+		
 
 		$("#type-of-extra-rider").change(function(e){
 
 			var cls = $(e.currentTarget).find("option:selected").data("cls");
-			console.log(cls);
+			
 			$(".er-color-swap").each(function(){
 				$(this).removeClass("p50 p100 p500");
 				$(this).addClass(cls);
 			});
+			
+			$("#extra-desc-desktop p, #extra-desc p").removeClass("active");
+			$("#extra-desc-desktop").find("." + cls).addClass("active");
+			$("#extra-desc").find("." + cls).addClass("active");
 		});
 
 		$("#type-of-extra-rider").trigger("change");
@@ -65,7 +86,17 @@ $(document).ready(function(){
         	$(window).resize();
         });
 		
-		
+		$('.rate-buttons button').click(function(){
+			$('.rate-buttons button').removeClass('active');
+			$("#after-5-years .rate-table, #after-5-years .tbl-rate-mobile").hide();
+			$(this).addClass('active');
+			var val = $(this).data("val");
+			$("#rate-table-" + val).show();
+    		$("#rate-table-"+ val+"-mob").show();
+    		$(window).resize();
+    		
+		});
+
 		$("#plan-calculate-btn").click(function(){
 			if($('#promoCode').val()!='' && $('#promoCodeErrorMsg').hasClass('hidden')){
 				$('#promoCodeErrorMsg').removeClass('hidden');
@@ -98,42 +129,63 @@ $(document).ready(function(){
 			    success:function(response){
 			    	if(response){
 			    		
+			    		//Dummy data
+			    		//response = {"planCode":"Provie-SP","currency":"HKD","rider":"PA","plans":[{"premiumYear":1,"rate":1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":2,"rate":1.1,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":3,"rate":1.2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":4,"rate":1.3,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":5,"rate":1.4,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}],"creditRates":[{"rate":0,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":1,"plans":[{"premiumYear":10,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":0,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]},{"rate":2,"plans":[{"premiumYear":10,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":15,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000},{"premiumYear":100,"rate":2,"accountValue":10001,"deathBenefit":10002,"riderValue":10003,"totalPaid":10000}]}]};
+			    		//Normal Table
 			    		$("table.tbl_desktop tbody").empty();
 			    		$("table.tbl_mob tbody").empty();
 			    		$("table.tbl_mob_header tbody").empty();
 			    		
-			    		console.log(response.plans);
+			    		//console.log(response.plans);
 			    		for(var i = 0; i <response.plans.length; i++){
 			    			var plan = response.plans[i];
-			    			console.log(plan);
-			    			var dt = $("#template .tbl_desktop").clone();
-			    			var mob_head = $("#template .tbl_mob_header").clone();
-			    			var mob = $("#template .tbl_mob").clone();
 			    			
-			    			dt.find(".premiumYear").text(plan.premiumYear);
-			    			mob_head.find(".premiumYear").text(plan.premiumYear);
 			    			
-			    			dt.find(".rate").text(plan.rate);
-			    			mob.find(".rate").text(plan.rate);
 			    			
-			    			dt.find(".totalPaid").text(plan.totalPaid);
-			    			mob.find(".totalPaid").text(plan.totalPaid);
-			    			
-			    			dt.find(".accountValue").text(plan.accountValue);
-			    			mob.find(".accountValue").text(plan.accountValue);
-			    			
-			    			dt.find(".deathBenefit").text(plan.deathBenefit);
-			    			mob.find(".deathBenefit").text(plan.deathBenefit);
-			    			
-			    			dt.find(".riderValue").text(plan.riderValue);
-			    			mob.find(".riderValue").text(plan.riderValue);
-			    			
-			    			console.log(dt);
-			    			
-			    			$("table.tbl_desktop tbody").append(dt);
-			    			$("table.tbl_mob_header tbody").append(mob_head);
-			    			$("table.tbl_mob tbody").append(mob);
+			    			renderRateTable(
+			    					$("table.tbl_desktop tbody"),
+			    					$("table.tbl_mob_header tbody"),
+			    					$("table.tbl_mob tbody"),
+			    					plan,
+			    					(i % 2 == 0)
+			    			);
 			    		}
+			    		
+			    		//Rate Table
+			    		
+			    		
+			    		if(response.creditRates){
+				    		for (var k = 0; k < 3; k++){
+				    			
+				    			var tbDesktop = $("#rate-table-"+k+" .table tbody");
+				    			var tbMobHead = $("#rate-table-"+k+"-mob .sticky-header tbody");
+				    			var tbMobBody = $("#rate-table-"+k+"-mob .overflow-body tbody");
+				    			
+				    			tbDesktop.empty();
+				    			tbMobHead.empty();
+				    			tbMobBody.empty();
+					    		
+					    		for(var i = 0; i < response.creditRates[k].plans.length; i++){
+					    			var plan = response.creditRates[k].plans[i];
+					    			
+					    			renderRateTable(
+					    					tbDesktop,
+					    					tbMobHead,
+					    					tbMobBody,
+					    					plan,
+			    							(i % 2 == 0)
+					    			);
+					    		}
+					    		
+					    		
+				    		}
+				    		
+				    		$($('.rate-buttons button').get(1)).trigger("click");
+			    		}
+			    		
+			    		
+			    		
+			    		
 			    	}
 			    	
 			    },
@@ -144,8 +196,10 @@ $(document).ready(function(){
 			
 		});
 		
+		$("#plan-calculate-btn").trigger("click");
 		
-
+		
+		
 		
 	}
 
@@ -156,15 +210,16 @@ $(document).ready(function(){
 		
 
 		$('#app-date').mobiscroll().calendar({
-			controls: ['date'],
+			controls: ['calendar'],
 		 	minDate:new Date(),
-		 	showLabel: true,
+		 	//showLabel: true,
+		 	layout: 'liquid',
 		 	dateOrder: 'ddmmyy',
         	dateFormat: 'dd-mm-yyyy',
         	invalid: ["w0","w1","w2","w3","w4","w5","w6"],
         	defaultValue: null,
 	        theme: "mobiscroll",     // Specify theme like: theme: 'ios' or omit setting to use default 
-	        mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+	        //mode: "scroller",       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
 	        display: "bubble", // Specify display mode like: display: 'bottom' or omit setting to use default 
 	        onSelect:function(d){
 
@@ -450,10 +505,9 @@ $(document).ready(function(){
 		$(".policy-number").text(referenceNum);
 		
 		$.ajax({
-			url:fwdApi.url.appointment,
+			url:fwdApi.url.appointment + "/" + referenceNum,
 			type:"get",
 			contentType: "application/json",
-			data:{referenceNum:referenceNum},
 			cache:false,
 			async:false,
 			error:function(){
@@ -1096,6 +1150,41 @@ function showBubble(){
 	}else{
 		$(".checkboxBubble").fadeOut();
 	}
+}
+
+function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
+	var dt = $("#template .tbl_desktop").clone();
+	var mob_head = $("#template .tbl_mob_header").clone();
+	var mob = $("#template .tbl_mob").clone();
+	
+	if(odd){
+		dt.addClass("pinkish-shade");
+		mob_head.addClass("pinkish-shade");
+		mob.addClass("pinkish-shade");
+	}
+	
+	dt.find(".premiumYear").text(plan.premiumYear);
+	mob_head.find(".premiumYear").text(plan.premiumYear);
+	
+	dt.find(".rate").text(plan.rate);
+	mob.find(".rate").text(plan.rate);
+	
+	dt.find(".totalPaid").text(plan.totalPaid);
+	mob.find(".totalPaid").text(plan.totalPaid);
+	
+	dt.find(".accountValue").text(plan.accountValue);
+	mob.find(".accountValue").text(plan.accountValue);
+	
+	dt.find(".deathBenefit").text(plan.deathBenefit);
+	mob.find(".deathBenefit").text(plan.deathBenefit);
+	
+	dt.find(".riderValue").text(plan.riderValue);
+	mob.find(".riderValue").text(plan.riderValue);
+	
+	
+	tbDesktop.append(dt);
+	tbMobHead.append(mob_head);
+	tbMobBody.append(mob);
 }
 
 function getParameterByName(name, url) {

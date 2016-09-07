@@ -14,19 +14,43 @@ var errMsg = {
 	"amountSPUSDLess":"一筆過供款最少為USD$3,750。",
 	"amountSPUSDMore":"一筆過供款最多為USD$125,000。",
 	"currencyEmpty":"請選擇貨幣。",
-	"yearEmpty":"請選擇供款年期。"
+	"yearEmpty":"請選擇供款年期。",
+	"loginFail":"未能成功登入。"
 };
 
 "use static";
+
+var currencyData = {
+	"HKD": {
+		"fixRate": [1.5, 1.5, 2, 2, 3, 2, 2],
+		"enPricePrefix": "HK$",
+		"tcPricePrefix": "港元"
+	},
+	"USD": {
+		"fixRate": [2, 2, 2, 2, 3, 2, 2],
+		"enPricePrefix": "US$",
+		"tcPricePrefix": "美元"
+	}
+}
+
+
 var planFormValidator = null;
 var planDetailHelper = null;
 var behaviourSlider = null;
+
 $(document).ready(function (){
+	$(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 992});
+	$(".pv_plan_wrap .cardWrap .card").autoAlignHeight({child: ".name", minWidth: 992});
+	
 	planFormValidator = planFormValidatorHelper();
+	planFormValidator.init();
+
+	var fnaHelper = fnaLogin();
+	fnaHelper.init();
 
 	behaviourSlider = document.getElementById('slider');
 	noUiSlider.create(behaviourSlider, {
-			start: [ 0, 0 ],
+			start: [0,0],
 			step: 10,
 			behaviour: 'drag',
 			connect: true,
@@ -40,80 +64,97 @@ $(document).ready(function (){
 	var grayBarWidthRange = [33.333, 40, 50, 66.8, 100, 100, 100];
 	var grayBar$ = $("<div/>").addClass("grayBox");
 	grayBar$.appendTo($(".pv_plan .pv_plan_wrap #slider .noUi-origin.noUi-background"));
-	behaviourSlider.noUiSlider.on('slide', function (curValueStr){
-		var idx = parseInt(curValueStr, 10) / 10;
+	behaviourSlider.noUiSlider.on('update', function (curValueAry){
+		var idx = parseInt(curValueAry[1], 10) / 10;
 		grayBar$.css("width", grayBarWidthRange[idx] + "%");
 
 		planDetailHelper.changeYear(idx);
+		console.log(idx);
 	});
+
 });
 
-var fnaHelper = (function (){
-	var helper = {};
+function fnaLogin(){
+	return {
+		init: function (){
+			$(".pv_fna .btnStart").click(function (){
+				$.ajax({
+					beforeSend:function(){
+						$("#loading-overlay").modal("show");
+					},
+					url:"/fwdhk/api/member/login",
+					type:"post",
+					contentType: "application/json",
+					data:JSON.stringify({
+						userName:$("#fnaUser").val(),
+						password:$("#fnaPwd").val()
+					}),
+					cache:false,
+					async:false,
+					error:function(response){
+						$(".pv_fna .errorMsg").html(errMsg.loginFail);
+				    },
+				    success:function(response){
+				    	if(response){
+				    		//TODO: redirect to FNA page
 
-	helper.showForgotPwdPopup = function (){
-		$("#loginpopup").modal();$("#link-forgotPassword").click();
-	};
-	helper.showForgotUserPopup = function (){
-		$("#loginpopup").modal();$("#forgotUserName").click();
-	};
+				    	}
+				    },
+				    complete:function(){
+				    	$("#loading-overlay").modal("hide");
+				    }
+				});
+			});
 
-	$("pv_fna .btnStart").click(function (){
-		$.ajax({
-			beforeSend:function(){
-				$("#loading-overlay").modal("show");
-			},
-			url:"/api/member/login",
-			type:"post",
-			contentType: "application/json",
-			data:JSON.stringify(postData),
-			cache:false,
-			async:false,
-			error:function(response){
-				$(".loginPanErrMsg").append($("<small/>").text(response.responseJSON.message));	
-		    },
-		    success:function(response){
-		    	if(response){
-		    		console.log(response);
-		    		//redirect to FNA page
+			$(".pv_fna .btnForgotUser").click(this.showForgotUserPopup);
 
-		    		//if not success, then what????
-		    	}
-		    },
-		    complete:function(){
-		    	$("#loading-overlay").modal("hide");
-		    }
-		});
-	});
-
-	$(".pv_fna .btnForgotUser").click(helper.showForgotUserPopup);
-
-	$(".pv_fna .btnForgotPwd").click(helper.showForgotPwdPopup);
-	
-	return helper;
-})();
+			$(".pv_fna .btnForgotPwd").click(this.showForgotPwdPopup);
+		},
+		showForgotPwdPopup: function (){
+			$("#loginpopup").modal();$("#link-forgotPassword").click();
+		},
+		showForgotUserPopup: function (){
+			$("#loginpopup").modal();$("#forgotUserName").click();
+		}
+	}
+}
 
 function planDetails(data){
 	var planData = data;
 
-	var rateLife = 1.2;
-	var rateAccidental = 1.2;
-	var rateCancer = 1.2;
+	var rateLife = 1;
+	var rateAccidental = 5;
+	var rateCancer = .5;
 
-	var accountValue$ = null;
-	var totalPaid$ = null;
-	var exLifeAmount$ = null;
-	var exAccidentalAmount$ = null;
-	var exCancerAmount$ = null;
+	var monthlyValue$ = $(".pv_plan .money .left");
+	var accountValue$ = $(".pv_plan .amount");
+	var totalPaid$ = $(".pv_plan .totalPaid");
+	var yearNum$ = $(".pv_plan .accValue .year");
+	var exLifeAmount$ = $(".pv_plan .card1 .price");
+	var exAccidentalAmount$ = $(".pv_plan .card2 .price");
+	var exCancerAmount$ = $(".pv_plan .card3 .price");
 
 
 	return {
 		reset : function (){
 			behaviourSlider.noUiSlider.set([0, 0]);
-			//unhide monthly fee
+			monthlyValue$.show();
 		},
 		changeYear : function (yearIdx){
 			//planData[yearIdx].accountValue
+			totalPaid$.html(toPriceStr(planData[yearIdx].totalPaid));
+			
+			var accountValue = planData[yearIdx].accountValue;
+			accountValue$.html(toPriceStr(accountValue));
+			
+			yearNum$.html(planData[yearIdx].premiumYear);
+			
+			exLifeAmount$.html(toPriceStr(accountValue * rateLife));
+			exAccidentalAmount$.html(toPriceStr(accountValue * rateAccidental));
+			exCancerAmount$.html(toPriceStr(accountValue * rateCancer));
+
+			//to re-align height of 3 card
+			$(window).trigger('resize');
 		}
 	};
 }
@@ -135,14 +176,37 @@ function planFormValidatorHelper(){
 	var errorOutputAry = [];
 
 	return {
+		init: function (){
+			var that = this;
+			$(".pv_sec_calculator .btnSubmit").click(function (){
+				that.trySubmit();
+			});
+
+			$(".pv_sec_calculator .input_age").on("change", function (){
+				that.checkAge();
+				that.fillYearOpt(submitData.age);
+			});
+
+			$(".pv_sec_calculator input[name=method]").on("change", function (){
+				that.checkMethod();
+				if(submitData.method == "SP"){
+					$(".pv_sec_calculator .txtMonth").hide();
+				}else{
+					$(".pv_sec_calculator .txtMonth").show();
+				}
+			});			
+
+		},
 		reset: function (){
 			submitData = {};
 			errorOutputAry = [];
 			errorList$.empty();
 
-			planDetailHelper.reset();
+			if(!!planDetailHelper){
+				planDetailHelper.reset();
+			}
 		},
-		checkInput: function (){
+		trySubmit: function (){
 			this.reset();
 			
 			this.checkGender();
@@ -170,6 +234,7 @@ function planFormValidatorHelper(){
 			//check length >= 2
 			var age$ = $(".input_age");
 			if(age$.val().length < 2 || !(/^[0-9]{2}$/).test(age$.val())){
+				age$.fource();
 				errorOutputAry.push(errMsg.ageEmpty);
 				return;
 			}
@@ -287,15 +352,50 @@ function planFormValidatorHelper(){
 					console.log("expected error");
 			    },
 			    success:function(response){
-			    	console.log(response.plans);
-
-			    	for (var ni = 1; ni <= 5; ni++) {
-			    		$(".pv_plan .scaleBottom " + ".num"+ ni).html(response.plans[ni-1].rate);
-			    		console.log("rate", response.plans[ni-1].rate);
+			    	//pack dummy year 15 and 100 if api not ready
+			    	if(!response.creditRates){
+			    		response.plans.push({
+							"premiumYear": 15,
+							"rate": 2,
+							"accountValue": 10001,
+							"deathBenefit": 10002,
+							"riderValue": 10003,
+							"totalPaid": 10000
+						}, {
+							"premiumYear": 100,
+							"rate": 2,
+							"accountValue": 10001,
+							"deathBenefit": 10002,
+							"riderValue": 10003,
+							"totalPaid": 10000
+						});
+			    	}else{
+			    		response.creditRates[2].shift();
+			    		response,plans.push(response.creditRates[2].plans);
 			    	}
+
 
 			    	//pass data to details helper
 			    	planDetailHelper = planDetails(response.plans);
+			    	planDetailHelper.reset();
+
+			    	for (var ni = 1; ni <= 7; ni++) {
+			    		$(".pv_plan .scaleBottom " + ".num"+ ni).html(currencyData[submitData.currency].fixRate[ni - 1] + "%");
+			    	}
+
+			    	var monthlyValue$ = $(".pv_plan .money .left");
+			    	if(submitData.method == "SP"){
+						monthlyValue$.hide();
+					}else{
+						monthlyValue$.find(".monthlyFee").html(toPriceStr(submitData.amount));
+					}
+
+			    	if(!$(".pv_plan").hasClass("isShow")){
+			    		$(".pv_plan").slideToggle( "slow" ).addClass("isShow");
+			    	}
+
+			    	//trigger first year 
+			    	behaviourSlider.noUiSlider.set([0,0]);
 			    },
 			    complete:function(){
 			    	$("#loading-overlay").modal("hide");
@@ -304,3 +404,62 @@ function planFormValidatorHelper(){
 		}
 	};
 }
+
+function toPriceStr(x) {
+    return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// sample config
+// conf{
+// 	child: ".inner",
+// 	minWidth: 992
+// }
+$.fn.autoAlignHeight = function(conf) {
+		var parentDom = this;
+		var childDom = conf.child;
+		var _conf = conf;
+
+		reAlignHeight();
+
+		$(window).on("resize", reAlignHeight);
+		$(window).on("orientationchange", reAlignHeight);
+
+		// window.onorientationchange = reAlignHeight;
+		// window.onresize = reAlignHeight;
+
+		function reAlignHeight(){
+			if(window.innerWidth < _conf.minWidth){
+				resetChildHeight();
+				return;
+			}
+			alignChildHeight(parentDom, conf.child);
+		}
+
+		function resetChildHeight(){
+			$(parentDom).find(childDom).each(function() {
+		        $(this).css("height", "auto");
+		    });
+		}
+
+		function alignChildHeight(sel, child) {
+		    //reset all child height
+			$(sel).find(child).css("height", "auto");
+			
+			setTimeout(function (){
+				var max = 0;
+			    $(sel).find(child).each(function() {
+			        c_height = parseInt($(this).outerHeight(false));
+			        if (c_height > max) {
+			            max = c_height;
+			        }
+			    });
+			    $(sel).find(child).outerHeight(max);
+			    
+			    if(!!conf.onFinish){
+			    	conf.onFinish();
+			    }
+			}, 500);
+			
+		}	
+	
+};

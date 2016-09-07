@@ -78,6 +78,11 @@
 		}
 	}
 
+	#extra-desc, #extra-desc-desktop{
+		p {display:none;}
+		p.active{display:block;}
+	}
+
 	#table-content-pd{
 		width:100%;
 

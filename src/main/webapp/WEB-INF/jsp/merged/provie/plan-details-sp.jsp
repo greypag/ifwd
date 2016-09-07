@@ -209,11 +209,15 @@
 								</div>
 								<div class="col-xs-12 hidden-md hidden-lg">
 									<div class="collapse" id="extra-desc">
-										<p>Provides a Death Benefit where 100% of the sum insured will be payable 2 in the unfortunate event of the death of the insured. During the term of the Plan, if the death of the insured is highly likely within a year, a lump sum equivalent to the Death Benefit will be paid in advance2,3 to help you to cope with the financial strain.</p>
+										<p class="p50 active"><fmt:message key="provie.plandetails.rider3.text" bundle="${provieMsg}" /></p>
+										<p class="p100"><fmt:message key="provie.plandetails.rider1.text" bundle="${provieMsg}" /></p>
+										<p class="p500"><fmt:message key="provie.plandetails.rider2.text" bundle="${provieMsg}" /></p>
 									</div>
 								</div>
-								<div class="col-xs-12 visible-md visible-lg">
-									<p>Provides a Death Benefit where 100% of the sum insured will be payable 2 in the unfortunate event of the death of the insured. During the term of the Plan, if the death of the insured is highly likely within a year, a lump sum equivalent to the Death Benefit will be paid in advance2,3 to help you to cope with the financial strain.</p>
+								<div class="col-xs-12 visible-md visible-lg" id="extra-desc-desktop">
+									<p class="p50 active"><fmt:message key="provie.plandetails.rider3.text" bundle="${provieMsg}" /></p>
+									<p class="p100"><fmt:message key="provie.plandetails.rider1.text" bundle="${provieMsg}" /></p>
+									<p class="p500"><fmt:message key="provie.plandetails.rider2.text" bundle="${provieMsg}" /></p>
 								</div>
 							</div>
 						</div>
@@ -274,46 +278,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">1</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-1">1.5</td>
-								<td id="premium-1">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-1">100,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-1">103,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-1"><span>503,047</span></td>
-							</tr>
-							<tr>
-								<td class="policy-credit policy-number bold">2</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-2">1.5</td>
-								<td id="premium-2">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-2">103,017</td>
-								<td class="hidden-sm hidden-xs" id="surrender-2">106,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-2"><span>506,047</span></td>
-							</tr>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">3</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">2</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">106,107</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">109,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>509,047</span></td>
-							</tr>
-							<tr>
-								<td class="policy-credit policy-number bold">4</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">2</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">109,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">112,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>512,047</span></td>
-							</tr>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">5</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">3</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">111,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">116,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>516,047</span></td>
-							</tr>
+							
 						</tbody>
 					</table>
 				</div>
@@ -354,50 +319,14 @@
 						<table class="tbl_mob">
 							<thead>
 								<tr>
-									<th><fmt:message key="provie.plandetails.riders.interestrate" bundle="${provieMsg}" /></th>
-									<th><fmt:message key="provie.plandetails.riders.totalpremium" bundle="${provieMsg}" /></th>
-									<th><fmt:message key="provie.plandetails.riders.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.riders.acctvalue2" bundle="${provieMsg}" /></th>
-									<th><fmt:message key="provie.plandetails.riders.deathbenefit" bundle="${provieMsg}" /></th>
-									<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.riders.extrabenefit" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /></th>
+									<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+									<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr class="pinkish-shade">
-									<td>1.5</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td>1.5</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>109,997</td>
-									<td>112,047</td>
-									<td class="cell-extra-rider er-color-swap">512,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>3</td>
-									<td>100,000</td>
-									<td>111,997</td>
-									<td>116,047</td>
-									<td class="cell-extra-rider er-color-swap">516,047</td>
-								</tr>
-							</tbody>
+							<tbody></tbody>
 						</table>
 					</div>
 				</div>
@@ -406,149 +335,197 @@
 				<div class="crediting-rate">
 					<h4 class="crediting-rate-title">派息率(%)</h4>
 					<div class="rate-buttons">
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">保守假設基礎</p>' class="rate-btn" id="rate-0" type="button">0%</button>
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">現時假設基礎</p>' class="rate-btn active" id="rate-2" type="button">2%</button>
-						<button class="rate-btn" id="rate-3" type="button">3%</button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">保守假設基礎</p>' class="rate-btn active" type="button" data-val="0">0%</button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">現時假設基礎</p>' class="rate-btn" type="button" data-val="1">1%</button>
+						<button class="rate-btn" type="button" data-val="2">2%</button>
 						<!--<button class="rate-btn" id="rate-4" type="button">4%</button>-->
 					</div>
 				</div>
-				<div class="table-content hidden-xs hidden-sm" id="after-5-years">
-					<div id="rate-table-0" class="rate-table">
-						<table class="table">
-							<thead>
-								<tr>
-									<th class="first-head">保單年度終結</th>
-									<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th>身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold">1</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold">2</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold">3</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold">4</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold">5</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="table-content" id="after-5-years">
+					<div class="hidden-xs hidden-sm">
+						
+					
+						<div id="rate-table-0" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<!--<th class="first-head">保單年度終結</th>
+										<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th>身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>-->
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div id="rate-table-1" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<!--<th class="first-head">保單年度終結</th>
+										<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th>身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>-->
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div id="rate-table-2" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<!--<th class="first-head">保單年度終結</th>
+										<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+										<th>身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>-->
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
+									<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /> <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+									<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
-				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table">
-					<div class="sticky-header">
-						<table>
-							<tbody>
-								<tr>
-									<th>保單年度終結</th>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>1</td>
-								</tr>
-								<tr>
-									<td>2</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>3</td>
-								</tr>
-								<tr>
-									<td>4</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>5</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="sticky-btns">
-						<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
-						<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
-					</div>
-					<div class="overflow-body">
+					<div class="visible-xs visible-sm ">
+						<div id="rate-table-0-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
 
-						<table>
-							<tbody>
-								<tr>
-									<th>保證派息率(%)</th>
-									<th>繳付保費總額 （港元）</th>
-									<th>退保價值（港元）/<br>退保價值（港元）</th>
-									<th>身故賠償（港元）</th>
-									<th class="cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental<br>Death Benefit</th>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-							</tbody>
-						</table>
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
 					</div>
+					<div id="rate-table-1-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
+
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="rate-table-2-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
+
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br><fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" /></th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					</div>	
+					
 				</div>
+				
+			
 			</div>
 			<div class="text-center">
 				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="after-5">首五個保單年度後</span><span class="hidden first-5">首五個保單年度</span></button>
@@ -830,11 +807,11 @@
 
 <script type="text/javascript">
 
-	var current_date = new Date();
+	/*var current_date = new Date();
 	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
-	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);*/
 	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
-	/*$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));*/
+	//$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
 
 	var from = $('#plan-dob-datepicker').val().split("-");
 	var birthdate = new Date(from[2], from[1] - 1, from[0]);
@@ -884,14 +861,14 @@
 		}
 
 		if('2'!=''){
-			$('#plan-dob-datepicker').datepicker({
+			/*$('#plan-dob-datepicker').datepicker({
 				format: "dd-mm-yyyy",
 				startView: "decade",
 				startDate: dob_start_date,
 				endDate: dob_end_date,
 				autoclose: true,
 				startView: 2
-			}).css('cursor', 'default');
+			}).css('cursor', 'default');*/
 		}
 
 		$('#first-3-years-btn').on('click', function () {
@@ -991,7 +968,7 @@
 			getProvieRiderPlan(false);
 		});
 
-		$('#rate-0').on('click', function() {
+		/*$('#rate-0').on('click', function() {
 			$('.rate-buttons button').removeClass('active');
 			$(this).addClass('active');
 			$('#rate-table-0').removeClass('hidden');
@@ -1026,6 +1003,7 @@
 			$('#rate-table-3').addClass('hidden');
 			$('#rate-table-4').removeClass('hidden');
 		});
+		*/
 
 		/* if($("#plan-dob-datepicker").val()!="") {
 			setPaymentYears($("#plan-dob-datepicker").val())
@@ -1049,11 +1027,11 @@
 			}
 		});
 
-		$('#plan-dob-datepicker').focus(function () {
+		/*$('#plan-dob-datepicker').focus(function () {
 			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
-		});
+		});*/
 
 		$('.rate-btn').on('click', function (){
 			$('.tooltip').hide();
@@ -1255,6 +1233,7 @@
 	});
 
 	function setPaymentYears(dob){
+
 		var from = dob.split("-");
 		var birthdate = new Date(from[2], from[1] - 1, from[0]);
 		var cur = new Date();

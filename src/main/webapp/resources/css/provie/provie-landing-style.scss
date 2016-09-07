@@ -10,10 +10,10 @@ body.chin, .chin .fwd-savie-wrapper h1, .fwd-savie-wrapper h2, .fwd-savie-wrappe
 ul, menu, dir{
 //	-webkit-padding-start: 0;
 }
-sup{
-	top: 0;
-}
 
+ul li{
+	list-style: none;
+}
 
 //========================//
 $base-title-font-size: 2.250em;
@@ -54,7 +54,9 @@ $base-remark-color: #cccccc;
 	}
 }
 
-
+.errorMsg{
+	color: red;
+}
 
 .nopadding{
 	padding-left: 0;
@@ -182,6 +184,7 @@ button.dropdown-toggle{
 	@extend %pv_base_section;
 	background: url(../../images/provie/landing-bg-desktop.jpg) 50% 50%;
 	color: #ffffff;
+	display: none;
 	.pv_title{
 		color: #ffffff;
 	}
@@ -341,10 +344,12 @@ button.dropdown-toggle{
 				background-color: #ffffff;
 				display: inline-block;
 				padding: 1em 0;
+				vertical-align: top;
 				width: 32%;
 				.name{
 					font-size: 1em;
 					font-weight: bold;
+					margin-top: 0;
 				}
 				.price{
 					font-size: 1.5em;
@@ -556,7 +561,7 @@ button.dropdown-toggle{
 			}
 			.inner{
 				line-height: 1.5em;
-				padding: 12px 0;
+				padding: 12px;
 				.pv_sub_heading{
 					font-size: 1.286em;
 				}
