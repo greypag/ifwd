@@ -210,6 +210,7 @@ public class LifeServiceImpl implements LifeService {
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
 			}
+			//logger.info(resultJsonObject.toString());
 			return resultJsonObject;
 		}
 	}
@@ -347,6 +348,7 @@ public class LifeServiceImpl implements LifeService {
 		int issueAge = DateApi.getAge(DateApi.formatDate(proviePlanDetails.getDob())) + 1;
 		
 		int paymentTerm = 0;
+		int yearNum=0;
 		if("SP".equals(proviePlanDetails.getPaymentType())) {
 			session.setAttribute("provieType", "SP");
 			paymentTerm = 100-issueAge;
@@ -369,9 +371,9 @@ public class LifeServiceImpl implements LifeService {
 			net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 			if(!apiResponse.hasError()){
 				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate(); 
-				//List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate(); 
-				//List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-				//List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate(); 
+				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
+				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
 				
 				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
 					//net.sf.json.JSONObject plansWithRider = new net.sf.json.JSONObject();
@@ -379,20 +381,30 @@ public class LifeServiceImpl implements LifeService {
 					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
 					resultJsonObject.put("rider", "PA");
 					
+					net.sf.json.JSONObject credit0Rates;
+					net.sf.json.JSONObject credit2Rates;
+					net.sf.json.JSONObject credit3Rates;
+					net.sf.json.JSONObject credit4Rates;
 					net.sf.json.JSONObject planRider;
-					net.sf.json.JSONObject riderPlans;
-					riderPlans = new net.sf.json.JSONObject();
+					net.sf.json.JSONObject plan2;
+					net.sf.json.JSONObject plan3;
+					net.sf.json.JSONObject plan4;
+					credit0Rates = new net.sf.json.JSONObject();
+					credit2Rates = new net.sf.json.JSONObject();
+					credit3Rates = new net.sf.json.JSONObject();
+					credit4Rates = new net.sf.json.JSONObject();
 					for(int i =0;i<planDetails0Rate.size();i++){
 						planRider = new net.sf.json.JSONObject();
-						planRider.put("premiumYear", formartNumber(planDetails0Rate.get(i).getPolicyYear()));
-						Double drate = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
-						String rate= "";
-						if(drate.compareTo(new Double("0.00"))==0) {
-							rate="0";
+						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
+						planRider.put("premiumYear", yearNum);
+						Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
+						float rate0= 0;
+						if(drate0.compareTo(new Double("0.00"))==0) {
+							rate0=0;
 						} else {
-						    rate=new java.text.DecimalFormat("#.0").format(drate);
+						    rate0=Float.parseFloat(new java.text.DecimalFormat("#.0").format(drate0));
 						}
-						planRider.put("rate", rate);
+						planRider.put("rate", rate0);
 						planRider.put("accountValue", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
 						planRider.put("deathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						if ("p100".equals(proviePlanDetails.getRider())) {
@@ -405,8 +417,79 @@ public class LifeServiceImpl implements LifeService {
 						}
 						planRider.put("totalPaid", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						resultJsonObject.accumulate("plans", planRider);
+						
+						if (yearNum==10||yearNum==15||yearNum==100) {
+							//logger.info("i==>>"+ i + "<<<<<<<<<<<" + "yearNum=>>" + yearNum + "<<<<<<<<<<<<<");
+							//logger.info("2Rate Year:>>" +Integer.valueOf(planDetails2Rate.get(i).getType().substring(1))+"<<<<");
+							//logger.info("3Rate Year:>>" +Integer.valueOf(planDetails3Rate.get(i).getType().substring(1))+"<<<<");
+							//if(planDetails4Rate!=null){
+							//	logger.info("4Rate Year:>>" +Integer.valueOf(planDetails4Rate.get(i).getType().substring(1))+"<<<<");
+							//}
+							//0 rate
+							credit0Rates.put("rate", 0);
+							credit0Rates.accumulate("plans", planRider);
+							//2 rate
+							plan2 = new net.sf.json.JSONObject();
+							plan2.put("premiumYear", Integer.valueOf(planDetails2Rate.get(i).getType().substring(1)));
+							plan2.put("rate", 0);
+							plan2.put("accountValue", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
+							plan2.put("deathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+							if ("p100".equals(proviePlanDetails.getRider())) {
+								plan2.put("riderValue", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
+							} else if ("p50".equals(proviePlanDetails.getRider())){
+								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
+								plan2.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getAccountEOP())/2))));
+							} else if ("p500".equals(proviePlanDetails.getRider())) {
+								plan2.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getGuranteedDeathBenefit())*5))));
+							}
+							plan2.put("totalPaid", formartNumber(planDetails2Rate.get(i).getTotalPremium()));
+							credit2Rates.put("rate", 1);
+							credit2Rates.accumulate("plans", plan2);
+							//3 rate
+							plan3 = new net.sf.json.JSONObject();
+							plan3.put("premiumYear", Integer.valueOf(planDetails3Rate.get(i).getType().substring(1)));
+							plan3.put("rate", 0);
+							plan3.put("accountValue", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
+							plan3.put("deathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+							if ("p100".equals(proviePlanDetails.getRider())) {
+								plan3.put("riderValue", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
+							} else if ("p50".equals(proviePlanDetails.getRider())){
+								//String.valueOf(Math.floor(Float.parseFloat(planDetails0Rate.get(i).getAccountEOP())/2));
+								plan3.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getAccountEOP())/2))));
+							} else if ("p500".equals(proviePlanDetails.getRider())) {
+								plan3.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getGuranteedDeathBenefit())*5))));
+							}
+							plan3.put("totalPaid", formartNumber(planDetails3Rate.get(i).getTotalPremium()));
+							credit3Rates.put("rate", 0);
+							credit3Rates.accumulate("plans", plan3);
+							//4 rate
+							if(planDetails4Rate!=null){
+							plan4 = new net.sf.json.JSONObject();
+							plan4.put("premiumYear", Integer.valueOf(planDetails4Rate.get(i).getType().substring(1)));
+							plan4.put("rate", 0);
+							plan4.put("accountValue", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
+							plan4.put("deathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+							if ("p100".equals(proviePlanDetails.getRider())) {
+								plan4.put("riderValue", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
+							} else if ("p50".equals(proviePlanDetails.getRider())){
+								plan4.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getAccountEOP())/2))));
+							} else if ("p500".equals(proviePlanDetails.getRider())) {
+								plan4.put("riderValue", formartNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getGuranteedDeathBenefit())*5))));
+							}
+							plan4.put("totalPaid", formartNumber(planDetails4Rate.get(i).getTotalPremium()));
+							credit4Rates.put("rate", 0);
+							credit4Rates.accumulate("plans", plan4);
+							}
+							if (yearNum==100){
+								resultJsonObject.accumulate("creditRates", credit0Rates);					
+								resultJsonObject.accumulate("creditRates", credit2Rates);					
+								resultJsonObject.accumulate("creditRates", credit3Rates);
+								if(planDetails4Rate!=null){
+									resultJsonObject.accumulate("creditRates", credit4Rates);
+								}
+							}
+						}
 					}
-					//resultJsonObject.put("plans", riderPlans);
 					resultJsonObject.accumulate("errMsgs", "");
 					resultJsonObject.accumulate("result", "success");
 					request.getSession().setAttribute("provieRiderPlan", resultJsonObject);
