@@ -310,6 +310,7 @@ public class MemberController extends BaseController {
 			}			
 			MemberActionResult result = new MemberActionResult();	
 			result.setFullName(userDetails.getFullName());
+			result.setUserName(userLogin.getUserName());
 			return result;
 		} else {
 			MemberActionResult result = new MemberActionResult();	
