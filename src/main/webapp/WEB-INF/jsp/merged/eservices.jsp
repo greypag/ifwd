@@ -995,6 +995,13 @@ var languageP = "${language}";
 				$('#copy-link-btn').css('width', '115px' );
 			}
 		});
+		$('p.plan-name').each(function(){
+		    
+		    if($(this).text()=="3HK"){
+		    	$(this).html('<fmt:message key="label.plan.item.name" bundle="${msg}" />');
+		    }
+		  });
+		
 	});
 	
 	// show application after 30 days modal

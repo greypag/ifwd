@@ -524,6 +524,28 @@ public class UserController {
 									}
 								}
 							}
+							else if("3HKLSD".equals(entity.getPlanCode())) {
+								entity.setPlanName("3HK");
+								if("GI".equals(entity.getPolicyType())) {
+									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
+										active_house.add(entity);
+									}else {
+										past_house.add(entity);
+									}
+								}else if("Life".equals(entity.getPolicyType())) {
+									if("PENDING".equals(entity.getStatus())) {
+										entity.setStatus(pending);
+										pending_house.add(entity);
+									}else if("ACTIVE".equals(entity.getStatus())) {
+										entity.setStatus(active);
+										active_house.add(entity);
+									}else if("PAST".equals(entity.getStatus())) {
+										entity.setStatus(past);
+										past_house.add(entity);
+									}
+								}
+								
+							}
 							else {
 								if("GI".equals(entity.getPolicyType())) {
 									if(currentTime <= DateApi.String2Long(entity.getExpiryDate())) {
