@@ -1,6 +1,6 @@
 /*** This part may need move to JSP??? ***/
-var language = "EN";
 var typeId = "SAVIE_OFFLINE";
+var language="EN";
 var APIServer = "";
 var fwdApi = {
 		url:{
@@ -95,6 +95,51 @@ $(document).ready(function(){
     		$("#rate-table-"+ val+"-mob").show();
     		$(window).resize();
     		
+		});
+		
+		$("#type-of-payment").change(function(){
+			var paymentMethod = $("#type-of-payment option:selected").data("val").split("-");
+			var currency = paymentMethod[1];
+			
+			$(".currency_switcher").each(function(){
+				$(this).find("span").removeClass('active');
+				$(this).find("span."+currency).addClass("active");
+			});
+			
+			//Change slider and dropdown
+			var sliderObj = {
+					min: affordabilityMin,
+					max: affordabilityPremium,
+					value:100000,
+					step:1000
+			};
+			var monthly = 1000;
+			if(currency == "USD"){
+				sliderObj = {
+						min: affordabilityMinUSD,
+						max: affordabilityPremiumUSD,
+						value:10000,
+						step:500
+					};
+				monthly = 125;
+			}
+			$('.amount-slider').slider(sliderObj);
+			$('.amount-slider').slider("setValue",sliderObj.value);
+			$("#range").text(commaSeparateNumber(sliderObj.value));
+			
+			$("#min-value").text(commaSeparateNumber(sliderObj.min));
+			$("#max-value").text(commaSeparateNumber(sliderObj.max));
+			
+			
+			$("#plan-amount").empty();
+			for(var i = 0; i < 20; i++){
+				var option = $("<option/>");
+				option.val(monthly * (i+1));
+				option.text(commaSeparateNumber(monthly * (i+1)));
+				$("#plan-amount").append(option);
+			}
+			
+			
 		});
 
 		$("#plan-calculate-btn").click(function(){
@@ -200,7 +245,7 @@ $(document).ready(function(){
 		});
 		
 		$("#plan-calculate-btn").trigger("click");
-		
+		$("#type-of-payment").trigger("change");
 		
 		
 		
@@ -245,7 +290,7 @@ $(document).ready(function(){
 				    success:function(response){
 				    	if(response){
 				    		$("#preferred-time").empty();
-				    		
+				    		console.log("response",response);
 				    		if(response.length > 0){
 				    			for(var i in response){
 					    			var d = response[i];
@@ -256,6 +301,7 @@ $(document).ready(function(){
 					    			
 					    			$("#preferred-time").append(option);
 					    		}
+				    			$("#preferred-time").val($("#preferred-time option:first").val());
 				    		}else{
 				    			 $("#preferedTimeIsNull").modal("show");
 				    		}
@@ -391,6 +437,7 @@ $(document).ready(function(){
 						alert("something error");
 				    },
 				    success:function(response){
+				    	
 				    	$("#preferedTimeIsNull").modal("show");
 				    	if(response){
 				    		
@@ -399,10 +446,13 @@ $(document).ready(function(){
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
-					    			dates.push(new Date(from[0],from[1] -1, from[2].substr(0,2)));
+					    			//dates.push(new Date(from[0],from[1] -1, from[2].substr(0,2)));
+					    			dates.push(new Date(from[2],from[1] -1, from[0]));
 					    		}
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
+					    		$('#app-date').mobiscroll('setVal',dates[0],true);
+					    		
 				    		}else{
 				    			 $("#preferedTimeIsNull").modal("show");
 				    		}
@@ -462,7 +512,7 @@ $(document).ready(function(){
 			cache:false,
 			async:false,
 			error:function(){
-				alert("something error");
+				alert("unable to load API : "+ fwdApi.url.getAvailableCentre);
 		    },
 		    success:function(response){
 		    	
@@ -1198,4 +1248,11 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return val;
 }

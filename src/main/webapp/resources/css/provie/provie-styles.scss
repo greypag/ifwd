@@ -492,6 +492,18 @@
 	}
 }
 
+.is_chin{
+	display:none;
+}
+.currency_switcher{
+	> span{
+		display: none;
+
+		&.active{
+			display: inline;
+		}
+	}
+}
 .chin{
 	.provie-plan-select{
 		.plan-form-holder{
@@ -499,6 +511,15 @@
 				font-size:20px;
 			}
 		}
+	}
+
+	.is_chin{
+		display: inline;
+
+		
+	}
+	.is_en{
+		display: none;
 	}
 }
 

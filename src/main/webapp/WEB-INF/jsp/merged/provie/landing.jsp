@@ -86,37 +86,69 @@ var home_url = "<%=request.getContextPath()%>";
             		<div class="row">
             			<div class="col-xs-12">
 	            			<div class="pv_desc">
-	            				主動出擊，實現儲蓄大計！<fmt:message key="provie.title" bundle="${provieMsg}" /> 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！
+	            				<!-- 主動出擊，實現儲蓄大計！<fmt:message key="provie.title" bundle="${provieMsg}" /> 真息揀理財壽險計劃於<span class="pv_highlight">首 5 年享有年度保證派息率</span>，確保戶口持續增值；更可零收費隨時提取戶口金額，另設三選一額外保障，靈活儲蓄，就由今天開始！ -->
 	            			</div>
             			</div>
             			<div class="col-xs-12 text-center">
-            				<a href="#pv_sec_features" class="pv_link">產品特色</a>
+            				<a href="#pv_sec_features" class="pv_link"><fmt:message key="provie.landing.fixrate.table.title" bundle="${provieMsg}" /></a>
             			</div>
             			<div class="col-xs-12">
 							<table class="pv_product_table">
 								<tr>
-									<td class="pv_table_head">保單年度</td>
-									<td>1</td>
-									<td>2</td>
-									<td>3</td>
-									<td>4</td>
-									<td>5</td>
+									<td class="pv_table_head"><fmt:message key="provie.landing.fixrate.table.text1" bundle="${provieMsg}" /></td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.year.text1" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.year.text2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.year.text3" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.year.text4" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.year.text5" bundle="${provieMsg}" />
+									</td>
 								</tr>
 								<tr>
-									<td class="pv_table_head">保証派息率()</td>
-									<td>1.5%</td>
-									<td>1.5%</td>
-									<td>2%</td>
-									<td>2%</td>
-									<td>3%</td>
+									<td class="pv_table_head">
+										<fmt:message key="provie.landing.fixrate.table.text2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp1" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp1" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp3" bundle="${provieMsg}" />
+									</td>
 								</tr>
 								<tr>
-									<td class="pv_table_head">保証派息率()</td>
-									<td>1.5%</td>
-									<td>1.5%</td>
-									<td>2%</td>
-									<td>2%</td>
-									<td>3%</td>
+									<td class="pv_table_head"><fmt:message key="provie.landing.fixrate.table.text3" bundle="${provieMsg}" /></td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp2" bundle="${provieMsg}" />
+									</td>
+									<td>
+										<fmt:message key="provie.landing.fixrate.table.textp3" bundle="${provieMsg}" />
+									</td>
 								</tr>
 							</table>
             			</div>
@@ -158,7 +190,7 @@ var home_url = "<%=request.getContextPath()%>";
 									      <li><input type="radio" id="method2" name="method" value="RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
-									
+									<fmt:message key="provie.landing.calculation.text8" bundle="${provieMsg}" />
 									<div class="btn-group">
 									  <input type="text" name="amount" class="input_amount" placeholder='<fmt:message key="provie.landing.calculation.dropdown.amount" bundle="${provieMsg}" />'>
 									</div> 
@@ -166,21 +198,20 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.currency" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1">港元</label></li>
-									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2">美金</label></li>
+									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1"><fmt:message key="provie.landing.calculation.hkd" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2"><fmt:message key="provie.landing.calculation.usd" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
-									<div class="txtMonth">
+									<span class="txtMonth">
 										<fmt:message key="provie.landing.calculation.text9" bundle="${provieMsg}" />
 										<div class="btn-group">
-										  <button data-toggle="dropdown" class="dropdown-toggle">年期</button>
+										  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.years" bundle="${provieMsg}" /></button>
 										    <ul class="dropdown-menu yearList">
-										      <li><input type="radio" id="year1" name="year" value="0"><label for="year1">1</label></li>
-										      <li><input type="radio" id="year2" name="year" value="1"><label for="year2">3</label></li>
 										    </ul>
 										</div>
-									</div> 
-									<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
+										<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
+									</span> 
+									<fmt:message key="provie.landing.calculation.text10.1" bundle="${provieMsg}" />
 								</div>
 							</c:if>
 							<c:if test="${language == 'en'}">
@@ -190,6 +221,7 @@ var home_url = "<%=request.getContextPath()%>";
 									  <input type="text" name="age" class="input_age" placeholder='<fmt:message key="provie.landing.calculation.dropdown.age" bundle="${provieMsg}" />'>
 									</div>
 									<fmt:message key="provie.landing.calculation.text3" bundle="${provieMsg}" />
+									<fmt:message key="provie.landing.calculation.text4" bundle="${provieMsg}" />
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.sex" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
@@ -197,19 +229,20 @@ var home_url = "<%=request.getContextPath()%>";
 									      <li><input type="radio" id="genderF" name="gender" value="F"><label for="genderF"><fmt:message key="provie.landing.calculation.dropdown.sexF" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div>
-									<fmt:message key="provie.landing.calculation.text4" bundle="${provieMsg}" />
+									
 									
 									<fmt:message key="provie.landing.calculation.text5" bundle="${provieMsg}" />
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.currency" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1">港元</label></li>
-									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2">美金</label></li>
+									      <li><input type="radio" id="currency1" name="currency" value="HKD"><label for="currency1"><fmt:message key="provie.landing.calculation.hkd" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="currency2" name="currency" value="USD"><label for="currency2"><fmt:message key="provie.landing.calculation.usd" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
 									<div class="btn-group">
 									  <input type="text" name="amount" class="input_amount" placeholder='<fmt:message key="provie.landing.calculation.dropdown.amount" bundle="${provieMsg}" />'>
 									</div> 
+									<fmt:message key="provie.landing.calculation.text6" bundle="${provieMsg}" />
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.method" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
@@ -217,15 +250,16 @@ var home_url = "<%=request.getContextPath()%>";
 									      <li><input type="radio" id="method2" name="method" value="RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
-									<div class="txtMonth">
+									<span class="txtMonth">
 									<fmt:message key="provie.landing.calculation.text9" bundle="${provieMsg}" />
 									<div class="btn-group">
-									  <button data-toggle="dropdown" class="dropdown-toggle">年期</button>
+									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.years" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu yearList">
 									    </ul>
 									</div> 
-									</div>
 									<fmt:message key="provie.landing.calculation.text10" bundle="${provieMsg}" />
+									</span>
+									<fmt:message key="provie.landing.calculation.text10.1" bundle="${provieMsg}" />
 								</div>
 							</c:if>
 
@@ -249,7 +283,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="col-xs-12">
 							<div class="pv_plan_wrap">
 								<div class="col-xs-12 visible-md visible-lg">
-									<span class="pv_hint hint1">移動按鈕以查看各年度的戶口總值</span>
+									<span class="pv_hint hint1"><fmt:message key="provie.landing.calculation.bubble.text1" bundle="${provieMsg}" /></span>
 									<span class="pv_hint hint2"><fmt:message key="provie.landing.calculation.year" bundle="${provieMsg}" /></span>
 								</div>
     							<div class="scale">
@@ -258,8 +292,7 @@ var home_url = "<%=request.getContextPath()%>";
     								<span class="floatNum num3">3</span>
     								<span class="floatNum num4">4</span>
     								<span class="floatNum num5">5</span>
-    								<span class="floatNum num6">15</span>
-    								<span class="floatNum num7">65</span>
+    								<span class="floatNum num6">100</span>
     							</div>
 								<div id="slider"></div>
 								
@@ -270,7 +303,6 @@ var home_url = "<%=request.getContextPath()%>";
     								<span class="floatNum num4"></span>
     								<span class="floatNum num5"></span>
     								<span class="floatNum num6">2%</span>
-    								<span class="floatNum num7">2%</span>
     							</div>
 
 								<div class="yearWarp">
@@ -278,13 +310,13 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 
     							<div class="money">
-									<div class="left"><fmt:message key="provie.landing.calculation.premium" bundle="${provieMsg}" /><br><span class="monthlyFee"></span></div><!--
-									--><div class="right"><fmt:message key="provie.landing.calculation.totalpremium" bundle="${provieMsg}" /><br><span class="totalPaid"></span></div>
+									<div class="left"><fmt:message key="provie.landing.calculation.premium" bundle="${provieMsg}" /><span class="pricePrefix"></span><br><span class="monthlyFee"></span></div><!--
+									--><div class="right"><fmt:message key="provie.landing.calculation.totalpremium" bundle="${provieMsg}" /><span class="pricePrefix"></span><br><span class="totalPaid"></span></div>
 								</div>
 
 								<div class="accValue">
 									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_icon.png" alt='<fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" />' class="img-responsive">
-									<div class="txt"><fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" /><br><span class="amount"></span></div>
+									<div class="txt"><fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" /><span class="pricePrefix"></span><br><span class="amount"></span></div>
 									<div><fmt:message key="provie.landing.calculation.year.acctvalue1" bundle="${provieMsg}" /><span class="year"></span><fmt:message key="provie.landing.calculation.year.acctvalue2" bundle="${provieMsg}" /></div>
 								</div>
 
@@ -315,6 +347,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<div>
 									<p class="remark">
 										<fmt:message key="provie.landing.calculation.rider.remarks" bundle="${provieMsg}" />
+										<br>
 										<br>
 										<fmt:message key="provie.landing.calculation.remarks.title" bundle="${provieMsg}" />
 										<br>
@@ -384,7 +417,6 @@ var home_url = "<%=request.getContextPath()%>";
             		<div class="row">
             			<div class="col-xs-12">
             				<h2 class="pv_title"><fmt:message key="provie.landing.riders.title" bundle="${provieMsg}" /></h2>
-			            	<p class="pv_sub_heading">Provie 自選保讓您於三項自選升級保障中任選其一，配合自身需要，靈活配搭。儲蓄之外，更添安心。</p>
 			            </div>
 						
 						<div class="pv_extra_wrap">
@@ -475,10 +507,10 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="row">
 						<div class="col-xs-12 text-center">
 							<h2 class="pv_title">
-								為未來做足準備<br>今天開始精明儲蓄，建立無憂精彩人生
+								<fmt:message key="provie.landing.banner.saving.title" bundle="${provieMsg}" />
 							</h2>
 
-							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}" class="pv_btn">開始儲蓄</a>		
+							<a href="${pageContext.request.contextPath}/${language}/savings-insurance/provie/${nextPageFlow}" class="pv_btn"><fmt:message key="provie.landing.banner.saving.btn" bundle="${provieMsg}" /></a>		
 						</div>
 						
 					</div>
@@ -993,11 +1025,11 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 						<div class="col-xs-12">
 							<div class="col-md-4 col-md-offset-2 pv_fna_input">
-								<input type="text" class="form-control" id="fnaUser" placeholder='<fmt:message key="provie.landing.fna.username" bundle="${provieMsg}" />'>
+								<input tabindex="1" type="text" class="form-control" id="fnaUser" placeholder='<fmt:message key="provie.landing.fna.username" bundle="${provieMsg}" />'>
 								<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotUser"><fmt:message key="provie.landing.fna.forgetusr" bundle="${provieMsg}" /></a></div>
 							</div>
 							<div class="col-md-4 pv_fna_input">
-								<input type="password" class="form-control" id="fnaPwd" placeholder='<fmt:message key="provie.landing.fna.pw" bundle="${provieMsg}" />'>
+								<input tabindex="2" type="password" class="form-control" id="fnaPwd" placeholder='<fmt:message key="provie.landing.fna.pw" bundle="${provieMsg}" />'>
 								<div class="col-xs-12 text-right link"><a href="javascript:void(0);" class="btnForgotPwd"><fmt:message key="provie.landing.fna.forgetpw" bundle="${provieMsg}" /></a></div>
 							</div>
 						</div>
@@ -1010,7 +1042,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</p>
 						</div>
 						<div class="col-xs-12 pv_fna_reg">
-							<p class="pv_desc"><b><fmt:message key="provie.landing.fna.newmb" bundle="${provieMsg}" /></b><a href="#" class="link"><fmt:message key="provie.landing.fna.register" bundle="${provieMsg}" /></a></p>
+							<p class="pv_desc"><b><fmt:message key="provie.landing.fna.newmb" bundle="${provieMsg}" /></b><a href="${pageContext.request.contextPath}/${language}/joinus" class="link"><fmt:message key="provie.landing.fna.register" bundle="${provieMsg}" /></a></p>
 						</div>
 
 						<a href="javascript:void(0);" class="pv_btn btnStart"><fmt:message key="provie.landing.fna.cta.start" bundle="${provieMsg}" /></a>
@@ -1063,13 +1095,11 @@ var home_url = "<%=request.getContextPath()%>";
     			<div class="container">
     				<div class="row">
     					<div class="col-xs-12">
-    						<h2 class="pv_title">財務需要分析</h2>
-    						<p class="pv_desc">您的朋友的第一份富衛保單可享 5% 折扣優惠，同您亦可獲得減 $200 的保費折扣。</p>	
+    						<h2 class="pv_title"><fmt:message key="provie.landing.share.title" bundle="${provieMsg}" /></h2>
+    						<p class="pv_desc"><fmt:message key="provie.landing.share.text1" bundle="${provieMsg}" /></p>	
     					</div>
     					<div class="col-xs-12 text-center">
 							<a href="#"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_fb.png" alt="Facebook"></a>
-							<a href="#"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_twitter.png" alt="Twitter"></a>
-							<a href="#"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_mail.png" alt="Mail"></a>
     					</div>
     				</div>
     			</div>
@@ -1097,5 +1127,38 @@ var home_url = "<%=request.getContextPath()%>";
 
 <script src="http://refreshless.com/noUiSlider/distribute/nouislider.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-landing-uifn.js"></script>
+<script>
+	var pvSetting = {
+		errMsg: {
+			genderEmpty    : '<fmt:message key="provie.landing.setting.text1" bundle="${provieMsg}" />',
+			ageEmpty       : '<fmt:message key="provie.landing.setting.text2" bundle="${provieMsg}" />',
+			ageLess        : '<fmt:message key="provie.landing.setting.text3" bundle="${provieMsg}" />',
+			ageMore        : '<fmt:message key="provie.landing.setting.text4" bundle="${provieMsg}" />',
+			methodEmpty    : '<fmt:message key="provie.landing.setting.text5" bundle="${provieMsg}" />',
+			amountEmpty    : '<fmt:message key="provie.landing.setting.text6" bundle="${provieMsg}" />',
+			amountRPHKDLess: '<fmt:message key="provie.landing.setting.text7" bundle="${provieMsg}" />',
+			amountRPHKDMore: '<fmt:message key="provie.landing.setting.text8" bundle="${provieMsg}" />',
+			amountSPHKDLess: '<fmt:message key="provie.landing.setting.text9" bundle="${provieMsg}" />',
+			amountSPHKDMore: '<fmt:message key="provie.landing.setting.text10" bundle="${provieMsg}" />',
+			amountRPUSDLess: '<fmt:message key="provie.landing.setting.text11" bundle="${provieMsg}" />',
+			amountRPUSDMore: '<fmt:message key="provie.landing.setting.text12" bundle="${provieMsg}" />',
+			amountSPUSDLess: '<fmt:message key="provie.landing.setting.text13" bundle="${provieMsg}" />',
+			amountSPUSDMore: '<fmt:message key="provie.landing.setting.text14" bundle="${provieMsg}" />',
+			currencyEmpty  : '<fmt:message key="provie.landing.setting.text15" bundle="${provieMsg}" />',
+			yearEmpty      : '<fmt:message key="provie.landing.setting.text16" bundle="${provieMsg}" />',
+			loginFail      : '<fmt:message key="provie.landing.setting.text17" bundle="${provieMsg}" />'
+		},
+		currencyData: {
+			HKD: {
+				fixRate: [1.5, 1.5, 2, 2, 3, 2, 2],
+				prefix: '<fmt:message key="provie.landing.calculation.priceHKDPrefix" bundle="${provieMsg}" />'
+			},
+			USD: {
+				fixRate: [2, 2, 2, 2, 3, 2, 2],
+				prefix: '<fmt:message key="provie.landing.calculation.priceUSDPrefix" bundle="${provieMsg}" />'
+			}
+		}
+	};
+</script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-landing-style.css">
 

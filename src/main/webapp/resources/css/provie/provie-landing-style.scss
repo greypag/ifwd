@@ -271,12 +271,11 @@ button.dropdown-toggle{
 				top: 25px;
 			}
 			&.num1{left: 4.8%;}
-			&.num2{left: 19.8%;}
-			&.num3{left: 34.8%;}
-			&.num4{left: 50%;}
-			&.num5{left: 64.8%;}
-			&.num6{left: 79.8%;}
-			&.num7{left: 95%;}
+			&.num2{left: 22.8%;}
+			&.num3{left: 40.8%;}
+			&.num4{left: 58.8%;}
+			&.num5{left: 76.8%;}
+			&.num6{left: 94.8%;}
 		}
 		.yearWarp{
 			font-weight: bold;
@@ -287,7 +286,8 @@ button.dropdown-toggle{
 				background: url(../../images/provie/provie_landing_slider_line.png) 50% 50% no-repeat;
 				background-size: contain;
 				display: inline-block;
-				width: 66.8%;
+				padding: 0 20%;
+				width: 80%;
 			}
 		}
 		.money{

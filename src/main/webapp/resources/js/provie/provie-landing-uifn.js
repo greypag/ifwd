@@ -1,169 +1,122 @@
-var errMsg = {
-	"genderEmpty": "請選擇性別。",
-	"ageEmpty": "請輸入你的年齡。",
-	"ageLess":"您的年齡必須是18歲以上。",
-	"ageMore":"您的年齡必須是59歲以下。",
-	"methodEmpty":"請選擇繳費方式。",
-	"amountEmpty":"請輸入你的供款。",
-	"amountRPHKDLess":"月繳供款最少為HKD$1,000。",
-	"amountRPHKDMore":"月繳供款最多為HKD$20,000。",
-	"amountSPHKDLess":"一筆過供款最少為HKD$30,000。",
-	"amountSPHKDMore":"一筆過供款最多為HKD$1,000,000。",
-	"amountRPUSDLess":"月繳供款最少為USD$125。",
-	"amountRPUSDMore":"月繳供款最多為USD$2,500。",
-	"amountSPUSDLess":"一筆過供款最少為USD$3,750。",
-	"amountSPUSDMore":"一筆過供款最多為USD$125,000。",
-	"currencyEmpty":"請選擇貨幣。",
-	"yearEmpty":"請選擇供款年期。",
-	"loginFail":"未能成功登入。"
-};
-
 "use static";
 
-var currencyData = {
-	"HKD": {
-		"fixRate": [1.5, 1.5, 2, 2, 3, 2, 2],
-		"enPricePrefix": "HK$",
-		"tcPricePrefix": "港元"
+var pvCtr = {
+	//values
+	planSlider: document.getElementById('slider'),
+	planDetailCtr: {},
+	cal3Card : {},
+	//function
+	onReady : function(){
+		this.initAutoHeight();
+		this.initPlanSlider();
+
+		planInquiry.init();
+		fnaLogin.init();
 	},
-	"USD": {
-		"fixRate": [2, 2, 2, 2, 3, 2, 2],
-		"enPricePrefix": "US$",
-		"tcPricePrefix": "美元"
-	}
-}
-
-
-var planFormValidator = null;
-var planDetailHelper = null;
-var behaviourSlider = null;
-
-$(document).ready(function (){
-	$(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 992});
-	$(".pv_plan_wrap .cardWrap .card").autoAlignHeight({child: ".name", minWidth: 992});
-	
-	planFormValidator = planFormValidatorHelper();
-	planFormValidator.init();
-
-	var fnaHelper = fnaLogin();
-	fnaHelper.init();
-
-	behaviourSlider = document.getElementById('slider');
-	noUiSlider.create(behaviourSlider, {
-			start: [0,0],
-			step: 10,
+	initAutoHeight: function(){
+		this.cal3Card = $(".pv_plan_wrap .cardWrap").autoAlignHeight({child: ".card", minWidth: 0});
+		$(".pv_plan_wrap .cardWrap .card").autoAlignHeight({child: ".name", minWidth: 0});
+	},
+	initPlanSlider: function (){
+		noUiSlider.create(this.planSlider, {
+			start    : [0,0],
+			step     : 10,
 			behaviour: 'drag',
-			connect: true,
-			range: {
-			'min':  0,
-			'max':  60
-		}
-	});
+			connect  : true,
+			range    : {
+				'min':  0,
+				'max':  50
+			}
+		});
 
-	//create gray color bar for slider
-	var grayBarWidthRange = [33.333, 40, 50, 66.8, 100, 100, 100];
-	var grayBar$ = $("<div/>").addClass("grayBox");
-	grayBar$.appendTo($(".pv_plan .pv_plan_wrap #slider .noUi-origin.noUi-background"));
-	behaviourSlider.noUiSlider.on('update', function (curValueAry){
-		var idx = parseInt(curValueAry[1], 10) / 10;
-		grayBar$.css("width", grayBarWidthRange[idx] + "%");
+		this.initGraySliderBar();
+	},
+	initGraySliderBar: function(){
+		//create gray color bar for slider
+		var grayBarWidthRange = [20, 40, 50, 60, 80, 100];
 
-		planDetailHelper.changeYear(idx);
-		console.log(idx);
-	});
+		var grayBar$ = $("<div/>").addClass("grayBox").appendTo($(".pv_plan .pv_plan_wrap #slider .noUi-origin.noUi-background"));
 
-});
+		this.planSlider.noUiSlider.on('update.gray', function (curValueAry){
+			var p = 100 -parseInt(curValueAry[1], 10) / 50 * 100;
+			grayBar$.css("width", 20/p * 100 + "%");
 
-function fnaLogin(){
-	return {
-		init: function (){
-			$(".pv_fna .btnStart").click(function (){
-				$.ajax({
-					beforeSend:function(){
-						$("#loading-overlay").modal("show");
-					},
-					url:"/fwdhk/api/member/login",
-					type:"post",
-					contentType: "application/json",
-					data:JSON.stringify({
-						userName:$("#fnaUser").val(),
-						password:$("#fnaPwd").val()
-					}),
-					cache:false,
-					async:false,
-					error:function(response){
-						$(".pv_fna .errorMsg").html(errMsg.loginFail);
-				    },
-				    success:function(response){
-				    	if(response){
-				    		//TODO: redirect to FNA page
-
-				    	}
-				    },
-				    complete:function(){
-				    	$("#loading-overlay").modal("hide");
-				    }
-				});
-			});
-
-			$(".pv_fna .btnForgotUser").click(this.showForgotUserPopup);
-
-			$(".pv_fna .btnForgotPwd").click(this.showForgotPwdPopup);
-		},
-		showForgotPwdPopup: function (){
-			$("#loginpopup").modal();$("#link-forgotPassword").click();
-		},
-		showForgotUserPopup: function (){
-			$("#loginpopup").modal();$("#forgotUserName").click();
-		}
+		});
+	},
+	//genenic function
+	toPriceStr: function(x){
+		return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	},
+	showAjaxLoading: function (){
+		$("#loading-overlay").modal("show");
+	},
+	hideAjaxLoading: function (){
+		$("#loading-overlay").modal("hide");
 	}
-}
+};
 
-function planDetails(data){
-	var planData = data;
+var fnaLogin = {
+	init: function (){
+		var that = this;
+		$(".pv_fna .btnStart").on("click", function (){that.login();});
+		$(".pv_fna .btnForgotUser").on("click", function (){that.forgotUsrName();});
+		$(".pv_fna .btnForgotPwd").on("click", function (){that.forgotPwd();});
+	},
+	login: function (){
+		var that = this;
+		$.ajax({
+			beforeSend: that.showLoading,
+			url:"/fwdhk/api/member/login",
+			type:"post",
+			contentType: "application/json",
+			data:JSON.stringify({
+				userName:$("#fnaUser").val(),
+				password:$("#fnaPwd").val()
+			}),
+			cache:false,
+			async:false,
+			error: that.loginError,
+		    success: that.loginSuccess,
+		    complete: that.hideLoading
+		});
+	},
+	showLoading: function (){
+		pvCtr.showAjaxLoading();
+	},
+	loginError: function (response){
+		$(".pv_fna .errorMsg").html(pvSetting.errMsg.loginFail);
+	},
+	loginSuccess: function (response){
+		if(response){
+    		//TODO: redirect to FNA page
+    	}
+	},
+	hideLoading: function (){
+		pvCtr.hideAjaxLoading();
+	},
+	forgotPwd: function(){
+		this.showMainLoginPopup();
+		$("#link-forgotPassword").click();
+	},
+	forgotUsrName: function (){
+		this.showMainLoginPopup();
+		$("#forgotUserName").click();
+	},
+	showMainLoginPopup: function(){
+		$("#loginpopup").modal();
+	}
+};
 
-	var rateLife = 1;
-	var rateAccidental = 5;
-	var rateCancer = .5;
-
-	var monthlyValue$ = $(".pv_plan .money .left");
-	var accountValue$ = $(".pv_plan .amount");
-	var totalPaid$ = $(".pv_plan .totalPaid");
-	var yearNum$ = $(".pv_plan .accValue .year");
-	var exLifeAmount$ = $(".pv_plan .card1 .price");
-	var exAccidentalAmount$ = $(".pv_plan .card2 .price");
-	var exCancerAmount$ = $(".pv_plan .card3 .price");
-
-
-	return {
-		reset : function (){
-			behaviourSlider.noUiSlider.set([0, 0]);
-			monthlyValue$.show();
-		},
-		changeYear : function (yearIdx){
-			//planData[yearIdx].accountValue
-			totalPaid$.html(toPriceStr(planData[yearIdx].totalPaid));
-			
-			var accountValue = planData[yearIdx].accountValue;
-			accountValue$.html(toPriceStr(accountValue));
-			
-			yearNum$.html(planData[yearIdx].premiumYear);
-			
-			exLifeAmount$.html(toPriceStr(accountValue * rateLife));
-			exAccidentalAmount$.html(toPriceStr(accountValue * rateAccidental));
-			exCancerAmount$.html(toPriceStr(accountValue * rateCancer));
-
-			//to re-align height of 3 card
-			$(window).trigger('resize');
-		}
-	};
-}
-
-
-function planFormValidatorHelper(){
-	var errorList$ = $(".pv_sec_calculator .error_list");
-	var submitData = {};
-	var amountLimit = {
+var planInquiry = {
+	submitData: {},
+	uiCtr: {
+		errorPanel : $(".pv_sec_calculator .error_list"),
+		submitBtn  : $(".pv_sec_calculator .btnSubmit"),
+		ageInput   : $(".pv_sec_calculator .input_age"),
+		methodInput: $(".pv_sec_calculator input[name=method]"),
+		periodTxt  : $(".pv_sec_calculator .txtMonth")
+	},
+	amountLimit: {
 		"minRPHKD": 1000,
 		"maxRPHKD": 20000,
 		"minSPHKD": 30000,
@@ -172,241 +125,319 @@ function planFormValidatorHelper(){
 		"maxRPUSD": 2500,
 		"minSPUSD": 3750,
 		"maxSPUSD": 125000,
-	};
-	var errorOutputAry = [];
+	},
+	errorMsgAry: [],
+	init: function (){
+		var that = this;
 
-	return {
-		init: function (){
-			var that = this;
-			$(".pv_sec_calculator .btnSubmit").click(function (){
-				that.trySubmit();
-			});
+		this.uiCtr.submitBtn.on("click", function (){
+			that.requestPlanDetail();
+		});
+		this.uiCtr.ageInput.on("change", function (){
+			that.fillYearOpt($(this).val());
+		});
+		this.uiCtr.methodInput.on("change", function(){
+			that.displayPeriodOpt($(this).val() === "RP");
+		});
+	},
+	clearData: function (){
+		this.submitData = {};
+		this.errorMsgAry = [];
+		this.uiCtr.errorPanel.empty();
+	},
+	isValidInfo: function (){
+		this.checkGender();
+		this.checkAge();
+		this.checkMethod();
+		this.checkCurrency();
+		this.checkAmountLiimit();
 
-			$(".pv_sec_calculator .input_age").on("change", function (){
-				that.checkAge();
-				that.fillYearOpt(submitData.age);
-			});
+		return this.errorMsgAry.length === 0;
+	},
+	fillYearOpt: function (age){
+		//clear list 
+		var yearList$ = $(".pv_sec_calculator .yearList");
+		yearList$.find("li").remove();
 
-			$(".pv_sec_calculator input[name=method]").on("change", function (){
-				that.checkMethod();
-				if(submitData.method == "SP"){
-					$(".pv_sec_calculator .txtMonth").hide();
-				}else{
-					$(".pv_sec_calculator .txtMonth").show();
-				}
-			});			
-
-		},
-		reset: function (){
-			submitData = {};
-			errorOutputAry = [];
-			errorList$.empty();
-
-			if(!!planDetailHelper){
-				planDetailHelper.reset();
-			}
-		},
-		trySubmit: function (){
-			this.reset();
+		//loop all option (60 - age - 1)
+		var yearOptCount = 60 - age - 1;
+		for(var yi = 60; yi >= yearOptCount; yi--){
+			var opt_input = $("<input>").attr({"type": "radio", "name": "year", "value": yi, "id":"year"+yi});
+			var opt_label = $("<label>").attr({"for": "year"+yi}).html(yi);
+			var opt = $("<li>");
+			opt.append(opt_input).append(opt_label);
 			
-			this.checkGender();
-			this.checkAge();
-			this.checkMethod();
-			this.checkCurrency();
-			this.checkAmount();
-			
-			if(errorOutputAry.length < 1){
-				this.submitData();	
-			}else{
-				this.showErrMsg();
-			}
-		},
-		checkGender : function (){
-			//check not empty
-			var genderSelected$ = $("input[name=gender]:checked");
-			if(genderSelected$.length != 1){
-				errorOutputAry.push(errMsg.genderEmpty);
-				return;
-			}
-			submitData.gender = genderSelected$.val();
-		},
-		checkAge : function (){
-			//check length >= 2
-			var age$ = $(".input_age");
-			if(age$.val().length < 2 || !(/^[0-9]{2}$/).test(age$.val())){
-				age$.fource();
-				errorOutputAry.push(errMsg.ageEmpty);
-				return;
-			}
-			//check < 19
-			if(age$.val() < 19){
-				errorOutputAry.push(errMsg.ageLess);
-				return;	
-			}
-			//check > 59
-			if(age$.val() > 59){
-				errorOutputAry.push(errMsg.ageMore);
-				return;	
-			}
+			yearList$.append(opt);
+		}
+	},
+	showError: function (){
+		for(var mi = 0; mi < this.errorMsgAry.length; mi++){
+			var msg = $("<li>").html(this.errorMsgAry[mi]);
+			this.uiCtr.errorPanel.append(msg);		
+		}
+	},
+	requestPlanDetail: function (){
+		var that = this;
 
-			submitData.age = age$.val();
-		},
-		checkMethod : function (){
-			var methodSelected$ = $("input[name=method]:checked");
-			//check not empty
-			if(methodSelected$.length != 1){
-				errorOutputAry.push(errMsg.methodEmpty);
-				return;
-			}
+		this.clearData();
 
-			submitData.method = methodSelected$.val();
-		},
-		checkCurrency : function (){
-			//check not empty
-			var currencySelected$ = $("input[name=currency]:checked");
-			if(currencySelected$.length != 1){
-				errorOutputAry.push(errMsg.currencyEmpty);
-				return;
-			}
+		if(!this.isValidInfo()){
+			this.showError();
+		}else{
+			// clear error msg 
+			this.uiCtr.errorPanel.empty();
 
-			submitData.currency = currencySelected$.val();
-		},
-		checkAmount : function (){
-			// check min and max
-			var amount$ = $(".input_amount");
-			var limit = this.getAmountLimit(submitData.method, submitData.currency);
-			if(!(/^[0-9]+$/).test(amount$.val())){
-				errorOutputAry.push(errMsg.amountEmpty);
-				return;
-			}
-			
-			if(amount$.val() < limit.min){
-				errorOutputAry.push(limit.lessMsg);
-				return;
-			}
-			if(amount$.val() > limit.max){
-				errorOutputAry.push(limit.moreMsg);
-				return;
-			}
-			
-			submitData.amount = amount$.val();
-		},
-		checkYear : function (){
-			//not empty??
-			var yearSelected$ = $("input[name=year]:checked");
-			if(yearSelected$.length != 1){
-				errorOutputAry.push(errMsg.yearEmpty);
-				return;
-			}
-			submitData.year = yearSelected$.val();
-		},
-		getAmountLimit : function (method, currency){
-			return {
-				"min": amountLimit["min" + method + currency],
-				"max": amountLimit["max" + method + currency],
-				"lessMsg": errMsg["amount" + method + currency + "Less"],
-				"moreMsg": errMsg["amount" + method + currency + "More"]
-			};
-		},
-		fillYearOpt : function(age){
-			//clear list 
-			var yearList$ = $(".yearList");
-			yearList$.find("li").remove();
-			//loop all option (60 - age - 1)
-			var yearOptCount = 60 - age - 1;
-			for(var yi = 60; yi >= yearOptCount; yi--){
-				var opt_input = $("<input>").attr({"type": "radio", "name": "year", "value": yi, "id":"year"+yi});
-				var opt_label = $("<label>").attr({"for": "year"+yi}).html(yi);
-				var opt = $("<li>");
-				opt.append(opt_input).append(opt_label);
-				
-				yearList$.append(opt);
-			}
-			//auto select one? when age changed
-		},
-		showErrMsg : function (){
-			for(var mi = 0; mi < errorOutputAry.length; mi++){
-				var msg = $("<li>").html(errorOutputAry[mi]);
-				errorList$.append(msg);		
-			}
-			
-		},
-		submitData : function (){
-			var cusDob = new Date(new Date().getFullYear() - submitData.age - 1, 0 ,1);
+			//make a dob with age only for API
+			var cusDob = new Date(new Date().getFullYear() - this.submitData.age, 0 ,1);
+
 			$.ajax({
-			    beforeSend:function(){
-			    	$("#loading-overlay").modal("show");
-			    },
+			    beforeSend: this.showLoading,
 				url:"/fwdhk/api/provie/planDetails/",
 				type:"get",
 				data:{
-					premium: submitData.amount,
-					planCode:submitData.method,
-					currency:submitData.currency,
-					dob: cusDob,
-					rider: "TERM_LIFE_BENEFIT"
+					premium : this.submitData.amount,
+					planCode: this.submitData.method,
+					currency: this.submitData.currency,
+					dob     : this.toDateStr(cusDob),
+					rider   : "TERM_LIFE_BENEFIT"
 				},	
 				cache:false,
 				async:false,
-				error:function(){
-					console.log("expected error");
-			    },
-			    success:function(response){
-			    	//pack dummy year 15 and 100 if api not ready
-			    	if(!response.creditRates){
-			    		response.plans.push({
-							"premiumYear": 15,
-							"rate": 2,
-							"accountValue": 10001,
-							"deathBenefit": 10002,
-							"riderValue": 10003,
-							"totalPaid": 10000
-						}, {
-							"premiumYear": 100,
-							"rate": 2,
-							"accountValue": 10001,
-							"deathBenefit": 10002,
-							"riderValue": 10003,
-							"totalPaid": 10000
-						});
-			    	}else{
-			    		response.creditRates[2].shift();
-			    		response,plans.push(response.creditRates[2].plans);
-			    	}
-
-
-			    	//pass data to details helper
-			    	planDetailHelper = planDetails(response.plans);
-			    	planDetailHelper.reset();
-
-			    	for (var ni = 1; ni <= 7; ni++) {
-			    		$(".pv_plan .scaleBottom " + ".num"+ ni).html(currencyData[submitData.currency].fixRate[ni - 1] + "%");
-			    	}
-
-			    	var monthlyValue$ = $(".pv_plan .money .left");
-			    	if(submitData.method == "SP"){
-						monthlyValue$.hide();
-					}else{
-						monthlyValue$.find(".monthlyFee").html(toPriceStr(submitData.amount));
-					}
-
-			    	if(!$(".pv_plan").hasClass("isShow")){
-			    		$(".pv_plan").slideToggle( "slow" ).addClass("isShow");
-			    	}
-
-			    	//trigger first year 
-			    	behaviourSlider.noUiSlider.set([0,0]);
-			    },
-			    complete:function(){
-			    	$("#loading-overlay").modal("hide");
-			    }
+				error: this.requestPlanError,
+			    success: function (response){that.requestPlanSuccess(response);},
+			    complete: this.hideLoading
 			});
 		}
-	};
-}
+	},
+	showLoading: function (){
+		pvCtr.showAjaxLoading();
+	},
+	hideLoading: function (){
+		pvCtr.hideAjaxLoading();
+	},
+	requestPlanError: function (){
+		alert("request could not complete, please try again...");
+	},
+	requestPlanSuccess: function (response){
+		response = this.patchLast2YearData(response);
 
-function toPriceStr(x) {
-    return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    	//pass data to details helper
+    	pvCtr.planDetailCtr = planDetailViewer({
+			slider     : pvCtr.planSlider,
+			monthlyFee : this.submitData.amount,
+			plans      : response.plans,
+			currencyStr: this.submitData.currency,
+			isMonthly  : this.submitData.method === "RP"
+    	});
+
+    	this.showPlanDetailPanel();
+
+	},
+	showPlanDetailPanel: function (){
+		if(!$(".pv_plan").hasClass("isShow")){
+    		$(".pv_plan").slideToggle( "slow" ).addClass("isShow");
+    	}
+	},
+	patchLast2YearData: function (response){
+		//pack dummy year 15 and 100 if api not ready
+    	if(!response.creditRates){
+    		response.plans.push({
+				"premiumYear": 15,
+				"rate": 2,
+				"accountValue": 10001,
+				"deathBenefit": 10002,
+				"riderValue": 10003,
+				"totalPaid": 10000
+			}, {
+				"premiumYear": 100,
+				"rate": 2,
+				"accountValue": 10001,
+				"deathBenefit": 10002,
+				"riderValue": 10003,
+				"totalPaid": 10000
+			});
+    	}else{
+    		response.creditRates[2].shift();
+    		response.plans.push(response.creditRates[2].plans);
+    	}
+
+    	return response;
+	},
+	checkGender: function (){
+		//check not empty
+		var genderSelected$ = $("input[name=gender]:checked");
+		if(genderSelected$.length != 1){
+			this.errorMsgAry.push(pvSetting.errMsg.genderEmpty);
+			return;
+		}
+		this.submitData.gender = genderSelected$.val();
+	},
+	checkAge: function (){
+		//check length >= 2
+		var age$ = $(".input_age");
+		if(age$.val().length < 2 || !(/^[0-9]{2}$/).test(age$.val())){
+			age$.focus();
+			this.errorMsgAry.push(pvSetting.errMsg.ageEmpty);
+			return;
+		}
+		//check < 19
+		if(age$.val() < 19){
+			this.errorMsgAry.push(pvSetting.errMsg.ageLess);
+			return;	
+		}
+		//check > 59
+		if(age$.val() > 59){
+			this.errorMsgAry.push(pvSetting.errMsg.ageMore);
+			return;	
+		}
+
+		this.submitData.age = age$.val();
+	},
+	checkMethod: function (){
+		var methodSelected$ = $("input[name=method]:checked");
+		//check not empty
+		if(methodSelected$.length != 1){
+			this.errorMsgAry.push(pvSetting.errMsg.methodEmpty);
+			return;
+		}
+
+		this.submitData.method = methodSelected$.val();
+	},
+	checkCurrency: function (){
+		//check not empty
+		var currencySelected$ = $("input[name=currency]:checked");
+		if(currencySelected$.length != 1){
+			this.errorMsgAry.push(pvSetting.errMsg.currencyEmpty);
+			return;
+		}
+
+		this.submitData.currency = currencySelected$.val();
+	},
+	checkAmountLiimit: function (){
+		// check min and max
+		var amount$ = $(".input_amount");
+		var limit = this.getAmountLimit(this.submitData.method, this.submitData.currency);
+		if(!(/^[0-9]+$/).test(amount$.val())){
+			this.errorMsgAry.push(pvSetting.errMsg.amountEmpty);
+			return;
+		}
+		
+		if(amount$.val() < limit.min){
+			this.errorMsgAry.push(limit.lessMsg);
+			return;
+		}
+		if(amount$.val() > limit.max){
+			this.errorMsgAry.push(limit.moreMsg);
+			return;
+		}
+		
+		this.submitData.amount = amount$.val();
+	},
+	getAmountLimit : function (method, currency){
+		return {
+			"min"    : this.amountLimit["min" + method + currency],
+			"max"    : this.amountLimit["max" + method + currency],
+			"lessMsg": pvSetting.errMsg["amount" + method + currency + "Less"],
+			"moreMsg": pvSetting.errMsg["amount" + method + currency + "More"]
+		};
+	},
+	displayPeriodOpt: function (isShow){
+		if(isShow){
+			this.uiCtr.periodTxt.show();
+		}else{
+			this.uiCtr.periodTxt.hide();
+		}
+	},
+	toDateStr: function (d){
+	  function pad(s) { return (s < 10) ? '0' + s : s; }
+	  return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('-');
+	}
+};
+
+// {
+// 	plans: [],
+// 	slider: $("somthing"),
+// 	monthlyFee: 12345,
+//  currencyStr: "HKD" | "USD"
+// }
+function planDetailViewer(conf){
+	var planData = conf.plans;
+	var slider   = conf.slider;
+
+	var rateLife       = 1;
+	var rateAccidental = 5;
+	var rateCancer     = 0.5;
+
+	var uiCtr = {
+		monthlyPaidWrap  : $(".pv_plan .money .left"),
+		monthlyPaid      : $(".pv_plan .money .monthlyFee"),
+		accountValue     : $(".pv_plan .amount"),
+		totalPaid        : $(".pv_plan .totalPaid"),
+		yearNum          : $(".pv_plan .accValue .year"),
+		xLifeAmount      : $(".pv_plan .card1 .price"),
+		xAccidentalAmount: $(".pv_plan .card2 .price"),
+		xCancerAmount    : $(".pv_plan .card3 .price"),
+		currencyTag      : $(".pv_plan .pricePrefix")
+	};
+
+	var reAlignCardHeight = function(){
+		//pvCtr.cal3Card.reAlign();
+		$(window).trigger("resize");
+	};
+
+	var displayMonthlyPaid = function (isShow){
+		if(isShow){
+			uiCtr.monthlyPaidWrap.show();
+		}else{
+			uiCtr.monthlyPaidWrap.hide();
+		}
+	};
+
+	var showFixRate = function (){
+		for (var ni = 1; ni <= planData.length; ni++) {
+    		$(".pv_plan .scaleBottom " + ".num"+ ni).html(pvSetting.currencyData[conf.currencyStr].fixRate[ni - 1] + "%");
+    	}
+	};
+
+	var showYearDetails = function (yearIdx){
+		var accBaseValue = planData[yearIdx].accountValue;
+
+		uiCtr.totalPaid.html(pvCtr.toPriceStr(planData[yearIdx].totalPaid));
+		uiCtr.accountValue.html(pvCtr.toPriceStr(accBaseValue));
+		uiCtr.yearNum.html(planData[yearIdx].premiumYear);
+		uiCtr.xLifeAmount.html(pvCtr.toPriceStr(accBaseValue * rateLife));
+		uiCtr.xAccidentalAmount.html(pvCtr.toPriceStr(accBaseValue * rateAccidental));
+		uiCtr.xCancerAmount.html(pvCtr.toPriceStr(accBaseValue * rateCancer));
+
+		reAlignCardHeight();
+	};
+
+	var reset = function(){
+		conf.slider.noUiSlider.set([0, 0]);
+		displayMonthlyPaid(conf.isMonthly);
+	};
+
+	//### act as init ###
+	//set monthly fee
+	uiCtr.monthlyPaid.html(pvCtr.toPriceStr(!!conf.monthlyFee ? conf.monthlyFee : 0));
+	uiCtr.currencyTag.html(pvSetting.currencyData[conf.currencyStr].prefix);
+	showFixRate();
+
+
+	//ubind change event
+	conf.slider.noUiSlider.off("update.planView");//unbind namespaced event
+	conf.slider.noUiSlider.on('update.planView', function(curValueAry){
+		var idx = parseInt(curValueAry[1], 10) / 10;
+		showYearDetails(idx);
+	});
+
+	//trigger show first year data
+	reset();
+	
+	return {
+		reset: reset,
+		showYearDetails: showYearDetails
+	};
 }
 
 // sample config
@@ -415,51 +446,58 @@ function toPriceStr(x) {
 // 	minWidth: 992
 // }
 $.fn.autoAlignHeight = function(conf) {
-		var parentDom = this;
-		var childDom = conf.child;
-		var _conf = conf;
+	var parentDom = this;
+	var childDom  = conf.child;
+	var _conf     = conf;
 
-		reAlignHeight();
+	reAlignHeight();
 
-		$(window).on("resize", reAlignHeight);
-		$(window).on("orientationchange", reAlignHeight);
+	$(window).on("resize", reAlignHeight);
+	$(window).on("orientationchange", reAlignHeight);
 
-		// window.onorientationchange = reAlignHeight;
-		// window.onresize = reAlignHeight;
+	// window.onorientationchange = reAlignHeight;
+	// window.onresize = reAlignHeight;
 
-		function reAlignHeight(){
-			if(window.innerWidth < _conf.minWidth){
-				resetChildHeight();
-				return;
-			}
-			alignChildHeight(parentDom, conf.child);
+	function reAlignHeight(){
+		if(window.innerWidth < _conf.minWidth){
+			resetChildHeight();
+			return;
 		}
+		alignChildHeight(parentDom, conf.child);
+	}
 
-		function resetChildHeight(){
-			$(parentDom).find(childDom).each(function() {
-		        $(this).css("height", "auto");
+	function resetChildHeight(){
+		$(parentDom).find(childDom).each(function() {
+	        $(this).css("height", "auto");
+	    });
+	}
+
+	function alignChildHeight(sel, child) {
+	    //reset all child height
+		$(sel).find(child).css("height", "auto");
+		
+		setTimeout(function (){
+			var max = 0;
+		    $(sel).find(child).each(function() {
+		        var c_height = parseInt($(this).outerHeight(false));
+		        if (c_height > max) {
+		            max = c_height;
+		        }
 		    });
-		}
-
-		function alignChildHeight(sel, child) {
-		    //reset all child height
-			$(sel).find(child).css("height", "auto");
-			
-			setTimeout(function (){
-				var max = 0;
-			    $(sel).find(child).each(function() {
-			        c_height = parseInt($(this).outerHeight(false));
-			        if (c_height > max) {
-			            max = c_height;
-			        }
-			    });
-			    $(sel).find(child).outerHeight(max);
-			    
-			    if(!!conf.onFinish){
-			    	conf.onFinish();
-			    }
-			}, 500);
-			
-		}	
+		    $(sel).find(child).outerHeight(max);
+		    
+		    if(!!conf.onFinish){
+		    	conf.onFinish();
+		    }
+		}, 500);
+	}
 	
+	return {
+		reAlign : reAlignHeight
+	};
 };
+
+
+$(document).ready(function (){
+	pvCtr.onReady();
+});
