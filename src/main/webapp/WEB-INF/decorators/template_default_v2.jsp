@@ -37,7 +37,9 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	
+
+	<!--Template V2-->
+
 	<%-- Meta data--%>
 		<%@ include file="include/shared/meta_tag.jsp"%>
 		<%@ include file="include/shared/social_network.jsp"%>
@@ -53,6 +55,9 @@
 			var language = "${language}";
 			var affiliate = "${affiliate}";
 			var home_url = "<%=request.getContextPath()%>";
+			<%--For Savie online 2016 JS --%>
+			var getpath = "<%=request.getContextPath()%>";
+			<%--For Savie online 2016 JS END--%>
 			var actionName = "<%=actionName%>";
 		</script>
 	<%-- End Core Header Scripts--%>

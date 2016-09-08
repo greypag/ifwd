@@ -76,17 +76,18 @@ $('#test').click(function() {
 $( "li.link-btn.link-grp" ).click(function() {
       $(this).find("img").toggle();
     });
-$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-    // Avoid following the href location when clicking
-    event.preventDefault();
-    // Avoid having the menu to close when clicking
-    event.stopPropagation();
-    // Re-add .open to parent sub-menu item
-    if($(this).parent().hasClass('open')){
-        $(this).parent().removeClass('open');
-    }else{
-        $(this).parent().addClass('open');
-        $(this).parent().siblings("li").removeClass('open');
-        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
-    }
-});
+
+//$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+//    // Avoid following the href location when clicking
+//    event.preventDefault();
+//    // Avoid having the menu to close when clicking
+//    event.stopPropagation();
+//    // Re-add .open to parent sub-menu item
+//    if($(this).parent().hasClass('open')){
+//        $(this).parent().removeClass('open');
+//    }else{
+//        $(this).parent().addClass('open');
+//        $(this).parent().siblings("li").removeClass('open');
+//        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
+//    }
+//});

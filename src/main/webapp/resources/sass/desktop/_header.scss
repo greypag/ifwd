@@ -64,6 +64,13 @@ ul.maintabs.menutab-V2 .dropdown-menu li.menu-link {
     font-size: 11px;
   }
 }
+.header {
+  .navbar {
+    &.navbar-inverse {
+      border-bottom: 1px solid #d7d8d7;
+    }
+  }
+}
 .nav-group {
   width: 25%;
   float: left;
