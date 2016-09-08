@@ -116,6 +116,24 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderEligibility"})
+	public void getProvieRiderEligibility(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=savieOnlineService.getProvieRiderEligibility(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	
 	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderPlan"})
 	public void getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -405,7 +423,7 @@ public class AjaxLifeController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	//Begin ---HKID discount ---by John Huang
+	//HKID discount ---by John Huang
 	@RequestMapping(value = {"/ajax/savings-insurance/getSavieHkidDiscount"})
 	public void getSavieHkidDiscount(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();

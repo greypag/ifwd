@@ -346,6 +346,8 @@ public class UserRestURIConstants {
 	
 	/* API For provie online */
 	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";
+	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";
+
 	
 	/* Page Flow Control For provie online */
 	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";

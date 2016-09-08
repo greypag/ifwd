@@ -196,9 +196,9 @@
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 										<select name="payment-type" id="type-of-extra-rider" class="form-control gray-dropdown pd-dropdown">
-										   <option value="AccidentalDeathBenefit" data-cls="p50"><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
-										   <option value="CancerBenefit" data-cls="p100"><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
-										   <option value="TermLifeBenefit" data-cls="p500"><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
+										   <option value="AccidentalDeathBenefit" data-cls="p50" ><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
+										   <option value="CancerBenefit" data-cls="p100" ><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
+										   <option value="TermLifeBenefit" data-cls="p500" ><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">Extra riders</label>
@@ -1039,7 +1039,40 @@
 		$(document).on('click touchstart', function (){
 			$('.tooltip').hide();
 		});
-
+		//begin of getProvieRiderEligibility
+		var defaultExtraRider="";
+		var isFromReturn=false;  //if disable the selection
+		$.ajax({
+	        type: "POST",
+	        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getProvieRiderEligibility',	        
+	        async:false,
+	        success:function(data){
+				if(data.errMsgs != null && data.errMsgs != ''){
+				}
+				else{
+					if(data.accidentalDeathBenefit) {
+						defaultExtraRider="p500";
+						} else if(data.termBenefitEligible){
+							defaultExtraRider="p100";
+						} else if(data.cancerBenefit){
+							defaultExtraRider="p50";
+						}
+					//$(".c11").text(data.discounts[0].c1);
+				}
+	        },
+			error:function(){
+			    console.log('error');
+		    }
+	    }); //end of ajax
+		if (defaultExtraRider!=""){
+			$("#type-of-extra-rider option[data-cls="+defaultExtraRider+"]").attr("selected", "selected");
+		}
+	    if (isFromReturn){
+	    	$("#type-of-extra-rider").attr('disabled','disabled');
+	    } else {
+	    	$("#type-of-extra-rider").removeAttr('disabled');
+	    }
+        //end of getProvieRiderEligibility
 	});
 
 	// changing first/after 3 years button content

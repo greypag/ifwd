@@ -221,6 +221,8 @@ public class LifeServiceImpl implements LifeService {
 		return String.valueOf(Math.floor(Double.valueOf(amount)));
 	}
 
+	
+	/*
 	@Override
 	public net.sf.json.JSONObject getProvieOnlinePlandetails(ProviePlanDetailsBean proviePlanDetails, 
 			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
@@ -340,6 +342,15 @@ public class LifeServiceImpl implements LifeService {
 			return resultJsonObject;
 		}
 	}
+	*/
+	
+	public JSONObject getProvieRiderEligibility(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
 	
 	@Override
 	public net.sf.json.JSONObject getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails, 

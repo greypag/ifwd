@@ -1620,7 +1620,7 @@ function getProvieRiderPlan(isSavedReturn) {
 	var amount_rp = $('#plan-amount').val();
 	//var paymentMode = $('#type-of-payment').val();
 	var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
-	alert(paymentMode);
+	//alert(paymentMode);
 	var paymentYear;
 	if($('#total-years-holder').is(":hidden")){
 		paymentYear = 4
