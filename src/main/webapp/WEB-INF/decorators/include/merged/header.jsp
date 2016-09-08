@@ -13,8 +13,62 @@
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
-<script>
 
+<!-- header.notification.bar -->
+<script type="text/javascript">
+	var obj = {
+	    'topBar': {
+	        'mobile': 0,
+	        // 'mobile':   106,
+	        'desktop': 42,
+	        'classname': {
+	            'mobile': 'div.closeMobileMenu',
+	            'desktop': 'nav.navbar.navbar-inverse'
+	        }
+	    },
+	    'nBarOnly': {
+	        'mobile': 56,
+	        'desktop': 56,
+	        'classname': {
+	            'mobile': '.header-notification-box.header-notification-box--mobile',
+	            'desktop': '.header-notification-box.header-notification-box--desktop'
+	        },
+	        'content': {
+			    'ifwd_repair': {
+			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			    },
+				'fraud' : {
+			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
+			    },
+			    'flightcare_moncare': {
+			        'mobile': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />',
+			        'desktop': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />'
+			    }
+			}
+	    }
+	};
+
+// Default value
+var nBarConfig = {
+	'contentIndex': 'ifwd_repair',
+	'isVisible': true
+}
+
+// Customized value
+<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
+nBarConfig = {
+	'contentIndex': 'flightcare_moncare',
+	'isVisible': true
+}
+<% } %>
+</script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
+<!-- ./header.notification.bar -->
+
+<script>
 var getBundleLanguage = "";
 var lang = UILANGUAGE;
 
@@ -361,11 +415,11 @@ function getStarted(){
 			    	$('#loginpopup').modal('hide');
 		    		$('#prev-savie-app-modal').modal('show');
 		    	}else{ */
-	                    $.ajax({     
-	                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',     
-	                        type:'get',     
-	                        error:function(){       
-	                        },     
+	                    $.ajax({
+	                        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPolicyApplicationSaveforLater',
+	                        type:'get',
+	                        error:function(){
+	                        },
 	                        success:function(data){
 	                            if(data != null && data.errMsgs == null && data.nextPage !=null && $('#loginform-pop #forcefna').val()=="false"){
 	                                $('#retrieve-application-modal').modal({backdrop: 'static', keyboard: false});
@@ -374,11 +428,11 @@ function getStarted(){
 	                                nextPage = data.nextPage;
 	                            }
 	                            else{
-	                                $.ajax({     
-	                                    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-	                                    type:'get',     
-	                                    error:function(){       
-	                                    },     
+	                                $.ajax({
+	                                    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',
+	                                    type:'get',
+	                                    error:function(){
+	                                    },
 	                                    success:function(data){
 	                                        if(data != null && data.errMsgs == null && data.name !=null){
 	                                            $('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
@@ -388,10 +442,10 @@ function getStarted(){
 	                                        else{
 	                                            window.location = '<%=request.getContextPath()%>/${language}/FNA/financial-needs-analysis';
 	                                        }
-	                                    }  
+	                                    }
 	                                });
 	                            }
-	                        }  
+	                        }
 	                    });
 		    	/* }
 		    }
@@ -419,6 +473,7 @@ function getStarted(){
 <!--desktop header-->
 <header id="header" class="hidden-xs hidden-sm">
 	<div class="top-bar">
+		<%@include file="header.notification.bar.desktop.jsp" %>
 		<div class="container ">
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
@@ -856,11 +911,10 @@ function getStarted(){
 </div>-->
 <!-- hidden navbar -->
 
-<div
-	style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"
-	id="test"></div>
+<div id="test" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"></div>
 <!--Mobile-header-->
 <div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
+	<%@include file="header.notification.bar.mobile.jsp" %>
 <%-- 	<div class="mob-topbar">
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
 			onClick="zopim_chat_start()"><span class="chat pull-right"><fmt:message key="header.menu.chatnow" bundle="${msg}" /></span></a>
@@ -890,7 +944,7 @@ function getStarted(){
 		</div>
 
 
-    <div class="navbar-collapse collapse mobile-menu-V2">
+    	<div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
              <li class="pad-none col-sm-12 dropdown border-bottom">
             <!-- <div
@@ -1388,7 +1442,7 @@ $(function() {
 					$(".mob-menu-btn").click();
 					//console.log(e);
 				}
-			});						
+			});
 			$(window).on("orientationchange load",function(){
                 if(window.orientation == 0 || window.orientation == 180) // Portrait
                 {
