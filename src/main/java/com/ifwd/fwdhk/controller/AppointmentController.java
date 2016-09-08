@@ -53,7 +53,7 @@ import com.ifwd.fwdhk.util.WebServiceUtils;
 @Api(value = "/appointment", description = "Operations about appointment")
 public class AppointmentController extends BaseController {
 
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 	
 	@Autowired
 	private LifeService savieOnlineService;
@@ -98,7 +98,7 @@ public class AppointmentController extends BaseController {
 	public ResponseEntity<List<TimeSlotEntity>> findAvailableDateByCentre(
 			@ApiParam(value = "Service centre code", required = true) @RequestParam("centreCode") String centreCode
 			,@ApiParam(value = "Appointment type", required = true) @RequestParam("type") AppointmentType type
-			,@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = false) @RequestParam("date") String preferredDate
+			,@ApiParam(value = "Appointment date (in dd-MM-yyyy format)", required = false) @RequestParam(value="date", required=false) String preferredDate
 			, HttpServletRequest request) {
 		
 		super.IsAuthenticate(request);
