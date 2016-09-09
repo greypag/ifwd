@@ -52,11 +52,33 @@ public class ProviePlanDetails {
 		
 	}
 
+	public class CreditRates {
+
+		private double rate;
+		private List<Plan> plans;
+		
+		public double getRate() {
+			return rate;
+		}
+		public void setRate(double rate) {
+			this.rate = rate;
+		}
+		public List<Plan> getPlans() {
+			return plans;
+		}
+		public void setPlans(List<Plan> plans) {
+			this.plans = plans;
+		}
+
+	}	
+	
 	private String planCode;
 	private String currency;
 	private String rider;
 	private List<Plan> plans;
-
+	private List<CreditRates> creditRates;
+	
+	
 	public String getPlanCode() {
 		return planCode;
 	}
@@ -80,6 +102,12 @@ public class ProviePlanDetails {
 	}
 	public void setPlans(List<Plan> plans) {
 		this.plans = plans;
-	}	
-	
+	}
+	public List<CreditRates> getCreditRates() {
+		return creditRates;
+	}
+	public void setCreditRates(List<CreditRates> creditRates) {
+		this.creditRates = creditRates;
+	}
+
 }
