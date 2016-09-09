@@ -400,7 +400,7 @@ $(document).ready(function(){
 						}
 
 						if(xhr.status == 400){
-							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log('Invalid appointment type.');
 						} else if(xhr.status == 405){
 							$('#moreThan2Tries').modal('show');
@@ -412,10 +412,10 @@ $(document).ready(function(){
 							$('#reservationInvalid').modal('show');
 							console.log('Reservation is invalid.');
 						} else if(xhr.status == 500){
-							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log('System error.');
 						} else {
-							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log("unable to load API : "+ fwdApi.url.appointment);
 						}						
 				    },
