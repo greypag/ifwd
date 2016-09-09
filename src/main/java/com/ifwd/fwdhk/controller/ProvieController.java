@@ -221,10 +221,12 @@ public class ProvieController extends BaseController{
 			, @ApiParam(value = "Additional rider", allowableValues = "ACCIDENTIAL_DEATH_BENEFIT,CANCER_BENEFIT,TERM_LIFE_BENEFIT",  required = true) @RequestParam("rider") String rider
 			, HttpServletRequest request) {
 		
-		super.IsAuthenticate(request);
+		//super.IsAuthenticate(request);
 		
 		HttpSession session=request.getSession();
-		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean();
+		
+		
+		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider);
 		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 		/*
 		url : context + "/ajax/savings-insurance/getProvieRiderPlan",
@@ -238,24 +240,6 @@ public class ProvieController extends BaseController{
 			rider:rider
 			},
 		*/
-		planDetailsBean.setInsuredAmount(String.valueOf(premium));
-		//String teststr=planCode;
-		//String tst1=planCode.substring(2);
-		planDetailsBean.setPaymentType(planCode.toUpperCase());
-		planDetailsBean.setDob(dob.replace("/", "-"));
-		planDetailsBean.setPromoCode("");
-		planDetailsBean.setPaymentYear("");
-		planDetailsBean.setCurrency(currency);
-		if ("AccidentalDeathBenefit".equals(rider)){
-			planDetailsBean.setRider("p50");
-		} else if("CancerBenefit".equals(rider)){
-			planDetailsBean.setRider("p100");
-		} else if("TermLifeBenefit".equals(rider)){
-			planDetailsBean.setRider("p500");
-		}
-		
-		
-		
 		try {
 			resultJsonObject = provieOnlineService.getProvieRiderPlan(planDetailsBean, request, session);
 			ProviePlanDetails plans = new ProviePlanDetails();
@@ -271,69 +255,31 @@ public class ProvieController extends BaseController{
 		            ProviePlanDetails.Plan plan = plans.new Plan();
 					plan.setPremiumYear(jo.getInt("premiumYear"));
 					plan.setRate(jo.getDouble("rate"));
+					plan.setTotalPaid(jo.getInt("totalPremium"));
 					plan.setAccountValue(Float.valueOf(jo.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
-					plan.setRiderValue(Float.valueOf(jo.getInt("riderValue")));
+					plan.setRiderValue(Integer.valueOf(calculateRider(jo.getInt("accountValue"), resultJsonObject.getString("rider"))));
 					list.add(plan);
 			}
 			plans.setPlans(list);
 			return Responses.ok(plans);
-			/*
-			ProviePlanDetails plans = new ProviePlanDetails();
-			plans.setPlanCode("Provie-SP");
-			plans.setCurrency("HKD");
-			plans.setRider("PA");
-			List<ProviePlanDetails.Plan> list = new ArrayList<ProviePlanDetails.Plan>();
-			ProviePlanDetails.Plan plan = plans.new Plan();
-			plan.setPremiumYear(1);
-			plan.setRate(1);
-			plan.setTotalPaid(10000);
-			plan.setAccountValue(10001);
-			plan.setDeathBenefit(10002);
-			plan.setRiderValue(10003);
-			list.add(plan);
 			
-			plan = plans.new Plan();
-			plan.setPremiumYear(2);
-			plan.setRate(1.1);
-			plan.setTotalPaid(10000);
-			plan.setAccountValue(10001);
-			plan.setDeathBenefit(10002);
-			plan.setRiderValue(10003);
-			list.add(plan);
-
-			plan = plans.new Plan();
-			plan.setPremiumYear(3);
-			plan.setRate(1.2);
-			plan.setTotalPaid(10000);
-			plan.setAccountValue(10001);
-			plan.setDeathBenefit(10002);
-			plan.setRiderValue(10003);
-			list.add(plan);
-
-			plan = plans.new Plan();
-			plan.setPremiumYear(4);
-			plan.setRate(1.3);
-			plan.setTotalPaid(10000);
-			plan.setAccountValue(10001);
-			plan.setDeathBenefit(10002);
-			plan.setRiderValue(10003);
-			list.add(plan);
-
-			plan = plans.new Plan();
-			plan.setPremiumYear(5);
-			plan.setRate(1.4);
-			plan.setTotalPaid(10000);
-			plan.setAccountValue(10001);
-			plan.setDeathBenefit(10002);
-			plan.setRiderValue(10003);
-			list.add(plan);
-
-			plans.setPlans(list);
-			return Responses.ok(plans);
-			*/
 		} catch (Exception e) {
 			return Responses.error(null);
 		}
+	}
+
+	private int calculateRider(int accountValue, String rider) {
+		if ("p50".equals(rider)){
+			return (int)(accountValue * 0.5);
+		} else if("p100".equals(rider)){
+			return (int)(accountValue * 1);
+		} else if("p500".equals(rider)){
+			return (int)(accountValue * 5);
+		} else {
+			return 0;
+		}
+		
+	
 	}
 }

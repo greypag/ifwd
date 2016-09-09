@@ -31,6 +31,27 @@ public class ProviePlanDetailsBean implements Serializable {
 	private String paymentYear;
 	private String rider;
 	
+	public ProviePlanDetailsBean() {
+		
+	}
+	
+	public ProviePlanDetailsBean(String premium, String planCode,
+			String dob, String promoCode, String currency, String rider) {
+		this.setInsuredAmount(premium);
+		this.setPaymentType(planCode);
+		this.setDob(dob);
+		this.setPromoCode(promoCode);
+		this.setPaymentYear("");
+		this.setCurrency(currency);
+		if ("AccidentalDeathBenefit".equals(rider)){
+			this.setRider("p500");
+		} else if("CancerBenefit".equals(rider)){
+			this.setRider("p50");
+		} else if("TermLifeBenefit".equals(rider)){
+			this.setRider("p100");
+		}
+	}
+
 
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
