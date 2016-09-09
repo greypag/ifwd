@@ -486,6 +486,12 @@ $(document).ready(function(){
 		    },
 		    success:function(response){
 		    	if(response){
+		    		
+		    		if(response.userName == '*DIRECTGI'){
+		    			$(".before-login").show();
+		    			return false;	
+		    		}
+
 		    		isLogged = true;
 		    		
 		    		$(".after-login").find(".fld-val").text(response.fullName);

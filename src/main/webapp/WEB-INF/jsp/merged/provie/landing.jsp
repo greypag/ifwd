@@ -264,7 +264,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</c:if>
 
 							
-							<ul class="error_list errorMsg"></ul>
+							<ul class="error_list errorMsg pad-0"></ul>
 							
 							<a href="javascript:void(0);" class="pv_btn btnSubmit"><fmt:message key="provie.landing.calculation.cta.calculate" bundle="${provieMsg}" /></a>	
             			</div>
