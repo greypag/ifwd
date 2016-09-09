@@ -221,7 +221,6 @@ public class LifeServiceImpl implements LifeService {
 		return String.valueOf(Math.floor(Double.valueOf(amount)));
 	}
 
-	
 	/*
 	@Override
 	public net.sf.json.JSONObject getProvieOnlinePlandetails(ProviePlanDetailsBean proviePlanDetails, 
@@ -343,14 +342,13 @@ public class LifeServiceImpl implements LifeService {
 		}
 	}
 	*/
-	
-	public JSONObject getProvieRiderEligibility(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
-		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		return responseJsonObj;
-	}
-	
+
+    public JSONObject getProvieRiderEligibility(HttpServletRequest request) throws ECOMMAPIException{
+        String Url = UserRestURIConstants.GET_PROVIE_RIDER_ELIGIBILITY;
+        final Map<String,String> header = headerUtil.getHeader(request);
+        JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+        return responseJsonObj;
+    }
 	
 	@Override
 	public net.sf.json.JSONObject getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails, 
@@ -2246,10 +2244,33 @@ public class LifeServiceImpl implements LifeService {
 	}
 	
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException{
+		if ("2".equals(lifePersonalDetails.getType())
+				&& (lifePersonalDetails.getFirstname().length()==0
+					|| lifePersonalDetails.getLastname().length()==0
+					|| lifePersonalDetails.getGender().length()==0
+					|| lifePersonalDetails.getHkid().length()==0
+					|| lifePersonalDetails.getNationalty().length()==0
+					|| lifePersonalDetails.getPlaceOfBirth().length()==0
+					|| lifePersonalDetails.getDob().length()==0
+					|| lifePersonalDetails.getNationalty().length()==0
+					|| lifePersonalDetails.getMobileNumber().length()==0
+					|| lifePersonalDetails.getMartialStatus().length()==0
+					|| lifePersonalDetails.getEmailAddress().length()==0
+					|| lifePersonalDetails.getPermanetAddress1().length()==0
+					|| lifePersonalDetails.getPermanetAddressDistrict().length()==0
+					|| lifePersonalDetails.getResidentialAddress1().length()==0
+					|| lifePersonalDetails.getResidentialAddressDistrict().length()==0				
+					|| lifePersonalDetails.getCorrespondenceAddress1().length()==0
+					|| lifePersonalDetails.getCorrespondenceAddressDistrict().length()==0)) {
+			logger.info("Not enough data for save_for_later (personal details)");
+			throw new ECOMMAPIException("Not enough data for save_for_later (personal details)");
+		}		
+		
 		String language = (String) request.getSession().getAttribute("language");
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
+		
 		String resumeViewPage = null;
 		if("1".equals(lifePersonalDetails.getType())){
 			resumeViewPage = language+"/savings-insurance/personal-details";
@@ -2289,10 +2310,37 @@ public class LifeServiceImpl implements LifeService {
 	
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException{
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+		if ("2".equals(lifeEmploymentInfo.getType()) 
+				&& (lifeEmploymentInfo.getEmploymentStatus().length()==0
+					|| ((lifeEmploymentInfo.getEmploymentStatus().equals("ES1")
+							|| lifeEmploymentInfo.getEmploymentStatus().equals("ES2")
+							|| lifeEmploymentInfo.getEmploymentStatus().equals("ES3")
+						)
+						&& (lifeEmploymentInfo.getNatureOfBusiness().length()==0
+							|| lifeEmploymentInfo.getOccupation().length()==0
+							|| lifeEmploymentInfo.getEmployerName().length()==0
+							|| lifeEmploymentInfo.getMonthlyPersonalIncome().length()==0
+							)
+						)
+					|| (lifeEmploymentInfo.getOccupation().equals("NoBD16")
+						&& lifeEmploymentInfo.getOtherOccupation().length() == 0)	
+					|| ((lifeEmploymentInfo.getEmploymentStatus().equals("ES4")
+							|| lifeEmploymentInfo.getEmploymentStatus().equals("ES5")
+							|| lifeEmploymentInfo.getEmploymentStatus().equals("ES6")
+							|| lifeEmploymentInfo.getEmploymentStatus().equals("ES7")
+						)
+						&& (lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().length()==0
+							|| lifeEmploymentInfo.getAmountOfLiquidAssets().length()==0)
+						)
+					|| lifeEmploymentInfo.getEducation().length()==0)) {
+			logger.info("Not enough data for save_for_later (employment info)");
+			throw new ECOMMAPIException("Not enough data for save_for_later (employment info)");
+		}		
 		
 		String language = (String) request.getSession().getAttribute("language");
 		final Map<String,String> header = headerUtil.getHeader1(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		
 		parameters.accumulate("planCode", "SAVIE-SP");
 		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
 		String resumeViewPage = null;
@@ -2352,6 +2400,71 @@ public class LifeServiceImpl implements LifeService {
 	}
 	
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException{
+		if ("2".equals(lifeBeneficaryInfo.getType()) 
+				&& !lifeBeneficaryInfo.getIsOwnEstate()) {
+
+				int hasBene1 = 0;
+				int hasBene2 = 0;
+				int hasBene3 = 0;
+				
+				hasBene1 = lifeBeneficaryInfo.getBeneficaryFirstName1().length()
+						+ lifeBeneficaryInfo.getBeneficaryLastName1().length()
+						+ lifeBeneficaryInfo.getBeneficaryID1().length()
+						+ lifeBeneficaryInfo.getBeneficiaryHkidPassport1().length()
+						+ lifeBeneficaryInfo.getBeneficaryGender1().length()
+						+ lifeBeneficaryInfo.getBeneficaryRelation1().length()
+						+ lifeBeneficaryInfo.getBeneficaryWeight1().length();
+
+				hasBene2 = lifeBeneficaryInfo.getBeneficaryFirstName2().length()
+						+ lifeBeneficaryInfo.getBeneficaryLastName2().length()
+						+ lifeBeneficaryInfo.getBeneficaryID2().length()
+						+ lifeBeneficaryInfo.getBeneficiaryHkidPassport2().length()
+						+ lifeBeneficaryInfo.getBeneficaryGender2().length()
+						+ lifeBeneficaryInfo.getBeneficaryRelation2().length()
+						+ lifeBeneficaryInfo.getBeneficaryWeight2().length();
+
+				hasBene3 = lifeBeneficaryInfo.getBeneficaryFirstName3().length()
+						+ lifeBeneficaryInfo.getBeneficaryLastName3().length()
+						+ lifeBeneficaryInfo.getBeneficaryID3().length()
+						+ lifeBeneficaryInfo.getBeneficiaryHkidPassport3().length()
+						+ lifeBeneficaryInfo.getBeneficaryGender3().length()
+						+ lifeBeneficaryInfo.getBeneficaryRelation3().length()
+						+ lifeBeneficaryInfo.getBeneficaryWeight3().length();
+				
+				if (hasBene1 > 0 && (lifeBeneficaryInfo.getBeneficaryFirstName1().length()==0
+							|| lifeBeneficaryInfo.getBeneficaryLastName1().length()==0
+							|| lifeBeneficaryInfo.getBeneficaryID1().length()==0
+							|| lifeBeneficaryInfo.getBeneficiaryHkidPassport1().length()==0
+							|| lifeBeneficaryInfo.getBeneficaryGender1().length()==0
+							|| lifeBeneficaryInfo.getBeneficaryRelation1().length()==0
+							|| lifeBeneficaryInfo.getBeneficaryWeight1().length()==0)) {
+					logger.info("Not enough data for save_for_later (beneficiary info 1)");
+					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 1)");
+				}
+
+				if (hasBene2 > 0 && (lifeBeneficaryInfo.getBeneficaryFirstName2().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryLastName2().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryID2().length()==0
+						|| lifeBeneficaryInfo.getBeneficiaryHkidPassport2().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryGender2().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryRelation2().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryWeight2().length()==0)) {
+					logger.info("Not enough data for save_for_later (beneficiary info 2)");
+					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 2)");
+				}
+
+				if (hasBene3 > 0 && (lifeBeneficaryInfo.getBeneficaryFirstName3().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryLastName3().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryID3().length()==0
+						|| lifeBeneficaryInfo.getBeneficiaryHkidPassport3().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryGender3().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryRelation3().length()==0
+						|| lifeBeneficaryInfo.getBeneficaryWeight3().length()==0)) {
+					logger.info("Not enough data for save_for_later (beneficiary info 3)");
+					throw new ECOMMAPIException("Not enough data for save_for_later (beneficiary info 3)");
+				}
+		}
+		
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		
@@ -2394,7 +2507,17 @@ public class LifeServiceImpl implements LifeService {
 		return parameters;
 	}
 	
-	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment, HttpServletRequest request) throws ECOMMAPIException{
+		if ("2".equals(lifePayment.getType()) 
+				&& (lifePayment.getBankCode().length()==0
+					|| lifePayment.getAccountNumber().length()==0
+					|| lifePayment.getBranchCode().length()==0
+				)
+			) {
+			logger.info("Not enough data for save_for_later (payment info)");
+			throw new ECOMMAPIException("Not enough data for save_for_later (payment info)");
+		}		
+		
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
