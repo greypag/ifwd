@@ -183,6 +183,7 @@ button.dropdown-toggle{
 .pv_plan{
 	@extend %pv_base_section;
 	background: url(../../images/provie/landing-bg-desktop.jpg) 50% 50%;
+	background-size: cover;
 	color: #ffffff;
 	display: none;
 	.pv_title{
