@@ -25,12 +25,12 @@ var home_url = "<%=request.getContextPath()%>";
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/vendor/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/dropdowns-enhancement.css">
 
 
 
-<link rel="stylesheet" type="text/css" href="http://refreshless.com/noUiSlider/distribute/nouislider.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/vendor/nouislider.min.css">
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
@@ -1125,7 +1125,7 @@ var home_url = "<%=request.getContextPath()%>";
 		
 </div>
 
-<script src="http://refreshless.com/noUiSlider/distribute/nouislider.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/vendor/nouislider.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-landing-uifn.js"></script>
 <script>
 	var pvSetting = {
