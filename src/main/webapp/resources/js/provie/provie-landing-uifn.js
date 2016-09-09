@@ -88,7 +88,7 @@ var fnaLogin = {
 	},
 	loginSuccess: function (response){
 		if(response){
-    		//TODO: redirect to FNA page
+    		window.location = window.context + '/' + window.language + "/FNA/financial-needs-analysis";
     	}
 	},
 	hideLoading: function (){
