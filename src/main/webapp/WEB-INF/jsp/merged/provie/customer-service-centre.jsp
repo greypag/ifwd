@@ -25,43 +25,40 @@ var language = "${language}";
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
-       
-       <!-- Breadcrumb Component Start-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/breadcrumb.css">
-<div class="comp breadcrumb">
-	<div class="breadcrumb__container">
-	   <ul class="breadcrumb__list breadcrumb__list--none">
-			<li class="breadcrumb__item">Home</li><li class="breadcrumb__divider"><i class="fa fa-play"></i></li><li class="breadcrumb__item">Save</li><li class="breadcrumb__divider"><i class="fa fa-play"></i></li><li class="breadcrumb__item">Provie Insurance Plan</li><li class="breadcrumb__divider breadcrumb__divider--active"><i class="fa fa-play"></i></li><li class="breadcrumb__item breadcrumb__item--active">Make an appointment</li>
-	   </ul>
-	</div>
-</div>
+	
+	<!-- Breadcrumb Component Start-->
 
-		<!-- Breadcrumb Component End-->
+	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+	<c:set var="breadcrumbActive" value="0"/>
 
-		<!-- StepIndicator Component Start-->
-        <!--<div class="container-fluid fwd-full-container browse-holder">-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/stepIndicator.css">
-<div class="comp stepIndicator stepIndicator--desktop hidden-xs hidden-sm">
-   <div class="stepIndicator__container">
-      <ul class="stepIndicator__list stepIndicator__list--none">
-         <li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number stepIndicator__number--completed">1</span><span class="stepIndicator__content stepIndicator__content--completed">Select plan</span></button></li><li class="stepIndicator__divider"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li><li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number stepIndicator__number--active">2</span><span class="stepIndicator__content stepIndicator__content--active">Make appointment</span></button></li><li class="stepIndicator__divider"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li><li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number ">3</span><span class="stepIndicator__content ">Confirmation</span></button></li>
-      </ul>
-   </div>
-  
-</div>
+	<c:set var="breadcrumbItems">
+		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.appointment
+	</c:set>
+	<c:set var="breadcrumbActive">3</c:set>
 
-<div class="comp stepIndicator stepIndicator--mobile hidden-lg hidden-md js-sticky-bar">
-   <div class="stepIndicator__container">
-      <div class="stepIndicator__arrow"><a href="#"><span class="icon-arrow-left2"></span></a></div><div class="stepIndicator__content"><fmt:message key="provie.appoint.title1" bundle="${provieMsg}" /></div><span class="stepIndicator__stepof">2 out of 3</span>
-   </div>
-</div>
+	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+	</jsp:include>
 
-<div class="comp stepIndicator stepIndicator--numberOnly hidden-lg hidden-md">
-   <div class="stepIndicator__container">
-      <ul class="stepIndicator__list"><li class="stepIndicator__item "><a href="#" class="stepIndicator__number stepIndicator__number--completed"><i class="fa fa-check"></i></a></li><li class="stepIndicator__item "><a href="#" class="stepIndicator__number stepIndicator__number--active"><span>2</span></a></li><li class="stepIndicator__item stepIndicator__item--last"><a href="#" class="stepIndicator__number "><span>3</span></a></li></ul><div class="stepIndicator__stepLine"></div>
-   </div>
-</div>
+	<!-- Breadcrumb Component End-->
 
+	<!-- StepIndicator Component Start-->
+
+	<c:set var="stepItems" value="stepindicator.selectplan"/>
+	<c:set var="stepActive" value="0"/>
+
+	<c:set var="stepItems">
+		stepindicator.selectplan,stepindicator.appointment,stepindicator.confirmation
+	</c:set>
+	<c:set var="stepActive">1</c:set>
+
+	<!--<div class="container-fluid fwd-full-container browse-holder">-->
+	<jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+		<jsp:param name="stepItems" value="${stepItems}"/>
+		<jsp:param name="stepActive" value="${stepActive}"/>
+	</jsp:include>
+	<!--</div>-->
 
 <script>
 
