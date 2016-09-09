@@ -168,8 +168,10 @@ $(document).ready(function(){
 				},	
 				cache:false,
 				async:false,
-				error:function(){
+				error:function(xhr, textStatus, errorThrown){
+
 					console.log("expected error");
+					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
 			    	if(response){
@@ -284,7 +286,8 @@ $(document).ready(function(){
 					},	
 					cache:false,
 					async:false,
-					error:function(){
+					error:function(xhr, textStatus, errorThrown){
+
 						if(xhr.status == 404){
 							$('#perferredTimeIsNull').modal('show')
 							pickAnotherCentre
@@ -293,6 +296,7 @@ $(document).ready(function(){
 						} else {
 							console.log("unable to load API : "+ fwdApi.url.findAvailableTimeByCentre);
 						}
+						$("#loading-overlay").modal("hide");
 				    },
 				    success:function(response){
 				    	if(response){
@@ -312,7 +316,7 @@ $(document).ready(function(){
 				    		}else{
 				    			 $("#preferedTimeIsNull").modal("show");
 				    		}
-				    		
+				    		$("#loading-overlay").modal("hide");
 				    	}
 				    	
 				    },
@@ -393,10 +397,11 @@ $(document).ready(function(){
 					data:JSON.stringify(postData),
 					cache:false,
 					async:false,
-					error:function(response){
+					error:function(xhr, textStatus, errorThrown){
+
 						var _err_msg = '';
-						if(response.responseJSON){
-							_err_msg = response.responseJSON.message;
+						if(errorThrown){
+							_err_msg = errorThrown;
 						}
 
 						if(xhr.status == 400){
@@ -417,12 +422,14 @@ $(document).ready(function(){
 						} else {
 							$(".generalErrMsg").html($("<small/>").text(_err_msg));
 							console.log("unable to load API : "+ fwdApi.url.appointment);
-						}						
+						}
+						$("#loading-overlay").modal("hide");
 				    },
 				    success:function(response){
 				    	
 				    	if(response){
 				    		window.location.href= context + "/" + language + "/savings-insurance/provie/confirmation-appointment?referenceNum=" + response.referenceNum;
+				    		$("#loading-overlay").modal("hide");
 				    	}
 				    },
 				    complete:function(){
@@ -460,6 +467,7 @@ $(document).ready(function(){
 					cache:false,
 					async:false,
 					error:function(xhr, textStatus, errorThrown){
+
 						if(xhr.status == 404){
 							$("#preferedTimeIsNull").modal("show");
 						} else if(xhr.status == 500){
@@ -467,6 +475,7 @@ $(document).ready(function(){
 						} else {
 							console.log("unable to load API : "+ fwdApi.url.findAvailableDateByCentre);
 						}
+						$("#loading-overlay").modal("hide");
 				    },
 				    success:function(response){
 				    	
@@ -488,7 +497,7 @@ $(document).ready(function(){
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
 				    		}
-				    		
+				    		$("#loading-overlay").modal("hide");
 				    	}
 				    	
 				    },
@@ -547,7 +556,8 @@ $(document).ready(function(){
 			data:{type:typeId,language:UILANGUAGE  == "en" ? "EN" : "ZH"},
 			cache:false,
 			async:false,
-			error:function(){
+			error:function(xhr, textStatus, errorThrown){
+
 				if(xhr.status == 400){
 					console.log('Invalid appointment type.');
 				} else if(xhr.status == 500){
@@ -555,6 +565,7 @@ $(document).ready(function(){
 				} else {
 					console.log("unable to load API : "+ fwdApi.url.getAvailableCentre);	
 				}
+				$("#loading-overlay").modal("hide");
 		    },
 		    success:function(response){
 		    	
@@ -581,9 +592,9 @@ $(document).ready(function(){
 		    		}else{
 		    			$("#fullyBooked").modal('show');
 		    		}
-		    		
-		    		
 		    	}
+
+		    	$("#loading-overlay").modal("hide");
 		    },
 		    complete:function(){
 		    	$("#loading-overlay").modal("hide");
@@ -605,7 +616,10 @@ $(document).ready(function(){
 			contentType: "application/json",
 			cache:false,
 			async:false,
-			error:function(){
+			error:function(xhr, textStatus, errorThrown){
+				
+				var resp = $.parseJSON(xhr.responseText);
+
 				$(".before-login").show();
 		    },
 		    success:function(response){
@@ -649,16 +663,20 @@ function bsvFormLogin(form){
 				data:JSON.stringify(postData),
 				cache:false,
 				async:false,
-				error:function(response){
+				error:function(xhr, textStatus, errorThrown){
+
+					var resp = $.parseJSON(xhr.responseText);
+
 					if(xhr.status == 400){
-						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
 					} else if(xhr.status == 401){
-						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
 					} else if(xhr.status == 500){
-						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+						$(".loginPanErrMsg").html($("<small/>").text(resp.message));	
 					} else {
 						console.log("unable to load API : "+ fwdApi.url.login);
 					}
+					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
 			    	if(response){
@@ -671,6 +689,7 @@ function bsvFormLogin(form){
 			    		$(".after-login").show();	
 			    		$("#btn-appointment-confirm").show();
 
+			    		$("#loading-overlay").modal("hide");
 			    	}
 			    },
 			    complete:function(){
@@ -740,8 +759,11 @@ function bsvFormForgotUsername(form){
 				data:postData,
 				cache:false,
 				async:false,
-				error:function(response){
-					$(".forgotUsernamePanErrMsg").append($("<small/>").text(response.responseJSON.message));	
+				error:function(xhr, textStatus, errorThrown){
+
+					var resp = $.parseJSON(xhr.responseText);
+
+					$(".forgotUsernamePanErrMsg").append($("<small/>").text(resp.message));	
 			    },
 			    success:function(response){
 			    	if(response){		    		
@@ -860,12 +882,17 @@ function bsvFormForgotPwd(form){
 				data:postData,
 				cache:false,
 				async:false,
-				error:function(response){
-					$(".forgotPwdPanErrMsg").append($("<small/>").text(response.responseJSON.message));	
+				error:function(xhr, textStatus, errorThrown){
+
+					var resp = $.parseJSON(xhr.responseText);
+
+					$(".forgotPwdPanErrMsg").append($("<small/>").text(resp.message));	
+					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
 			    	if(response){		    		
 			    		$(".forgotPwdPanErrMsg").append($("<small/>").text("Please check your email"));	
+			    		$("#loading-overlay").modal("hide");
 			    	}
 			    },
 			    complete:function(){
@@ -998,8 +1025,12 @@ function bsvFormRegister(form){
 				data:JSON.stringify(postData),
 				cache:false,
 				async:false,
-				error:function(response){
-					$(".regPanErrMsg").append($("<small/>").text(response.responseJSON.message));	
+				error:function(xhr, textStatus, errorThrown){
+
+					var resp = $.parseJSON(xhr.responseText);
+
+					$(".regPanErrMsg").append($("<small/>").text(resp.message));	
+					$("#loading-overlay").modal("hide");
 			    },
 			    success:function(response){
 			    	if(response){
@@ -1012,6 +1043,7 @@ function bsvFormRegister(form){
 			    		$(".after-login").show();
 			    		$("#btn-appointment-confirm").show();
 
+			    		$("#loading-overlay").modal("hide");
 			    	}
 			    },
 			    complete:function(){
