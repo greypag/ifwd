@@ -5,6 +5,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import java.util.Map;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,6 +21,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +36,7 @@ import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.Methods;
 
 @Controller
@@ -40,6 +45,9 @@ import com.ifwd.fwdhk.util.Methods;
 public class MemberController extends BaseController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 	
 	@RequestMapping(value = "/session", method = GET)
 	@ApiOperation(
@@ -301,7 +309,8 @@ public class MemberController extends BaseController {
 			session.setAttribute("userDetails", userDetails);
 							
 			String Url = UserRestURIConstants.GET_FNA;
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, COMMON_HEADERS, null);
+			final Map<String,String> header = headerUtil.getHeader(servletRequest);
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 			if (responseJsonObj.get("result") != null){
 				JSONObject jobject = (JSONObject)responseJsonObj.get("result");
 				if(jobject.get("name")!=null&&jobject.get("gender")!=null){
