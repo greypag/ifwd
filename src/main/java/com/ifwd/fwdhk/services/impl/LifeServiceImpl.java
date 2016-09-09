@@ -291,6 +291,7 @@ public class LifeServiceImpl implements LifeService {
 						//only retrieve 5 years data from 0 Rate
 						if (yearNum <= 5) {
 							planRider.put("premiumYear", yearNum);
+							//logger.info(">>>0 Rate, Year>>" + yearNum + ">>>>>>>>>>>" + planDetails0Rate.get(i).getInterestedRate());
 							Double drate0 = Double.parseDouble(planDetails0Rate.get(i).getInterestedRate())*100;
 							double rate0= 0.0;
 							if(drate0.compareTo(new Double("0.00"))==0) {
@@ -322,7 +323,8 @@ public class LifeServiceImpl implements LifeService {
 							//0 rate
 							plan0 = new net.sf.json.JSONObject();
 							plan0.put("premiumYear", yearNum);
-							plan0.put("rate", 1);
+							plan0.put("rate", 0);
+							//logger.info(">>>0 Rate, Year>>" + yearNum + ">>>>>>>>>>>" + planDetails0Rate.get(i).getInterestedRate());
 							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
@@ -338,7 +340,8 @@ public class LifeServiceImpl implements LifeService {
 							//2 rate
 							plan2 = new net.sf.json.JSONObject();
 							plan2.put("premiumYear", Integer.valueOf(planDetails2Rate.get(i).getType().substring(1)));
-							plan2.put("rate", 2);
+							plan2.put("rate", 1);
+							//logger.info(">>>2 Rate, Year>>" + yearNum + ">>>>>>>>>>>" + planDetails2Rate.get(i).getInterestedRate());
 							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
 							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
@@ -354,7 +357,8 @@ public class LifeServiceImpl implements LifeService {
 							//3 rate
 							plan3 = new net.sf.json.JSONObject();
 							plan3.put("premiumYear", Integer.valueOf(planDetails3Rate.get(i).getType().substring(1)));
-							plan3.put("rate", 3);
+							plan3.put("rate", 2);
+							//logger.info(">>>3 Rate, Year>>" + yearNum + ">>>>>>>>>>>" + planDetails3Rate.get(i).getInterestedRate());
 							plan3.put("accountValue", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getAccountEOP())));
 							plan3.put("deathBenefit", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
@@ -365,13 +369,13 @@ public class LifeServiceImpl implements LifeService {
 								plan3.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
 							plan3.put("totalPaid", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getTotalPremium())));
-							credit3Rates.put("rate", 3);
+							credit3Rates.put("rate", 2);
 							credit3Rates.accumulate("plans", plan3);
 							//4 rate
 							if(planDetails4Rate!=null){
 							plan4 = new net.sf.json.JSONObject();
 							plan4.put("premiumYear", Integer.valueOf(planDetails4Rate.get(i).getType().substring(1)));
-							plan4.put("rate", 4);
+							plan4.put("rate", 3);
 							plan4.put("accountValue", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getAccountEOP())));
 							plan4.put("deathBenefit", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit())));
 							if ("p100".equals(proviePlanDetails.getRider())) {
@@ -382,7 +386,7 @@ public class LifeServiceImpl implements LifeService {
 								plan4.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getGuranteedDeathBenefit())*5)))));
 							}
 							plan4.put("totalPaid", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getTotalPremium())));
-							credit4Rates.put("rate", 4);
+							credit4Rates.put("rate", 3);
 							credit4Rates.accumulate("plans", plan4);
 							}
 							if (yearNum==100){
