@@ -174,17 +174,11 @@
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-amount">
-											<c:if test="${language == 'en'}">
 												<fmt:message key="provie.plandetails.dropdown.monthly.prefix" bundle="${provieMsg}" />
 												(
 													<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
 													<fmt:message key="provie.plandetails.dropdown.monthly.suffix" bundle="${provieMsg}" />
 												)
-											</c:if>
-											<c:if test="${language == 'tc'}">
-												<fmt:message key="provie.plandetails.dropdown.monthly.prefix" bundle="${provieMsg}" />
-												(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
-											</c:if>
 										</label>
 									</div>
 								</div>
@@ -394,7 +388,7 @@
 			</div>
 			<div class="collapse" id="after-5-years-container">
 				<div class="crediting-rate">
-					<h4 class="crediting-rate-title">派息率(%)</h4>
+					<h4 class="crediting-rate-title"><fmt:message key="provie.plandetails.summary.rate" bundle="${provieMsg}" /></h4>
 					<div class="rate-buttons">
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">保守假設基礎</p>' class="rate-btn active" type="button" data-val="0">0%</button>
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">現時假設基礎</p>' class="rate-btn" type="button" data-val="1">1%</button>
@@ -687,7 +681,7 @@
 						   </div>
 						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
 							  <div class="panel-body">
-								<div class="js-display-savie-sp">
+								<div>
 									<p><fmt:message key="provie.plandetails.risk1.title" bundle="${provieMsg}" /></p>
 									<p><fmt:message key="provie.plandetails.risk1.text" bundle="${provieMsg}" /></p><br/>
 									<p><fmt:message key="provie.plandetails.risk2.title" bundle="${provieMsg}" /></p>
@@ -719,15 +713,10 @@
 										<li><fmt:message key="provie.plandetails.rider.text13" bundle="${provieMsg}" /></li>
 									</ol>
 									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.title" bundle="${provieMsg}" /></p>
-									<p>
-										<fmt:message key="provie.plandetails.nonguranteedbenefits.text1" bundle="${provieMsg}" /><br>
-										<fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /><br>
-										<fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /><br>
-
-									</p>
-								</div>
-								<div class="js-display-savie-rp">
-									<p>信貸風險</p><p>本產品是由富衛發出的保單。投保本保險產品或其任何保單利益須承受富衛的信貸風險。您將承擔富衛無法履行保單財務責任的違約風險。</p><br/><p>流動性風險</p><p>本產品為長期保險保單。此長期保險保單有既定的保單期限，保單期限由保單生效日至期滿日止。保單提供一定價值，如您於期滿日前作退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來利息及保單保障。投保本產品有機會對您的財務狀況構成流動性風險，您須承擔本產品之流動性風險。</p><br/><p>外幣匯率及貨幣風險</p><p>投保外幣為保單貨幣的保險產品須承受外幣匯率及貨幣風險。請注意外幣或會受相關監管機構控制及管理（例如，外匯限制）。若保險產品的貨幣單位與您的本國貨幣不同，任何保單貨幣對您的本國貨幣匯率之變動將直接影響您的應付保費及可取利益。舉例來說，如果保單貨幣對您的本國貨幣大幅貶值，這種匯率波動可能對您的應付保費及可取利益帶來潛在損失。</p><br/><p>通脹風險</p><p>請注意通脹會導致未來生活費用增加。即使富衛履行所有合約責任，實際保單權益可能不足以應付將來的保障需要。</p><br/><p>提早退保風險</p><p>如您在保單期滿日前提早退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來派息及保單保障。</p><br/><p>終止保單</p><p>保單將在下列其中一個日期終止，以最早者為準: 1. 被保人身故 2. 被保人100歲生日前之保單週年日 3. 保單之退保日。此日期為依富衛退保相關規定所認定之退保日 4. 當保單戶口價值低於零。</p><br/><p>不保證保障</p><p>不保證保障包括派息率是非保證的，並按照釐定派息率的理念由富衛自行決定。</p><br/><p>保費年期及欠繳保費（只適用於月供計劃）</p><p>保單的供款年期的終結日為被保人100歲生日前之保單週年日。任何到期應繳付之保費均可獲富衛30天寬限期。若在寬限期後仍未繳付保費，富衛將為保單執行保費假期。若保單已行使保費假期，保單應繳的基本計劃保費、附加於本保單之附約保費（如適用）及相關的收費將會持續從保單戶口內扣除。當保單戶口價值不足以支付基本計劃保費，任何附加於本保單之附約保費及相關的收費，或當保單戶口價值低於最低戶口結餘時，保單將會自動被終止。請注意，如保單是因此而自動終止，您可能會失去全部權益。
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text1" bundle="${provieMsg}" /></p>
+									<br>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text2" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /></p>
 								</div>
 							  </div>
 						   </div>
@@ -785,13 +774,11 @@
 				<p><fmt:message key="provie.plandetails.note.title" bundle="${provieMsg}" /><br><fmt:message key="provie.plandetails.note.text1" bundle="${provieMsg}" /></p>
 				<br/>
 
-				<p><fmt:message key="provie.plandetails.note.text2" bundle="${provieMsg}" /></p>
-				<br/>
-				<p><fmt:message key="provie.plandetails.note.text3" bundle="${provieMsg}" /></p>
-				<br/>
-				<p><fmt:message key="provie.plandetails.note.text4" bundle="${provieMsg}" /></p>
-				<br/>
-				
+				<ul>
+					<li><fmt:message key="provie.plandetails.note.text2" bundle="${provieMsg}" /></li>
+					<li><fmt:message key="provie.plandetails.note.text3" bundle="${provieMsg}" /></li>
+					<li><fmt:message key="provie.plandetails.note.text4" bundle="${provieMsg}" /></li>
+				</ul>
 			</div>
 		</div>
 		<div class="next-btn text-center">
@@ -1135,6 +1122,7 @@
 		}
 
 		//changing labels of promo code
+		/*
 		$('#promoCode').focus(function() {
 			$('.promocode-label').text('推廣編號');
 		}).focusout(function () {
@@ -1144,6 +1132,7 @@
 				$('.promocode-label').text('推廣編號');
 			}
 		});
+		*/
 
 		/*$('#plan-dob-datepicker').focus(function () {
 			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
@@ -1215,7 +1204,7 @@
 		apply=false;
 		if('2'=='2'){
 			//alert("clicked");
-			window.location = '<%=request.getContextPath()%>/tc/savings-insurance/provie/customer-service-centre';
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre';
 			//proceedLogin('/tc/savings-insurance/sales-illustration');
 		}else {
 			//$('#offline-online-modal').modal('show');
