@@ -1,10 +1,12 @@
 "use static";
+var dummyJson = {"plans":[{"premiumYear":1,"rate":1.0,"accountValue":10001.0,"deathBenefit":10002.0,"riderValue":10003.0,"totalPaid":10000.0},{"premiumYear":2,"rate":1.1,"accountValue":10001.0,"deathBenefit":10002.0,"riderValue":10003.0,"totalPaid":10000.0},{"premiumYear":3,"rate":1.2,"accountValue":10001.0,"deathBenefit":10002.0,"riderValue":10003.0,"totalPaid":10000.0},{"premiumYear":4,"rate":1.3,"accountValue":10001.0,"deathBenefit":10002.0,"riderValue":10003.0,"totalPaid":10000.0},{"premiumYear":5,"rate":1.4,"accountValue":10001.0,"deathBenefit":10002.0,"riderValue":10003.0,"totalPaid":10000.0}]};
 
 var pvCtr = {
 	//values
 	planSlider: document.getElementById('slider'),
 	planDetailCtr: {},
 	cal3Card : {},
+	useDummyResult: true,
 	//function
 	onReady : function(){
 		this.initAutoHeight();
@@ -203,7 +205,7 @@ var planInquiry = {
 				},	
 				cache:false,
 				async:false,
-				error: this.requestPlanError,
+				error: function (response){that.requestPlanError(response);},
 			    success: function (response){that.requestPlanSuccess(response);},
 			    complete: this.hideLoading
 			});
@@ -216,9 +218,17 @@ var planInquiry = {
 		pvCtr.hideAjaxLoading();
 	},
 	requestPlanError: function (){
+		if(pvCtr.useDummyResult){
+			this.requestPlanSuccess(dummyJson);
+			return;
+		}
 		alert("request could not complete, please try again...");
 	},
 	requestPlanSuccess: function (response){
+		if(pvCtr.useDummyResult){
+			response = dummyJson;
+		}
+
 		response = this.patchLast2YearData(response);
 
     	//pass data to details helper
