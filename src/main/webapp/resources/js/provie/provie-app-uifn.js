@@ -374,7 +374,7 @@ $(document).ready(function(){
 					centreCode:$("#centre").val(),
 					planCode:"PROVIE-SP",
 					userName:userName,
-					type:typeId
+					appointmentType:typeId
 				}
 				$.ajax({
 					beforeSend:function(){
@@ -498,8 +498,6 @@ $(document).ready(function(){
 		});
 		
 		
-
-		
 		//Get Available Centre
 		$.ajax({
 			beforeSend:function(){
@@ -508,7 +506,7 @@ $(document).ready(function(){
 			url:fwdApi.url.getAvailableCentre,
 			type:"get",
 			contentType: "application/json",
-			data:{type:typeId,language:language},
+			data:{type:typeId,language:UILANGUAGE  == "en" ? "EN" : "ZH"},
 			cache:false,
 			async:false,
 			error:function(){
