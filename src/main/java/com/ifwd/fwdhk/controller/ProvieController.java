@@ -270,13 +270,42 @@ public class ProvieController extends BaseController{
 				 net.sf.json.JSONObject jo = (net.sf.json.JSONObject) ja.get(i);
 		            ProviePlanDetails.Plan plan = plans.new Plan();
 					plan.setPremiumYear(jo.getInt("premiumYear"));
+					//logger.info(String.valueOf(jo.getInt("premiumYear")));
 					plan.setRate(jo.getDouble("rate"));
+					//logger.info(String.valueOf(jo.getDouble("rate")));
 					plan.setAccountValue(Float.valueOf(jo.getInt("accountValue")));
+					//logger.info(String.valueOf(jo.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
+					//logger.info(String.valueOf(jo.getInt("deathBenefit")));
 					plan.setRiderValue(Float.valueOf(jo.getInt("riderValue")));
+					//logger.info(String.valueOf(jo.getInt("riderValue")));
 					list.add(plan);
 			}
 			plans.setPlans(list);
+			
+			List<ProviePlanDetails.CreditRates> listCrdt = new ArrayList<ProviePlanDetails.CreditRates>();
+			net.sf.json.JSONArray crdtArr = resultJsonObject.getJSONArray("creditRates");
+			for (int i = 0; i < crdtArr.size(); i++) {
+				 net.sf.json.JSONObject jo = (net.sf.json.JSONObject) crdtArr.get(i);
+				 ProviePlanDetails.CreditRates crdt = plans.new CreditRates();
+				 crdt.setRate(jo.getDouble("rate"));
+				 net.sf.json.JSONArray planArr = jo.getJSONArray("plans");
+				 List<ProviePlanDetails.Plan> paList = new ArrayList<ProviePlanDetails.Plan>();
+				 for (int j=0;j<planArr.size();j++) {
+		            net.sf.json.JSONObject pa = (net.sf.json.JSONObject) planArr.get(i);
+		            ProviePlanDetails.Plan plan = plans.new Plan();
+					plan.setPremiumYear(pa.getInt("premiumYear"));
+					plan.setRate(pa.getDouble("rate"));
+					plan.setAccountValue(Float.valueOf(pa.getInt("accountValue")));
+					plan.setDeathBenefit(Float.valueOf(pa.getInt("deathBenefit")));
+					plan.setRiderValue(Float.valueOf(pa.getInt("riderValue")));
+					paList.add(plan);
+				 }
+				 crdt.setPlans(paList);
+				 listCrdt.add(crdt);
+			}
+			plans.setPlans(list);
+			plans.setCreditRates(listCrdt);
 			return Responses.ok(plans);
 			/*
 			ProviePlanDetails plans = new ProviePlanDetails();
