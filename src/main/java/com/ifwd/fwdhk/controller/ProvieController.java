@@ -53,8 +53,11 @@ import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.model.AppointmentBooking.AppointmentType;
 import com.ifwd.fwdhk.controller.core.Responses;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.ProviePlanDetails;
+import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.LifeService;
 //import com.ifwd.fwdhk.services.SavieService;
@@ -62,6 +65,8 @@ import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.Methods;
+import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.ProviePageFlowControl;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -108,6 +113,10 @@ public class ProvieController extends BaseController{
 
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
+		boolean extraRiderDisabled=false;
+		if (httpSession.getAttribute("extraRiderDisabled")!=null) {
+			extraRiderDisabled = (boolean) httpSession.getAttribute("extraRiderDisabled");
+		} 		
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
@@ -129,12 +138,61 @@ public class ProvieController extends BaseController{
 			model.addAttribute("sliderMin", "30000");
 			model.addAttribute("sliderMax", "400000");
 			model.addAttribute("sliderValue", "100000");
+			//model.addAttribute("extraRiderDisabled", "ddd");
 			return ProviePageFlowControl.pageFlow("", model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_PLANDETAILS);
 		}else {
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "provie/plan-details-sp");
 		}
 	}	
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderEligibility"})
+	public void getProvieRiderEligibility(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject=provieOnlineService.getProvieRiderEligibility(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+		
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/getProvieRiderPlan"})
+	public void getProvieRiderPlan(ProviePlanDetailsBean proviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			proviePlanDetails.validate(language);
+			proviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(proviePlanDetails.getInsuredAmount()));
+			jsonObject = provieOnlineService.getProvieRiderPlan(proviePlanDetails, request, session);
+			//String[] dob1 = (String) request.getAttribute("dob");
+			String[] dob = proviePlanDetails.getDob().split("-");
+			proviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
+			proviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
+			
+			request.getSession().setAttribute("proviePlanDetails", proviePlanDetails);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		} 
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	
 	
 	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre"})
@@ -165,7 +223,62 @@ public class ProvieController extends BaseController{
 		
 		super.IsAuthenticate(request);
 		
+		HttpSession session=request.getSession();
+		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean();
+		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
+		/*
+		url : context + "/ajax/savings-insurance/getProvieRiderPlan",
+		data: {
+			insuredAmount : premium,
+			paymentType : paymentMode,
+			dob : $("#plan-dob-datepicker").val(),
+			promoCode : $("#promoCode").val(),
+			paymentYear:paymentYear,
+			currency:currency,
+			rider:rider
+			},
+		*/
+		planDetailsBean.setInsuredAmount(String.valueOf(premium));
+		//String teststr=planCode;
+		//String tst1=planCode.substring(2);
+		planDetailsBean.setPaymentType(planCode.toUpperCase());
+		planDetailsBean.setDob(dob.replace("/", "-"));
+		planDetailsBean.setPromoCode("");
+		planDetailsBean.setPaymentYear("");
+		planDetailsBean.setCurrency(currency);
+		if ("AccidentalDeathBenefit".equals(rider)){
+			planDetailsBean.setRider("p50");
+		} else if("CancerBenefit".equals(rider)){
+			planDetailsBean.setRider("p100");
+		} else if("TermLifeBenefit".equals(rider)){
+			planDetailsBean.setRider("p500");
+		}
+		
+		
+		
 		try {
+			resultJsonObject = provieOnlineService.getProvieRiderPlan(planDetailsBean, request, session);
+			ProviePlanDetails plans = new ProviePlanDetails();
+			
+			plans.setPlanCode(resultJsonObject.getString("planCode"));
+			plans.setCurrency(resultJsonObject.getString("currency"));
+			plans.setRider(resultJsonObject.getString("rider"));
+			
+			List<ProviePlanDetails.Plan> list = new ArrayList<ProviePlanDetails.Plan>();
+			net.sf.json.JSONArray ja = resultJsonObject.getJSONArray("plans");
+			for (int i = 0; i < ja.size(); i++) {
+				 net.sf.json.JSONObject jo = (net.sf.json.JSONObject) ja.get(i);
+		            ProviePlanDetails.Plan plan = plans.new Plan();
+					plan.setPremiumYear(jo.getInt("premiumYear"));
+					plan.setRate(jo.getDouble("rate"));
+					plan.setAccountValue(Float.valueOf(jo.getInt("accountValue")));
+					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
+					plan.setRiderValue(Float.valueOf(jo.getInt("riderValue")));
+					list.add(plan);
+			}
+			plans.setPlans(list);
+			return Responses.ok(plans);
+			/*
 			ProviePlanDetails plans = new ProviePlanDetails();
 			plans.setPlanCode("Provie-SP");
 			plans.setCurrency("HKD");
@@ -218,6 +331,7 @@ public class ProvieController extends BaseController{
 
 			plans.setPlans(list);
 			return Responses.ok(plans);
+			*/
 		} catch (Exception e) {
 			return Responses.error(null);
 		}

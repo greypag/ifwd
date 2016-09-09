@@ -28,6 +28,7 @@ public class ProviePlanDetailsBean implements Serializable {
 	private String insuredAmountDiscount;
 	private String insuredAmountDue;
 	private String currency;
+	private String paymentYear;
 	private String rider;
 	
 
@@ -139,6 +140,15 @@ public class ProviePlanDetailsBean implements Serializable {
 
 	public void setRider(String rider) {
 		this.rider = rider;
+	}
+	
+	public String getPaymentYear() {
+		return paymentYear;
+	}
+
+
+	public void setPaymentYear(String paymentYear) {
+		this.paymentYear = paymentYear;
 	}
 
 
