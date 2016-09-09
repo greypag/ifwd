@@ -43,13 +43,8 @@ public class ProviePlanDetailsBean implements Serializable {
 		this.setPromoCode(promoCode);
 		this.setPaymentYear("");
 		this.setCurrency(currency);
-		if ("AccidentalDeathBenefit".equals(rider)){
-			this.setRider("p500");
-		} else if("CancerBenefit".equals(rider)){
-			this.setRider("p50");
-		} else if("TermLifeBenefit".equals(rider)){
-			this.setRider("p100");
-		}
+		this.setRider(rider);
+		
 	}
 
 

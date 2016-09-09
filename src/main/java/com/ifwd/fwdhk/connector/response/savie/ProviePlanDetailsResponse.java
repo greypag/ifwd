@@ -13,6 +13,7 @@ public class ProviePlanDetailsResponse extends BaseResponse {
 	private String referralCode;
 	private String guaranteeRate;
 	private List<SaviePlanDetailsRate> planDetails0Rate;
+	private List<SaviePlanDetailsRate> planDetails1Rate;
 	private List<SaviePlanDetailsRate> planDetails2Rate;
 	private List<SaviePlanDetailsRate> planDetails3Rate;
 	private List<SaviePlanDetailsRate> planDetails4Rate;
@@ -53,6 +54,22 @@ public class ProviePlanDetailsResponse extends BaseResponse {
 	public void setPlanDetails2Rate(List<SaviePlanDetailsRate> planDetails2Rate) {
 		this.planDetails2Rate = planDetails2Rate;
 	}
+	
+	public String getGuaranteeRate() {
+		return guaranteeRate;
+	}
+	public void setGuaranteeRate(String guaranteeRate) {
+		this.guaranteeRate = guaranteeRate;
+	}
+	public List<SaviePlanDetailsRate> getPlanDetails1Rate() {
+		return planDetails1Rate;
+	}
+	public void setPlanDetails1Rate(List<SaviePlanDetailsRate> planDetails1Rate) {
+		this.planDetails1Rate = planDetails1Rate;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public List<SaviePlanDetailsRate> getPlanDetails3Rate() {
 		return planDetails3Rate;
 	}
@@ -64,12 +81,6 @@ public class ProviePlanDetailsResponse extends BaseResponse {
 	}
 	public void setPlanDetails4Rate(List<SaviePlanDetailsRate> planDetails4Rate) {
 		this.planDetails4Rate = planDetails4Rate;
-	}
-	public String getGuaranteeRate() {
-		return guaranteeRate;
-	}
-	public void setGuaranteeRate(String guaranteeRate) {
-		this.guaranteeRate = guaranteeRate;
 	}
 	
 }

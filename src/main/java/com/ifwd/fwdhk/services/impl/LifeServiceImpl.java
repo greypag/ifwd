@@ -252,39 +252,30 @@ public class LifeServiceImpl implements LifeService {
 		ProviePlanDetailsResponse apiResponse = connector.proviePlanDetails("PROVIE", issueAge, paymentTerm,
 				proviePlanDetails.getInsuredAmount(), proviePlanDetails.getPromoCode(), proviePlanDetails.getPaymentType(), proviePlanDetails.getCurrency());
 		
-		//request.getSession().setAttribute("proviePlanDetailData", apiResponse);
-		
 		if(apiResponse.hasError()){
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}else{
-			//jsonObject.put("planDetails0Rate", apiResponse.getPlanDetails0Rate());
-			
 			net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 			if(!apiResponse.hasError()){
 				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate(); 
-				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate(); 
-				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
+				List<SaviePlanDetailsRate> planDetails1Rate = apiResponse.getPlanDetails1Rate(); 
+				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
+				
 				
 				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
 					//net.sf.json.JSONObject plansWithRider = new net.sf.json.JSONObject();
-					resultJsonObject.put("planCode", "Provie-SP");
+					resultJsonObject.put("planCode", "PROVIE-" + proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
 					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
-					resultJsonObject.put("rider", "PA");
-					
-					net.sf.json.JSONObject credit0Rates;
-					net.sf.json.JSONObject credit2Rates;
-					net.sf.json.JSONObject credit3Rates;
-					net.sf.json.JSONObject credit4Rates;
+					resultJsonObject.put("rider", proviePlanDetails.getRider());
+					net.sf.json.JSONObject credit0Rates = new net.sf.json.JSONObject();
+					net.sf.json.JSONObject credit1Rates = new net.sf.json.JSONObject();					
+					net.sf.json.JSONObject credit2Rates = new net.sf.json.JSONObject();
 					net.sf.json.JSONObject planRider;
-					net.sf.json.JSONObject plan0;
-					net.sf.json.JSONObject plan2;
-					net.sf.json.JSONObject plan3;
-					net.sf.json.JSONObject plan4;
-					credit0Rates = new net.sf.json.JSONObject();
-					credit2Rates = new net.sf.json.JSONObject();
-					credit3Rates = new net.sf.json.JSONObject();
-					credit4Rates = new net.sf.json.JSONObject();
+					net.sf.json.JSONObject plan0 = new net.sf.json.JSONObject();
+					net.sf.json.JSONObject plan1 = new net.sf.json.JSONObject();
+					net.sf.json.JSONObject plan2 = new net.sf.json.JSONObject();
+					
+					
 					for(int i =0;i<planDetails0Rate.size();i++){
 						planRider = new net.sf.json.JSONObject();
 						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
@@ -311,90 +302,60 @@ public class LifeServiceImpl implements LifeService {
 							planRider.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
 							resultJsonObject.accumulate("plans", planRider);
 						}
-						
+					}
+					
+					for(int i =0;i<planDetails0Rate.size();i++){
+						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
 						if (yearNum==10||yearNum==15||yearNum==100) {
-							//logger.info("i==>>"+ i + "<<<<<<<<<<<" + "yearNum=>>" + yearNum + "<<<<<<<<<<<<<");
-							//logger.info("2Rate Year:>>" +Integer.valueOf(planDetails2Rate.get(i).getType().substring(1))+"<<<<");
-							//logger.info("3Rate Year:>>" +Integer.valueOf(planDetails3Rate.get(i).getType().substring(1))+"<<<<");
-							//if(planDetails4Rate!=null){
-							//	logger.info("4Rate Year:>>" +Integer.valueOf(planDetails4Rate.get(i).getType().substring(1))+"<<<<");
-							//}
-							//0 rate
-							plan0 = new net.sf.json.JSONObject();
+							
+							
 							plan0.put("premiumYear", yearNum);
-							plan0.put("rate", 1);
+							plan0.put("rate", 0);
 							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
-							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan0.put("riderValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
-							} else if ("p50".equals(proviePlanDetails.getRider())){
-								plan0.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getAccountEOP())/2)))));
-							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan0.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails0Rate.get(i).getGuranteedDeathBenefit())*5)))));
-							}
+							
 							plan0.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
-							credit0Rates.put("rate", 0);
 							credit0Rates.accumulate("plans", plan0);
-							//2 rate
-							plan2 = new net.sf.json.JSONObject();
-							plan2.put("premiumYear", Integer.valueOf(planDetails2Rate.get(i).getType().substring(1)));
-							plan2.put("rate", 2);
-							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
-							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));
-							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan2.put("riderValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
-							} else if ("p50".equals(proviePlanDetails.getRider())){
-								plan2.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getAccountEOP())/2)))));
-							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan2.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails2Rate.get(i).getGuranteedDeathBenefit())*5)))));
-							}
-							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
-							credit2Rates.put("rate", 1);
-							credit2Rates.accumulate("plans", plan2);
-							//3 rate
-							plan3 = new net.sf.json.JSONObject();
-							plan3.put("premiumYear", Integer.valueOf(planDetails3Rate.get(i).getType().substring(1)));
-							plan3.put("rate", 3);
-							plan3.put("accountValue", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getAccountEOP())));
-							plan3.put("deathBenefit", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit())));
-							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan3.put("riderValue", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getAccountEOP())));
-							} else if ("p50".equals(proviePlanDetails.getRider())){
-								plan3.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getAccountEOP())/2)))));
-							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan3.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails3Rate.get(i).getGuranteedDeathBenefit())*5)))));
-							}
-							plan3.put("totalPaid", Integer.valueOf(formatNumber(planDetails3Rate.get(i).getTotalPremium())));
-							credit3Rates.put("rate", 3);
-							credit3Rates.accumulate("plans", plan3);
-							//4 rate
-							if(planDetails4Rate!=null){
-							plan4 = new net.sf.json.JSONObject();
-							plan4.put("premiumYear", Integer.valueOf(planDetails4Rate.get(i).getType().substring(1)));
-							plan4.put("rate", 4);
-							plan4.put("accountValue", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getAccountEOP())));
-							plan4.put("deathBenefit", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit())));
-							if ("p100".equals(proviePlanDetails.getRider())) {
-								plan4.put("riderValue", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getAccountEOP())));
-							} else if ("p50".equals(proviePlanDetails.getRider())){
-								plan4.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getAccountEOP())/2)))));
-							} else if ("p500".equals(proviePlanDetails.getRider())) {
-								plan4.put("riderValue", Integer.valueOf(formatNumber(String.valueOf(Math.floor(Double.parseDouble(planDetails4Rate.get(i).getGuranteedDeathBenefit())*5)))));
-							}
-							plan4.put("totalPaid", Integer.valueOf(formatNumber(planDetails4Rate.get(i).getTotalPremium())));
-							credit4Rates.put("rate", 4);
-							credit4Rates.accumulate("plans", plan4);
-							}
-							if (yearNum==100){
-								resultJsonObject.accumulate("creditRates", credit0Rates);					
-								resultJsonObject.accumulate("creditRates", credit2Rates);					
-								resultJsonObject.accumulate("creditRates", credit3Rates);
-								if(planDetails4Rate!=null){
-									resultJsonObject.accumulate("creditRates", credit4Rates);
-								}
-							}
+							
 						}
 					}
+					
+					for(int i =0;i<planDetails1Rate.size();i++){
+						yearNum=Integer.valueOf(planDetails1Rate.get(i).getType().substring(1));
+						if (yearNum==10||yearNum==15||yearNum==100) {
+							
+							plan1 = new net.sf.json.JSONObject();
+							plan1.put("premiumYear", yearNum);
+							plan1.put("rate", 1);
+							plan1.put("accountValue", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getAccountEOP())));
+							plan1.put("deathBenefit", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getGuranteedDeathBenefit())));							
+							plan1.put("totalPaid", Integer.valueOf(formatNumber(planDetails1Rate.get(i).getTotalPremium())));
+							credit1Rates.accumulate("plans", plan1);
+							
+						}
+					}
+					for(int i =0;i<planDetails2Rate.size();i++){
+						yearNum=Integer.valueOf(planDetails2Rate.get(i).getType().substring(1));
+						if (yearNum==10||yearNum==15||yearNum==100) {
+							
+							plan2 = new net.sf.json.JSONObject();
+							plan2.put("premiumYear", yearNum);
+							plan2.put("rate", 2);
+							plan2.put("accountValue", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getAccountEOP())));
+							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));							
+							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
+							credit2Rates.accumulate("plans", plan2);
+							
+						}
+						
+					}
+					credit0Rates.accumulate("rate", 0);
+					credit1Rates.accumulate("rate", 1);
+					credit2Rates.accumulate("rate", 2);
+					
+					resultJsonObject.accumulate("creditRates", credit0Rates);					
+					resultJsonObject.accumulate("creditRates", credit1Rates);					
+					resultJsonObject.accumulate("creditRates", credit2Rates);
 					resultJsonObject.accumulate("errMsgs", "");
 					resultJsonObject.accumulate("result", "success");
 					request.getSession().setAttribute("provieRiderPlan", resultJsonObject);

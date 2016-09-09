@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -244,9 +245,9 @@ public class ProvieController extends BaseController{
 			resultJsonObject = provieOnlineService.getProvieRiderPlan(planDetailsBean, request, session);
 			ProviePlanDetails plans = new ProviePlanDetails();
 			
-			plans.setPlanCode(resultJsonObject.getString("planCode"));
+			plans.setPlanCode(resultJsonObject.getString("planCode").toUpperCase());
 			plans.setCurrency(resultJsonObject.getString("currency"));
-			plans.setRider(resultJsonObject.getString("rider"));
+			plans.setRider(rider);
 			
 			List<ProviePlanDetails.Plan> list = new ArrayList<ProviePlanDetails.Plan>();
 			net.sf.json.JSONArray ja = resultJsonObject.getJSONArray("plans");
@@ -256,11 +257,11 @@ public class ProvieController extends BaseController{
 					plan.setPremiumYear(jo.getInt("premiumYear"));
 					//logger.info(String.valueOf(jo.getInt("premiumYear")));
 					plan.setRate(jo.getDouble("rate"));
-					plan.setTotalPaid(jo.getInt("totalPremium"));
+					plan.setTotalPaid(jo.getInt("totalPaid"));
 					plan.setAccountValue(Float.valueOf(jo.getInt("accountValue")));
 					//logger.info(String.valueOf(jo.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(jo.getInt("deathBenefit")));
-					plan.setRiderValue(Integer.valueOf(calculateRider(jo.getInt("accountValue"), resultJsonObject.getString("rider"))));
+					plan.setRiderValue(Integer.valueOf(calculateRider(jo.getInt("accountValue"), plans.getRider())));
 					//logger.info(String.valueOf(jo.getInt("riderValue")));
 					list.add(plan);
 			}
@@ -281,7 +282,9 @@ public class ProvieController extends BaseController{
 					plan.setRate(pa.getDouble("rate"));
 					plan.setAccountValue(Float.valueOf(pa.getInt("accountValue")));
 					plan.setDeathBenefit(Float.valueOf(pa.getInt("deathBenefit")));
-					plan.setRiderValue(Float.valueOf(pa.getInt("riderValue")));
+					plan.setTotalPaid(Float.valueOf(pa.getInt("totalPaid")));
+					
+					plan.setRiderValue(calculateRider(pa.getInt("accountValue"), plans.getRider()));
 					paList.add(plan);
 				 }
 				 crdt.setPlans(paList);
@@ -292,16 +295,17 @@ public class ProvieController extends BaseController{
 			return Responses.ok(plans);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			return Responses.error(null);
 		}
 	}
 
 	private int calculateRider(int accountValue, String rider) {
-		if ("p50".equals(rider)){
+		if ("CANCER_BENEFIT".equals(rider)){
 			return (int)(accountValue * 0.5);
-		} else if("p100".equals(rider)){
+		} else if("TERM_LIFE_BENEFIT".equals(rider)){
 			return (int)(accountValue * 1);
-		} else if("p500".equals(rider)){
+		} else if("ACCIDENTIAL_DEATH_BENEFIT".equals(rider)){
 			return (int)(accountValue * 5);
 		} else {
 			return 0;
