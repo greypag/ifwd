@@ -285,7 +285,14 @@ $(document).ready(function(){
 					cache:false,
 					async:false,
 					error:function(){
-						alert("something error");
+						if(xhr.status == 404){
+							$('#perferredTimeIsNull').modal('show')
+							pickAnotherCentre
+						} else if(xhr.status == 500){
+							console.log('System error.');
+						} else {
+							console.log("unable to load API : "+ fwdApi.url.findAvailableTimeByCentre);
+						}
 				    },
 				    success:function(response){
 				    	if(response){
@@ -387,11 +394,30 @@ $(document).ready(function(){
 					cache:false,
 					async:false,
 					error:function(response){
-						console.log(response);
+						var _err_msg = '';
 						if(response.responseJSON){
-							$(".generalErrMsg").append($("<small/>").text(response.responseJSON.message));
+							_err_msg = response.responseJSON.message;
 						}
-						
+
+						if(xhr.status == 400){
+							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							console.log('Invalid appointment type.');
+						} else if(xhr.status == 405){
+							$('#moreThan2Tries').modal('show');
+							console.log('The number of appointments must be less than 2.');
+						} else if(xhr.status == 406){
+							$('#accessCodeUsed').modal('show');
+							console.log('Access code has already been used.');
+						} else if(xhr.status == 409){
+							$('#reservationInvalid').modal('show');
+							console.log('Reservation is invalid.');
+						} else if(xhr.status == 500){
+							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							console.log('System error.');
+						} else {
+							$(".generalErrMsg").html($("<small/>").text(_err_msg);
+							console.log("unable to load API : "+ fwdApi.url.appointment);
+						}						
 				    },
 				    success:function(response){
 				    	
@@ -433,8 +459,14 @@ $(document).ready(function(){
 					data:{type:typeId,centreCode:d.serviceCentreCode,date:""},
 					cache:false,
 					async:false,
-					error:function(){
-						alert("something error");
+					error:function(xhr, textStatus, errorThrown){
+						if(xhr.status == 404){
+							$("#preferedTimeIsNull").modal("show");
+						} else if(xhr.status == 500){
+							console.log('System error.');
+						} else {
+							console.log("unable to load API : "+ fwdApi.url.findAvailableDateByCentre);
+						}
 				    },
 				    success:function(response){
 				    	
@@ -454,7 +486,7 @@ $(document).ready(function(){
 					    		$('#app-date').mobiscroll('setVal',dates[0],true);
 					    		
 				    		}else{
-				    			 $("#preferedTimeIsNull").modal("show");
+				    			$("#preferedTimeIsNull").modal("show");
 				    		}
 				    		
 				    	}
@@ -516,7 +548,13 @@ $(document).ready(function(){
 			cache:false,
 			async:false,
 			error:function(){
-				alert("unable to load API : "+ fwdApi.url.getAvailableCentre);
+				if(xhr.status == 400){
+					console.log('Invalid appointment type.');
+				} else if(xhr.status == 500){
+					console.log('System error.');
+				} else {
+					console.log("unable to load API : "+ fwdApi.url.getAvailableCentre);	
+				}
 		    },
 		    success:function(response){
 		    	
@@ -612,7 +650,15 @@ function bsvFormLogin(form){
 				cache:false,
 				async:false,
 				error:function(response){
-					$(".loginPanErrMsg").append($("<small/>").text(response.responseJSON.message));	
+					if(xhr.status == 400){
+						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+					} else if(xhr.status == 401){
+						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+					} else if(xhr.status == 500){
+						$(".loginPanErrMsg").html($("<small/>").text(response.responseJSON.message));	
+					} else {
+						console.log("unable to load API : "+ fwdApi.url.login);
+					}
 			    },
 			    success:function(response){
 			    	if(response){
