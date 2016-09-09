@@ -98,7 +98,7 @@ public class AjaxLifeController extends BaseController{
 			proviePlanDetails.validate(language);
 			proviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(proviePlanDetails.getInsuredAmount()));
 			//jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
-			jsonObject = savieOnlineService.getProvieOnlinePlandetails(proviePlanDetails, request, session);
+			//jsonObject = savieOnlineService.getProvieOnlinePlandetails(proviePlanDetails, request, session);
 			//String[] dob1 = (String) request.getAttribute("dob");
 			String[] dob = proviePlanDetails.getDob().split("-");
 			proviePlanDetails.setDob1(dob[2]+"路"+dob[1]+"路"+dob[0]);
@@ -109,9 +109,11 @@ public class AjaxLifeController extends BaseController{
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
 		}
+		/*
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		} 
+		*/
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
 	}
