@@ -19,7 +19,6 @@
 	var obj = {
 	    'topBar': {
 	        'mobile': 0,
-	        // 'mobile':   106,
 	        'desktop': 42,
 	        'classname': {
 	            'mobile': 'div.closeMobileMenu',
@@ -64,7 +63,13 @@ nBarConfig = {
 }
 <% } %>
 </script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
+
+<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.custom.flight.js" charset="utf-8"></script>
+<% } %>
+
+<!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8"> -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 <!-- ./header.notification.bar -->
 

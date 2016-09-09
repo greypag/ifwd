@@ -4,7 +4,7 @@
 //  //System.out.println("uatAuth " + uatAuth);
 //  if (uatAuth == null)
 //      response.sendRedirect(request.getContextPath() + "/uatAuth");
-    
+
 //  if (!uatAuth.equals("ifwdUser"))
 //      response.sendRedirect(request.getContextPath() + "/uatAuth");
 %>
@@ -51,18 +51,18 @@
 <script type="text/javascript">
 
   // personal or family
-  var traveller;  
-  
+  var traveller;
+
   // personal
   var personalTraveller = parseInt("${planDetails.totalPersonalTraveller}");
   // family
   var familyAdult = "${planDetails.totalAdultTraveller}";
   var familyChild = "${planDetails.totalChildTraveller}";
-  var familyOther = "${planDetails.totalOtherTraveller}";  
+  var familyOther = "${planDetails.totalOtherTraveller}";
   var familyTraveller = parseInt(familyAdult) + parseInt(familyChild) + parseInt(familyOther);
 
-  
-  
+
+
   /* default
   if("${planDetails.getPlanSelected()}".toLowerCase() == "family"){
     traveller = familyTraveller;
@@ -71,7 +71,7 @@
   }*/
 
      function reset_desktop_submit()
-     {        
+     {
       if(document.getElementById("family_plan_desk").checked)
       {
     	  $('#txtTravellersDesk').val(0);
@@ -82,12 +82,12 @@
           $('#txtOtherDesk').val(0);
           $('#txtChildDesk').val(0);
       }
-      
+
       var frm = document.getElementById("freeFlight");
-     }  
-  
+     }
+
   function reset_mobile_submit()
-  {        
+  {
    if(document.getElementById("family_plan_mob").checked)
    {
        $('#txtTravellersMob').val(0);
@@ -98,12 +98,12 @@
        $('#txtOtherMob').val(0);
        $('#txtChildMob').val(0);
    }
-   
+
    var frm = document.getElementById("freeFlight");
-  }  
-  
+  }
+
   function reset_bottom_submit()
-  {        
+  {
    if(document.getElementById("family_plan_btm").checked)
    {
        $('#txtTravellersBtm').val(0);
@@ -114,27 +114,27 @@
        $('#txtOtherBtm').val(0);
        $('#txtChildBtm').val(0);
    }
-   
+
    var frm = document.getElementById("freeFlight");
-  }  
+  }
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
-    
+
  // update quote area to show headcounts
     if("${planDetails.planSelected}".toLowerCase() == "family"){
     	if (familyTraveller > 0){
             $('#family_plan_desk_spinner').show();
             $('#family_plan_btm_spinner').show();
             $('#family_plan_mob_spinner').show();
-        } 
+        }
     	traveller = familyTraveller;
 	}else{
 	  traveller = personalTraveller;
 	}
-    
+
 });
 </script>
 <!-- End fixed header -->
@@ -152,13 +152,13 @@ $(document).ready(function() {
     FamilyPlanChecked = "checked";
       //personalSpinnerStyle = "style='display:none'";
       familySpinnerStyle = "style='display:block'";
-    } 
+    }
 %>
 
 <!--Main Content-->
-<section id="main-slider" class="p_flight no-margin"> 
-  <!--Mobile banner--> 
-  <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
+<section id="main-slider" class="p_flight no-margin">
+  <!--Mobile banner-->
+  <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  />
   <div class="tagline-holder hidden-lg hidden-md">
       <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.tagline" bundle="${msg}" />" class="img-responsive">
   </div>
@@ -170,30 +170,30 @@ $(document).ready(function() {
         <i class="fa fa-chevron-right"></i>
         <li class="active"><fmt:message key="home.breadcrumb1.flight" bundle="${msg}" /></li>
      </ol>
-  </div>  
+  </div>
   <div class="carousel-inner">
     <div class="item active">
       <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />">
          </div>
-      <!--/.item--> 
+      <!--/.item-->
     </div>
-    <!--/.carousel-inner--> 
+    <!--/.carousel-inner-->
   </div>
   <div class="tagline-holder">
       <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.tagline" bundle="${msg}" />" class="img-responsive">
   </div>
-  <!--/.carousel--> 
+  <!--/.carousel-->
   <!-- flight top form -->
   <section id="middle" class="hidden-sm hidden-xs">
     <div class="container bmg_flighttravel_main_container">
     <div class="row">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
-      
+
       <!-- -=============================================================  form ============================================================= -->
-      
-      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">    
+
+      <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateDesk()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
         <!-- <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2> -->
-       
+
              <table class="table activation-form3">
           <tbody>
           <tr class="hide-html">
@@ -210,7 +210,7 @@ $(document).ready(function() {
                 <div id="divPersonsDesk" style="visibility:hidden;">
                   <h3 class="h3-i2">
                     <label id="lblPeopleDesk">0</label>
-                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" /> 
+                    <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />
                     <label id="lblDaysDesk">0</label>
                     <fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3>
                 </div>
@@ -218,25 +218,25 @@ $(document).ready(function() {
             </tr>
             <tr>
               <td class="" style="min-width: 150px;">
-              
-          
-              
+
+
+
               <!--====================================================== 出發日期 -->
-              
+
                 <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="departureDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" onblur="chkValidFlightDepartureDate(this, 'startDateDeskIn', '');" value="${planDetails.departureDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
-                
+
                 </td>
               <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input name="returnDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" onblur="chkValidFlightDate(this, 'endDateDeskIn', '', 'txtStartDateDesk', 'startDateDeskIn','');" value="${planDetails.returnDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
-              
+
              </td>
               <td class="" style="min-width: 190px;">
                 <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
-                 
+
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1" style="width: 355px;">
                     <div class="drop-content">
@@ -244,7 +244,7 @@ $(document).ready(function() {
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_desk"><fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
-                         </label> 
+                         </label>
                       </div>
                       <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
@@ -278,7 +278,7 @@ $(document).ready(function() {
                       </div>
                       <!-- end of personal plan desk spinner-->
                       <div class="clearfix"></div>
-                      
+
                       <!-- start of family plan desk spinner-->
                       <div class="plan_spinner_desk" id="family_plan_desk_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
@@ -326,25 +326,25 @@ $(document).ready(function() {
                             <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
                         </div>
                       </div>
-                      
+
                       <!-- start of family plan bottom spinner-->
-                      
+
                       <div class="clearfix"></div>
                     </div>
                   </div>
                   <div class="clearfix"></div>
                 </div>
-                
+
                 </td>
               <td class="">
                 <button  type="submit" class="bdr-curve btn btn-primary btn-lg marg-t2 pad-increase vwo-test-001 btn-color-ylw" onclick="reset_desktop_submit()">
               <fmt:message key="flight.main.quote.top.action" bundle="${msg}" />
-             </button> 
+             </button>
               </td>
-              
-        
+
+
             </tr>
-            
+
             <tr class="product-landing-error-wrap">
               <td><span id="startDateDeskIn" class="text-red" > </span></td>
               <td><span id="endDateDeskIn" class="text-red"> </span></td>
@@ -357,17 +357,17 @@ $(document).ready(function() {
             </tr>
           </tbody>
         </table>
-            
-            
-          
+
+
+
         </form>
       </div>
-      <!--/.col-sm-6--> 
-      
+      <!--/.col-sm-6-->
+
     </div>
-    <!--/.row--> 
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!-- flight form top end -->
 </section>
@@ -375,7 +375,7 @@ $(document).ready(function() {
 
 
 <!--Mobile-form-->
-<div class="slider-form hidden-lg hidden-md">
+<div id="mobile-form" class="slider-form hidden-lg hidden-md">
  <form id="freeFlight" name="freeFlight" method="post"   onsubmit="return flightValidateMob()" action="<%=request.getContextPath()%>/${language}/flight-insurance/quote">
   <div class="form-container">
     <h2><fmt:message key="flight.main.quote.top.heading" bundle="${msg}" /></h2>
@@ -402,7 +402,7 @@ $(document).ready(function() {
             <label class="radio radio-warning radio-inline">
               <input type="radio"  name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
               <label for="personal_plan_mob">  <fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
-            </label>  
+            </label>
           </div>
           <div class="col-xs-6 col-sm-6">
             <label class="radio radio-warning radio-inline">
@@ -413,7 +413,7 @@ $(document).ready(function() {
                         title="<fmt:message key="flight.main.quote.family.help" bundle="${msg}" />">
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt="" style="height: 20px; width: 20px;"></a></label>
-           </label> 
+           </label>
           </div>
           <div class="clearfix"></div>
           <hr>
@@ -434,7 +434,7 @@ $(document).ready(function() {
                 </span> </div>
             </div>
           </div>
-          <!-- End of personal plan mobile spinner--> 
+          <!-- End of personal plan mobile spinner-->
           <!-- Start of family plan mobile spinner-->
           <div class="plan_spinner_mob" id="family_plan_mob_spinner" <%=familySpinnerStyle%>>
             <div class="col-xs-6 col-sm-6">
@@ -456,8 +456,8 @@ $(document).ready(function() {
             </div>
             <div class="col-xs-6 col-sm-6">
               <div class="input-group number-spinner none-bd "> <span class="input-group-btn data-dwn" >
-               
-               
+
+
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtChildMob" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                 </span>
                 <div class="text-center drop-down-plus wd4 input-number">${planDetails.totalChildTraveller}</div>
@@ -504,28 +504,28 @@ $(document).ready(function() {
     </div>
   </div>
   <div class="form-container">
-    <h3 class="text-center"> 
+    <h3 class="text-center">
   <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve btn btn-primary btn-lg btn-block vwo-test-001 btn-color-ylw"><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
-  </h3> 
+  </h3>
   </div>
   </form>
 </div>
-<!--Mobile-form--> 
+<!--Mobile-form-->
 
 <!--/#main-slider-->
 
 <section id="feature" style="margin-top:40px;">
   <div class="container pad-none">
-    <div class="center wow fadeInDown"> 
+    <div class="center wow fadeInDown">
       <!--desktop-->
       <h1 class="landing_h2 col-md-10 col-md-offset-1 hidden-sm hidden-xs"><fmt:message key="flight.main.desc" bundle="${msg}" /></h1>
-      <!--end-desktop--> 
-      
+      <!--end-desktop-->
+
       <!--Mobile-->
       <h1 class="landing_h2 hidden-lg hidden-md feature-ttl"><fmt:message key="flight.main.desc" bundle="${msg}" /></h1>
-      <!--end mobile--> 
+      <!--end mobile-->
     </div>
-    
+
     <!--desktop Features-->
     <div class="center wow fadeInDown">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -572,22 +572,22 @@ $(document).ready(function() {
 	      </div>
 	      <div class="clearfix"></div>
       </div>
-      
+
 	<div id="special-promotion" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
 	  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
 	  <ul class="bullets">
         <li>
-          <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></p> 
-        </li>	    
+          <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></p>
+        </li>
         <!--<li>
           <p class="h4-5"><a href="<fmt:message key="special.promotion.copy5.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.1" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.2" bundle="${msg}" /><a href="<fmt:message key="special.promotion.copy5.3.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.3" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.4" bundle="${msg}" /></p>
-        </li>-->    
+        </li>-->
 	  </ul>
-	  
+
 	  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
 	      <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="">
 	  </div>
-	</div>    
+	</div>
     <div class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
           <h2><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
           <ul class="bullets">
@@ -613,16 +613,16 @@ $(document).ready(function() {
               <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
             </li>
             <li>
-              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc8.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc8.part3" bundle="${msg}" /></p>  
+              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc8.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc8.part3" bundle="${msg}" /></p>
             </li>
             <li>
-              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part5" bundle="${msg}" /></p>  
-            </li>             
+              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part5" bundle="${msg}" /></p>
+            </li>
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
 	        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
             <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
-	        <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">   
+	        <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
 		  </div>-->
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/FlightCare_JacketLatest.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" />
@@ -641,9 +641,9 @@ $(document).ready(function() {
               </div>
             </div>
           </div>
-      </div>      
+      </div>
     </div>
-    <!--/.carousel-inner--> 
+    <!--/.carousel-inner-->
     <!--<a class="prev" href="#other-offers-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
     <a class="next" href="#other-offers-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>-->
   </div>
@@ -653,8 +653,8 @@ $(document).ready(function() {
             <div class="col-sm-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
             </div>
-          </div>  
-</div>       
+          </div>
+</div>
       <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
           <h2 style="text-align: center;"><fmt:message key="flight.main.other.tnc" bundle="${msg}" /></h2>
           <div class="carousel slide">
@@ -726,7 +726,7 @@ $(document).ready(function() {
           </div>
           <!--/.carousel-->
           <div class="clearfix"></div>
-          
+
           <!--<div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
 		        <div class="col-lg-12 col-md-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
@@ -744,15 +744,15 @@ $(document).ready(function() {
           </p>
         <!--/.container-->
         </div>
-    
-    <!--/.row--> 
+
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#feature-->
 
 <section id="recent-works" class="hidden-xs hidden-sm">
-  <div class="container pad-none"> 
+  <div class="container pad-none">
     <!--Desktop Support-->
     <div class="row hidden-sm hidden-xs">
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
@@ -787,11 +787,11 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
-    <!--End Desktop Support--> 
-    
-    <!--/.row--> 
+    <!--End Desktop Support-->
+
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#recent-works-->
 
@@ -836,11 +836,11 @@ $(document).ready(function() {
           </div>
         </div>
       </div>
-      <!--/.item--> 
+      <!--/.item-->
     </div>
-    <!--/.carousel-inner--> 
+    <!--/.carousel-inner-->
   </div>
-  <!--/.carousel--> 
+  <!--/.carousel-->
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
 
   <div class="content-disclaimer">
@@ -894,13 +894,13 @@ $(document).ready(function() {
 
         <div class="clearfix"></div>
       </div>
-    
+
     <p><fmt:message key="flight.main.blog.disclaimer" bundle="${msg}" /></p>
 
 
-    <!--/.row--> 
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 <!--/#services-->
 
@@ -925,12 +925,12 @@ $(document).ready(function() {
               </td>
             <td>
               <div id="divPersonsBtm" style="visibility:hidden;">
-                  <h3 class="h3-i2">                    
+                  <h3 class="h3-i2">
                     <label id="lblPeopleBtm">0</label>
                     <fmt:message key="flight.main.quote.total.people" bundle="${msg}" />
                     <label id="lblDaysBtm">0</label>
                     <input type="hidden" id="lblDaysBtm" name="daysJsp">
-					<fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3> 
+					<fmt:message key="flight.main.quote.total.days" bundle="${msg}" /> </h3>
                 </div>
             </td>
           </tr>
@@ -947,7 +947,7 @@ $(document).ready(function() {
                 <span id="endDateBtmIn" class="text-red"> </span></td>
               <td class="" style="min-width: 190px;">
                  <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
-                 
+
                   <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
                   <div class="dropdown-menu bdr1" style="width: 355px;">
                     <div class="drop-content">
@@ -955,7 +955,7 @@ $(document).ready(function() {
                         <label class="radio radio-warning radio-inline">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> >
                           <label for="personal_plan_btm"> <fmt:message key="flight.main.quote.plan1" bundle="${msg}" /> </label>
-                         </label> 
+                         </label>
                       </div>
                       <div class="col-lg-6 col-md-6">
                        <label class="radio radio-warning radio-inline">
@@ -967,7 +967,7 @@ $(document).ready(function() {
                         <img src="<%=request.getContextPath()%>/resources/images/ic.png"
                         alt="" style="height: 20px; width: 20px;"></a></label>
                           </label>
-                      </div>	
+                      </div>
                       <div class="clearfix"></div>
                       <hr>
                       <!-- start of personal plan bottom spinner-->
@@ -989,7 +989,7 @@ $(document).ready(function() {
                       </div>
                       <!-- end of personal plan bottom spinner-->
                       <div class="clearfix"></div>
-                      
+
                       <!-- start of family plan bottom spinner-->
                       <div class="plan_spinner_btm" id="family_plan_btm_spinner" <%=familySpinnerStyle%>>
                         <div class="col-lg-6">
@@ -1037,9 +1037,9 @@ $(document).ready(function() {
                             <h4><fmt:message key="flight.main.quote.childnotes" bundle="${msg}" /></h4>
                         </div>
                       </div>
-                      
+
                       <!-- start of family plan bottom spinner-->
-                      
+
                       <div class="clearfix"></div>
                     </div>
                   </div>
@@ -1053,7 +1053,7 @@ $(document).ready(function() {
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
                  <button  type="submit" onclick="reset_bottom_submit()" class="bdr-curve btn btn-primary marg-t2 btn-lg pad-increase vwo-test-001 btn-color-ylw">
               <fmt:message key="flight.main.quote.bottom.action" bundle="${msg}" />
-             </button> 
+             </button>
             </tr>
             <tr class="product-landing-error-wrap">
               <td><span id="startDateBtmIn" style="color:red"> </span></td>
@@ -1066,12 +1066,12 @@ $(document).ready(function() {
           </tbody>
         </table>
       </div>
-      <!--/.col-sm-6--> 
+      <!--/.col-sm-6-->
       </form>
     </div>
-    <!--/.row--> 
+    <!--/.row-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
 
 <input type="hidden" id="refreshed" value="no">
