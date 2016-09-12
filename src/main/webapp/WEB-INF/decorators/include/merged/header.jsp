@@ -15,6 +15,29 @@
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
 <!-- header.notification.bar -->
+
+<%
+	/* Temporarily set the msg before controller return the message */
+
+	String notificationMsg = "";
+	
+	if( "en".equals(session.getAttribute("language").toString()) ){
+		if(request.getRequestURI().indexOf("/flight-insurance")>0){
+			notificationMsg = "A scheduled system enhancement will occur from 16<sup>th</sup> September 09:00 to 18<sup>th</sup> September 00:00. Our services will be temporarily suspended during the said period.";
+		} else {
+			notificationMsg = "A scheduled system enhancement will occur from 16<sup>th</sup> September 04:00 to 09:00. Our services will be temporarily suspended during the said period. For any enquiries, please contact our <i>24-hour Service Hotline at 3123 3123.</i>";
+		}
+	} else {
+		if(request.getRequestURI().indexOf("/flight-insurance")>0){
+			notificationMsg = "本網站將於9月16日上午4時至9月18日凌晨零時期間進行系統升級。屆時網站將會暫時停止服務。";
+		} else {
+			notificationMsg = "本網站將於9月16日上午4時至9時期間進行系統升級。屆時網站服務將會暫時停止。如有查詢，請致電我們的24小時服務熱線3123 3123。";
+		}
+	}
+	//notificationMsg="";
+	boolean showNotification = (notificationMsg.equals(""))?false:true;
+%>
+
 <script type="text/javascript">
 	var obj = {
 	    'topBar': {
@@ -34,16 +57,16 @@
 	        },
 	        'content': {
 			    'ifwd_repair': {
-			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
-			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			        'mobile': '<%=notificationMsg%>',
+			        'desktop': '<%=notificationMsg%>'
 			    },
 				'fraud' : {
 			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
 			    },
 			    'flightcare_moncare': {
-			        'mobile': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />',
-			        'desktop': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />'
+			        'mobile': '<%=notificationMsg%>',
+			        'desktop': '<%=notificationMsg%>'
 			    }
 			}
 	    }
@@ -52,21 +75,15 @@
 // Default value
 var nBarConfig = {
 	'contentIndex': 'ifwd_repair',
-	'isVisible': true
+	'isVisible': <%=showNotification%>
 }
 
-// Customized value
-<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
-nBarConfig = {
-	'contentIndex': 'flightcare_moncare',
-	'isVisible': true
-}
-<% } %>
+
 </script>
 
-<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
+<%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.custom.flight.js" charset="utf-8"></script>
-<% } %>
+<% } --%>
 
 <!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8"> -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
