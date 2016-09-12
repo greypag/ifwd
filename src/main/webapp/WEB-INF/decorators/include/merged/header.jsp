@@ -19,22 +19,18 @@
 <%
 	/* Temporarily set the msg before controller return the message */
 
+	java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long currentDate = System.currentTimeMillis();
+    long msgEndDate = cformat.parse("2016-09-16 09:00:00").getTime();
+
 	String notificationMsg = "";
-	
-	if( "en".equals(session.getAttribute("language").toString()) ){
-		if(request.getRequestURI().indexOf("/flight-insurance")>0){
-			notificationMsg = "A scheduled system enhancement will occur from 16<sup>th</sup> September 09:00 to 18<sup>th</sup> September 00:00. Our services will be temporarily suspended during the said period.";
-		} else {
-			notificationMsg = "A scheduled system enhancement will occur from 16<sup>th</sup> September 04:00 to 09:00. Our services will be temporarily suspended during the said period. For any enquiries, please contact our <i>24-hour Service Hotline at 3123 3123.</i>";
-		}
-	} else {
-		if(request.getRequestURI().indexOf("/flight-insurance")>0){
-			notificationMsg = "本網站將於9月16日上午4時至9月18日凌晨零時期間進行系統升級。屆時網站將會暫時停止服務。";
-		} else {
-			notificationMsg = "本網站將於9月16日上午4時至9時期間進行系統升級。屆時網站服務將會暫時停止。如有查詢，請致電我們的24小時服務熱線3123 3123。";
-		}
-	}
-	//notificationMsg="";
+    if (currentDate <= msgEndDate) {
+    	if (session.getAttribute("uiLocale").equals("zh-HK")) {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("relocation.notification.messages");
+    	} else {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("relocation.notification.messages");
+    	}
+    }
 	boolean showNotification = (notificationMsg.equals(""))?false:true;
 %>
 
