@@ -113,7 +113,7 @@ function stickToHeader() {
 					<div class="col-xs-12 cstm-md-col-1">
 						<div>
 							<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.date" bundle="${provieMsg}" /></p>
-							<p class="appointment-date">08-07-2016</p>
+							<p class="appointment-date"></p>
 						</div>
 						<div>
 							<p class="text-bold details-label"><fmt:message key="provie.appoint.confirm.details.time" bundle="${provieMsg}" /></p>

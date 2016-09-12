@@ -161,7 +161,7 @@ $(document).ready(function(){
 				type:"get",
 				data:{
 					premium: (paymentMethod[0] == "rp") ? $("#amount-slide-holder input").val() : $("#plan-amount").val(),
-					planCode:paymentMethod[0],
+					planCode:(paymentMethod[0] == "rp") ? "PROVIE-RP" : "PROVIE-SP",
 					currency:paymentMethod[1],
 					dob:$("#plan-dob-datepicker").val(),
 					rider:$("#type-of-extra-rider").val()
@@ -484,15 +484,29 @@ $(document).ready(function(){
 				    		
 				    		if(response.length > 0){
 				    			var dates = [];
+				    			var firstDate = response[0].date;
+				    			$("#preferred-time").empty();
 					    		for(var i in response){
 					    			var d = response[i];
 					    			var from = d.date.split("-");
 					    			//dates.push(new Date(from[0],from[1] -1, from[2].substr(0,2)));
 					    			dates.push(new Date(from[2],from[1] -1, from[0]));
+					    			
+					    			if(firstDate == d.date){
+					    				var option = $("<option/>");
+					    				option.text(d.timeSlot);
+					    				option.val(d.timeSlot);
+					    				
+					    				if($("#preferred-time option").length == 0){
+					    					option.prop("selected");
+					    				}
+					    				$("#preferred-time").append(option);
+					    			}
 					    		}
 					    		//dates.push(new Date(2016,8,1));
 					    		changeAppointmentDate('#app-date',dates);
 					    		$('#app-date').mobiscroll('setVal',dates[0],true);
+
 					    		
 				    		}else{
 				    			$("#preferedTimeIsNull").modal("show");
@@ -624,6 +638,9 @@ $(document).ready(function(){
 		    },
 		    success:function(response){
 		    	if(response){
+		    		$(".appointment-date").text(response.preferredDate);
+		    		$(".appointment-time").text(response.preferredTime);
+		    		$(".branch-address").text(response.centreCode);
 		    		console.log(response);
 		    	}
 		    	
