@@ -162,6 +162,7 @@ $(document).ready(function(){
 				data:{
 					premium: (paymentMethod[0] == "rp") ? $("#amount-slide-holder input").val() : $("#plan-amount").val(),
 					planCode:(paymentMethod[0] == "rp") ? "PROVIE-RP" : "PROVIE-SP",
+					paymentTerm:(paymentMethod[0] == "rp") ? $("#total-payment-years").val() : 1,
 					currency:paymentMethod[1],
 					dob:$("#plan-dob-datepicker").val(),
 					rider:$("#type-of-extra-rider").val()
