@@ -41,12 +41,25 @@ public class ProviePlanDetailsBean implements Serializable {
 		this.setPaymentType(planCode);
 		this.setDob(dob);
 		this.setPromoCode(promoCode);
-		this.setPaymentYear("");
+		
+		this.setPaymentYear(null);
 		this.setCurrency(currency);
 		this.setRider(rider);
 		
 	}
 
+
+	public ProviePlanDetailsBean(String premium, String planCode,
+			String dob, String promoCode, String currency, String rider, String paymentYear) {
+		this.setInsuredAmount(premium);
+		this.setPaymentType(planCode);
+		this.setDob(dob);
+		this.setPromoCode(promoCode);
+		
+		this.setPaymentYear(paymentYear);
+		this.setCurrency(currency);
+		this.setRider(rider);
+	}
 
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();

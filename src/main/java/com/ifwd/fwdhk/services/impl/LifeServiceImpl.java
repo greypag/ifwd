@@ -239,10 +239,10 @@ public class LifeServiceImpl implements LifeService {
 		
 		int paymentTerm = 0;
 		int yearNum=0;
-		if("SP".equals(proviePlanDetails.getPaymentType())) {
+		if("PROVIE-SP".equals(proviePlanDetails.getPaymentType())) {
 			session.setAttribute("provieType", "SP");
 			paymentTerm = 100-issueAge;
-		}else if("RP".equals(proviePlanDetails.getPaymentType())) {
+		}else if("PROVIE-RP".equals(proviePlanDetails.getPaymentType())) {
 			session.setAttribute("provieType", "RP");
 			//String paymentYear = request.getParameter("paymentYear");
 			String paymentYear = proviePlanDetails.getPaymentYear();
@@ -254,14 +254,12 @@ public class LifeServiceImpl implements LifeService {
 		
 		if(apiResponse.hasError()){
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
-		}else{
+		} else{
 			net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 			if(!apiResponse.hasError()){
 				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate(); 
 				List<SaviePlanDetailsRate> planDetails1Rate = apiResponse.getPlanDetails1Rate(); 
 				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
-				
-				
 				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
 					//net.sf.json.JSONObject plansWithRider = new net.sf.json.JSONObject();
 					resultJsonObject.put("planCode", "PROVIE-" + proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
@@ -274,8 +272,6 @@ public class LifeServiceImpl implements LifeService {
 					net.sf.json.JSONObject plan0 = new net.sf.json.JSONObject();
 					net.sf.json.JSONObject plan1 = new net.sf.json.JSONObject();
 					net.sf.json.JSONObject plan2 = new net.sf.json.JSONObject();
-					
-					
 					for(int i =0;i<planDetails0Rate.size();i++){
 						planRider = new net.sf.json.JSONObject();
 						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
@@ -307,23 +303,18 @@ public class LifeServiceImpl implements LifeService {
 					for(int i =0;i<planDetails0Rate.size();i++){
 						yearNum=Integer.valueOf(planDetails0Rate.get(i).getType().substring(1));
 						if (yearNum==10||yearNum==15||yearNum==100) {
-							
-							
 							plan0.put("premiumYear", yearNum);
 							plan0.put("rate", 0);
 							plan0.put("accountValue", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getAccountEOP())));
 							plan0.put("deathBenefit", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit())));
-							
 							plan0.put("totalPaid", Integer.valueOf(formatNumber(planDetails0Rate.get(i).getTotalPremium())));
 							credit0Rates.accumulate("plans", plan0);
-							
 						}
 					}
 					
 					for(int i =0;i<planDetails1Rate.size();i++){
 						yearNum=Integer.valueOf(planDetails1Rate.get(i).getType().substring(1));
-						if (yearNum==10||yearNum==15||yearNum==100) {
-							
+						if (yearNum==10||yearNum==15||yearNum==100) {							
 							plan1 = new net.sf.json.JSONObject();
 							plan1.put("premiumYear", yearNum);
 							plan1.put("rate", 1);
@@ -337,7 +328,6 @@ public class LifeServiceImpl implements LifeService {
 					for(int i =0;i<planDetails2Rate.size();i++){
 						yearNum=Integer.valueOf(planDetails2Rate.get(i).getType().substring(1));
 						if (yearNum==10||yearNum==15||yearNum==100) {
-							
 							plan2 = new net.sf.json.JSONObject();
 							plan2.put("premiumYear", yearNum);
 							plan2.put("rate", 2);
@@ -345,7 +335,6 @@ public class LifeServiceImpl implements LifeService {
 							plan2.put("deathBenefit", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit())));							
 							plan2.put("totalPaid", Integer.valueOf(formatNumber(planDetails2Rate.get(i).getTotalPremium())));
 							credit2Rates.accumulate("plans", plan2);
-							
 						}
 						
 					}
