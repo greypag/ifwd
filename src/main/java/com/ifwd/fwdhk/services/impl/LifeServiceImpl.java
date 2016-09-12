@@ -249,7 +249,7 @@ public class LifeServiceImpl implements LifeService {
 			paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
 		}
 		
-		ProviePlanDetailsResponse apiResponse = connector.proviePlanDetails("PROVIE", issueAge, paymentTerm,
+		ProviePlanDetailsResponse apiResponse = connector.proviePlanDetails(proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency().toUpperCase(), issueAge, paymentTerm,
 				proviePlanDetails.getInsuredAmount(), proviePlanDetails.getPromoCode(), proviePlanDetails.getPaymentType(), proviePlanDetails.getCurrency());
 		
 		if(apiResponse.hasError()){
@@ -262,7 +262,7 @@ public class LifeServiceImpl implements LifeService {
 				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
 				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
 					//net.sf.json.JSONObject plansWithRider = new net.sf.json.JSONObject();
-					resultJsonObject.put("planCode", "PROVIE-" + proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
+					resultJsonObject.put("planCode", proviePlanDetails.getPaymentType() + "-" + proviePlanDetails.getCurrency());
 					resultJsonObject.put("currency", proviePlanDetails.getCurrency());
 					resultJsonObject.put("rider", proviePlanDetails.getRider());
 					net.sf.json.JSONObject credit0Rates = new net.sf.json.JSONObject();

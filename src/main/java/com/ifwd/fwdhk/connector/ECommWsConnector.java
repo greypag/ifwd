@@ -119,7 +119,7 @@ public class ECommWsConnector {
 		url.append("&referralCode=");
 		url.append(referralCode);
 		url.append("&paymentMode=");
-		url.append(paymentMode);
+		url.append(planCode.substring(planCode.length() - 6, planCode.length() - 4));
 		url.append("&currency=");
 		url.append(currency);
 		
