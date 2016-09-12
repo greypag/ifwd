@@ -226,9 +226,9 @@
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 										<select name="payment-type" id="type-of-extra-rider" class="form-control gray-dropdown pd-dropdown">
-										   <option value="AccidentalDeathBenefit" data-cls="p50" ><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
-										   <option value="CancerBenefit" data-cls="p100" ><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
-										   <option value="TermLifeBenefit" data-cls="p500" ><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
+										   <option value="ACCIDENTIAL_DEATH_BENEFIT" data-cls="p50" ><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
+										   <option value="CANCER_BENEFIT" data-cls="p100" ><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
+										   <option value="TERM_LIFE_BENEFIT" data-cls="p500" ><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="provie.plandetails.extrarider" bundle="${provieMsg}" /></label>
