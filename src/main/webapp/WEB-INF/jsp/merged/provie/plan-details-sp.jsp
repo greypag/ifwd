@@ -1147,38 +1147,34 @@
 			$('.tooltip').hide();
 		});
 		//begin of getProvieRiderEligibility
-		var defaultExtraRider="";
-		var isFromReturn=false;  //if disable the selection
+		var isFromRecommand=false;
 		$.ajax({
-	        type: "POST",
-	        url:'<%=request.getContextPath()%>/ajax/savings-insurance/getProvieRiderEligibility',	        
-	        async:false,
-	        success:function(data){
-				if(data.errMsgs != null && data.errMsgs != ''){
-				}
-				else{
-					if(data.accidentalDeathBenefit) {
-						defaultExtraRider="p500";
-						} else if(data.termBenefitEligible){
-							defaultExtraRider="p100";
-						} else if(data.cancerBenefit){
-							defaultExtraRider="p50";
-						}
-					//$(".c11").text(data.discounts[0].c1);
-				}
-	        },
-			error:function(){
-			    console.log('error');
+			//url:fwdApi.url.getProvieRiderEligibility,
+			url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
+			type:"get",
+			data: {isFromRecommand:isFromRecommand},
+			cache:false,
+			async:false,
+			error:function(xhr, textStatus, errorThrown){
+				var resp = $.parseJSON(xhr.responseText);
+				console.log("expected error");
+		    },
+		    success:function(response){
+		    	if(response){
+		    		//alert('clicked1');
+		    		console.log(response);
+		    		if(!response.accidentalDeathBenefit){
+		    			$("#type-of-extra-rider option[value='AccidentalDeathBenefit']").remove();
+		    		}
+		    		if(!response.cancerBenefit) {
+		    			$("#type-of-extra-rider option[value='CancerBenefit']").remove();
+		    		}
+		    		if(!response.termLifeBenefit) {
+		    			$("#type-of-extra-rider option[value='TermLifeBenefit']").remove();
+		    		}
+		    	}
 		    }
-	    }); //end of ajax
-		if (defaultExtraRider!=""){
-			$("#type-of-extra-rider option[data-cls="+defaultExtraRider+"]").attr("selected", "selected");
-		}
-	    if (isFromReturn){
-	    	$("#type-of-extra-rider").attr('disabled','disabled');
-	    } else {
-	    	$("#type-of-extra-rider").removeAttr('disabled');
-	    }
+		});
         //end of getProvieRiderEligibility
 	});
 

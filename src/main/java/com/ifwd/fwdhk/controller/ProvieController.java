@@ -333,9 +333,10 @@ public class ProvieController extends BaseController{
 	    	try {
 	    		resultJsonObject = provieOnlineService.getProvieRiderEligibility(request);
 	    		boolean accdnt= (boolean) resultJsonObject.get("accidentalDeathBenefit");
-	    		riderEligibility.setAccidentalDeathBenefit(true);
+	    		riderEligibility.setAccidentalDeathBenefit(accdnt);
+	    		//riderEligibility.setAccidentalDeathBenefit(true);
 	    		riderEligibility.setCancerBenefit((boolean) resultJsonObject.get("cancerBenefit"));
-	    		riderEligibility.setTermBenefitEligible((boolean) resultJsonObject.get("termBenefitEligible"));
+	    		riderEligibility.setTermLifeBenefit((boolean) resultJsonObject.get("termBenefitEligible"));
 			
 	    		return Responses.ok(riderEligibility);
 	    	} catch (Exception e) {
@@ -345,7 +346,7 @@ public class ProvieController extends BaseController{
 	    } else {
     		riderEligibility.setAccidentalDeathBenefit(true);
     		riderEligibility.setCancerBenefit(true);
-    		riderEligibility.setTermBenefitEligible(true);
+    		riderEligibility.setTermLifeBenefit(true);
     		return Responses.ok(riderEligibility);
 	    }
 	}
