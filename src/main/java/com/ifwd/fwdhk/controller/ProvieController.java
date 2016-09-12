@@ -308,7 +308,7 @@ public class ProvieController extends BaseController{
 		} else if("ACCIDENTIAL_DEATH_BENEFIT".equals(rider)){
 			return (int)(accountValue * 5);
 		} else {
-			return 0;
+			return (int)(accountValue * 1);
 		}
 		
 	
