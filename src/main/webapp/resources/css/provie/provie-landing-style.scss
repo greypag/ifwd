@@ -324,6 +324,17 @@ button.dropdown-toggle{
 					font-weight: bold;
 				}
 			}
+			.txt4age100{
+				display: none;	
+			}
+			&.typeAge{
+				.txt4year{
+					display: none;
+				}
+				.txt4age100{
+					display: block;	
+				}
+			}
 		}
 		.extra{
 			text-align: center;
@@ -358,12 +369,15 @@ button.dropdown-toggle{
 				}
 				&.card1{
 					color: #fbb616;
+					.name {color: #fbb616;}
 				}
 				&.card2{
 					color: #12a6b7;
+					.name {color: #12a6b7;}
 				}
 				&.card3{
 					color: #f5531a;
+					.name {color: #f5531a;}
 				}
 			}
 
