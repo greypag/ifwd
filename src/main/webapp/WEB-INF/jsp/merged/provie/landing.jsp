@@ -186,8 +186,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.method" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="method1" name="method" value="SP"><label for="method1"><fmt:message key="provie.landing.calculation.dropdown.method2" bundle="${provieMsg}" /></label></li>
-									      <li><input type="radio" id="method2" name="method" value="RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="method1" name="method" value="PROVIE-SP"><label for="method1"><fmt:message key="provie.landing.calculation.dropdown.method2" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="method2" name="method" value="PROVIE-RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
 									<fmt:message key="provie.landing.calculation.text8" bundle="${provieMsg}" />
@@ -317,7 +317,8 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="accValue">
 									<img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s2_icon.png" alt='<fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" />' class="img-responsive">
 									<div class="txt"><fmt:message key="provie.landing.calculation.accountvalue" bundle="${provieMsg}" /><span class="pricePrefix"></span><br><span class="amount"></span></div>
-									<div><fmt:message key="provie.landing.calculation.year.acctvalue1" bundle="${provieMsg}" /><span class="year"></span><fmt:message key="provie.landing.calculation.year.acctvalue2" bundle="${provieMsg}" /></div>
+									<div class="txt4year"><fmt:message key="provie.landing.calculation.year.acctvalue1" bundle="${provieMsg}" /><span class="year"></span><fmt:message key="provie.landing.calculation.year.acctvalue2" bundle="${provieMsg}" /></div>
+									<div class="txt4age100"><fmt:message key="provie.landing.calculation.year.acctvalue3" bundle="${provieMsg}" /></div>
 								</div>
 
 								<div class="extra">

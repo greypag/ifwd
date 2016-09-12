@@ -6,7 +6,7 @@ var pvCtr = {
 	planSlider: document.getElementById('slider'),
 	planDetailCtr: {},
 	cal3Card : {},
-	useDummyResult: true,
+	useDummyResult: false,
 	//function
 	onReady : function(){
 		this.initAutoHeight();
@@ -162,8 +162,8 @@ var planInquiry = {
 		yearList$.find("li").remove();
 
 		//loop all option (60 - age - 1)
-		var yearOptCount = 60 - age - 1;
-		for(var yi = 60; yi >= yearOptCount; yi--){
+		var yearOptCount = 60 - age;
+		for(var yi = 1; yi <= yearOptCount; yi++){
 			var opt_input = $("<input>").attr({"type": "radio", "name": "year", "value": yi, "id":"year"+yi});
 			var opt_label = $("<label>").attr({"for": "year"+yi}).html(yi);
 			var opt = $("<li>");
@@ -252,13 +252,6 @@ var planInquiry = {
 		//pack dummy year 15 and 100 if api not ready
     	if(!response.creditRates){
     		response.plans.push({
-				"premiumYear": 15,
-				"rate": 2,
-				"accountValue": 10001,
-				"deathBenefit": 10002,
-				"riderValue": 10003,
-				"totalPaid": 10000
-			}, {
 				"premiumYear": 100,
 				"rate": 2,
 				"accountValue": 10001,
@@ -267,8 +260,7 @@ var planInquiry = {
 				"totalPaid": 10000
 			});
     	}else{
-    		response.creditRates[2].shift();
-    		response.plans.push(response.creditRates[2].plans);
+    		response.plans.push(response.creditRates[2].plans[2]);
     	}
 
     	return response;
@@ -379,6 +371,7 @@ function planDetailViewer(conf){
 	var rateCancer     = 0.5;
 
 	var uiCtr = {
+		accountWrap		 : $(".pv_plan .accValue"),
 		monthlyPaidWrap  : $(".pv_plan .money .left"),
 		monthlyPaid      : $(".pv_plan .money .monthlyFee"),
 		accountValue     : $(".pv_plan .amount"),
@@ -418,6 +411,11 @@ function planDetailViewer(conf){
 		uiCtr.xLifeAmount.html(pvCtr.toPriceStr(accBaseValue * rateLife));
 		uiCtr.xAccidentalAmount.html(pvCtr.toPriceStr(accBaseValue * rateAccidental));
 		uiCtr.xCancerAmount.html(pvCtr.toPriceStr(accBaseValue * rateCancer));
+
+		uiCtr.accountWrap.removeClass("typeAge");
+		if(yearIdx === 5){
+			uiCtr.accountWrap.addClass("typeAge");
+		}
 
 		reAlignCardHeight();
 	};
