@@ -9930,7 +9930,7 @@ select::-ms-value {
 	.psa-divider{
 		/*height: 625px;*/
     /*height: 675px;*/ /*1.16.000 - Add Home Liability*/
-    height: 690px; /*1.18.001 - Add screen protector*/
+    height: 710px; /*1.18.001 - Add screen protector*/
 	}
 }
 .psa-divider:hover,

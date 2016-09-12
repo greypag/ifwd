@@ -1119,6 +1119,7 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
+                    	 <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
                     </ul>
 				</li>
 
