@@ -1137,17 +1137,18 @@ var home_url = "<%=request.getContextPath()%>";
 			ageMore        : '<fmt:message key="provie.landing.setting.text4" bundle="${provieMsg}" />',
 			methodEmpty    : '<fmt:message key="provie.landing.setting.text5" bundle="${provieMsg}" />',
 			amountEmpty    : '<fmt:message key="provie.landing.setting.text6" bundle="${provieMsg}" />',
-			amountRPHKDLess: '<fmt:message key="provie.landing.setting.text7" bundle="${provieMsg}" />',
-			amountRPHKDMore: '<fmt:message key="provie.landing.setting.text8" bundle="${provieMsg}" />',
-			amountSPHKDLess: '<fmt:message key="provie.landing.setting.text9" bundle="${provieMsg}" />',
-			amountSPHKDMore: '<fmt:message key="provie.landing.setting.text10" bundle="${provieMsg}" />',
-			amountRPUSDLess: '<fmt:message key="provie.landing.setting.text11" bundle="${provieMsg}" />',
-			amountRPUSDMore: '<fmt:message key="provie.landing.setting.text12" bundle="${provieMsg}" />',
-			amountSPUSDLess: '<fmt:message key="provie.landing.setting.text13" bundle="${provieMsg}" />',
-			amountSPUSDMore: '<fmt:message key="provie.landing.setting.text14" bundle="${provieMsg}" />',
+			'amountPROVIE-RPHKDLess': '<fmt:message key="provie.landing.setting.text7" bundle="${provieMsg}" />',
+			'amountPROVIE-RPHKDMore': '<fmt:message key="provie.landing.setting.text8" bundle="${provieMsg}" />',
+			'amountPROVIE-SPHKDLess': '<fmt:message key="provie.landing.setting.text9" bundle="${provieMsg}" />',
+			'amountPROVIE-SPHKDMore': '<fmt:message key="provie.landing.setting.text10" bundle="${provieMsg}" />',
+			'amountPROVIE-RPUSDLess': '<fmt:message key="provie.landing.setting.text11" bundle="${provieMsg}" />',
+			'amountPROVIE-RPUSDMore': '<fmt:message key="provie.landing.setting.text12" bundle="${provieMsg}" />',
+			'amountPROVIE-SPUSDLess': '<fmt:message key="provie.landing.setting.text13" bundle="${provieMsg}" />',
+			'amountPROVIE-SPUSDMore': '<fmt:message key="provie.landing.setting.text14" bundle="${provieMsg}" />',
 			currencyEmpty  : '<fmt:message key="provie.landing.setting.text15" bundle="${provieMsg}" />',
 			yearEmpty      : '<fmt:message key="provie.landing.setting.text16" bundle="${provieMsg}" />',
-			loginFail      : '<fmt:message key="provie.landing.setting.text17" bundle="${provieMsg}" />'
+			loginFail      : '<fmt:message key="provie.landing.setting.text17" bundle="${provieMsg}" />',
+			yearEmpty	   : '<fmt:message key="provie.landing.setting.text18" bundle="${provieMsg}" />'
 		},
 		currencyData: {
 			HKD: {

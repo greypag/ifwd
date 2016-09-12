@@ -116,17 +116,18 @@ var planInquiry = {
 		submitBtn  : $(".pv_sec_calculator .btnSubmit"),
 		ageInput   : $(".pv_sec_calculator .input_age"),
 		methodInput: $(".pv_sec_calculator input[name=method]"),
-		periodTxt  : $(".pv_sec_calculator .txtMonth")
+		periodTxt  : $(".pv_sec_calculator .txtMonth"),
+		yearInput  : function (){return $(".pv_sec_calculator input[name=year]:checked");}
 	},
 	amountLimit: {
-		"minRPHKD": 1000,
-		"maxRPHKD": 20000,
-		"minSPHKD": 30000,
-		"maxSPHKD": 1000000,
-		"minRPUSD": 125,
-		"maxRPUSD": 2500,
-		"minSPUSD": 3750,
-		"maxSPUSD": 125000,
+		"minPROVIE-RPHKD": 1000,
+		"maxPROVIE-RPHKD": 20000,
+		"minPROVIE-SPHKD": 30000,
+		"maxPROVIE-SPHKD": 1000000,
+		"minPROVIE-RPUSD": 125,
+		"maxPROVIE-RPUSD": 2500,
+		"minPROVIE-SPUSD": 3750,
+		"maxPROVIE-SPUSD": 125000,
 	},
 	errorMsgAry: [],
 	init: function (){
@@ -139,7 +140,7 @@ var planInquiry = {
 			that.fillYearOpt($(this).val());
 		});
 		this.uiCtr.methodInput.on("change", function(){
-			that.displayPeriodOpt($(this).val() === "RP");
+			that.displayPeriodOpt(!that.isSpMethod());
 		});
 	},
 	clearData: function (){
@@ -153,6 +154,7 @@ var planInquiry = {
 		this.checkMethod();
 		this.checkCurrency();
 		this.checkAmountLiimit();
+		this.checkYear();
 
 		return this.errorMsgAry.length === 0;
 	},
@@ -197,11 +199,12 @@ var planInquiry = {
 				url:"/fwdhk/api/provie/planDetails/",
 				type:"get",
 				data:{
-					premium : this.submitData.amount,
-					planCode: this.submitData.method,
-					currency: this.submitData.currency,
-					dob     : this.toDateStr(cusDob),
-					rider   : "TERM_LIFE_BENEFIT"
+					premium    : this.submitData.amount,
+					planCode   : this.submitData.method,
+					currency   : this.submitData.currency,
+					dob        : this.toDateStr(cusDob),
+					paymentTerm: this.isSpMethod() ? 1 : this.uiCtr.yearInput().val(),
+					rider      : "TERM_LIFE_BENEFIT"
 				},	
 				cache:false,
 				async:false,
@@ -237,7 +240,7 @@ var planInquiry = {
 			monthlyFee : this.submitData.amount,
 			plans      : response.plans,
 			currencyStr: this.submitData.currency,
-			isMonthly  : this.submitData.method === "RP"
+			isMonthly  : !this.isSpMethod()
     	});
 
     	this.showPlanDetailPanel();
@@ -317,23 +320,41 @@ var planInquiry = {
 	},
 	checkAmountLiimit: function (){
 		// check min and max
-		var amount$ = $(".input_amount");
+		var amount = parseInt($(".input_amount").val(), 10);
 		var limit = this.getAmountLimit(this.submitData.method, this.submitData.currency);
-		if(!(/^[0-9]+$/).test(amount$.val())){
+		// if(!(/^[0-9]+$/).test(amount$.val())){
+		// 	this.errorMsgAry.push(pvSetting.errMsg.amountEmpty);
+		// 	return;
+		// }
+
+		if(!amount || amount < 1){
 			this.errorMsgAry.push(pvSetting.errMsg.amountEmpty);
 			return;
 		}
 		
-		if(amount$.val() < limit.min){
+		if(amount < limit.min){
 			this.errorMsgAry.push(limit.lessMsg);
 			return;
 		}
-		if(amount$.val() > limit.max){
+		if(amount > limit.max){
 			this.errorMsgAry.push(limit.moreMsg);
 			return;
 		}
 		
-		this.submitData.amount = amount$.val();
+		this.submitData.amount = amount;
+	},
+	checkYear : function (){
+		var yearNum = parseInt(this.uiCtr.yearInput().val(), 10);
+		if(!this.isSpMethod() && (!yearNum || yearNum < 1)){
+			this.errorMsgAry.push(pvSetting.errMsg.yearEmpty);
+			return;
+		}
+	},
+	isSpMethod : function (){
+		if($(".pv_sec_calculator input[name=method]:checked").val() === "PROVIE-SP"){
+			return true;
+		}
+		return false;
 	},
 	getAmountLimit : function (method, currency){
 		return {
