@@ -58,6 +58,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.ProviePlanDetails;
+import com.ifwd.fwdhk.model.ProvieRiderEligibility;
 import com.ifwd.fwdhk.model.provie.ProviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.LifeService;
@@ -310,7 +311,44 @@ public class ProvieController extends BaseController{
 		} else {
 			return (int)(accountValue * 1);
 		}
-		
-	
 	}
+
+	@RequestMapping(value = "/api/provie/getProvieRiderEligibility", method = GET, produces = {APPLICATION_JSON_VALUE})
+	@ApiOperation(
+		value = "Get Rider Eligibility",
+		response = ProvieRiderEligibility.class
+		)
+	@ApiResponses(value = {@ApiResponse(code = 400, message = "Invalid appointment type"),
+			@ApiResponse(code = 500, message = "System error")})
+	public  ResponseEntity<ProvieRiderEligibility> getRiderEligibility(
+			@ApiParam(value = "isFromRecommand", required = true) @RequestParam("isFromRecommand") boolean isFromRecommand
+			, HttpServletRequest request) {
+			
+		//HttpSession session=request.getSession();
+		
+		
+		JSONObject resultJsonObject = new JSONObject();
+		ProvieRiderEligibility riderEligibility = new ProvieRiderEligibility();
+	    if (isFromRecommand) {
+	    	try {
+	    		resultJsonObject = provieOnlineService.getProvieRiderEligibility(request);
+	    		boolean accdnt= (boolean) resultJsonObject.get("accidentalDeathBenefit");
+	    		riderEligibility.setAccidentalDeathBenefit(true);
+	    		riderEligibility.setCancerBenefit((boolean) resultJsonObject.get("cancerBenefit"));
+	    		riderEligibility.setTermBenefitEligible((boolean) resultJsonObject.get("termBenefitEligible"));
+			
+	    		return Responses.ok(riderEligibility);
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    		return Responses.error(null);
+	    	}
+	    } else {
+    		riderEligibility.setAccidentalDeathBenefit(true);
+    		riderEligibility.setCancerBenefit(true);
+    		riderEligibility.setTermBenefitEligible(true);
+    		return Responses.ok(riderEligibility);
+	    }
+	}
+	
+//end of class	
 }
