@@ -18,13 +18,11 @@ function screenJob(obj) {
     var defaultDesktopPaddingTop = obj.topBar.desktop;
     var nBarDesktopHeight = (typeof nBarDesktopElem !== "undefined" && nBarDesktopElem !== null) ? nBarDesktopElem.clientHeight : 0;
 
-    if (defaultDesktopPaddingTop <= obj.topBar.desktop) {
+    if (defaultDesktopPaddingTop == obj.topBar.desktop || defaultDesktopPaddingTop > obj.topBar.desktop ) {
         defaultDesktopPaddingTop += nBarDesktopHeight;
     } else {
         defaultDesktopPaddingTop = obj.topBar.desktop;
     }
-    // console.log( 'defaultDesktopPaddingTop = ' + defaultDesktopPaddingTop );
-    // console.log( 'nBarDesktopHeight = ' + nBarDesktopHeight );
 
     if ($(window).width() < 992) {
         inlinePaddingTop(
@@ -32,6 +30,7 @@ function screenJob(obj) {
             (isClicked == false) ? obj.topBar.mobile : (obj.topBar.mobile - obj.nBarOnly.mobile)
         );
     } else {
+    	var temp = (isClicked == false) ? defaultDesktopPaddingTop : (defaultDesktopPaddingTop - nBarDesktopHeight);
         inlinePaddingTop(
             obj.topBar.classname.desktop,
             (isClicked == false) ? defaultDesktopPaddingTop : (defaultDesktopPaddingTop - nBarDesktopHeight)
@@ -84,7 +83,10 @@ $(function() {
 
         updateNotificationBox(obj.nBarOnly.content, nBarConfig.contentIndex);
 
-        screenJob(obj);
+        // "setTimeout" is for fixing the "document.getElementById('notification-bar-desktop').clientHeight" bug on fwdiscover page problem
+        setTimeout(function(){
+            screenJob(obj);
+        }, 1500);
         $(window).resize(function() {
             screenJob(obj);
         });
