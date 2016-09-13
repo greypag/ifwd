@@ -560,13 +560,13 @@ var language = "${language}";
         if(serviceCentre.getServiceCentres().size() > 0) {
             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
         %>
-        if (centre == '<%=entity.getServiceCentreCode() %>') {
-           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\" /><h4><fmt:message key="label.address" bundle="${msg}" /></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}" /></a>");
 
-		   if (centre == 'TST') {
-			   showCentreRepairModal();
-		   }
-        }
+        if(centre == 'TST') {
+           $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\"/><h4><fmt:message key="label.address" bundle="${msg}"/></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}"/></a><p id=\"pickRepairCentre\" class=\"text-danger\"><b><fmt:message key="header.overlay.popup.msg.repair" bundle="${msg}"/></b></p>");
+	   } else if(centre == '<%=entity.getServiceCentreCode() %>'){
+		   $('.centre-info').html("<img src=\"<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>\" class=\"img-centre img-responsive\"/><h4><fmt:message key="label.address" bundle="${msg}"/></h4><p class=\"centre-address\"><%=entity.getAddress() %></p><a target=\"_blank\" class=\"viewmap-link\" href=\"<%=entity.getMap() %>\"><fmt:message key="label.view.map" bundle="${msg}"/></a>");
+	   }
+
         <%
             }
         }
