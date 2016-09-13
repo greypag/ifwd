@@ -625,6 +625,39 @@
     .dwb{
     	color:#f99502;
     }
+
+    .dw-cal-btn-txt{
+    	color:#f99502;
+    }
+
+    .dw-cal-days{
+    	color:#f99502;
+    	th{
+    		color:#f99502;
+    		border-bottom:1px solid #f99502;
+    	}
+    }
+
+    .dw-cal .dw-sel .dw-i{
+    	background:#f99502;
+    }
+
+    .dw-week-nrs-c{
+    	color:#f99502;
+    }
+
+    .dw-hl-now .dw-cal-today{
+    	color:#facc87;
+    }
+}
+
+.mbsc-mobiscroll 
+.mbsc-ic-arrow-left5:before{
+	content:"\f101";
+}
+
+.mbsc-ic-arrow-right5:before{
+	content:"\f103";
 }
 
 .mdl-custom-slider{

@@ -20,9 +20,9 @@ var language = "${language}";
 	boolean isEservicesActiveClass = false;
 %>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css"/>
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css"/>
 
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
 	
