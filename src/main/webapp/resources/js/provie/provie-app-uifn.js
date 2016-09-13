@@ -1322,17 +1322,17 @@ function renderRateTable(tbDesktop,tbMobHead,tbMobBody,plan,odd){
 	dt.find(".rate").text(plan.rate);
 	mob.find(".rate").text(plan.rate);
 	
-	dt.find(".totalPaid").text(plan.totalPaid);
-	mob.find(".totalPaid").text(plan.totalPaid);
+	dt.find(".totalPaid").text(commaSeparateNumber(plan.totalPaid));
+	mob.find(".totalPaid").text(commaSeparateNumber(plan.totalPaid));
 	
-	dt.find(".accountValue").text(plan.accountValue);
-	mob.find(".accountValue").text(plan.accountValue);
+	dt.find(".accountValue").text(commaSeparateNumber(plan.accountValue));
+	mob.find(".accountValue").text(commaSeparateNumber(plan.accountValue));
 	
-	dt.find(".deathBenefit").text(plan.deathBenefit);
-	mob.find(".deathBenefit").text(plan.deathBenefit);
+	dt.find(".deathBenefit").text(commaSeparateNumber(plan.deathBenefit));
+	mob.find(".deathBenefit").text(commaSeparateNumber(plan.deathBenefit));
 	
-	dt.find(".riderValue").text(plan.riderValue);
-	mob.find(".riderValue").text(plan.riderValue);
+	dt.find(".riderValue").text(commaSeparateNumber(plan.riderValue));
+	mob.find(".riderValue").text(commaSeparateNumber(plan.riderValue));
 	
 	
 	tbDesktop.append(dt);
