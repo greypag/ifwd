@@ -246,8 +246,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="btn-group">
 									  <button data-toggle="dropdown" class="dropdown-toggle"><fmt:message key="provie.landing.calculation.dropdown.method" bundle="${provieMsg}" /></button>
 									    <ul class="dropdown-menu">
-									      <li><input type="radio" id="method1" name="method" value="SP"><label for="method1"><fmt:message key="provie.landing.calculation.dropdown.method2" bundle="${provieMsg}" /></label></li>
-									      <li><input type="radio" id="method2" name="method" value="RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="method1" name="method" value="PROVIE-SP"><label for="method1"><fmt:message key="provie.landing.calculation.dropdown.method2" bundle="${provieMsg}" /></label></li>
+									      <li><input type="radio" id="method2" name="method" value="PROVIE-RP"><label for="method2"><fmt:message key="provie.landing.calculation.dropdown.method1" bundle="${provieMsg}" /></label></li>
 									    </ul>
 									</div> 
 									<span class="txtMonth">
