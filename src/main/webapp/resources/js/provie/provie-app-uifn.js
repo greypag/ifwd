@@ -160,7 +160,7 @@ $(document).ready(function(){
 				url:fwdApi.url.planDetails,
 				type:"get",
 				data:{
-					premium: (paymentMethod[0] == "rp") ? $("#amount-slide-holder input").val() : $("#plan-amount").val(),
+					premium: (paymentMethod[0] == "rp") ? $("#plan-amount").val() : $("#amount-slide-holder input").val(),
 					planCode:(paymentMethod[0] == "rp") ? "PROVIE-RP" : "PROVIE-SP",
 					paymentTerm:(paymentMethod[0] == "rp") ? $("#total-payment-years").val() : 1,
 					currency:paymentMethod[1],
