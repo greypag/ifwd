@@ -9466,8 +9466,8 @@ h3 .heading-title{
 }
 /* line 188, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li .at-share-tbx-element * {
-  max-width: 40px !important;
-  max-height: 40px !important;
+  /*max-width: 40px !important;*/
+  /*max-height: 40px !important;*/
 }
 /* line 214, ../sass/partials/savie/_eservices.scss */
 .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {

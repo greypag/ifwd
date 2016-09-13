@@ -27,6 +27,7 @@
 @import "common_screen/becomeOurPartner";
 @import "common_screen/faq"; // BEM Naming for faq page 20160513
 //@import "common_screen/flight-insurance";
+@import "common_screen/social-sharing"; //20160912 smartdrop
 
 @media screen and #{$mobile} {
   @import "mobile/header";

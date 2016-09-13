@@ -902,7 +902,6 @@ var languageP = "${language}";
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186"></script>
 <script type="text/javascript">
 	var language = "en";
-
 	$(document).ready(function () {
 		$(".dropdown-menu li a").click(function(){
 		  var selText = $(this).text();

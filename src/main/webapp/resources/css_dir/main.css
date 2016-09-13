@@ -1,6 +1,6 @@
 /**
 *
-* FWD revamp v0.1.5, last compiled on: 2016-09-07 20:27:10 +0800
+* FWD revamp v0.1.5, last compiled on: 2016-09-12 18:59:57 +0800
 * for branch#1.15.000 (ROPHI_fwdhk)
 *
 **/
@@ -2031,6 +2031,17 @@ body.chin .partner-headline-wrapper .headline-title {
   float: left;
   width: 33.3%;
   font-size: 16px;
+}
+
+/* line 2, ../sass/common_screen/_social-sharing.scss */
+.addthis_sharing_toolbox .at-icon-wrapper {
+  width: 42px !important;
+  height: 42px !important;
+}
+/* line 5, ../sass/common_screen/_social-sharing.scss */
+.addthis_sharing_toolbox .at-icon-wrapper svg {
+  width: 42px !important;
+  height: 42px !important;
 }
 
 @media screen and (max-width: 991px) {
