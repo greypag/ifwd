@@ -221,6 +221,8 @@ public class ProvieController extends BaseController{
 			, @ApiParam(value = "Currency", allowableValues = "USD,HKD",  required = true) @RequestParam("currency") String currency
 			, @ApiParam(value = "DOB of applicant (in dd/MM/yyyy format)",  required = true) @RequestParam("dob") String dob
 			, @ApiParam(value = "Additional rider", allowableValues = "ACCIDENTIAL_DEATH_BENEFIT,CANCER_BENEFIT,TERM_LIFE_BENEFIT",  required = true) @RequestParam("rider") String rider
+			, @ApiParam(value = "Payment Term") @RequestParam("paymentTerm") String paymentTerm
+			
 			, HttpServletRequest request) {
 		
 		//super.IsAuthenticate(request);
@@ -228,7 +230,7 @@ public class ProvieController extends BaseController{
 		HttpSession session=request.getSession();
 		
 		
-		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider);
+		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider, paymentTerm);
 		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
 		/*
 		url : context + "/ajax/savings-insurance/getProvieRiderPlan",
