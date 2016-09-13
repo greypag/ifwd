@@ -1100,7 +1100,7 @@ var home_url = "<%=request.getContextPath()%>";
     						<p class="pv_desc"><fmt:message key="provie.landing.share.text1" bundle="${provieMsg}" /></p>	
     					</div>
     					<div class="col-xs-12 text-center">
-							<a href="#"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_fb.png" alt="Facebook"></a>
+							<a href="javascript:void(0);" class="btn-spd-share"><img src="<%=request.getContextPath()%>/resources/images/provie/provie_landing_s8_fb.png" alt="Facebook"></a>
     					</div>
     				</div>
     			</div>
@@ -1148,7 +1148,8 @@ var home_url = "<%=request.getContextPath()%>";
 			currencyEmpty  : '<fmt:message key="provie.landing.setting.text15" bundle="${provieMsg}" />',
 			yearEmpty      : '<fmt:message key="provie.landing.setting.text16" bundle="${provieMsg}" />',
 			loginFail      : '<fmt:message key="provie.landing.setting.text17" bundle="${provieMsg}" />',
-			yearEmpty	   : '<fmt:message key="provie.landing.setting.text18" bundle="${provieMsg}" />'
+			yearEmpty	   : '<fmt:message key="provie.landing.setting.text18" bundle="${provieMsg}" />',
+			fnaLoginEmpty  : "please enter username and password."
 		},
 		currencyData: {
 			HKD: {

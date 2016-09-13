@@ -60,7 +60,15 @@ var pvCtr = {
 var fnaLogin = {
 	init: function (){
 		var that = this;
-		$(".pv_fna .btnStart").on("click", function (){that.login();});
+		$(".pv_fna .btnStart").on("click", function (){
+			$(".pv_fna .errorMsg").empty();
+
+			if($("#fnaUser").val().length < 1 || $("#fnaPwd").val().length < 1){
+				$(".pv_fna .errorMsg").html(pvSetting.errMsg.fnaLoginEmpty);	
+			}else{
+				that.login();	
+			}
+		});
 		$(".pv_fna .btnForgotUser").on("click", function (){that.forgotUsrName();});
 		$(".pv_fna .btnForgotPwd").on("click", function (){that.forgotPwd();});
 	},

@@ -429,7 +429,7 @@ $(document).ready(function(){
 				    success:function(response){
 				    	
 				    	if(response){
-				    		window.location.href= context + "/" + language + "/savings-insurance/provie/confirmation-appointment?referenceNum=" + response.referenceNum;
+				    		window.location.href= context + "/" + UILANGUAGE + "/savings-insurance/provie/confirmation-appointment?referenceNum=" + response.referenceNum;
 				    		$("#loading-overlay").modal("hide");
 				    	}
 				    },
