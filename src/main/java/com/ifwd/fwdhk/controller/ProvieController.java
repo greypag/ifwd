@@ -235,6 +235,11 @@ public class ProvieController extends BaseController{
 		
 		HttpSession session=request.getSession();
 		
+		if(planCode.toUpperCase().contains("SP")) { 
+			planCode= "PROVIE-SP";
+		} else {
+			planCode= "PROVIE-RP";	
+		}
 		
 		ProviePlanDetailsBean planDetailsBean= new ProviePlanDetailsBean(String.valueOf(premium), planCode.toUpperCase(), dob.replace("/", "-"), "", currency, rider, paymentTerm);
 		net.sf.json.JSONObject resultJsonObject = new net.sf.json.JSONObject();
