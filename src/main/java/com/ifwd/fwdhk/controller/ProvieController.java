@@ -199,6 +199,8 @@ public class ProvieController extends BaseController{
 	@ApiIgnore
 	@RequestMapping(value = {"/{lang}/savings-insurance/provie/customer-service-centre"})
 	public ModelAndView getProvieAppointment(Model model, HttpServletRequest request) {
+		String palnCode= (String) request.getParameter("planCode");
+		model.addAttribute("planCode", palnCode);
 		return ProviePageFlowControl.pageFlow("",model,request, UserRestURIConstants.PAGE_PROPERTIES_PROVIE_SERVICE_CENTER);
 	}
 	

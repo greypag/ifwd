@@ -12,10 +12,10 @@
 <fmt:setBundle basename="provie" var="provieMsg" />
 <!DOCTYPE html>
 <script type="text/javascript">
+	var context = "${pageContext.request.contextPath}";	
 	var languageP = "${language}";
 	var affordabilityMin = 30000;
 	var affordabilityPremium = 1000000;
-	
 	var affordabilityMinUSD = 3750;
 	var affordabilityPremiumUSD = 125000;
 </script>
@@ -1198,30 +1198,23 @@
 
 	$("#btn-proceed").on('click', function(){
 		apply=false;
-		if('2'=='2'){
-			//alert("clicked");
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre';
-			//proceedLogin('/tc/savings-insurance/sales-illustration');
-		}else {
-			//$('#offline-online-modal').modal('show');
-			if($("#type-of-payment").val() == 'regular-payment') {
-				if("" == "true" && "" != "*DIRECTGI"){
-					//window.location = '/tc/savings-insurance/customer-service-centre';
-					$('#thankYouModal').modal('show');
-				}else{
-					apply=true;
-					$('#offline-online-modal').modal('hide');
-					$('.login-info').addClass('hidden');
-					$('#loginpopup .modal-dialog').removeClass('loginpopupext');
-					$('#loginpopup #fna-check').val("false");
-					$('#loginpopup #nav-bar-check').val("false");
-					$('#loginpopup').modal('show');
-				}
-			}else {
-				$('#offline-online-modal').modal('show');
-
-			}
+		//alert('clicked');
+		var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
+		var str=paymentMode.split("-");
+		var planCode="";
+		if(str[0]=='sp'){
+			planCode="PROVIE-SP";
+		} else {
+			planCode="PROVIE-RP";
 		}
+		if(str[1]=='USD') {
+			planCode=planCode+"-USD";
+		} else{
+			planCode=planCode+"-HKD";
+		}
+		//console.log(planCode);
+		//alert(planCode);
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre' + '?planCode=' + planCode;
 	});
 
 	$("#online-application-btn").on('click', function(){
