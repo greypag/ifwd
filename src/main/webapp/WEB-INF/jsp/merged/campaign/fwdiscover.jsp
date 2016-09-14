@@ -53,8 +53,8 @@
     String countDownDD = "";
     String countDownMM = "";
     String countDownDate_special = "2016-05-21 14:59:59";
-    String countDownDate_regular = "2016-08-31 14:59:59";
-    String countDownDate_regular_after = "2016-09-30 14:59:59";
+    String countDownDate_regular = "2016-09-30 14:59:59";
+    String countDownDate_regular_after = "2016-10-31 14:59:59";
     String countDownDate_regular2 = "2016-06-30 14:59:59";
     String lang = UserRestURIConstants.getLanaguage(request);
     String offerCountDownLabel = WebServiceUtils.getMessage("Fanfare.landingpage.timerword", lang);
@@ -97,14 +97,14 @@
     } else {
         //Regular Offer Period Before Start
         countDownDate = countDownDate_regular;
-        countDownDD = "31";
-        countDownMM = "Aug";
+        countDownDD = "30";
+        countDownMM = "Sep";
 
         //Regular Offer Period Start
         if(cCurrent >= cformat.parse(countDownDate_regular).getTime() ){
             countDownDate = countDownDate_regular_after;
-            countDownDD = "30";
-            countDownMM = "Sep";
+            countDownDD = "31";
+            countDownMM = "Oct";
         }
 
         //Special Offer Period
