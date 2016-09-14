@@ -1215,7 +1215,7 @@
 		}
 		//console.log(planCode);
 		//alert(planCode);
-		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre' + '?planCode=' + planCode;
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie-customer-service-centre' + '?planCode=' + planCode;
 	});
 
 	$("#online-application-btn").on('click', function(){
