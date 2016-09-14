@@ -23,14 +23,17 @@
 		String template_item = "<li class=\"%s\">%s</li>";
 		String template_divider = "<li class=\"%s\"><i class=\"fa fa-play\"></i></li>";
 
-		String path_to_resources = "";
+		String path_to_resources[]= new String[2];
 		if(lang.equalsIgnoreCase("EN")){
-			path_to_resources = "messages_en_US";
+			path_to_resources[0] = "messages_en_US";
+			path_to_resources[1] = "provie_en_US";
 		} else {
-			path_to_resources = "messages_zh_HK";
+			path_to_resources[0] = "messages_zh_HK";
+			path_to_resources[1] = "provie_zh_HK";
 		}
 
-		ResourceBundle resource = ResourceBundle.getBundle(path_to_resources);
+		ResourceBundle resource = ResourceBundle.getBundle(path_to_resources[0]);
+		ResourceBundle resource_provie = ResourceBundle.getBundle(path_to_resources[1]);
 	
 		for( int i=0; i<bcList.length; i++ ){
 
@@ -46,7 +49,13 @@
 			}
 			//render breadcrumb item
 			//output += String.format(template_item, itemCls, bcList.get(i));
-			output += String.format(template_item, itemCls, resource.getString(bcList[i]));
+			String translated_str = "";
+			if(resource.containsKey(bcList[i])){			
+				translated_str = resource.getString(bcList[i]);	
+			} else if(resource_provie.containsKey(bcList[i])){			
+				translated_str = resource_provie.getString(bcList[i]);
+			}
+			output += String.format(template_item, itemCls, translated_str);
 		}
 
 		return output;

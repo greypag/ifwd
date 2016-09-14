@@ -12282,3 +12282,13 @@ Be caution: <select> have customed made */
 #faq_sp_mob .faq_title{
 	border-left: 2px solid #fff;	
 }
+/* added in scss but not use now */
+.addthis_sharing_toolbox .at-icon-wrapper {
+  width: 42px !important;
+  height: 42px !important;
+}
+/* line 5, ../sass/common_screen/_social-sharing.scss */
+.addthis_sharing_toolbox .at-icon-wrapper svg {
+  width: 42px !important;
+  height: 42px !important;
+}

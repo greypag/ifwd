@@ -759,76 +759,6 @@ img.bdr-img {
 	margin-bottom: 0;
 }
 
-.wht-btn {
-	background: #fff !important;
-	color: #f6871e;
-	border: none;
-	margin-top: 10px;
-	border: 1px solid #f6871e;
-}
-
-.wht-btn:hover, .wht-btn:focus {
-	background: #f6871e;
-	outline: none;
-	box-shadow: none;
-	border: 1px solid #f6871e;
-}
-
-.wht-btn1 {
-	background: #fff !important;
-	color: #f6871e;
-	border: none;
-	border: 1px solid #f6871e;
-}
-
-.wht-btn1:hover, .wht-btn1:focus {
-	background: #f6871e;
-	outline: none;
-	box-shadow: none;
-	border: 1px solid #f6871e;
-}
-
-.btn-primary {
-	padding: 8px 20px;
-	background: #f6871e;
-	color: #fff;
-	border: none;
-	border: 1px solid #f6871e;
-}
-
-.btn-primary:hover {
-	outline: none;
-	box-shadow: none;
-	background: #fff;
-	color: #f6871e;
-	border: 1px solid #f6871e;
-}
-
-.btn-primary:active {
-	padding: 8px 20px;
-	background: #f6871e;
-	color: #fff;
-	border: none;
-	border: 1px solid #f6871e;
-}
-
-.btn-primary.active, .open .dropdown-toggle.btn-primary {
-	padding: 8px 20px;
-	background: #f6871e;
-	border: none;
-	border: 1px solid #f6871e;
-}
-
-.btn-transparent {
-	border: 3px solid #fff;
-	background: transparent;
-	/*color: #fff;*/
-}
-
-.btn-transparent:hover {
-	border-color: rgba(255, 255, 255, 0.5);
-}
-
 a:hover, a:focus {
 	text-decoration: none;
 	outline: none;
@@ -9779,32 +9709,6 @@ ul.promotion-sub-tnc.bullets {
 	}
 }
 /******** End of mobile header menu v2 ********/
-/******** Start of desktop breadcrumb ********/
-div.breadcrumb-wrapper{
-	position: absolute;
-	z-index: 10;
-}
-div.breadcrumb-wrapper>ol.breadcrumb{
-	position:relative;
-	text-align: left;
-}
-div.breadcrumb-wrapper>ol.breadcrumb a,
-div.breadcrumb-wrapper>ol.breadcrumb li{
-	font-size: 24px;
-}
-div.breadcrumb-wrapper>ol.breadcrumb .fa,
-div.breadcrumb-wrapper>ol.breadcrumb a:hover,
-div.breadcrumb-wrapper>ol.breadcrumb a:focus,
-div.breadcrumb-wrapper>ol.breadcrumb a{
-	color: #000000;
-}
-div.breadcrumb-wrapper>ol.breadcrumb .fa{
-	padding: 0 7px;
-}
-
-.navbar-collapse{
-    max-height: 9999px;
-}
 /******** Mobile header fix ********/
 @media screen and (max-width: 767px){
 	.mob-topbar .chat,.mob-topbar .lang{

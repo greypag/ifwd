@@ -92,6 +92,7 @@ var languageP = "${language}";
 								<img class="psa-arrow visible-md visible-lg" src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-circle.png" />
 								<ul class="psa-ul">
 									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.savie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item1" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
+									<li><a href="<%=request.getContextPath()%>/${language}/<fmt:message key="link.provie" bundle="${msg}" />"><fmt:message key="navbar.category2.group2.item2" bundle="${msg}" /> <i class="fa fa-caret-right orange-caret-right"></i></a></li>
 								</ul>
 							</div>
 						  </div>

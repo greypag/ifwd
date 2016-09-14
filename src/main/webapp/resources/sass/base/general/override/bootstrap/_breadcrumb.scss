@@ -1,0 +1,12 @@
+.breadcrumb {
+    &.container,
+    &.ifwd-container {
+        margin-top: 20px;
+        &>.active {
+            color: #f6871e;
+        }
+    }
+
+    background-color: transparent;
+    padding-bottom: 0;
+}

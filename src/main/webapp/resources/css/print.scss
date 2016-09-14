@@ -1,0 +1,636 @@
+
+@media print {
+	body {
+	  -webkit-print-color-adjust: exact;
+	  margin-top: -120px !important;
+	}
+	header {
+		display: none !important;
+	}
+	footer {
+		display: none !important;
+	}
+	.application-page-header.et-header-browse {
+		display: none !important;
+	}
+
+	h1 {
+		display: none !important;
+	}
+	
+	.no-print {
+		display: none !important;
+	}
+	a {
+		display: none !important; 
+	}
+	
+	.gray-divider {
+	  height: 1px !important;
+	  background: url(../images/savie-regular/gray-line.png) !important;
+	  width: 100% !important;
+	}
+	#livechat-compact-view {
+		display: none !important;
+	}
+	.fwd-savie-wrapper .thank-you-container #back-home-btn {
+		display: none !important;
+	}
+	/* line 1, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation {
+    padding: 30px 30px 42px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 1, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation {
+      padding-bottom: 105px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+  /* line 7, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation h1 {
+    padding: 0 !important;
+    line-height: 30px !important;
+  }
+  /* line 12, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container {
+    margin-top: 34px !important;
+    padding: 40px 20px 0 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 12, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container {
+      margin-top: 28px !important;
+      padding: 42px 90px 0 !important;
+    }
+  }
+  /* line 21, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full h2 {
+    border: none !important;
+    color: #ff8200 !important;
+  }
+  /* line 24, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full h2.bring-things {
+    padding-bottom: 15px !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 0 !important;
+    font-size: 24px !important;
+    text-align: left !important;
+    
+  }
+  .thank-you-container.savie-regular-confirmation .details-container.details-full h2.bring-things span {
+  	color: #ff8200 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 24, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full h2.bring-things {
+      padding-bottom: 6px !important;
+    }
+  }
+  /* line 30, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full h2.what-next {
+    margin-top: 6px !important;
+        font-size: 24px !important;
+      text-align: left !important;
+      margin-bottom: 0 !important;
+      margin-top: 20px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 30, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full h2.what-next {
+      margin-top: 15px !important;
+      padding-bottom: 6px !important;
+    }
+  }
+  /* line 38, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row {
+    margin-top: 32px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 38, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row {
+      margin-top: 0 !important;
+    }
+  }
+  /* line 44, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure p {
+    padding: 0 10px !important;
+  }
+  @media (min-width: 414px) {
+    /* line 44, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure p {
+      padding: 0 22px !important;
+    }
+  }
+  /* line 51, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure .small-text {
+    font-size: 14px !important;
+    padding: 0 10px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 55, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure.procedure-3 {
+      padding-top: 60px !important;
+    }
+  }
+  /* line 62, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon {
+    bottom: 18px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 62, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon {
+      bottom: 30px !important;
+    }
+  }
+  /* line 67, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon.below {
+    bottom: 28px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 67, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon.below {
+      bottom: 38px !important;
+    }
+  }
+  /* line 76, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .whats-next {
+    margin-right: -5px !important;
+  }
+  /* line 78, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .whats-next ol {
+    padding-left: 24px !important;
+    padding-top: 15px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 78, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .whats-next ol {
+      padding-top: 0 !important;
+      max-width: 770px !important;
+    }
+  }
+  /* line 85, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .whats-next ol li {
+    padding-bottom: 15px !important;
+    font-size: 18px !important;
+  }
+  /* line 90, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .detail {
+    padding-bottom: 25px !important;
+    margin-top: 300px !important;
+  }
+  /* line 92, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .detail h2 {
+    margin-top: 4px !important;
+    padding-bottom: 15px !important;
+    font-size: 24px !important;
+      text-align: left !important;
+      margin-bottom: 0 !important;
+      margin-top: 10px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 92, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .detail h2 {
+      padding-bottom: 0 !important;
+    }
+  }
+  /* line 100, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .detail .appointment-detail-holder {
+    margin-top: 20px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 100, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .detail .appointment-detail-holder {
+      margin-top: 12px !important;
+    }
+  }
+  /* line 106, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .detail .appointment-detail-holder .appointment-detail label {
+    font-family: 'Calibri-Bold' !important;
+    color: #373a36 !important;
+    line-height: 22px !important;
+    padding-bottom: 10px !important;
+    font-size: 18px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 106, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation .details-container.details-full .detail .appointment-detail-holder .appointment-detail label {
+      color: #061d2a !important;
+      max-width: 220px !important;
+    }
+  }
+  /* line 121, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container .print-document {
+    padding-top: 0 !important;
+    padding-bottom: 42px !important;
+  }
+  /* line 126, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation #back-home-btn {
+    margin-bottom: 0 !important;
+    margin-top: 20px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 126, ../sass/partials/savie/_confirmation.scss */
+    .thank-you-container.savie-regular-confirmation #back-home-btn {
+      width: 100% !important;
+      max-width: 500px !important;
+      margin-top: 42px !important;
+    }
+  }
+  
+  @media (min-width: 480px) {
+    /* line 2, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container {
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+    }
+  }
+  @media (min-width: 992px) {
+    /* line 2, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+  /* line 13, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container h1 {
+    font-size: 30px !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 33px 0 36px 0 !important;
+    color: #ff8200 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 13, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container h1 {
+      text-align: left !important;
+    }
+  }
+  /* line 24, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container #back-home-btn {
+    display: block !important;
+    margin: 0 auto 30px auto !important;
+    max-width: 520px !important;
+  }
+  /* line 29, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container {
+    border: 1px solid #9ba5a7 !important;
+    padding: 33px 17px 0 17px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 29, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container {
+      padding: 36px 85px 15px 85px !important;
+      border: 1px solid #b7c3cd !important;
+    }
+  }
+  /* line 37, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .detail {
+    padding-bottom: 20px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 37, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container .detail {
+      padding-bottom: 4px !important;
+    }
+  }
+  /* line 44, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container h2 {
+    font-size: 24px !important;
+    margin: 0 !important;
+    padding-bottom: 13px !important;
+    color: #ff8200 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 44, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container h2 {
+      padding-bottom: 14px !important;
+    }
+  }
+  /* line 54, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container p {
+    line-height: 23px !important;
+    margin-bottom: 13px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 54, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container p {
+      margin-right: 15px !important;
+    }
+  }
+  /* line 61, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container p span {
+    font-family: 'Calibri-Bold' !important;
+  }
+  /* line 66, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container p.steps {
+    margin: 0 !important;
+  }
+  /* line 70, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container hr {
+    border-top: 1px solid #cdd2d3 !important;
+    margin-bottom: 33px !important;
+  }
+  /* line 76, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .appointment-detail label {
+    width: 35% !important;
+    padding-right: 10px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 76, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container .appointment-detail label {
+      width: 40% !important;
+    }
+  }
+  /* line 84, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .appointment-detail span {
+    width: 65% !important;
+    padding-bottom: 10px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 84, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container .appointment-detail span {
+      width: 60% !important;
+      padding-bottom: 5px !important;
+    }
+  }
+  /* line 94, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .reminder {
+    font-size: 14px !important;
+    line-height: 14px !important;
+    padding-top: 5px !important;
+  }
+  /* line 99, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .reminder span {
+    color: #ff8200 !important;
+  }
+  /* line 104, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .print-document {
+    font-size: 14px !important;
+    text-align: center !important;
+    padding-top: 15px !important;
+    padding-bottom: 41px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 104, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .details-container .print-document {
+      text-align: left !important;
+      padding-top: 30px !important;
+      padding-bottom: 31px !important;
+    }
+  }
+  /* line 115, ../sass/partials/_thank-you-update.scss */
+
+  /* line 122, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .print-document a:hover, .thank-you-container .details-container .print-document a:active {
+    color: #ff8200 !important;
+    text-decoration: none !important;
+    outline: 0 !important;
+  }
+  /* line 130, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-container .print-document img {
+    position: absolute !important;
+    left: -33px !important;
+    top: -3px !important;
+  }
+  /* line 140, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-full h2 {
+    border-top: 1px dotted #d6dde3 !important;
+    padding-bottom: 14px !important;
+    padding-top: 16px !important;
+    margin-top: 10px !important;
+  }
+  /* line 146, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-full h2.bring-things {
+    border: 0 !important;
+    margin-top: -5px !important;
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+  }
+  /* line 155, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .details-full .appointment-detail label {
+    max-width: 180px !important;
+    
+  }
+  /* line 161, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure {
+    background-color: #f1f3f5 !important;
+    font-size: 18px !important;
+    color: #636466 !important;
+    position: relative !important;
+    border-radius: 15px !important;
+    margin: 30px auto 20px auto !important;
+    max-width: 263px !important;
+    height: 277px !important;
+    padding: 60px 5px 0 5px !important;
+  }
+  /* line 172, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure.procedure-3 {
+    padding-top: 43px !important;
+  }
+  /* line 176, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure p {
+    margin: 0 !important;
+  }
+  /* line 179, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure p span {
+    display: block !important;
+    font-family: 'Calibri', Arial !important;
+    font-size: 15px !important;
+    line-height: 15px !important;
+    padding: 4px 30px !important;
+  }
+  /* line 188, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure .step {
+    color: #ffffff !important;
+    font-family: 'foco_bold' !important;
+    font-size: 26px !important;
+    background: #ff8200 !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 50% !important;
+    width: 56px !important;
+    height: 56px !important;
+    display: block !important;
+    position: absolute !important;
+    top: -25px !important;
+    left: 41% !important;
+    line-height: 54px !important;
+  }
+  /* line 204, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure .icon {
+    position: absolute !important;
+    bottom: 43px !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+  /* line 210, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .offline-procedure .icon img {
+    margin: 0 auto !important;
+  }
+  /* line 216, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container {
+    padding-top: 30px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 216, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container {
+      padding-top: 35px !important;
+    }
+  }
+  /* line 222, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container h2 {
+    font-size: 30px !important;
+    text-align: center !important;
+    line-height: 32px !important;
+    margin: 0 !important;
+    padding-bottom: 7px !important;
+    color: #ff8200 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 222, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container h2 {
+      text-align: left !important;
+    }
+  }
+  /* line 234, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container .desktop-colon {
+    display: none !important;
+  }
+  @media (min-width: 992px) {
+    /* line 234, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container .desktop-colon {
+      display: inline-block !important;
+    }
+  }
+  /* line 241, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container p.agent-desc {
+    line-height: 22px !important;
+    padding-bottom: 13px !important;
+    text-align: center !important;
+  }
+  @media (min-width: 992px) {
+    /* line 241, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container p.agent-desc {
+      text-align: left !important;
+    }
+  }
+  /* line 250, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container input {
+    display: block !important;
+    background: #ebeded !important;
+    border: 0 !important;
+    height: 50px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 354px !important;
+    margin: 0 auto !important;
+  }
+  @media (min-width: 992px) {
+    /* line 250, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container input {
+      margin: 0 !important;
+      display: inline-block !important;
+    }
+
+  /* line 280, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container p.submitted-info {
+    font-size: 14px !important;
+    padding-top: 5px !important;
+    text-align: center !important;
+  }
+  @media (min-width: 992px) {
+    /* line 280, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .agent-container p.submitted-info {
+      text-align: left !important;
+    }
+  }
+  /* line 288, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .agent-container p.submitted-info.offline {
+    font-size: 18px !important;
+    color: #9ba5a7 !important;
+    padding: 0 0 20px 0 !important;
+    margin-top: -5px !important;
+  }
+  /* line 297, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container {
+    padding: 30px 0 20px 0 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 297, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .share-container {
+      padding: 43px 0 40px 0 !important;
+    }
+  }
+  /* line 303, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container p {
+    font-size: 14px !important;
+    padding-bottom: 20px !important;
+    color: #9ba5a7 !important;
+  }
+  @media (min-width: 992px) {
+    /* line 303, ../sass/partials/_thank-you-update.scss */
+    .thank-you-container .share-container p {
+      padding-bottom: 6px !important;
+    }
+  }
+  /* line 312, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container div {
+    width: 159px !important;
+    margin: 0 auto !important;
+  }
+  /* line 322, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container .fa {
+    width: 45px !important;
+    height: 45px !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    margin: 0 4px !important;
+  }
+  /* line 330, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container .fa-facebook {
+    background-color: #3b5998 !important;
+    padding: 12px !important;
+    font-size: 21px !important;
+  }
+  /* line 336, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container .fa-twitter {
+    background-color: #00aced !important;
+    font-size: 27px !important;
+    padding: 9px !important;
+  }
+  /* line 342, ../sass/partials/_thank-you-update.scss */
+  .thank-you-container .share-container .fa-google-plus {
+    background-color: #dd4b39 !important;
+    font-size: 26px !important;
+    padding: 11px !important;
+  }
+  
+  /* line 352, ../sass/partials/_thank-you-update.scss */
+  .fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
+    display: table !important;
+    width: 100% !important;
+    font-size: 18px !important;
+    height: 80px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 352, ../sass/partials/_thank-you-update.scss */
+    .fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
+      font-size: 30px !important;
+      height: 100px !important;
+    }
+  }
+  
+  /* line 363, ../sass/partials/_thank-you-update.scss */
+  .fwd-savie-wrapper .application-flux.thank-you {
+    margin-top: 80px !important;
+  }
+  @media (min-width: 992px) {
+    /* line 363, ../sass/partials/_thank-you-update.scss */
+    .fwd-savie-wrapper .application-flux.thank-you {
+      margin-top: 125px !important;
+    }
+  }
+  
+}

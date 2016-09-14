@@ -5,6 +5,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import java.util.Map;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -18,6 +21,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,25 +36,34 @@ import com.ifwd.fwdhk.model.MemberActionResult;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.Methods;
 
 @Controller
-@RequestMapping(value = "/api/member", produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE})
+@RequestMapping(value = "/api/member", produces = {APPLICATION_JSON_VALUE})
 @Api(value = "/member", description = "Operations about members")
 public class MemberController extends BaseController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 	
 	@RequestMapping(value = "/session", method = GET)
 	@ApiOperation(
 		value = "Get User Details from session",
 		response = UserDetails.class
 		)
-	@ApiResponses(value = {@ApiResponse(code = 500, message = "System error")})
+	@ApiResponses(value = {@ApiResponse(code = 404, message = "Not login")
+							, @ApiResponse(code = 500, message = "System error")})
 	public ResponseEntity<UserDetails> getUserDetails(HttpServletRequest request) {
 		super.IsAuthenticate(request);
 		
-		return Responses.ok((UserDetails)request.getSession(true).getAttribute("userDetails"));
+		if (request.getSession(true).getAttribute("userDetails") != null) {
+			return Responses.ok((UserDetails)request.getSession(true).getAttribute("userDetails"));
+		} else {
+			return Responses.notFound(null);
+		}
 	}
 	
 	@RequestMapping(method = POST)
@@ -99,7 +112,7 @@ public class MemberController extends BaseController {
 				logger.info(member.getUserName()+" "+washGIMessage(jsonResponse.get("errMsgs").toString()));
 				MemberActionResult result = new MemberActionResult();
 				result.setMessage(washGIMessage(jsonResponse.get("errMsgs").toString()));
-				return Responses.ok(result);
+				return Responses.error(result);
 			}
 		} catch (Exception e) {
 			logger.error(ExceptionUtils.getStackTrace(e));
@@ -144,7 +157,7 @@ public class MemberController extends BaseController {
 		}
 	}
 	
-	@RequestMapping(value = "/retrieveUserName", method = POST)
+	@RequestMapping(value = "/retrieveUserName", method = GET)
 	@ApiOperation(
 		value = "Retrieve user name",
 		response = MemberActionResult.class
@@ -184,7 +197,7 @@ public class MemberController extends BaseController {
 		}
 	}
 	
-	@RequestMapping(value = "/forgotPassword", method = POST)
+	@RequestMapping(value = "/forgotPassword", method = GET)
 	@ApiOperation(
 		value = "Reset password",
 		response = MemberActionResult.class
@@ -296,7 +309,8 @@ public class MemberController extends BaseController {
 			session.setAttribute("userDetails", userDetails);
 							
 			String Url = UserRestURIConstants.GET_FNA;
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, COMMON_HEADERS, null);
+			final Map<String,String> header = headerUtil.getHeader(servletRequest);
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 			if (responseJsonObj.get("result") != null){
 				JSONObject jobject = (JSONObject)responseJsonObj.get("result");
 				if(jobject.get("name")!=null&&jobject.get("gender")!=null){
@@ -305,6 +319,7 @@ public class MemberController extends BaseController {
 			}			
 			MemberActionResult result = new MemberActionResult();	
 			result.setFullName(userDetails.getFullName());
+			result.setUserName(userLogin.getUserName());
 			return result;
 		} else {
 			MemberActionResult result = new MemberActionResult();	

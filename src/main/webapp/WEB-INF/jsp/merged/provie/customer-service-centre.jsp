@@ -10,6 +10,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<fmt:setBundle basename="provie" var="provieMsg" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -19,48 +20,45 @@ var language = "${language}";
 	boolean isEservicesActiveClass = false;
 %>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css"/>
 <link href="<%=request.getContextPath()%>/resources/css/mobiscroll.custom-2.17.2.min.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/provie/provie-styles.css"/>
 
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-appointment" id="make-an-appointment-page">			
-       
-       <!-- Breadcrumb Component Start-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/breadcrumb.css">
-<div class="comp breadcrumb">
-	<div class="breadcrumb__container">
-	   <ul class="breadcrumb__list breadcrumb__list--none">
-			<li class="breadcrumb__item">Home</li><li class="breadcrumb__divider"><i class="fa fa-play"></i></li><li class="breadcrumb__item">Save</li><li class="breadcrumb__divider"><i class="fa fa-play"></i></li><li class="breadcrumb__item">Provie Insurance Plan</li><li class="breadcrumb__divider breadcrumb__divider--active"><i class="fa fa-play"></i></li><li class="breadcrumb__item breadcrumb__item--active">Make an appointment</li>
-	   </ul>
-	</div>
-</div>
+	
+	<!-- Breadcrumb Component Start-->
 
-		<!-- Breadcrumb Component End-->
+	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+	<c:set var="breadcrumbActive" value="0"/>
 
-		<!-- StepIndicator Component Start-->
-        <!--<div class="container-fluid fwd-full-container browse-holder">-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/stepIndicator.css">
-<div class="comp stepIndicator stepIndicator--desktop hidden-xs hidden-sm">
-   <div class="stepIndicator__container">
-      <ul class="stepIndicator__list stepIndicator__list--none">
-         <li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number stepIndicator__number--completed">1</span><span class="stepIndicator__content stepIndicator__content--completed">Select plan</span></button></li><li class="stepIndicator__divider"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li><li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number stepIndicator__number--active">2</span><span class="stepIndicator__content stepIndicator__content--active">Make appointment</span></button></li><li class="stepIndicator__divider"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow"></li><li class="stepIndicator__item pad-none"><button class="stepIndicator__step"><span class="stepIndicator__number ">3</span><span class="stepIndicator__content ">Confirmation</span></button></li>
-      </ul>
-   </div>
-  
-</div>
+	<c:set var="breadcrumbItems">
+		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.appointment
+	</c:set>
+	<c:set var="breadcrumbActive">3</c:set>
 
-<div class="comp stepIndicator stepIndicator--mobile hidden-lg hidden-md js-sticky-bar">
-   <div class="stepIndicator__container">
-      <div class="stepIndicator__arrow"><a href="#"><span class="icon-arrow-left2"></span></a></div><div class="stepIndicator__content">Make appointment</div><span class="stepIndicator__stepof">2 out of 3</span>
-   </div>
-</div>
+	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+	</jsp:include>
 
-<div class="comp stepIndicator stepIndicator--numberOnly hidden-lg hidden-md">
-   <div class="stepIndicator__container">
-      <ul class="stepIndicator__list"><li class="stepIndicator__item "><a href="#" class="stepIndicator__number stepIndicator__number--completed"><i class="fa fa-check"></i></a></li><li class="stepIndicator__item "><a href="#" class="stepIndicator__number stepIndicator__number--active"><span>2</span></a></li><li class="stepIndicator__item stepIndicator__item--last"><a href="#" class="stepIndicator__number "><span>3</span></a></li></ul><div class="stepIndicator__stepLine"></div>
-   </div>
-</div>
+	<!-- Breadcrumb Component End-->
 
+	<!-- StepIndicator Component Start-->
+
+	<c:set var="stepItems" value="stepindicator.selectplan"/>
+	<c:set var="stepActive" value="0"/>
+
+	<c:set var="stepItems">
+		stepindicator.selectplan,stepindicator.appointment,stepindicator.confirmation
+	</c:set>
+	<c:set var="stepActive">1</c:set>
+
+	<!--<div class="container-fluid fwd-full-container browse-holder">-->
+	<jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+		<jsp:param name="stepItems" value="${stepItems}"/>
+		<jsp:param name="stepActive" value="${stepActive}"/>
+	</jsp:include>
+	<!--</div>-->
 
 <script>
 
@@ -100,68 +98,65 @@ function stickToHeader() {
          <div class="row" id="appointment-form-holder">
              
                <div class="col-xs-12 col-md-6" id="left-side-form">
-                   <h5>Please choose a Customer Service Centre</h5>
-					<p class="confirm-call">Appointment can be made up to 20 days in advance.</p>
-					<p class="confirm-call">Please note each appointment time slot can serve only one applicant for Financial Needs Analysis or application. The person who makes the appointment must be the same person as the applicant.</p>
+                   <h5><fmt:message key="provie.appoint.text1" bundle="${provieMsg}" /></h5>
+					<p class="confirm-call"><fmt:message key="provie.appoint.text2" bundle="${provieMsg}" /></p>
+					<p class="confirm-call"><fmt:message key="provie.appoint.text3" bundle="${provieMsg}" /></p>
 					<div class="">
 						<div class="payment-select-wrapper">
-							<p class="bank-info-select-label">Customer Service Centre</p>
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.cscentre" bundle="${provieMsg}" /></p>
 		                   <div class="selectDiv centreDiv gray-text-bg">
 		                      <select name="centre" id="centre" class="form-control gray-dropdown">
-		                        <option value="" disabled selected>Customer Service Centre</option>
-			                                     <option value="QB" >Quarry Bay</option>
-			                                     <option value="TST" selected="selected">Tsim Sha Tsui</option>
-			                                     <option value="SW" >Sheung Wan</option>
-			                                     <option value="KF" >Kwai Fong</option>
+		                        
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
-		                   <div class="centre-info visible-xs visible-sm" id="centre-info">
-		                      
-		                   </div>
+		                   <span class="error-msg centreErrMsg"></span>
 		               </div>
 		           </div>  
 		           <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label">Date</p>  
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.date" bundle="${provieMsg}" /></p>  
 		                   <div class="selectDiv preferred-date gray-text-bg">
 		                      <input name="app-date" id="app-date" value="" class="form-control" />
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
+		                   <span class="error-msg app-dateErrMsg"></span>
 		                </div>
 		            </div>
 		            <div class="">
 						<div class="payment-select-wrapper so-mdl-textfield">
-							<p class="bank-info-select-label">Time</p>
+							<p class="bank-info-select-label"><fmt:message key="provie.appoint.dropdown.time" bundle="${provieMsg}" /></p>
 		                    <div class="selectDiv timeslot gray-text-bg">
 		                      <select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
 		                          <option value=""></option>
 		                      </select>
 		                      <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 		                   </div>
+		                   <span class="error-msg preferred-timeErrMsg"></span>
 		                </div>
 		           </div>
 		           <div class="after-login">
 						<div class="form-group">
                             <div class="fld-wrapper">
                                 <p class="fld-label">Confirm log in as</p>
-                                <p class="fld-val">Mr. Pang siu ming</p>
+                                <p class="fld-val"></p>
                             </div>
                         </div>
 		           </div>
 		           <div class="confirm-button-group text-center">
-						<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-confirm" id="btn-appointment-confirm">Confirm</button>
+						<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-confirm">Confirm</button>
+						<span class="error-msg generalErrMsg"></span>
 						<div class="login-error-wrapper">
 							<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
 						</div>
 					</div>
 		           <div class="before-login">
-		           <h5>To provide an more concrete analysis, please log in to make the appointment.</h5>
+		           <h5><fmt:message key="provie.appoint.login.title" bundle="${provieMsg}" /></h5>
 			           <div>
 							<div class="panel-group" id="accordion">
 								<div class="panel">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login">Log in to confirm appointment<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-login"><fmt:message key="provie.appoint.text4" bundle="${provieMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
 									</div>
 									<div id="pan-login" class="panel-collapse collapse in">
 										<div class="panel-body">
@@ -171,31 +166,29 @@ function stickToHeader() {
 														<!--使用者名 -->
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentloginUsername">
-															<label class="mdl-textfield__label" for="appointmentloginUsername">Username</label>
+															<label class="mdl-textfield__label" for="appointmentloginUsername"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
 															
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
 													</div>
 													<!-- 忘記使用者名 -->
 													<div class="text-right">
-														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username">Forgot username?</a>
+														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-username"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" />?</a>
 													</div>
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentloginPassword">
-															<label class="mdl-textfield__label" for="appointmentloginPassword">Password</label>												
+															<label class="mdl-textfield__label" for="appointmentloginPassword"><fmt:message key="provie.appoint.password" bundle="${provieMsg}" /></label>												
 														</div>
 														<span class="error-msg passwordErrMsg"></span>
 													</div>
 													<div class="text-right">
 														<!--忘記密碼 -->
-														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd">Forgot password?</a>
+														<a class="heading-h6 btn-sub-pan-trigger" href="#sub-pan-forgot-pwd"><fmt:message key="provie.appoint.forget.password" bundle="${provieMsg}" />?</a>
 													</div>
 													<div class="login-button-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-login">Log in</button>
-														<div class="login-error-wrapper">
-															<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
-														</div>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-login"><fmt:message key="provie.appoint.register.cta.login" bundle="${provieMsg}" /></button>
+														<span class="error-msg loginPanErrMsg"></span>
 													</div>
 												</form>
 											</div>
@@ -203,14 +196,14 @@ function stickToHeader() {
 												<form name="form-appointment-forgot-username" id="form-appointment-forgot-username" method="post">
 													<!-- 電話 inout -->
 													<div class="panel-heading">
-														<h4 class="panel-title">Forgot Username<a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.username" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													
 
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp-forgotusername login-input mdl-textfield__input" id="appointmentForgotUsernameMobileNo">
-															<label class="mdl-textfield__label" for="appointmentForgotUsernameMobileNo">Mobile no.</label>
+															<label class="mdl-textfield__label" for="appointmentForgotUsernameMobileNo"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
 										                </div>
 										                <span class="error-msg mobileNoErrMsg"></span>
 
@@ -219,7 +212,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="email" name="emailAddress" class="form-control gray-textbox mdl-textfield__input check-emp-forgotusername login-input" id="appointmentForgotUsernameEmailAddress" >
-															<label class="mdl-textfield__label" for="appointmentForgotUsernameEmailAddress">Email address</label>
+															<label class="mdl-textfield__label" for="appointmentForgotUsernameEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
 									                     </div>
 									                     <span class="error-msg emailAddressErrMsg"></span>
 
@@ -227,7 +220,8 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-username">Submit</button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-username"><fmt:message key="provie.appoint.register.cta.submit" bundle="${provieMsg}" /></button>
+														<span class="error-msg forgotUsernamePanErrMsg"></span>
 													</div>
 							                    </form>
 
@@ -236,13 +230,13 @@ function stickToHeader() {
 											<div class="sub-pan" id="sub-pan-forgot-pwd">
 												<form name="form-appointment-forgot-pwd" id="form-appointment-forgot-pwd" method="post">
 													<div class="panel-heading">
-														<h4 class="panel-title">Forgot Password<a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
+														<h4 class="panel-title"><fmt:message key="provie.appoint.forget.password" bundle="${provieMsg}" /><a href="#sub-pan-login" class="btn-sub-pan-trigger"><i class="glyphicon glyphicon-remove"></i></a></h4>
 													</div>
 													<!-- 電話 input -->
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdMobileNo">
-															<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd">Mobile no.</label>
+															<label class="mdl-textfield__label" for="mobileNo-forgotpassowrd"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
 														</div>
 														<span class="error-msg mobileNoErrMsg"></span>
 													</div>
@@ -251,7 +245,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="email" name="emailAddress" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdEmailAddress">
-															<label class="mdl-textfield__label" for="appointmentForgotPwdEmailAddress">Email address</label>
+															<label class="mdl-textfield__label" for="appointmentForgotPwdEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
 														</div>
 														<span class="error-msg emailAddressErrMsg"></span>
 													</div>
@@ -261,7 +255,7 @@ function stickToHeader() {
 													<div class="form-group">
 														<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<input type="text" name="userName" class="form-control check-emp-forgotuserpassoword login-input gray-textbox mdl-textfield__input" id="appointmentForgotPwdUsername">
-															<label class="mdl-textfield__label" for="userName">Username</label>
+															<label class="mdl-textfield__label" for="userName"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
 														</div>
 														<span class="error-msg userNameErrMsg"></span>
 													</div>
@@ -271,7 +265,8 @@ function stickToHeader() {
 
 
 													<div class="login-button-group forgot-group text-center">
-														<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-forgot-pwd">Submit</button>
+														<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-forgot-pwd"><fmt:message key="provie.appoint.register.cta.submit" bundle="${provieMsg}" /></button>
+														<span class="error-msg forgotPwdPanErrMsg"></span>
 
 													</div>
 												</form>
@@ -283,7 +278,7 @@ function stickToHeader() {
 								</div>
 								<div class="panel">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-register">Register here<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
+										<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#pan-register"><fmt:message key="provie.appoint.register.title" bundle="${provieMsg}" /><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg"></a></h4>
 									</div>
 									<div id="pan-register" class="panel-collapse collapse">
 										<div class="panel-body">
@@ -291,21 +286,21 @@ function stickToHeader() {
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="fullName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterFullName" data-keyblock-alphabet-space="true" autocomplete="off" maxlength="100">
-														<label class="mdl-textfield__label" for="appointmentRegisterFullName">Full name <span class="small-txt">(as appears on HKID Card/Passport)</span></label>
+														<label class="mdl-textfield__label" for="appointmentRegisterFullName"><fmt:message key="provie.appoint.register.name" bundle="${provieMsg}" /> <span class="small-txt"><fmt:message key="provie.appoint.register.name.remarks" bundle="${provieMsg}" /></span></label>
 													</div>
 													<span class="error-msg FullNameErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="tel" name="mobileNo" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterMobileNo" data-keyblock-num="true">
-														<label class="mdl-textfield__label" for="appointmentRegisterMobileNo">Mobile no.</label>
+														<label class="mdl-textfield__label" for="appointmentRegisterMobileNo"><fmt:message key="provie.appoint.register.mobileno" bundle="${provieMsg}" /></label>
 													</div>
 													<span class="error-msg mobileNoErrMsg"></span>
 												</div>
 												<div class="form-group" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Insurance certificate will be sent to this email address">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="EmailAddress" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterEmailAddress">
-														<label class="mdl-textfield__label" for="appointmentRegisterEmailAddress">Email address</label>
+														<label class="mdl-textfield__label" for="appointmentRegisterEmailAddress"><fmt:message key="provie.appoint.register.email" bundle="${provieMsg}" /></label>
 													</div>
 													<span class="error-msg EmailAddressErrMsg"></span>
 												</div>
@@ -313,41 +308,39 @@ function stickToHeader() {
 													<!--使用者名 -->
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="text" name="userName" class="form-control gray-textbox check-emp login-input mdl-textfield__input" id="appointmentRegisterUserName">
-														<label class="mdl-textfield__label" for="appointmentRegisterUserName">Username</label>
+														<label class="mdl-textfield__label" for="appointmentRegisterUserName"><fmt:message key="provie.appoint.username" bundle="${provieMsg}" /></label>
 													</div>
 													<span class="error-msg userNameErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="password" name="password" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentRegisterPassword">
-														<label class="mdl-textfield__label" for="appointmentRegisterPassword">Password</label>											
+														<label class="mdl-textfield__label" for="appointmentRegisterPassword"><fmt:message key="provie.appoint.register.pw" bundle="${provieMsg}" /></label>											
 													</div>
 													<span class="error-msg passwordErrMsg"></span>
 												</div>
 												<div class="form-group">
 													<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<input type="password" name="confirmPassword" class="form-control check-emp-forgotusername login-input gray-textbox mdl-textfield__input" autocomplete="off" id="appointmentRegisterConfPass">
-														<label class="mdl-textfield__label" for="appointmentRegisterConfPass">Confirm password</label>
+														<label class="mdl-textfield__label" for="appointmentRegisterConfPass"><fmt:message key="provie.appoint.register.confirmpw" bundle="${provieMsg}" /></label>
 													</div>
 													<span class="error-msg confirmPasswordErrMsg"></span>
 												</div>
 												<div class="declaration">
-													<h4>Declaration :</h4>
+													<h4><fmt:message key="provie.appoint.register.declaration.title" bundle="${provieMsg}" /></h4>
 													<div class="form-group">
-														<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1">I have read and understood <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank">Personal Information Collection Statement</a> and agree to be bound by the same.</label></div>
+														<div class="checkbox"><input id="checkbox1" name="checkbox1" type="checkbox" class=""><label for="checkbox1"><fmt:message key="provie.appoint.register.declaration1.text1" bundle="${provieMsg}" /> <a href="https://www.fwd.com.hk/~/media/Files/FWDHK/pdf/others/fwd-online-member-en.pdf?la=en" target="blank"><fmt:message key="provie.appoint.register.declaration1.text2" bundle="${provieMsg}" /></a> <fmt:message key="provie.appoint.register.declaration1.text3" bundle="${provieMsg}" /></label></div>
 														<span class="error-msg checkbox1ErrMsg"></span>
 													</div>
 													<hr>
-													<p>If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:</p>
-													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3">Please do not send direct marketing information to me.</label></div> 
-													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4">Please do not provide my personal data to other persons or companies for their use in direct marketing.</label> </div>
-													<div class="checkboxBubble">You may not be able to receive our latest promotion and benefits!</div>
+													<p><fmt:message key="provie.appoint.register.declaration2.text1" bundle="${provieMsg}" /></p>
+													<div class="checkbox"><input id="checkbox3" name="checkbox3" type="checkbox"><label for="checkbox3"><fmt:message key="provie.appoint.register.declaration2.text2" bundle="${provieMsg}" /></label></div> 
+													<div class="checkbox"><input id="checkbox4" name="checkbox4" type="checkbox"><label for="checkbox4"><fmt:message key="provie.appoint.register.declaration2.text3" bundle="${provieMsg}" /></label> </div>
+													<div class="checkboxBubble"><fmt:message key="provie.appoint.register.declaration2.text4" bundle="${provieMsg}" /></div>
 												</div>
 												<div class="login-button-group text-center">
-													<button type="button" class="cta-confirm cta-font cta-orange cta-padding-40 btn-submit" id="btn-appointment-register">Activate</button>
-													<div class="login-error-wrapper">
-														<div id="login-err-msg" class="color-red heading-h5" role="alert"></div>
-													</div>
+													<button type="button" class="btn-primary js-btn-submit" id="btn-appointment-register"><fmt:message key="provie.appoint.register.cta.activate" bundle="${provieMsg}" /></button>
+													<span class="error-msg regPanErrMsg"></span>
 												</div>
 										</form>
 										</div>
@@ -359,7 +352,10 @@ function stickToHeader() {
                 </div>
                 <div class="col-xs-12 col-md-6" id="right-side-form">
                    <div class="centre-info visible-md visible-lg" id="centre-info">
-                      
+                      <img class="img-centre img-responsive">
+                      <h4><fmt:message key="provie.appoint.address" bundle="${provieMsg}" /></h4>
+                      <p class="centre-address"></p>
+                      <a target="_blank" class="viewmap-link" href="#"><fmt:message key="provie.appoint.viewmap" bundle="${provieMsg}" /></a>
                    </div>
                 </div>
                 <div class="col-xs-12">
@@ -374,6 +370,15 @@ function stickToHeader() {
        </div>
 	<!-- FOOTER -->
 		<!--Modal in Customer Service Centre-->
+		<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg loading-dialog">
+				<div class="modal-content plan-modal loading-modal">
+					<img src="<%=request.getContextPath()%>/resources/images/loading.gif"
+						width="300" />
+				</div>
+			</div>
+		</div>
+				
 		<div class="modal fade" role="dialog" aria-labelledby="pickAnotherCentre" id="pickAnotherCentre">
 			<div class="modal-dialog teaserSurvey" role="document">
 				<div class="modal-content teaserSurvey">
@@ -483,6 +488,8 @@ function stickToHeader() {
 	var sFullDate= new Date();
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(document).ready(function() {
+		
+		return;
 //Check is more than 2 tries from backend
 		var isMoreThan2Tries = false;
 		if(isMoreThan2Tries){
@@ -640,18 +647,8 @@ function stickToHeader() {
 				getTimeSlot('', '1');
 			}
 		});
-	});
-	
-	function togglePreferred(id) {
-		$(".col-xs-12 .preferred-date .date").hide();
-		$("#"+ id).show();
-	}
-	
-       $(window).bind('scroll', function() {
-          stickHeaderBrowse();
-       });
 
-       $('#preferred-date').datepicker({
+		$('#preferred-date').datepicker({
           format: "dd-mm-yyyy",
           //format: 'yy-mm-dd',
           container: "#date",
@@ -684,151 +681,140 @@ function stickToHeader() {
           }
        }
        
-	$('#pick-another-centre-btn').click(function(){
-		$('#pickAnotherCentre').modal('hide');
-	});
-	$('#fullyBooked-button').click(function(){
-		$('#fullyBooked').modal('hide');
-		window.location = '/fwdhk/en/FNA/review';
-		//window.location = '/fwdhk/en/savings-insurance/plan-details-sp?type=3';
-	});
-	$('#moreThan2Tries-button').click(function(){
-		window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
-	});
-	$('#perferredTimeIsNull-btn').click(function(){
-		$('#perferredTimeIsNull').modal('hide');
-	});
-	$('#reservationInvalid-btn').click(function(){
-		$('#reservationInvalid').modal('hide');
-	});
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		$('#fullyBooked-button').click(function(){
+			$('#fullyBooked').modal('hide');
+			window.location = '/fwdhk/en/FNA/review';
+			//window.location = '/fwdhk/en/savings-insurance/plan-details-sp?type=3';
+		});
+		$('#moreThan2Tries-button').click(function(){
+			window.location = '/fwdhk/en/savings-insurance/plan-details-sp';
+		});
+		$('#perferredTimeIsNull-btn').click(function(){
+			$('#perferredTimeIsNull').modal('hide');
+		});
+		$('#reservationInvalid-btn').click(function(){
+			$('#reservationInvalid').modal('hide');
+		});
 
-	$('#back-to-home-btn').click(function(){
-		window.location.href= context + "/" + language + "/savings-insurance";
+		$('#back-to-home-btn').click(function(){
+			window.location.href= context + "/" + language + "/savings-insurance";
+		});
+		$("#btn-cstmr-srvc-cnter-eh").on('click', function(){
+	    	var planCode = "ROPHI1";
+			
+	    	var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
+				$('#perferredTimeIsNull').modal('show');
+			}else{
+				$.ajax({     
+				    url:context+'/ajax/savings-insurance/upsertAppointment',
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime,
+				        "planCode":planCode,
+				        "remarks":"",
+				        "type":"4"
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment');
+					    	$("#paymentForm").submit();
+				    	}else if(data.errMsgs == "Access code has already been used"){
+				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}else if(data.errMsgs == "Reservation is invalid"){
+				    		$('#reservationInvalid').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    	else if(data.errMsgs == "The number of appointments must be less than 2"){
+				    		//Check is more than 2 tries from backend
+							$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+							$('#moreThan2Tries').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
+	   	});
+	       
+	    $("#btn-cstmr-srvc-cnter").on('click', function(){
+	      	//window.location = '/fwdhk/en/savings-insurance/confirmation-appointment-sp';
+	    	var planCode = "";
+			if('' == 'SP'){
+				planCode = "SAVIE-SP";
+			}
+			else{
+				planCode = "SAVIE-RP";
+			}
+			
+	    	var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
+				$('#perferredTimeIsNull').modal('show');
+			}else{
+				$.ajax({     
+				    url:context+'/ajax/savings-insurance/upsertAppointment',
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime,
+				        "planCode":planCode,
+				        "remarks":"",
+				        "type":"4",
+				        "appointmentTypeId":"1"
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		if('' == 'SP'){
+				    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
+				    		}
+				    		else{
+				    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-rp');
+				    		}
+					    	$("#paymentForm").submit();
+				    	}else if(data.errMsgs == "Access code has already been used"){
+				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}else if(data.errMsgs == "Reservation is invalid"){
+				    		$('#reservationInvalid').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    	else if(data.errMsgs == "The number of appointments must be less than 2"){
+				    		//Check is more than 2 tries from backend
+							$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
+							$('#moreThan2Tries').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
+	   	});
 	});
-	$("#btn-cstmr-srvc-cnter-eh").on('click', function(){
-    	var planCode = "ROPHI1";
-		
-    	var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		}else if(perferredTime == null || perferredTime.trim() == ""){
-			$('#perferredTimeIsNull').modal('show');
-		}else{
-			$.ajax({     
-			    url:context+'/ajax/savings-insurance/upsertAppointment',
-			    type:'post',     
-			    data:{    
-			    	"csCenter": csCenter,
-			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime,
-			        "planCode":planCode,
-			        "remarks":"",
-			        "type":"4"
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data.errMsgs == null){
-			    		//send email
-			    		$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
-				    	$("#paymentForm").submit();
-			    	}else if(data.errMsgs == "Access code has already been used"){
-			    		$('#accessCodeUsed').modal('show');
-			    		console.log(data.errMsgs);
-			    	}else if(data.errMsgs == "Reservation is invalid"){
-			    		$('#reservationInvalid').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    	else if(data.errMsgs == "The number of appointments must be less than 2"){
-			    		//Check is more than 2 tries from backend
-						$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
-						$('#moreThan2Tries').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    }  
-			});
-		}
-   	});
-       
-    $("#btn-cstmr-srvc-cnter").on('click', function(){
-      	//window.location = '/fwdhk/en/savings-insurance/confirmation-appointment-sp';
-    	var planCode = "";
-		if('' == 'SP'){
-			planCode = "SAVIE-SP";
-		}
-		else{
-			planCode = "SAVIE-RP";
-		}
-		
-    	var csCenter = $("#centre").val();
-		var perferredDate = $("#preferred-date").val();
-		var perferredTime = $("#preferred-time").val();
-		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
-			$('#fullyBooked').modal('show');
-		}else if(perferredTime == null || perferredTime.trim() == ""){
-			$('#perferredTimeIsNull').modal('show');
-		}else{
-			$.ajax({     
-			    url:context+'/ajax/savings-insurance/upsertAppointment',
-			    type:'post',     
-			    data:{    
-			    	"csCenter": csCenter,
-			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime,
-			        "planCode":planCode,
-			        "remarks":"",
-			        "type":"4",
-			        "appointmentTypeId":"1"
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data.errMsgs == null){
-			    		//send email
-			    		if('' == 'SP'){
-			    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-sp');
-			    		}
-			    		else{
-			    			$("#paymentForm").attr("action", '/fwdhk/en/savings-insurance/confirmation-appointment-rp');
-			    		}
-				    	$("#paymentForm").submit();
-			    	}else if(data.errMsgs == "Access code has already been used"){
-			    		$('#accessCodeUsed').modal('show');
-			    		console.log(data.errMsgs);
-			    	}else if(data.errMsgs == "Reservation is invalid"){
-			    		$('#reservationInvalid').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    	else if(data.errMsgs == "The number of appointments must be less than 2"){
-			    		//Check is more than 2 tries from backend
-						$('#paymentForm select, #paymentForm input, #paymentForm button').prop('disabled', 'disabled');
-						$('#moreThan2Tries').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    }  
-			});
-		}
-   	});
-
-    $("#btn-appointment-confirm").on('click', function(){
-      	window.location = '/fwdhk/en/savings-insurance/provie/confirmation-appointment';
-    	//var planCode = "";
-		//if('' == 'SP'){
-		//	planCode = "SAVIE-SP";
-		//}
-		//else{
-		//	planCode = "SAVIE-RP";
-		//}
-		
-    	//var csCenter = $("#centre").val();
-		//var perferredDate = $("#preferred-date").val();
-		//var perferredTime = $("#preferred-time").val();
-
-   	});
-    
-    
+	
+	function togglePreferred(id) {
+		$(".col-xs-12 .preferred-date .date").hide();
+		$("#"+ id).show();
+	}
+  
     function setCentre(centre){
     	
         if(centre == 'QB') {
@@ -848,30 +834,10 @@ function stickToHeader() {
         }
         
     }
-</script></div>
-		
-
-
-
-
-
-  
-     <!-- Start of LiveChat (www.livechatinc.com) code -->
-    <script type="text/javascript">
-    var __lc = {};
-    __lc.license = 6320751;
-    __lc.group = 1;
-    (function() {
-    var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-    lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-    })();
-    </script>
-    <!-- End of LiveChat code -->
+</script>
 
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/application.common.0.3.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/provie/provie-app-uifn.js"></script>

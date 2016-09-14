@@ -344,11 +344,16 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_EASY_HOME_SUMMARY = "easy.home.summary";
 	public static final String PAGE_PROPERTIES_EASY_HOME_CONFIRMATION = "easy.home.confirmation";
 	
+	/* API For provie online */
+	public static final String PROVIE_PLAN_DETAIL = "/premium/provie/planDetails";
+	public static final String GET_PROVIE_RIDER_ELIGIBILITY = SERVICE_URL + "/life/provie/rider/eligibility";
+
+	
 	/* Page Flow Control For provie online */
 	public static final String URL_PROVIE_SINGLE_PREMIUM = "single-premium";
 	public static final String URL_PROVIE_REGULAR_PREMIUM = "regular-premium";
 	
-	//public static final String PAGE_PROVIE_LANDING = "O2O-landing";
+	public static final String PAGE_PROVIE_LANDING = "landing";
 	public static final String PAGE_PROVIE_PLANDETAILS = "plan-details-sp";
 	public static final String PAGE_PROVIE_SERVICE_CENTER = "customer-service-centre";
 	//public static final String PAGE_PROVIE_SERVICE_CENTER_CONFIRMED = "customer-service-centre-confirmed";
@@ -359,6 +364,7 @@ public class UserRestURIConstants {
 	
 	public static final String PAGE_PROPERTIES_PROVIE = "provie";
 	public static final String PAGE_PROPERTIES_PROVIE_LANDING = "provie.landing";
+//	public static final String PAGE_PROPERTIES_SAVIEONLINE_SINGLE_PREMIUM = "savie.landing.sp";
 	public static final String PAGE_PROPERTIES_PROVIE_SINGLE_PREMIUM = "provie.landing.sp";
 	public static final String PAGE_PROPERTIES_PROVIE_REGULAR_PREMIUM = "provie.landing.rp";
 	public static final String PAGE_PROPERTIES_PROVIE_PLANDETAILS = "provie.plan.details";

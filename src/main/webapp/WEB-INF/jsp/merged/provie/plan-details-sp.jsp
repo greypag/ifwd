@@ -9,12 +9,15 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<fmt:setBundle basename="provie" var="provieMsg" />
 <!DOCTYPE html>
 <script type="text/javascript">
-	var context = "${pageContext.request.contextPath}";
+	var context = "${pageContext.request.contextPath}";	
 	var languageP = "${language}";
-	var affordabilityMin = 3000;
-	var affordabilityPremium = 40000;
+	var affordabilityMin = 30000;
+	var affordabilityPremium = 1000000;
+	var affordabilityMinUSD = 3750;
+	var affordabilityPremiumUSD = 125000;
 </script>
 
 
@@ -26,76 +29,63 @@
  
 <div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps provie-plan-select" id="plan-details-b-page">
 	<!-- HEADER -->
-	<div class="fwd-container container-fluid breadcrumbs">
-		<div class="breadcrumb-container">
-			<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-			   <li><a href="#">主頁</a></li>
-			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">儲蓄</a></li>
-			   <li class="divider"><i class="fa fa-play"></i></li>
-			   <li><a href="#">Provie 自助息理財壽險</a></li>
-			   <li class="divider last"><i class="fa fa-play"></i></i></li>
-			   <li class="active-bc" id="et-active-bc-menu">計劃詳情</li>
-			</ol>
-		 </div>
-	</div>
-	<!-- STEPS -->
-	<div class="container-fluid fwd-full-container browse-holder">
-		<div class="application-page-header et-header-browse">
-		   <div class="browse-container">
-			  <div class="row reset-margin hidden-xs hidden-sm">
-				 <ul class="common-steps-list six-steps nav nav-pills">
-					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span></i>計劃詳情</button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span>預約申請</button></li>
-					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
-					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>確認</button></li>
-				 </ul>
-			 </div>
-		   </div>
-		   <div class="et-mobile-header-info hidden-md hidden-lg">
-			  <div class="clearfix">
-				 <div class="et-back-arrow">
-					<a href="#" class="back-arrow-link">
-					   <span class="icon-arrow-left2 arrow-left"></span>
-					</a>
-				 </div>
-				 <div class="et-header-tex">
-					<h3 id="">計劃詳情</h3>
-				 </div>
-				 <p id="step-of">1 of 3</p>
-			  </div>
-		   </div>
-		</div>
-	</div>
-	<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
-		<div class="step-indicator-container clearfix">
-			<ul class="common-step-indicator three-steps nav nav-pills">
-				 <li id="first-step"><a href="#" class="active"><span class="step-no">1</span></a></li>
-				 <li><a href="#"><span class="step-no">2</span></a></li>
-				 <li id="last-step"><a href="#"><span class="step-no">3</span></a></li>
-			</ul>
-			<div class="step-line"></div>
-		</div>
-	</div>
+
+	<!-- Breadcrumb Component Start-->
+
+	<c:set var="breadcrumbItems" value="breadcrumb.item.home"/>
+	<c:set var="breadcrumbActive" value="0"/>
+
+	<c:set var="breadcrumbItems">
+		breadcrumb.item.home,breadcrumb.item.save,breadcrumb.item.provie,breadcrumb.item.plan.details
+	</c:set>
+	<c:set var="breadcrumbActive">3</c:set>
+
+	<jsp:include page="/WEB-INF/jsp/merged/comp/breadcrumb.jsp">
+		<jsp:param name="breadcrumbItems" value="${breadcrumbItems}"/>
+		<jsp:param name="breadcrumbActive" value="${breadcrumbActive}"/>
+	</jsp:include>
+
+	<!-- Breadcrumb Component End-->
+
+	<!-- StepIndicator Component Start-->
+
+	<c:set var="stepItems" value="stepindicator.selectplan"/>
+	<c:set var="stepActive" value="0"/>
+
+	<c:set var="stepItems">
+		stepindicator.plan.details,stepindicator.appointment,stepindicator.confirmation
+	</c:set>
+	<c:set var="stepActive">0</c:set>
+
+	<!--<div class="container-fluid fwd-full-container browse-holder">-->
+	<jsp:include page="/WEB-INF/jsp/merged/comp/step-indicator.jsp">
+		<jsp:param name="stepItems" value="${stepItems}"/>
+		<jsp:param name="stepActive" value="${stepActive}"/>
+	</jsp:include>
+	<!--</div>-->
+
+	<!-- StepIndicator Component End-->
+
+	<div class="clearfix"></div>
+
 	<div class="container-fluid fwd-full-container headerStick">
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="col-md-8">
 					<div class="row mob-full">
-						<h3 class="heading-title">計劃詳情 <i data-toggle="tooltip" data-html="true" data-placement="right" title="<p class='bold'>一筆過供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p><p class='bold'>定期供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p>" class="fa hidden fa-info-circle info-tooltip"></i></h3>
+						<h3 class="heading-title"><fmt:message key="provie.plandetails.title.plandeatils" bundle="${provieMsg}" /> <i data-toggle="tooltip" data-html="true" data-placement="right" title="<p class='bold'>一筆過供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p><p class='bold'>定期供款</p><p class='info-content'>您可設定每月直接扣帳銀行戶口以支付保費。</p>" class="fa hidden fa-info-circle info-tooltip"></i></h3>
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type" >
-										   <option value="regular-payment">月繳供款 - 港幣</option>
-										   <option value="regular-payment">月繳供款 - 美元</option>
-										   <option value="one-off-premium" selected>一筆過供款 - 港幣</option>
-										   <option value="one-off-premium">一筆過供款 - 美元</option>
+										   <option value="regular-payment" data-val="rp-HKD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.hkd" bundle="${provieMsg}" /></option>
+										   <option value="regular-payment" data-val="rp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.monthly.usd" bundle="${provieMsg}" /></option>
+										   <option value="one-off-premium" data-val="sp-HKD" selected><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.hkd" bundle="${provieMsg}" /></option>
+										   <option value="one-off-premium"  data-val="sp-USD"><fmt:message key="provie.plandetails.dropdown.paymentmode.oneoff.usd" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">繳費方式</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="provie.plandetails.text1" bundle="${provieMsg}" /></label>
 									</div>
 								</div>								
 							</div>
@@ -106,7 +96,7 @@
 									<div class="selectDiv centreDiv gray-text-bg">
 										<input  name="plan-dob" id="plan-dob-datepicker" value="" class="form-control" />
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob">出生日期</label>
+											<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-dob"><fmt:message key="provie.plandetails.dropdown.dob" bundle="${provieMsg}" /></label>
 									</div>
 								</div>
 <!-- 								
@@ -120,14 +110,18 @@
 									<div class="mdl-custom-slider">
 									   
 											<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label">
-												<span class="pull-left">供款總額</span>
-												<span class="pull-right"><span id="range">100,000</span>港元</span>
+												<span class="pull-left"><fmt:message key="provie.plandetails.label.amount" bundle="${provieMsg}" /></span>
+												<span class="pull-right">
+													<span class="currency_switcher is_en"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+													<span id="range">100,000</span>
+													<span class="currency_switcher is_chin"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+												</span>
 											</label>
 									  	<div>
 										<input  class="span2 amount-slider" name="amount"
 										value="100000"
 										data-slider-min="30000"
-										data-slider-max="400000"
+										data-slider-max="1000000"
 										data-slider-step="1000"
 										data-slider-value="100000"
 										data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
@@ -135,12 +129,19 @@
 									</div>
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-left">
-											<p>最低供款</p>
-											<p><span id="min-value">30,000</span>港元</p>
+											<p><fmt:message key="provie.plandetails.label.amount.min" bundle="${provieMsg}" /></p>
+											<p>
+												<span class="currency_switcher is_en"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+												<span id="min-value">30,000</span>
+												<span class="currency_switcher is_chin"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span></p>
 										</div>
 										<div class="pull-right text-right">
-											<p>最高供款</p>
-											<p><span id="max-value">400,000</span>港元</p>
+											<p><fmt:message key="provie.plandetails.label.amount.max" bundle="${provieMsg}" /></p>
+											<p>
+												<span class="currency_switcher is_en"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+												<span id="max-value">400,000</span>
+												<span class="currency_switcher is_chin"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -160,9 +161,25 @@
 										   <option value="8000">8,000</option>
 										   <option value="9000">9,000</option>
 										   <option value="10000">10,000</option>
+										   <option value="10000">11,000</option>
+										   <option value="10000">12,000</option>
+										   <option value="10000">13,000</option>
+										   <option value="10000">14,000</option>
+										   <option value="10000">15,000</option>
+										   <option value="10000">16,000</option>
+										   <option value="10000">17,000</option>
+										   <option value="10000">18,000</option>
+										   <option value="10000">19,000</option>
+										   <option value="10000">20,000</option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-amount">每月供款</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="plan-amount">
+												<fmt:message key="provie.plandetails.dropdown.monthly.prefix" bundle="${provieMsg}" />
+												(
+													<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>
+													<fmt:message key="provie.plandetails.dropdown.monthly.suffix" bundle="${provieMsg}" />
+												)
+										</label>
 									</div>
 								</div>
 							</div>
@@ -175,7 +192,7 @@
 										   <option value=""></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="total-payment-years">供款年期</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="total-payment-years"><fmt:message key="provie.plandetails.dropdown.ttlpayment" bundle="${provieMsg}" /></label>
 									</div>
 								</div>
 							</div>
@@ -185,7 +202,7 @@
 								<div class="col-xs-12 plan-promo-code">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
 										<input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"   />
-										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode">推廣編號(如適用)</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label promocode-label" for="promoCode"><fmt:message key="provie.plandetails.promocode" bundle="${provieMsg}" /></label>
 									</div>
 									<span class="error-msg hidden" id="promoCodeErrorMsg">推廣編號無效。</span>
 								</div>
@@ -194,7 +211,7 @@
 						<div class="col-md-12 visible-md visible-lg">
 							<div class="row">
 								<div class="col-md-6 col-md-push-6 col-xs-12 plan-calculate text-center">
-									<button type="button" class="btn savie-common-btn" id="plan-calculate-btn">計算</button>
+									<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -203,30 +220,34 @@
 				</div>
 				<div class="col-md-4 extra-rider er-color-swap">
 					<div class="row">
-						<h3 class="heading-title">Get an Extra rider out of 3 choices</h3>
+						<h3 class="heading-title"><fmt:message key="provie.plandetails.riders.title" bundle="${provieMsg}" /></h3>
 						<div class="col-xs-12">
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
 										<select name="payment-type" id="type-of-extra-rider" class="form-control gray-dropdown pd-dropdown">
-										   <option value="p50">50% Death Benefit</option>
-										   <option value="p100">100% Death Benefit</option>
-										   <option value="p500">500% Death Benefit</option>
+										   <option value="ACCIDENTIAL_DEATH_BENEFIT" data-cls="p50" ><fmt:message key="provie.plandetails.rider3" bundle="${provieMsg}" /></option>
+										   <option value="CANCER_BENEFIT" data-cls="p100" ><fmt:message key="provie.plandetails.rider1" bundle="${provieMsg}" /></option>
+										   <option value="TERM_LIFE_BENEFIT" data-cls="p500" ><fmt:message key="provie.plandetails.rider2" bundle="${provieMsg}" /></option>
 										</select>
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type">Extra riders</label>
+										<label class="mdl-textfield__label so-mdl-textfield-label custom-made-label" for="payment-type"><fmt:message key="provie.plandetails.extrarider" bundle="${provieMsg}" /></label>
 									</div>
 								</div>
 								<div class="col-xs-12 hidden-md hidden-lg">
-									<a href="#extra-desc" data-toggle="collapse" class="btn-more collapsed">Detail</a>
+									<a href="#extra-desc" data-toggle="collapse" class="btn-more collapsed"><fmt:message key="provie.plandetails.text.detail" bundle="${provieMsg}" /></a>
 								</div>
 								<div class="col-xs-12 hidden-md hidden-lg">
 									<div class="collapse" id="extra-desc">
-										<p>Provides a Death Benefit where 100% of the sum insured will be payable 2 in the unfortunate event of the death of the insured. During the term of the Plan, if the death of the insured is highly likely within a year, a lump sum equivalent to the Death Benefit will be paid in advance2,3 to help you to cope with the financial strain.</p>
+										<p class="p50 active"><fmt:message key="provie.plandetails.rider3.text" bundle="${provieMsg}" /></p>
+										<p class="p100"><fmt:message key="provie.plandetails.rider1.text" bundle="${provieMsg}" /></p>
+										<p class="p500"><fmt:message key="provie.plandetails.rider2.text" bundle="${provieMsg}" /></p>
 									</div>
 								</div>
-								<div class="col-xs-12 visible-md visible-lg">
-									<p>Provides a Death Benefit where 100% of the sum insured will be payable 2 in the unfortunate event of the death of the insured. During the term of the Plan, if the death of the insured is highly likely within a year, a lump sum equivalent to the Death Benefit will be paid in advance2,3 to help you to cope with the financial strain.</p>
+								<div class="col-xs-12 visible-md visible-lg" id="extra-desc-desktop">
+									<p class="p50 active"><fmt:message key="provie.plandetails.rider3.text" bundle="${provieMsg}" /></p>
+									<p class="p100"><fmt:message key="provie.plandetails.rider1.text" bundle="${provieMsg}" /></p>
+									<p class="p500"><fmt:message key="provie.plandetails.rider2.text" bundle="${provieMsg}" /></p>
 								</div>
 							</div>
 						</div>
@@ -235,7 +256,7 @@
 				<div class="col-xs-12 hidden-md hidden-lg">
 					<div class="row">
 						<div class="col-md-6 col-md-push-6 col-xs-12 plan-calculate text-center">
-							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn">計算</button>
+							<button type="button" class="btn savie-common-btn" id="plan-calculate-btn"><fmt:message key="provie.plandetails.cta.calculate" bundle="${provieMsg}" /></button>
 						</div>
 					</div>
 				</div>
@@ -247,74 +268,77 @@
 	<div class="pd-summary-table" id="table-content-pd">
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
-				<h4 class="summary-note-title">摘要</h4>
+				<h4 class="summary-note-title"><fmt:message key="provie.plandetails.title.summary" bundle="${provieMsg}" /></h4>
 				<!-- <p class="summary-note">如您於第三個保單年度退保，可獲得港幣<span id="3rd_policy_year" class="received-money">0</span></p> -->
 			</div>
 			<div class="table-content">
 				<div class="rate-table hidden-xs hidden-sm">
-					<table class="table">
+					<table class="hidden" id="template">
+						<tr id="">
+							<tr class="tbl_desktop">
+								<td class="policy-credit policy-number bold premiumYear"></td>
+								<td class="policy-credit hidden-sm hidden-xs rate"></td>
+								<td class="totalPaid"></td>
+								<td class="hidden-sm hidden-xs accountValue"></td>
+								<td class="hidden-sm hidden-xs deathBenefit"></td>
+								<td class="cell-extra-rider er-color-swap riderValue"><span></span></td>
+							</tr>
+							<tr class="tbl_mob_header">
+								<td class="premiumYear"></td>
+							</tr>
+							
+							<tr class="tbl_mob">
+								<td class="rate"></td>
+								<td class="totalPaid"></td>
+								<td class="accountValue"></td>
+								<td class="deathBenefit"></td>
+								<td class="cell-extra-rider er-color-swap riderValue"></td>
+							</tr>
+						</tr>
+					</table>	
+					<table class="table tbl_desktop">
 						<thead>
 							<tr>
-								<th class="first-head">保單年度終結</th>
-								<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-								<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-								<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-								<th class="hidden-sm hidden-xs">身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-								<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>
+								<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+								<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+								<th>
+									<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+									(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+									<span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+								</th>
+								<th class="hidden-sm hidden-xs">
+									<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
+									(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+									<span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+									<br>
+									<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+																		(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+									<span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+									
+								</th>
+								<th class="hidden-sm hidden-xs">
+									<fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" />
+																		(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+									<span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+								</th>
+								<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">1</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-1">1.5</td>
-								<td id="premium-1">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-1">100,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-1">103,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-1"><span>503,047</span></td>
-							</tr>
-							<tr>
-								<td class="policy-credit policy-number bold">2</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-2">1.5</td>
-								<td id="premium-2">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-2">103,017</td>
-								<td class="hidden-sm hidden-xs" id="surrender-2">106,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-2"><span>506,047</span></td>
-							</tr>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">3</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">2</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">106,107</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">109,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>509,047</span></td>
-							</tr>
-							<tr>
-								<td class="policy-credit policy-number bold">4</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">2</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">109,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">112,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>512,047</span></td>
-							</tr>
-							<tr class="pinkish-shade">
-								<td class="policy-credit policy-number bold">5</td>
-								<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">3</td>
-								<td id="premium-3">100,000</td>
-								<td class="hidden-sm hidden-xs" id="account-value-3">111,997</td>
-								<td class="hidden-sm hidden-xs" id="surrender-3">116,047</td>
-								<td class="cell-extra-rider er-color-swap" id="death-3"><span>516,047</span></td>
-							</tr>
+							
 						</tbody>
 					</table>
 				</div>
 
-				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table">
+				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table tbl_mob_header">
 					<div class="sticky-header">
 						<table>
-							<tbody>
+							<thead>
 								<tr>
-									<th>保單年度終結</th>
+									<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
 								</tr>
+							</thead>
+							<tbody>
 								<tr class="pinkish-shade">
 									<td>1</td>
 								</tr>
@@ -339,205 +363,284 @@
 					</div>
 					<div class="overflow-body">
 
-						<table>
-							<tbody>
+						<table class="tbl_mob">
+							<thead>
 								<tr>
-									<th>保證派息率(%)</th>
-									<th>繳付保費總額 （港元）</th>
-									<th>退保價值（港元）/<br>退保價值（港元）</th>
-									<th>身故賠償（港元）</th>
-									<th class="cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental<br>Death Benefit</th>
+									<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+									<th>
+										<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+										(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+									</th>
+									<th>
+										<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br>
+										(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+										<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+										(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+										</th>
+									<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+									<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
 								</tr>
-								<tr class="pinkish-shade">
-									<td>1.5</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td>1.5</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>109,997</td>
-									<td>112,047</td>
-									<td class="cell-extra-rider er-color-swap">512,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>3</td>
-									<td>100,000</td>
-									<td>111,997</td>
-									<td>116,047</td>
-									<td class="cell-extra-rider er-color-swap">516,047</td>
-								</tr>
-							</tbody>
+							</thead>
+							<tbody></tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 			<div class="collapse" id="after-5-years-container">
 				<div class="crediting-rate">
-					<h4 class="crediting-rate-title">派息率(%)</h4>
+					<h4 class="crediting-rate-title"><fmt:message key="provie.plandetails.summary.rate" bundle="${provieMsg}" /></h4>
 					<div class="rate-buttons">
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">保守假設基礎</p>' class="rate-btn" id="rate-0" type="button">0%</button>
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">現時假設基礎</p>' class="rate-btn active" id="rate-2" type="button">2%</button>
-						<button class="rate-btn" id="rate-3" type="button">3%</button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">保守假設基礎</p>' class="rate-btn active" type="button" data-val="0">0%</button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">現時假設基礎</p>' class="rate-btn" type="button" data-val="1">1%</button>
+						<button class="rate-btn" type="button" data-val="2">2%</button>
 						<!--<button class="rate-btn" id="rate-4" type="button">4%</button>-->
 					</div>
 				</div>
-				<div class="table-content hidden-xs hidden-sm" id="after-5-years">
-					<div id="rate-table-0" class="rate-table">
-						<table class="table">
-							<thead>
-								<tr>
-									<th class="first-head">保單年度終結</th>
-									<th class="hidden-sm hidden-xs">保證派息率(%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th>繳付保費總額 （港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th class="hidden-sm hidden-xs">戶口價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span><br>退保價值（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-									<th>身故賠償（港元） <span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									<th class="hidden-sm cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental Death Benefit</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold">1</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold">2</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold">3</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold">4</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold">5</td>
-									<td class="policy-credit">2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="table-content" id="after-5-years">
+					<div class="hidden-xs hidden-sm">
+						
+					
+						<div id="rate-table-0" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+										<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+											<br>
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+											
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+										</th>
+										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div id="rate-table-1" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+										<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+											<br>
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+											
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+										</th>
+										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div id="rate-table-2" class="rate-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="first-head"><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+										<th class="hidden-sm hidden-xs"><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /><span data-toggle="tooltip" data-html="true" data-placement="right" title="所有繳付的保費將於保單年期內享有下述有關的派息率。" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="由保單生效起，您已支付的保費總額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="所有已繳保費及利息的累積金額。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+											<br>
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="當您結束保單時可獲得的金額。" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span>
+											
+										</th>
+										<th class="hidden-sm hidden-xs">
+											<fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" />
+																				(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<span data-toggle="tooltip" data-html="true" data-placement="right" title="倘若被保人於保單生效期內死亡，受限於本保單其他條款 ，本公司於收到身故證明及本公司所規定的其他文件後，將支付戶口價值的百分之一百零五予受益人作為身故權益。" class="glyphicon glyphicon-info-sign default-pointer"></span>
+										</th>
+										<th class="hidden-sm cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
-				<div class="tbl-rate-mobile visible-xs visible-sm clearfix sticky-table">
-					<div class="sticky-header">
-						<table>
-							<tbody>
-								<tr>
-									<th>保單年度終結</th>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>1</td>
-								</tr>
-								<tr>
-									<td>2</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>3</td>
-								</tr>
-								<tr>
-									<td>4</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>5</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="sticky-btns">
-						<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
-						<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
-					</div>
-					<div class="overflow-body">
+					<div class="visible-xs visible-sm ">
+						<div id="rate-table-0-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
 
-						<table>
-							<tbody>
-								<tr>
-									<th>保證派息率(%)</th>
-									<th>繳付保費總額 （港元）</th>
-									<th>退保價值（港元）/<br>退保價值（港元）</th>
-									<th>身故賠償（港元）</th>
-									<th class="cell-extra-rider er-color-swap">Extra Rider<br>500% Accidental<br>Death Benefit</th>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>100,997</td>
-									<td>103,047</td>
-									<td class="cell-extra-rider er-color-swap">503,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>100,000</td>
-									<td>103,997</td>
-									<td>106,047</td>
-									<td class="cell-extra-rider er-color-swap">506,047</td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td>2</td>
-									<td>100,000</td>
-									<td>106,997</td>
-									<td>109,047</td>
-									<td class="cell-extra-rider er-color-swap">509,047</td>
-								</tr>
-							</tbody>
-						</table>
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+										</th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br>
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											</th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
 					</div>
+					<div id="rate-table-1-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
+
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+										</th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br>
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											</th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="rate-table-2-mob" class="tbl-rate-mobile clearfix sticky-table">
+						<div class="sticky-header">
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.year" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+						<div class="sticky-btns">
+							<a href="javascript:void(0);" class="btn-left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
+							<a href="javascript:void(0);" class="btn-right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+						</div>
+						<div class="overflow-body">
+
+							<table>
+								<thead>
+									<tr>
+										<th><fmt:message key="provie.plandetails.summary.interestrate" bundle="${provieMsg}" /></th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.totalpremium" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+										</th>
+										<th>
+											<fmt:message key="provie.plandetails.summary.acctvalue" bundle="${provieMsg}" />/<br>
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											<fmt:message key="provie.plandetails.summary.acctvalue2" bundle="${provieMsg}" />
+											(<span class="currency_switcher"><span class="USD"><fmt:message key="provie.plandetails.currency.usd" bundle="${provieMsg}" /></span><span class="HKD"><fmt:message key="provie.plandetails.currency.hkd" bundle="${provieMsg}" /></span></span>)
+											</th>
+										<th><fmt:message key="provie.plandetails.summary.deathbenefit" bundle="${provieMsg}" /></th>
+										<th class="cell-extra-rider er-color-swap"><fmt:message key="provie.plandetails.summary.extrabenefit" bundle="${provieMsg}" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					</div>	
+					
 				</div>
+				
+			
 			</div>
 			<div class="text-center">
-				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="after-5">首五個保單年度後</span><span class="hidden first-5">首五個保單年度</span></button>
+				<button type="button" class="text-bold white-btn collapsed btn-after-5-years" data-toggle="collapse" data-target="#after-5-years-container" aria-expanded="false" ><span class="after-5"><fmt:message key="provie.plandetails.5years.before" bundle="${provieMsg}" /></span><span class="hidden first-5"><fmt:message key="provie.plandetails.5years.after" bundle="${provieMsg}" /></span></button>
 			</div>
 		</div>
 	</div>
@@ -553,11 +656,11 @@
 		<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
 		   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
 				<li class="pd-sf-tab text-center active" role="presentation">
-					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab">主要產品<br class="visible-xs"/>風險及不保事項</a>
+					<a href="#pd-sf-sale-illustration-sample-pane" class="bold" aria-controls="pd-sf-sale-illustration-sample-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab" bundle="${provieMsg}" /><br class="visible-xs"/><fmt:message key="provie.plandetails.risks.exclusions.tab.suffix" bundle="${provieMsg}" /></a>
 				</li>
-				<li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
-					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab">詞彙表</a>
-				</li>
+				<%-- <li class="pd-sf-tab pd-sf-tab-right text-center" role="presentation">
+					<a href="#pd-sf-faq-and-glossary-pane" class="bold" aria-controls="pd-sf-faq-and-glossary-pane" role="tab" data-toggle="tab"><fmt:message key="provie.plandetails.risks.exclusions.tab2" bundle="${provieMsg}" /></a>
+				</li> --%>
 		   </ul>
 		</div>
 		<div class="pd-sf-divider"></div>
@@ -569,7 +672,7 @@
 						   <div class="panel-heading" role="tab" id="pd-sf-product-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-sale-illustration-sample-group" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									主要產品風險
+									<fmt:message key="provie.plandetails.productrisks.title" bundle="${provieMsg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -578,11 +681,42 @@
 						   </div>
 						   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-product-related">
 							  <div class="panel-body">
-								<div class="js-display-savie-sp">
-									<p>信貸風險</p><p>本產品是由富衛發出的保單。投保本保險產品或其任何保單利益須承受富衛的信貸風險。您將承擔富衛無法履行保單財務責任的違約風險。</p><br/><p>流動性風險</p><p>本產品為長期保險保單。此長期保險保單有既定的保單期限，保單期限由保單生效日至期滿日止。保單提供一定價值，如您於期滿日前作退保，或在保單生效早期提取戶口價值，您可能會損失將來利息及保單保障。投保本產品有機會對您的財務狀況構成流動性風險，您須承擔本產品之流動性風險。</p><br/><p>外幣匯率及貨幣風險</p><p>投保外幣為保單貨幣的保險產品須承受外幣匯率及貨幣風險。請注意外幣或會受相關監管機構控制及管理（例如，外匯限制）。若保險產品的貨幣單位與您的本國貨幣不同，任何保單貨幣對您的本國貨幣匯率之變動將直接影響您的應付保費及可取利益。舉例來說，如果保單貨幣對您的本國貨幣大幅貶值，這種匯率波動可能對您的應付保費及可取利益帶來潛在損失。</p><br/><p>通脹風險</p><p>請注意通脹會導致未來生活費用增加。即使富衛履行所有合約責任，實際保單權益可能不足以應付將來的保障需要。</p><br/><p>提早退保風險</p><p>如您在保單期滿日前提早退保，或在保單生效早期提取戶口價值，您可能會損失將來派息及保單保障。</p><br/><p>終止保單</p><p>保單將在下列其中一個日期終止，以最早者為準: 1. 被保人身故 2. 被保人100歲生日前之保單週年日 3. 保單之退保日。此日期為依富衛退保相關規定所認定之退保日 4. 當保單戶口價值低於零。</p><br/><p>不保證保障</p><p>不保證保障包括派息率是非保證的，並按照釐定派息率的理念由富衛自行決定。</p><br/><p>保費年期及欠繳保費（只適用於月供計劃）</p><p>保單的供款年期的終結日為被保人100歲生日前之保單週年日。任何到期應繳付之保費均可獲富衛30天寬限期。若在寬限期後仍未繳付保費，富衛將為保單執行保費假期。若保單已行使保費假期，保單應繳的基本計劃保費、附加於本保單之附約保費（如適用）及相關的收費將會持續從保單戶口內扣除。當保單戶口價值不足以支付基本計劃保費，任何附加於本保單之附約保費及相關的收費，或當保單戶口價值低於最低戶口結餘時，保單將會自動被終止。請注意，如保單是因此而自動終止，您可能會失去全部權益。
-								</div>
-								<div class="js-display-savie-rp">
-									<p>信貸風險</p><p>本產品是由富衛發出的保單。投保本保險產品或其任何保單利益須承受富衛的信貸風險。您將承擔富衛無法履行保單財務責任的違約風險。</p><br/><p>流動性風險</p><p>本產品為長期保險保單。此長期保險保單有既定的保單期限，保單期限由保單生效日至期滿日止。保單提供一定價值，如您於期滿日前作退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來利息及保單保障。投保本產品有機會對您的財務狀況構成流動性風險，您須承擔本產品之流動性風險。</p><br/><p>外幣匯率及貨幣風險</p><p>投保外幣為保單貨幣的保險產品須承受外幣匯率及貨幣風險。請注意外幣或會受相關監管機構控制及管理（例如，外匯限制）。若保險產品的貨幣單位與您的本國貨幣不同，任何保單貨幣對您的本國貨幣匯率之變動將直接影響您的應付保費及可取利益。舉例來說，如果保單貨幣對您的本國貨幣大幅貶值，這種匯率波動可能對您的應付保費及可取利益帶來潛在損失。</p><br/><p>通脹風險</p><p>請注意通脹會導致未來生活費用增加。即使富衛履行所有合約責任，實際保單權益可能不足以應付將來的保障需要。</p><br/><p>提早退保風險</p><p>如您在保單期滿日前提早退保，或在保單生效早期提取戶口價值，或提前停止支付保費，您可能會損失將來派息及保單保障。</p><br/><p>終止保單</p><p>保單將在下列其中一個日期終止，以最早者為準: 1. 被保人身故 2. 被保人100歲生日前之保單週年日 3. 保單之退保日。此日期為依富衛退保相關規定所認定之退保日 4. 當保單戶口價值低於零。</p><br/><p>不保證保障</p><p>不保證保障包括派息率是非保證的，並按照釐定派息率的理念由富衛自行決定。</p><br/><p>保費年期及欠繳保費（只適用於月供計劃）</p><p>保單的供款年期的終結日為被保人100歲生日前之保單週年日。任何到期應繳付之保費均可獲富衛30天寬限期。若在寬限期後仍未繳付保費，富衛將為保單執行保費假期。若保單已行使保費假期，保單應繳的基本計劃保費、附加於本保單之附約保費（如適用）及相關的收費將會持續從保單戶口內扣除。當保單戶口價值不足以支付基本計劃保費，任何附加於本保單之附約保費及相關的收費，或當保單戶口價值低於最低戶口結餘時，保單將會自動被終止。請注意，如保單是因此而自動終止，您可能會失去全部權益。
+								<div>
+									<p><fmt:message key="provie.plandetails.risk1.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk1.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk2.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk2.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk3.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk3.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk4.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk4.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.risk5.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.risk5.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.termination.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.termination.text" bundle="${provieMsg}" /></p><br/>
+									<p><fmt:message key="provie.plandetails.rider.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.rider.text1" bundle="${provieMsg}" /></p>
+									<ol>
+										<li><fmt:message key="provie.plandetails.rider.text2" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text3" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text4" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text5" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text6" bundle="${provieMsg}" /></li>
+									</ol>
+									<p><fmt:message key="provie.plandetails.rider.text7" bundle="${provieMsg}" /></p>
+									<ol>
+										<li><fmt:message key="provie.plandetails.rider.text8" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text9" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text10" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text11" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text12" bundle="${provieMsg}" /></li>
+										<li><fmt:message key="provie.plandetails.rider.text13" bundle="${provieMsg}" /></li>
+									</ol>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.title" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text1" bundle="${provieMsg}" /></p>
+									<br>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text2" bundle="${provieMsg}" /></p>
+									<p><fmt:message key="provie.plandetails.nonguranteedbenefits.text3" bundle="${provieMsg}" /></p>
 								</div>
 							  </div>
 						   </div>
@@ -591,7 +725,7 @@
 						   <div class="panel-heading" role="tab" id="pd-sf-claim-related">
 							  <h4 class="panel-title">
 								 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#pd-sf-faq-and-glossary-group" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									不保事項
+									<fmt:message key="provie.plandetails.keyexclusion.title" bundle="${provieMsg}" />
 									<span class="pull-right">
 									   <img src="<%=request.getContextPath()%>/resources/images/savie-2016/arrow-down1.png" />
 									</span>
@@ -599,7 +733,21 @@
 							  </h4>
 						   </div>
 						   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pd-sf-claim-related">
-							  <div class="panel-body"><p>意外身故權益限於每名被保人(於所有由富衛發出的本產品保單下)最高保障額400,000港元，保障至七十一歲生日之前的保單週年日。若被保人直接或間接由下列任何原因引致死亡，將不獲發此額外意外身故權益：</p><ol><li>疾病或任何感染（由意外受傷之傷口引發之細菌感染則除外）。</li><li>懷孕、分娩（包括任何方式）、流產或墮胎（因意外而提前或導致分娩或流產亦屬不保事項）。</li><li>蓄意自我毀傷或自殺，不論當時神智是否清醒，或是否受藥物或酒精影響。</li><li>任何未經認可註冊醫生合法處方之藥物。</li><li>被保人受酒精/藥物影響而遭受或導致意外。</li><li>自願或非自願服用毒藥或吸入氣體或煙霧（若被保人因工作關係遭遇危險，引起意外而吸入或服用上述物品則除外）。</li><li>戰爭或軍事行為、恐怖主義或恐怖份子行動（包括已宣告或未宣告），敵對行動、暴動、革命、反叛、政變或篡權；或在任何國家或國際權力機構之海、陸、空部隊中服役。</li><li>除以乘客身份購票乘搭合格持牌之商業飛機以外的飛行活動。</li><li>參與任何犯罪的活動。</li><li>除賽跑外的各種競速比賽。</li><li>核輻射、核污染或使用任何核子武器的游離或燃燒所產生的污染。 </li><li>參與任何形式有報酬及收入的專業運動競賽。</li></ol></div>
+							  <div class="panel-body">
+							  	<p>
+							  		<fmt:message key="provie.plandetails.keyexclusion.text0" bundle="${provieMsg}" /><br>
+							  		<fmt:message key="provie.plandetails.keyexclusion.text1" bundle="${provieMsg}" />
+							  	</p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text2" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text3" bundle="${provieMsg}" /></li>
+							  	</ol>
+							  	<p><fmt:message key="provie.plandetails.keyexclusion.text4" bundle="${provieMsg}" /></p>
+							  	<ol>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text5" bundle="${provieMsg}" /></li>
+							  		<li><fmt:message key="provie.plandetails.keyexclusion.text6" bundle="${provieMsg}" /></li>
+							  	</ol>
+							  </div>
 						   </div>
 						</div>
 					</div>
@@ -623,20 +771,18 @@
 						</div>
 					</div>
 				</div>
-				<p>註：<br>本公司會就以下情況邀請閣下親身蒞臨本公司的客戶服務中心辦理手續：1)更換受益人；2)選擇於客戶服務中心繳交首期保費；3)部份退保；4)退保；或5)抵押轉讓。</p>
+				<p><fmt:message key="provie.plandetails.note.title" bundle="${provieMsg}" /><br><fmt:message key="provie.plandetails.note.text1" bundle="${provieMsg}" /></p>
 				<br/>
-				
-				<ul class="availability-notice" style="padding-left: 15px;">
-					<li>Savie自助息理財壽險 (包括一筆過及月繳計劃) (「本計劃」) 只供香港身份證持有人申請。		</li>
-					<li>由於反應熱烈，在2016年7月4日至2016年8月21日期間，無論以任何形式申請，每位申請人只限申請一(1)份本計劃新保單。</li>
-					<li>每位申請人只可透過網上申請購入最多一份本計劃保單。		</li>
-					<li>在任何情況下，無論以任何形式申請，每位申請人最多只可持有五(5)份本計劃保單(包括任何已終止之保單)。		</li>
-					<li>本計劃為限額發售產品，供應視乎情況而定。富衛保留不接受保單申請之權利，並退回全數已繳交之保費及不會計算及支付任何利息。</li>
+
+				<ul>
+					<li><fmt:message key="provie.plandetails.note.text2" bundle="${provieMsg}" /></li>
+					<li><fmt:message key="provie.plandetails.note.text3" bundle="${provieMsg}" /></li>
+					<li><fmt:message key="provie.plandetails.note.text4" bundle="${provieMsg}" /></li>
 				</ul>
 			</div>
 		</div>
 		<div class="next-btn text-center">
-			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn" style="color: #ff8200;">預約申請</button>
+			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn white-btn" style="color: #ff8200;"><fmt:message key="provie.plandetails.cta.appointment" bundle="${provieMsg}" /></button>
 				<!-- <a href="javascript:void(0);" onclick="applyCentre();" class="pd-link">預約申請</a> -->
 
 				<a id="btn-login" class="pd-link hidden">登入以繼續</a>
@@ -644,7 +790,7 @@
 				<div class="btn__proceed_online js-display-savie-sp">
 					<!-- <a id="btn-proceed" class="pd-link hidden">網上申請</a> -->
 					<a class="pd-link hidden">網上申請</a>
-					<p class="center">(將不能享受保費折扣優惠)</p>
+					<!-- <p class="center">(將不能享受保費折扣優惠)</p> -->
 				</div>
 				<a id="btn-back" class="pd-link hidden">返回申請摘要</a>
 		</div>
@@ -766,11 +912,11 @@
 
 <script type="text/javascript">
 
-	var current_date = new Date();
+	/*var current_date = new Date();
 	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
-	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);*/
 	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
-	/*$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));*/
+	//$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
 
 	var from = $('#plan-dob-datepicker').val().split("-");
 	var birthdate = new Date(from[2], from[1] - 1, from[0]);
@@ -790,8 +936,6 @@
 		}
 	}
 
-	var language = "en";
-	var getpath = "";
 	$(document).ready(function () {
 		/**20160725 - commented for initial html development**/
 		//$('#loadingDiv').toggle();
@@ -822,14 +966,14 @@
 		}
 
 		if('2'!=''){
-			$('#plan-dob-datepicker').datepicker({
+			/*$('#plan-dob-datepicker').datepicker({
 				format: "dd-mm-yyyy",
 				startView: "decade",
 				startDate: dob_start_date,
 				endDate: dob_end_date,
 				autoclose: true,
 				startView: 2
-			}).css('cursor', 'default');
+			}).css('cursor', 'default');*/
 		}
 
 		$('#first-3-years-btn').on('click', function () {
@@ -911,6 +1055,7 @@
 
 
 		$("#plan-calculate-btn").click(function(){
+			//return;
 			$('#loadingDiv').toggle();
 			$('body').addClass('modal-open');
 
@@ -924,10 +1069,11 @@
 			}else{
 				$('#promoCodeErrorMsg').addClass('hidden');
 			}
-			getSavieOnlinePlandetails(false);
+			//getSavieOnlinePlandetails(false);
+			getProvieRiderPlan(false);
 		});
 
-		$('#rate-0').on('click', function() {
+		/*$('#rate-0').on('click', function() {
 			$('.rate-buttons button').removeClass('active');
 			$(this).addClass('active');
 			$('#rate-table-0').removeClass('hidden');
@@ -962,6 +1108,7 @@
 			$('#rate-table-3').addClass('hidden');
 			$('#rate-table-4').removeClass('hidden');
 		});
+		*/
 
 		/* if($("#plan-dob-datepicker").val()!="") {
 			setPaymentYears($("#plan-dob-datepicker").val())
@@ -975,6 +1122,7 @@
 		}
 
 		//changing labels of promo code
+		/*
 		$('#promoCode').focus(function() {
 			$('.promocode-label').text('推廣編號');
 		}).focusout(function () {
@@ -984,12 +1132,13 @@
 				$('.promocode-label').text('推廣編號');
 			}
 		});
+		*/
 
-		$('#plan-dob-datepicker').focus(function () {
+		/*$('#plan-dob-datepicker').focus(function () {
 			$(this).parent().find('.custom-made-label').css({color: '#ff8200'});
 		}).focusout(function (){
 			$(this).parent().find('.custom-made-label').css({color: '#000000'});
-		});
+		});*/
 
 		$('.rate-btn').on('click', function (){
 			$('.tooltip').hide();
@@ -997,7 +1146,36 @@
 		$(document).on('click touchstart', function (){
 			$('.tooltip').hide();
 		});
-
+		//begin of getProvieRiderEligibility
+		var isFromRecommand=false;
+		$.ajax({
+			//url:fwdApi.url.getProvieRiderEligibility,
+			url: '<%=request.getContextPath()%>/api/provie/getProvieRiderEligibility',
+			type:"get",
+			data: {isFromRecommand:isFromRecommand},
+			cache:false,
+			async:false,
+			error:function(xhr, textStatus, errorThrown){
+				var resp = $.parseJSON(xhr.responseText);
+				console.log("expected error");
+		    },
+		    success:function(response){
+		    	if(response){
+		    		//alert('clicked1');
+		    		console.log(response);
+		    		if(!response.accidentalDeathBenefit){
+		    			$("#type-of-extra-rider option[value='AccidentalDeathBenefit']").remove();
+		    		}
+		    		if(!response.cancerBenefit) {
+		    			$("#type-of-extra-rider option[value='CancerBenefit']").remove();
+		    		}
+		    		if(!response.termLifeBenefit) {
+		    			$("#type-of-extra-rider option[value='TermLifeBenefit']").remove();
+		    		}
+		    	}
+		    }
+		});
+        //end of getProvieRiderEligibility
 	});
 
 	// changing first/after 3 years button content
@@ -1020,30 +1198,23 @@
 
 	$("#btn-proceed").on('click', function(){
 		apply=false;
-		if('2'=='2'){
-			alert("clicked");
-			window.location = '<%=request.getContextPath()%>/tc/savings-insurance/provie/customer-service-centre';
-			//proceedLogin('/tc/savings-insurance/sales-illustration');
-		}else {
-			//$('#offline-online-modal').modal('show');
-			if($("#type-of-payment").val() == 'regular-payment') {
-				if("" == "true" && "" != "*DIRECTGI"){
-					//window.location = '/tc/savings-insurance/customer-service-centre';
-					$('#thankYouModal').modal('show');
-				}else{
-					apply=true;
-					$('#offline-online-modal').modal('hide');
-					$('.login-info').addClass('hidden');
-					$('#loginpopup .modal-dialog').removeClass('loginpopupext');
-					$('#loginpopup #fna-check').val("false");
-					$('#loginpopup #nav-bar-check').val("false");
-					$('#loginpopup').modal('show');
-				}
-			}else {
-				$('#offline-online-modal').modal('show');
-
-			}
+		//alert('clicked');
+		var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
+		var str=paymentMode.split("-");
+		var planCode="";
+		if(str[0]=='sp'){
+			planCode="PROVIE-SP";
+		} else {
+			planCode="PROVIE-RP";
 		}
+		if(str[1]=='USD') {
+			planCode=planCode+"-USD";
+		} else{
+			planCode=planCode+"-HKD";
+		}
+		//console.log(planCode);
+		//alert(planCode);
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre' + '?planCode=' + planCode;
 	});
 
 	$("#online-application-btn").on('click', function(){
@@ -1191,6 +1362,7 @@
 	});
 
 	function setPaymentYears(dob){
+
 		var from = dob.split("-");
 		var birthdate = new Date(from[2], from[1] - 1, from[0]);
 		var cur = new Date();
@@ -1252,18 +1424,6 @@
 
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script></div>
-	 <!-- Start of LiveChat (www.livechatinc.com) code -->
-	<script type="text/javascript">
-	var __lc = {};
-	__lc.license = 6320751;
-	__lc.group = 2;
-	(function() {
-	var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-	lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-	})();
-	</script>
-	<!-- End of LiveChat code -->
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.custom-2.17.2.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.en_fwd.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/js/mobiscroll.i18n.zh_fwd.js" type="text/javascript"></script>

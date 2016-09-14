@@ -78,6 +78,11 @@
 		}
 	}
 
+	#extra-desc, #extra-desc-desktop{
+		p {display:none;}
+		p.active{display:block;}
+	}
+
 	#table-content-pd{
 		width:100%;
 
@@ -340,6 +345,15 @@
 		margin-bottom:10px;
 	}
 
+	.help-block {
+		color: #e4002b !important;
+		font-family: 'Calibri';
+	}
+
+	.after-login, .before-login, #btn-appointment-confirm{
+		display: none;
+	}
+
 	.before-login{
 		h4{
 			font-size:16px;
@@ -478,6 +492,18 @@
 	}
 }
 
+.is_chin{
+	display:none;
+}
+.currency_switcher{
+	> span{
+		display: none;
+
+		&.active{
+			display: inline;
+		}
+	}
+}
 .chin{
 	.provie-plan-select{
 		.plan-form-holder{
@@ -485,6 +511,15 @@
 				font-size:20px;
 			}
 		}
+	}
+
+	.is_chin{
+		display: inline;
+
+		
+	}
+	.is_en{
+		display: none;
 	}
 }
 
@@ -590,6 +625,39 @@
     .dwb{
     	color:#f99502;
     }
+
+    .dw-cal-btn-txt{
+    	color:#f99502;
+    }
+
+    .dw-cal-days{
+    	color:#f99502;
+    	th{
+    		color:#f99502;
+    		border-bottom:1px solid #f99502;
+    	}
+    }
+
+    .dw-cal .dw-sel .dw-i{
+    	background:#f99502;
+    }
+
+    .dw-week-nrs-c{
+    	color:#f99502;
+    }
+
+    .dw-hl-now .dw-cal-today{
+    	color:#facc87;
+    }
+}
+
+.mbsc-mobiscroll 
+.mbsc-ic-arrow-left5:before{
+	content:"\f101";
+}
+
+.mbsc-ic-arrow-right5:before{
+	content:"\f103";
 }
 
 .mdl-custom-slider{
@@ -651,4 +719,24 @@
 
 .plan-calculator-holder .plan-form-holder #amount-slide-holder{
 	padding-bottom:0;
+}
+
+/* Override modal again...... */
+.fwd-savie-wrapper .modal.fade .modal-dialog .modal-content {
+    border-radius: 0;
+    padding:0;
+    position: relative;
+    outline: 0;
+    box-shadow: none;
+}    
+
+
+@media screen and (min-width: 768px){
+	.modal-dialog {
+	    margin: 230px auto;
+	}
+}
+
+.fwd-savie-wrapper .modal.fade{
+	background:inherit;
 }

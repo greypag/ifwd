@@ -10,6 +10,7 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<fmt:setBundle basename="provie" var="provieMsg" />
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -646,9 +647,9 @@ function stickToHeader() {
 		$("#"+ id).show();
 	}
 	
-       $(window).bind('scroll', function() {
-          stickHeaderBrowse();
-       });
+       //$(window).bind('scroll', function() {
+       //   stickHeaderBrowse();
+       //});
 
        $('#preferred-date').datepicker({
           format: "dd-mm-yyyy",

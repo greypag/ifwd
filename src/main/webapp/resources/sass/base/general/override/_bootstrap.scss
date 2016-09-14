@@ -1,0 +1,69 @@
+// Special to override the Bootstrap 3.3.7
+
+@import "base/general/override/bootstrap/alert";
+@import "base/general/override/bootstrap/breadcrumb";
+@import "base/general/override/bootstrap/buttons";
+@import "base/general/override/bootstrap/form";
+@import "base/general/override/bootstrap/input-groups";
+@import "base/general/override/bootstrap/navbar";
+
+a {
+	color: #f6871e;
+}
+
+.modal-content {
+	border-radius: 0px;
+}
+
+.loginpopup {
+	.modal-dialog {  // Bootstrap classname
+		height:100%;margin: auto;
+	}
+}
+
+/*Topbar*/
+.form-control{height:50px;padding:6px 20px}
+.form-label{margin-bottom:5px}
+.form-group{margin-bottom:20px}
+
+div.breadcrumb-wrapper {
+  position: absolute;
+  z-index: 10;
+  > ol.breadcrumb {
+    position: relative;
+    text-align: left;
+	background-color: transparent;
+    a, li {
+      font-size: 24px;
+	  font-weight: 600;
+    }
+    .fa {
+      color: #000000;
+    }
+    a {
+      &:hover, &:focus {
+        color: #000000;
+      }
+      color: #000000;
+    }
+    .fa {
+      padding: 0 7px;
+    }
+  }
+}
+
+.open .dropdown-toggle.btn-primary {
+  padding: 8px 20px;
+  background: #f6871e;
+  border: none;
+  border: 1px solid #f6871e;
+}
+
+.btn-transparent {
+  border: 3px solid #fff;
+  background: transparent;
+  /*color: #fff;*/
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
