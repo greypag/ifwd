@@ -15,11 +15,29 @@
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
 <!-- header.notification.bar -->
+
+<%
+	/* Temporarily set the msg before controller return the message */
+
+	java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long currentDate = System.currentTimeMillis();
+    long msgEndDate = cformat.parse("2016-09-16 09:00:00").getTime();
+
+	String notificationMsg = "";
+    if (currentDate <= msgEndDate) {
+    	if (session.getAttribute("uiLocale").equals("zh-HK")) {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("zh","HK")).getString("header.notification.msg.repair");
+    	} else {
+        	notificationMsg = java.util.ResourceBundle.getBundle("messages", new java.util.Locale("en","US")).getString("header.notification.msg.repair");
+    	}
+    }
+	boolean showNotification = (notificationMsg.equals(""))?false:true;
+%>
+
 <script type="text/javascript">
 	var obj = {
 	    'topBar': {
 	        'mobile': 0,
-	        // 'mobile':   106,
 	        'desktop': 42,
 	        'classname': {
 	            'mobile': 'div.closeMobileMenu',
@@ -35,16 +53,16 @@
 	        },
 	        'content': {
 			    'ifwd_repair': {
-			        'mobile': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />',
-			        'desktop': '<fmt:message key="header.notification.msg.repair" bundle="${msg}" />'
+			        'mobile': '<%=notificationMsg%>',
+			        'desktop': '<%=notificationMsg%>'
 			    },
 				'fraud' : {
 			        'mobile': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />',
 			        'desktop': '<fmt:message key="header.notification.msg.fraud" bundle="${msg}" />'
 			    },
 			    'flightcare_moncare': {
-			        'mobile': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />',
-			        'desktop': '<fmt:message key="header.notification.msg.flight" bundle="${msg}" />'
+			        'mobile': '<%=notificationMsg%>',
+			        'desktop': '<%=notificationMsg%>'
 			    }
 			}
 	    }
@@ -53,18 +71,18 @@
 // Default value
 var nBarConfig = {
 	'contentIndex': 'ifwd_repair',
-	'isVisible': true
+	'isVisible': <%=showNotification%>
 }
 
-// Customized value
-<% if(request.getRequestURI().indexOf("/flight-insurance")>0 || request.getRequestURI().indexOf("/screen-insurance")>0) { %>
-nBarConfig = {
-	'contentIndex': 'flightcare_moncare',
-	'isVisible': true
-}
-<% } %>
+
 </script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
+
+<%-- if(request.getRequestURI().indexOf("/flight-insurance")>0) { %>
+<script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.custom.flight.js" charset="utf-8"></script>
+<% } --%>
+
+<!-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/header.notification.bar.css" media="screen" title="no title" charset="utf-8"> -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css_dir/header.notification.bar.css" media="screen" title="no title" charset="utf-8">
 <script src="<%=request.getContextPath()%>/resources/js/header.notification.bar.js" charset="utf-8"></script>
 <!-- ./header.notification.bar -->
 
@@ -830,6 +848,7 @@ function getStarted(){
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
 	                             </ul>
 	                          </li>
 		                 </ul>
@@ -1096,6 +1115,7 @@ function getStarted(){
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/easy-home-care"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/household-insurance/home-liability"><fmt:message key="header.product.type1.group3.linkname2" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/screen-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname3" bundle="${msg}" /></a></li>
+                    	 <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/phone-insurance/${language}" target="_blank"><fmt:message key="header.product.type1.group3.linkname4" bundle="${msg}" /></a></li>
                     </ul>
 				</li>
 
@@ -1392,9 +1412,10 @@ function getStarted(){
 <script>
 $(function() {
 	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){
+	    $(".menutab-V2 li").click(function(){
 	        // Update '.change-this-class' to the class of your menu
 	        // Leave this empty, that's the magic sauce
+	        // Unbelivable, it works - IPAD Safari css hover fix
 	    });
 	}
     var pageControllerName = "<%=actionName%>";
