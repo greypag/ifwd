@@ -1205,7 +1205,7 @@
 		if(str[0]=='sp'){
 			planCode="PROVIE-SP";
 		} else {
-			planCode="PROVIE-SP";
+			planCode="PROVIE-RP";
 		}
 		if(str[1]=='USD') {
 			planCode=planCode+"-USD";
