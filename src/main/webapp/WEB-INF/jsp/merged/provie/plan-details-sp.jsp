@@ -1198,7 +1198,7 @@
 
 	$("#btn-proceed").on('click', function(){
 		apply=false;
-		alert('clicked');
+		//alert('clicked');
 		var paymentMode =  $("#type-of-payment option:selected").attr('data-val');
 		var str=paymentMode.split("-");
 		var planCode="";
@@ -1212,8 +1212,8 @@
 		} else{
 			planCode=planCode+"-HKD";
 		}
-		console.log(planCode);
-		alert(planCode);
+		//console.log(planCode);
+		//alert(planCode);
 		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/provie/customer-service-centre' + '?planCode=' + planCode;
 	});
 
